@@ -1,7 +1,86 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Quicksand";
+  src: url("/Quicksand-Regular.212fc05f.eot");
+  src: local("☺"), url("/Quicksand-Regular.2d73ac0b.woff") format("woff"), url("/Quicksand-Regular.773d2433.ttf") format("truetype"), url("/Quicksand-Regular.f5ff8b08.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("/Quicksand-Bold.555d3d8f.eot");
+  src: local("☺"), url("/Quicksand-Bold.0afa8eac.woff") format("woff"), url("/Quicksand-Bold.218b7535.ttf") format("truetype"), url("/Quicksand-Bold.092fd339.svg") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/Montserrat-Regular.56c61031.eot");
+  src: local("☺"), url("/Montserrat-Regular.c884aa92.woff") format("woff"), url("/Montserrat-Regular.a3b436c1.ttf") format("truetype"), url("/Montserrat-Regular.6289d2ea.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.main-body {
+  width: 1440px;
+  height: 900px;
+  margin: 0;
+  margin: auto;
+  position: absolute;
+}
+
+.colors-types {
+  margin-left: 150px;
+  margin-top: 145px;
+  width: 76%;
+  height: 100%;
+  position: absolute;
+}
+
+.logo {
+  position: fixed;
+  left: 30px;
+  top: 30px;
+}
+
+.type-h1, .type-h2, .type-h3 {
+  font-weight: bold;
+}
+
+.type-h1 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  line-height: 30px;
+  color: #1F2041;
+}
+
+.type-h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 19px;
+  line-height: 24px;
+  color: #1F2041;
+}
+
+.type-h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #1F2041;
+}
+
+.type-simple-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(31, 32, 65, 0.75);
+}
+
 .colors-palette {
   width: 270px;
   height: 610px;
   display: inline-block;
+  font-family: "Quicksand", sans-serif;
+  font-size: 19px;
+  line-height: 29px;
 }
 
 .palette-body {
@@ -12,7 +91,7 @@
 .color-block {
   width: 100%;
   height: 70px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .color-example {
@@ -25,10 +104,17 @@
 
 .palette-text {
   display: inline-block;
+  position: absolute;
+  margin-top: 6px;
+  margin-left: 40px;
+  line-height: 30px;
+  font-size: 19px;
 }
-
-.palette.name, .palette.hex {
+.palette-text .name, .palette-text .hex {
   margin: 0px;
+}
+.palette-text .name {
+  font-weight: bold;
 }
 
 .dark-100 {
@@ -59,17 +145,49 @@
   background-color: #6FCF97;
 }
 
-.main-body {
-  width: 1440px;
-  height: 900px;
-  margin: 0;
+.text-type {
+  width: 410px;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
-.colors-types {
-  margin-left: 150px;
-  margin-top: 145px;
-  width: 80%;
-  height: 80%;
+.text-type-block {
+  margin-bottom: 50px;
+}
+.text-type-block .type {
+  display: inline-block;
+  margin-right: 30px;
+  width: 40px;
+  text-align: right;
+  vertical-align: top;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(31, 32, 65, 0.25);
+}
+.text-type-block .description {
+  display: inline-block;
+}
+
+.type-h1 .type, .type-h2 .type, .type-h3 .type {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.type-h1 .description {
+  max-width: 336px;
+}
+
+.type-h2 .description {
+  max-width: 282px;
+}
+
+.type-h3 .description {
+  text-transform: uppercase;
+}
+
+.type-simple-text .description {
+  width: 301px;
 }
 
 /*# sourceMappingURL=/style.97fcb138.css.map */
