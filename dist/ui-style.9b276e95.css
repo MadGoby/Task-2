@@ -20,30 +20,50 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Montserrat";
+  src: url("/Montserrat-Bold.f3c849e0.eot");
+  src: local("☺"), url("/Montserrat-Bold.6991dee4.woff") format("woff"), url("/Montserrat-Bold.b9fe7dc5.ttf") format("truetype"), url("/Montserrat-Bold.ea06d4de.svg") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
 .main-body {
   width: 1440px;
-  height: 900px;
   margin: 0;
-  margin: auto;
-  position: absolute;
 }
 
 .colors-types {
-  margin-left: 150px;
-  margin-top: 145px;
-  width: 76%;
-  height: 100%;
-  position: absolute;
+  width: 100%;
+  padding-left: 150px;
+  padding-top: 145px;
 }
 
 .logo {
+  left: -110px;
+  top: -110px;
   position: absolute;
-  left: 30px;
-  top: 30px;
+}
+
+.form-elements {
+  width: 1440px;
+  height: 1855px;
+  padding-left: 150px;
+  padding-top: 145px;
+}
+
+.absolute-hight, .absolute-hight-2 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
+}
+
+.type-h3 {
+  text-transform: uppercase;
+  font-weight: bolder;
 }
 
 .type-h1 {
@@ -181,12 +201,8 @@
   max-width: 282px;
 }
 
-.type-h3 .description {
-  text-transform: uppercase;
-}
-
 .type-simple-text .description {
   width: 301px;
 }
 
-/*# sourceMappingURL=/style.97fcb138.css.map */
+/*# sourceMappingURL=/ui-style.9b276e95.css.map */

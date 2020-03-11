@@ -1,0 +1,31 @@
+@import "variables.scss";
+@import "fonts/fonts.scss";
+
+.main-body {
+  width: 1440px;
+  margin: 0;
+};
+.colors-types {
+  width: 100%;
+  padding-left: 150px;
+  padding-top: 145px;
+};
+.logo {
+  left: -110px; top: -110px;
+  position: absolute;
+}
+.form-elements {
+  width: 1440px;
+  height: 1855px;
+  padding-left: 150px;
+  padding-top: 145px; 
+}
+.absolute-hight, .absolute-hight-2 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+@import "ui-blocks/text-styles/text-styles__types.scss";
+@import "ui-blocks/palette/palette.scss";
+@import "ui-blocks/text-styles/text-styles.scss";

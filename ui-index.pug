@@ -2,12 +2,21 @@ doctype html
 html(lang=en)
   head
     title Ui-Kit
-    link(rel="stylesheet" href="style.scss")
+    link(rel="stylesheet" href="ui-style.scss")
   body.main-body
     div.colors-types
-      img.logo(src="img/logo.svg")
+      div.absolute-hight
+        img.logo(src="img/logo.svg")
       div.colors-palette
         include ui-blocks/palette/palette.pug
       div.text-type
         include ui-blocks/text-styles/text-styles.pug
-    
+    div.form-elements
+      div.absolute-hight-2
+        img.logo(src="img/logo.svg")
+      div.fields-toggles-buttons
+        div.fields
+          include ui-blocks/form-elements/fields-toggles-buttons/fields/fields.pug
+      div.dropdown
+      div.checkboxes-buletes
+      div.additional

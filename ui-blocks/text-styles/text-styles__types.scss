@@ -11,6 +11,10 @@ $mont: 'Montserrat', sans-serif;
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
 }
+.type-h3 {
+  text-transform: uppercase;
+  font-weight: bolder;
+}
 .type-h1 {
   @include fontshowing ($quick, 24px, 30px, $dark100)
 };

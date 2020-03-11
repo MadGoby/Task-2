@@ -1,0 +1,15 @@
+mixin textfield-subscription(hint, appointment, state)
+  if state !=null
+    form(action="").text-field-subscription-body   
+      p.type-h3= appointment
+      input.text-field-subscription(placeholder= hint)(class= state)
+      button.text-field-subscription.button
+  else if appointment != null
+    form(action="").text-field-subscription-body  
+      p.type-h3= appointment
+      input.text-field-subscription(placeholder= hint)
+      button.text-field-subscription.button
+  else
+    form(action="").text-field-subscription-body  
+      input.text-field-subscription(placeholder= hint)
+      button.text-field-subscription.button

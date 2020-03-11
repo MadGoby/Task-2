@@ -3,7 +3,6 @@
   width: 410px;
   display: inline-block;
   position: absolute;
-  right: 0; top:0;
 }
 .text-type-block {
   margin-bottom: 50px;
@@ -34,11 +33,6 @@
 .type-h2 {
   .description {
     max-width: 282px;
-  };
-};
-.type-h3 {
-  .description {
-    text-transform: uppercase;
   };
 };
 .type-simple-text {

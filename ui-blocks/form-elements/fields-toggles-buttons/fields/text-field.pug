@@ -1,0 +1,12 @@
+mixin textfield(hint, appointment, state)
+  if state !=null
+    div.text-field-body   
+      p.type-h3= appointment
+      input.text-field(placeholder= hint)(class= state)
+  else if appointment != null
+    div.text-field-body  
+      p.type-h3= appointment
+      input.text-field(placeholder= hint)
+  else
+    div.text-field-body  
+      input.text-field(placeholder= hint)

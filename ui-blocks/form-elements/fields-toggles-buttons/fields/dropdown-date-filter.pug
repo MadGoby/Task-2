@@ -1,0 +1,18 @@
+mixin dropdown-date-filter(hint, appointment, state)
+  if state !=null
+    div.dropdown-date-filter-body
+      p.type-h3= appointment
+      div
+        label.dropdown-date-filter(class= state)= hint
+        button.dropdown-date-filter-button
+  else if appointment != null
+    div.dropdown-date-filter-body 
+      p.type-h3= appointment
+      div
+        label.dropdown-date-filter= hint
+        button.dropdown-date-filter-button
+  else
+    div.dropdown-date-filter-body
+      div
+        label.dropdown-date-filter= hint
+        button.dropdown-date-filter-button
