@@ -1,15 +1,15 @@
 mixin textfield-subscription(hint, appointment, state)
   if state !=null
     form(action="").text-field-subscription-body   
-      p.type-h3= appointment
-      input.text-field-subscription(placeholder= hint)(class= state)
-      button.text-field-subscription.button
+      p.margin40.type-h3(class= state)= appointment
+      div.arrow-block
+        input.text-field.text-field-subscription(placeholder= hint)
   else if appointment != null
     form(action="").text-field-subscription-body  
-      p.type-h3= appointment
-      input.text-field-subscription(placeholder= hint)
-      button.text-field-subscription.button
+      p.margin40.type-h3= appointment
+      div.arrow-block
+        input.text-field.text-field-subscription(placeholder= hint)
   else
-    form(action="").text-field-subscription-body  
-      input.text-field-subscription(placeholder= hint)
-      button.text-field-subscription.button
+    form(action="").text-field-subscription-body
+      div.arrow-block
+        input.text-field.text-field-subscription(placeholder= hint)

@@ -55,6 +55,7 @@
   height: 100%;
   width: 100%;
   position: absolute;
+  display: none;
 }
 
 .type-h1, .type-h2, .type-h3 {
@@ -203,6 +204,99 @@
 
 .type-simple-text .description {
   width: 301px;
+}
+
+.dropdown-date-filter, .dropdown-date, .dropdown-guests-field-body, .text-field-subscription, .text-field {
+  box-sizing: border-box;
+  height: 44px;
+  width: 320px;
+  border-radius: 4px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  padding-left: 15px;
+}
+
+.dropdown-date-filter, .dropdown-date, .dropdown-quests, .text-field-subscription {
+  display: inline-block;
+  color: rgba(31, 32, 65, 0.75);
+  width: 100%;
+  padding-top: 10px;
+}
+
+.dropdown-date-filter::after, .dropdown-date::after, .dropdown-quests::after {
+  content: url(/dropdown_tick.e6392125.svg);
+  float: right;
+  width: 44px;
+  text-align: center;
+}
+
+.arrow-block::after {
+  content: url(/dropdown_arrow.d58add22.svg);
+  float: right;
+  width: 44px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: 50%;
+  position: relative;
+  top: -30px;
+}
+
+.fields {
+  width: 340px;
+}
+
+.margin20 {
+  margin: 20px 0 5px 0;
+}
+
+.margin40 {
+  margin: 40px 0 5px 0;
+}
+
+.text-field-body, .dropdown-guests-body {
+  width: 320px;
+}
+
+.dropdown-date-filter-body, .text-field-subscription-body {
+  width: 266px;
+}
+
+.dropdown-date-body {
+  width: 150px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.text-field::-webkit-input-placeholder {
+  color: rgba(31, 32, 65, 0.25);
+}
+.text-field:hover, .text-field:focus {
+  border-color: rgba(31, 32, 65, 0.5);
+  outline: none;
+}
+.text-field:hover::-webkit-input-placeholder, .text-field:focus::-webkit-input-placeholder {
+  color: rgba(31, 32, 65, 0.75);
+}
+
+.text-field-subscription {
+  padding: 0 0 0 15px;
+}
+
+.default-label, .hover-label {
+  width: 100%;
+  margin: 0 0 5 0;
+}
+.default-label::after, .hover-label::after {
+  color: rgba(31, 32, 65, 0.5);
+  float: right;
+  font-weight: normal;
+}
+
+.default-label::after {
+  content: "default";
+}
+
+.hover-label::after {
+  content: "hover/focus";
 }
 
 /*# sourceMappingURL=/ui-style.9b276e95.css.map */

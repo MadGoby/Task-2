@@ -24,8 +24,10 @@
   height: 100%;
   width: 100%;
   position: absolute;
+  display: none;
 }
 
 @import "ui-blocks/text-styles/text-styles__types.scss";
 @import "ui-blocks/palette/palette.scss";
 @import "ui-blocks/text-styles/text-styles.scss";
+@import "ui-blocks/form-elements/fields-toggles-buttons/fields/fields.scss";

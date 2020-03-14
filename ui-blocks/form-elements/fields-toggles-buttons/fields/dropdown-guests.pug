@@ -1,18 +1,15 @@
 mixin dropdown-guests-closed(hint, appointment, state)
   if state !=null
     div.dropdown-guests-body 
-      p.type-h3= appointment
-      div
-        label.dropdown-quests(class= state)= hint
-        button.dropdown-quests-button
+      p.margin20.type-h3(class= state)= appointment
+      div.dropdown-guests-field-body 
+        label.type-simple-text.dropdown-quests= hint
   else if appointment != null
     div.dropdown-guests-body 
-      p.type-h3= appointment
-      div
-        label.dropdown-quests= hint
-        button.dropdown-quests-button
+      p.margin20.type-h3= appointment
+      div.dropdown-guests-field-body 
+        label.type-simple-text.dropdown-quests= hint
   else
     div.dropdown-guests-body 
-      div
-        label.dropdown-quests= hint
-        button.dropdown-quests-button
+      div.dropdown-guests-field-body 
+        label.type-simple-text.dropdown-quests= hint
