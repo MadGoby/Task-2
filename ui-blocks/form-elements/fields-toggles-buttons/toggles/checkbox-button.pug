@@ -1,0 +1,15 @@
+mixin opportunities-checkbox-list(opportunities, title)
+  if title != null
+    h3.margin16.type-h3= title
+    label.opportunities-label.type-simple-text
+      input.opportunities-checkbox(type="checkbox")
+      span.opportunities-checkbox-imitation
+      p.opportunities-text= opportunities
+  else
+    label.opportunities-label.type-simple-text
+      input.opportunities-checkbox(type="checkbox")
+      span.opportunities-checkbox-imitation
+      p.opportunities-text= opportunities
+  
+
+  

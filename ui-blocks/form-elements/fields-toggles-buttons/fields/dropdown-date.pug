@@ -1,12 +1,12 @@
 mixin dropdown-date(hint, appointment, state)
   if state !=null
     div.dropdown-date-body
-      p.margin40.type-h3= appointment
+      h3.margin40.type-h3= appointment
       div
         label.type-simple-text.dropdown-date(class= state)= hint
   else if appointment != null
     div.dropdown-date-body 
-      p.margin40.type-h3= appointment
+      h3.margin40.type-h3= appointment
       div
         label.type-simple-text.dropdown-date= hint
   else

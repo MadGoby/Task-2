@@ -58,8 +58,18 @@
   display: none;
 }
 
+.fields, .toggles {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.toggles {
+  margin-left: 126px;
+}
+
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
+  margin: 0;
 }
 
 .type-h3 {
@@ -242,6 +252,7 @@
 
 .fields {
   width: 340px;
+  margin-top: -20px;
 }
 
 .margin20 {
@@ -297,6 +308,167 @@
 
 .hover-label::after {
   content: "hover/focus";
+}
+
+.like-button-label, .special-toggle-imitation, .radio-button-imitation, .opportunities-checkbox-imitation {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  z-index: 1;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 10px 3px 0;
+}
+
+.special-toggle-imitation::before, .gender-radio-button:checked + .radio-button-imitation::before {
+  content: "";
+  display: block;
+  height: 12px;
+  width: 12px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+
+.opportunities-form {
+  height: 130px;
+  width: 400px;
+  margin-bottom: 40px;
+}
+
+.gender-form {
+  width: 250px;
+  height: 55px;
+  margin-bottom: 40px;
+}
+
+.margin16 {
+  margin-bottom: 16px;
+}
+
+.opportunities-label {
+  display: block;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+
+.opportunities-checkbox {
+  display: none;
+}
+.opportunities-checkbox:checked + .opportunities-checkbox-imitation {
+  border-color: #BC9CFF;
+}
+.opportunities-checkbox:checked + .opportunities-checkbox-imitation::before {
+  content: url(/checkbox_tick.fc60c626.svg);
+  display: block;
+  height: 100%;
+  line-height: 18px;
+}
+
+.opportunities-checkbox-imitation {
+  border-radius: 4px;
+  margin: 0 10px 0 0;
+  box-sizing: border-box;
+}
+
+.opportunities-text {
+  margin: 0;
+  display: inline-block;
+  color: rgba(31, 32, 65, 0.5);
+  width: 192px;
+  line-height: 18px;
+  vertical-align: top;
+}
+
+.gender-label {
+  color: rgba(31, 32, 65, 0.5);
+}
+
+.gender-radio-button {
+  display: none;
+}
+.gender-radio-button:checked + .radio-button-imitation {
+  border-color: #BC9CFF;
+}
+.gender-radio-button:checked ~ .gender-text {
+  color: rgba(31, 32, 65, 0.75);
+}
+
+.radio-button-imitation {
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.gender-text {
+  display: inline-block;
+  margin: 0 20px 0 0;
+}
+
+.special-toggle {
+  display: none;
+}
+.special-toggle:checked + .special-toggle-imitation {
+  border-color: #BC9CFF;
+}
+.special-toggle:checked + .special-toggle-imitation::before {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  left: 23px;
+}
+
+.special-toggle-imitation {
+  width: 40px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 0;
+}
+.special-toggle-imitation::before {
+  background: rgba(31, 32, 65, 0.25);
+}
+
+.like-button-label {
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 40px;
+  line-height: 12px;
+  vertical-align: middle;
+  position: relative;
+}
+.like-button-label::before {
+  content: url(/heart.8b87f66a.svg);
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  position: absolute;
+  left: 0;
+}
+.like-button-label::after {
+  content: "2";
+  display: inline-block;
+  margin: 0;
+  font-size: 10px;
+  color: rgba(31, 32, 65, 0.25);
+  height: 18px;
+  line-height: 18px;
+  text-align: left;
+  position: absolute;
+  left: 22px;
+}
+
+.like-button-input {
+  display: block;
+}
+.like-button-input:checked ~ .like-button-label {
+  background-color: #BC9CFF;
 }
 
 /*# sourceMappingURL=/ui-style.9b276e95.css.map */

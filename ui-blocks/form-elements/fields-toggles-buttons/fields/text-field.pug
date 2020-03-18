@@ -1,11 +1,11 @@
 mixin textfield(hint, appointment, state)
   if state !=null
     div.text-field-body   
-      p.margin20.type-h3(class= state)= appointment
+      h3.margin20.type-h3(class= state)= appointment
       input.text-field.type-simple-text(placeholder= hint)
   else if appointment != null
     div.text-field-body  
-      p.margin20.type-h3= appointment
+      h3.margin20.type-h3= appointment
       input.text-field.type-simple-text(placeholder= hint)
   else
     div.text-field-body  

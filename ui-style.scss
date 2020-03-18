@@ -26,8 +26,15 @@
   position: absolute;
   display: none;
 }
-
+.fields, .toggles {
+  display: inline-block;
+  vertical-align: top;
+};
+.toggles {
+  margin-left: 126px;
+}
 @import "ui-blocks/text-styles/text-styles__types.scss";
 @import "ui-blocks/palette/palette.scss";
 @import "ui-blocks/text-styles/text-styles.scss";
 @import "ui-blocks/form-elements/fields-toggles-buttons/fields/fields.scss";
+@import "ui-blocks/form-elements/fields-toggles-buttons/toggles/toggles.scss";
