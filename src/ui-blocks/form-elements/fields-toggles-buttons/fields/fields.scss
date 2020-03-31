@@ -1,0 +1,104 @@
+%fields-generalrules {
+  box-sizing: border-box;
+  height: 44px;
+  width: 320px;
+  border-radius: 4px;
+  border: 1px solid $dark25;
+  padding-left: 15px;
+  
+};
+%dropwond-generalrules {
+  display: inline-block;
+  color: $dark75;
+  width: 100%;
+  padding-top: 10px;
+};
+%dropdown-tick {
+  &::after {
+    content: url(../src/img/dropdown_tick.svg);
+    float: right;
+    width: 44px;
+    text-align: center; 
+  };
+}
+%dropdown-arrow {
+  &::after {
+    content: url(../src/img/dropdown_arrow.svg);
+    float: right;
+    width: 44px;
+    display: inline-block;
+    text-align: center; 
+    vertical-align: 50%;
+    position: relative;
+    top: -30px;
+  };
+}
+// ----------------------------------------------------------
+.fields {
+  width: 340px;
+  margin-top: -20px;
+};
+.margin20 {
+  margin: 20px 0 5px 0;
+};
+.margin40 {
+  margin: 40px 0 5px 0;
+};
+.text-field-body,.dropdown-guests-body {
+  width: 320px;
+};
+.dropdown-date-filter-body, .text-field-subscription-body {
+  width: 266px;
+};
+.dropdown-date-body {
+  width: 150px;
+  display: inline-block;
+  margin-right: 20px;
+};
+.text-field {
+  @extend %fields-generalrules;
+  &::-webkit-input-placeholder {color: $dark25;}
+  &:hover, &:focus {
+    border-color: $dark50;
+    &::-webkit-input-placeholder {color: $dark75;}
+    outline: none;
+  };
+};
+.arrow-block {
+  @extend %dropdown-arrow;
+};
+.text-field-subscription {
+  @extend %fields-generalrules, %dropwond-generalrules;
+  padding: 0 0 0 15px;
+};
+.dropdown-guests-field-body {
+  @extend %fields-generalrules;
+};
+.dropdown-quests {
+  @extend %dropwond-generalrules, %dropdown-tick;
+};
+.dropdown-date {
+  @extend %fields-generalrules, %dropwond-generalrules, %dropdown-tick;
+};
+.dropdown-date-filter {
+  @extend %fields-generalrules, %dropwond-generalrules, %dropdown-tick;
+};
+.default-label,.hover-label  {
+  width: 100%;
+  margin: 0 0 5 0;
+  &::after {
+    color: $dark50;
+    float: right;
+    font-weight: normal;
+  };
+};
+.default-label {
+  &::after {
+    content: "default";
+  };
+};
+.hover-label {
+  &::after {
+    content: "hover/focus";
+  };
+};

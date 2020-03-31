@@ -1,0 +1,22 @@
+include checkbox-button.pug
+include radio-gender-button.pug
+include radio-special-button.pug
+include like-button.pug
+include rate.pug
+
+form.opportunities-form(action="#")
+  +opportunities-checkbox-list("Можно курить", "Checkbox Buttons")
+  +opportunities-checkbox-list("Можно с питомцами")
+  +opportunities-checkbox-list("Можно пригласить гостей (до 10 человек)")
+form.gender-form(action="#")
+  +radio-gender("radio buttons")
+form.toggle-form(action="#")
+  +radio-special-button("Получать спецпредложения", "toggle")
+  +radio-special-button("Получать спецпредложения")
+form.like-button-form(action="#")
+  +like-button("2", "like button")
+  +like-button("12" )
+form.rate-button-form(action="#")
+  +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "rate button")
+  +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
+  

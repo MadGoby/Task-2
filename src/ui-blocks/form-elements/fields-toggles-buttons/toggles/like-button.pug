@@ -1,0 +1,12 @@
+mixin like-button(count, title)
+  if title != null 
+    h3.margin16.type-h3= title
+    label.like-button-label.type-simple-text
+      input.like-button-input(type="checkbox")
+      span.like-button-imitation
+        p.like-count= count
+  else 
+    label.like-button-label.type-simple-text
+      input.like-button-input(type="checkbox")
+      span.like-button-imitation
+        p.like-count= count
