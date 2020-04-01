@@ -1,0 +1,49 @@
+// Slider Range Rules
+#range-slider-body {
+  margin-top: 23px;
+}
+.ui-slider{
+  height: 6px;
+  box-sizing: border-box;
+  .ui-slider-handle {
+    height: 12px; width: 12px;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-sizing: content-box;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  }
+}
+.ui-corner-all {
+  border-radius: 3px;
+}
+.ui-widget.ui-widget-content {
+  border: 1px solid $dark25;
+}
+.ui-slider-horizontal .ui-slider-handle {
+  top: -6px;
+  margin-left: -6px;
+}
+.ui-widget-header {
+  height: 4px;
+  outline: none;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+}
+.ui-slider-horizontal .ui-slider-range {
+  top: -1px;
+  height: 6px;
+}
+#amount-slider-price {
+  border: 0;
+  font-weight: normal;
+  color: $dark50;
+  outline:none;
+  text-align: right;
+  width: 40%;
+} 
+.range-slider-title {
+  width: 60%;
+  display: inline-block;
+}
+.ui-state-focus {
+  outline: none;
+}

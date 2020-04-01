@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+// const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require ('mini-css-extract-plugin');
 
@@ -32,7 +32,7 @@ module.exports = {
       template: './ui-index.pug',
       filename: 'ui-index.html'
     }),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
     new CopyWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',

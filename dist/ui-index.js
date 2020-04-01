@@ -167,6 +167,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 
 /***/ }),
 
+/***/ "./img/star_border.svg":
+/*!*****************************!*\
+  !*** ./img/star_border.svg ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"img/star_border.svg\");\n\n//# sourceURL=webpack:///./img/star_border.svg?");
+
+/***/ }),
+
+/***/ "./ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js":
+/*!***************************************************************************************!*\
+  !*** ./ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {\r\n  $('#range-slider-body').slider({\r\n    range : true,\r\n    min: 0,\r\n    max: 15000,\r\n    values: [ 5000, 10000 ],\r\n    slide: function( event, ui ) {\r\n      $( \"#amount-slider-price\" ).val( ui.values[ 0 ] + \"₽\" + \" - \" + ui.values[ 1 ] + \"₽\" );\r\n    }\r\n  });\r\n  $( \"#amount-slider-price\" ).val( \"\" + $( \"#range-slider-body\" ).slider( \"values\", 0 ) + \"₽\" +\r\n      \" - \" + $( \"#range-slider-body\" ).slider( \"values\", 1 ) + \"₽\" );\r\n});\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js?");
+
+/***/ }),
+
 /***/ "./ui-index.js":
 /*!*********************!*\
   !*** ./ui-index.js ***!
@@ -175,7 +198,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ui_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui-style.scss */ \"./ui-style.scss\");\n/* harmony import */ var _ui_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ui_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n__webpack_require__(/*! webpack-jquery-ui */ \"../node_modules/webpack-jquery-ui/index.js\");\r\n__webpack_require__(/*! webpack-jquery-ui/css */ \"../node_modules/webpack-jquery-ui/css.js\");\r\n__webpack_require__(/*! ./img/star.svg */ \"./img/star.svg\")\r\n\n\n//# sourceURL=webpack:///./ui-index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ui_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui-style.scss */ \"./ui-style.scss\");\n/* harmony import */ var _ui_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ui_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ui_blocks_form_elements_fields_toggles_buttons_buttons_range_slider_script_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js */ \"./ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js\");\n/* harmony import */ var _ui_blocks_form_elements_fields_toggles_buttons_buttons_range_slider_script_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ui_blocks_form_elements_fields_toggles_buttons_buttons_range_slider_script_js__WEBPACK_IMPORTED_MODULE_1__);\n__webpack_require__(/*! webpack-jquery-ui */ \"../node_modules/webpack-jquery-ui/index.js\");\r\n__webpack_require__(/*! webpack-jquery-ui/css */ \"../node_modules/webpack-jquery-ui/css.js\");\r\n__webpack_require__(/*! ./img/star.svg */ \"./img/star.svg\");\r\n__webpack_require__(/*! ./img/star_border.svg */ \"./img/star_border.svg\");\r\n\r\n\n\n//# sourceURL=webpack:///./ui-index.js?");
 
 /***/ }),
 
