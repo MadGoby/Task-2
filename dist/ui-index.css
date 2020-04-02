@@ -464,3 +464,68 @@
 .ui-state-focus {
   outline: none; }
 
+.simple-button, .border-button, .big-simple-button {
+  width: 100px;
+  height: 44px;
+  border-radius: 22px;
+  margin: 0 20px 30px 0;
+  color: white;
+  border: none;
+  outline: none; }
+
+.buttons-types-body {
+  width: 240px;
+  margin-top: 43px; }
+
+.simple-button {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%); }
+  .simple-button:active {
+    opacity: 0.5; }
+
+.border-button-body {
+  display: inline-block;
+  position: relative; }
+
+.border-button {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%); }
+  .border-button:active {
+    opacity: 0.5; }
+
+.border-button-label {
+  background-color: white;
+  color: #BC9CFF;
+  height: 40px;
+  width: 96px;
+  border-radius: 20px;
+  position: absolute;
+  z-index: 2;
+  left: 2px;
+  top: 2px;
+  text-align: center;
+  line-height: 40px;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none; }
+
+.text-button {
+  border: none;
+  background: none;
+  color: #BC9CFF;
+  margin: 0 20px 30px 0;
+  outline: none; }
+  .text-button:active {
+    color: rgba(31, 32, 65, 0.5); }
+
+.big-button-body {
+  position: relative; }
+
+.big-simple-button {
+  width: 320px;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%); }
+
+.big-button-arrow {
+  position: absolute;
+  right: 13px; }
+

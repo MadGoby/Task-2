@@ -33,7 +33,6 @@ module.exports = {
       filename: 'ui-index.html'
     }),
     // new CleanWebpackPlugin(),
-    new CopyWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),

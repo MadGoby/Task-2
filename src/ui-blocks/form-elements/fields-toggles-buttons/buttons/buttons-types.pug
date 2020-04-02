@@ -1,0 +1,11 @@
+mixin buttons-types(className, buttonName, border, borderid)
+  if border == 10
+    button.type-h3(class= className)= buttonName
+      img.big-button-arrow(src="./img/arrow_white.svg" name='img')
+  else if border 
+    div.border-button-body
+      button(id= borderid, class= className)
+      label.type-h3.border-button-label(for= borderid)= buttonName
+  else
+    input.type-h3(type= 'button' class= className, value= buttonName)
+

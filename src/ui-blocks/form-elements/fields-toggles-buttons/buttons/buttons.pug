@@ -1,3 +1,15 @@
 include range-slider.pug
+include buttons-types.pug
 
 +range-slider("range slider")
+div.buttons-types-body
+  h3.type-h3.margin16= 'buttons'
+  +buttons-types("simple-button", "click me")
+  +buttons-types("simple-button", "click me")
+  +buttons-types("border-button", "click me", 'true', 'border-button-relations1')
+  +buttons-types("border-button", "click me", 'true', 'border-button-relations2')
+  +buttons-types("text-button", "click me")
+  +buttons-types("text-button", "click me")
+div.big-button-body
+  +buttons-types("big-simple-button", "перейти к оплате", '10')
+  

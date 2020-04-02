@@ -155,6 +155,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./img/arrow_white.svg":
+/*!*****************************!*\
+  !*** ./img/arrow_white.svg ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"img/arrow_white.svg\");\n\n//# sourceURL=webpack:///./img/arrow_white.svg?");
+
+/***/ }),
+
 /***/ "./img/star.svg":
 /*!**********************!*\
   !*** ./img/star.svg ***!
@@ -198,7 +210,7 @@ eval("/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {\r
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ui_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui-style.scss */ \"./ui-style.scss\");\n/* harmony import */ var _ui_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ui_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ui_blocks_form_elements_fields_toggles_buttons_buttons_range_slider_script_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js */ \"./ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js\");\n/* harmony import */ var _ui_blocks_form_elements_fields_toggles_buttons_buttons_range_slider_script_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ui_blocks_form_elements_fields_toggles_buttons_buttons_range_slider_script_js__WEBPACK_IMPORTED_MODULE_1__);\n__webpack_require__(/*! webpack-jquery-ui */ \"../node_modules/webpack-jquery-ui/index.js\");\r\n__webpack_require__(/*! webpack-jquery-ui/css */ \"../node_modules/webpack-jquery-ui/css.js\");\r\n__webpack_require__(/*! ./img/star.svg */ \"./img/star.svg\");\r\n__webpack_require__(/*! ./img/star_border.svg */ \"./img/star_border.svg\");\r\n\r\n\n\n//# sourceURL=webpack:///./ui-index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ui_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui-style.scss */ \"./ui-style.scss\");\n/* harmony import */ var _ui_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ui_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ui_blocks_form_elements_fields_toggles_buttons_buttons_range_slider_script_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js */ \"./ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js\");\n/* harmony import */ var _ui_blocks_form_elements_fields_toggles_buttons_buttons_range_slider_script_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ui_blocks_form_elements_fields_toggles_buttons_buttons_range_slider_script_js__WEBPACK_IMPORTED_MODULE_1__);\n__webpack_require__(/*! webpack-jquery-ui */ \"../node_modules/webpack-jquery-ui/index.js\");\r\n__webpack_require__(/*! webpack-jquery-ui/css */ \"../node_modules/webpack-jquery-ui/css.js\");\r\n__webpack_require__(/*! ./img/star.svg */ \"./img/star.svg\");\r\n__webpack_require__(/*! ./img/star_border.svg */ \"./img/star_border.svg\");\r\n__webpack_require__(/*! ./img/arrow_white.svg */ \"./img/arrow_white.svg\");\r\n\r\n\n\n//# sourceURL=webpack:///./ui-index.js?");
 
 /***/ }),
 
