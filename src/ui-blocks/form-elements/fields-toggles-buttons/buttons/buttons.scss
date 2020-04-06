@@ -117,3 +117,48 @@
   position: absolute;
   right: 13px;
 }
+// pagination
+.pagination-pages {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+.pagination-pages__page-body {
+  height: 40px; 
+  width: 40px;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+}
+.pagination-pages__page {
+  text-decoration: none;
+  font-weight: normal;
+  position: relative;
+  z-index: 2;
+}
+.pagination-pages__page_selected {
+  color: white;
+  &::after{
+    content: '';
+    height: 40px;
+    width: 40px;
+    display: block;
+    position: relative; top: -40px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    border-radius: 50%;
+    z-index: 1;
+  }
+}
+.pagination-pages__page_last {
+  &::after{
+    content: url("./img/arrow_white.svg");
+    height: 40px;
+    width: 40px;
+    display: block;
+    position: relative;
+    line-height: 49px;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    border-radius: 50%;
+    z-index: 1;
+  }
+}

@@ -1,5 +1,7 @@
 include range-slider.pug
 include buttons-types.pug
+include pagination__title.pug
+include pagination__count-title.pug
 
 +range-slider("range slider")
 div.buttons-types-body
@@ -12,4 +14,7 @@ div.buttons-types-body
   +buttons-types("text-button", "click me")
 div.big-button-body
   +buttons-types("big-simple-button", "перейти к оплате", '10')
-  
+div.pagination-body
+  +pagination__title('pagination')
+  include pagination-pages.pug
+  +pagination__count-title('1 – 12 из 100+ вариантов аренды')

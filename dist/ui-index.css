@@ -43,7 +43,6 @@
 
 .form-elements {
   width: 1440px;
-  height: 1855px;
   padding-left: 150px;
   padding-top: 145px; }
 
@@ -62,6 +61,11 @@
 
 .toggles {
   margin-left: 126px; }
+
+.dropdown {
+  padding-left: 150px;
+  padding-top: 100px;
+  height: 1000px; }
 
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
@@ -184,7 +188,7 @@
 .type-simple-text .description {
   width: 301px; }
 
-.text-field, .text-field-subscription, .dropdown-guests-field-body, .dropdown-date, .dropdown-date-filter {
+.text-field, .text-field-subscription, .dropdown-guests-field-body, .dropdown-date, .dropdown-date-filter, .dropdown-rooms-field-body {
   box-sizing: border-box;
   height: 44px;
   width: 320px;
@@ -192,13 +196,13 @@
   border: 1px solid rgba(31, 32, 65, 0.25);
   padding-left: 15px; }
 
-.text-field-subscription, .dropdown-quests, .dropdown-date, .dropdown-date-filter {
+.text-field-subscription, .dropdown-quests, .dropdown-date, .dropdown-date-filter, .dropdown-rooms-label {
   display: inline-block;
   color: rgba(31, 32, 65, 0.75);
   width: 100%;
   padding-top: 10px; }
 
-.dropdown-quests::after, .dropdown-date::after, .dropdown-date-filter::after {
+.dropdown-quests::after, .dropdown-date::after, .dropdown-date-filter::after, .dropdown-rooms-button-arrow::after {
   content: url(img/dropdown_tick.svg);
   float: right;
   width: 44px;
@@ -247,10 +251,10 @@
 .text-field-subscription {
   padding: 0 0 0 15px; }
 
-.default-label, .hover-label {
+.default-label, .hover-label, .expanded-label {
   width: 100%;
   margin: 0 0 5 0; }
-  .default-label::after, .hover-label::after {
+  .default-label::after, .hover-label::after, .expanded-label::after {
     color: rgba(31, 32, 65, 0.5);
     float: right;
     font-weight: normal; }
@@ -260,6 +264,9 @@
 
 .hover-label::after {
   content: "hover/focus"; }
+
+.expanded-label::after {
+  content: "expanded"; }
 
 .opportunities-checkbox-imitation, .radio-button-imitation, .special-toggle-imitation, .like-button-imitation {
   content: "";
@@ -528,4 +535,105 @@
 .big-button-arrow {
   position: absolute;
   right: 13px; }
+
+.pagination-pages {
+  list-style-type: none;
+  display: flex;
+  padding: 0; }
+
+.pagination-pages__page-body {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  position: relative;
+  text-align: center; }
+
+.pagination-pages__page {
+  text-decoration: none;
+  font-weight: normal;
+  position: relative;
+  z-index: 2; }
+
+.pagination-pages__page_selected {
+  color: white; }
+  .pagination-pages__page_selected::after {
+    content: '';
+    height: 40px;
+    width: 40px;
+    display: block;
+    position: relative;
+    top: -40px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    border-radius: 50%;
+    z-index: 1; }
+
+.pagination-pages__page_last::after {
+  content: url(img/arrow_white.svg);
+  height: 40px;
+  width: 40px;
+  display: block;
+  position: relative;
+  line-height: 49px;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  border-radius: 50%;
+  z-index: 1; }
+
+.dropdown-rooms-field-body {
+  position: relative;
+  width: 266px;
+  border-radius: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px; }
+
+.dropdown-rooms-button-arrow {
+  position: absolute;
+  right: 0;
+  height: 44px;
+  width: 44px;
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none; }
+
+.dropdown-rooms-body {
+  width: 266px; }
+
+.rooms-expanded-strokes_body {
+  width: 266px;
+  height: 119px;
+  border: 1px solid rgba(31, 32, 65, 0.5);
+  box-sizing: border-box;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  display: none; }
+
+.rooms-expanded-strokes_stroke-body {
+  width: 100%;
+  height: 30px;
+  position: relative; }
+
+.rooms-expanded-strokes_stroke-body_title {
+  height: 30px;
+  margin: 7px 0 0 15px;
+  display: block;
+  line-height: 30px; }
+
+.rooms-expanded-strokes_stroke-body__calc-body {
+  display: inline-block;
+  position: absolute;
+  right: 7px;
+  top: 0px; }
+
+.rooms-calc-button {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  color: rgba(31, 32, 65, 0.5); }
+
+.rooms-calc-output {
+  width: 30px;
+  display: inline-block;
+  text-align: center; }
 

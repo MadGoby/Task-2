@@ -5,7 +5,6 @@
   border-radius: 4px;
   border: 1px solid $dark25;
   padding-left: 15px;
-  
 };
 %dropwond-generalrules {
   display: inline-block;
@@ -83,7 +82,7 @@
 .dropdown-date-filter {
   @extend %fields-generalrules, %dropwond-generalrules, %dropdown-tick;
 };
-.default-label,.hover-label  {
+.default-label,.hover-label,.expanded-label {
   width: 100%;
   margin: 0 0 5 0;
   &::after {
@@ -100,5 +99,10 @@
 .hover-label {
   &::after {
     content: "hover/focus";
+  };
+};
+.expanded-label {
+  &::after {
+    content: "expanded";
   };
 };
