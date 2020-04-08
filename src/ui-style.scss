@@ -6,7 +6,6 @@
   margin: 0;
 };
 .colors-types {
-  width: 100%;
   padding-left: 150px;
   padding-top: 145px;
 };
@@ -17,7 +16,8 @@
 .form-elements {
   width: 1440px;
   padding-left: 150px;
-  padding-top: 145px; 
+  padding-top: 145px;
+  height: auto;
 }
 .absolute-hight, .absolute-hight-2 {
   height: 100%;
@@ -25,7 +25,7 @@
   position: absolute;
   display: none;
 }
-.fields, .toggles, .buttons {
+.fields, .toggles, .buttons, .dropdown-guests-body-extended {
   display: inline-block;
   vertical-align: top;
 };
@@ -36,14 +36,14 @@
   margin-left: 126px;
 }
 .dropdown {
-  padding-left: 150px;
-  padding-top: 100px;
-  height: 1000px;
+  margin-top: 100px;
 }
+
 @import "ui-blocks/text-styles/text-styles__types.scss";
 @import "ui-blocks/palette/palette.scss";
 @import "ui-blocks/text-styles/text-styles.scss";
 @import "ui-blocks/form-elements/fields-toggles-buttons/fields/fields.scss";
 @import "ui-blocks/form-elements/fields-toggles-buttons/toggles/toggles.scss";
 @import "ui-blocks/form-elements/fields-toggles-buttons/buttons/buttons.scss";
-@import "ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms.scss"
+@import "ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms.scss";
+@import "ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests.scss";

@@ -5,21 +5,8 @@ require('./img/star_border.svg');
 require('./img/arrow_white.svg');
 import './ui-style.scss';
 import slider from './ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js';
+import dropdownRooms from './ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms_dropdown-function.js';
+import dropdownRoomsCalc from './ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms_calculation-function.js';
+import dropdownGuests from './ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests-dropdown-function.js';
+import dropdownGuestsCalc from './ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests_calculation-function';
 // -------------------------------------------------------------
-let uiRoomsButton = document.querySelector("#ui-dropdown-rooms-button")
-let uiExpendedRoomsBody = document.querySelector("#uiRoomsExpendedBody")
-let uiRoomsBodyBorder = document.querySelector("#ui-dropdown-rooms-button_border")
-let roomsStyle = uiExpendedRoomsBody.style
-let borderButton = uiRoomsBodyBorder.style
-uiRoomsButton.onclick = function(){
-  if (roomsStyle.display === "none") {
-    roomsStyle.display = "block"
-    borderButton.borderColor = "rgba(31, 32, 65, 0.5)"
-    borderButton.borderBottom = "none"
-  } else {
-    roomsStyle.display = "none"
-    borderButton.borderColor = "rgba(31, 32, 65, 0.25)"
-    borderButton.borderBottom = "1px solid rgba(31, 32, 65, 0.25)"
-  }
-  
-};

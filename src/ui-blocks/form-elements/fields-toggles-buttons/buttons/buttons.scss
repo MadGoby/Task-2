@@ -95,7 +95,7 @@
   -webkit-user-select: none;
   -moz-user-select: none;  
 }
-.text-button {
+.text-button, .text-button-dark {
   border: none;
   background: none;
   color: $purple;
@@ -104,6 +104,9 @@
   &:active {
     color: $dark50;
   }
+}
+.text-button-dark {
+  color: $dark50;
 }
 .big-button-body {
   position: relative;
