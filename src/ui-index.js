@@ -9,4 +9,5 @@ import dropdownRooms from './ui-blocks/form-elements/dropdown/dropdown-rooms/dro
 import dropdownRoomsCalc from './ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms_calculation-function.js';
 import dropdownGuests from './ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests-dropdown-function.js';
 import dropdownGuestsCalc from './ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests_calculation-function';
+import expandebleUiCheckboxList from './ui-blocks/form-elements/checkboxes-buletes/expandable-checkbox-list/expandable-checkbox-list'
 // -------------------------------------------------------------

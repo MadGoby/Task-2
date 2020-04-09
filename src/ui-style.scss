@@ -1,6 +1,8 @@
 @import "variables.scss";
 @import "fonts/fonts.scss";
-
+body {
+  height: 3000px;
+}
 .main-body {
   width: 1440px;
   margin: 0;
@@ -38,7 +40,6 @@
 }
 .dropdown {
   margin-top: 100px;
-  height: 600px;
 }
 
 @import "ui-blocks/text-styles/text-styles__types.scss";
@@ -49,3 +50,4 @@
 @import "ui-blocks/form-elements/fields-toggles-buttons/buttons/buttons.scss";
 @import "ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms.scss";
 @import "ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests.scss";
+@import "ui-blocks/form-elements/checkboxes-buletes/expandable-checkbox-list/expandable-checkbox-list.scss";

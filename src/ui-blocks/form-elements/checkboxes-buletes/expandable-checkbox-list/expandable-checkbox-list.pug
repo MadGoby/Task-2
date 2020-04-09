@@ -1,0 +1,14 @@
+include expandable-checkbox-list_title.pug
+include expandable-checkbox-list_list.pug
+
++expandable-checkbox-list_title("expandable checkbox list")
++expandable-checkbox-list_title("expandable checkbox list", "expandable-checkbox-list_title-button")
+form.expandable-checkbox-list_list-body#ui-expandable-checkbox-list_list-body
+  +opportunities-checkbox-list("Завтрак", "1")
+  +opportunities-checkbox-list("Письменный стол", "10")
+  +opportunities-checkbox-list("Стул для кормления", "10")
+  +opportunities-checkbox-list("Кроватка", "10")
+  +opportunities-checkbox-list("Телевизор", "1")
+  +opportunities-checkbox-list("Шампунь", "1")
+  +opportunities-checkbox-list("Телевизор", "1")
+  +opportunities-checkbox-list("Шампунь", "1")

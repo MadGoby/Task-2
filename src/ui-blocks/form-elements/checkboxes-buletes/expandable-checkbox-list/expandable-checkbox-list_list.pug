@@ -1,0 +1,12 @@
+mixin opportunities-checkbox-list(opportunities, checked)
+  if checked == 10
+    label.opportunities-label.type-simple-text
+      input.opportunities-checkbox(type="checkbox" checked)
+      span.opportunities-checkbox-imitation
+      p.opportunities-text= opportunities
+  else
+    label.opportunities-label.type-simple-text
+      input.opportunities-checkbox(type="checkbox")
+      span.opportunities-checkbox-imitation
+      p.opportunities-text= opportunities
+  
