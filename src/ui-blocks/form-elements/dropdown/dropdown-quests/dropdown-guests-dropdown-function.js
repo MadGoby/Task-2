@@ -11,6 +11,7 @@ let uiGuestsBodyBorder2 = document.querySelector("#dropdown-guests_input_2")
 uiGuestsButton.onclick = function(){
   if (uiExpendedGuestsBody.style.display === "none") {
     uiExpendedGuestsBody.style.display = "block"
+    uiGuestsBodyBorder.style.borderColor = "rgba(31, 32, 65, 0.5)"
     uiGuestsBodyBorder.style.borderBottom = "none"
   } else {
     uiExpendedGuestsBody.style.display = "none"

@@ -27,16 +27,12 @@
   font-weight: bold;
   font-style: normal; }
 
-body {
-  height: 3000px; }
-
 .main-body {
   width: 1440px;
   margin: 0; }
 
 .colors-types {
-  padding-left: 150px;
-  padding-top: 145px;
+  padding: 145px 141px 145px 150px;
   width: 1440px; }
 
 .logo {
@@ -45,10 +41,8 @@ body {
   position: absolute; }
 
 .form-elements {
-  width: 1440px;
-  padding-left: 150px;
-  padding-top: 145px;
-  height: auto; }
+  padding: 145px 141px 145px 150px;
+  width: 1440px; }
 
 .absolute-hight, .absolute-hight-2 {
   height: 100%;
@@ -81,6 +75,17 @@ body {
 
 .bullet-list-body {
   margin-left: 127px; }
+
+.virtues-body {
+  margin-top: 10px;
+  width: 291px;
+  display: inline-block;
+  margin-right: 170px; }
+
+.review-body {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px; }
 
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
@@ -772,4 +777,62 @@ body {
   background-color: rgba(31, 32, 65, 0.25);
   border-radius: 50%;
   margin: 7px 10px 24px 0; }
+
+.virtues__image, .virtues__text-body {
+  display: inline-block;
+  margin: 0; }
+
+.virtues_block {
+  position: relative;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+  width: 280px; }
+
+.virtues__image {
+  height: 40px;
+  width: 40px;
+  padding: 4px;
+  position: relative;
+  margin-right: 10px;
+  vertical-align: middle; }
+
+.virtues__text-body {
+  vertical-align: middle; }
+
+.virtues__title, .virtues__text {
+  margin: 0;
+  line-height: 24px; }
+
+.reviews__user-body {
+  position: relative; }
+
+.review__user__icon {
+  position: absolute;
+  top: 0;
+  left: -34px; }
+
+.reviews__user-body {
+  padding-left: 43px; }
+
+.review__user__name, .review__user__time-passed {
+  margin: 0;
+  line-height: 24px; }
+
+.review__user__name {
+  padding-top: 10px; }
+
+.review__comment__like-button {
+  width: 40px;
+  position: relative;
+  left: -10px;
+  margin-top: 9px;
+  margin-right: 2px;
+  display: inline-block;
+  vertical-align: top; }
+
+.review__comment__text {
+  display: inline-block;
+  width: 653px;
+  margin: 0;
+  margin-top: 10px; }
 

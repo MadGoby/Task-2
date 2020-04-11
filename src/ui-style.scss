@@ -1,15 +1,12 @@
 @import "variables.scss";
 @import "fonts/fonts.scss";
-body {
-  height: 3000px;
-}
+
 .main-body {
   width: 1440px;
   margin: 0;
 };
 .colors-types {
-  padding-left: 150px;
-  padding-top: 145px;
+  padding: 145px 141px 145px 150px;
   width: 1440px;
 };
 .logo {
@@ -17,10 +14,8 @@ body {
   position: absolute;
 }
 .form-elements {
+  padding: 145px 141px 145px 150px;
   width: 1440px;
-  padding-left: 150px;
-  padding-top: 145px;
-  height: auto;
 }
 .absolute-hight, .absolute-hight-2 {
   height: 100%;
@@ -55,7 +50,22 @@ body {
 .bullet-list-body {
   margin-left: 127px;
 }
+// Virtues
+.virtues-body {
+  margin-top: 10px;
+  width: 291px;
+  display: inline-block;
+  margin-right: 170px;
+}
+// User Reviews
+.review-body {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+}
 
+
+// SCSS Import
 @import "ui-blocks/text-styles/text-styles__types.scss";
 @import "ui-blocks/palette/palette.scss";
 @import "ui-blocks/text-styles/text-styles.scss";
@@ -66,4 +76,6 @@ body {
 @import "ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests.scss";
 @import "ui-blocks/form-elements/checkboxes-buletes/expandable-checkbox-list/expandable-checkbox-list.scss";
 @import "ui-blocks/form-elements/checkboxes-buletes/rich-checkbox-button/rich-checkbox-button.scss";
-@import "ui-blocks/form-elements/checkboxes-buletes/bullet-list/bullet-list.scss"
+@import "ui-blocks/form-elements/checkboxes-buletes/bullet-list/bullet-list.scss";
+@import "ui-blocks/form-elements/additional/virtues/virtues.scss";
+@import "ui-blocks/form-elements/additional/review/review.scss"

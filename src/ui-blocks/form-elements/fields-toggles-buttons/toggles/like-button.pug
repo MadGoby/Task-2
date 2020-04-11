@@ -1,12 +1,26 @@
-mixin like-button(count, title)
-  if title != null 
-    h3.margin16.type-h3= title
-    label.like-button-label.type-simple-text
-      input.like-button-input(type="checkbox")
-      span.like-button-imitation
-        p.like-count= count
-  else 
-    label.like-button-label.type-simple-text
-      input.like-button-input(type="checkbox")
-      span.like-button-imitation
-        p.like-count= count
+mixin like-button(count, checked, title)
+  
+  if checked == 10
+    if title != null 
+      h3.margin16.type-h3= title
+      label.like-button-label.type-simple-text
+        input.like-button-input(type="checkbox" checked)
+        span.like-button-imitation
+          p.like-count= count
+    else 
+      label.like-button-label.type-simple-text
+        input.like-button-input(type="checkbox" checked)
+        span.like-button-imitation
+          p.like-count= count
+  else
+    if title != null 
+      h3.margin16.type-h3= title
+      label.like-button-label.type-simple-text
+        input.like-button-input(type="checkbox")
+        span.like-button-imitation
+          p.like-count= count
+    else 
+      label.like-button-label.type-simple-text
+        input.like-button-input(type="checkbox")
+        span.like-button-imitation
+          p.like-count= count

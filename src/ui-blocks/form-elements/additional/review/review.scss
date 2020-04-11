@@ -1,0 +1,34 @@
+.reviews__user-body {
+  position: relative;
+}
+.review__user__icon {
+position: absolute;
+top: 0; left: -34px;
+}
+.reviews__user-body {
+  padding-left: 43px
+}
+.review__user__name, .review__user__time-passed {
+  margin: 0;
+  line-height: 24px;
+}
+.review__user__name {
+  padding-top: 10px;
+}
+.reviews__comment-body {
+}
+.review__comment__like-button {
+  width: 40px;
+  position: relative;
+  left: -10px; 
+  margin-top: 9px;
+  margin-right: 2px;
+  display: inline-block;
+  vertical-align: top;
+}
+.review__comment__text {
+  display: inline-block;
+  width: 653px;
+  margin: 0;
+  margin-top: 10px;
+}
