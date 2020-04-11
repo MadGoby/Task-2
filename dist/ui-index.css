@@ -69,6 +69,19 @@ body {
 .dropdown {
   margin-top: 100px; }
 
+.checkboxes-buletes {
+  margin-top: 54px; }
+
+.expandable-checkbox-list-body, .rich-checkbox-button-body, .bullet-list-body {
+  display: inline-block;
+  vertical-align: top; }
+
+.rich-checkbox-button-body {
+  margin-left: 181px; }
+
+.bullet-list-body {
+  margin-left: 127px; }
+
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
   margin: 0; }
@@ -100,6 +113,13 @@ body {
   font-size: 14px;
   line-height: 24px;
   color: rgba(31, 32, 65, 0.75); }
+
+.type-simple-text-bold {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(31, 32, 65, 0.75);
+  font-weight: bold; }
 
 .colors-palette {
   width: 270px;
@@ -323,6 +343,7 @@ body {
 
 .opportunities-checkbox-imitation {
   border-radius: 4px;
+  vertical-align: top;
   margin: 0 10px 0 0;
   box-sizing: border-box; }
 
@@ -331,7 +352,7 @@ body {
   display: inline-block;
   color: rgba(31, 32, 65, 0.5);
   width: 192px;
-  line-height: 18px;
+  line-height: 20px;
   vertical-align: top; }
 
 .gender-label {
@@ -722,4 +743,33 @@ body {
 
 #expandable-checkbox-list_title-button {
   transform: rotate(180deg); }
+
+.type-simple-text-bold {
+  color: rgba(31, 32, 65, 0.75); }
+
+.rich-checkbox-button__button__title-text {
+  display: inline-block;
+  width: 236px; }
+
+.rich-checkbox-button__button__text {
+  width: 230px;
+  font-size: 12px; }
+
+.bullet-list__list-body {
+  list-style-type: none;
+  padding: 0;
+  width: 280px; }
+
+.bullet-list__list-line {
+  width: 260px;
+  display: inline-block; }
+
+.bullet-list__list-circle {
+  display: inline-block;
+  vertical-align: top;
+  height: 10px;
+  width: 10px;
+  background-color: rgba(31, 32, 65, 0.25);
+  border-radius: 50%;
+  margin: 7px 10px 24px 0; }
 

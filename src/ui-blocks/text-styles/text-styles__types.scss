@@ -28,3 +28,7 @@ $mont: 'Montserrat', sans-serif;
 .type-simple-text {
   @include fontshowing ($mont, 14px, 24px, $dark75)
 };
+.type-simple-text-bold {
+  @include fontshowing ($mont, 14px, 18px, $dark75);
+  font-weight: bold;
+}

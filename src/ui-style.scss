@@ -41,6 +41,20 @@ body {
 .dropdown {
   margin-top: 100px;
 }
+// Checkboxes Buletes
+.checkboxes-buletes {
+  margin-top: 54px;
+}
+.expandable-checkbox-list-body, .rich-checkbox-button-body, .bullet-list-body {
+  display: inline-block;
+  vertical-align: top;
+}
+.rich-checkbox-button-body {
+  margin-left: 181px ;
+}
+.bullet-list-body {
+  margin-left: 127px;
+}
 
 @import "ui-blocks/text-styles/text-styles__types.scss";
 @import "ui-blocks/palette/palette.scss";
@@ -51,3 +65,5 @@ body {
 @import "ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms.scss";
 @import "ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests.scss";
 @import "ui-blocks/form-elements/checkboxes-buletes/expandable-checkbox-list/expandable-checkbox-list.scss";
+@import "ui-blocks/form-elements/checkboxes-buletes/rich-checkbox-button/rich-checkbox-button.scss";
+@import "ui-blocks/form-elements/checkboxes-buletes/bullet-list/bullet-list.scss"

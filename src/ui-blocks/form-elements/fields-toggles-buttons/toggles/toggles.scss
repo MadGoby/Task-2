@@ -53,7 +53,7 @@
 .opportunities-checkbox-imitation {
   @extend %buttons-general-rules;
   border-radius: 4px;
-  
+  vertical-align: top;
   margin: 0 10px 0 0;
   box-sizing: border-box;
 }
@@ -62,7 +62,7 @@
   display: inline-block;
   color: $dark50;
   width: 192px;
-  line-height: 18px;
+  line-height: 20px;
   vertical-align: top;
 }
 // Gender radio button
