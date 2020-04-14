@@ -1,0 +1,43 @@
+.registration-form-body {
+  @extend %different-forms-main-rools;
+  height: 646px;
+  .text-field-body {
+    margin-top: 10px;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+.registration-form__gender {
+  margin-top: 10px;
+}
+.registration-form__spacial {
+  margin-top: 10px;
+  .switch {
+    margin-bottom: 0;
+  }
+}
+.registration-form__accept-button {
+  margin-top: 20px;
+}
+.registration-form__login {
+  height: 44px;
+  position: relative;
+  width: 320px;
+  .type-simple-text {
+    color: #000;
+    display: inline-block;
+    margin: 0;
+    line-height: 44px;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+  }
+  .border-button-body {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    height: 44px;
+    width: 100px;
+  }
+}

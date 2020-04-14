@@ -1,0 +1,36 @@
+.login-form-body {
+  @extend %different-forms-main-rools;
+  height: 358px;
+}
+.login-form__login {
+  height: 44px;
+  position: relative;
+  width: 320px;
+  .type-simple-text {
+    color: #000;
+    display: inline-block;
+    margin: 0;
+    line-height: 44px;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+  }
+  .border-button-body {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    height: 44px;
+    width: 100px;
+  }
+}
+.login-form__title {
+  margin-bottom: 20px;
+}
+.login-form__login-fields {
+  input {
+    margin-bottom: 10px;
+  }
+}
+.login-form__accept-button {
+  margin-top: 10px;
+}

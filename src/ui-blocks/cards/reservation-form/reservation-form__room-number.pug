@@ -1,0 +1,7 @@
+mixin reservation-form__room-number(number, luxury, price)
+  if luxury == true
+    h2.room-number__number.type-h2.room-number__luxury= number
+    label.room-number__day-price.type-simple-text-bold= price + "₽"
+  else 
+    h2.room-number__number.type-h2= number
+    label.room-number__day-price.type-simple-text-bold= price + "₽"

@@ -6,6 +6,9 @@ require('./img/arrow_white.svg');
 require('./img/smile.svg');
 require('./img/house.svg');
 require('./img/user.svg');
+require('./img/room-888.svg');
+require('./img/room-840.svg');
+
 import './ui-style.scss';
 import slider from './ui-blocks/form-elements/fields-toggles-buttons/buttons/range-slider-script.js';
 import dropdownRooms from './ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms_dropdown-function.js';

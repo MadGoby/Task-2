@@ -110,6 +110,7 @@
 }
 .big-button-body {
   position: relative;
+  width: 320px;
 }
 .big-simple-button {
   @extend %buttons-simple-rules;

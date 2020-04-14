@@ -87,6 +87,40 @@
   vertical-align: top;
   margin-top: 20px; }
 
+.cards {
+  padding: 150px 140px 140px 140px;
+  position: relative; }
+
+.rooms-search-body {
+  position: absolute; }
+
+.registration-form-body {
+  margin-top: 40px;
+  position: absolute;
+  top: 524px; }
+
+.reservation-form-body {
+  position: absolute;
+  top: 150px;
+  left: 560px; }
+
+.login-form-body {
+  position: absolute;
+  top: 701px;
+  left: 560px; }
+
+.room-888-form-body {
+  position: absolute;
+  left: 800px;
+  top: 369px;
+  margin: 40px 0 0 40px; }
+
+.room-840-form-body {
+  position: absolute;
+  left: 800px;
+  margin: 40px 0 0 40px;
+  top: 369px; }
+
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
   margin: 0; }
@@ -557,7 +591,8 @@
   color: rgba(31, 32, 65, 0.5); }
 
 .big-button-body {
-  position: relative; }
+  position: relative;
+  width: 320px; }
 
 .big-simple-button {
   width: 320px;
@@ -835,4 +870,262 @@
   width: 653px;
   margin: 0;
   margin-top: 10px; }
+
+.rooms-search-body, .registration-form-body, .reservation-form-body, .login-form-body {
+  width: 380px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 40px 0px 30px 30px; }
+
+.rooms-search-body {
+  height: 374px; }
+  .rooms-search-body h1 {
+    width: 300px; }
+
+.rooms-search__accept-button {
+  margin-top: 30px; }
+
+.rooms-search__dropdown-date .dropdown-date-body {
+  margin-top: 20px; }
+  .rooms-search__dropdown-date .dropdown-date-body h3 {
+    margin-top: 0; }
+
+.registration-form-body {
+  height: 646px; }
+  .registration-form-body .text-field-body {
+    margin-top: 10px; }
+  .registration-form-body h1 {
+    margin-bottom: 20px; }
+
+.registration-form__gender {
+  margin-top: 10px; }
+
+.registration-form__spacial {
+  margin-top: 10px; }
+  .registration-form__spacial .switch {
+    margin-bottom: 0; }
+
+.registration-form__accept-button {
+  margin-top: 20px; }
+
+.registration-form__login {
+  height: 44px;
+  position: relative;
+  width: 320px; }
+  .registration-form__login .type-simple-text {
+    color: #000;
+    display: inline-block;
+    margin: 0;
+    line-height: 44px;
+    vertical-align: middle;
+    position: absolute;
+    top: 0; }
+  .registration-form__login .border-button-body {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    height: 44px;
+    width: 100px; }
+
+.reservation-form-body {
+  height: 511px; }
+
+.reservation-form__room-number {
+  position: relative;
+  width: 320px; }
+
+.room-number__number {
+  position: absolute;
+  left: 0;
+  top: 0; }
+  .room-number__number::before {
+    content: "№ ";
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 5px; }
+
+.room-number__luxury::after {
+  content: "люкс";
+  font-family: 'Montserrat', sans-serif;
+  color: #BC9CFF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  margin-left: 5px; }
+
+.room-number__day-price {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: rgba(31, 32, 65, 0.5); }
+  .room-number__day-price::after {
+    content: " в сутки";
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px; }
+
+.reservation-form__order-information {
+  margin-top: 10px; }
+
+.reservation-form__order-information-line {
+  position: relative;
+  width: 320px; }
+  .reservation-form__order-information-line p {
+    width: 214px;
+    display: inline-block;
+    margin: 0px;
+    margin-top: 10px; }
+  .reservation-form__order-information-line h3 {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-transform: none;
+    color: rgba(31, 32, 65, 0.25);
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    position: absolute;
+    top: 11px;
+    margin-left: 5px; }
+
+.reservation-form__order-information__days-price::after {
+  content: "39 960₽";
+  position: absolute;
+  right: 0;
+  top: 10px; }
+
+.reservation-form__order-information__services::after {
+  content: "0₽";
+  position: absolute;
+  right: 0;
+  top: 10px; }
+
+.reservation-form__order-information__additional-services::after {
+  content: "300₽";
+  position: absolute;
+  right: 0;
+  top: 10px; }
+
+.reservation-form__total-price {
+  width: 320px;
+  margin-top: 30px; }
+
+.reservation-form__total-price__title,
+.reservation-form__total-price__dot,
+.reservation-form__total-price__price {
+  display: inline-block; }
+
+.reservation-form__total-price__dot {
+  width: 182px;
+  height: 1px;
+  border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
+  margin: 0 8px 0; }
+
+.reservation-form__accept-button {
+  margin-top: 20px; }
+
+.login-form-body {
+  height: 358px; }
+
+.login-form__login {
+  height: 44px;
+  position: relative;
+  width: 320px; }
+  .login-form__login .type-simple-text {
+    color: #000;
+    display: inline-block;
+    margin: 0;
+    line-height: 44px;
+    vertical-align: middle;
+    position: absolute;
+    top: 0; }
+  .login-form__login .border-button-body {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    height: 44px;
+    width: 100px; }
+
+.login-form__title {
+  margin-bottom: 20px; }
+
+.login-form__login-fields input {
+  margin-bottom: 10px; }
+
+.login-form__accept-button {
+  margin-top: 10px; }
+
+.room-888-form-body, .room-840-form-body {
+  width: 270px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  height: 257px;
+  position: relative;
+  z-index: 2; }
+
+.rooms-form__room-number {
+  position: relative;
+  width: 234px;
+  height: 24px;
+  margin-left: 15px;
+  margin-top: 10px; }
+
+.rooms-form__room-img img {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px; }
+
+.rooms-form__border-line {
+  width: 230px;
+  margin: 10px 0 8px 20px;
+  border: 1px solid rgba(31, 32, 65, 0.1); }
+
+.rooms-form__rate-buttons {
+  margin: 0 20px 0;
+  position: relative; }
+
+.rate-button-body {
+  height: 24px; }
+
+.rooms-form__reviews-counter {
+  color: rgba(31, 32, 65, 0.5);
+  height: 24px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0; }
+  .rooms-form__reviews-counter::after {
+    content: " Отзывов";
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px; }
+
+.rooms-form__room-img__nav {
+  position: absolute;
+  right: 15px;
+  top: 120px; }
+
+.rooms-form__room-img__nav-button, .rooms-form__room-img__nav-button_first {
+  margin-left: 4px;
+  background: none;
+  border: 1px solid #FFFFFF;
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: inline-block; }
+
+.rooms-form__room-img__nav-button_first {
+  background: #FFFFFF; }
 

@@ -1,0 +1,27 @@
+%different-forms-main-rools {
+  width: 380px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 40px 0px 30px 30px;
+}
+
+.rooms-search-body {
+  @extend %different-forms-main-rools;
+  height: 374px;
+  h1 {
+    width: 300px;
+  }
+}
+.rooms-search__accept-button {
+  margin-top: 30px;
+}
+.rooms-search__dropdown-date {
+  .dropdown-date-body {
+    margin-top: 20px;
+    h3 {
+      margin-top: 0;
+    }
+  }
+}

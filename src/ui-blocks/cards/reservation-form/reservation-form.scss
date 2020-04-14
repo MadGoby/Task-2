@@ -1,0 +1,115 @@
+.reservation-form-body {
+  @extend %different-forms-main-rools;
+  height: 511px;
+}
+.reservation-form__room-number {
+  position: relative;
+  width: 320px;
+}
+.room-number__number {
+  position: absolute;
+  left: 0; top: 0;
+  &::before {
+    content: "№ ";
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 5px;
+  }
+}
+.room-number__luxury {
+  &::after {
+    content: "люкс";
+    font-family: 'Montserrat', sans-serif;
+    color: $purple;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 5px;
+  }
+}
+.room-number__day-price {
+  position: absolute;
+  right: 0; top: 0;
+  color: $dark50;
+  &::after {
+    content: " в сутки";
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+.reservation-form__order-information {
+  margin-top: 10px;
+}
+.reservation-form__order-information-line{
+  position: relative;
+  width: 320px;
+  p {
+    width: 214px;
+    display: inline-block;
+    margin: 0px;
+    margin-top: 10px;
+  }
+  h3 {
+    display: inline-block;
+    width: 20px; height: 20px;
+    text-transform: none;
+    color: $dark25;
+    border: 1px solid $dark25;
+    box-sizing: border-box;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    position: absolute;
+    top: 11px;
+    margin-left: 5px;
+  }
+}
+.reservation-form__order-information__days-price {
+  &::after {
+    content: "39 960₽";
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+}
+.reservation-form__order-information__services {
+  &::after {
+    content: "0₽";
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+}
+.reservation-form__order-information__additional-services {
+  &::after {
+    content: "300₽";
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+}
+.reservation-form__total-price {
+  width: 320px;
+  margin-top: 30px;
+}
+.reservation-form__total-price__title, 
+.reservation-form__total-price__dot, 
+.reservation-form__total-price__price {
+  display: inline-block;
+}
+.reservation-form__total-price__dot {
+  width: 182px;
+  height: 1px;
+  border-bottom: 1px dotted $dark25;
+  margin: 0 8px 0;
+}
+.reservation-form__accept-button {
+  margin-top: 20px;
+}

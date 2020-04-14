@@ -63,7 +63,41 @@
   vertical-align: top;
   margin-top: 20px;
 }
-
+// Cards
+.cards {
+  padding: 150px 140px 140px 140px;
+  position: relative;
+}
+.rooms-search-body {
+  position: absolute;
+}
+.registration-form-body {
+  margin-top: 40px;
+  position: absolute;
+  top: 524px;
+}
+.reservation-form-body {
+  position: absolute;
+  top: 150px;
+  left: 560px;
+}
+.login-form-body {
+  position: absolute;
+  top: 701px;
+  left: 560px;
+}
+.room-888-form-body {
+  position: absolute;
+  left: 800px;
+  top: 369px;
+  margin: 40px 0 0 40px;
+}
+.room-840-form-body {
+  position: absolute;
+  left: 800px;
+  margin: 40px 0 0 40px;
+  top: 369px;
+}
 
 // SCSS Import
 @import "ui-blocks/text-styles/text-styles__types.scss";
@@ -78,4 +112,9 @@
 @import "ui-blocks/form-elements/checkboxes-buletes/rich-checkbox-button/rich-checkbox-button.scss";
 @import "ui-blocks/form-elements/checkboxes-buletes/bullet-list/bullet-list.scss";
 @import "ui-blocks/form-elements/additional/virtues/virtues.scss";
-@import "ui-blocks/form-elements/additional/review/review.scss"
+@import "ui-blocks/form-elements/additional/review/review.scss";
+@import "ui-blocks/cards/rooms-search/rooms-search.scss";
+@import "ui-blocks/cards/registration-form/registration-form.scss";
+@import "ui-blocks/cards/reservation-form/reservation-form.scss";
+@import "ui-blocks/cards/login-form/login-form.scss";
+@import "ui-blocks/cards/rooms-form/rooms-form.scss";

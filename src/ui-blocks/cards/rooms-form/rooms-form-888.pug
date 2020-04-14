@@ -1,0 +1,15 @@
+include rooms-form__reviews-counter.pug
+
+div.rooms-form__room-img
+  img(src= "./img/room-888.svg")
+div.rooms-form__room-img__nav
+  label.rooms-form__room-img__nav-button_first
+  label.rooms-form__room-img__nav-button
+  label.rooms-form__room-img__nav-button
+  label.rooms-form__room-img__nav-button
+div.rooms-form__room-number
+  +reservation-form__room-number("888", true, "9 990")
+div.rooms-form__border-line
+div.rooms-form__rate-buttons
+  +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
+  +rooms-form__reviews-counter('145')
