@@ -16,6 +16,8 @@
 }
 .rooms-search__accept-button {
   margin-top: 30px;
+  z-index: 1;
+  position: relative;
 }
 .rooms-search__dropdown-date {
   .dropdown-date-body {
@@ -24,4 +26,61 @@
       margin-top: 0;
     }
   }
+}
+.dropdown-datepicker-body {
+  width: 320px;
+  height: 369px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  box-sizing: border-box;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+  position: absolute;
+  margin-top: 5px;
+  z-index: 5;
+  background: #FFFFFF;
+  display: block;
+  padding: 20px;
+}
+.dropdown-datepicker__month-button {
+  display: inline-block;
+  width: 24px; height: 24px;
+  border: none;
+  padding: 0;
+  background: none;
+  outline: none;
+  &::after {
+    content: url(img/arrow-purple.svg);;
+    width: 24px; height: 24px;
+  } 
+}
+#dropdown-datepicker__monce-year {
+  display: inline-block;
+  width: 230px;
+  text-align: center;
+}
+#dropdown-datepicker__minus-button {
+  transform: rotate(180deg);
+}
+.dropdown-datepicker__datepicker-body {
+  margin-top: 30px;
+  margin-left: 1px;
+  tr {
+    td {
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}
+.dropdown-datepicker__datepicker_week-days {
+  color: $purple;
+  font-weight: bold;
+}
+.dropdown-datepicker__datepicker_days {
+  color: $dark50;
 }

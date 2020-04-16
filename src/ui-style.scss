@@ -98,6 +98,10 @@
   margin: 40px 0 0 40px;
   top: 369px;
 }
+.datepicker-form-body {
+  position: absolute;
+  left: 980px;
+}
 
 // SCSS Import
 @import "ui-blocks/text-styles/text-styles__types.scss";
@@ -118,3 +122,5 @@
 @import "ui-blocks/cards/reservation-form/reservation-form.scss";
 @import "ui-blocks/cards/login-form/login-form.scss";
 @import "ui-blocks/cards/rooms-form/rooms-form.scss";
+
+// Test

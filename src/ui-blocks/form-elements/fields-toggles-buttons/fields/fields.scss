@@ -74,13 +74,15 @@
   @extend %fields-generalrules;
 };
 .dropdown-quests {
-  @extend %dropwond-generalrules, %dropdown-tick;
+  @extend %dropwond-generalrules;
+  position: relative;
 };
 .dropdown-date {
-  @extend %fields-generalrules, %dropwond-generalrules, %dropdown-tick;
+  @extend %fields-generalrules, %dropwond-generalrules;
+  position: relative;
 };
 .dropdown-date-filter {
-  @extend %fields-generalrules, %dropwond-generalrules, %dropdown-tick;
+  @extend %fields-generalrules, %dropwond-generalrules;
 };
 .default-label,.hover-label,.expanded-label {
   width: 100%;
@@ -106,3 +108,14 @@
     content: "expanded";
   };
 };
+.dropdown-date_button {
+  @extend %dropdown-tick;
+  position: absolute; right: 0; top: 0;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  text-align: center;
+  padding: 0;
+  outline: none;
+}

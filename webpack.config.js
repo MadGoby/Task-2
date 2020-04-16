@@ -7,9 +7,10 @@ const MiniCssExtractPlugin = require ('mini-css-extract-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
-  entry: {
-    'ui-index': './ui-index.js'
-  },
+    entry: {
+    'ui-index': './ui-index.js',
+    'dates-dropdown': './dates-dropdown',
+    },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
@@ -24,13 +25,18 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: 'all'
-    }
+      chunks: 'all',
+    },
   },
   plugins: [
     new HTMLWebpackPlugin({
       template: './ui-index.pug',
       filename: 'ui-index.html'
+    }),
+    new HTMLWebpackPlugin({
+      template: './dates-dropdown.pug',
+      filename: 'dates-dropdown.html',
+      excludeChunks: ['ui-index']
     }),
     // new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

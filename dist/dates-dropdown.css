@@ -27,103 +27,18 @@
   font-weight: bold;
   font-style: normal; }
 
-.main-body {
-  width: 1440px;
-  margin: 0; }
-
-.colors-types {
-  padding: 145px 141px 145px 150px;
-  width: 1440px; }
-
-.logo {
-  left: -110px;
-  top: -110px;
-  position: absolute; }
-
-.form-elements {
-  padding: 145px 141px 145px 150px;
-  width: 1440px; }
-
-.absolute-hight, .absolute-hight-2 {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  display: none; }
-
-.fields, .toggles, .buttons, .dropdown-guests-body-extended {
-  display: inline-block;
-  vertical-align: top; }
-
-.buttons {
-  width: 320px; }
-
-.toggles {
-  margin-left: 126px; }
-
-.dropdown {
-  margin-top: 100px; }
-
-.checkboxes-buletes {
-  margin-top: 54px; }
-
-.expandable-checkbox-list-body, .rich-checkbox-button-body, .bullet-list-body {
-  display: inline-block;
-  vertical-align: top; }
-
-.rich-checkbox-button-body {
-  margin-left: 181px; }
-
-.bullet-list-body {
-  margin-left: 127px; }
-
-.virtues-body {
-  margin-top: 10px;
-  width: 291px;
-  display: inline-block;
-  margin-right: 170px; }
-
-.review-body {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 20px; }
-
-.cards {
-  padding: 150px 140px 140px 140px;
-  position: relative; }
-
-.rooms-search-body {
-  position: absolute; }
-
-.registration-form-body {
-  margin-top: 40px;
-  position: absolute;
-  top: 524px; }
-
-.reservation-form-body {
-  position: absolute;
-  top: 150px;
-  left: 560px; }
-
-.login-form-body {
-  position: absolute;
-  top: 701px;
-  left: 560px; }
-
-.room-888-form-body {
-  position: absolute;
-  left: 800px;
-  top: 369px;
-  margin: 40px 0 0 40px; }
-
-.room-840-form-body {
-  position: absolute;
-  left: 800px;
-  margin: 40px 0 0 40px;
-  top: 369px; }
-
-.datepicker-form-body {
-  position: absolute;
-  left: 980px; }
+.dates-dropdown-body {
+  width: 380px;
+  height: 374px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 40px 0 30px 30px;
+  position: relative;
+  margin: auto;
+  margin-top: 70px; }
 
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
