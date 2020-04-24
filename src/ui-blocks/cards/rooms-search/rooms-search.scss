@@ -29,7 +29,7 @@
 }
 .dropdown-datepicker-body {
   width: 320px;
-  height: 369px;
+  height: 409px;
   border: 1px solid rgba(31, 32, 65, 0.25);
   box-sizing: border-box;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
@@ -84,3 +84,12 @@
 .dropdown-datepicker__datepicker_days {
   color: $dark50;
 }
+.dropdown-datepicker__datepicker-body__bright-td {
+  color: $dark25;
+}
+.dropdown-datepicker__datepicker-body__current-day {
+  color: white;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  border-radius: 50%;
+  font-weight: bold;
+} 
