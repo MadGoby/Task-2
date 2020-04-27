@@ -842,7 +842,7 @@
   margin-top: 5px;
   z-index: 5;
   background: #FFFFFF;
-  display: block;
+  display: none;
   padding: 20px; }
 
 .dropdown-datepicker__month-button {

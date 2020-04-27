@@ -2,23 +2,52 @@ import "./dates-dropdown.scss"
 let startDate = document.querySelector(".dropdown-date-label-start");
 let endDate = document.querySelector(".dropdown-date-label-end");
 let datePicker = document.querySelector("#dropdown-datepicker-body");
+let datePickerDisplayPosition = window.getComputedStyle(datePicker).display;
+let startCalLabel = startDate.querySelector('.dropdown-date__text')
+let endCalLabel = endDate.querySelector('.dropdown-date__text')
+let arrivalEventListener = false;
+let departurelEventListener = false;
 
+// Close and Open Function
 startDate.onclick = function(){
-  if ( datePicker.style.display == "none" ) {
+  if ( datePickerDisplayPosition == "none" ) {
     datePicker.style.display = "block"
-    endDate.disabled = true; 
+    endDate.disabled = true;
+    datePicker.addEventListener('click',  startCalLabelFunction)
+    arrivalEventListener = true;
+    datePickerDisplayPosition = window.getComputedStyle(datePicker).display;
   } else {
     datePicker.style.display = "none"
-    endDate.disabled = false; 
+    endDate.disabled = false;
+    if (departurelEventListener == true) {
+      datePicker.removeEventListener('click', endCalLabelFunction)
+      departurelEventListener = false
+    } else {
+      datePicker.removeEventListener('click',  startCalLabelFunction)
+      arrivalEventListener = false
+    }
+    datePickerDisplayPosition = window.getComputedStyle(datePicker).display;
   }
 };
+
 endDate.onclick = function(){
-  if ( datePicker.style.display == "none" ) {
+  if ( datePickerDisplayPosition == "none" ) {
     datePicker.style.display = "block"
+    datePicker.addEventListener('click', endCalLabelFunction)
+    departurelEventListener = true
+    datePickerDisplayPosition = window.getComputedStyle(datePicker).display;
   } else {
     datePicker.style.display = "none"
+    if (arrivalEventListener == true) {
+      datePicker.removeEventListener('click',  startCalLabelFunction)
+      arrivalEventListener = false
+    } else {
+      datePicker.removeEventListener('click', endCalLabelFunction)
+      departurelEventListener = false
+    }
+    datePickerDisplayPosition = window.getComputedStyle(datePicker).display;
   }
-};
+}
 
 // Calendar Lines
 let calendarLine1 = document.querySelector('.dropdown-datepicker__datepicker-line-1');
@@ -27,6 +56,8 @@ let calendarLine3 = document.querySelector('.dropdown-datepicker__datepicker-lin
 let calendarLine4 = document.querySelector('.dropdown-datepicker__datepicker-line-4')
 let calendarLine5 = document.querySelector('.dropdown-datepicker__datepicker-line-5')
 let calendarLine6 = document.querySelector('.dropdown-datepicker__datepicker-line-6')
+
+let calendarBody = document.querySelector('.dropdown-datepicker__datepicker-body')
 
 // Making Lines in calendar
 let monthStartDateCounter = 1;
@@ -81,6 +112,7 @@ function previousMonthDays() {
   while(emptyTdCounter < firstMonthDay) {
     let emptyTd = document.createElement('td')
     emptyTd.innerHTML = daysInPreviousMonth
+    emptyTd.setAttribute('data-month', currentMonth)
     emptyTd.classList.add('dropdown-datepicker__datepicker-body__bright-td')
     calendarLine1.append(emptyTd)
     daysInPreviousMonth++
@@ -94,6 +126,7 @@ function previousMonthDays() {
 function oneCalendarLine(appendanleLine) {
   while (tableCounter <= 7 & monthStartDateCounter <= daysInCurrentMonth) {
     let fullTd = document.createElement('td')
+    fullTd.setAttribute('data-month', currentMonth + 1)
     fullTd.innerHTML= monthStartDateCounter;
     if (monthStartDateCounter == new Date().getDate() & currentYear == new Date().getFullYear() & currentMonth == new Date().getMonth()) {
       fullTd.classList.add('dropdown-datepicker__datepicker-body__current-day')
@@ -113,6 +146,7 @@ function nextMonthDays() {
     while (nextMonthDaysCounter < 7) {
       let fullTd = document.createElement('td')
       fullTd.innerHTML= monthStartDateCounter;
+      fullTd.setAttribute('data-month', currentMonth + 2)
       fullTd.classList.add('dropdown-datepicker__datepicker-body__bright-td')
       calendarLine6.append(fullTd)
       monthStartDateCounter++
@@ -123,6 +157,7 @@ function nextMonthDays() {
   while (nextMonthDaysCounter < 7) {
     let fullTd = document.createElement('td')
     fullTd.innerHTML= monthStartDateCounter;
+    fullTd.setAttribute('data-month', currentMonth + 2)
     fullTd.classList.add('dropdown-datepicker__datepicker-body__bright-td')
     calendarLine5.append(fullTd)
     monthStartDateCounter++
@@ -180,8 +215,36 @@ calendarButtonprevious.addEventListener('click', function() {
   console.log(firstMonthDay)
 })
 
+// Start Label EventListener
+function startCalLabelFunction(event) {
+  monthStartDateCounter = 1;
+  tableCounter = 1;
+  emptyTdCounter = 1;
+  getDateForCalendar(currentMonth)
+  CleaningOldData()
+  calendar()
+  let pickedDate = event.target.innerHTML
+  let pickedMonth = event.target.getAttribute('data-month')
+  if (pickedMonth == null) {
+      return
+  } else {
+    startCalLabel.innerText = pickedDate + '.' + pickedMonth + '.' + currentYear;
+  }
+}
 
-
-
-
-
+// End Label EventListener
+function endCalLabelFunction(event) {
+  monthStartDateCounter = 1;
+  tableCounter = 1;
+  emptyTdCounter = 1;
+  getDateForCalendar(currentMonth)
+  CleaningOldData()
+  calendar()
+  let pickedDate = event.target.innerHTML
+  let pickedMonth = event.target.getAttribute('data-month')
+  if (pickedMonth == null) {
+      return
+  } else {
+    endCalLabel.innerText = pickedDate + '.' + pickedMonth + '.' + currentYear;
+  }
+}
