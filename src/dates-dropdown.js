@@ -7,6 +7,15 @@ let startCalLabel = startDate.querySelector('.dropdown-date__text')
 let endCalLabel = endDate.querySelector('.dropdown-date__text')
 let arrivalEventListener = false;
 let departurelEventListener = false;
+let arrivalDatePicked = false;
+let departureDatePicked = false;
+let arrivalElement
+let departureElement
+let startFullPickedDate 
+let endFullPickedDate
+let intermediateMainFullDate
+let intermediatePreviousFullDate
+let intermediateNextFullDate
 
 // Close and Open Function
 startDate.onclick = function(){
@@ -29,7 +38,6 @@ startDate.onclick = function(){
     datePickerDisplayPosition = window.getComputedStyle(datePicker).display;
   }
 };
-
 endDate.onclick = function(){
   if ( datePickerDisplayPosition == "none" ) {
     datePicker.style.display = "block"
@@ -70,6 +78,7 @@ let currentMonth = new Date().getMonth();
 let currentMonthStr = new Date().toLocaleString('ru', { month: 'long' });
 let currentYear = new Date().getFullYear();
 let firstMonthDay = new Date(currentYear, currentMonth, 1).getDay()
+let actualFullDate = new Date()
 
 // Days in previous month
 let daysInPreviousMonth = new Date(currentYear, currentMonth, 0).getDate()
@@ -113,7 +122,59 @@ function previousMonthDays() {
     let emptyTd = document.createElement('td')
     emptyTd.innerHTML = daysInPreviousMonth
     emptyTd.setAttribute('data-month', currentMonth)
+    emptyTd.setAttribute('data-date', daysInPreviousMonth)
+    emptyTd.setAttribute('data-year', currentYear)
+    intermediatePreviousFullDate = new Date(currentYear, currentMonth - 1, daysInPreviousMonth)
     emptyTd.classList.add('dropdown-datepicker__datepicker-body__bright-td')
+    if (arrivalDatePicked == true & departureDatePicked == true) {
+      if (intermediatePreviousFullDate > startFullPickedDate & intermediatePreviousFullDate < endFullPickedDate) {
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+      }
+      if (emptyTd.getAttribute('data-date') == arrivalElement.getAttribute('data-date') & emptyTd.getAttribute('data-month') == arrivalElement.getAttribute('data-month') & emptyTd.getAttribute('data-year') == arrivalElement.getAttribute('data-year')) {
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-start')
+        emptyTd.innerHTML = ''
+        let startInnerDate = document.createElement('p')
+        startInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-start-inner')
+        startInnerDate.innerHTML= daysInPreviousMonth;
+        emptyTd.appendChild(startInnerDate)
+      }
+      if (emptyTd.getAttribute('data-date') == departureElement.getAttribute('data-date') & emptyTd.getAttribute('data-month') == departureElement.getAttribute('data-month') & emptyTd.getAttribute('data-year') == departureElement.getAttribute('data-year')) {
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-end')
+        emptyTd.innerHTML = ''
+        let endInnerDate = document.createElement('p')
+        endInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-end-inner')
+        endInnerDate.innerHTML= daysInPreviousMonth;
+        emptyTd.appendChild(endInnerDate)
+      }
+    } else if (arrivalDatePicked == true) {
+      if (intermediatePreviousFullDate > startFullPickedDate) {
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+      }
+      if (emptyTd.getAttribute('data-date') == arrivalElement.getAttribute('data-date') & emptyTd.getAttribute('data-month') == arrivalElement.getAttribute('data-month') & emptyTd.getAttribute('data-year') == arrivalElement.getAttribute('data-year')) {
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-start')
+        emptyTd.innerHTML = ''
+        let startInnerDate = document.createElement('p')
+        startInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-start-inner')
+        startInnerDate.innerHTML= daysInPreviousMonth;
+        emptyTd.appendChild(startInnerDate)
+      }
+    } else if (departureDatePicked == true) {
+      if (intermediatePreviousFullDate < endFullPickedDate & intermediatePreviousFullDate > new Date()) {
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+      }
+      if (emptyTd.getAttribute('data-date') == departureElement.getAttribute('data-date') & emptyTd.getAttribute('data-month') == departureElement.getAttribute('data-month') & emptyTd.getAttribute('data-year') == departureElement.getAttribute('data-year')) {
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        emptyTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-end')
+        emptyTd.innerHTML = ''
+        let endInnerDate = document.createElement('p')
+        endInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-end-inner')
+        endInnerDate.innerHTML= daysInPreviousMonth;
+        emptyTd.appendChild(endInnerDate)
+      }
+    }
     calendarLine1.append(emptyTd)
     daysInPreviousMonth++
     emptyTdCounter++
@@ -127,9 +188,61 @@ function oneCalendarLine(appendanleLine) {
   while (tableCounter <= 7 & monthStartDateCounter <= daysInCurrentMonth) {
     let fullTd = document.createElement('td')
     fullTd.setAttribute('data-month', currentMonth + 1)
+    fullTd.setAttribute('data-date', monthStartDateCounter)
+    fullTd.setAttribute('data-year', currentYear)
+    intermediateMainFullDate = new Date(currentYear, currentMonth, monthStartDateCounter)
     fullTd.innerHTML= monthStartDateCounter;
     if (monthStartDateCounter == new Date().getDate() & currentYear == new Date().getFullYear() & currentMonth == new Date().getMonth()) {
       fullTd.classList.add('dropdown-datepicker__datepicker-body__current-day')
+    }
+    if(arrivalDatePicked == true & departureDatePicked == true) {
+      if (intermediateMainFullDate > startFullPickedDate & intermediateMainFullDate < endFullPickedDate) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+      }
+      if (fullTd.getAttribute('data-date') == arrivalElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == arrivalElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == arrivalElement.getAttribute('data-year')) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-start')
+        fullTd.innerHTML = ''
+        let startInnerDate = document.createElement('p')
+        startInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-start-inner')
+        startInnerDate.innerHTML= monthStartDateCounter;
+        fullTd.appendChild(startInnerDate)
+      }
+      if (fullTd.getAttribute('data-date') == departureElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == departureElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == departureElement.getAttribute('data-year')) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-end')
+        fullTd.innerHTML = ''
+        let endInnerDate = document.createElement('p')
+        endInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-end-inner')
+        endInnerDate.innerHTML= monthStartDateCounter;
+        fullTd.appendChild(endInnerDate)
+      }
+    } else if (arrivalDatePicked == true) {
+      if (intermediateMainFullDate > startFullPickedDate) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+      }
+      if (fullTd.getAttribute('data-date') == arrivalElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == arrivalElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == arrivalElement.getAttribute('data-year')) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-start')
+        fullTd.innerHTML = ''
+        let startInnerDate = document.createElement('p')
+        startInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-start-inner')
+        startInnerDate.innerHTML= monthStartDateCounter;
+        fullTd.appendChild(startInnerDate)
+      }
+    } else if (departureDatePicked == true) {
+      if (intermediateMainFullDate < endFullPickedDate & intermediateMainFullDate > new Date()) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+      }
+      if (fullTd.getAttribute('data-date') == departureElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == departureElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == departureElement.getAttribute('data-year')) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-end')
+        fullTd.innerHTML = ''
+        let endInnerDate = document.createElement('p')
+        endInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-end-inner')
+        endInnerDate.innerHTML= monthStartDateCounter;
+        fullTd.appendChild(endInnerDate)
+      }
     }
     appendanleLine.append(fullTd)
     monthStartDateCounter++
@@ -147,7 +260,59 @@ function nextMonthDays() {
       let fullTd = document.createElement('td')
       fullTd.innerHTML= monthStartDateCounter;
       fullTd.setAttribute('data-month', currentMonth + 2)
+      fullTd.setAttribute('data-date', monthStartDateCounter)
+      fullTd.setAttribute('data-year', currentYear)
+      intermediateNextFullDate = new Date(currentYear, currentMonth + 1, monthStartDateCounter)
       fullTd.classList.add('dropdown-datepicker__datepicker-body__bright-td')
+      if (arrivalDatePicked == true & departureDatePicked == true) {
+        if (intermediateNextFullDate > startFullPickedDate & intermediateNextFullDate < endFullPickedDate) {
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+        }
+        if (fullTd.getAttribute('data-date') == arrivalElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == arrivalElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == arrivalElement.getAttribute('data-year')) {
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-start')
+          fullTd.innerHTML = ''
+          let startInnerDate = document.createElement('p')
+          startInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-start-inner')
+          startInnerDate.innerHTML= monthStartDateCounter;
+          fullTd.appendChild(startInnerDate)
+        }
+        if (fullTd.getAttribute('data-date') == departureElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == departureElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == departureElement.getAttribute('data-year')) {
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-end')
+          fullTd.innerHTML = ''
+          let endInnerDate = document.createElement('p')
+          endInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-end-inner')
+          endInnerDate.innerHTML= monthStartDateCounter;
+          fullTd.appendChild(endInnerDate)
+        }
+      } else if (arrivalDatePicked == true) {
+        if (intermediateNextFullDate > startFullPickedDate) {
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+        }
+        if (fullTd.getAttribute('data-date') == arrivalElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == arrivalElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == arrivalElement.getAttribute('data-year')) {
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-start')
+          fullTd.innerHTML = ''
+          let startInnerDate = document.createElement('p')
+          startInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-start-inner')
+          startInnerDate.innerHTML= monthStartDateCounter;
+          fullTd.appendChild(startInnerDate)
+        }
+      } else if (departureDatePicked == true) {
+        if (intermediateNextFullDate < endFullPickedDate & intermediateNextFullDate > new Date()) {
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+        }
+        if (fullTd.getAttribute('data-date') == departureElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == departureElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == departureElement.getAttribute('data-year')) {
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+          fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-end')
+          fullTd.innerHTML = ''
+          let endInnerDate = document.createElement('p')
+          endInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-end-inner')
+          endInnerDate.innerHTML= monthStartDateCounter;
+          fullTd.appendChild(endInnerDate)
+        }
+      }
       calendarLine6.append(fullTd)
       monthStartDateCounter++
       nextMonthDaysCounter++
@@ -158,7 +323,59 @@ function nextMonthDays() {
     let fullTd = document.createElement('td')
     fullTd.innerHTML= monthStartDateCounter;
     fullTd.setAttribute('data-month', currentMonth + 2)
+    fullTd.setAttribute('data-date', monthStartDateCounter)
+    fullTd.setAttribute('data-year', currentYear)
+    intermediateNextFullDate = new Date(currentYear, currentMonth + 1, monthStartDateCounter)
     fullTd.classList.add('dropdown-datepicker__datepicker-body__bright-td')
+    if (arrivalDatePicked == true & departureDatePicked == true) {
+      if (intermediateNextFullDate > startFullPickedDate & intermediateNextFullDate < endFullPickedDate) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+      }
+      if (fullTd.getAttribute('data-date') == arrivalElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == arrivalElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == arrivalElement.getAttribute('data-year')) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-start')
+        fullTd.innerHTML = ''
+        let startInnerDate = document.createElement('p')
+        startInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-start-inner')
+        startInnerDate.innerHTML= monthStartDateCounter;
+        fullTd.appendChild(startInnerDate)
+      }
+      if (fullTd.getAttribute('data-date') == departureElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == departureElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == departureElement.getAttribute('data-year')) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-end')
+        fullTd.innerHTML = ''
+        let endInnerDate = document.createElement('p')
+        endInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-end-inner')
+        endInnerDate.innerHTML= monthStartDateCounter;
+        fullTd.appendChild(endInnerDate)
+      }
+    }else if (arrivalDatePicked == true) {
+      if (fullTd.getAttribute('data-date') == arrivalElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == arrivalElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == arrivalElement.getAttribute('data-year')) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-start')
+        fullTd.innerHTML = ''
+        let startInnerDate = document.createElement('p')
+        startInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-start-inner')
+        startInnerDate.innerHTML= monthStartDateCounter;
+        fullTd.appendChild(startInnerDate)    
+      }
+      if (intermediateNextFullDate > startFullPickedDate) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+      }
+    } else if (departureDatePicked == true) {
+      if (intermediateNextFullDate < endFullPickedDate & intermediateNextFullDate > new Date()) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-dates')
+      }
+      if (fullTd.getAttribute('data-date') == departureElement.getAttribute('data-date') & fullTd.getAttribute('data-month') == departureElement.getAttribute('data-month') & fullTd.getAttribute('data-year') == departureElement.getAttribute('data-year')) {
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__picked-date')
+        fullTd.classList.add('dropdown-datepicker__datepicker-body__intermediate-end')
+        fullTd.innerHTML = ''
+        let endInnerDate = document.createElement('p')
+        endInnerDate.classList.add('dropdown-datepicker__datepicker-body__intermediate-end-inner')
+        endInnerDate.innerHTML= monthStartDateCounter;
+        fullTd.appendChild(endInnerDate)
+      }
+    }
     calendarLine5.append(fullTd)
     monthStartDateCounter++
     nextMonthDaysCounter++
@@ -212,39 +429,106 @@ calendarButtonprevious.addEventListener('click', function() {
   getDateForCalendar(currentMonth - 1)
   CleaningOldData()
   calendar()
-  console.log(firstMonthDay)
 })
 
 // Start Label EventListener
 function startCalLabelFunction(event) {
+  let pickedDate = event.target.innerHTML;
+  let pickedMonth = event.target.getAttribute('data-month');
+  if (pickedMonth == null) {
+      return
+  } else {
+    if (departureDatePicked == true) {
+      if (actualFullDate < new Date(currentYear, pickedMonth - 1, pickedDate) & new Date(currentYear, pickedMonth - 1, pickedDate) < endFullPickedDate) {
+        arrivalDatePicked = true;
+        arrivalElement = event.target
+        startFullPickedDate = new Date(currentYear, pickedMonth - 1, pickedDate)
+        if (pickedDate < 10 & pickedMonth < 10) {
+          startCalLabel.innerText = '0' + pickedDate + '.' + '0' + pickedMonth + '.' + currentYear;
+        } else if (pickedDate < 10) {
+          startCalLabel.innerText = '0' + pickedDate + '.' + pickedMonth + '.' + currentYear;
+        } else if (pickedMonth < 10 ) {
+          startCalLabel.innerText = pickedDate + '.' + '0' + pickedMonth + '.' + currentYear;
+        } else {
+          startCalLabel.innerText = pickedDate + '.' + pickedMonth + '.' + currentYear;
+        }
+      } else {
+        alert('Пожалуйста, выберете дату, как минимум, на день позже текущей и на день раньше даты выезда. Сегодня: ' + actualFullDate)
+      } 
+    } else {
+      if (actualFullDate < new Date(currentYear, pickedMonth - 1, pickedDate)) {
+        arrivalDatePicked = true;
+        arrivalElement = event.target
+        startFullPickedDate = new Date(currentYear, pickedMonth - 1, pickedDate)
+        if (pickedDate < 10 & pickedMonth < 10) {
+          startCalLabel.innerText = '0' + pickedDate + '.' + '0' + pickedMonth + '.' + currentYear;
+        } else if (pickedDate < 10) {
+          startCalLabel.innerText = '0' + pickedDate + '.' + pickedMonth + '.' + currentYear;
+        } else if (pickedMonth < 10 ) {
+          startCalLabel.innerText = pickedDate + '.' + '0' + pickedMonth + '.' + currentYear;
+        } else {
+          startCalLabel.innerText = pickedDate + '.' + pickedMonth + '.' + currentYear;
+        }
+      } else {
+        alert('Пожалуйста, выберете дату, как минимум, на день позже текущей. Сегодня: ' + actualFullDate)
+      }
+    } 
+  }
   monthStartDateCounter = 1;
   tableCounter = 1;
   emptyTdCounter = 1;
   getDateForCalendar(currentMonth)
   CleaningOldData()
   calendar()
-  let pickedDate = event.target.innerHTML
-  let pickedMonth = event.target.getAttribute('data-month')
-  if (pickedMonth == null) {
-      return
-  } else {
-    startCalLabel.innerText = pickedDate + '.' + pickedMonth + '.' + currentYear;
-  }
 }
 
 // End Label EventListener
 function endCalLabelFunction(event) {
+  let pickedDate = event.target.innerHTML
+  let pickedMonth = event.target.getAttribute('data-month')
+  if (pickedMonth == null) {
+    return
+  } else {
+    if (arrivalDatePicked == true) {
+      if (startFullPickedDate < new Date(currentYear, pickedMonth - 1, pickedDate)) {
+        departureDatePicked = true;
+        departureElement = event.target
+        endFullPickedDate = new Date(currentYear, pickedMonth - 1, pickedDate)
+        if (pickedDate < 10 & pickedMonth < 10) {
+          endCalLabel.innerText = '0' + pickedDate + '.' + '0' + pickedMonth + '.' + currentYear;
+        } else if (pickedDate < 10) {
+          endCalLabel.innerText = '0' + pickedDate + '.' + pickedMonth + '.' + currentYear;
+        } else if (pickedMonth < 10 ) {
+          endCalLabel.innerText = pickedDate + '.' + '0' + pickedMonth + '.' + currentYear;
+        } else {
+          endCalLabel.innerText = pickedDate + '.' + pickedMonth + '.' + currentYear;
+        } 
+      } else {
+        alert('Пожалуйста, выберете дату, как минимум, на день позже даты прибытия.')
+      }
+    } else {
+      if (new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1) < new Date(currentYear, pickedMonth - 1, pickedDate)) {
+        departureDatePicked = true;
+        departureElement = event.target
+        endFullPickedDate = new Date(currentYear, pickedMonth - 1, pickedDate)
+        if (pickedDate < 10 & pickedMonth < 10) {
+          endCalLabel.innerText = '0' + pickedDate + '.' + '0' + pickedMonth + '.' + currentYear;
+        } else if (pickedDate < 10) {
+          endCalLabel.innerText = '0' + pickedDate + '.' + pickedMonth + '.' + currentYear;
+        } else if (pickedMonth < 10 ) {
+          endCalLabel.innerText = pickedDate + '.' + '0' + pickedMonth + '.' + currentYear;
+        } else {
+          endCalLabel.innerText = pickedDate + '.' + pickedMonth + '.' + currentYear;
+        }
+      } else {
+        alert('Пожалуйста, выберете дату, как минимум, на два дня позже текущей. Сегодня: ' + actualFullDate)
+      }
+    }
+  } 
   monthStartDateCounter = 1;
   tableCounter = 1;
   emptyTdCounter = 1;
   getDateForCalendar(currentMonth)
   CleaningOldData()
   calendar()
-  let pickedDate = event.target.innerHTML
-  let pickedMonth = event.target.getAttribute('data-month')
-  if (pickedMonth == null) {
-      return
-  } else {
-    endCalLabel.innerText = pickedDate + '.' + pickedMonth + '.' + currentYear;
-  }
 }
