@@ -8,6 +8,7 @@
 .colors-types {
   padding: 145px 141px 145px 150px;
   width: 1440px;
+  margin: auto;
 };
 .logo {
   left: -110px; top: -110px;
@@ -16,6 +17,7 @@
 .form-elements {
   padding: 145px 141px 145px 150px;
   width: 1440px;
+  margin: auto;
 }
 .absolute-hight, .absolute-hight-2 {
   height: 100%;
@@ -67,6 +69,11 @@
 .cards {
   padding: 150px 140px 140px 140px;
   position: relative;
+  width: 1440px;
+  height: 1350px;
+  background: #F4F4F6;
+  margin: auto;
+  box-sizing: border-box;
 }
 .rooms-search-body {
   position: absolute;
@@ -89,18 +96,31 @@
 .room-888-form-body {
   position: absolute;
   left: 800px;
-  top: 369px;
+  top: 409px;
   margin: 40px 0 0 40px;
 }
 .room-840-form-body {
   position: absolute;
   left: 800px;
   margin: 40px 0 0 40px;
-  top: 369px;
+  top: 409px;
 }
 .datepicker-form-body {
   position: absolute;
   left: 980px;
+}
+// Footers and Headers
+.footers-headers {
+  background: #F4F4F6;
+  position: relative;
+  width: 1440px;
+  height: 1350px;
+  box-sizing: border-box;
+  margin: auto;
+  padding-top: 150px;
+}
+.header-block-body {
+  margin-bottom: 40px;
 }
 
 // SCSS Import
@@ -122,5 +142,6 @@
 @import "ui-blocks/cards/reservation-form/reservation-form.scss";
 @import "ui-blocks/cards/login-form/login-form.scss";
 @import "ui-blocks/cards/rooms-form/rooms-form.scss";
+@import "ui-blocks/headers-footers/headers/header.scss";
 
 // Test

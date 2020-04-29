@@ -1,0 +1,16 @@
+mixin header_nav(first, thecond, third, forth, fifth, sixth, border)
+  if border == true
+    td.header__login-form__nav-cell-first= first
+    td.header__login-form__nav-cell= thecond
+    td.header__login-form__nav-cell-tick= third
+    td.header__login-form__nav-cell= forth
+    td.header__login-form__nav-cell= fifth
+    td.header__login-form__nav-cell= sixth
+    td.header__login-form__nav-cell-border
+  else
+    td.header__login-form__nav-cell-first= first
+    td.header__login-form__nav-cell= thecond
+    td.header__login-form__nav-cell-tick= third
+    td.header__login-form__nav-cell= forth
+    td.header__login-form__nav-cell= fifth
+    td.header__login-form__nav-cell= sixth

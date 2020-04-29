@@ -1,0 +1,10 @@
+include header__nav.pug
+div.header__no-login-form
+  img(src="./img/color-logo.svg", alt="logo").header__no-login__color-logo
+  nav.header__no-login-form__nav-body
+    table
+      tr
+        +header_nav("Home", "About Us", "Services", "Careers", "News", "Documentation", true)
+    p.header__no-login__sign= 'Cosmin Negoita'
+      
+  

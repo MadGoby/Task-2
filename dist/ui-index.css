@@ -33,7 +33,8 @@
 
 .colors-types {
   padding: 145px 141px 145px 150px;
-  width: 1440px; }
+  width: 1440px;
+  margin: auto; }
 
 .logo {
   left: -110px;
@@ -42,7 +43,8 @@
 
 .form-elements {
   padding: 145px 141px 145px 150px;
-  width: 1440px; }
+  width: 1440px;
+  margin: auto; }
 
 .absolute-hight, .absolute-hight-2 {
   height: 100%;
@@ -89,7 +91,12 @@
 
 .cards {
   padding: 150px 140px 140px 140px;
-  position: relative; }
+  position: relative;
+  width: 1440px;
+  height: 1350px;
+  background: #F4F4F6;
+  margin: auto;
+  box-sizing: border-box; }
 
 .rooms-search-body {
   position: absolute; }
@@ -112,18 +119,30 @@
 .room-888-form-body {
   position: absolute;
   left: 800px;
-  top: 369px;
+  top: 409px;
   margin: 40px 0 0 40px; }
 
 .room-840-form-body {
   position: absolute;
   left: 800px;
   margin: 40px 0 0 40px;
-  top: 369px; }
+  top: 409px; }
 
 .datepicker-form-body {
   position: absolute;
   left: 980px; }
+
+.footers-headers {
+  background: #F4F4F6;
+  position: relative;
+  width: 1440px;
+  height: 1350px;
+  box-sizing: border-box;
+  margin: auto;
+  padding-top: 150px; }
+
+.header-block-body {
+  margin-bottom: 40px; }
 
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
@@ -918,7 +937,7 @@
 
 .dropdown-datepicker-body {
   width: 320px;
-  height: 409px;
+  height: auto;
   border: 1px solid rgba(31, 32, 65, 0.25);
   box-sizing: border-box;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
@@ -1033,6 +1052,16 @@
   background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
   border-radius: 50%;
   font-weight: bold; }
+
+.dropdown-datepicker-body .ui-guests-confirmed-button__clear {
+  display: inline-block; }
+
+.dropdown-datepicker-body .ui-guests-confirmed-button__confirmed {
+  padding-right: 20px;
+  padding-top: 20px; }
+
+.dropdown-datepicker-body .ui-guests-confirmed-button__clear {
+  padding-top: 20px; }
 
 .registration-form-body {
   height: 646px; }
@@ -1270,4 +1299,72 @@
 
 .rooms-form__room-img__nav-button_first {
   background: #FFFFFF; }
+
+.header-block-body {
+  height: 70px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  padding: 15px 140px;
+  box-sizing: border-box; }
+
+.header__login-form__color-logo, .header__no-login-form__color-logo {
+  display: inline-block; }
+
+.header__login-form__nav-body, .header__no-login-form__nav-body {
+  display: inline-block;
+  height: 40px;
+  float: right; }
+  .header__login-form__nav-body table, .header__no-login-form__nav-body table {
+    height: 40px;
+    position: relative;
+    top: -5px;
+    display: inline-block; }
+    .header__login-form__nav-body table tr, .header__no-login-form__nav-body table tr {
+      height: 40px; }
+      .header__login-form__nav-body table tr td, .header__no-login-form__nav-body table tr td {
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        color: rgba(31, 32, 65, 0.5);
+        padding-right: 30px; }
+      .header__login-form__nav-body table tr .header__login-form__nav-cell-first, .header__no-login-form__nav-body table tr .header__login-form__nav-cell-first {
+        font-weight: bold;
+        color: rgba(31, 32, 65, 0.75); }
+      .header__login-form__nav-body table tr .header__login-form__nav-cell-tick::after, .header__no-login-form__nav-body table tr .header__login-form__nav-cell-tick::after {
+        content: url(img/dropdown_tick.svg);
+        display: inline-block;
+        width: 21px;
+        text-align: center; }
+      .header__login-form__nav-body table tr .header__login-form__nav-cell-border, .header__no-login-form__nav-body table tr .header__login-form__nav-cell-border {
+        width: 0px;
+        border-left: 2px solid rgba(31, 32, 65, 0.1); }
+
+.header__login__login-body {
+  display: inline-block; }
+  .header__login__login-body input {
+    margin: 0;
+    position: relative;
+    top: -19px;
+    margin-left: 20px;
+    display: inline-block; }
+  .header__login__login-body .border-button-body {
+    display: inline-block;
+    position: relative;
+    top: -2px; }
+    .header__login__login-body .border-button-body button {
+      margin: 0; }
+
+.header__no-login__sign {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(31, 32, 65, 0.5);
+  margin: 0;
+  position: relative;
+  top: -19px; }
 

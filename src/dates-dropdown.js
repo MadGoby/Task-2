@@ -16,7 +16,7 @@ let endFullPickedDate
 let intermediateMainFullDate
 let intermediatePreviousFullDate
 let intermediateNextFullDate
-
+console.log(startDate)
 // Close and Open Function
 startDate.onclick = function(){
   if ( datePickerDisplayPosition == "none" ) {
