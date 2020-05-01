@@ -122,6 +122,9 @@
 .header-block-body {
   margin-bottom: 40px;
 }
+.footers__small-footer {
+  margin-top: 40px;
+}
 
 // SCSS Import
 @import "ui-blocks/text-styles/text-styles__types.scss";
@@ -143,5 +146,6 @@
 @import "ui-blocks/cards/login-form/login-form.scss";
 @import "ui-blocks/cards/rooms-form/rooms-form.scss";
 @import "ui-blocks/headers-footers/headers/header.scss";
+@import "ui-blocks/headers-footers/footers/footers.scss";
 
 // Test

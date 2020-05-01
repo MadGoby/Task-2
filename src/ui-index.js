@@ -9,6 +9,9 @@ require('./img/user.svg');
 require('./img/room-888.svg');
 require('./img/room-840.svg');
 require('./img/color-logo.svg');
+require('./img/twitter-logo.svg');
+require('./img/facebook-logo.svg');
+require('./img/instagram-logo.svg');
 
 
 import './ui-style.scss';
