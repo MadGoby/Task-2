@@ -5,7 +5,7 @@ mixin buttons-types(className, buttonName, border, borderid)
   else if border 
     div.border-button-body
       button(id= borderid, class= className)
-      label.type-h3.border-button-label(for= borderid)= buttonName
+        label.type-h3.border-button-label(for= borderid)= buttonName
   else
-    input.type-h3(type= 'button' class= className, value= buttonName)
+    input.type-h3(type= 'button', class= className, value= buttonName)
 

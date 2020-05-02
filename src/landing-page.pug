@@ -1,0 +1,13 @@
+doctype html
+html(lang=en)
+  head
+    title Landing Page
+  body
+    header.landin-page__header
+      include ui-blocks/headers-footers/headers/header__login-form-ru.pug
+    main.landin-page__main-body
+      div.rooms-search-body
+        include ui-blocks/cards/rooms-search/rooms-search-landing-page.pug
+      p.landin-page__main__sign.type-simple-text Лучшие номера для вашей работы, отдыха и просто вдохновения
+    footer.landing-page__footer
+      include /ui-blocks/headers-footers/footers/footers__big-footer-ru.pug

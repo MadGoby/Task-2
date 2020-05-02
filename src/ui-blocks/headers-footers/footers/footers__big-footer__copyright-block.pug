@@ -1,4 +1,11 @@
-div.footers__big-footer__copyright-block
-  div.type-simple-text= 'Copyright © 2018 Toxin UI Kit. All rights reserved.'
-  div.footers__big-footer__copyright-block__media-links
-    include footers__big-footer__media-block.pug
+mixin footers__big-footer__copyright-block(option)
+  if option == 'en'
+    div.footers__big-footer__copyright-block
+      div.type-simple-text= 'Copyright © 2018 Toxin UI Kit. All rights reserved.'
+      div.footers__big-footer__copyright-block__media-links
+        include footers__big-footer__media-block.pug
+  else if option == 'ru'
+    div.footers__big-footer__copyright-block
+        div.type-simple-text= 'Copyright © 2018 Toxin отель. Все права зачищены.'
+        div.footers__big-footer__copyright-block__media-links
+          include footers__big-footer__media-block.pug

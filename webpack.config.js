@@ -9,7 +9,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
     entry: {
     'ui-index': './ui-index.js',
-    'dates-dropdown': './dates-dropdown',
+    'landing-page': './landing-page.js',
     },
   output: {
     filename: '[name].js',
@@ -31,12 +31,13 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: './ui-index.pug',
-      filename: 'ui-index.html'
+      filename: 'ui-index.html',
+      excludeChunks: ['landing-page'], 
     }),
     new HTMLWebpackPlugin({
-      template: './dates-dropdown.pug',
-      filename: 'dates-dropdown.html',
-      excludeChunks: ['ui-index']
+      template: './landing-page.pug',
+      filename: 'landing-page.html',
+      excludeChunks: ['ui-index'],
     }),
     // new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

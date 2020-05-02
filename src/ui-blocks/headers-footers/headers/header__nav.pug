@@ -1,16 +1,22 @@
 mixin header_nav(first, thecond, third, forth, fifth, sixth, border)
   if border == true
-    td.header__login-form__nav-cell-first= first
-    td.header__login-form__nav-cell= thecond
-    td.header__login-form__nav-cell-tick= third
-    td.header__login-form__nav-cell= forth
-    td.header__login-form__nav-cell= fifth
-    td.header__login-form__nav-cell= sixth
-    td.header__login-form__nav-cell-border
+    td.header__login-form__nav-cell-1= first
+    td.header__login-form__nav-cell-2= thecond
+    td.header__login-form__nav-cell-3= third
+    td.header__login-form__nav-cell-4= forth
+    td.header__login-form__nav-cell-5= fifth
+    td.header__login-form__nav-cell-6= sixth
+    td.header__login-form__nav-cell-7.header__login-form__nav-cell-border
+  else if sixth == false
+    td.header__login-form__nav-cell-1= first
+    td.header__login-form__nav-cell-2= thecond
+    td.header__login-form__nav-cell-3= third
+    td.header__login-form__nav-cell-4= forth
+    td.header__login-form__nav-cell-5= fifth
   else
-    td.header__login-form__nav-cell-first= first
-    td.header__login-form__nav-cell= thecond
-    td.header__login-form__nav-cell-tick= third
-    td.header__login-form__nav-cell= forth
-    td.header__login-form__nav-cell= fifth
-    td.header__login-form__nav-cell= sixth
+    td.header__login-form__nav-cell-1= first
+    td.header__login-form__nav-cell-2= thecond
+    td.header__login-form__nav-cell-3= third
+    td.header__login-form__nav-cell-4= forth
+    td.header__login-form__nav-cell-5= fifth
+    td.header__login-form__nav-cell-6= sixth

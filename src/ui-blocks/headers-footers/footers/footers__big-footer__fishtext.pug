@@ -1,3 +1,9 @@
-div.footers__big-footer__fishtext
-  img(src="./img/color-logo.svg", alt="logo")
-  div.footers__big-footer__fishtext__text.type-simple-text= 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.'
+mixin footers__big-footer__fishtext(option)
+  if option == 'en'
+    div.footers__big-footer__fishtext
+      img(src="./img/color-logo.svg", alt="logo")
+      div.footers__big-footer__fishtext__text.type-simple-text= 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.'
+  else if option == 'ru'
+    div.footers__big-footer__fishtext
+        img(src="./img/color-logo.svg", alt="logo")
+        div.footers__big-footer__fishtext__text.type-simple-text= 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'
