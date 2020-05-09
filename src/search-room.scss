@@ -1,0 +1,185 @@
+body {
+  background: #E5E5E5;
+  margin: 0px;
+}
+// ---------------------------------------------------------
+
+// Imports -------------------------------------------------
+@import "variables.scss";
+@import "fonts/fonts.scss";
+@import "ui-blocks/headers-footers/headers/header.scss";
+@import "ui-blocks/form-elements/fields-toggles-buttons/fields/fields.scss";
+@import "ui-blocks/text-styles/text-styles__types.scss";
+@import "ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms.scss";
+@import "ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests.scss";
+@import "ui-blocks/palette/palette.scss";
+@import "ui-blocks/text-styles/text-styles.scss";
+@import 'ui-blocks/form-elements/fields-toggles-buttons/buttons/buttons.scss';
+@import "ui-blocks/headers-footers/footers/footers.scss";
+@import "ui-blocks/cards/rooms-search/rooms-search.scss";
+@import "ui-blocks/form-elements/fields-toggles-buttons/toggles/toggles.scss";
+@import "ui-blocks/form-elements/checkboxes-buletes/expandable-checkbox-list/expandable-checkbox-list.scss";
+@import "ui-blocks/form-elements/checkboxes-buletes/rich-checkbox-button/rich-checkbox-button.scss";
+@import "ui-blocks/cards/rooms-form/rooms-form.scss";
+@import "ui-blocks/cards/reservation-form/reservation-form.scss";
+// ----------------------------------------------------------
+
+// Header ---------------------------------------------------
+.search-room__header {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  padding: 15px 140px;
+  width: 1440px;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+  box-sizing: border-box;
+}
+.border-button-body, .border-button {
+  width: 87px;
+  height: 34px;
+  top: -3px;
+}
+.border-button-label {
+  box-sizing: border-box;
+  width: 83px;
+  height: 30px;
+  line-height: 30px;
+}
+.simple-button {
+  height: 34px;
+}
+.header__login__login-body input {
+  top: -18px;
+}
+.landin-page__header {
+  height: 70px;
+  box-sizing: border-box;
+}
+// ------------------------------------------------
+
+// Main -------------------------------------------
+.search-room__main {
+  padding: 30px 140px;
+  margin: auto;
+  width: 1440px;
+  background: white;
+  z-index: 1;
+  position: relative;
+  box-sizing: border-box;
+}
+.search-room__left-filter-list {
+  width: 266px;
+  box-sizing: border-box;
+  display: inline-block;
+  .margin40 {
+    margin-bottom: 5px;
+  }
+  .margin20 {
+    margin: 20px 0 5px
+  }
+  .dropdown-guests-field-body {
+    width: 266px;
+  }
+  #price-range-form {
+    margin-top: 30px;
+  }
+  h3 {
+    width: 100%;
+  }
+}
+.rich-checkbox-button__button__text {
+  line-height: 14px;
+}
+.opportunities-text {
+  margin-bottom: 5px;
+  width: 203px;
+}
+.search-room__dropdown-rooms {
+  margin-bottom: 15px;
+}
+.search-room__rooms-cards {
+  position: relative;
+  left: 60px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0px;
+  width: 852px;
+}
+.search-room__rooms-card-body {
+  width: 270px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  height: 257px;
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin: 0 12px 20px 0;
+  box-sizing: border-box;
+  .rooms-form__room-img {
+    img {
+      width: 270px;
+    }
+  }
+}
+.margin20 {
+  margin-bottom: 20px;
+}
+.opportunities-form, .dropdown-guests-body {
+  width: 266px;
+}
+.search-room__rooms-cards__nav {
+  width: 240px;
+  text-align: center;
+  margin-left: 295px;
+}
+// ----------------------------------------------------
+
+// Dropdowns ------------------------------------------
+.rooms-expanded-strokes_body {
+  display: none;
+}
+#ui-dropdown-rooms-button_border {
+  border-color: rgba(31, 32, 65, 0.25);
+  border-bottom: 1px solid rgba(31, 32, 65, 0.25);
+}
+#expandable-checkbox-list_title-button {
+  transform: rotate(0deg);
+}
+#ui-expandable-checkbox-list_list-body {
+  display: none;
+}
+// ----------------------------------------------------
+
+// Footer ---------------------------------------------
+.search-room__footer {
+  margin: auto;
+  width: 1440px;
+  border-top: 1px solid #E5E5E5;
+  .footers__big-footer__copyright-block {
+    width: 1440px;
+    box-sizing: border-box;
+  }
+}
+.footers__big-footer__links-table {
+  tr {
+    th {
+      width: 200px;
+      padding: 0 0 20px 0;
+    }
+    td {
+      width: 200px;
+      padding: 0 0 20px 0;
+    }
+  }
+}
+.footers-big-footer-subscribe__text {
+  width: 260px;
+}
+.text-field-subscription-body {
+  width: 260px;
+}
+.footers__big-footer__copyright-block {
+  margin-top: 0px;
+  border-top: 1px solid #E5E5E5;
+}

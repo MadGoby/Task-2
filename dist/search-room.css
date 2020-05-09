@@ -1,10 +1,7 @@
 @charset "UTF-8";
-.landin-page__header {
-  background: #FFFFFF;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  padding: 15px 140px;
-  width: 1440px;
-  margin: auto; }
+body {
+  background: #E5E5E5;
+  margin: 0px; }
 
 @font-face {
   font-family: 'Quicksand';
@@ -695,7 +692,7 @@
 .footers__big-footer__media-block__middle {
   margin: 0 20px 0; }
 
-.rooms-search-body {
+.rooms-search-body, .reservation-form-body {
   width: 380px;
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -846,6 +843,370 @@
 .dropdown-datepicker-body .ui-guests-confirmed-button__clear {
   padding-top: 20px; }
 
+.opportunities-checkbox-imitation, .radio-button-imitation, .special-toggle-imitation, .like-button-imitation {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  z-index: 1;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 10px 3px 0; }
+
+.gender-radio-button:checked + .radio-button-imitation::before, .special-toggle-imitation::before {
+  content: "";
+  display: block;
+  height: 12px;
+  width: 12px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  position: absolute;
+  top: 3px;
+  left: 3px; }
+
+.opportunities-form {
+  height: 130px;
+  width: 400px;
+  margin-bottom: 40px; }
+
+.gender-form {
+  width: 250px;
+  height: 55px;
+  margin-bottom: 40px; }
+
+.margin16 {
+  margin-bottom: 16px; }
+
+.opportunities-label {
+  display: block;
+  line-height: 18px;
+  margin-bottom: 10px; }
+
+.opportunities-checkbox {
+  display: none; }
+  .opportunities-checkbox:checked + .opportunities-checkbox-imitation {
+    border-color: #BC9CFF; }
+  .opportunities-checkbox:checked + .opportunities-checkbox-imitation::before {
+    content: url(img/checkbox_tick.svg);
+    display: block;
+    height: 100%;
+    line-height: 18px; }
+
+.opportunities-checkbox-imitation {
+  border-radius: 4px;
+  vertical-align: top;
+  margin: 0 10px 0 0;
+  box-sizing: border-box; }
+
+.opportunities-text {
+  margin: 0;
+  display: inline-block;
+  color: rgba(31, 32, 65, 0.5);
+  width: 192px;
+  line-height: 20px;
+  vertical-align: top; }
+
+.gender-label {
+  color: rgba(31, 32, 65, 0.5); }
+
+.gender-radio-button {
+  display: none; }
+  .gender-radio-button:checked + .radio-button-imitation {
+    border-color: #BC9CFF; }
+  .gender-radio-button:checked ~ .gender-text {
+    color: rgba(31, 32, 65, 0.75); }
+
+.radio-button-imitation {
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative; }
+
+.gender-text {
+  display: inline-block;
+  margin: 0 20px 0 0; }
+
+.switch {
+  margin-bottom: 14px; }
+
+.special-toggle {
+  display: none; }
+  .special-toggle:checked + .special-toggle-imitation {
+    border-color: #BC9CFF; }
+  .special-toggle:checked + .special-toggle-imitation::before {
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    left: 23px; }
+
+.special-toggle-imitation {
+  width: 40px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 0; }
+  .special-toggle-imitation::before {
+    background: rgba(31, 32, 65, 0.25); }
+
+.like-button-form {
+  height: 51px;
+  margin-top: 40px; }
+
+.like-count {
+  display: inline-block;
+  margin: 0;
+  font-size: 10px;
+  color: rgba(31, 32, 65, 0.25);
+  height: 18px;
+  line-height: 18px;
+  text-align: left;
+  position: absolute;
+  left: 22px;
+  -webkit-user-select: none; }
+
+.like-button-input {
+  display: none; }
+  .like-button-input:checked + .like-button-imitation {
+    border-color: #BC9CFF; }
+  .like-button-input:checked + .like-button-imitation::before {
+    content: url(img/heart.svg); }
+  .like-button-input:checked + .like-button-imitation p {
+    color: #BC9CFF; }
+
+.like-button-imitation {
+  border-radius: 10px;
+  margin: 0 10px 0 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 40px;
+  line-height: 12px;
+  vertical-align: middle;
+  position: relative; }
+  .like-button-imitation::before {
+    content: url(img/heart_border.svg);
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    left: 0; }
+
+.rate-button-form {
+  margin-top: 40px; }
+
+.rate-button-body {
+  display: inline-block;
+  margin-right: 20px; }
+  .rate-button-body img {
+    padding: 2px; }
+
+.expandable-checkbox-list_title-body {
+  width: 266px;
+  position: relative;
+  height: 44px;
+  line-height: 44px; }
+
+.expandable-checkbox-list_title {
+  display: inline-block; }
+
+.opportunities-text {
+  width: auto; }
+
+.expandable-checkbox-list_list-body {
+  width: 266px; }
+
+#expandable-checkbox-list_title-button {
+  transform: rotate(180deg); }
+
+.type-simple-text-bold {
+  color: rgba(31, 32, 65, 0.75); }
+
+.rich-checkbox-button__button__title-text {
+  display: inline-block;
+  width: 236px; }
+
+.rich-checkbox-button__button__text {
+  width: 230px;
+  font-size: 12px; }
+
+.room-888-form-body, .room-840-form-body {
+  width: 270px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  height: 257px;
+  position: relative;
+  z-index: 2; }
+
+.rooms-form__room-number {
+  position: relative;
+  width: 234px;
+  height: 24px;
+  margin-left: 15px;
+  margin-top: 10px; }
+
+.rooms-form__room-img img {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px; }
+
+.rooms-form__border-line {
+  width: 230px;
+  margin: 10px 0 8px 20px;
+  border: 1px solid rgba(31, 32, 65, 0.1); }
+
+.rooms-form__rate-buttons {
+  margin: 0 20px 0;
+  position: relative; }
+
+.rate-button-body {
+  height: 24px; }
+
+.rooms-form__reviews-counter {
+  color: rgba(31, 32, 65, 0.5);
+  height: 24px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0; }
+  .rooms-form__reviews-counter::after {
+    content: " Отзывов";
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px; }
+
+.rooms-form__room-img__nav {
+  position: absolute;
+  right: 15px;
+  top: 120px; }
+
+.rooms-form__room-img__nav-button, .rooms-form__room-img__nav-button_first {
+  margin-left: 4px;
+  background: none;
+  border: 1px solid #FFFFFF;
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: inline-block; }
+
+.rooms-form__room-img__nav-button_first {
+  background: #FFFFFF; }
+
+.reservation-form-body {
+  height: 511px; }
+
+.reservation-form__room-number {
+  position: relative;
+  width: 320px; }
+
+.room-number__number {
+  position: absolute;
+  left: 0;
+  top: 0; }
+  .room-number__number::before {
+    content: "№ ";
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 5px; }
+
+.room-number__luxury::after {
+  content: "люкс";
+  font-family: 'Montserrat', sans-serif;
+  color: #BC9CFF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  margin-left: 5px; }
+
+.room-number__day-price {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: rgba(31, 32, 65, 0.5); }
+  .room-number__day-price::after {
+    content: " в сутки";
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px; }
+
+.reservation-form__order-information {
+  margin-top: 10px; }
+
+.reservation-form__order-information-line {
+  position: relative;
+  width: 320px; }
+  .reservation-form__order-information-line p {
+    width: 214px;
+    display: inline-block;
+    margin: 0px;
+    margin-top: 10px; }
+  .reservation-form__order-information-line h3 {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-transform: none;
+    color: rgba(31, 32, 65, 0.25);
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    position: absolute;
+    top: 11px;
+    margin-left: 5px; }
+
+.reservation-form__order-information__days-price::after {
+  content: "39 960₽";
+  position: absolute;
+  right: 0;
+  top: 10px; }
+
+.reservation-form__order-information__services::after {
+  content: "0₽";
+  position: absolute;
+  right: 0;
+  top: 10px; }
+
+.reservation-form__order-information__additional-services::after {
+  content: "300₽";
+  position: absolute;
+  right: 0;
+  top: 10px; }
+
+.reservation-form__total-price {
+  width: 320px;
+  margin-top: 30px; }
+
+.reservation-form__total-price__title,
+.reservation-form__total-price__dot,
+.reservation-form__total-price__price {
+  display: inline-block; }
+
+.reservation-form__total-price__dot {
+  width: 182px;
+  height: 1px;
+  border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
+  margin: 0 8px 0; }
+
+.reservation-form__accept-button {
+  margin-top: 20px; }
+
+.search-room__header {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  padding: 15px 140px;
+  width: 1440px;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+  box-sizing: border-box; }
+
 .border-button-body, .border-button {
   width: 87px;
   height: 34px;
@@ -867,58 +1228,92 @@
   height: 70px;
   box-sizing: border-box; }
 
-body {
-  background: #E5E5E5;
-  margin: 0px; }
-
-.landin-page__main-body {
-  width: 1440px;
+.search-room__main {
+  padding: 30px 140px;
   margin: auto;
-  height: 900px;
-  background: url(img/landing-page-back.svg);
-  background-repeat: no-repeat;
-  position: relative; }
-
-.landin-page__main__sign {
-  position: absolute;
-  bottom: 18px;
-  right: 125px;
-  width: 297px;
-  text-align: right; }
-
-.landing-page__footer {
-  position: relative;
   width: 1440px;
-  margin: auto; }
+  background: white;
+  z-index: 1;
+  position: relative;
+  box-sizing: border-box; }
+
+.search-room__left-filter-list {
+  width: 266px;
+  box-sizing: border-box;
+  display: inline-block; }
+  .search-room__left-filter-list .margin40 {
+    margin-bottom: 5px; }
+  .search-room__left-filter-list .margin20 {
+    margin: 20px 0 5px; }
+  .search-room__left-filter-list .dropdown-guests-field-body {
+    width: 266px; }
+  .search-room__left-filter-list #price-range-form {
+    margin-top: 30px; }
+  .search-room__left-filter-list h3 {
+    width: 100%; }
+
+.rich-checkbox-button__button__text {
+  line-height: 14px; }
+
+.opportunities-text {
+  margin-bottom: 5px;
+  width: 203px; }
+
+.search-room__dropdown-rooms {
+  margin-bottom: 15px; }
+
+.search-room__rooms-cards {
+  position: relative;
+  left: 60px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0px;
+  width: 852px; }
+
+.search-room__rooms-card-body {
+  width: 270px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  height: 257px;
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin: 0 12px 20px 0;
+  box-sizing: border-box; }
+  .search-room__rooms-card-body .rooms-form__room-img img {
+    width: 270px; }
 
 .margin20 {
-  margin: 20px 0 5px 0; }
+  margin-bottom: 20px; }
 
-.rooms-search-body {
-  background-color: white;
-  position: absolute;
-  top: 70px;
-  left: 140px; }
+.opportunities-form, .dropdown-guests-body {
+  width: 266px; }
 
-.ui-guests-confirmed-button__confirmed {
-  position: absolute;
-  right: 0;
-  margin: 0; }
+.search-room__rooms-cards__nav {
+  width: 240px;
+  text-align: center;
+  margin-left: 295px; }
 
 .rooms-expanded-strokes_body {
   display: none; }
 
-.dropdown-guests-body-extended {
-  margin: 0; }
+#ui-dropdown-rooms-button_border {
+  border-color: rgba(31, 32, 65, 0.25);
+  border-bottom: 1px solid rgba(31, 32, 65, 0.25); }
 
-#dropdown-guests_input, #dropdown-guests_input_2 {
-  border: 1px solid rgba(31, 32, 65, 0.25); }
+#expandable-checkbox-list_title-button {
+  transform: rotate(0deg); }
 
-#uiGuestsExpendedBody {
-  background: white;
-  position: absolute;
-  top: 261px;
-  z-index: 2; }
+#ui-expandable-checkbox-list_list-body {
+  display: none; }
+
+.search-room__footer {
+  margin: auto;
+  width: 1440px;
+  border-top: 1px solid #E5E5E5; }
+  .search-room__footer .footers__big-footer__copyright-block {
+    width: 1440px;
+    box-sizing: border-box; }
 
 .footers__big-footer__links-table tr th {
   width: 200px;
@@ -933,4 +1328,8 @@ body {
 
 .text-field-subscription-body {
   width: 260px; }
+
+.footers__big-footer__copyright-block {
+  margin-top: 0px;
+  border-top: 1px solid #E5E5E5; }
 

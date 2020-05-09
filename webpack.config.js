@@ -10,6 +10,7 @@ module.exports = {
     entry: {
     'ui-index': './ui-index.js',
     'landing-page': './landing-page.js',
+    'search-room': './search-room.js',
     },
   output: {
     filename: '[name].js',
@@ -32,12 +33,17 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: './ui-index.pug',
       filename: 'ui-index.html',
-      excludeChunks: ['landing-page'], 
+      excludeChunks: ['search-room', 'landing-page'], 
     }),
     new HTMLWebpackPlugin({
       template: './landing-page.pug',
       filename: 'landing-page.html',
-      excludeChunks: ['ui-index'],
+      excludeChunks: ['search-room', 'ui-index'],
+    }),
+    new HTMLWebpackPlugin({
+      template: './search-room.pug',
+      filename: 'search-room.html',
+      excludeChunks: ['ui-index', 'landing-page'], 
     }),
     // new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

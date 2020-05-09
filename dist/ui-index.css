@@ -373,6 +373,9 @@
   padding: 0;
   outline: none; }
 
+.dropdown-date-filter-block {
+  position: relative; }
+
 .opportunities-checkbox-imitation, .radio-button-imitation, .special-toggle-imitation, .like-button-imitation {
   content: "";
   display: inline-block;
@@ -692,6 +695,9 @@
   background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
   border-radius: 50%;
   z-index: 1; }
+
+.range-slider-prompt {
+  font-size: 12px; }
 
 .dropdown-rooms-field-body {
   position: relative;
@@ -1340,11 +1346,6 @@
       .header__login-form__nav-body table tr .header__login-form__nav-cell-first, .header__no-login-form__nav-body table tr .header__login-form__nav-cell-first {
         font-weight: bold;
         color: rgba(31, 32, 65, 0.75); }
-      .header__login-form__nav-body table tr .header__login-form__nav-cell-3::after, .header__no-login-form__nav-body table tr .header__login-form__nav-cell-3::after {
-        content: url(img/dropdown_tick.svg);
-        display: inline-block;
-        width: 21px;
-        text-align: center; }
       .header__login-form__nav-body table tr .header__login-form__nav-cell-border, .header__no-login-form__nav-body table tr .header__login-form__nav-cell-border {
         width: 0px;
         border-left: 2px solid rgba(31, 32, 65, 0.1); }
@@ -1375,6 +1376,12 @@
   margin: 0;
   position: relative;
   top: -19px; }
+
+.header__login-form__nav-cell-tick::after {
+  content: url(img/dropdown_tick.svg);
+  display: inline-block;
+  width: 21px;
+  text-align: center; }
 
 .footers__big-footer {
   width: 1440px;

@@ -1,0 +1,36 @@
+include fields/dropdown-date-filter.pug
+include fields/dropdown-guests.pug
+include buttons/range-slider.pug
+include toggles/checkbox-button.pug
+include ../checkboxes-buletes/rich-checkbox-button/rich-checkbox-button__title.pug
+include ../checkboxes-buletes/rich-checkbox-button/rich-checkbox-button__button.pug
+include ../dropdown/dropdown-rooms/dropdown-rooms-input.pug
+include ../checkboxes-buletes/expandable-checkbox-list/expandable-checkbox-list_title.pug
+include ../checkboxes-buletes/expandable-checkbox-list/expandable-checkbox-list_list.pug
+
+
++dropdown-date-filter("19 авг - 23 авг","даты пребывания в отеле")
++dropdown-guests-closed("3 гостя, 1 младенец", "Гости")
++range-slider("Диапозон Цены", 'ru')
+form.opportunities-form(action="#")
+  h3.type-h3.margin16= 'Доступность'
+  +opportunities-checkbox-list("Можно курить", "Checkbox Buttons")
+  +opportunities-checkbox-list("Можно с питомцами")
+  +opportunities-checkbox-list("Можно пригласить гостей (до 10 человек)")
+div.rich-checkbox-buttons
+  +rich-checkbox-button__title("Доступность")
+  +rich-checkbox-button__button("Широкий коридор", `Ширина коридоров в номере не менее 91 см.`)
+  +rich-checkbox-button__button("Помощник для инвалидов", "На 1 этаже вас встретит специалист  и проводит до номера.")
+div.search-room__dropdown-rooms
+  +dropdown-rooms-closed("ui-dropdown-rooms-button", "Удобства номера")
+  include ../dropdown/dropdown-rooms/dropdown-rooms__expanded
+div.search-room__checkbox-list
+  +expandable-checkbox-list_title("Дополнительные удобства", "expandable-checkbox-list_title-button")
+  form.expandable-checkbox-list_list-body#ui-expandable-checkbox-list_list-body
+    +opportunities-checkbox-list("Завтрак", "1")
+    +opportunities-checkbox-list("Письменный стол", "10")
+    +opportunities-checkbox-list("Стул для кормления", "10")
+    +opportunities-checkbox-list("Кроватка", "10")
+    +opportunities-checkbox-list("Телевизор", "1")
+    +opportunities-checkbox-list("Шампунь", "1")
+

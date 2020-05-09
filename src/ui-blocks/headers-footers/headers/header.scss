@@ -32,14 +32,6 @@
         font-weight: bold;
         color: $dark75;
       }
-      .header__login-form__nav-cell-3{
-        &::after {
-          content: url(img/dropdown_tick.svg);
-          display: inline-block;
-          width: 21px;
-          text-align: center;
-        }
-      }
       .header__login-form__nav-cell-border {
         width: 0px;
         border-left: 2px solid rgba(31, 32, 65, 0.1);
@@ -76,4 +68,12 @@
   margin: 0;
   position: relative;
   top: -19px;
+}
+.header__login-form__nav-cell-tick {
+  &::after {
+    content: url(img/dropdown_tick.svg);
+    display: inline-block;
+    width: 21px;
+    text-align: center;
+  }
 }

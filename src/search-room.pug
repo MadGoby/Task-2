@@ -1,0 +1,15 @@
+doctype html
+html(lang=en)
+  head
+    title Search Room
+  body
+    header.search-room__header
+      include ui-blocks/headers-footers/headers/header__login-form-ru.pug
+    main.search-room__main
+      div.search-room__left-filter-list
+        include ui-blocks/form-elements/fields-toggles-buttons/search-room__left-filter.pug
+      div.search-room__rooms-cards
+        h1.type-h1.margin20= 'Номера, которые мы для вас подобрали '
+        include ui-blocks/cards/search-room__rooms-cards.pug
+    footer.search-room__footer
+      include /ui-blocks/headers-footers/footers/footers__big-footer-ru.pug

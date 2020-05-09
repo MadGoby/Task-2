@@ -5,9 +5,6 @@
   width: 1440px;
   margin: auto;
 }
-.landin-page__header .header__login-form .header__login-form__nav-body table tr .header__login-form__nav-cell-3::after, .header__no-login-form__nav-body table tr .header__login-form__nav-cell-3::after {
-  content: '';
-}
 
 // Imports ---------------------------------------------------------
 @import "variables.scss";
