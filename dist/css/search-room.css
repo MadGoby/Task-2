@@ -539,7 +539,6 @@ body {
   height: 40px;
   border-radius: 20px;
   position: absolute;
-  padding: 0 18px 0;
   z-index: 2;
   left: 2px;
   top: 2px;
@@ -698,7 +697,8 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  padding: 40px 0px 30px 30px; }
+  padding: 40px 0px 30px 30px;
+  background-color: white; }
 
 .rooms-search-body {
   height: 374px; }
@@ -1093,7 +1093,8 @@ body {
   background: #FFFFFF; }
 
 .reservation-form-body {
-  height: 511px; }
+  height: 511px;
+  background-color: white; }
 
 .reservation-form__room-number {
   position: relative;
@@ -1102,15 +1103,16 @@ body {
 .room-number__number {
   position: absolute;
   left: 0;
-  top: 0; }
+  top: 0;
+  font-size: 24px; }
   .room-number__number::before {
     content: "№ ";
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 15px;
-    margin-left: 5px; }
+    margin-left: 0px; }
 
 .room-number__luxury::after {
   content: "люкс";
@@ -1118,14 +1120,14 @@ body {
   color: #BC9CFF;
   font-style: normal;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 15px;
   margin-left: 5px; }
 
 .room-number__day-price {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 5px;
   color: rgba(31, 32, 65, 0.5); }
   .room-number__day-price::after {
     content: " в сутки";

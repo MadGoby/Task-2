@@ -12,6 +12,8 @@ module.exports = {
     'landing-page': './landing-page.js',
     'search-room': './search-room.js',
     'room-details': './room-details.js',
+    'registration': './registration.js',
+    'sign-in': './sign-in.js',
     },
   output: {
     filename: 'js/[name].js',
@@ -34,22 +36,32 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: './ui-index.pug',
       filename: 'ui-index.html',
-      excludeChunks: ['search-room', 'landing-page', 'room-details'], 
+      excludeChunks: ['search-room', 'landing-page', 'room-details', 'registration', 'sign-in'], 
     }),
     new HTMLWebpackPlugin({
       template: './landing-page.pug',
       filename: 'landing-page.html',
-      excludeChunks: ['search-room', 'ui-index', 'room-details'],
+      excludeChunks: ['search-room', 'ui-index', 'room-details', 'registration', 'sign-in'],
     }),
     new HTMLWebpackPlugin({
       template: './search-room.pug',
       filename: 'search-room.html',
-      excludeChunks: ['ui-index', 'landing-page', 'room-details'], 
+      excludeChunks: ['ui-index', 'landing-page', 'room-details', 'registration', 'sign-in'], 
     }),
     new HTMLWebpackPlugin({
       template: './room-details.pug',
       filename: 'room-details.html',
-      excludeChunks: ['ui-index', 'landing-page', 'search-room'], 
+      excludeChunks: ['ui-index', 'landing-page', 'search-room', 'registration', 'sign-in'],
+    }),
+    new HTMLWebpackPlugin({
+      template: './registration.pug',
+      filename: 'registration.html',
+      excludeChunks: ['ui-index', 'landing-page', 'search-room', 'room-details', 'sign-in'],
+    }),
+    new HTMLWebpackPlugin({
+      template: './sign-in.pug',
+      filename: 'sign-in.html',
+      excludeChunks: ['ui-index', 'landing-page', 'search-room', 'room-details', 'registration'],
     }),
     // new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

@@ -96,6 +96,13 @@ body {
   top: 261px;
   z-index: 2;
 }
+.rooms-search__dropdown-date {
+  .dropdown-date-body {
+    h3 {
+      margin-bottom: 6px;
+    }
+  }
+}
 // Footer-------------------------------------
 .footers__big-footer__links-table {
   tr {

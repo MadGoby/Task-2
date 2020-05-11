@@ -5,14 +5,14 @@ let GuestsDisplayPosition2 = window.getComputedStyle(uiExpendedGuestsBody2).disp
 
 // Dropdown
 uiGuestsButton2.onclick = function(){
-  if (uiExpendedGuestsBody2 === "none") {
+  if (GuestsDisplayPosition2 === "none") {
     uiExpendedGuestsBody2.style.display = "block"
-    uiExpendedGuestsBody2 = "block"
+    GuestsDisplayPosition2 = "block"
     uiGuestsBodyBorder2.style.borderColor = "rgba(31, 32, 65, 0.5)"
     uiGuestsBodyBorder2.style.borderBottom = "none"
   } else {
     uiExpendedGuestsBody2.style.display = "none"
-    uiExpendedGuestsBody2 = "none"
+    GuestsDisplayPosition2 = "none"
     uiGuestsBodyBorder2.style.borderColor = "rgba(31, 32, 65, 0.25)"
     uiGuestsBodyBorder2.style.borderBottom = "1px solid rgba(31, 32, 65, 0.25)"
   }

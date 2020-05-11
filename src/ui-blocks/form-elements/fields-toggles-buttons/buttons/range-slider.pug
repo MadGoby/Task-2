@@ -1,16 +1,14 @@
 mixin range-slider(title, type)
-  if type == ru
-    form(action="#" id="price-range-form")
-      div
-        label.range-slider-title.type-h3(for='amount-slider-price')= title
-        input#amount-slider-price.type-h3(readonly)
-      div(id="range-slider-body")
-      p.range-slider-prompt.type-simple.text= 'Стоимость за сутки пребывания в номере'
-  else
+  if type == 'ru'
     form(action="#" id="price-range-form")
       div
         label.range-slider-title.type-h3(for='amount-slider-price')= title
         input#amount-slider-price.type-h3(readonly)
       div(id="range-slider-body")
       p.range-slider-prompt.type-simple-text= 'Стоимость за сутки пребывания в номере'
-
+  else if type == 'en'
+    form(action="#" id="price-range-form")
+      div
+        label.range-slider-title.type-h3(for='amount-slider-price')= title
+        input#amount-slider-price.type-h3(readonly)
+      div(id="range-slider-body")

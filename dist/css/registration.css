@@ -1,11 +1,4 @@
 @charset "UTF-8";
-.landin-page__header {
-  background: #FFFFFF;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  padding: 15px 140px;
-  width: 1440px;
-  margin: auto; }
-
 @font-face {
   font-family: 'Quicksand';
   src: url(../fonts/Quicksand-Regular.eot);
@@ -103,7 +96,7 @@
   width: 21px;
   text-align: center; }
 
-.text-field, .text-field-subscription, .dropdown-guests-field-body, .dropdown-date, .dropdown-date-filter, .dropdown-rooms-field-body {
+.text-field, .text-field-subscription, .dropdown-guests-field-body, .dropdown-date, .dropdown-date-filter {
   box-sizing: border-box;
   height: 44px;
   width: 320px;
@@ -111,13 +104,13 @@
   border: 1px solid rgba(31, 32, 65, 0.25);
   padding-left: 15px; }
 
-.text-field-subscription, .dropdown-quests, .dropdown-date, .dropdown-date-filter, .dropdown-rooms-label, .dropdown-quests_extended, .dropdown-quests_extended_2 {
+.text-field-subscription, .dropdown-quests, .dropdown-date, .dropdown-date-filter {
   display: inline-block;
   color: rgba(31, 32, 65, 0.75);
   width: 100%;
   padding-top: 10px; }
 
-.dropdown-date_button::after, .dropdown-rooms-button-arrow::after {
+.dropdown-date_button::after {
   content: url(../img/dropdown_tick.svg);
   float: right;
   width: 44px;
@@ -242,128 +235,6 @@
   line-height: 18px;
   color: rgba(31, 32, 65, 0.75);
   font-weight: bold; }
-
-.dropdown-rooms-field-body {
-  position: relative;
-  width: 266px;
-  border-radius: 0;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px; }
-
-#ui-dropdown-rooms-button_border {
-  border-color: rgba(31, 32, 65, 0.5);
-  border-bottom: none; }
-
-.dropdown-rooms-button-arrow {
-  position: absolute;
-  right: 0;
-  height: 44px;
-  width: 44px;
-  border: none;
-  background: none;
-  padding: 0;
-  outline: none; }
-
-.dropdown-rooms-body {
-  width: 266px;
-  display: inline-block; }
-
-.rooms-expanded-strokes_body {
-  width: 266px;
-  height: 119px;
-  border: 1px solid rgba(31, 32, 65, 0.5);
-  box-sizing: border-box;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  position: relative;
-  top: -1px; }
-
-.rooms-expanded-strokes_stroke-body {
-  width: 100%;
-  height: 30px;
-  position: relative; }
-
-.rooms-expanded-strokes_stroke-body_title {
-  height: 30px;
-  margin: 7px 0 0 15px;
-  display: block;
-  line-height: 30px; }
-
-.rooms-expanded-strokes_stroke-body__calc-body {
-  display: inline-block;
-  position: absolute;
-  right: 7px;
-  top: 0px; }
-
-.rooms-calc-button {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  background: none;
-  border: 1px solid rgba(31, 32, 65, 0.25);
-  color: rgba(31, 32, 65, 0.5);
-  outline: none; }
-
-.rooms-calc-output {
-  width: 30px;
-  display: inline-block;
-  text-align: center; }
-
-.opacity-05 {
-  opacity: 0.5; }
-
-.margin-bottom-5px {
-  margin-bottom: 5px; }
-
-.dropdown-guests-body-extended {
-  display: inline-block;
-  width: 720px;
-  margin-left: 180px; }
-
-#uiGuestsExpendedBody {
-  width: 320px;
-  height: 160px; }
-
-#dropdown-guests_input, #dropdown-guests_input_2 {
-  border-radius: 0;
-  border-bottom: none;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-color: rgba(31, 32, 65, 0.5);
-  position: relative; }
-
-.ui-guests-confirmed-button__confirmed, .ui-guests-confirmed-button__clear {
-  margin: 0;
-  padding: 0; }
-
-.ui-guests-confirmed-button {
-  height: 28px;
-  position: absolute;
-  bottom: 0;
-  width: 100%; }
-
-.ui-guests-confirmed-button__confirmed {
-  position: absolute;
-  right: 0;
-  padding-right: 7px; }
-
-.ui-guests-confirmed-button__clear {
-  padding-left: 14px;
-  display: none; }
-
-.dropdown-guests-body-extended_2, .dropdown-guests-body-extended_1 {
-  display: inline-block;
-  vertical-align: top; }
-
-.dropdown-guests-body-extended_2 {
-  margin-left: 72px; }
-
-#uiGuestsExpendedBody_2 {
-  height: 160px;
-  width: 320px; }
-
-#ui-first-guests-clear-button_2 {
-  display: inline-block; }
 
 .colors-palette {
   width: 270px;
@@ -694,7 +565,45 @@
 .footers__big-footer__media-block__middle {
   margin: 0 20px 0; }
 
-.rooms-search-body {
+.registration-form-body {
+  height: 646px;
+  background-color: white; }
+  .registration-form-body .text-field-body {
+    margin-top: 10px; }
+  .registration-form-body h1 {
+    margin-bottom: 20px; }
+
+.registration-form__gender {
+  margin-top: 10px; }
+
+.registration-form__spacial {
+  margin-top: 10px; }
+  .registration-form__spacial .switch {
+    margin-bottom: 0; }
+
+.registration-form__accept-button {
+  margin-top: 20px; }
+
+.registration-form__login {
+  height: 44px;
+  position: relative;
+  width: 320px; }
+  .registration-form__login .type-simple-text {
+    color: #000;
+    display: inline-block;
+    margin: 0;
+    line-height: 44px;
+    vertical-align: middle;
+    position: absolute;
+    top: 0; }
+  .registration-form__login .border-button-body {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    height: 44px;
+    width: 100px; }
+
+.registration-form-body, .rooms-search-body {
   width: 380px;
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -846,6 +755,263 @@
 .dropdown-datepicker-body .ui-guests-confirmed-button__clear {
   padding-top: 20px; }
 
+.text-field, .text-field-subscription, .dropdown-guests-field-body, .dropdown-date, .dropdown-date-filter {
+  box-sizing: border-box;
+  height: 44px;
+  width: 320px;
+  border-radius: 4px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  padding-left: 15px; }
+
+.text-field-subscription, .dropdown-quests, .dropdown-date, .dropdown-date-filter {
+  display: inline-block;
+  color: rgba(31, 32, 65, 0.75);
+  width: 100%;
+  padding-top: 10px; }
+
+.dropdown-date_button::after {
+  content: url(../img/dropdown_tick.svg);
+  float: right;
+  width: 44px;
+  text-align: center; }
+
+.arrow-block::after {
+  content: url(../img/dropdown_arrow.svg);
+  float: right;
+  width: 44px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: 50%;
+  position: relative;
+  top: -30px; }
+
+.fields {
+  width: 340px;
+  height: 625px; }
+
+.margin20 {
+  margin: 20px 0 5px 0; }
+
+.margin40 {
+  margin: 40px 0 5px 0; }
+
+.text-field-body, .dropdown-guests-body {
+  width: 320px; }
+
+.dropdown-date-filter-body, .text-field-subscription-body {
+  width: 266px; }
+
+.dropdown-date-body {
+  width: 150px;
+  display: inline-block;
+  margin-right: 20px; }
+
+.text-field::-webkit-input-placeholder {
+  color: rgba(31, 32, 65, 0.25); }
+
+.text-field:hover, .text-field:focus {
+  border-color: rgba(31, 32, 65, 0.5);
+  outline: none; }
+  .text-field:hover::-webkit-input-placeholder, .text-field:focus::-webkit-input-placeholder {
+    color: rgba(31, 32, 65, 0.75); }
+
+.text-field-subscription {
+  padding: 0 0 0 15px; }
+
+.dropdown-quests {
+  position: relative; }
+
+.dropdown-date {
+  position: relative; }
+
+.default-label, .hover-label, .expanded-label {
+  width: 100%;
+  margin: 0 0 5 0; }
+  .default-label::after, .hover-label::after, .expanded-label::after {
+    color: rgba(31, 32, 65, 0.5);
+    float: right;
+    font-weight: normal; }
+
+.default-label::after {
+  content: "default"; }
+
+.hover-label::after {
+  content: "hover/focus"; }
+
+.expanded-label::after {
+  content: "expanded"; }
+
+.dropdown-date_button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  text-align: center;
+  padding: 0;
+  outline: none; }
+
+.dropdown-date-filter-block {
+  position: relative; }
+
+.opportunities-checkbox-imitation, .radio-button-imitation, .special-toggle-imitation, .like-button-imitation {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  z-index: 1;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 10px 3px 0; }
+
+.gender-radio-button:checked + .radio-button-imitation::before, .special-toggle-imitation::before {
+  content: "";
+  display: block;
+  height: 12px;
+  width: 12px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  position: absolute;
+  top: 3px;
+  left: 3px; }
+
+.opportunities-form {
+  height: 130px;
+  width: 400px;
+  margin-bottom: 40px; }
+
+.gender-form {
+  width: 250px;
+  height: 55px;
+  margin-bottom: 40px; }
+
+.margin16 {
+  margin-bottom: 16px; }
+
+.opportunities-label {
+  display: block;
+  line-height: 18px;
+  margin-bottom: 10px; }
+
+.opportunities-checkbox {
+  display: none; }
+  .opportunities-checkbox:checked + .opportunities-checkbox-imitation {
+    border-color: #BC9CFF; }
+  .opportunities-checkbox:checked + .opportunities-checkbox-imitation::before {
+    content: url(../img/checkbox_tick.svg);
+    display: block;
+    height: 100%;
+    line-height: 18px; }
+
+.opportunities-checkbox-imitation {
+  border-radius: 4px;
+  vertical-align: top;
+  margin: 0 10px 0 0;
+  box-sizing: border-box; }
+
+.opportunities-text {
+  margin: 0;
+  display: inline-block;
+  color: rgba(31, 32, 65, 0.5);
+  width: 192px;
+  line-height: 20px;
+  vertical-align: top; }
+
+.gender-label {
+  color: rgba(31, 32, 65, 0.5); }
+
+.gender-radio-button {
+  display: none; }
+  .gender-radio-button:checked + .radio-button-imitation {
+    border-color: #BC9CFF; }
+  .gender-radio-button:checked ~ .gender-text {
+    color: rgba(31, 32, 65, 0.75); }
+
+.radio-button-imitation {
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative; }
+
+.gender-text {
+  display: inline-block;
+  margin: 0 20px 0 0; }
+
+.switch {
+  margin-bottom: 14px; }
+
+.special-toggle {
+  display: none; }
+  .special-toggle:checked + .special-toggle-imitation {
+    border-color: #BC9CFF; }
+  .special-toggle:checked + .special-toggle-imitation::before {
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    left: 23px; }
+
+.special-toggle-imitation {
+  width: 40px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 0; }
+  .special-toggle-imitation::before {
+    background: rgba(31, 32, 65, 0.25); }
+
+.like-button-form {
+  height: 51px;
+  margin-top: 40px; }
+
+.like-count {
+  display: inline-block;
+  margin: 0;
+  font-size: 10px;
+  color: rgba(31, 32, 65, 0.25);
+  height: 18px;
+  line-height: 18px;
+  text-align: left;
+  position: absolute;
+  left: 22px;
+  -webkit-user-select: none; }
+
+.like-button-input {
+  display: none; }
+  .like-button-input:checked + .like-button-imitation {
+    border-color: #BC9CFF; }
+  .like-button-input:checked + .like-button-imitation::before {
+    content: url(../img/heart.svg); }
+  .like-button-input:checked + .like-button-imitation p {
+    color: #BC9CFF; }
+
+.like-button-imitation {
+  border-radius: 10px;
+  margin: 0 10px 0 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 40px;
+  line-height: 12px;
+  vertical-align: middle;
+  position: relative; }
+  .like-button-imitation::before {
+    content: url(../img/heart_border.svg);
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    left: 0; }
+
+.rate-button-form {
+  margin-top: 40px; }
+
+.rate-button-body {
+  display: inline-block;
+  margin-right: 20px; }
+  .rate-button-body img {
+    padding: 2px; }
+
 .border-button-body, .border-button {
   width: 87px;
   height: 34px;
@@ -863,65 +1029,46 @@
 .header__login__login-body input {
   top: -18px; }
 
-.landin-page__header {
+.registration__header {
   height: 70px;
-  box-sizing: border-box; }
-
-body {
-  background: #E5E5E5;
-  margin: 0px; }
-
-.landin-page__main-body {
-  width: 1440px;
-  margin: auto;
-  height: 900px;
-  background: url(../img/landing-page-back.svg);
-  background-repeat: no-repeat;
-  position: relative; }
-
-.landin-page__main__sign {
-  position: absolute;
-  bottom: 18px;
-  right: 125px;
-  width: 297px;
-  text-align: right; }
-
-.landing-page__footer {
-  position: relative;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  padding: 15px 140px;
   width: 1440px;
   margin: auto; }
 
-.margin20 {
-  margin: 20px 0 5px 0; }
+body {
+  background-color: #E5E5E5;
+  margin: 0px; }
 
-.rooms-search-body {
+.registration__main {
+  background: url(../img/reg-login-back.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 1440px;
+  position: relative;
+  margin: auto;
+  height: 702px; }
+
+.registation__registration-body {
+  position: relative;
+  z-index: 13;
+  top: 28px;
   background-color: white;
-  position: absolute;
-  top: 70px;
-  left: 140px; }
+  margin: auto;
+  height: 646px;
+  box-sizing: border-box; }
 
-.ui-guests-confirmed-button__confirmed {
-  position: absolute;
-  right: 0;
-  margin: 0; }
-
-.rooms-expanded-strokes_body {
-  display: none; }
-
-.dropdown-guests-body-extended {
-  margin: 0; }
-
-#dropdown-guests_input, #dropdown-guests_input_2 {
-  border: 1px solid rgba(31, 32, 65, 0.25); }
-
-#uiGuestsExpendedBody {
-  background: white;
-  position: absolute;
-  top: 261px;
-  z-index: 2; }
-
-.rooms-search__dropdown-date .dropdown-date-body h3 {
-  margin-bottom: 6px; }
+.registration-form__login .border-button-body {
+  top: 5px; }
+  .registration-form__login .border-button-body .border-button {
+    height: 44px;
+    width: 99px; }
+    .registration-form__login .border-button-body .border-button .border-button-label {
+      height: 40px;
+      width: 95px;
+      line-height: 40px; }
 
 .footers__big-footer__links-table tr th {
   width: 200px;
@@ -936,4 +1083,9 @@ body {
 
 .text-field-subscription-body {
   width: 260px; }
+
+.registration__footer {
+  position: relative;
+  width: 1440px;
+  margin: auto; }
 

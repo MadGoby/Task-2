@@ -1,6 +1,7 @@
 .reservation-form-body {
   @extend %different-forms-main-rools;
   height: 511px;
+  background-color: white;
 }
 .reservation-form__room-number {
   position: relative;
@@ -9,14 +10,15 @@
 .room-number__number {
   position: absolute;
   left: 0; top: 0;
+  font-size: 24px;
   &::before {
     content: "№ ";
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 15px;
-    margin-left: 5px;
+    margin-left: 0px;
   }
 }
 .room-number__luxury {
@@ -26,15 +28,16 @@
     color: $purple;
     font-style: normal;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 15px;
     margin-left: 5px;
   }
 }
 .room-number__day-price {
   position: absolute;
-  right: 0; top: 0;
+  right: 0; top: 5px;
   color: $dark50;
+
   &::after {
     content: " в сутки";
     font-family: 'Montserrat', sans-serif;

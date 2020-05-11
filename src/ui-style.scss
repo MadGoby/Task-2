@@ -9,15 +9,19 @@
   padding: 145px 141px 145px 150px;
   width: 1440px;
   margin: auto;
+  position: relative;
+  box-sizing: border-box;
 };
 .logo {
   left: -110px; top: -110px;
   position: absolute;
 }
 .form-elements {
-  padding: 145px 141px 145px 150px;
+  padding: 145px 0px 145px 150px;
   width: 1440px;
   margin: auto;
+  position: relative;
+  box-sizing: border-box;
 }
 .absolute-hight, .absolute-hight-2 {
   height: 100%;
@@ -34,6 +38,7 @@
 }
 .toggles {
   margin-left: 126px;
+  width: 392px;
 }
 .dropdown {
   margin-top: 100px;
@@ -126,6 +131,15 @@
   margin-top: 40px;
 }
 
+// Logo ------------------------------------------------
+.ui-kit__logo {
+  background: url('./img/logo.svg');
+  position: absolute;
+  left: 30px; top: 30px;
+  height: 48px; width: 48px;
+}
+// -----------------------------------------------------
+
 // SCSS Import
 @import "ui-blocks/text-styles/text-styles__types.scss";
 @import "ui-blocks/palette/palette.scss";
@@ -149,3 +163,9 @@
 @import "ui-blocks/headers-footers/footers/footers.scss";
 
 // Test
+.dropdown-datepicker-body {
+  display: block;
+}
+.opportunities-text {
+  width: 203px;
+}

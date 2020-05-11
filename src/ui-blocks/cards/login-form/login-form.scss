@@ -1,6 +1,7 @@
 .login-form-body {
   @extend %different-forms-main-rools;
   height: 358px;
+  background-color: white;
 }
 .login-form__login {
   height: 44px;
@@ -33,4 +34,11 @@
 }
 .login-form__accept-button {
   margin-top: 10px;
+}
+.border-button {
+  width: 99px;
+  .border-button-label {
+    width: 95px;
+    box-sizing: border-box;
+  }
 }
