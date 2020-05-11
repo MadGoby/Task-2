@@ -11,9 +11,10 @@ module.exports = {
     'ui-index': './ui-index.js',
     'landing-page': './landing-page.js',
     'search-room': './search-room.js',
+    'room-details': './room-details.js',
     },
   output: {
-    filename: '[name].js',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
@@ -33,21 +34,26 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: './ui-index.pug',
       filename: 'ui-index.html',
-      excludeChunks: ['search-room', 'landing-page'], 
+      excludeChunks: ['search-room', 'landing-page', 'room-details'], 
     }),
     new HTMLWebpackPlugin({
       template: './landing-page.pug',
       filename: 'landing-page.html',
-      excludeChunks: ['search-room', 'ui-index'],
+      excludeChunks: ['search-room', 'ui-index', 'room-details'],
     }),
     new HTMLWebpackPlugin({
       template: './search-room.pug',
       filename: 'search-room.html',
-      excludeChunks: ['ui-index', 'landing-page'], 
+      excludeChunks: ['ui-index', 'landing-page', 'room-details'], 
+    }),
+    new HTMLWebpackPlugin({
+      template: './room-details.pug',
+      filename: 'room-details.html',
+      excludeChunks: ['ui-index', 'landing-page', 'search-room'], 
     }),
     // new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: 'css/[name].css',
     }),
     new webpack.ProvidePlugin({
       $: "jquery",
@@ -75,6 +81,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: 'img/[name].[ext]',
+          publicPath: '../'
         },
       },
       {
@@ -82,6 +89,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[ext]',
+          publicPath: '../'
         },
       },
     ],

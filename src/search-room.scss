@@ -133,6 +133,46 @@ body {
   text-align: center;
   margin-left: 295px;
 }
+.rooms-form__room-img {
+  position: relative;
+  .search-room__rooms-card-body__left-button {
+    position: absolute;
+    width: 42px;
+    height: 151px;
+    border-top-left-radius: 4px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+    &::after {
+      content: url("./img/fllipe-buuton.svg");
+      display: block;
+      line-height: 44px;
+      text-align: center;  
+      height: 44px;
+      width: 44px;
+      position: absolute;
+      top: 53px;
+      transform: rotate(180deg);
+    }    
+  }
+  .search-room__rooms-card-body__right-button {
+    position: absolute;
+    right: 0;
+    width: 42px;
+    height: 151px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    &::after {
+      content: url("./img/fllipe-buuton.svg");
+      display: block;
+      line-height: 44px;
+      text-align: center;
+      height: 44px;
+      width: 44px;
+      position: relative;
+      top: 53px;
+      transform: rotate(180deg);
+    }  
+  }
+}
 // ----------------------------------------------------
 
 // Dropdowns ------------------------------------------
@@ -183,3 +223,4 @@ body {
   margin-top: 0px;
   border-top: 1px solid #E5E5E5;
 }
+// ------------------------------------------------

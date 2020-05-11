@@ -1,0 +1,185 @@
+body {
+  background: #E5E5E5;
+  margin: 0px;
+}
+// ---------------------------------------------------------
+
+// Imports -------------------------------------------------
+@import "variables.scss";
+@import "fonts/fonts.scss";
+@import "ui-blocks/headers-footers/headers/header.scss";
+@import "ui-blocks/form-elements/fields-toggles-buttons/fields/fields.scss";
+@import "ui-blocks/text-styles/text-styles__types.scss";
+@import "ui-blocks/palette/palette.scss";
+@import "ui-blocks/text-styles/text-styles.scss";
+@import 'ui-blocks/form-elements/fields-toggles-buttons/buttons/buttons.scss';
+@import "ui-blocks/headers-footers/footers/footers.scss";
+@import "ui-blocks/form-elements/additional/virtues/virtues.scss";
+@import "ui-blocks/form-elements/additional/review/review.scss";
+@import "ui-blocks/form-elements/fields-toggles-buttons/toggles/toggles.scss";
+@import "ui-blocks/form-elements/checkboxes-buletes/bullet-list/bullet-list.scss";
+@import "ui-blocks/cards/reservation-form/reservation-form.scss";
+@import "ui-blocks/cards/rooms-search/rooms-search.scss";
+@import "ui-blocks/form-elements/fields-toggles-buttons/fields/fields.scss";
+// -----------------------------------------------
+
+// Header ---------------------------------------------------
+.room-details__header {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  padding: 15px 140px;
+  width: 1440px;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+  box-sizing: border-box;
+}
+.border-button-body, .border-button {
+  width: 87px;
+  height: 34px;
+  top: -3px;
+}
+.border-button-label {
+  box-sizing: border-box;
+  width: 83px;
+  height: 30px;
+  line-height: 30px;
+}
+.simple-button {
+  height: 34px;
+}
+.header__login__login-body input {
+  top: -18px;
+}
+.landin-page__header {
+  height: 70px;
+  box-sizing: border-box;
+}
+// ------------------------------------------------
+
+// Main -----------------------------------------------
+.room-details__rooms-img {
+  position: relative;
+  width: 1440px;
+  box-sizing: border-box;
+  margin: auto;
+  height: 485px;
+  background-color: white;
+}
+.room-details__rooms-img__small-img-1 {
+  position: absolute;
+  top: 0;
+}
+.room-details__rooms-img__small-img-2 {
+  position: absolute;
+  bottom: 0;
+}
+.rooms-details__rooms-details {
+  width: 1440px;
+  box-sizing: border-box;
+  padding: 70px 140px;
+  background-color: white;
+  position: relative;
+  margin: auto;
+}
+.virtues-block-last {
+  border-bottom: none;
+}
+.rooms-details__rooms-details__description__info {
+  display: inline-block;
+}
+.rooms-details__rooms-details__rules {
+  margin-top: 30px;
+  display: inline-block;
+  ul {
+    margin: 0;
+    margin-top: 30px;
+  }
+  h2 {
+    margin-left: 20px;
+  }
+}
+.rooms-details__rooms-details__rules ul {
+  margin-top: 20px;
+}
+.rooms-details__rooms-details__cancellation {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 30px;
+  margin-left: 100px;
+  p {
+    width: 341px;
+    margin: 0;
+    margin-top: 20px;
+  }
+}
+.rooms-details__rooms-details__description, .rooms-details__rooms-details__reviewes {
+  width: 711px;
+}
+.reservation-form__order-information__sign {
+  right: 80px;
+}
+.rooms-details__rooms-details__cancellation p {
+  width: 214px;
+  margin-top: 10px;
+}
+.reservation-form__order-information-line {
+  .reservation-form__order-information__days-price {
+    margin-top: 10px;
+  }
+}
+.room-number__number::before {
+  margin-left: 0px;
+  font-size: 14px;
+}
+.room-number__luxury::after {
+  font-size: 14px;
+}
+.room-number__number {
+  font-size: 24px;
+}
+.rooms-details__rooms-details__results {
+  position: absolute;
+  right: 140px;
+  top: 70px;
+  margin: 0;
+}
+.rooms-details__rooms-details__reviewes {
+  h2 {
+    margin-top: 20px;
+  }
+}
+// ----------------------------------------------------
+// Footer ---------------------------------------------
+.room-details__footer {
+  margin: auto;
+  width: 1440px;
+  border-top: 1px solid #E5E5E5;
+  .footers__big-footer__copyright-block {
+    width: 1440px;
+    box-sizing: border-box;
+  }
+}
+.footers__big-footer__links-table {
+  tr {
+    th {
+      width: 200px;
+      padding: 0 0 20px 0;
+    }
+    td {
+      width: 200px;
+      padding: 0 0 20px 0;
+    }
+  }
+}
+.footers-big-footer-subscribe__text {
+  width: 260px;
+}
+.text-field-subscription-body {
+  width: 260px;
+}
+.footers__big-footer__copyright-block {
+  margin-top: 0px;
+  border-top: 1px solid #E5E5E5;
+}
+// ------------------------------------------------

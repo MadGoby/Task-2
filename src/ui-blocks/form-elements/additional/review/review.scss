@@ -32,3 +32,21 @@ top: 0; left: -34px;
   margin: 0;
   margin-top: 10px;
 }
+.reviews__main-user-body-1, .reviews__main-user-body-2 {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.reviews__user__title {
+  position: relative;
+  width: 711px;
+  &::after {
+    content: '2 отзыва';
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    color: $dark50;
+    float: right;
+  }
+}

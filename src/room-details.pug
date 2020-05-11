@@ -1,0 +1,28 @@
+doctype html
+html(lang=en)
+  head
+    title Room Details
+  body
+    header.room-details__header
+      include ui-blocks/headers-footers/headers/header__login-form-ru.pug
+    main
+      div.room-details__rooms-img
+        img(src="./img/room-details__big-img.svg", alt="").room-details__rooms-img__big-img
+        img(src="./img/room-details__small-img-1.svg", alt="").room-details__rooms-img__small-img-1
+        img(src="./img/room-details__small-img-2.svg", alt="").room-details__rooms-img__small-img-2
+      div.rooms-details__rooms-details
+        div.rooms-details__rooms-details__description
+          div.rooms-details__rooms-details__description__info
+            include ./ui-blocks/form-elements/additional/virtues/virtues-rooms-detail.pug
+            include ./ui-blocks/form-elements/additional/virtues/virtues__statistics-reviews.pug
+        div.rooms-details__rooms-details__reviewes
+          include ./ui-blocks/form-elements/additional/review/review-ru.pug
+        div.rooms-details__rooms-details__rules
+          include ./ui-blocks/form-elements/checkboxes-buletes/bullet-list/bullet-list-ru.pug
+        div.rooms-details__rooms-details__cancellation
+          h2.type-h2= 'Отмена'
+          p.type-simple-text= 'Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.'
+        div.rooms-details__rooms-details__results.reservation-form-body
+          include ./ui-blocks/cards/reservation-form/reservation-form.pug
+    footer.room-details__footer
+      include /ui-blocks/headers-footers/footers/footers__big-footer-ru.pug

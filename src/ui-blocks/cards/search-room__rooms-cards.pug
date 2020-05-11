@@ -3,9 +3,12 @@ include reservation-form/reservation-form__room-number.pug
 include ../form-elements\fields-toggles-buttons\toggles\rate.pug
 include ../form-elements/fields-toggles-buttons/buttons/pagination__count-title.pug
 
+//- Room-888 --------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
+    label.search-room__rooms-card-body__left-button
     img(src= "./img/room-888.svg")
+    label.search-room__rooms-card-body__right-button
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
@@ -17,160 +20,195 @@ div.search-room__rooms-card-body
   div.rooms-form__rate-buttons
     +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
     +rooms-form__reviews-counter('145')
+//--------------------------------------
+
+//- Room-840 --------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-840.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("840", false, "9 990")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
-    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star_border.svg")
+    +rooms-form__reviews-counter('65')
+//--------------------------------------
+
+//- Room-840 --------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-980.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("980", true, "8 500")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
-    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star_border.svg", "./img/star_border.svg")
+    +rooms-form__reviews-counter('35')
+//--------------------------------------
+
+//- Room-856 --------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-856.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("856", false, "7 300")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
     +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rooms-form__reviews-counter('19')
+//-------------------------------------- 
+
+//- Room-740 --------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-740.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("740", false, "6 000")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
-    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star_border.svg")
+    +rooms-form__reviews-counter('44')
+//-------------------------------------- 
+
+//- Room-982 ---------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-982.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("982", false, "5 800")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
-    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star_border.svg", "./img/star_border.svg")
+    +rooms-form__reviews-counter('56')
+//-------------------------------------- 
+
+//- Room-678 ---------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-678.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("678", false, "5 500")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
     +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rooms-form__reviews-counter('45')
+//-------------------------------------- 
+
+//- Room-450 ---------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-450.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("450", false, "5 300")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
-    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star_border.svg")
+    +rooms-form__reviews-counter('39')
+//-------------------------------------- 
+
+//- Room-350 ---------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-350.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("350", false, "5 800")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
-    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star_border.svg", "./img/star_border.svg")
+    +rooms-form__reviews-counter('77')
+//-------------------------------------- 
+
+//- Room-666 ---------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-666.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("666", false, "5 000")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
     +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rooms-form__reviews-counter('25')
+//-------------------------------------- 
+
+//- Room-444 ---------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-444.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("444", false, "5000")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
-    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star_border.svg", "./img/star_border.svg")
+    +rooms-form__reviews-counter('15')
+//-------------------------------------- 
+
+//- Room-352 ---------------------------
 div.search-room__rooms-card-body
   div.rooms-form__room-img
-    img(src= "./img/room-888.svg")
+    img(src= "./img/room-352.svg")
   div.rooms-form__room-img__nav
     label.rooms-form__room-img__nav-button_first
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
     label.rooms-form__room-img__nav-button
   div.rooms-form__room-number
-    +reservation-form__room-number("888", true, "9 990")
+    +reservation-form__room-number("352", false, "5000")
   div.rooms-form__border-line
   div.rooms-form__rate-buttons
-    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star.svg")
-    +rooms-form__reviews-counter('145')
+    +rate-button("./img/star.svg", "./img/star.svg", "./img/star.svg", "./img/star_border.svg", "./img/star_border.svg")
+    +rooms-form__reviews-counter('55')
+//-------------------------------------- 
+
 div.search-room__rooms-cards__nav
   include ../form-elements/fields-toggles-buttons/buttons/pagination-pages.pug
   +pagination__count-title('1 – 12 из 100+ вариантов аренды')
