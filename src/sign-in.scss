@@ -71,6 +71,16 @@
     }
   }
 }
+@-moz-document url-prefix() {
+  .header__login__login-body input {
+    top: 0px;
+  };
+  .header__login__login-body {
+    .border-button-body {
+      top: -1px;
+    };
+  };
+};
 // --------------------------------------------------------------------
 
 // Main----------------------------------------------------------------

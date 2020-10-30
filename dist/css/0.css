@@ -68,17 +68,19 @@ body {
         border-left: 2px solid rgba(31, 32, 65, 0.1); }
 
 .header__login__login-body {
-  display: inline-block; }
+  display: inline-block;
+  height: 44px;
+  position: relative; }
   .header__login__login-body input {
     margin: 0;
     position: relative;
-    top: -19px;
     margin-left: 20px;
+    top: -19px;
+    -moz-top: 0px;
     display: inline-block; }
   .header__login__login-body .border-button-body {
     display: inline-block;
-    position: relative;
-    top: -2px; }
+    -moz-top: -4px; }
     .header__login__login-body .border-button-body button {
       margin: 0; }
 
@@ -99,6 +101,14 @@ body {
   display: inline-block;
   width: 21px;
   text-align: center; }
+
+@-moz-document url-prefix() {
+  .header__login__login-body {
+    top: -19px; }
+    .header__login__login-body .border-button-body {
+      top: -5px; }
+    .header__login__login-body input {
+      top: 0px; } }
 
 .text-field, .text-field-subscription, .dropdown-guests-field-body, .dropdown-date, .dropdown-date-filter {
   box-sizing: border-box;
@@ -368,7 +378,8 @@ body {
   color: rgba(31, 32, 65, 0.5);
   outline: none;
   text-align: right;
-  width: 40%; }
+  width: 40%;
+  padding: 0px; }
 
 .range-slider-title {
   width: 60%;
@@ -1289,6 +1300,12 @@ body {
 .landin-page__header {
   height: 70px;
   box-sizing: border-box; }
+
+@-moz-document url-prefix() {
+  .header__login__login-body input {
+    top: 0px; }
+  .header__login__login-body .border-button-body {
+    top: -1px; } }
 
 .room-details__rooms-img {
   position: relative;

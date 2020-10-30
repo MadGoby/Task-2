@@ -43,7 +43,16 @@
   height: 70px;
   box-sizing: border-box;
 }
-
+@-moz-document url-prefix() {
+  .header__login__login-body input {
+    top: 0px;
+  };
+  .header__login__login-body {
+    .border-button-body {
+      top: -1px;
+    };
+  };
+};
 // Body -----
 body {
   background: #E5E5E5;
@@ -93,7 +102,7 @@ body {
 #uiGuestsExpendedBody {
   background: white;
   position: absolute;
-  top: 261px;
+  top: 268px;
   z-index: 2;
 }
 .rooms-search__dropdown-date {
