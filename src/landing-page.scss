@@ -2,8 +2,10 @@
   background: #FFFFFF;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   padding: 15px 140px;
-  width: 1440px;
+  max-width: 1440px;
   margin: auto;
+  min-height: 70px;
+  min-width: 588px;
 }
 
 // Imports ---------------------------------------------------------
@@ -25,7 +27,6 @@
 .border-button-body, .border-button {
   width: 87px;
   height: 34px;
-  top: -3px;
 }
 .border-button-label {
   box-sizing: border-box;
@@ -35,9 +36,7 @@
 }
 .simple-button {
   height: 34px;
-}
-.header__login__login-body input {
-  top: -18px;
+  vertical-align: top;
 }
 .landin-page__header {
   height: 70px;
@@ -58,13 +57,17 @@ body {
   background: #E5E5E5;
   margin: 0px;
 }
+.dropdown-guests-body-extended {
+  width: auto;
+}
 .landin-page__main-body {
-  width: 1440px;
+  max-width: 1440px;
   margin: auto;
   height: 900px;
   background: url('./img/landing-page-back.svg');
   background-repeat: no-repeat;
   position: relative;
+  min-width: 588px;
 }
 .landin-page__main__sign {
   position: absolute;
@@ -74,8 +77,10 @@ body {
 }
 .landing-page__footer {
   position: relative;
-  width: 1440px;
+  max-width: 1440px;
+  min-width: 588px;
   margin: auto;
+  background-color: white;
 }
 .margin20 {
   margin: 20px 0 5px 0; }
@@ -113,6 +118,9 @@ body {
   }
 }
 // Footer-------------------------------------
+.footers__big-footer {
+  width: auto;
+}
 .footers__big-footer__links-table {
   tr {
     th {
@@ -130,4 +138,99 @@ body {
 }
 .text-field-subscription-body {
   width: 260px;
+}
+@media(max-width:1440px){
+  .landin-page__header {
+    margin: 0px;
+  }
+  .landin-page__main-body {
+    margin: 0px;
+  }
+  .landing-page__footer {
+    margin: 0px;
+  }
+}
+@media(max-width:1265px){
+  .landin-page__header {
+    padding: 15px 30px;
+  }
+  .footers__big-footer__links-table {
+    display: block;
+    margin-left: 0px;
+    margin-top: 40px;
+  }
+  .footers-big-footer-subscribe {
+    position: relative;
+    top: -390px;
+    left: 300px;
+  }
+  .footers__big-footer {
+    padding: 104px 30px 100px;
+    width: 650px;
+    margin: auto;
+    height: 600px;
+  }
+}
+@media(max-width:1048px){
+  .landin-page__header {
+    height: 110px;
+  }
+  .header__login-form__nav-body {
+    float: right;
+    display: block;
+  }
+  .header__login__login-body {
+    position: absolute;
+    top: 55px;
+    right: 66px;
+  }
+}
+@media(max-width:750px){
+  .landin-page__header {
+    height: 110px;
+  }
+  .header__login-form__nav-body {
+    float: right;
+    display: block;
+  }
+  .header__login__color-logo {
+    margin-right: 40px;
+  }
+  .header__login__login-body {
+    position: absolute;
+    top: 15px;
+  }
+  .header__login-form table {
+    margin-left: 42px;
+    margin: 0px;
+  }
+  .rooms-search-body {
+    margin: auto;
+    position: relative;
+    left: auto;
+  }
+  .footers__big-footer__fishtext {
+    .footers__big-footer__fishtext__text {
+      width: 225px;
+    }
+  }
+  .footers-big-footer-subscribe {
+    position: relative;
+    top: -410px;
+    left: 230px;
+  }
+  .footers__big-footer {
+    width: 588px;
+  }
+}
+@media(max-width:604px){
+  .header__login__login-body {
+    right: none;
+    left: 218px;
+  }
+}
+@media(max-width:900px){
+  .footers__big-footer__copyright-block {
+    padding: 0px 40px;
+  }
 }
