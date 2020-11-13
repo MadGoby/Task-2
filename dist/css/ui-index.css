@@ -615,10 +615,7 @@
 
 .border-button-body {
   display: inline-block;
-  position: absolute;
-  width: 119px;
-  left: 0px;
-  top: 0px; }
+  width: 119px; }
 
 .border-button {
   position: relative;
@@ -1487,8 +1484,7 @@
     right: 0px;
     display: inline-block; }
   .header__login__login-body .border-button-body {
-    display: inline-block;
-    -moz-top: -4px; }
+    display: inline-block; }
     .header__login__login-body .border-button-body button {
       margin: 0; }
 
@@ -1597,4 +1593,7 @@
 
 .opportunities-text {
   width: 203px; }
+
+.header__login__login-body {
+  width: 220px; }
 

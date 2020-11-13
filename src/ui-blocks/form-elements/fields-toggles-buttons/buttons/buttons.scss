@@ -72,10 +72,7 @@
 }
 .border-button-body {
   display: inline-block;
-  position: absolute;
   width: 119px;
-  left: 0px;
-  top: 0px;
 }
 .border-button {
   @extend %buttons-simple-rules;

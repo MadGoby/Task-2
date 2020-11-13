@@ -42,16 +42,6 @@
   height: 70px;
   box-sizing: border-box;
 }
-@-moz-document url-prefix() {
-  .header__login__login-body input {
-    top: 0px;
-  };
-  .header__login__login-body {
-    .border-button-body {
-      top: -1px;
-    };
-  };
-};
 // Body -----
 body {
   background: #E5E5E5;
@@ -110,6 +100,9 @@ body {
   top: 268px;
   z-index: 2;
 }
+.header__login__login-body {
+  top: -5px;
+}
 .rooms-search__dropdown-date {
   .dropdown-date-body {
     h3 {
@@ -117,7 +110,7 @@ body {
     }
   }
 }
-// Footer-------------------------------------
+// Footer -----------------------------------------------------------------
 .footers__big-footer {
   width: auto;
 }
@@ -139,6 +132,12 @@ body {
 .text-field-subscription-body {
   width: 260px;
 }
+@-moz-document url-prefix() {
+  .header__login__login-body {
+    top: -19px;
+  }
+}
+// ------------------------------------------------------------------------
 @media(max-width:1440px){
   .landin-page__header {
     margin: 0px;

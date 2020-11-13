@@ -259,39 +259,39 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 
 /***/ }),
 
-/***/ "./img/room-details__big-img.svg":
+/***/ "./img/room-details__big-img.jpg":
 /*!***************************************!*\
-  !*** ./img/room-details__big-img.svg ***!
+  !*** ./img/room-details__big-img.jpg ***!
   \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-details__big-img.svg\");\n\n//# sourceURL=webpack:///./img/room-details__big-img.svg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-details__big-img.jpg\");\n\n//# sourceURL=webpack:///./img/room-details__big-img.jpg?");
 
 /***/ }),
 
-/***/ "./img/room-details__small-img-1.svg":
+/***/ "./img/room-details__small-img-1.jpg":
 /*!*******************************************!*\
-  !*** ./img/room-details__small-img-1.svg ***!
+  !*** ./img/room-details__small-img-1.jpg ***!
   \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-details__small-img-1.svg\");\n\n//# sourceURL=webpack:///./img/room-details__small-img-1.svg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-details__small-img-1.jpg\");\n\n//# sourceURL=webpack:///./img/room-details__small-img-1.jpg?");
 
 /***/ }),
 
-/***/ "./img/room-details__small-img-2.svg":
+/***/ "./img/room-details__small-img-2.jpg":
 /*!*******************************************!*\
-  !*** ./img/room-details__small-img-2.svg ***!
+  !*** ./img/room-details__small-img-2.jpg ***!
   \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-details__small-img-2.svg\");\n\n//# sourceURL=webpack:///./img/room-details__small-img-2.svg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-details__small-img-2.jpg\");\n\n//# sourceURL=webpack:///./img/room-details__small-img-2.jpg?");
 
 /***/ }),
 
@@ -350,7 +350,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./room-details.scss */ \"./room-details.scss\", 7))\r\n__webpack_require__ (/*! ./img/room-details__big-img.svg */ \"./img/room-details__big-img.svg\")\r\n__webpack_require__ (/*! ./img/room-details__small-img-1.svg */ \"./img/room-details__small-img-1.svg\")\r\n__webpack_require__ (/*! ./img/room-details__small-img-2.svg */ \"./img/room-details__small-img-2.svg\")\r\n__webpack_require__ (/*! ./img/fire.svg */ \"./img/fire.svg\")\r\n__webpack_require__ (/*! ./img/statistics-reviews__yellow.svg */ \"./img/statistics-reviews__yellow.svg\")\r\n__webpack_require__ (/*! ./img/statistics-reviews__green.svg */ \"./img/statistics-reviews__green.svg\")\r\n__webpack_require__ (/*! ./img/statistics-reviews__purple.svg */ \"./img/statistics-reviews__purple.svg\")\r\n__webpack_require__ (/*! ./img/user-2.svg */ \"./img/user-2.svg\")\n\n//# sourceURL=webpack:///./room-details.js?");
+eval("__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./room-details.scss */ \"./room-details.scss\", 7))\r\n__webpack_require__ (/*! ./img/room-details__big-img.jpg */ \"./img/room-details__big-img.jpg\")\r\n__webpack_require__ (/*! ./img/room-details__small-img-1.jpg */ \"./img/room-details__small-img-1.jpg\")\r\n__webpack_require__ (/*! ./img/room-details__small-img-2.jpg */ \"./img/room-details__small-img-2.jpg\")\r\n__webpack_require__ (/*! ./img/fire.svg */ \"./img/fire.svg\")\r\n__webpack_require__ (/*! ./img/statistics-reviews__yellow.svg */ \"./img/statistics-reviews__yellow.svg\")\r\n__webpack_require__ (/*! ./img/statistics-reviews__green.svg */ \"./img/statistics-reviews__green.svg\")\r\n__webpack_require__ (/*! ./img/statistics-reviews__purple.svg */ \"./img/statistics-reviews__purple.svg\")\r\n__webpack_require__ (/*! ./img/user-2.svg */ \"./img/user-2.svg\")\n\n//# sourceURL=webpack:///./room-details.js?");
 
 /***/ })
 
