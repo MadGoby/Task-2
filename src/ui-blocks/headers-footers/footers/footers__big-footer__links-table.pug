@@ -1,43 +1,65 @@
 mixin footers__big-footer__links-table(option)
   if option == 'en'
-    table.footers__big-footer__links-table
-      tr
-        th.type-h3= 'navigation'
-        th.type-h3= 'about us'
-        th.type-h3= 'support'
-      tr.type-simple-text
-        td= 'About Us'
-        td= 'Who we are'
-        td.footers__big-footer__links-table__last= 'Documentation'
-      tr.type-simple-text
-        td= 'News'
-        td= 'Our team'
-        td.footers__big-footer__links-table__last= 'Community'
-      tr.type-simple-text
-        td= 'Support'
-        td= 'Careers'
-        td.footers__big-footer__links-table__last= 'Get in Touch'
-      tr.type-simple-text
-        td= 'Products'
-        td= 'Investors'
+    ul.footers__big-footer__links-table
+      li 
+        h3.type-h3= 'navigation'
+      li 
+        a(href='/for-change').type-simple-text= 'About Us'
+      li 
+        a(href='/for-change').type-simple-text= 'News'
+      li 
+        a(href='/for-change').type-simple-text= 'Support'
+      li 
+        a(href='/for-change').type-simple-text= 'Products'
+    ul.footers__big-footer__links-table
+      li 
+        h3.type-h3= 'About Us'
+      li 
+        a(href='/for-change').type-simple-text= 'Who we are'
+      li 
+        a(href='/for-change').type-simple-text= 'Our team'
+      li 
+        a(href='/for-change').type-simple-text= 'Careers'
+      li 
+        a(href='/for-change').type-simple-text= 'Investors'
+    ul.footers__big-footer__links-table
+      li 
+        h3.type-h3= 'Support'
+      li 
+        a(href='/for-change').footers__big-footer__links-table__last.type-simple-text= 'Documentation'
+      li 
+        a(href='/for-change').footers__big-footer__links-table__last.type-simple-text= 'Community'
+      li 
+        a(href='/for-change').footers__big-footer__links-table__last.type-simple-text= 'Get in Touch'
   else if option == 'ru'
-    table.footers__big-footer__links-table
-      tr
-        th.type-h3= 'навигация'
-        th.type-h3= 'О нас'
-        th.type-h3= 'Служба поддержки'
-      tr.type-simple-text
-        td= 'О нас'
-        td= 'О сервисе'
-        td.footers__big-footer__links-table__last= 'Соглашения'
-      tr.type-simple-text
-        td= 'Новости'
-        td= 'Наша команда'
-        td.footers__big-footer__links-table__last= 'Сообщество'
-      tr.type-simple-text
-        td= 'Служба поддержки'
-        td= 'Вакансии'
-        td.footers__big-footer__links-table__last= 'Связь с нами'
-      tr.type-simple-text
-        td= 'Услуши'
-        td= 'Инвесторы'
+    ul.footers__big-footer__links-table
+      li 
+        h3.type-h3= 'Навигация'
+      li 
+        a(href='/for-change').type-simple-text= 'О нас'
+      li 
+        a(href='/for-change').type-simple-text= 'Новости'
+      li 
+        a(href='/for-change').type-simple-text= 'Служба поддержки'
+      li 
+        a(href='/for-change').type-simple-text= 'Услуги'
+    ul.footers__big-footer__links-table
+      li 
+        h3.type-h3= 'О нас'
+      li 
+        a(href='/for-change').type-simple-text= 'О сервисе'
+      li 
+        a(href='/for-change').type-simple-text= 'Наша команда'
+      li 
+        a(href='/for-change').type-simple-text= 'Вакансии'
+      li 
+        a(href='/for-change').type-simple-text= 'Инвесторы'
+    ul.footers__big-footer__links-table
+      li 
+        h3.type-h3= 'Служба поддержки'
+      li 
+        a(href='/for-change').footers__big-footer__links-table__last.type-simple-text= 'Соглашение'
+      li 
+        a(href='/for-change').footers__big-footer__links-table__last.type-simple-text= 'Сообщество'
+      li 
+        a(href='/for-change').footers__big-footer__links-table__last.type-simple-text= 'Связь с нами'

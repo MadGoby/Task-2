@@ -23,6 +23,7 @@
 %dropdown-arrow {
   &::after {
     content: url(../src/img/dropdown_arrow.svg);
+    cursor: pointer;
     float: right;
     width: 44px;
     display: inline-block;
@@ -48,8 +49,14 @@
 };
 .dropdown-date-filter-body, .text-field-subscription-body {
   width: 266px;
+  .type-h3 {
+    cursor: default;
+  }
 };
 .dropdown-date-body {
+  .type-h3 {
+    cursor: default;
+  }
   width: 150px;
   display: inline-block;
   margin-right: 20px;
@@ -71,9 +78,11 @@
   padding: 0 0 0 15px;
 };
 .dropdown-guests-field-body {
+  cursor: pointer;
   @extend %fields-generalrules;
 };
 .dropdown-quests {
+  cursor: pointer;
   @extend %dropwond-generalrules;
   position: relative;
 };
@@ -94,11 +103,13 @@
   };
 };
 .default-label {
+  cursor: default;
   &::after {
     content: "default";
   };
 };
 .hover-label {
+  cursor: default;
   &::after {
     content: "hover/focus";
   };
@@ -111,6 +122,7 @@
 .dropdown-date_button {
   @extend %dropdown-tick;
   position: absolute; right: 0; top: 0;
+  cursor: pointer;
   width: 44px;
   height: 44px;
   background: none;
@@ -121,4 +133,10 @@
 }
 .dropdown-date-filter-block {
   position: relative;
+}
+.dropdown-date__text, .dropdown-date-filter {
+  cursor: pointer;
+}
+.dropdown-rooms-button-arrow, .rooms-calc-button {
+  cursor: pointer;
 }

@@ -55,6 +55,15 @@ body {
   height: 70px;
   box-sizing: border-box;
 }
+.border-button-body {
+  .border-button {
+    position: relative;
+    top: -7px;
+  }
+}
+.header__login__login-body {
+  top: 4px;
+}
 // ------------------------------------------------
 
 // Main -----------------------------------------------
@@ -181,6 +190,9 @@ body {
     }
   }
 }
+.footers__big-footer {
+  width: 100%;
+}
 .footers-big-footer-subscribe__text {
   width: 260px;
 }
@@ -243,22 +255,6 @@ body {
   .room-details__header {
     padding: 15px 30px;
   }
-  .footers__big-footer__links-table {
-    display: block;
-    margin-left: 0px;
-    margin-top: 40px;
-  }
-  .footers-big-footer-subscribe {
-    position: relative;
-    top: -390px;
-    left: 300px;
-  }
-  .footers__big-footer {
-    padding: 104px 30px 100px;
-    width: 650px;
-    margin: auto;
-    height: 600px;
-  }
 }
 @media(max-width:1048px){
   .room-details__header {
@@ -292,19 +288,6 @@ body {
   .header__login-form table {
     margin-left: 42px;
     margin: 0px;
-  }
-  .footers__big-footer__fishtext {
-    .footers__big-footer__fishtext__text {
-      width: 225px;
-    }
-  }
-  .footers-big-footer-subscribe {
-    position: relative;
-    top: -410px;
-    left: 230px;
-  }
-  .footers__big-footer {
-    width: 588px;
   }
   .rooms-details__rooms-details__cancellation {
     margin-left: 20px;
@@ -352,5 +335,57 @@ body {
 @media(max-width:900px){
   .footers__big-footer__copyright-block {
     padding: 0px 40px;
+  }
+}
+// Media Footer
+@media(max-width:1440px){
+  .room-details__footer .footers__big-footer {
+    padding: 100px 0px 100px;
+    width: 1050px;
+    margin: auto;
+  }
+  .footers__big-footer__fishtext__text {
+    width: 220px;
+  }
+  .footers-big-footer-subscribe, .text-field-subscription-body, .footers-big-footer-subscribe__text {
+    width: 180px;
+  }
+}
+@media(max-width:1100px){
+  .room-details__footer .footers__big-footer {
+    width: 920px;
+  }
+  .footers__big-footer__links-table {
+    width: 160px;
+  }
+}
+@media(max-width:955px){
+  .header__login-form__nav-body {
+    padding-left: 50px;
+  }
+  .footers__big-footer__fishtext {
+    display: block;
+    margin: 0;
+  }
+  .footers-big-footer-subscribe__text, .text-field-subscription-body {
+    width: 250px;
+  }
+  .footers-big-footer-subscribe {
+    position: absolute;
+    top: 110px;
+    left: 250px;
+    width: 250px;
+  }
+  .room-details__footer .footers__big-footer {
+    width: 500px;
+    position: relative;
+  }
+  .footers__big-footer__links-table {
+    margin-top: 40px;
+  }
+}
+@media(max-width:670px){
+  .header__login-form__nav-body {
+    padding-left: 0px;
   }
 }

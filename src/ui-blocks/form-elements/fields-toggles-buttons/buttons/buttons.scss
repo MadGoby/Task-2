@@ -56,7 +56,8 @@
   margin: 0 20px 30px 0;
   color: white;
   border: none;
-  outline: none
+  outline: none;
+  cursor: pointer;
 }
 .buttons-types-body {
   width: 240px;
@@ -73,6 +74,7 @@
 .border-button-body {
   display: inline-block;
   width: 119px;
+  position: relative;
 }
 .border-button {
   @extend %buttons-simple-rules;
@@ -80,6 +82,7 @@
   z-index: 1;
   width: 101px;
   padding: 0;
+  top: 1px;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   &:active {
     opacity: 0.5;
@@ -99,6 +102,7 @@
   outline: none;
   -webkit-user-select: none;
   -moz-user-select: none;  
+  cursor: pointer;
 }
 .text-button, .text-button-dark {
   border: none;
@@ -106,6 +110,7 @@
   color: $purple;
   margin: 0 20px 30px 0;
   outline: none;
+  cursor: pointer;
   &:active {
     color: $dark50;
   }

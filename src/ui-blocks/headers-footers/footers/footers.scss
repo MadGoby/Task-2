@@ -11,24 +11,29 @@
 }
 .footers__big-footer__fishtext {
   display: inline-block;
+  margin-right: 25px;
+}
+.footers__big-footer__links-table-body {
+  display: inline-block;
 }
 .footers__big-footer__links-table {
   display: inline-block;
   vertical-align: top;
-  border-spacing: 0px 0px;
-  margin-left: 40px;
-  tr {
-    th {
-      padding-right: 118px;
-      text-align: left;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  li {
+    text-align: left;
+    cursor: default;
+    list-style: none;
+    padding-bottom: 20px;
+    a {
+      text-decoration: none;
+      color: $dark50;
     }
-    td {
-      padding-right: 118px;
-      padding-top: 20px;
-    }
-    .footers__big-footer__links-table__last {
-      padding-right: 0px;
-    }
+  }
+  .footers__big-footer__links-table__last {
+    padding-right: 0px;
   }
 }
 .footers-big-footer-subscribe {

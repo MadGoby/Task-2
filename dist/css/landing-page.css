@@ -40,7 +40,7 @@
   height: 70px;
   background: #FFFFFF;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  padding: 15px 140px;
+  padding: 15px 140px 0px 140px;
   box-sizing: border-box; }
 
 .header__login-form__color-logo, .header__no-login-form__color-logo {
@@ -50,33 +50,36 @@
   display: inline-block;
   height: 40px;
   float: right; }
-  .header__login-form__nav-body table, .header__no-login-form__nav-body table {
+  .header__login-form__nav-body ul, .header__no-login-form__nav-body ul {
     height: 40px;
-    position: relative;
-    top: -5px;
-    display: inline-block; }
-    .header__login-form__nav-body table tr, .header__no-login-form__nav-body table tr {
-      height: 40px; }
-      .header__login-form__nav-body table tr td, .header__no-login-form__nav-body table tr td {
-        font-family: 'Montserrat', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 17px;
+    display: inline-block;
+    margin: 0;
+    padding: 0; }
+    .header__login-form__nav-body ul li, .header__no-login-form__nav-body ul li {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 40px;
+      color: rgba(31, 32, 65, 0.5);
+      padding-right: 30px;
+      display: inline-block;
+      list-style: none; }
+      .header__login-form__nav-body ul li a, .header__no-login-form__nav-body ul li a {
         color: rgba(31, 32, 65, 0.5);
-        padding-right: 30px; }
-      .header__login-form__nav-body table tr .header__login-form__nav-cell-first, .header__no-login-form__nav-body table tr .header__login-form__nav-cell-first {
+        text-decoration: none; }
+      .header__login-form__nav-body ul li .header__login-form__nav-cell-first, .header__no-login-form__nav-body ul li .header__login-form__nav-cell-first {
         font-weight: bold;
         color: rgba(31, 32, 65, 0.75); }
-      .header__login-form__nav-body table tr .header__login-form__nav-cell-border, .header__no-login-form__nav-body table tr .header__login-form__nav-cell-border {
-        width: 0px;
+      .header__login-form__nav-body ul li .header__login-form__nav-cell-border, .header__no-login-form__nav-body ul li .header__login-form__nav-cell-border {
         border-left: 2px solid rgba(31, 32, 65, 0.1); }
 
 .header__login__login-body {
   display: inline-block;
-  height: 44px;
+  height: 40px;
   position: relative;
-  width: 302px; }
+  width: 302px;
+  line-height: 40px; }
   .header__login__login-body input {
     margin: 0;
     position: absolute;
@@ -95,25 +98,18 @@
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 40px;
   color: rgba(31, 32, 65, 0.5);
   margin: 0;
-  position: relative;
-  top: -19px; }
+  border-left: 2px solid rgba(31, 32, 65, 0.1);
+  padding-left: 20px; }
 
 .header__login-form__nav-cell-tick::after {
   content: url(../img/dropdown_tick.svg);
   display: inline-block;
   width: 21px;
-  text-align: center; }
-
-@-moz-document url-prefix() {
-  .header__login__login-body {
-    top: -19px; }
-    .header__login__login-body .border-button-body {
-      top: -5px; }
-    .header__login__login-body input {
-      top: 0px; } }
+  text-align: center;
+  cursor: pointer; }
 
 .text-field, .text-field-subscription, .dropdown-guests-field-body, .dropdown-date, .dropdown-date-filter, .dropdown-rooms-field-body {
   box-sizing: border-box;
@@ -137,6 +133,7 @@
 
 .arrow-block::after {
   content: url(../img/dropdown_arrow.svg);
+  cursor: pointer;
   float: right;
   width: 44px;
   display: inline-block;
@@ -160,11 +157,15 @@
 
 .dropdown-date-filter-body, .text-field-subscription-body {
   width: 266px; }
+  .dropdown-date-filter-body .type-h3, .text-field-subscription-body .type-h3 {
+    cursor: default; }
 
 .dropdown-date-body {
   width: 150px;
   display: inline-block;
   margin-right: 20px; }
+  .dropdown-date-body .type-h3 {
+    cursor: default; }
 
 .text-field::-webkit-input-placeholder {
   color: rgba(31, 32, 65, 0.25); }
@@ -178,7 +179,11 @@
 .text-field-subscription {
   padding: 0 0 0 15px; }
 
+.dropdown-guests-field-body {
+  cursor: pointer; }
+
 .dropdown-quests {
+  cursor: pointer;
   position: relative; }
 
 .dropdown-date {
@@ -192,11 +197,15 @@
     float: right;
     font-weight: normal; }
 
-.default-label::after {
-  content: "default"; }
+.default-label {
+  cursor: default; }
+  .default-label::after {
+    content: "default"; }
 
-.hover-label::after {
-  content: "hover/focus"; }
+.hover-label {
+  cursor: default; }
+  .hover-label::after {
+    content: "hover/focus"; }
 
 .expanded-label::after {
   content: "expanded"; }
@@ -205,6 +214,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  cursor: pointer;
   width: 44px;
   height: 44px;
   background: none;
@@ -215,6 +225,12 @@
 
 .dropdown-date-filter-block {
   position: relative; }
+
+.dropdown-date__text, .dropdown-date-filter {
+  cursor: pointer; }
+
+.dropdown-rooms-button-arrow, .rooms-calc-button {
+  cursor: pointer; }
 
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
@@ -522,7 +538,8 @@
   margin: 0 20px 30px 0;
   color: white;
   border: none;
-  outline: none; }
+  outline: none;
+  cursor: pointer; }
 
 .buttons-types-body {
   width: 240px;
@@ -536,13 +553,15 @@
 
 .border-button-body {
   display: inline-block;
-  width: 119px; }
+  width: 119px;
+  position: relative; }
 
 .border-button {
   position: relative;
   z-index: 1;
   width: 101px;
   padding: 0;
+  top: 1px;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%); }
   .border-button:active {
     opacity: 0.5; }
@@ -561,14 +580,16 @@
   line-height: 40px;
   outline: none;
   -webkit-user-select: none;
-  -moz-user-select: none; }
+  -moz-user-select: none;
+  cursor: pointer; }
 
 .text-button, .text-button-dark {
   border: none;
   background: none;
   color: #BC9CFF;
   margin: 0 20px 30px 0;
-  outline: none; }
+  outline: none;
+  cursor: pointer; }
   .text-button:active, .text-button-dark:active {
     color: rgba(31, 32, 65, 0.5); }
 
@@ -644,20 +665,27 @@
   width: 260px; }
 
 .footers__big-footer__fishtext {
+  display: inline-block;
+  margin-right: 25px; }
+
+.footers__big-footer__links-table-body {
   display: inline-block; }
 
 .footers__big-footer__links-table {
   display: inline-block;
   vertical-align: top;
-  border-spacing: 0px 0px;
-  margin-left: 40px; }
-  .footers__big-footer__links-table tr th {
-    padding-right: 118px;
-    text-align: left; }
-  .footers__big-footer__links-table tr td {
-    padding-right: 118px;
-    padding-top: 20px; }
-  .footers__big-footer__links-table tr .footers__big-footer__links-table__last {
+  padding: 0;
+  margin: 0;
+  width: 200px; }
+  .footers__big-footer__links-table li {
+    text-align: left;
+    cursor: default;
+    list-style: none;
+    padding-bottom: 20px; }
+    .footers__big-footer__links-table li a {
+      text-decoration: none;
+      color: rgba(31, 32, 65, 0.5); }
+  .footers__big-footer__links-table .footers__big-footer__links-table__last {
     padding-right: 0px; }
 
 .footers-big-footer-subscribe {
@@ -876,6 +904,10 @@
   height: 70px;
   box-sizing: border-box; }
 
+.border-button-body .border-button {
+  position: relative;
+  top: -7px; }
+
 body {
   background: #E5E5E5;
   margin: 0px; }
@@ -935,9 +967,6 @@ body {
   top: 268px;
   z-index: 2; }
 
-.header__login__login-body {
-  top: -5px; }
-
 .rooms-search__dropdown-date .dropdown-date-body h3 {
   margin-bottom: 6px; }
 
@@ -972,20 +1001,7 @@ body {
 
 @media (max-width: 1265px) {
   .landin-page__header {
-    padding: 15px 30px; }
-  .footers__big-footer__links-table {
-    display: block;
-    margin-left: 0px;
-    margin-top: 40px; }
-  .footers-big-footer-subscribe {
-    position: relative;
-    top: -390px;
-    left: 300px; }
-  .footers__big-footer {
-    padding: 104px 30px 100px;
-    width: 650px;
-    margin: auto;
-    height: 600px; } }
+    padding: 15px 30px; } }
 
 @media (max-width: 1048px) {
   .landin-page__header {
@@ -1015,15 +1031,7 @@ body {
   .rooms-search-body {
     margin: auto;
     position: relative;
-    left: auto; }
-  .footers__big-footer__fishtext .footers__big-footer__fishtext__text {
-    width: 225px; }
-  .footers-big-footer-subscribe {
-    position: relative;
-    top: -410px;
-    left: 230px; }
-  .footers__big-footer {
-    width: 588px; } }
+    left: auto; } }
 
 @media (max-width: 604px) {
   .header__login__login-body {
@@ -1033,4 +1041,43 @@ body {
 @media (max-width: 900px) {
   .footers__big-footer__copyright-block {
     padding: 0px 40px; } }
+
+@media (max-width: 1440px) {
+  .landing-page__footer .footers__big-footer {
+    padding: 100px 0px 100px;
+    width: 1050px;
+    margin: auto; }
+  .footers__big-footer__fishtext__text {
+    width: 220px; }
+  .footers-big-footer-subscribe, .text-field-subscription-body, .footers-big-footer-subscribe__text {
+    width: 180px; } }
+
+@media (max-width: 1100px) {
+  .landing-page__footer .footers__big-footer {
+    width: 920px; }
+  .footers__big-footer__links-table {
+    width: 160px; } }
+
+@media (max-width: 955px) {
+  .header__login-form__nav-body {
+    padding-left: 50px; }
+  .footers__big-footer__fishtext {
+    display: block;
+    margin: 0; }
+  .footers-big-footer-subscribe__text, .text-field-subscription-body {
+    width: 250px; }
+  .footers-big-footer-subscribe {
+    position: absolute;
+    top: 110px;
+    left: 250px;
+    width: 250px; }
+  .landing-page__footer .footers__big-footer {
+    width: 500px;
+    position: relative; }
+  .footers__big-footer__links-table {
+    margin-top: 40px; } }
+
+@media (max-width: 670px) {
+  .header__login-form__nav-body {
+    padding-left: 0px; } }
 

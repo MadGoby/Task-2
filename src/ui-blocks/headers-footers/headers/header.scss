@@ -2,7 +2,7 @@
   height: 70px;
   background: #FFFFFF;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  padding: 15px 140px;
+  padding: 15px 140px 0px 140px;
   box-sizing: border-box;
 }
 .header__login-form__color-logo, .header__no-login-form__color-logo {
@@ -12,28 +12,30 @@
   display: inline-block;
   height: 40px;
   float: right;
-  table {
+  ul {
     height: 40px;
-    position: relative;
-    top: -5px;
     display: inline-block;
-    tr {
-      height: 40px;
-      td {
-        font-family: 'Montserrat', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 17px;
+    margin: 0;
+    padding: 0;
+    li {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 40px;
+      color: $dark50;
+      padding-right: 30px;
+      display: inline-block;
+      list-style: none;
+      a {
         color: $dark50;
-        padding-right: 30px;
+        text-decoration: none;
       }
       .header__login-form__nav-cell-first {
         font-weight: bold;
         color: $dark75;
       }
       .header__login-form__nav-cell-border {
-        width: 0px;
         border-left: 2px solid rgba(31, 32, 65, 0.1);
       }
     }
@@ -41,9 +43,10 @@
 }
 .header__login__login-body {
   display: inline-block;
-  height: 44px;
+  height: 40px;
   position: relative;
   width: 302px;
+  line-height: 40px;
   input {
     margin: 0;
     position: absolute;
@@ -65,11 +68,11 @@
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 40px;
   color: $dark50;
   margin: 0;
-  position: relative;
-  top: -19px;
+  border-left: 2px solid rgba(31, 32, 65, 0.1);
+  padding-left: 20px;
 }
 .header__login-form__nav-cell-tick {
   &::after {
@@ -77,17 +80,6 @@
     display: inline-block;
     width: 21px;
     text-align: center;
+    cursor: pointer;
   }
 }
-
-@-moz-document url-prefix() {
-  .header__login__login-body {
-    top: -19px;
-    .border-button-body {
-      top: -5px;
-    }
-    input {
-      top: 0px;
-    }
-  }
-};

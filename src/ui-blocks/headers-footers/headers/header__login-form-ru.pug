@@ -3,10 +3,10 @@ include ../../form-elements/fields-toggles-buttons/buttons/buttons-types.pug
 
 div.header__login-form
   img(src="./img/color-logo.svg", alt="logo").header__login__color-logo
-  nav.header__login-form__nav-body
-    table
-      tr
-        +header_nav("ru","О нас", "Услуги", "Вакансии", "Новости", "Соглашения", false, false)
+  nav(role="navigation").header__login-form__nav-body
+    ul
+      +header_nav("ru","О нас", "Услуги", "Вакансии", "Новости", "Соглашения", false, false)
     div.header__login__login-body.header__login__login-body-ru
-      +buttons-types("border-button", "Войти", 'true', 'border-button-relations1')
-      +buttons-types("simple-button", "Зарегистрироваться")
+      form
+        +buttons-types("border-button", "Войти", 'true', 'border-button-relations1')
+        +buttons-types("simple-button", "Зарегистрироваться")
