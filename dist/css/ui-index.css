@@ -447,6 +447,11 @@
 .dropdown-rooms-button-arrow, .rooms-calc-button {
   cursor: pointer; }
 
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none; }
+
 .opportunities-checkbox-imitation, .radio-button-imitation, .special-toggle-imitation, .like-button-imitation {
   content: "";
   display: inline-block;

@@ -259,6 +259,11 @@ body {
 .dropdown-rooms-button-arrow, .rooms-calc-button {
   cursor: pointer; }
 
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none; }
+
 .type-h1, .type-h2, .type-h3 {
   font-weight: bold;
   margin: 0; }
@@ -1359,6 +1364,11 @@ body {
 
 .dropdown-rooms-button-arrow, .rooms-calc-button {
   cursor: pointer; }
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none; }
 
 .header__login__login-body {
   top: -5px; }
