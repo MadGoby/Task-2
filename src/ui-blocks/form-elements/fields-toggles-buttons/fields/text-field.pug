@@ -2,15 +2,15 @@ mixin textfield(hint, appointment, state, first)
   if first == 10
     div.text-field-body   
       h3.type-h3(class= state)= appointment
-      input.text-field.type-simple-text(placeholder= hint)
+      input.text-field.type-simple-text(placeholder= hint type="text")
   else if state !=null
     div.text-field-body   
       h3.margin20.type-h3(class= state)= appointment
-      input.text-field.type-simple-text(placeholder= hint)
+      input.text-field.type-simple-text(placeholder= hint type="text")
   else if appointment != null
     div.text-field-body  
       h3.margin20.type-h3= appointment
-      input.text-field.type-simple-text(placeholder= hint)
+      input.text-field.type-simple-text(placeholder= hint type="text")
   else
     div.text-field-body  
-      input.text-field.type-simple-text(placeholder= hint)
+      input.text-field.type-simple-text(placeholder= hint type="text")

@@ -55,7 +55,7 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url(../fonts/Quicksand-Bold.ttf) format("truetype"), url(../fonts/Quicksand-Bold.woff) format("woff"), url(../img/Quicksand-Bold.svg) format("svg");
+  src: url(../fonts/Montserrat-Bold.ttf) format("truetype"), url(../fonts/Montserrat-Bold.woff) format("woff"), url(../img/Montserrat-Bold.svg) format("svg");
   font-weight: 700;
   font-style: normal; }
 
@@ -207,19 +207,22 @@
   font-family: "Quicksand", sans-serif;
   font-size: 24px;
   line-height: 30px;
-  color: #1F2041; }
+  color: #1F2041;
+  font-weight: bold; }
 
 .type-h2 {
   font-family: "Quicksand", sans-serif;
   font-size: 19px;
   line-height: 24px;
-  color: #1F2041; }
+  color: #1F2041;
+  font-weight: bold; }
 
 .type-h3 {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
   line-height: 15px;
-  color: #1F2041; }
+  color: #1F2041;
+  font-weight: bold; }
 
 .type-simple-text {
   font-family: "Montserrat", sans-serif;

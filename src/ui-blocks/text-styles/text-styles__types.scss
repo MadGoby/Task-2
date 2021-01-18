@@ -17,16 +17,19 @@ $mont: 'Montserrat', sans-serif;
   font-weight: bolder;
 }
 .type-h1 {
-  @include fontshowing ($quick, 24px, 30px, $dark100)
+  @include fontshowing ($quick, 24px, 30px, $dark100);
+  font-weight: bold;
 };
 .type-h2 {
-  @include fontshowing ($quick, 19px, 24px, $dark100)
+  @include fontshowing ($quick, 19px, 24px, $dark100);
+  font-weight: bold;
 };
 .type-h3 { 
-  @include fontshowing ($mont, 12px, 15px, $dark100)
+  @include fontshowing ($mont, 12px, 15px, $dark100);
+  font-weight: bold;
 };
 .type-simple-text {
-  @include fontshowing ($mont, 14px, 24px, $dark75)
+  @include fontshowing ($mont, 14px, 24px, $dark75);
 };
 .type-simple-text-bold {
   @include fontshowing ($mont, 14px, 18px, $dark75);

@@ -3,13 +3,13 @@ mixin textfield-subscription(hint, appointment, state)
     form(action="").text-field-subscription-body   
       h3.margin40.type-h3(class= state)= appointment
       div.arrow-block
-        input.type-simple-text.text-field.text-field-subscription(placeholder= hint)
+        input.type-simple-text.text-field.text-field-subscription(placeholder= hint type="text")
   else if appointment != null
     form(action="").text-field-subscription-body  
       h3.margin40.type-h3= appointment
       div.arrow-block
-        input.type-simple-text.text-field.text-field-subscription(placeholder= hint)
+        input.type-simple-text.text-field.text-field-subscription(placeholder= hint type="text")
   else
     form(action="").text-field-subscription-body
       div.arrow-block
-        input.type-simple-text.text-field.text-field-subscription(placeholder= hint)
+        input.type-simple-text.text-field.text-field-subscription(placeholder= hint type="text")
