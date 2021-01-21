@@ -395,7 +395,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .type-simple-text .description {
   width: 301px; }
 
-#range-slider-body {
+.range-slider-body {
   margin-top: 23px; }
 
 .ui-slider {
@@ -428,7 +428,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: -1px;
   height: 6px; }
 
-#amount-slider-price {
+.amount-slider-price {
   border: 0;
   font-weight: normal;
   color: rgba(31, 32, 65, 0.5);
@@ -1143,12 +1143,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 24px;
     height: 24px; }
 
-#dropdown-datepicker__monce-year {
+.dropdown-datepicker__monce-year {
   display: inline-block;
   width: 230px;
   text-align: center; }
 
-#dropdown-datepicker__minus-button {
+.dropdown-datepicker__minus-button {
   transform: rotate(180deg); }
 
 .dropdown-datepicker__datepicker-body {

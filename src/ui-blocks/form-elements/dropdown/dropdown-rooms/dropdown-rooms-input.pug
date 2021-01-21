@@ -1,15 +1,15 @@
-mixin dropdown-rooms-closed(buttonID, appointment, state)
+mixin dropdown-rooms-closed(buttonClass, appointment, state)
   if state !=null
     h3.margin20.type-h3(class= state)= appointment
-    div.dropdown-rooms-field-body(id = buttonID + "_border")
-      label.type-simple-text.dropdown-rooms-label#dropdown-room-mainOutput
-      button.dropdown-rooms-button-arrow(id= buttonID)
+    div.dropdown-rooms-field-body(class = buttonClass + "_border")
+      label.type-simple-text.dropdown-rooms-label.dropdown-room-mainOutput
+      button.dropdown-rooms-button-arrow(class= buttonClass)
   else if appointment != null
     h3.margin20.type-h3= appointment
-    div.dropdown-rooms-field-body(id = buttonID + "_border") 
-      label.type-simple-text.dropdown-rooms-label#dropdown-room-mainOutput
-      button.dropdown-rooms-button-arrow(id= buttonID)
+    div.dropdown-rooms-field-body(class = buttonClass + "_border") 
+      label.type-simple-text.dropdown-rooms-label.dropdown-room-mainOutput
+      button.dropdown-rooms-button-arrow(class= buttonClass)
   else
-    div.dropdown-rooms-field-body(id = buttonID + "_border") 
-      label.type-simple-text.dropdown-rooms-label#dropdown-room-mainOutput
-      button.dropdown-rooms-button-arrow(id= buttonID)
+    div.dropdown-rooms-field-body(class = buttonClass + "_border") 
+      label.type-simple-text.dropdown-rooms-label.dropdown-room-mainOutput
+      button.dropdown-rooms-button-arrow(class= buttonClass)

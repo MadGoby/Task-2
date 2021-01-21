@@ -1,12 +1,12 @@
-mixin buttons-types(className, buttonName, border, borderid, submit)
+mixin buttons-types(className, buttonName, border, borderClass, submit)
   if submit === true  
     if border == 10
       button.type-h3(type="submit", class=className)= buttonName
         img.big-button-arrow(src="./img/arrow_white.svg" name='img')
     else if border 
       div.border-button-body
-        button(id= borderid, class= className, type="submit")
-          label.type-h3.border-button-label(for= borderid)= buttonName
+        button(class= borderClass, class= className, type="submit")
+          label.type-h3.border-button-label(for= borderClass)= buttonName
     else
       input.type-h3(type='submit', class= className, value= buttonName)
   else
@@ -15,8 +15,8 @@ mixin buttons-types(className, buttonName, border, borderid, submit)
         img.big-button-arrow(src="./img/arrow_white.svg" name='img')
     else if border 
       div.border-button-body
-        button(id= borderid, class= className)
-          label.type-h3.border-button-label(for= borderid)= buttonName
+        button(class= borderClass, class= className)
+          label.type-h3.border-button-label(for= borderClass)= buttonName
     else
       input.type-h3(type= 'submit', class= className, value= buttonName)
 

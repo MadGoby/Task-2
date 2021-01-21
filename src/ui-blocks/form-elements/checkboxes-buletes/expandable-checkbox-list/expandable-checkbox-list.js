@@ -1,5 +1,5 @@
-let expandableCheckboxListTitleButton = document.querySelector('#expandable-checkbox-list_title-button')
-let uiExpandableCheckboxListTitleBody = document.querySelector('#ui-expandable-checkbox-list_list-body')
+let expandableCheckboxListTitleButton = document.querySelector('.expandable-checkbox-list_title-button')
+let uiExpandableCheckboxListTitleBody = document.querySelector('.ui-expandable-checkbox-list_list-body')
 let expandableListStyleBody = window.getComputedStyle(uiExpandableCheckboxListTitleBody).display;
 expandableCheckboxListTitleButton.onclick = function() {
   expandableListStyleBody = window.getComputedStyle(uiExpandableCheckboxListTitleBody).display;

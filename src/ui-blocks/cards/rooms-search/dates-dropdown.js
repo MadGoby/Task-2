@@ -1,6 +1,6 @@
 let startDate = document.querySelector(".dropdown-date-label-start");
 let endDate = document.querySelector(".dropdown-date-label-end");
-let datePicker = document.querySelector("#dropdown-datepicker-body");
+let datePicker = document.querySelector(".dropdown-datepicker-body");
 let datePickerDisplayPosition = window.getComputedStyle(datePicker).display;
 let startCalLabel = startDate.querySelector(".dropdown-date__text");
 let endCalLabel = endDate.querySelector(".dropdown-date__text");
@@ -72,7 +72,7 @@ let tableCounter = 1;
 let emptyTdCounter = 1;
 
 // Dates
-let monceTitle = document.querySelector("#dropdown-datepicker__monce-year");
+let monceTitle = document.querySelector(".dropdown-datepicker__monce-year");
 let currentMonth = new Date().getMonth();
 let currentMonthStr = new Date().toLocaleString("ru", { month: "long" });
 let currentYear = new Date().getFullYear();
@@ -407,7 +407,7 @@ function CleaningOldData() {
 }
 
 // Calendar Next Month Function 
-let calendarButtonNext = document.querySelector("#dropdown-datepicker__plus-button")
+let calendarButtonNext = document.querySelector(".dropdown-datepicker__plus-button")
 
 calendarButtonNext.addEventListener("click", function() {
   monthStartDateCounter = 1;
@@ -419,7 +419,7 @@ calendarButtonNext.addEventListener("click", function() {
 })
 
 // Calendar Previous Month Function 
-let calendarButtonprevious = document.querySelector("#dropdown-datepicker__minus-button");
+let calendarButtonprevious = document.querySelector(".dropdown-datepicker__minus-button");
 
 calendarButtonprevious.addEventListener("click", function() {
   monthStartDateCounter = 1;

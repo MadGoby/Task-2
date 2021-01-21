@@ -1,6 +1,6 @@
-let uiGuestsButton2 = document.querySelector("#ui-dropdown-guests-button_2")
-let uiExpendedGuestsBody2 = document.querySelector("#uiGuestsExpendedBody_2")
-let uiGuestsBodyBorder2 = document.querySelector("#dropdown-guests_input_2")
+let uiGuestsButton2 = document.querySelector(".ui-dropdown-guests-button_2")
+let uiExpendedGuestsBody2 = document.querySelector(".uiGuestsExpendedBody_2")
+let uiGuestsBodyBorder2 = document.querySelector(".dropdown-guests_input_2")
 let GuestsDisplayPosition2 = window.getComputedStyle(uiExpendedGuestsBody2).display;
 
 // Dropdown

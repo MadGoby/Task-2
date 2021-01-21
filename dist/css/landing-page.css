@@ -317,7 +317,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px; }
 
-#ui-dropdown-rooms-button_border {
+.ui-dropdown-rooms-button_border {
   border-color: rgba(31, 32, 65, 0.5);
   border-bottom: none; }
 
@@ -387,11 +387,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 720px;
   margin-left: 180px; }
 
-#uiGuestsExpendedBody {
+.uiGuestsExpendedBody {
   width: 320px;
   height: 160px; }
 
-#dropdown-guests_input, #dropdown-guests_input_2 {
+.dropdown-guests_input, .dropdown-guests_input_2 {
   border-radius: 0;
   border-bottom: none;
   border-top-left-radius: 4px;
@@ -425,11 +425,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .dropdown-guests-body-extended_2 {
   margin-left: 72px; }
 
-#uiGuestsExpendedBody_2 {
+.uiGuestsExpendedBody_2 {
   height: 160px;
   width: 320px; }
 
-#ui-first-guests-clear-button_2 {
+.ui-first-guests-clear-button_2 {
   display: inline-block; }
 
 .colors-palette {
@@ -521,7 +521,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .type-simple-text .description {
   width: 301px; }
 
-#range-slider-body {
+.range-slider-body {
   margin-top: 23px; }
 
 .ui-slider {
@@ -554,7 +554,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: -1px;
   height: 6px; }
 
-#amount-slider-price {
+.amount-slider-price {
   border: 0;
   font-weight: normal;
   color: rgba(31, 32, 65, 0.5);
@@ -824,12 +824,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 24px;
     height: 24px; }
 
-#dropdown-datepicker__monce-year {
+.dropdown-datepicker__monce-year {
   display: inline-block;
   width: 230px;
   text-align: center; }
 
-#dropdown-datepicker__minus-button {
+.dropdown-datepicker__minus-button {
   transform: rotate(180deg); }
 
 .dropdown-datepicker__datepicker-body {

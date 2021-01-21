@@ -3,11 +3,11 @@
   width: 720px;
   margin-left: 180px;
 }
-#uiGuestsExpendedBody {
+.uiGuestsExpendedBody {
   width: 320px;
   height: 160px;
 }
-#dropdown-guests_input, #dropdown-guests_input_2 {
+.dropdown-guests_input, .dropdown-guests_input_2 {
   border-radius: 0;
   border-bottom: none;
   border-top-left-radius: 4px;
@@ -44,10 +44,10 @@
 .dropdown-guests-body-extended_2 {
   margin-left: 72px;
 }
-#uiGuestsExpendedBody_2 {
+.uiGuestsExpendedBody_2 {
   height: 160px;
   width: 320px;
 }
-#ui-first-guests-clear-button_2 {
+.ui-first-guests-clear-button_2 {
   display: inline-block;
 }

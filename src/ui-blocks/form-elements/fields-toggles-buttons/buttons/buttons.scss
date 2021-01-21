@@ -1,5 +1,5 @@
 // Slider Range Rules
-#range-slider-body {
+.range-slider-body {
   margin-top: 23px;
 }
 .ui-slider{
@@ -32,7 +32,7 @@
   top: -1px;
   height: 6px;
 }
-#amount-slider-price {
+.amount-slider-price {
   border: 0;
   font-weight: normal;
   color: $dark50;

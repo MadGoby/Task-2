@@ -1,11 +1,11 @@
-mixin rooms-expanded-stroke-calc(minusID, plusID, outputID, outputDefault, opacity)
+mixin rooms-expanded-stroke-calc(minusClass, plusClass, outputClass, outputDefault, opacity)
   if opacity == 10
     div.rooms-expanded-strokes_stroke-body__calc-body
-      button(id= minusID).rooms-calc-button.rooms-calc-minus-buttton.opacity-05= "-"
-      label.type-h3.rooms-calc-output(id= outputID)= outputDefault
-      button(id= plusID).rooms-calc-button.rooms-calc-plus-buttton= "+"
+      button(class= minusClass).rooms-calc-button.rooms-calc-minus-buttton.opacity-05= "-"
+      label.type-h3.rooms-calc-output(class= outputClass)= outputDefault
+      button(class= plusClass).rooms-calc-button.rooms-calc-plus-buttton= "+"
   else
     div.rooms-expanded-strokes_stroke-body__calc-body
-      button(id= minusID).rooms-calc-button.rooms-calc-minus-buttton= "-"
-      label.type-h3.rooms-calc-output(id= outputID)= outputDefault
-      button(id= plusID).rooms-calc-button.rooms-calc-plus-buttton= "+"
+      button(class= minusClass).rooms-calc-button.rooms-calc-minus-buttton= "-"
+      label.type-h3.rooms-calc-output(class= outputClass)= outputDefault
+      button(class= plusClass).rooms-calc-button.rooms-calc-plus-buttton= "+"

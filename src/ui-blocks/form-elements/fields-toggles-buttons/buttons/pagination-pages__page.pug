@@ -2,10 +2,10 @@ mixin pagination-pages__page(number, selected)
   
   if selected == 'selected'
     li.pagination-pages__page-body
-      a(href="#").type-h3.pagination-pages__page.pagination-pages__page_selected= number
+      a(href="/for-change").type-h3.pagination-pages__page.pagination-pages__page_selected= number
   else if selected == 'last'
     li.pagination-pages__page-body
-      a(href="#").type-h3.pagination-pages__page.pagination-pages__page_last= number
+      a(href="/for-change").type-h3.pagination-pages__page.pagination-pages__page_last= number
   else
     li.pagination-pages__page-body
-      a(href="#").type-h3.pagination-pages__page= number
+      a(href="/for-change").type-h3.pagination-pages__page= number

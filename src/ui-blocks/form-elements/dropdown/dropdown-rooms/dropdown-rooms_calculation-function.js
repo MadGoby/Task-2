@@ -1,13 +1,13 @@
-let bedroomMinus = document.querySelector('#ui-bedroom-calc-minus-button')
-let bedroomPlus = document.querySelector('#ui-bedroom-calc-plus-button')
-let bedroomOutput = document.querySelector('#ui-output-bedroom')
-let bedsMinus = document.querySelector('#ui-beds-calc-minus-button')
-let bedsPlus = document.querySelector('#ui-beds-calc-plus-button')
-let bedsOutput = document.querySelector('#ui-output-beds')
-let bathroomMinus = document.querySelector('#ui-bathroom-calc-minus-button')
-let bathroomPlus = document.querySelector('#ui-bathroom-calc-plus-button')
-let bathroomOutput = document.querySelector('#ui-output-bathroom')
-let mainOutput = document.querySelector("#dropdown-room-mainOutput")
+let bedroomMinus = document.querySelector('.ui-bedroom-calc-minus-button')
+let bedroomPlus = document.querySelector('.ui-bedroom-calc-plus-button')
+let bedroomOutput = document.querySelector('.ui-output-bedroom')
+let bedsMinus = document.querySelector('.ui-beds-calc-minus-button')
+let bedsPlus = document.querySelector('.ui-beds-calc-plus-button')
+let bedsOutput = document.querySelector('.ui-output-beds')
+let bathroomMinus = document.querySelector('.ui-bathroom-calc-minus-button')
+let bathroomPlus = document.querySelector('.ui-bathroom-calc-plus-button')
+let bathroomOutput = document.querySelector('.ui-output-bathroom')
+let mainOutput = document.querySelector(".dropdown-room-mainOutput")
 
 // Rooms Dropdown Function
 mainOutput.innerHTML= bedroomOutput.innerHTML + ' спальни, ' + bedsOutput.innerHTML + ' кровати...'
