@@ -12,7 +12,7 @@ include ../checkboxes-buletes/expandable-checkbox-list/expandable-checkbox-list_
 +dropdown-date-filter("19 авг - 23 авг","даты пребывания в отеле")
 +dropdown-guests-closed("3 гостя, 1 младенец", "Гости")
 +range-slider("Диапозон Цены", 'ru')
-form.opportunities-form(action="/for-change")
+div.opportunities-form
   h3.type-h3.margin16= 'Доступность'
   +opportunities-checkbox-list("Можно курить", false, "Checkbox Buttons")
   +opportunities-checkbox-list("Можно с питомцами", true)
@@ -26,7 +26,7 @@ div.search-room__dropdown-rooms
   include ../dropdown/dropdown-rooms/dropdown-rooms__expanded
 div.search-room__checkbox-list
   +expandable-checkbox-list_title("Дополнительные удобства", "expandable-checkbox-list_title-button")
-  form.expandable-checkbox-list_list-body.ui-expandable-checkbox-list_list-body
+  div.expandable-checkbox-list_list-body.ui-expandable-checkbox-list_list-body
     +opportunities-checkbox-list("Завтрак", "1")
     +opportunities-checkbox-list("Письменный стол", "10")
     +opportunities-checkbox-list("Стул для кормления", "10")

@@ -15,19 +15,6 @@
 // -----------------------------------------------------------------
 
 // Header ----------------------------------------------------------
-.border-button-body, .border-button {
-  width: 87px;
-  height: 34px;
-}
-.border-button-label {
-  box-sizing: border-box;
-  width: 83px;
-  height: 30px;
-  line-height: 30px;
-}
-.simple-button {
-  height: 34px;
-}
 .registration__header {
   height: 70px;
   box-sizing: border-box;
@@ -37,15 +24,6 @@
   max-width: 1440px;
   min-width: 588px;
   margin: auto;
-}
-.border-button-body {
-  .border-button {
-    position: relative;
-    top: -7px;
-  }
-}
-.header__login__login-body {
-  top: 4px;
 }
 // --------------------------------------------------------------------
 
@@ -72,20 +50,6 @@ body {
   margin: auto;
   height: 646px;
   box-sizing: border-box;
-}
-.registration-form__login {
-  .border-button-body {
-    top: 5px;
-    .border-button {
-      height: 44px;
-      width: 99px;
-      .border-button-label {
-        height: 40px;
-        width: 95px;
-        line-height: 40px;
-      }
-    }
-  }
 }
 // --------------------------------------------------------------------
 

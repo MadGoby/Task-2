@@ -39,6 +39,8 @@
     position: absolute;
     right: 0;
     height: 44px;
-    width: 100px;
+    .border-button {
+      margin: 0px;
+    }
   }
 }

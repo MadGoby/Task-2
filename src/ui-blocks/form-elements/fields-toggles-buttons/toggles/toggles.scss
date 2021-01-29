@@ -1,8 +1,8 @@
 %buttons-general-rules {
   content: "";
   display: inline-block;
-  width: 20px; 
-  height: 20px;
+  min-width: 20px; 
+  min-height: 20px;
   border: 1px solid $dark25;
   z-index: 1;
   text-align: center;
@@ -138,9 +138,9 @@
   height: 18px;
   line-height: 18px;
   text-align: left;
-  position: absolute;
-  left: 22px;
+  position: relative;
   -webkit-user-select: none;
+  top: 1px;
 }
 .like-button-input {
   display: none;
@@ -159,7 +159,8 @@
   border-radius: 10px;
   margin: 0 10px 0 0; padding: 0;
   box-sizing: border-box;
-  width: 40px;
+  height: 20px;
+  min-width: 40px;
   line-height: 12px;
   vertical-align: middle;
   position: relative;
@@ -169,8 +170,9 @@
     display: inline-block;
     width: 18px; height: 18px;
     line-height: 18px;
-    position: absolute;
+    position: relative;
     left: 0;
+    float: left;
   }
 }
 // Rate Button

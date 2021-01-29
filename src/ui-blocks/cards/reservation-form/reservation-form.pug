@@ -2,17 +2,18 @@ include reservation-form__room-number.pug
 include ../../form-elements/fields-toggles-buttons/fields/dropdown-date.pug
 include ../../form-elements/fields-toggles-buttons/fields/dropdown-guests.pug
 
-div.reservation-form__room-number
-  +reservation-form__room-number("888", true, "9 990")
-div.reservation-form__dropdown-date
-  +dropdown-date("19.08.2019","Прибытие")
-  +dropdown-date("23.08.2019","Выезд")
-div.reservation-form__dropdown-guests
-  +dropdown-guests-closed("3 гостя", "Гости")
-div.reservation-form__order-information
-  include reservation-form__order-information.pug
-div.reservation-form__total-price
-  include reservation-form__total-price.pug
-div.reservation-form__accept-button
-  div.big-button-body
-    +buttons-types("big-simple-button", "Забронировать", '10', null, true)
+form(action="/for-change")
+  div.reservation-form__room-number
+    +reservation-form__room-number("888", true, "9 990")
+  div.reservation-form__dropdown-date
+    +dropdown-date("19.08.2019","Прибытие")
+    +dropdown-date("23.08.2019","Выезд")
+  div.reservation-form__dropdown-guests
+    +dropdown-guests-closed("3 гостя", "Гости")
+  div.reservation-form__order-information
+    include reservation-form__order-information.pug
+  div.reservation-form__total-price
+    include reservation-form__total-price.pug
+  div.reservation-form__accept-button
+    div.big-button-body
+      +buttons-types("big-simple-button", "Забронировать", '10', null, true)

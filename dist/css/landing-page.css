@@ -111,6 +111,10 @@
   position: relative;
   width: 302px;
   line-height: 40px; }
+  .header__login__login-body .simple-button {
+    margin: 0px;
+    margin-left: 20px;
+    height: 34px; }
   .header__login__login-body input {
     margin: 0;
     position: absolute;
@@ -119,9 +123,14 @@
     right: 0px;
     display: inline-block; }
   .header__login__login-body .border-button-body {
-    display: inline-block; }
+    display: inline-block;
+    height: 34px; }
     .header__login__login-body .border-button-body button {
-      margin: 0; }
+      margin: 0;
+      padding: 2px; }
+      .header__login__login-body .border-button-body button .border-button-label {
+        padding: 7px 18px 8px;
+        line-height: 30px; }
 
 .header__no-login__sign {
   display: inline-block;
@@ -161,17 +170,6 @@
   float: right;
   width: 44px;
   text-align: center; }
-
-.arrow-block::after {
-  content: url(../img/dropdown_arrow.svg);
-  cursor: pointer;
-  float: right;
-  width: 44px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: 50%;
-  position: relative;
-  top: -30px; }
 
 .fields {
   width: 340px;
@@ -215,10 +213,15 @@
 
 .dropdown-quests {
   cursor: pointer;
-  position: relative; }
+  position: relative;
+  overflow: hidden;
+  max-height: 24px; }
 
 .dropdown-date {
   position: relative; }
+
+.dropdown-date-filter {
+  overflow: hidden; }
 
 .default-label, .hover-label, .expanded-label {
   width: 100%;
@@ -260,8 +263,30 @@
 .dropdown-date__text, .dropdown-date-filter {
   cursor: pointer; }
 
+.dropdown-date__text {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 95px;
+  max-height: 24px; }
+
 .dropdown-rooms-button-arrow, .rooms-calc-button {
   cursor: pointer; }
+
+.text-field-subsciption__arrow-button {
+  background-image: url(../img/dropdown_arrow.svg);
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: white;
+  float: right;
+  position: relative;
+  top: -30px;
+  right: 13px;
+  padding: 0px;
+  outline: none; }
+  .text-field-subsciption__arrow-button:active, .text-field-subsciption__arrow-button:focus {
+    outline: none; }
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -581,7 +606,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer; }
 
 .buttons-types-body {
-  width: 240px;
+  width: 242px;
   margin-top: 43px; }
 
 .simple-button {
@@ -592,16 +617,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .border-button-body {
   display: inline-block;
-  width: 119px;
   position: relative; }
 
 .border-button {
   position: relative;
   z-index: 1;
-  width: 101px;
-  padding: 0;
-  top: 1px;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%); }
+  width: auto;
+  padding: 2px 2px 1px 2px;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  height: auto;
+  box-sizing: border-box; }
   .border-button:active {
     opacity: 0.5; }
 
@@ -611,10 +636,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #BC9CFF;
   height: 40px;
   border-radius: 20px;
-  position: absolute;
+  position: relative;
+  padding: 12px 18px;
   z-index: 2;
-  left: 2px;
-  top: 2px;
   text-align: center;
   line-height: 40px;
   outline: none;
@@ -925,27 +949,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .dropdown-datepicker-body .ui-guests-confirmed-button__clear {
   padding-top: 20px; }
 
-.border-button-body, .border-button {
-  width: 87px;
-  height: 34px; }
-
-.border-button-label {
-  box-sizing: border-box;
-  width: 83px;
-  height: 30px;
-  line-height: 30px; }
-
-.simple-button {
-  height: 34px;
-  vertical-align: top; }
-
 .landin-page__header {
   height: 70px;
   box-sizing: border-box; }
-
-.border-button-body .border-button {
-  position: relative;
-  top: -7px; }
 
 body {
   background: #E5E5E5;
@@ -997,10 +1003,10 @@ body {
 .dropdown-guests-body-extended {
   margin: 0; }
 
-#dropdown-guests_input, #dropdown-guests_input_2 {
+.dropdown-guests_input, .dropdown-guests_input_2 {
   border: 1px solid rgba(31, 32, 65, 0.25); }
 
-#uiGuestsExpendedBody {
+.uiGuestsExpendedBody {
   background: white;
   position: absolute;
   top: 268px;

@@ -60,7 +60,7 @@
   cursor: pointer;
 }
 .buttons-types-body {
-  width: 240px;
+  width: 242px;
   margin-top: 43px;
 }
 .simple-button {
@@ -73,20 +73,20 @@
 }
 .border-button-body {
   display: inline-block;
-  width: 119px;
   position: relative;
 }
 .border-button {
   @extend %buttons-simple-rules;
   position: relative;
   z-index: 1;
-  width: 101px;
-  padding: 0;
-  top: 1px;
+  width: auto;
+  padding: 2px 2px 1px 2px;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  height: auto;
   &:active {
     opacity: 0.5;
   }
+  box-sizing: border-box;
 }
 .border-button-label {
   background-color: white;
@@ -94,9 +94,9 @@
   color: $purple;
   height: 40px;
   border-radius: 20px;
-  position: absolute;
+  position: relative;
+  padding: 12px 18px;
   z-index: 2;
-  left: 2px; top: 2px;
   text-align: center;
   line-height: 40px;
   outline: none;

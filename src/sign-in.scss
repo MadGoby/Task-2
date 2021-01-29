@@ -16,25 +16,7 @@
 // -----------------------------------------------------------------
 
 // Header ----------------------------------------------------------
-.border-button-body, .border-button {
-  width: 99px;
-  height: 34px;
-}
-.border-button-label {
-  box-sizing: border-box;
-  width: 83px;
-  height: 30px;
-  line-height: 30px;
-}
-.simple-button {
-  height: 34px;
-}
-.header__login__login-body {
-  height: 34px;
-  form {
-    height: 34px;
-  }
-}
+
 .sing-in__header {
   height: 70px;
   box-sizing: border-box;
@@ -56,31 +38,6 @@
   margin: auto;
   position: relative;
   top: 172px;
-}
-.login-form__login .type-simple-text {
-   content: none;
-}
-.login-form__login {
-  .border-button-body {
-    .border-button {
-      height: 44px;
-      width: 99px;
-      .border-button-label {
-        height: 40px;
-        width: 95px;
-        line-height: 40px;
-      }
-    }
-  }
-}
-.border-button-body {
-  .border-button {
-    position: relative;
-    top: -7px;
-  }
-}
-.header__login__login-body {
-  top: 4px;
 }
 // - -------------------------------------------------------------------
 

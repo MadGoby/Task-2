@@ -70,9 +70,6 @@
     outline: none;
   };
 };
-.arrow-block {
-  @extend %dropdown-arrow;
-};
 .text-field-subscription {
   @extend %fields-generalrules, %dropwond-generalrules;
   padding: 0 0 0 15px;
@@ -85,6 +82,8 @@
   cursor: pointer;
   @extend %dropwond-generalrules;
   position: relative;
+  overflow: hidden;
+  max-height: 24px;
 };
 .dropdown-date {
   @extend %fields-generalrules, %dropwond-generalrules;
@@ -92,6 +91,7 @@
 };
 .dropdown-date-filter {
   @extend %fields-generalrules, %dropwond-generalrules;
+  overflow: hidden;
 };
 .default-label,.hover-label,.expanded-label {
   width: 100%;
@@ -137,8 +137,32 @@
 .dropdown-date__text, .dropdown-date-filter {
   cursor: pointer;
 }
+.dropdown-date__text {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 95px;
+  max-height: 24px;
+}
 .dropdown-rooms-button-arrow, .rooms-calc-button {
   cursor: pointer;
+}
+.text-field-subsciption__arrow-button {
+  background-image: url(../src/img/dropdown_arrow.svg);
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: white;
+  float: right;
+  position: relative;
+  top: -30px;
+  right: 13px;
+  padding: 0px;
+  outline: none;
+  &:active, 
+  &:focus {
+    outline: none;
+  }
 }
 
 input[type="date"]::-webkit-inner-spin-button,

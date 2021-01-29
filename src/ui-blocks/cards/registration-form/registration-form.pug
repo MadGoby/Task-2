@@ -2,22 +2,24 @@ include ../../form-elements/fields-toggles-buttons/fields/text-field.pug
 include ../../form-elements/fields-toggles-buttons/toggles/radio-gender-button.pug
 include ../../form-elements/fields-toggles-buttons/toggles/radio-special-button.pug
 
-h1.type-h1.rooms-search__main-title= 'Регистрация аккаунта'
-div.registration-form__name-surname
-  +textfield("Имя","","","10")
-  +textfield("Фамилия","","","10")
-div.registration-form__gender
-  +radio-gender(null)
-div.registration-form__birthday
-  +textfield("ДД.ММ.ГГГГ","Дата рождения", "", false, true)
-div.registration-form__email-password
-  +textfield("Email","Данные для входа в сервис","","1")
-  +textfield("Password","","","10")
-div.registration-form__spacial
-  +radio-special-button("Получать спецпредложения", "1")
-div.registration-form__accept-button
-  div.big-button-body
-    +buttons-types("big-simple-button", "Перейти к оплате", '10', null, true)
-div.registration-form__login
-  label.type-simple-text= "Уже есть аккаунт на Toxin"
-  +buttons-types("border-button", "Войти", 'true', 'border-button-relations1')
+form(action="/for-change")
+  h1.type-h1.rooms-search__main-title= 'Регистрация аккаунта'
+  div.registration-form__name-surname
+    +textfield("Имя","","","10")
+    +textfield("Фамилия","","","10")
+  div.registration-form__gender
+    +radio-gender(null)
+  div.registration-form__birthday
+    +textfield("ДД.ММ.ГГГГ","Дата рождения", "", false, true)
+  div.registration-form__email-password
+    +textfield("Email","Данные для входа в сервис","","1")
+    +textfield("Password","","","10")
+  div.registration-form__spacial
+    +radio-special-button("Получать спецпредложения", "1")
+  div.registration-form__accept-button
+    div.big-button-body
+      +buttons-types("big-simple-button", "Перейти к оплате", '10', null, true)
+  div.registration-form__login
+    label.type-simple-text= "Уже есть аккаунт на Toxin"
+    a(href="/for-change")
+      +buttons-types("border-button", "Войти", 'true', 'border-button-relations1')

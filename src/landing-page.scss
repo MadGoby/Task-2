@@ -24,29 +24,9 @@
 // -----------------------------------------------------------------
 
 // Header ----
-.border-button-body, .border-button {
-  width: 87px;
-  height: 34px;
-}
-.border-button-label {
-  box-sizing: border-box;
-  width: 83px;
-  height: 30px;
-  line-height: 30px;
-}
-.simple-button {
-  height: 34px;
-  vertical-align: top;
-}
 .landin-page__header {
   height: 70px;
   box-sizing: border-box;
-}
-.border-button-body {
-  .border-button {
-    position: relative;
-    top: -7px;
-  }
 }
 // Body -----
 body {
@@ -97,10 +77,10 @@ body {
 .dropdown-guests-body-extended {
   margin: 0;
 }
-#dropdown-guests_input, #dropdown-guests_input_2 {
+.dropdown-guests_input, .dropdown-guests_input_2 {
   border: 1px solid rgba(31, 32, 65, 0.25);
 }
-#uiGuestsExpendedBody {
+.uiGuestsExpendedBody {
   background: white;
   position: absolute;
   top: 268px;

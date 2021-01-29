@@ -4,15 +4,15 @@ mixin dropdown-date-filter(hint, appointment, state)
       h3.margin40.type-h3= appointment
       div.dropdown-date-filter-block
         label.type-simple-text.dropdown-date-filter(class= state)= hint
-        button.dropdown-date_button
+        button.dropdown-date_button(type="button")
   else if appointment != null
     div.dropdown-date-filter-body 
       h3.margin40.type-h3= appointment
       div.dropdown-date-filter-block
         label.type-simple-text.dropdown-date-filter= hint
-        button.dropdown-date_button
+        button.dropdown-date_button(type="button")
   else
     div.dropdown-date-filter-body
       div.dropdown-date-filter-block
         label.type-simple-text.dropdown-date-filter= hint
-        button.dropdown-date_button
+        button.dropdown-date_button(type="button")

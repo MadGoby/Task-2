@@ -107,6 +107,10 @@ body {
   position: relative;
   width: 302px;
   line-height: 40px; }
+  .header__login__login-body .simple-button {
+    margin: 0px;
+    margin-left: 20px;
+    height: 34px; }
   .header__login__login-body input {
     margin: 0;
     position: absolute;
@@ -115,9 +119,14 @@ body {
     right: 0px;
     display: inline-block; }
   .header__login__login-body .border-button-body {
-    display: inline-block; }
+    display: inline-block;
+    height: 34px; }
     .header__login__login-body .border-button-body button {
-      margin: 0; }
+      margin: 0;
+      padding: 2px; }
+      .header__login__login-body .border-button-body button .border-button-label {
+        padding: 7px 18px 8px;
+        line-height: 30px; }
 
 .header__no-login__sign {
   display: inline-block;
@@ -157,17 +166,6 @@ body {
   float: right;
   width: 44px;
   text-align: center; }
-
-.arrow-block::after {
-  content: url(../img/dropdown_arrow.svg);
-  cursor: pointer;
-  float: right;
-  width: 44px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: 50%;
-  position: relative;
-  top: -30px; }
 
 .fields {
   width: 340px;
@@ -211,10 +209,15 @@ body {
 
 .dropdown-quests {
   cursor: pointer;
-  position: relative; }
+  position: relative;
+  overflow: hidden;
+  max-height: 24px; }
 
 .dropdown-date {
   position: relative; }
+
+.dropdown-date-filter {
+  overflow: hidden; }
 
 .default-label, .hover-label, .expanded-label {
   width: 100%;
@@ -256,8 +259,30 @@ body {
 .dropdown-date__text, .dropdown-date-filter {
   cursor: pointer; }
 
+.dropdown-date__text {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 95px;
+  max-height: 24px; }
+
 .dropdown-rooms-button-arrow, .rooms-calc-button {
   cursor: pointer; }
+
+.text-field-subsciption__arrow-button {
+  background-image: url(../img/dropdown_arrow.svg);
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: white;
+  float: right;
+  position: relative;
+  top: -30px;
+  right: 13px;
+  padding: 0px;
+  outline: none; }
+  .text-field-subsciption__arrow-button:active, .text-field-subsciption__arrow-button:focus {
+    outline: none; }
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -577,7 +602,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer; }
 
 .buttons-types-body {
-  width: 240px;
+  width: 242px;
   margin-top: 43px; }
 
 .simple-button {
@@ -588,16 +613,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .border-button-body {
   display: inline-block;
-  width: 119px;
   position: relative; }
 
 .border-button {
   position: relative;
   z-index: 1;
-  width: 101px;
-  padding: 0;
-  top: 1px;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%); }
+  width: auto;
+  padding: 2px 2px 1px 2px;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  height: auto;
+  box-sizing: border-box; }
   .border-button:active {
     opacity: 0.5; }
 
@@ -607,10 +632,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #BC9CFF;
   height: 40px;
   border-radius: 20px;
-  position: absolute;
+  position: relative;
+  padding: 12px 18px;
   z-index: 2;
-  left: 2px;
-  top: 2px;
   text-align: center;
   line-height: 40px;
   outline: none;
@@ -924,8 +948,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .opportunities-checkbox-imitation, .radio-button-imitation, .special-toggle-imitation, .like-button-imitation {
   content: "";
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
   border: 1px solid rgba(31, 32, 65, 0.25);
   z-index: 1;
   text-align: center;
@@ -1044,9 +1068,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 18px;
   line-height: 18px;
   text-align: left;
-  position: absolute;
-  left: 22px;
-  -webkit-user-select: none; }
+  position: relative;
+  -webkit-user-select: none;
+  top: 1px; }
 
 .like-button-input {
   display: none; }
@@ -1062,7 +1086,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin: 0 10px 0 0;
   padding: 0;
   box-sizing: border-box;
-  width: 40px;
+  height: 20px;
+  min-width: 40px;
   line-height: 12px;
   vertical-align: middle;
   position: relative;
@@ -1073,8 +1098,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 18px;
     height: 18px;
     line-height: 18px;
-    position: absolute;
-    left: 0; }
+    position: relative;
+    left: 0;
+    float: left; }
 
 .rate-button-form {
   margin-top: 40px; }
@@ -1296,32 +1322,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   position: relative;
   box-sizing: border-box; }
 
-.border-button-body, .border-button {
-  width: 87px;
-  height: 34px; }
-
-.border-button-label {
-  box-sizing: border-box;
-  width: 83px;
-  height: 30px;
-  line-height: 30px; }
-
-.header__login__login-body {
-  top: -5px; }
-
-.simple-button {
-  height: 34px; }
-
 .landin-page__header {
   height: 70px;
   box-sizing: border-box; }
-
-.border-button-body .border-button {
-  position: relative;
-  top: -7px; }
-
-.header__login__login-body {
-  top: 4px; }
 
 .search-room__main {
   padding: 30px 120px 30px 140px;
@@ -1343,7 +1346,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 20px 0 5px; }
   .search-room__left-filter-list .dropdown-guests-field-body {
     width: 266px; }
-  .search-room__left-filter-list #price-range-form {
+  .search-room__left-filter-list .price-range-form {
     margin-top: 30px; }
   .search-room__left-filter-list h3 {
     width: 100%; }
@@ -1427,14 +1430,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .rooms-expanded-strokes_body {
   display: none; }
 
-#ui-dropdown-rooms-button_border {
+.ui-dropdown-rooms-button_border {
   border-color: rgba(31, 32, 65, 0.25);
   border-bottom: 1px solid rgba(31, 32, 65, 0.25); }
 
-#expandable-checkbox-list_title-button {
+.expandable-checkbox-list_title-button {
   transform: rotate(0deg); }
 
-#ui-expandable-checkbox-list_list-body {
+.ui-expandable-checkbox-list_list-body {
   display: none; }
 
 .search-room__footer {

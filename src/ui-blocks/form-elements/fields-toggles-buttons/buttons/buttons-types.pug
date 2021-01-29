@@ -18,5 +18,5 @@ mixin buttons-types(className, buttonName, border, borderClass, submit)
         button(class= borderClass, class= className)
           label.type-h3.border-button-label(for= borderClass)= buttonName
     else
-      input.type-h3(type= 'submit', class= className, value= buttonName)
+      button.type-h3(type='button', class= className)=buttonName
 

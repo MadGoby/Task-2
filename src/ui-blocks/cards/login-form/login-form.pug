@@ -1,13 +1,15 @@
 include ../../form-elements/fields-toggles-buttons/fields/text-field.pug
 include ../../form-elements/fields-toggles-buttons/buttons/buttons-types.pug
 
-h1.type-h1.login-form__title= "Войти"
-div.login-form__login-fields
-  +textfield("Email", null, null,"10")
-  +textfield("Password","","","10")
-div.login-form__accept-button
-  div.big-button-body
-    +buttons-types("big-simple-button", "Войти", '10', null, true)
-div.login-form__login
-  label.type-simple-text= "Нет аккаунта на Toxin?"
-  +buttons-types("border-button", "Создать", 'true', 'border-button-relations1')
+form(action="/for-change")
+  h1.type-h1.login-form__title= "Войти"
+  div.login-form__login-fields
+    +textfield("Email", null, null,"10")
+    +textfield("Password","","","10")
+  div.login-form__accept-button
+    div.big-button-body
+      +buttons-types("big-simple-button", "Войти", '10', null, true)
+  div.login-form__login
+    label.type-simple-text= "Нет аккаунта на Toxin?"
+    a(href="/for-change")
+      +buttons-types("border-button", "Создать", 'true', 'border-button-relations1')
