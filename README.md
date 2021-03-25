@@ -4,7 +4,7 @@
 
 ## Github pages
 
-1. [UI-Kit](https://madgoby.github.io/Task-2/dist/ui-index.html)
+1. [UI-Kit](https://madgoby.github.io/Task-2/dist/ui-kit.html)
 2. [Sing In](https://madgoby.github.io/Task-2/dist/sign-in.html)
 3. [Search Room](https://madgoby.github.io/Task-2/dist/search-room.html)
 4. [Room Details](https://madgoby.github.io/Task-2/dist/room-details.html)
