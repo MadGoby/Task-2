@@ -1,0 +1,10 @@
+mixin dropdown__output(settings)
+  - let jsClass = ""
+  - let text = ""
+  - let attr = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  - }
+  output(class="dropdown__output text_type_h3" class=jsClass)&attributes(attr)=text

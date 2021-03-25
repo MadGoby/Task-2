@@ -1,0 +1,11 @@
+include __service-list/final-booking__service-list.pug
+include __service/final-booking__service.pug
+
+
+mixin final-booking(settings)
+  - let action = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("action") ? action = settings.action : action = ""
+  - };
+  form(action=action).final-booking
+    block

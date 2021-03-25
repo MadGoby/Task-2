@@ -1,0 +1,10 @@
+.social-networks {
+  .social-networks__link {
+    display: inline-block;
+    height: 24px; width: 24px;
+    vertical-align: top;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+mixin comment__profile-pic(settings)
+  - let attr = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
+  - };
+  img(class="comment__profile-pic")&attributes(attr)

@@ -1,0 +1,33 @@
+@import '__service-list/final-booking__service-list.scss';
+@import '__service/final-booking__service.scss';
+
+.final-booking {
+  padding: 40px 29px  30px 30px;
+  background-color: white;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  max-width: 380px;
+  box-sizing: border-box;
+  .room-info {
+    margin-bottom: 13px;
+  }
+  .final-booking__guests-number {
+    margin-bottom: 20px;
+  }
+  .final-booking__double-input{
+    margin-bottom: 16px;
+  }
+  .final-booking__double-input {
+    .input__wrapper {
+      display: inline-block;
+      width: 150px;
+      &:last-child {
+        margin-left: 18px;
+      }
+    }
+  }
+  .final-booking__submit-button {
+    margin-top: 20px;
+  }
+}

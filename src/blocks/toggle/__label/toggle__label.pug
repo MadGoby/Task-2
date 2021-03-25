@@ -1,0 +1,5 @@
+mixin toggle__label(settings)
+  - let labelType = ""
+  - settings.hasOwnProperty("type") ? labelType = `toggle__label_type_${settings.type}` : labelType = ""
+  label(class="toggle__label" class=labelType)
+    block

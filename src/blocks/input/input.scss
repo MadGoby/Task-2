@@ -1,0 +1,27 @@
+@import '__dropdown-label/input__dropdown-label.scss';
+@import '__title/input__title.scss';
+@import '__state/input__state.scss';
+@import '__submit-button/input__submit-button.scss';
+@import '_length/input_length.scss';
+@import '_type/input_type.scss';
+
+.input {
+  height: 44px;
+  border: 1px solid $dark25;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  outline: none;
+  font-family: $mont;
+  font-size: 14px;
+  color: $dark75;
+  &::placeholder {
+    color: $dark25;
+  }
+  &:hover + .input__dropdown-button, &:focus + .input__dropdown-button {
+    border-color: $dark50;
+  }
+}
+.input_current-target {
+  border: 1px solid $dark50;
+}

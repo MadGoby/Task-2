@@ -1,0 +1,10 @@
+mixin positive-feature__text(settings)
+  - let text = ""
+  - let textTitle = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
+  -   settings.hasOwnProperty("textTitle") ? textTitle=settings.textTitle : textTitle=""
+  - };
+  .positive-feature__text-wrapper.text_type_simple
+    p.positive-feature__title=textTitle
+    p.positive-feature__text=text

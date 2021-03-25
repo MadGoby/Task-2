@@ -1,0 +1,36 @@
+@import '../../blocks/form-title/form-title.scss';
+@import '../../blocks/search-room/search-room.scss';
+@import '../../blocks/registration/registration.scss';
+@import '../../blocks/final-booking/final-booking.scss';
+@import '../../blocks/room-info/room-info.scss';
+@import '../../blocks/login/login.scss';
+@import '../../blocks/datepicker/datepicker.scss';
+@import '../../blocks/room-card/room-card.scss';
+@import '../../blocks/rate-counter/rate-counter.scss';
+
+.cards {
+  width: 1440px;
+  padding: 140px  140px 130px;
+  position: relative;
+  box-sizing: border-box;
+  margin: auto;
+  background-color: #E5E5E5;
+  .card_wrapper {
+    display: inline-block;
+    vertical-align: top;
+    &:first-of-type {
+      .registration {
+        margin-top: 40px;
+      }
+    }
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+    .room-card {
+      margin-top: 40px;
+    }
+  }
+  .login {
+    margin-top: 40px;
+  }
+}

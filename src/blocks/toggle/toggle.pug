@@ -1,0 +1,14 @@
+include __label/toggle__label.pug
+include __mimic/toggle__mimic.pug
+include __text/toggle__text.pug
+include __title/toggle__title.pug
+
+mixin toggle(settings)
+  - let type = ""
+  - let attr = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  -   settings.hasOwnProperty("type") ? type = `toggle_type_${settings.type}` : type = "";
+  - };
+  input(class = "toggle" class=type)&attributes(attr)
+  block

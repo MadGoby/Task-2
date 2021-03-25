@@ -1,0 +1,393 @@
+include ../../blocks/form-title/form-title.pug
+include ../../blocks/search-room/search-room.pug
+include ../../blocks/registration/registration.pug
+include ../../blocks/final-booking/final-booking.pug
+include ../../blocks/room-info/room-info.pug
+include ../../blocks/login/login.pug
+include ../../blocks/datepicker/datepicker.pug
+include ../../blocks/room-card/room-card.pug
+include ../../blocks/rate-counter/rate-counter.pug
+.cards
+  +logo({
+    src: "img/logo.svg",
+    type: "corner_top-left"
+  })
+  .card_wrapper
+    +search-room({
+      action: "for-change"
+    })
+      +form-title({text: "Найдём номера под ваши пожелания"})
+      .search-room__double-input
+        .input__wrapper.text_type_simple
+          +input__title({text: "прибытие"})
+          +input__dropdown-label()
+            +input({
+              attr: {
+                "type": "text",
+                "placeholder": "ДД.ММ.ГГГГ",
+                "value": "ДД.ММ.ГГГГ",
+                "readonly": "readonly"
+              },
+              length: "short",
+              type: "dropdown"
+            })
+        .input__wrapper.text_type_simple
+          +input__title({text: "выезд"})
+          +input__dropdown-label()
+            +input({
+              attr: {
+                "type": "text",
+                "placeholder": "ДД.ММ.ГГГГ",
+                "value": "ДД.ММ.ГГГГ",
+                "readonly": "readonly"
+              },
+              length: "short",
+              type: "dropdown"
+          })
+      .search-room__guests-wrapper.text_type_simple
+        +input__title({text: "гости"})
+        +input__dropdown-label()
+          +input({
+            attr: {
+              "type": "text",
+              "placeholder": "Text",
+              "value": "Сколько гостей",
+              "readonly": "readonly"
+            },
+            length: "long",
+            type: "dropdown"
+          })
+      .search-room__submit-button
+        +button({
+          type: "big",
+          text: "подобрать номер",
+          attr: {"type": "submit"}
+        })
+    +registration({
+      action: "for-change"
+    })
+      +form-title({
+        text: "Регистрация аккаунта"
+      })
+      .registration__personal-data.text_type_simple
+        +input({
+          attr: {
+            "type": "text",
+            "placeholder": "Имя"
+          },
+          length: "long",
+          type: "simple"
+        })
+        +input({
+          attr: {
+            "type": "text",
+            "placeholder": "Фамилия"
+          },
+          length: "long",
+          type: "simple"
+        })
+      .registration__gender.text_type_simple
+        +toggle__label({type: "radio"})
+          +toggle({
+            type: "radio",
+            attr: {
+              "type": "radio",
+              "hidden": "hidden",
+              "name": "gender",
+              "value": "male",
+              "checked": "checked"
+            }
+          })
+          +toggle__mimic({type: "radio"})
+          +toggle__text({text: "Мужчина"})
+        +toggle__label({type: "radio"})
+          +toggle({
+            type: "radio",
+            attr: {
+              "type": "radio",
+              "hidden": "hidden",
+              "name": "gender",
+              "value": "female"
+            }
+          })
+          +toggle__mimic({type: "radio"})
+          +toggle__text({text: "Женщина"})
+      .registration__birthday.text_type_simple
+        +input__title({text: "дата рождения"})
+        +input({
+          attr: {
+            "type": "date",
+            "placeholder": "ДД.ММ.ГГ",
+          },
+          length: "long",
+          type: "date"
+        })
+      .registration__login-data.text_type_simple
+        +input__title({text: "данные для входа в сервис"})
+        +input({
+          attr: {
+            "type": "email",
+            "placeholder": "Email"
+          },
+          length: "long",
+          type: "simple"
+        })
+        +input({
+          attr: {
+            "type": "password",
+            "placeholder": "Пароль"
+          },
+          length: "long",
+          type: "simple"
+        })
+      .registration__special-toggle.text_type_simple
+        +toggle__label({type: "toggle"})
+          +toggle({
+            type: "toggle",
+            attr: {
+              "type": "checkbox",
+              "hidden": "hidden"
+            }
+          })
+          +toggle__mimic({type: "toggle"})
+          +toggle__text({text: "Получать спецпредложения"})
+      .registration__submit-button
+        +button({
+          type: "big",
+          text: "перейти к оплате",
+          attr: {"type": "submit"}
+        })
+      .registration__login-button
+        p.text_type_simple.registration__login-text="Уже есть аккаунт на Toxin"
+        +button({
+          type: "border",
+          text: "войти",
+          attr: {"type": "button"}
+        })
+  .card_wrapper
+    +final-booking({
+      action: "for-change"
+    })
+      .final-booking__room-info
+        +room-info({
+          number: "888",
+          price: "9 990",
+          type: "luxury"
+        })
+      .final-booking__double-input
+        .input__wrapper.text_type_simple
+          +input__title({text: "прибытие"})
+          +input__dropdown-label()
+            +input({
+              attr: {
+                "type": "text",
+                "placeholder": "ДД.ММ.ГГГГ",
+                "value": "19.08.2019",
+                "readonly": "readonly"
+              },
+              length: "short",
+              type: "dropdown"
+            })
+        .input__wrapper.text_type_simple
+          +input__title({text: "выезд"})
+          +input__dropdown-label()
+            +input({
+              attr: {
+                "type": "text",
+                "placeholder": "ДД.ММ.ГГГГ",
+                "value": "23.08.2019 ",
+                "readonly": "readonly"
+              },
+              length: "short",
+              type: "dropdown"
+          })
+      .final-booking__guests-number.text_type_simple
+        +input__title({text: "гости"})
+        +input__dropdown-label()
+          +input({
+            attr: {
+              "type": "text",
+              "placeholder": "Text",
+              "value": "3 гостя",
+              "readonly": "readonly"
+            },
+            length: "long",
+            type: "dropdown"
+          })
+      +final-booking__service-list()
+        +final-booking__service({
+          title: "9 990₽ х 4 суток",
+          price: "39 960₽"
+        })
+        +final-booking__service({
+          title: "Сбор за услуги: скидка 2 179₽",
+          price: "0₽",
+          modifier: "clarification-sign"
+        })
+        +final-booking__service({
+          title: "Сбор за дополнительные услуги",
+          price: "300₽",
+          modifier: "clarification-sign"
+        })
+        +final-booking__service({
+          title: "Итого",
+          price: "38 081₽",
+          type: "total"
+        })
+      .final-booking__submit-button
+        +button({
+          type: "big",
+          text: "забронировать",
+          attr: {"type": "submit"}
+        })
+    +login({
+      action: "for-change"
+    })
+      +form-title({text: "Войти"})
+      .login__inputs
+        +input({
+          attr: {
+            "type": "email",
+            "placeholder": "Email"
+          },
+          length: "long",
+          type: "simple"
+        })
+        +input({
+          attr: {
+            "type": "password",
+            "placeholder": "Пароль"
+          },
+          length: "long",
+          type: "simple"
+        })
+      .login__login-button
+        +button({
+          type: "big",
+          text: "войти",
+          attr: {"type": "submit"}
+        })
+      .login__registration-button
+        p.text_type_simple.login__registration-text="Нет аккаунта на Toxin?"
+        +button({
+          type: "border",
+          text: "создать",
+          attr: {"type": "button"}
+        })
+  .card_wrapper
+    +datepicker({
+      jsClass: "js-datepicker"
+    })
+    +room-card()
+      +room-card__image({
+        src: "img/888.jpg",
+        alt: "Photo of the room"
+      })
+      .room-card__room-info
+        +room-info({
+          number: "888",
+          price: "9 990",
+          type: "luxury"
+        })
+        .room-rate 
+          .toggle__5rate-wrapper
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate3",
+                "value": "5",
+                "checked": "checked"
+              }
+            })
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate3",
+                "value": "4"
+              }
+            })
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate3",
+                "value": "3"
+              }
+            })
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate3",
+                "value": "2"
+              }
+            })
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate3",
+                "value": "1"
+              }
+            })
+          +rate-counter({
+            value: "145"
+          })
+    +room-card()
+      +room-card__image({
+        src: "img/840.jpg",
+        alt: "Photo of the room"
+      })
+      .room-card__room-info
+        +room-info({
+          number: "840",
+          price: "9 990"
+        })
+        .room-rate 
+          .toggle__5rate-wrapper
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate4",
+                "value": "5"
+              }
+            })
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate4",
+                "value": "4",
+                "checked": "checked"
+              }
+            })
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate4",
+                "value": "3"
+              }
+            })
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate4",
+                "value": "2"
+              }
+            })
+            +toggle({
+              type: "rate",
+              attr: {
+                "type": "radio",
+                "name": "rate4",
+                "value": "1"
+              }
+            })
+          +rate-counter({
+            value: "65"
+          })

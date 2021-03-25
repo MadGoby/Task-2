@@ -1,0 +1,12 @@
+@import '__logo/footer__logo.scss';
+@import '__nav/footer__nav.scss';
+@import '__subscribe/footer__subscribe.scss';
+@import '_type/footer_type.scss';
+
+.footer-wrapper {
+  width: 100%;
+  padding: 100px 140px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);
+}

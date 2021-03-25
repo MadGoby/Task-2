@@ -1,0 +1,12 @@
+@import '__description/text-sample__description.scss';
+@import '__teg/text-sample__teg.scss';
+
+.text-sample__description {
+  margin-left: 30px;
+}
+.text-sample__teg {
+  vertical-align: top;
+}
+.text-sample__wrapper:last-child .text-sample__description {
+  max-width: 301px;
+}

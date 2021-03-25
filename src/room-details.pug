@@ -1,32 +1,275 @@
+include blocks/header/header.pug
+include blocks/logo/logo.pug
+include blocks/nav/nav.pug
+include blocks/button/button.pug
+include blocks/footer/footer.pug
+include blocks/social-networks/social-networks.pug
+include blocks/copyright/copyright.pug
+include blocks/input/input.pug
+include blocks/final-booking/final-booking.pug
+include blocks/room-info/room-info.pug
+include blocks/positive-feature/positive-feature.pug
+include blocks/impressions-diagram/impressions-diagram.pug
+include blocks/comment/comment.pug
+include blocks/toggle/toggle.pug
+include blocks/list/list.pug
+
 doctype html
 html
   head
     title Room Details
-    meta(charset='utf-8')
-    meta(name='description' content='Room Details page of the hotel room website.')
-    meta(name='keywords' content='HTML, CSS, JavaScript')
-    meta(name='viewport' content='initial-scale=1.0, width=device-width')
+    meta(charset="utf-8")
+    meta(name="description" content="Room Details page of the hotel room website.")
+    meta(name="keywords" content="HTML, CSS, JavaScript")
+    meta(name="viewport" content="initial-scale=1.0, width=device-width")
   body
     header.room-details__header
-      include ui-blocks/headers-footers/headers/header__login-form-ru.pug
+      +header()
+        +logo({
+          src: "img/logo-color.svg"
+        })
+        +nav()
+          +nav__link({
+            links: [
+              {"text": "О нас"},
+              {"text": "Услуги", "type": "dropdown"},
+              {"text": "Вакансии"},
+              {"text": "Новости"},
+              {"text": "Соглашения", "type": "dropdown"}
+            ]
+          })
+        +header__unauthorized()
     main.room-details__main
-      div.room-details__rooms-img
-        img(src="./img/room-details__big-img.jpg", alt="").room-details__rooms-img__big-img
-        img(src="./img/room-details__small-img-1.jpg", alt="").room-details__rooms-img__small-img-1
-        img(src="./img/room-details__small-img-2.jpg", alt="").room-details__rooms-img__small-img-2
-      div.rooms-details__rooms-details
-        div.rooms-details__rooms-details__description
-          div.rooms-details__rooms-details__description__info
-            include ./ui-blocks/form-elements/additional/virtues/virtues-rooms-detail.pug
-            include ./ui-blocks/form-elements/additional/virtues/virtues__statistics-reviews.pug
-        div.rooms-details__rooms-details__reviewes
-          include ./ui-blocks/form-elements/additional/review/review-ru.pug
-        div.rooms-details__rooms-details__rules
-          include ./ui-blocks/form-elements/checkboxes-buletes/bullet-list/bullet-list-ru.pug
-        div.rooms-details__rooms-details__cancellation
-          h2.type-h2= 'Отмена'
-          p.type-simple-text= 'Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.'
-        div.rooms-details__rooms-details__results.reservation-form-body
-          include ./ui-blocks/cards/reservation-form/reservation-form.pug
+      .room-details__room-photos 
+        img(src="./img/room-photo-big.jpg", alt="Room photo").room-photo_big.room-photo
+        .room-details__small-photos-wrapper
+          img(src="./img/room-photo-small1.jpg", alt="Room photo").room-photo_small_1.room-photo
+          img(src="./img/room-photo-small2.jpg", alt="Room photo").room-photo_small_2.room-photo
+      .room-details__details 
+        +final-booking({
+          action: "for-change"
+        })
+          .final-booking__room-info
+            +room-info({
+              number: "888",
+              price: "9 990",
+              type: "luxury"
+            })
+          .final-booking__double-input
+            .input__wrapper.text_type_simple
+              +input__title({text: "прибытие"})
+              +input__dropdown-label()
+                +input({
+                  attr: {
+                    "type": "text",
+                    "placeholder": "ДД.ММ.ГГГГ",
+                    "value": "19.08.2019",
+                    "readonly": "readonly"
+                  },
+                  length: "short",
+                  type: "dropdown"
+                })
+            .input__wrapper.text_type_simple
+              +input__title({text: "выезд"})
+              +input__dropdown-label()
+                +input({
+                  attr: {
+                    "type": "text",
+                    "placeholder": "ДД.ММ.ГГГГ",
+                    "value": "23.08.2019 ",
+                    "readonly": "readonly"
+                  },
+                  length: "short",
+                  type: "dropdown"
+              })
+          .final-booking__guests-number.text_type_simple
+            +input__title({text: "гости"})
+            +input__dropdown-label()
+              +input({
+                attr: {
+                  "type": "text",
+                  "placeholder": "Text",
+                  "value": "3 гостя",
+                  "readonly": "readonly"
+                },
+                length: "long",
+                type: "dropdown"
+              })
+          +final-booking__service-list()
+            +final-booking__service({
+              title: "9 990₽ х 4 суток",
+              price: "39 960₽"
+            })
+            +final-booking__service({
+              title: "Сбор за услуги: скидка 2 179₽",
+              price: "0₽",
+              modifier: "clarification-sign"
+            })
+            +final-booking__service({
+              title: "Сбор за дополнительные услуги",
+              price: "300₽",
+              modifier: "clarification-sign"
+            })
+            +final-booking__service({
+              title: "Итого",
+              price: "38 081₽",
+              type: "total"
+            })
+          .final-booking__submit-button
+            +button({
+              type: "big",
+              text: "забронировать",
+              attr: {"type": "submit"}
+            })
+        .room-information
+          h2.room-details__title.text_type_h2="Сведения о номере"
+          +positive-feature()
+            +positive-feature__img({
+              attr: {
+                "alt": "Feeling comfortable",
+                "src": "img/smile.svg"
+              }
+            })
+            +positive-feature__text({
+              textTitle: "Комфорт",
+              text: "Шумопоглощающие стены"
+            })
+          +positive-feature()
+            +positive-feature__img({
+              attr: {
+                "alt": "Abstract image of a modern house",
+                "src": "img/house.svg"
+              }
+            })
+            +positive-feature__text({
+              textTitle: "Удобство",
+              text: "Окно в каждой из спален"
+            })
+          +positive-feature()
+            +positive-feature__img({
+              attr: {
+                "alt": "cozy flame",
+                "src": "img/flame.svg"
+              }
+            })
+            +positive-feature__text({
+              textTitle: "Уют",
+              text: "Номер оснащён камином"
+            })
+        .room-impressions
+          h2.room-details__title.text_type_h2="Впечатления от номера"
+          +impressions-diagram({
+            text: "",
+            lines: [
+              {text: "Великолепно", type: "perfectly"},
+              {text: "Хорошо", type: "good"},
+              {text: "Удовлетворительно", type: "satisfactorily"},
+              {text: "Разочарован", type: "disappointed"}
+            ]
+          })
+        .visitor-reviews
+          h2.text_type_h2.visitor-reviews__title.room-details__title= "Отзывы посетителей номера"
+          p.text_type_simple.visitor-reviews__counter= "2 отзыва"
+          +comment()
+            +comment__info-wrapper()
+              +comment__profile-pic({
+                attr: {
+                  "alt": "Profile picture",
+                  "src": "img/user.jpg"
+                }
+              })
+              +comment__info({
+                name: "Мурад Сарафанов",
+                daysHavePassed: "5 дней назад"
+              })
+            +comment__main()
+              +comment__like()
+                +toggle__label({type: "like"})
+                  +toggle({
+                    type: "like",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
+                    }
+                  })
+                  +toggle__mimic({type: "like"})
+                    +toggle__text({text: "12", type: "like"})
+              +comment__text({
+                text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+              })
+          +comment()
+            +comment__info-wrapper()
+              +comment__profile-pic({
+                attr: {
+                  "alt": "Profile picture",
+                  "src": "img/user2.jpg"
+                }
+              })
+              +comment__info({
+                name: "Патрисия Стёклышкова",
+                daysHavePassed: "Неделю назад"
+              })
+            +comment__main()
+              +comment__like()
+                +toggle__label({type: "like"})
+                  +toggle({
+                    type: "like",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
+                    }
+                  })
+                  +toggle__mimic({type: "like"})
+                    +toggle__text({text: "2", type: "like"})
+              +comment__text({
+                text: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент"
+              })
+        .rules.text_type_simple
+          h2.text_type_h2.room-details__title="Правила"
+          +list()
+            +list__item({mark: "dot"})
+              +list__text({text: "Нельзя с питомцами"})
+            +list__item({mark: "dot"})
+              +list__text({text: "Без вечеринок и мероприятий"})
+            +list__item({mark: "dot"})
+              +list__text({text: "Время прибытия — после 13:00, а выезд до 12:00"})
+        .cancellation.text_type_simple
+          h2.text_type_h2.room-details__title="Отмена"
+          p.cancellation__text="Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
     footer.room-details__footer
-      include /ui-blocks/headers-footers/footers/footers__big-footer-ru.pug
+      +footer()
+        +footer__logo({
+          text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+        })
+        +footer__nav({
+          lists: [
+            [
+              {"text": "навигация"}, 
+              {"text": "О нас"},
+              {"text": "Новости"},
+              {"text": "Служба поддержки"},
+              {"text": "Услуги"}
+            ],
+            [
+              {"text": "о нас"}, 
+              {"text": "О сервисе"},
+              {"text": "Наша команда"},
+              {"text": "Вакансии"},
+              {"text": "Инвесторы"}
+            ],
+            [
+              {"text": "Служба поддержки"}, 
+              {"text": "Соглашения"},
+              {"text": "Сообщества"},
+              {"text": "Связь с нами"}
+            ]
+          ]
+        })
+        +footer__subscribe({
+          title: "Подписка",
+          text: "Получайте специальные предложения и новости сервиса"
+        })
+      +copyright({
+        text: "Copyright © 2018 Toxin отель. Все права защищены."
+      })

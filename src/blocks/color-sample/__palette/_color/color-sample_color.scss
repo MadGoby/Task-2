@@ -1,0 +1,23 @@
+.color-sample__palette {
+  &_color_shade100 {
+  background-color: $dark100;
+  }
+  &_color_shade75 {
+    background-color: $dark75;
+  }
+  &_color_shade50 {
+    background-color: $dark50;
+  }
+  &_color_shade25 {
+    background-color: $dark25;
+  }
+  &_color_shade5 {
+    background-color: $dark5;
+  }
+  &_color_purple {
+    background-color: $purple;
+  }
+  &_color_green {
+    background-color: $green;
+  }
+}

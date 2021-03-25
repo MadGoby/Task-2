@@ -1,0 +1,8 @@
+mixin list__title(settings)
+  - let jsCLass = ""
+  - let type = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("type") ? type=`list__title_type_${settings.type}` : type=""
+  - }
+  p(class="list__title text_type_h3" class=`${jsClass} ${type}`)= settings.text

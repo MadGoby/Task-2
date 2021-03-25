@@ -1,0 +1,6 @@
+mixin form-title(settings)
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - };
+  h2.text_type_h1.form-title=text

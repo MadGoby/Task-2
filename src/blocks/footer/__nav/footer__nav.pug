@@ -1,0 +1,17 @@
+mixin footer__nav(settings)
+  - let lists = []
+  - if (settings) {
+  -   settings.hasOwnProperty("lists") ? lists = settings.lists : lists = []  
+  - }
+  .footer__nav-wrapper
+    each list in lists
+      .footer__nav
+        each link in list
+          - let text = ""
+          - let href = ""
+          - if (settings) {
+          -   link.hasOwnProperty("text") ? text = link.text : text = ""
+          -   link.hasOwnProperty("href") ? href = link.href : href = "./for-change"
+          - }
+          div.footer__nav-link-wrapper
+            a(class="text_type_simple footer__nav-link" href=href)= text

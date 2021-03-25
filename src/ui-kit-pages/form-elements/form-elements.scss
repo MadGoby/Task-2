@@ -1,0 +1,186 @@
+@import '../../blocks/input/input.scss';
+@import '../../blocks/toggle/toggle.scss';
+@import '../../blocks/slider/slider.scss';
+@import '../../blocks/button/button.scss';
+@import '../../blocks/dropdown/dropdown.scss';
+@import '../../blocks/list/list.scss';
+@import '../../blocks/positive-feature/positive-feature.scss';
+@import '../../blocks/comment/comment.scss';
+
+.form-elements {
+  width: 1440px;
+  padding: 140px  140px 130px;
+  position: relative;
+  box-sizing: border-box;
+  margin: auto;
+  .form-elements__wrapper {
+    .inputs, .toggles, .buttons {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .toggles {
+      margin-left: 126px;
+    }
+    .buttons {
+      margin-left: 132px;
+    }
+    .dropdowns {
+      margin-top: 100px;
+    }
+    .lists {
+      margin-top: 55px;
+    }
+    .input__wrapper {
+      max-width: 320px;
+    }
+    .toggle__wrapper {
+      max-width: 260px;
+    }
+    .slider__wrapper {
+      width: 266px;
+      margin-bottom: 40px;
+    }
+    .buttons__wrapper {
+      max-width: 320px;
+      margin-bottom: 40px;
+    }
+    .dropdown__wrapper {
+      max-width: 320px;
+      display: inline-block;
+      vertical-align: top;
+      &:first-child {
+        width: 266px;
+        margin-right: 181px;
+        .input__dropdown-label:first-of-type {
+          margin-bottom: 20px;
+        }
+      }
+      &:last-child {
+        margin-left: 72px;
+      }
+    }
+    .list__wrapper {
+      display: inline-block;
+      vertical-align: top;
+      &:nth-child(2) {
+        .list__item:not(:last-child) {
+          margin-bottom: 11px;
+        }
+        .list__item:last-child {
+          .toggle__text_type_rich {
+            max-width: 100%;
+          }
+          .toggle__text_type_little {
+            max-width: 230px;
+          }
+        }
+      }
+      &:first-child {
+        width: 266px;
+        margin-right: 181px;
+        .list__title:first-of-type {
+          margin-bottom: 50px;
+        }
+        .list__item {
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+      &:last-child {
+        margin-left: 132px;
+        max-width: 270px;
+        .list__item:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .text-button__wrapper {
+      display: inline-block;
+      width: 85px;
+      margin-bottom: 30px;
+    }
+    .button__wrapper {
+      height: 44px;
+      width: 101px;
+      display: inline-block;
+      &:last-child {
+        width: 320px;
+      }
+      &:not(:last-child) {
+        margin-right: 20px;
+        margin-bottom: 30px;
+      }
+    }
+    .inputs {
+      .input__wrapper:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      .input__wrapper:last-child {
+        margin-top: 37px;
+      }
+      .double-input .input__wrapper {
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+      .double-input .input__wrapper:last-child {
+        margin-left: 20px;
+      }
+      .double-input {
+        margin: 35px 0 37px;
+      }
+      .double-input .input__wrapper {
+        max-width: 150px;
+        display: inline-block;
+        & .input__title {
+          width: 100%;
+        }
+      }
+    }
+    .toggles {
+      .toggle__wrapper {
+        .toggle__label_type_radio {
+          display: inline-block;
+          &:first-of-type {
+            margin-right: 20px;
+          }
+        }
+        .toggle__label_type_toggle {
+          &:first-of-type {
+            margin-bottom: 10px;
+          }
+        }
+        .toggle__label_type_checkbox:not(:last-child) {
+          margin-bottom: 10px;
+        }
+        .toggle__label_type_like:not(:last-child) {
+          margin-right: 10px;
+        }
+        .toggle__label_type_like {
+          display: inline-block;
+        }
+      }
+      .toggle__wrapper:not(:last-child) {
+        margin-bottom: 40px;
+      }
+      .toggle__5rate-wrapper:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+    .additions {
+      margin-top: 80px;
+      .addition__wrapper {
+        display: inline-block;
+        vertical-align: top;
+        &:first-child {
+          max-width: 280px;
+          margin-right: 167px;
+        }
+        &:last-child {
+          max-width: 720px;
+        }
+      }
+    }
+  }
+}
+

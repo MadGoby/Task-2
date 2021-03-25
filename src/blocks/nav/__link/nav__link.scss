@@ -1,0 +1,14 @@
+.nav__link {
+  color: $dark50;
+  text-decoration: none;
+}
+.nav__link_dropdown {
+  &::after {
+    content: url('img/dropdown-nav.svg');
+    display: inline-block;
+    width: 24px;
+    height: 17px;
+    line-height: 100%;
+    text-align: center;
+  }
+}

@@ -148,22 +148,22 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./landing-page.js","landing-page~ui-index"]);
+/******/ 	deferredModules.push(["./landing-page.js","landing-page~ui-kit"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./img/landing-page-back.svg":
-/*!***********************************!*\
-  !*** ./img/landing-page-back.svg ***!
-  \***********************************/
+/***/ "./img/landing-main.jpg":
+/*!******************************!*\
+  !*** ./img/landing-main.jpg ***!
+  \******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/landing-page-back.svg\");\n\n//# sourceURL=webpack:///./img/landing-page-back.svg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/landing-main.jpg\");\n\n//# sourceURL=webpack:///./img/landing-main.jpg?");
 
 /***/ }),
 
@@ -175,7 +175,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _landing_page_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./landing-page.scss */ \"./landing-page.scss\");\n/* harmony import */ var _landing_page_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_landing_page_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ui_blocks_cards_rooms_search_dates_dropdown_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui-blocks/cards/rooms-search/dates-dropdown.js */ \"./ui-blocks/cards/rooms-search/dates-dropdown.js\");\n/* harmony import */ var _ui_blocks_cards_rooms_search_dates_dropdown_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ui_blocks_cards_rooms_search_dates_dropdown_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _ui_blocks_form_elements_dropdown_dropdown_quests_dropdown_guests_dropdown_function_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests-dropdown-function.js */ \"./ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests-dropdown-function.js\");\n/* harmony import */ var _ui_blocks_form_elements_dropdown_dropdown_quests_dropdown_guests_dropdown_function_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ui_blocks_form_elements_dropdown_dropdown_quests_dropdown_guests_dropdown_function_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _ui_blocks_form_elements_dropdown_dropdown_quests_dropdown_guests_calculation_function__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests_calculation-function */ \"./ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests_calculation-function.js\");\n/* harmony import */ var _ui_blocks_form_elements_dropdown_dropdown_quests_dropdown_guests_calculation_function__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_ui_blocks_form_elements_dropdown_dropdown_quests_dropdown_guests_calculation_function__WEBPACK_IMPORTED_MODULE_3__);\n\r\n__webpack_require__(/*! ./img/landing-page-back.svg */ \"./img/landing-page-back.svg\");\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./landing-page.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _landing_page_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./landing-page.scss */ \"./landing-page.scss\");\n/* harmony import */ var _landing_page_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_landing_page_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_dropdown_dropdown_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blocks/dropdown/dropdown.js */ \"./blocks/dropdown/dropdown.js\");\n/* harmony import */ var _blocks_datepicker_datepicker_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blocks/datepicker/datepicker.js */ \"./blocks/datepicker/datepicker.js\");\n__webpack_require__(/*! ./img/landing-main.jpg */ \"./img/landing-main.jpg\");\r\n\r\n\r\n\r\n\r\n\r\n_blocks_dropdown_dropdown_js__WEBPACK_IMPORTED_MODULE_1__[\"dropdownFunctionality\"] ({\r\n  inputClass: \".js-dropdown-input3\",\r\n  dropdownClass: \".js-dropdown3\",\r\n  inputResultTemplate: {type: \"sum\", values: 'гостя'},\r\n  defaultTemplate: \"Сколько гостей\"\r\n})\r\n\r\n_blocks_datepicker_datepicker_js__WEBPACK_IMPORTED_MODULE_2__[\"datepicerFunctionality\"]({\r\n  targetClass: \".js-datepicker\",\r\n  inputFromClass: \".js-input-from\",\r\n  inputToClass: \".js-input-to\",\r\n  defaultSettings: {\r\n    pickedYear: new Date(2019, 7, 8).getFullYear(),\r\n    pickedMonth: new Date(2019, 7, 8).getMonth(),\r\n    currentDay: new Date(2019, 7, 8),\r\n    from: new Date(2019, 7, 19),\r\n    to: new Date(2019, 7, 23)\r\n  },\r\n});\n\n//# sourceURL=webpack:///./landing-page.js?");
 
 /***/ }),
 

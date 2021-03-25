@@ -1,16 +1,109 @@
+include blocks/header/header.pug
+include blocks/logo/logo.pug
+include blocks/nav/nav.pug
+include blocks/button/button.pug
+include blocks/footer/footer.pug
+include blocks/social-networks/social-networks.pug
+include blocks/copyright/copyright.pug
+include blocks/input/input.pug
+include blocks/login/login.pug
+include blocks/form-title/form-title.pug
+include blocks/button/button.pug
+include blocks/toggle/toggle.pug
+
 doctype html
 html(lang=ru)
   head
     title Sing In
-    meta(charset='utf-8')
-    meta(name='description' content='Sing In page of the hotel room website.')
-    meta(name='keywords' content='HTML, CSS, JavaScript')
-    meta(name='viewport' content='initial-scale=1.0, width=device-width')
+    meta(charset="utf-8")
+    meta(name="description" content="Sing In page of the hotel room website.")
+    meta(name="keywords" content="HTML, CSS, JavaScript")
+    meta(name="viewport" content="initial-scale=1.0, width=device-width")
   body
-    header.sing-in__header
-      include ui-blocks/headers-footers/headers/header__login-form-ru.pug
-    main.sing-in__main
-      div.sing-in__login-body
-        include ui-blocks/cards/login-form/login-form-ru.pug
-    footer.sing-in__footer
-      include ui-blocks/headers-footers/footers/footers__big-footer-ru.pug
+    header.login__header
+      +header()
+        +logo({
+          src: "img/logo-color.svg"
+        })
+        +nav()
+          +nav__link({
+            links: [
+              {"text": "О нас"},
+              {"text": "Услуги", "type": "dropdown"},
+              {"text": "Вакансии"},
+              {"text": "Новости"},
+              {"text": "Соглашения", "type": "dropdown"}
+            ]
+          })
+        +header__unauthorized()
+    main.login__main 
+      +login({
+        action: "for-change"
+      })
+        +form-title({text: "Войти"})
+        .login__inputs
+          +input({
+            attr: {
+              "type": "email",
+              "placeholder": "Email"
+            },
+            length: "long",
+            type: "simple"
+          })
+          +input({
+            attr: {
+              "type": "password",
+              "placeholder": "Пароль"
+            },
+            length: "long",
+            type: "simple"
+          })
+        .login__login-button
+          +button({
+            type: "big",
+            text: "войти",
+            attr: {"type": "submit"}
+          })
+        .login__registration-button
+          p.text_type_simple.login__registration-text="Нет аккаунта на Toxin?"
+          +button({
+            type: "border",
+            text: "создать",
+            attr: {"type": "button"}
+          })
+    footer.login__footer 
+      +footer()
+        +footer__logo({
+          text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+        })
+        +footer__nav({
+          lists: [
+            [
+              {"text": "навигация"}, 
+              {"text": "О нас"},
+              {"text": "Новости"},
+              {"text": "Служба поддержки"},
+              {"text": "Услуги"}
+            ],
+            [
+              {"text": "о нас"}, 
+              {"text": "О сервисе"},
+              {"text": "Наша команда"},
+              {"text": "Вакансии"},
+              {"text": "Инвесторы"}
+            ],
+            [
+              {"text": "Служба поддержки"}, 
+              {"text": "Соглашения"},
+              {"text": "Сообщества"},
+              {"text": "Связь с нами"}
+            ]
+          ]
+        })
+        +footer__subscribe({
+          title: "Подписка",
+          text: "Получайте специальные предложения и новости сервиса"
+        })
+      +copyright({
+        text: "Copyright © 2018 Toxin отель. Все права защищены."
+      })  

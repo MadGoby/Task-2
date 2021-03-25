@@ -1,0 +1,29 @@
+.room-info {
+  .room-info__number {
+    display: inline-block;
+    width: 50%;
+    &::before {
+      content: '№';
+      font-size: 14px;
+      padding-right: 4px;
+    }
+  }
+  .room-info__price_luxury:after {
+    content: 'люкс';
+    color: $purple;
+    font-size: 14px;
+    margin-left: 2px;
+  }
+  .room-info__price {
+    display: inline-block;
+    color: $dark50;
+    width: 50%;
+    text-align: right;
+    font-size: 12px;
+    .room-info__price-value {
+      font-style: normal;
+      font-size: 14px;
+      color: $dark50;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.dropdown__list-element {
+  list-style-type: none;
+  min-height: 30px;
+  &:not(:last-child) {
+    margin-bottom: 7px;
+  }
+}

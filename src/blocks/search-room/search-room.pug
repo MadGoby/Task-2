@@ -1,0 +1,7 @@
+mixin search-room(settings)
+  - let action = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("action") ? action = settings.action : action = ""
+  - };
+  form(action=action).search-room
+    block

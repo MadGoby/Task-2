@@ -1,1 +1,2 @@
-import './sign-in.scss'
+import './sign-in.scss';
+require("./img/reg-back.jpg");

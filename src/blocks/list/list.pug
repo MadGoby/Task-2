@@ -1,0 +1,15 @@
+include __title/list__title.pug
+include __item/list__item.pug
+include __text/list__text.pug 
+include _type/list_type.pug
+
+
+mixin list(settings)
+  - let jsClass = ""
+  - let attr = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
+  - }
+  ul(class="list" class=jsClass)&attributes(attr)
+    block

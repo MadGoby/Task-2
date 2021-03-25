@@ -1,0 +1,22 @@
+include __dropdown-label/input__dropdown-label.pug
+include __title/input__title.pug
+include __state/input__state.pug
+include __submit-button/input__submit-button.pug
+
+mixin input(settings)
+  - let length = ""
+  - let attr = ""
+  - let type = ""
+  - let jsClass = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("length") ? length = `input_length_${settings.length}` : length = ""
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  -   settings.hasOwnProperty("type") ? type = `input_type_${settings.type}` : type = ""
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  - }
+  if type === "input_type_submit" 
+    .input-wrapper_type_submit
+      input(class = "input" class=`${length} ${type} ${jsClass}`)&attributes(attr)
+      +input__submit-button()
+  else
+    input(class = "input" class=`${length} ${type} ${jsClass}`)&attributes(attr)

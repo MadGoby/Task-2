@@ -1,0 +1,6 @@
+mixin toggle__text(settings)
+  - let textType = ""
+  - if (settings.hasOwnProperty("type")) {
+  -   textType  = `toggle__text_type_${settings.type}`
+  - };
+  p(class="toggle__text" class=textType)= settings.text

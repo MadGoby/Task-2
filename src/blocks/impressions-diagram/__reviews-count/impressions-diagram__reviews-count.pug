@@ -1,0 +1,7 @@
+mixin impressions-diagram__reviews-count(settings)
+  - let text = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - }
+  .impressions-diagram__reviews-wrapper
+    p.impressions-diagram__reviews-count=text

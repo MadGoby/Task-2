@@ -1,241 +1,170 @@
-.landin-page__header {
-  background: #FFFFFF;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  padding: 15px 140px;
-  max-width: 1440px;
-  margin: auto;
-  min-height: 70px;
-  min-width: 588px;
-}
+@import 'variables.scss';
+@import 'fonts/fonts.scss';
+@import 'blocks/header/header.scss';
+@import 'blocks/logo/logo.scss';
+@import 'blocks/nav/nav.scss';
+@import 'blocks/button/button.scss';
+@import 'blocks/footer/footer.scss';
+@import 'blocks/social-networks/social-networks.scss';
+@import 'blocks/copyright/copyright.scss';
+@import 'blocks/input/input.scss';
+@import 'blocks/search-room/search-room.scss';
+@import 'blocks/form-title/form-title.scss';
+@import 'blocks/dropdown/dropdown.scss';
+@import 'blocks/datepicker/datepicker.scss';
 
-// Imports ---------------------------------------------------------
-@import "variables.scss";
-@import "fonts/fonts.scss";
-@import "ui-blocks/headers-footers/headers/header.scss";
-@import "ui-blocks/form-elements/fields-toggles-buttons/fields/fields.scss";
-@import "ui-blocks/text-styles/text-styles__types.scss";
-@import "ui-blocks/form-elements/dropdown/dropdown-rooms/dropdown-rooms.scss";
-@import "ui-blocks/form-elements/dropdown/dropdown-quests/dropdown-guests.scss";
-@import "ui-blocks/palette/palette.scss";
-@import "ui-blocks/text-styles/text-styles.scss";
-@import 'ui-blocks/form-elements/fields-toggles-buttons/buttons/buttons.scss';
-@import "ui-blocks/headers-footers/footers/footers.scss";
-@import "ui-blocks/cards/rooms-search/rooms-search.scss";
-// -----------------------------------------------------------------
-
-// Header ----
-.landin-page__header {
-  height: 70px;
-  box-sizing: border-box;
-}
-// Body -----
 body {
-  background: #E5E5E5;
-  margin: 0px;
+  margin: 0;
+  background: #F4F4F6;
 }
-.dropdown-guests-body-extended {
-  width: auto;
-}
-.landin-page__main-body {
+.landing-page__header {
   max-width: 1440px;
+  min-width: 420px;
   margin: auto;
-  height: 900px;
-  background: url('./img/landing-page-back.svg');
-  background-repeat: no-repeat;
-  position: relative;
-  min-width: 588px;
 }
-.landin-page__main__sign {
-  position: absolute;
-  bottom: 18px; right: 125px;
-  width: 297px;
-  text-align: right;
+.landing-page__main {
+  background: url('img/landing-main.jpg');
+  background-repeat: no-repeat;
+  background-position-y: -70px;
+  width: 100%;
+  height: 828px;
+  max-width: 1440px;
+  min-width: 420px;
+  margin: auto;
+  position: relative;
+  .landing-page__main-text {
+    text-align: right;
+    position: absolute;
+    right: 134px;
+    bottom: 18px;
+    max-width: 297px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .search-room {
+    position: absolute;
+    top: 70px; left: 140px;
+  }
 }
 .landing-page__footer {
-  position: relative;
   max-width: 1440px;
-  min-width: 588px;
+  min-width: 420px;
   margin: auto;
-  background-color: white;
-}
-.margin20 {
-  margin: 20px 0 5px 0; }
-.rooms-search-body {
-  background-color: white;
-  position: absolute;
-  top: 70px;
-  left: 140px
-}
-.ui-guests-confirmed-button__confirmed {
-  position: absolute;
-  right: 0;
-  margin: 0;
-}
-.rooms-expanded-strokes_body {
-  display: none;
-}
-.dropdown-guests-body-extended {
-  margin: 0;
-}
-.dropdown-guests_input, .dropdown-guests_input_2 {
-  border: 1px solid rgba(31, 32, 65, 0.25);
-}
-.uiGuestsExpendedBody {
-  background: white;
-  position: absolute;
-  top: 268px;
-  z-index: 2;
-}
-.rooms-search__dropdown-date {
-  .dropdown-date-body {
-    h3 {
-      margin-bottom: 6px;
+  position: relative;
+  .footer-wrapper {
+    .footer__nav-wrapper {
+      .footer__nav:first-child {
+        margin-right: 57px;
+      }
+      .footer__nav:last-child {
+        margin-left: 92px;
+      }
+    }
+    .footer__logo {
+      max-width: 260px;
+    }
+    .footer__nav-wrapper {
+      margin: 0 50px 0 40px;
     }
   }
-}
-// Footer -----------------------------------------------------------------
-.footers__big-footer {
-  width: auto;
-}
-.footers__big-footer__links-table {
-  tr {
-    th {
-      width: 200px;
-      padding: 0 0 20px 0;
-    }
-    td {
-      width: 200px;
-      padding: 0 0 20px 0;
-    }
+  .copyright {
+    margin-top: 1px;
   }
 }
-.footers-big-footer-subscribe__text {
-  width: 260px;
-}
-.text-field-subscription-body {
-  width: 260px;
-}
-@-moz-document url-prefix() {
-  .header__login__login-body {
-    top: -19px;
+
+@media screen and (max-width: 1440px) {
+  .footer-wrapper {
+    padding: 100px 50px;
   }
 }
-// ------------------------------------------------------------------------
-@media(max-width:1440px){
-  .landin-page__header {
-    margin: 0px;
-  }
-  .landin-page__main-body {
-    margin: 0px;
-  }
-  .landing-page__footer {
-    margin: 0px;
-  }
-}
-@media(max-width:1265px){
-  .landin-page__header {
-    padding: 15px 30px;
-  }
-}
-@media(max-width:1048px){
-  .landin-page__header {
-    height: 110px;
-  }
-  .header__login-form__nav-body {
+@media screen and (max-width: 1256px) {
+  .footer__nav-wrapper {
+    margin: 0 0 0 40px;
     float: right;
+  }
+  .footer__subscribe {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .footer-wrapper {
+    padding: 100px 0 100px 200px;
+  }
+  .landing-page__footer .footer-wrapper .footer__nav-wrapper {
     display: block;
-  }
-  .header__login__login-body {
-    position: absolute;
-    top: 55px;
-    right: 66px;
-  }
-}
-@media(max-width:750px){
-  .landin-page__header {
-    height: 110px;
-  }
-  .header__login-form__nav-body {
-    float: right;
-    display: block;
-  }
-  .header__login__color-logo {
-    margin-right: 40px;
-  }
-  .header__login__login-body {
-    position: absolute;
-    top: 15px;
-  }
-  .header__login-form table {
-    margin-left: 42px;
-    margin: 0px;
-  }
-  .rooms-search-body {
-    margin: auto;
-    position: relative;
-    left: auto;
-  }
-}
-@media(max-width:604px){
-  .header__login__login-body {
-    right: none;
-    left: 218px;
-  }
-}
-@media(max-width:900px){
-  .footers__big-footer__copyright-block {
-    padding: 0px 40px;
-  }
-}
-// Media Footer
-@media(max-width:1440px){
-  .landing-page__footer .footers__big-footer {
-    padding: 100px 0px 100px;
-    width: 1050px;
-    margin: auto;
-  }
-  .footers__big-footer__fishtext__text {
-    width: 220px;
-  }
-  .footers-big-footer-subscribe, .text-field-subscription-body, .footers-big-footer-subscribe__text {
-    width: 180px;
-  }
-}
-@media(max-width:1100px){
-  .landing-page__footer .footers__big-footer {
-    width: 920px;
-  }
-  .footers__big-footer__links-table {
-    width: 160px;
-  }
-}
-@media(max-width:955px){
-  .header__login-form__nav-body {
-    padding-left: 50px;
-  }
-  .footers__big-footer__fishtext {
-    display: block;
+    float: none;
     margin: 0;
+    margin: 50px 0 0;
   }
-  .footers-big-footer-subscribe__text, .text-field-subscription-body {
-    width: 250px;
-  }
-  .footers-big-footer-subscribe {
+  .footer__subscribe {
+    margin-top: 0;
     position: absolute;
-    top: 110px;
-    left: 250px;
-    width: 250px;
+    left: 500px; top: 100px;
   }
-  .landing-page__footer .footers__big-footer {
-    width: 500px;
-    position: relative;
+}
+@media screen and (max-width: 850px) {
+  .landing-page__header {
+    .nav {
+      max-width: 290px;
+      margin-bottom: 10px;
+      .nav__link:nth-child(2) {
+        margin-right: 0;
+      }
+    }
   }
-  .footers__big-footer__links-table {
+  .footer-wrapper {
+    padding: 60px 0px 60px 100px;
+  }
+  .footer__subscribe {
+    left: 400px; top: 60px;
+  }
+  .copyright {
+    .copyright__text, .social-networks {
+      display: block;
+      float: none;
+      text-align: center;
+    }
+    .social-networks {
+      margin-top: 20px;
+    }
+  }
+}
+@media screen and (max-width: 680px) {
+  .header-wrapper {
+    padding: 18px 60px;
+  }
+  .footer-wrapper {
+    padding: 60px 0 60px 200px;
+  }
+  .landing-page__main .search-room {
+    left: 70px;
+  }
+  .footer__subscribe {
+    position: static;
     margin-top: 40px;
   }
+  .landing-page__footer .footer-wrapper .footer__nav-wrapper .footer__nav:last-child {
+    margin: 40px 0 0;
+    display: block;
+  }
+  .copyright {
+    padding: 23px 60px;
+  }
 }
-@media(max-width:670px){
-  .header__login-form__nav-body {
-    padding-left: 0px;
+@media screen and (max-width: 600px) {
+  .footer-wrapper {
+    padding: 60px 0 60px 60px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .landing-page__main .search-room {
+    left: 30px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .header-wrapper {
+    .header__unauthorized {
+      margin: 0;
+    }
   }
 }

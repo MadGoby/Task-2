@@ -1,0 +1,7 @@
+mixin toggle__mimic(settings)
+  - let mimicType = ""
+  - if (settings.hasOwnProperty("type")) {
+  -   mimicType = `toggle__mimic_type_${settings.type}`
+  - };
+  span(class="toggle__mimic" class =mimicType)
+    block

@@ -1,0 +1,15 @@
+mixin nav__link(settings)
+  - let links = []
+  - if(settings) {
+  -   settings.hasOwnProperty("links") ? links = settings.links : links = []
+  - }
+  each link in links
+    - let href = ""
+    - let type = ""
+    - let text = ""
+    - if(link) {
+    -   link.hasOwnProperty("href") ? href = link.href : href = "./for-change"
+    -   link.hasOwnProperty("type") ? type = `nav__link_${link.type}` : type = ""
+    -   link.hasOwnProperty("text") ? text = link.text : text = ""
+    - }
+    a(class="nav__link",  href=href, class=type)= text

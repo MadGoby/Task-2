@@ -1,0 +1,65 @@
+.final-booking__service:not(:first-child) {
+  margin-top: 10px;
+}
+.final-booking__service {
+  .final-booking__service-title-wrapper {
+    display: inline-block;
+    width: 239px;
+    position: relative;
+  }
+  .final-booking__service-title {
+    line-height: 18px;
+    display: inline-block;
+    max-width: 214px;
+  }
+  .final-booking__service-price {
+    display: inline-block;
+    width: 78px;
+    text-align: right;
+    vertical-align: top;
+  }
+  .final-booking__service-title_clarification-sign {
+    &::after {
+      content: 'i';
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-block;
+      width: 20px; height: 20px;
+      box-sizing: border-box;
+      color: $dark25;
+      border: 1px solid $dark25;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 20px;
+      position: absolute;
+      right: 0; top: 0;
+    }
+  }
+}
+.final-booking__service_total {
+  margin-top: 30px;
+  .final-booking__service-title-wrapper {
+    display: inline-block;
+    max-width: 60px;
+    .final-booking__service-title {
+      font-weight: 700;
+      font-size: 19px;
+      color: $dark100;
+    }
+  }
+  .final-booking__service-price {
+    display: inline-block;
+    width: 257px;
+    font-size: 19px;
+    font-weight: 700;
+    color: $dark100;
+    &::before {
+      content: '';
+      display: inline-block;
+      border-bottom: 1px dotted $dark25;
+      margin: 0 4px;
+      width: 172px;
+      box-sizing: border-box;
+    }
+  }
+}

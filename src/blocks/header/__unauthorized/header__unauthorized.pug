@@ -1,0 +1,14 @@
+mixin header__unauthorized()
+  .header__unauthorized
+    .header__login
+      +button({
+        type: "border",
+        text: "войти",
+        attr: {"type": "button"}
+      })
+    .header__registration
+      +button({
+        type: "simple",
+        text: "зарегистрироваться",
+        attr: {"type": "button"}
+      })

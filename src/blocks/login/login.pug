@@ -1,0 +1,7 @@
+mixin login(settings)
+  - let action = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("action") ? action = settings.action : action = ""
+  - };
+  form(action=action).login
+    block

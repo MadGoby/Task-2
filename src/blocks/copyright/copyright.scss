@@ -1,0 +1,15 @@
+@import '../social-networks/social-networks.scss';
+
+.copyright {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  padding: 23px 140px;
+  .copyright__text {
+    margin: 0px;
+    display: inline-block;
+  }
+  .social-networks {
+    display: inline-block;
+    float: right;
+  }
+}

@@ -1,0 +1,3 @@
+mixin text-sample__description(settings)
+  - const textType = `text_type_${settings.textType}`;
+  p(class=textType).text-sample__description= settings.text

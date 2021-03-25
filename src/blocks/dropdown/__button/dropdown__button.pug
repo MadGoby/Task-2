@@ -1,0 +1,12 @@
+mixin dropdown__button(settings)
+  - let type = ""
+  - let text = ""
+  - let jsClass = ""
+  - let attr = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  -   settings.hasOwnProperty("type") ? type = `dropdown__button_type_${settings.type}` : type = ""
+  - }
+  button(class="dropdown__button" type="button" class=`${type} ${jsClass}`)&attributes(attr)=text

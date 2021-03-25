@@ -1,0 +1,9 @@
+include __title/slider__title.pug
+include __output/slider__output.pug
+include __text/slider__text.pug
+
+
+mixin slider(settings)
+  - let jsClass = "";
+  - settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  div(class="slider" class=jsClass)

@@ -1,0 +1,12 @@
+@import 'variables.scss';
+@import 'fonts/fonts.scss';
+@import 'blocks/logo/logo.scss';
+
+@import 'ui-kit-pages/colors-types/colors-types.scss';
+@import 'ui-kit-pages/form-elements/form-elements.scss';
+@import 'ui-kit-pages/cards/cards.scss';
+@import 'ui-kit-pages/headers-footers/headers-footers.scss';
+
+body {
+  margin: auto;
+}

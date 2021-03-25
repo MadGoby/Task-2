@@ -1,0 +1,7 @@
+mixin list__item(settings)
+  - let mark = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("mark") ? mark=`list__item_mark_${settings.mark}` : mark=""
+  - }
+  li(class="list__item" class=mark)
+    block

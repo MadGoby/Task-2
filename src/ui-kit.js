@@ -1,0 +1,24 @@
+require("./img/logo.svg");
+require("./img/input-dropdown.svg");
+require("./img/dropdown-nav.svg");
+require("./img/arrow-forward.svg");
+require("./img/check-arrow.jpg");
+require("./img/favorite.jpg");
+require("./img/favorite-border.jpg");
+require("./img/star.jpg");
+require("./img/star-border.jpg");
+require("./img/user.jpg");
+require("./img/arrow-forward-white.svg");
+require("./img/smile.svg");
+require("./img/house.svg");
+require("./img/scroll-arrow.svg");
+require("./img/888.jpg");
+require("./img/840.jpg");
+require("./img/logo-color.svg");
+require("./img/twitter.svg");
+require("./img/facebook.svg");
+require("./img/instagram.svg");
+
+import "./ui-kit.scss";
+import * as formElements from "./ui-kit-pages/form-elements/form-elements.js";
+import * as cards from "./ui-kit-pages/cards/cards.js";

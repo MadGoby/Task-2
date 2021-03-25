@@ -1,0 +1,25 @@
+include ../social-networks/social-networks.pug
+
+mixin copyright(settings)
+  - let text = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - }
+  .copyright
+    p.text_type_simple.copyright__text= text
+    +social-networks({
+      socialLinks: [
+        {
+          "name": "twitter",
+          "iconSrc": "img/twitter.svg"
+        },
+        {
+          "name": "facebook",
+          "iconSrc": "img/facebook.svg"
+        },
+        {
+          "name": "instagram",
+          "iconSrc": "img/instagram.svg"
+        }
+      ]
+    })

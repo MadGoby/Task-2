@@ -1,0 +1,11 @@
+include __logo/footer__logo.pug
+include __nav/footer__nav.pug
+include __subscribe/footer__subscribe.pug
+
+mixin footer(settings)
+  - let type = "footer-wrapper"
+  - if (settings) {
+  -  settings.hasOwnProperty("type") ? type = `footer-wrapper_type_${settings.type}` : type="footer-wrapper"
+  - }
+  div(class=type)
+    block

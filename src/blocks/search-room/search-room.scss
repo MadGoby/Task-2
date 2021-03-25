@@ -1,0 +1,40 @@
+.search-room {
+  padding: 40px 29px 30px;
+  background-color: white;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  max-width: 380px;
+  box-sizing: border-box;
+  .form-title {
+    margin-bottom: 17px;
+  }
+  .search-room__double-input {
+    .input__wrapper {
+      display: inline-block;
+      max-width: 150px;
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+  .datepicker {
+    position: absolute;
+    margin-top: 6px;
+    z-index: 2;
+  }
+  .search-room__guests-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 17px;
+    .dropdown {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 2;
+    }
+  }
+  .search-room__submit-button {
+    margin-top: 30px;
+  }
+}

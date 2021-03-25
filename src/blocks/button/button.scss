@@ -1,0 +1,9 @@
+@import '__title/button__title.scss';
+@import '_type/button_type.scss';
+@import '__description/button__description.scss';
+
+.button {
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+}

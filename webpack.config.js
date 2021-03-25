@@ -7,12 +7,12 @@ const MiniCssExtractPlugin = require ('mini-css-extract-plugin');
 module.exports = {
   context: path.resolve(__dirname, 'src'),
     entry: {
-    'ui-index': './ui-index.js',
-    'landing-page': './landing-page.js',
-    'search-room': './search-room.js',
-    'room-details': './room-details.js',
-    'registration': './registration.js',
-    'sign-in': './sign-in.js',
+      'ui-kit': './ui-kit.js',
+      'landing-page': './landing-page.js',
+      'search-room': './search-room.js',
+      'registration': './registration.js',
+      'sign-in': './sign-in.js',
+      'room-details': './room-details.js',
     },
   output: {
     filename: 'js/[name].js',
@@ -24,7 +24,9 @@ module.exports = {
     },
   },
   devServer: {
-    port: 3000,
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
   },
   optimization: {
     splitChunks: {
@@ -33,36 +35,35 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './ui-index.pug',
-      filename: 'ui-index.html',
-      excludeChunks: ['search-room', 'landing-page', 'room-details', 'registration', 'sign-in'], 
+      template: './ui-kit.pug',
+      filename: 'ui-kit.html',
+      excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details'], 
     }),
     new HTMLWebpackPlugin({
       template: './landing-page.pug',
       filename: 'landing-page.html',
-      excludeChunks: ['search-room', 'ui-index', 'room-details', 'registration', 'sign-in'],
+      excludeChunks: ['ui-kit', 'search-room', 'registration', 'sign-in', 'room-details'],
     }),
     new HTMLWebpackPlugin({
       template: './search-room.pug',
       filename: 'search-room.html',
-      excludeChunks: ['ui-index', 'landing-page', 'room-details', 'registration', 'sign-in'], 
+      excludeChunks: ['ui-kit', 'landing-page', 'registration', 'sign-in', 'room-details'], 
     }),
     new HTMLWebpackPlugin({
       template: './room-details.pug',
       filename: 'room-details.html',
-      excludeChunks: ['ui-index', 'landing-page', 'search-room', 'registration', 'sign-in'],
+      excludeChunks: ['ui-kit', 'landing-page', 'registration', 'sign-in', 'search-room'],
     }),
     new HTMLWebpackPlugin({
       template: './registration.pug',
       filename: 'registration.html',
-      excludeChunks: ['ui-index', 'landing-page', 'search-room', 'room-details', 'sign-in'],
+      excludeChunks: ['ui-kit', 'landing-page', 'search-room', 'sign-in', 'room-details'],
     }),
     new HTMLWebpackPlugin({
       template: './sign-in.pug',
       filename: 'sign-in.html',
-      excludeChunks: ['ui-index', 'landing-page', 'search-room', 'room-details', 'registration'],
+      excludeChunks: ['ui-kit', 'landing-page', 'search-room', 'registration', 'room-details'],
     }),
-    // new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),

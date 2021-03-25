@@ -1,0 +1,15 @@
+.dropdown__button {
+  min-width: 30px; min-height: 30px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid $dark25;
+  padding: 0px;
+  font-size: 18px;
+  color: $dark50;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid $dark50;
+  }
+}

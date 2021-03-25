@@ -1,0 +1,15 @@
+mixin final-booking__service(settings)
+  - let modifier = ""
+  - let title = ""
+  - let price = ""
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
+  -   settings.type == "total" ? type = `final-booking__service_${settings.type}` : type = "final-booking__service"
+  -   settings.hasOwnProperty("price") ? price = `${settings.price} ` : price = ""
+  -   settings.hasOwnProperty("modifier") ? modifier = `final-booking__service-title_${settings.modifier}` : modifier = ""
+  - };
+  li(class=type)
+    .final-booking__service-title-wrapper
+      span(class="final-booking__service-title text_type_simple" class=modifier)=title
+    span.final-booking__service-price.text_type_simple=price

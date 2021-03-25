@@ -1,0 +1,14 @@
+.footer__subscribe {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 260px;
+  .footer__subscribe-title, .footer__subscribe-text {
+    max-width: 260px;
+    margin: 0 0 20px;
+    line-height: 18px;
+    box-sizing: border-box;
+  }
+  .input_type_submit {
+    width: 260px;
+  }
+}

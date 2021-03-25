@@ -1,0 +1,100 @@
+@import '../button/button.scss';
+
+.datepicker {
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  box-sizing: border-box;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+  padding: 20px;
+  width: 320px;
+  .datepicker__scroll-button {
+    background-image: url('img/arrow-forward.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0px;
+    width: 24px; height: 24px;
+    background-color: white;
+    padding: 0px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    outline: none;
+  }
+  .datepicker__scroll-button_left {
+    transform: rotate(180deg);
+  }
+  .datepicker__selected-month {
+    display: inline-block;
+    min-width: 229px;
+    margin: 0px;
+    text-align: center;
+  }
+  .calendar {
+    margin: 30px 0 20px;
+    .calendar__cell {
+      width: 39px; height: 40px;
+      box-sizing: border-box;
+      padding: 0px;
+      display: inline-block;
+      line-height: 40px;
+      text-align: center;
+      user-select: none;
+      cursor: pointer;
+    }
+    .calendar__week-day {
+      color: $purple;
+      cursor: default;
+    }
+    .calendar__cell_transparent {
+      color: $dark25;
+    }
+    .calendar__cell_current-day, .calendar__cell_from, .calendar__cell_to {
+      border-radius: 50%;
+      color: white;
+      font-weight: 700;
+    }
+    .calendar__cell_current-day {
+      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    }
+    .calendar__cell_from, .calendar__cell_to {
+      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    }
+    .calendar__cell_range, .calendar__cell_range-from, .calendar__cell_range-to {
+      position: relative;
+      z-index: 2;
+      &::before {
+        content: '';
+        display: inline-block;
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+        opacity: 0.25;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+    .calendar__cell_range {
+      &::before {
+        left: 0; right: 0; top: 0; bottom: 0;
+      }
+    }
+    .calendar__cell_range-from {
+      &::before {
+        left: 20px; right: 0; top: 0; bottom: 0;
+      }
+    }
+    .calendar__cell_range-to {
+      &::before {
+        left: 0; right: 20px; top: 0; bottom: 0;
+      }
+    }
+  }
+  .datepicker__confirmation-buttons {
+    height: 15px;
+    .button {
+      vertical-align: top;
+    }
+    .datepicker__apply-button {
+      float: right;
+    }
+  }
+}

@@ -1,17 +1,238 @@
+include blocks/header/header.pug
+include blocks/logo/logo.pug
+include blocks/nav/nav.pug
+include blocks/button/button.pug
+include blocks/footer/footer.pug
+include blocks/social-networks/social-networks.pug
+include blocks/copyright/copyright.pug
+include blocks/input/input.pug
+include blocks/search-room/search-room.pug
+include blocks/form-title/form-title.pug
+include blocks/dropdown/dropdown.pug
+include blocks/datepicker/datepicker.pug
+
 doctype html
 html
   head
-    meta(charset='utf-8')
-    meta(name='description' content='Landing page of the hotel room website.')
-    meta(name='keywords' content='HTML, CSS, JavaScript')
-    meta(name='viewport' content='initial-scale=1.0, width=device-width')
+    meta(charset="utf-8")
+    meta(name="description" content="Landing page of the hotel room website.")
+    meta(name="keywords" content="HTML, CSS, JavaScript")
+    meta(name="viewport" content="initial-scale=1.0, width=device-width")
     title Landing Page
   body
-    header.landin-page__header
-      include ui-blocks/headers-footers/headers/header__login-form-ru.pug
-    main.landin-page__main-body
-      div.rooms-search-body
-        include ui-blocks/cards/rooms-search/rooms-search-landing-page.pug
-      p.landin-page__main__sign.type-simple-text Лучшие номера для вашей работы, отдыха и просто вдохновения
-    footer.landing-page__footer
-      include /ui-blocks/headers-footers/footers/footers__big-footer-ru.pug
+    header.landing-page__header
+      +header()
+        +logo({
+          src: "img/logo-color.svg"
+        })
+        +nav()
+          +nav__link({
+            links: [
+              {"text": "О нас"},
+              {"text": "Услуги", "type": "dropdown"},
+              {"text": "Вакансии"},
+              {"text": "Новости"},
+              {"text": "Соглашения", "type": "dropdown"}
+            ]
+          })
+        +header__unauthorized()
+    main.landing-page__main
+      +search-room({
+        action: "for-change"
+      })
+        +form-title({text: "Найдём номера под ваши пожелания"})
+        .search-room__double-input
+          .input__wrapper.text_type_simple
+            +input__title({text: "прибытие"})
+            +input__dropdown-label()
+              +input({
+                attr: {
+                  "type": "text",
+                  "placeholder": "ДД.ММ.ГГГГ",
+                  "value": "19.08.2019",
+                  "readonly": "readonly"
+                },
+                length: "short",
+                type: "dropdown",
+                jsClass: "js-input-from"
+              })
+          .input__wrapper.text_type_simple
+            +input__title({text: "выезд"})
+            +input__dropdown-label()
+              +input({
+                attr: {
+                  "type": "text",
+                  "placeholder": "ДД.ММ.ГГГГ",
+                  "value": "23.08.2019",
+                  "readonly": "readonly"
+                },
+                length: "short",
+                type: "dropdown",
+                jsClass: "js-input-to"
+            })
+        +datepicker({
+          jsClass: "js-datepicker",
+          attr: {
+            "hidden": "hidden"
+          }
+        })
+        .search-room__guests-wrapper.text_type_simple
+          +input__title({text: "гости"})
+          +input__dropdown-label()
+            +input({
+              attr: {
+                "type": "text",
+                "placeholder": "Text",
+                "value": "Сколько гостей",
+                "readonly": "readonly",
+              },
+              length: "long",
+              type: "dropdown",
+              jsClass: "js-dropdown-input3"
+            })
+          +dropdown({
+            jsClass: "js-dropdown3",
+            attr: {
+              "hidden": "hidden"
+            }
+          })
+            +dropdown__list-body()
+              +dropdown__list-element()
+                +dropdown__text({text: "взрослые"})
+                +dropdown__calc()
+                  +dropdown__button({
+                    text: "-",
+                    type: "minus",
+                    attr: {
+                      "data-target": "adult",
+                      "data-action": "minus",
+                      "class": "dropdown__button_type_transparent"
+                    }
+                  })
+                  +dropdown__output({
+                    text: "0",
+                    attr: {
+                      "data-target": "adult"
+                    }
+                  })
+                  +dropdown__button({
+                    text: "+",
+                    type: "plus",
+                    attr: {
+                      "data-target": "adult",
+                      "data-action": "plus"
+                    }
+                  })
+              +dropdown__list-element()
+                +dropdown__text({text: "дети"})
+                +dropdown__calc()
+                  +dropdown__button({
+                    text: "-",
+                    type: "minus",
+                    attr: {
+                      "data-target": "child",
+                      "data-action": "minus",
+                      "class": "dropdown__button_type_transparent"
+                    }
+                  })
+                  +dropdown__output({
+                    text: "0",
+                    attr: {
+                      "data-target": "child"
+                    }
+                  })
+                  +dropdown__button({
+                    text: "+",
+                    type: "plus",
+                    attr: {
+                      "data-target": "child",
+                      "data-action": "plus"
+                    }
+                  })
+              +dropdown__list-element()
+                +dropdown__text({text: "младенцы"})
+                +dropdown__calc()
+                  +dropdown__button({
+                    text: "-",
+                    type: "minus",
+                    attr: {
+                      "data-target": "baby",
+                      "data-action": "minus",
+                      "class": "dropdown__button_type_transparent"
+                    }
+                  })
+                  +dropdown__output({
+                    text: "0",
+                    attr: {
+                      "data-target": "baby"
+                    }
+                  })
+                  +dropdown__button({
+                    text: "+",
+                    type: "plus",
+                    attr: {
+                      "data-target": "baby",
+                      "data-action": "plus"
+                    }
+                  })
+            .dropdown__submit-buttons
+              +button({
+                type: "text",
+                text: "очистить",
+                attr: {
+                  "type": "button",
+                  "data-target": "clear",
+                  "hidden": "hidden"
+                }
+              }) 
+              +button({
+                type: "text",
+                text: "применить",
+                attr: {
+                  "type": "button",
+                  "data-target": "submit",
+                }
+              }) 
+        .search-room__submit-button
+          +button({
+            type: "big",
+            text: "подобрать номер",
+            attr: {"type": "submit"}
+          })
+      p.text_type_simple.landing-page__main-text= "Лучшие номера для вашей работы, отдыха и просто вдохновения"
+    footer.landing-page__footer 
+      +footer()
+        +footer__logo({
+          text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+        })
+        +footer__nav({
+          lists: [
+            [
+              {"text": "навигация"}, 
+              {"text": "О нас"},
+              {"text": "Новости"},
+              {"text": "Служба поддержки"},
+              {"text": "Услуги"}
+            ],
+            [
+              {"text": "о нас"}, 
+              {"text": "О сервисе"},
+              {"text": "Наша команда"},
+              {"text": "Вакансии"},
+              {"text": "Инвесторы"}
+            ],
+            [
+              {"text": "Служба поддержки"}, 
+              {"text": "Соглашения"},
+              {"text": "Сообщества"},
+              {"text": "Связь с нами"}
+            ]
+          ]
+        })
+        +footer__subscribe({
+          title: "Подписка",
+          text: "Получайте специальные предложения и новости сервиса"
+        })
+      +copyright({
+        text: "Copyright © 2018 Toxin отель. Все права защищены."
+      })

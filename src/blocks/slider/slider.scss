@@ -1,0 +1,23 @@
+@import '__title/slider__title.scss';
+@import '__output/slider__output.scss';
+@import '__text/slider__text.scss';
+
+.slider {
+  height: 6px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid $dark25;
+  .ui-slider-handle {
+    outline: none;
+    top: -6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  }
+  .ui-slider-range {
+    height: 6px;
+    top: -1px;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  }
+}

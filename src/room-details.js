@@ -1,9 +1,7 @@
 import ('./room-details.scss')
-require ('./img/room-details__big-img.jpg')
-require ('./img/room-details__small-img-1.jpg')
-require ('./img/room-details__small-img-2.jpg')
-require ("./img/fire.svg")
-require ('./img/statistics-reviews__yellow.svg')
-require ('./img/statistics-reviews__green.svg')
-require ('./img/statistics-reviews__purple.svg')
-require ('./img/user-2.svg')
+require("./img/room-photo-big.jpg");
+require("./img/room-photo-small1.jpg");
+require("./img/room-photo-small2.jpg");
+require("./img/diagram.svg");
+require("./img/user2.jpg");
+require("./img/flame.svg");

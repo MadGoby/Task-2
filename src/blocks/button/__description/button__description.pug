@@ -1,0 +1,6 @@
+mixin button__description(settings)
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
+  - }
+  p.button__description.text_type_simple=text

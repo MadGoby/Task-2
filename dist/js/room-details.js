@@ -247,99 +247,75 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./img/fire.svg":
-/*!**********************!*\
-  !*** ./img/fire.svg ***!
-  \**********************/
+/***/ "./img/diagram.svg":
+/*!*************************!*\
+  !*** ./img/diagram.svg ***!
+  \*************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/fire.svg\");\n\n//# sourceURL=webpack:///./img/fire.svg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/diagram.svg\");\n\n//# sourceURL=webpack:///./img/diagram.svg?");
 
 /***/ }),
 
-/***/ "./img/room-details__big-img.jpg":
-/*!***************************************!*\
-  !*** ./img/room-details__big-img.jpg ***!
-  \***************************************/
+/***/ "./img/flame.svg":
+/*!***********************!*\
+  !*** ./img/flame.svg ***!
+  \***********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-details__big-img.jpg\");\n\n//# sourceURL=webpack:///./img/room-details__big-img.jpg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/flame.svg\");\n\n//# sourceURL=webpack:///./img/flame.svg?");
 
 /***/ }),
 
-/***/ "./img/room-details__small-img-1.jpg":
-/*!*******************************************!*\
-  !*** ./img/room-details__small-img-1.jpg ***!
-  \*******************************************/
+/***/ "./img/room-photo-big.jpg":
+/*!********************************!*\
+  !*** ./img/room-photo-big.jpg ***!
+  \********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-details__small-img-1.jpg\");\n\n//# sourceURL=webpack:///./img/room-details__small-img-1.jpg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-photo-big.jpg\");\n\n//# sourceURL=webpack:///./img/room-photo-big.jpg?");
 
 /***/ }),
 
-/***/ "./img/room-details__small-img-2.jpg":
-/*!*******************************************!*\
-  !*** ./img/room-details__small-img-2.jpg ***!
-  \*******************************************/
+/***/ "./img/room-photo-small1.jpg":
+/*!***********************************!*\
+  !*** ./img/room-photo-small1.jpg ***!
+  \***********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-details__small-img-2.jpg\");\n\n//# sourceURL=webpack:///./img/room-details__small-img-2.jpg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-photo-small1.jpg\");\n\n//# sourceURL=webpack:///./img/room-photo-small1.jpg?");
 
 /***/ }),
 
-/***/ "./img/statistics-reviews__green.svg":
-/*!*******************************************!*\
-  !*** ./img/statistics-reviews__green.svg ***!
-  \*******************************************/
+/***/ "./img/room-photo-small2.jpg":
+/*!***********************************!*\
+  !*** ./img/room-photo-small2.jpg ***!
+  \***********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/statistics-reviews__green.svg\");\n\n//# sourceURL=webpack:///./img/statistics-reviews__green.svg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/room-photo-small2.jpg\");\n\n//# sourceURL=webpack:///./img/room-photo-small2.jpg?");
 
 /***/ }),
 
-/***/ "./img/statistics-reviews__purple.svg":
-/*!********************************************!*\
-  !*** ./img/statistics-reviews__purple.svg ***!
-  \********************************************/
+/***/ "./img/user2.jpg":
+/*!***********************!*\
+  !*** ./img/user2.jpg ***!
+  \***********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/statistics-reviews__purple.svg\");\n\n//# sourceURL=webpack:///./img/statistics-reviews__purple.svg?");
-
-/***/ }),
-
-/***/ "./img/statistics-reviews__yellow.svg":
-/*!********************************************!*\
-  !*** ./img/statistics-reviews__yellow.svg ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/statistics-reviews__yellow.svg\");\n\n//# sourceURL=webpack:///./img/statistics-reviews__yellow.svg?");
-
-/***/ }),
-
-/***/ "./img/user-2.svg":
-/*!************************!*\
-  !*** ./img/user-2.svg ***!
-  \************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/user-2.svg\");\n\n//# sourceURL=webpack:///./img/user-2.svg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/user2.jpg\");\n\n//# sourceURL=webpack:///./img/user2.jpg?");
 
 /***/ }),
 
@@ -350,7 +326,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./room-details.scss */ \"./room-details.scss\", 7))\r\n__webpack_require__ (/*! ./img/room-details__big-img.jpg */ \"./img/room-details__big-img.jpg\")\r\n__webpack_require__ (/*! ./img/room-details__small-img-1.jpg */ \"./img/room-details__small-img-1.jpg\")\r\n__webpack_require__ (/*! ./img/room-details__small-img-2.jpg */ \"./img/room-details__small-img-2.jpg\")\r\n__webpack_require__ (/*! ./img/fire.svg */ \"./img/fire.svg\")\r\n__webpack_require__ (/*! ./img/statistics-reviews__yellow.svg */ \"./img/statistics-reviews__yellow.svg\")\r\n__webpack_require__ (/*! ./img/statistics-reviews__green.svg */ \"./img/statistics-reviews__green.svg\")\r\n__webpack_require__ (/*! ./img/statistics-reviews__purple.svg */ \"./img/statistics-reviews__purple.svg\")\r\n__webpack_require__ (/*! ./img/user-2.svg */ \"./img/user-2.svg\")\n\n//# sourceURL=webpack:///./room-details.js?");
+eval("__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./room-details.scss */ \"./room-details.scss\", 7))\r\n__webpack_require__(/*! ./img/room-photo-big.jpg */ \"./img/room-photo-big.jpg\");\r\n__webpack_require__(/*! ./img/room-photo-small1.jpg */ \"./img/room-photo-small1.jpg\");\r\n__webpack_require__(/*! ./img/room-photo-small2.jpg */ \"./img/room-photo-small2.jpg\");\r\n__webpack_require__(/*! ./img/diagram.svg */ \"./img/diagram.svg\");\r\n__webpack_require__(/*! ./img/user2.jpg */ \"./img/user2.jpg\");\r\n__webpack_require__(/*! ./img/flame.svg */ \"./img/flame.svg\");\n\n//# sourceURL=webpack:///./room-details.js?");
 
 /***/ })
 

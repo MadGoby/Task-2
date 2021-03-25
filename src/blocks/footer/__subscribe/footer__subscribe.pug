@@ -1,0 +1,19 @@
+mixin footer__subscribe(settings)
+  - let title = ""
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""  
+  - }
+  .footer__subscribe
+    p.text_type_h3.footer__subscribe-title= title
+    p.text_type_simple.footer__subscribe-text= text   
+    +input({
+      attr: {
+        "type": "email",
+        "placeholder": "Email"
+      },
+      length: "middle",
+      type: "submit" 
+    })
+    
