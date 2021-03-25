@@ -440,7 +440,7 @@
   vertical-align: top; }
 
 .final-booking__service .final-booking__service-title_clarification-sign::after {
-  content: "i";
+  content: 'i';
   font-size: 12px;
   font-weight: 700;
   display: inline-block;
@@ -472,7 +472,7 @@
     font-weight: 700;
     color: #1F2041; }
     .final-booking__service_total .final-booking__service-price::before {
-      content: "";
+      content: '';
       display: inline-block;
       border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
       margin: 0 4px;
@@ -510,7 +510,7 @@
     padding-right: 4px; }
 
 .room-info .room-info__price_luxury:after {
-  content: "люкс";
+  content: 'люкс';
   color: #BC9CFF;
   font-size: 14px;
   margin-left: 2px; }
@@ -563,7 +563,7 @@
   .impressions-diagram__description .impressions-diagram__description-line {
     list-style: none; }
     .impressions-diagram__description .impressions-diagram__description-line::before {
-      content: "";
+      content: '';
       width: 10px;
       height: 10px;
       border-radius: 50%;

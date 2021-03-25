@@ -780,7 +780,7 @@
     padding-right: 4px; }
 
 .room-info .room-info__price_luxury:after {
-  content: "люкс";
+  content: 'люкс';
   color: #BC9CFF;
   font-size: 14px;
   margin-left: 2px; }
@@ -880,6 +880,24 @@ body {
 .search-room__rooms-nav {
   text-align: center;
   margin-top: 20px; }
+
+.search-room__footer {
+  position: relative;
+  max-width: 1440px;
+  min-width: 420px;
+  margin: auto;
+  background-color: white;
+  border-top: 1px solid rgba(31, 32, 65, 0.25); }
+  .search-room__footer .footer-wrapper .footer__nav-wrapper .footer__nav:first-child {
+    margin-right: 57px; }
+  .search-room__footer .footer-wrapper .footer__nav-wrapper .footer__nav:last-child {
+    margin-left: 92px; }
+  .search-room__footer .footer-wrapper .footer__logo {
+    max-width: 260px; }
+  .search-room__footer .footer-wrapper .footer__nav-wrapper {
+    margin: 0 50px 0 40px; }
+  .search-room__footer .copyright {
+    margin-top: 1px; }
 
 @media screen and (max-width: 1440px) {
   .search-room__rooms .room-card:nth-child(3n+2) {

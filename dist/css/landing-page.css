@@ -659,7 +659,7 @@
       position: relative;
       z-index: 2; }
       .datepicker .calendar .calendar__cell_range::before, .datepicker .calendar .calendar__cell_range-from::before, .datepicker .calendar .calendar__cell_range-to::before {
-        content: "";
+        content: '';
         display: inline-block;
         background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
         opacity: 0.25;

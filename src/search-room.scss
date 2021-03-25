@@ -111,6 +111,33 @@ body {
   text-align: center;
   margin-top: 20px;
 }
+.search-room__footer {
+  position: relative;
+  max-width: 1440px;
+  min-width: 420px;
+  margin: auto;
+  background-color: white;
+  border-top: 1px solid $dark25;
+  .footer-wrapper {
+    .footer__nav-wrapper {
+      .footer__nav:first-child {
+        margin-right: 57px;
+      }
+      .footer__nav:last-child {
+        margin-left: 92px;
+      }
+    }
+    .footer__logo {
+      max-width: 260px;
+    }
+    .footer__nav-wrapper {
+      margin: 0 50px 0 40px;
+    }
+  }
+  .copyright {
+    margin-top: 1px;
+  }
+}
  
 
 @media screen and (max-width: 1440px) {
