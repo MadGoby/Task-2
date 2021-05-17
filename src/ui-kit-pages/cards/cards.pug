@@ -19,8 +19,8 @@ include ../../blocks/rate-counter/rate-counter.pug
       +form-title({text: "Найдём номера под ваши пожелания"})
       .search-room__double-input
         .input__wrapper.text_type_simple
-          +input__title({text: "прибытие"})
-          +input__dropdown-label()
+          +title({text: "прибытие"})
+          +input__label({type: "dropdown"})
             +input({
               attr: {
                 "type": "text",
@@ -32,8 +32,8 @@ include ../../blocks/rate-counter/rate-counter.pug
               type: "dropdown"
             })
         .input__wrapper.text_type_simple
-          +input__title({text: "выезд"})
-          +input__dropdown-label()
+          +title({text: "выезд"})
+          +input__label({type: "dropdown"})
             +input({
               attr: {
                 "type": "text",
@@ -45,8 +45,8 @@ include ../../blocks/rate-counter/rate-counter.pug
               type: "dropdown"
           })
       .search-room__guests-wrapper.text_type_simple
-        +input__title({text: "гости"})
-        +input__dropdown-label()
+        +title({text: "гости"})
+        +input__label({type: "dropdown"})
           +input({
             attr: {
               "type": "text",
@@ -87,33 +87,31 @@ include ../../blocks/rate-counter/rate-counter.pug
           type: "simple"
         })
       .registration__gender.text_type_simple
-        +toggle__label({type: "radio"})
-          +toggle({
-            type: "radio",
-            attr: {
-              "type": "radio",
-              "hidden": "hidden",
-              "name": "gender",
-              "value": "male",
-              "checked": "checked"
-            }
-          })
-          +toggle__mimic({type: "radio"})
-          +toggle__text({text: "Мужчина"})
-        +toggle__label({type: "radio"})
-          +toggle({
-            type: "radio",
-            attr: {
-              "type": "radio",
-              "hidden": "hidden",
-              "name": "gender",
-              "value": "female"
-            }
-          })
-          +toggle__mimic({type: "radio"})
-          +toggle__text({text: "Женщина"})
+        +toggle({
+          type: "radio",
+          attr: {
+            "type": "radio",
+            "hidden": "hidden",
+            "name": "gender",
+            "value": "male",
+            "checked": "checked"
+          }
+        })
+        +toggle__mimic({type: "radio"})
+        +toggle__text({text: "Мужчина"})
+      +toggle({
+          type: "radio",
+          attr: {
+            "type": "radio",
+            "hidden": "hidden",
+            "name": "gender",
+            "value": "female"
+          }
+        })
+        +toggle__mimic({type: "radio"})
+        +toggle__text({text: "Женщина"})
       .registration__birthday.text_type_simple
-        +input__title({text: "дата рождения"})
+        +title({text: "дата рождения"})
         +input({
           attr: {
             "type": "date",
@@ -123,7 +121,7 @@ include ../../blocks/rate-counter/rate-counter.pug
           type: "date"
         })
       .registration__login-data.text_type_simple
-        +input__title({text: "данные для входа в сервис"})
+        +title({text: "данные для входа в сервис"})
         +input({
           attr: {
             "type": "email",
@@ -141,16 +139,15 @@ include ../../blocks/rate-counter/rate-counter.pug
           type: "simple"
         })
       .registration__special-toggle.text_type_simple
-        +toggle__label({type: "toggle"})
-          +toggle({
-            type: "toggle",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden"
-            }
-          })
-          +toggle__mimic({type: "toggle"})
-          +toggle__text({text: "Получать спецпредложения"})
+        +toggle({
+          type: "toggle",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden"
+          }
+        })
+        +toggle__mimic({type: "toggle"})
+        +toggle__text({text: "Получать спецпредложения"})
       .registration__submit-button
         +button({
           type: "big",
@@ -176,8 +173,8 @@ include ../../blocks/rate-counter/rate-counter.pug
         })
       .final-booking__double-input
         .input__wrapper.text_type_simple
-          +input__title({text: "прибытие"})
-          +input__dropdown-label()
+          +title({text: "прибытие"})
+          +input__label({type: "dropdown"})
             +input({
               attr: {
                 "type": "text",
@@ -189,8 +186,8 @@ include ../../blocks/rate-counter/rate-counter.pug
               type: "dropdown"
             })
         .input__wrapper.text_type_simple
-          +input__title({text: "выезд"})
-          +input__dropdown-label()
+          +title({text: "выезд"})
+          +input__label({type: "dropdown"})
             +input({
               attr: {
                 "type": "text",
@@ -202,8 +199,8 @@ include ../../blocks/rate-counter/rate-counter.pug
               type: "dropdown"
           })
       .final-booking__guests-number.text_type_simple
-        +input__title({text: "гости"})
-        +input__dropdown-label()
+        +title({text: "гости"})
+        +input__label({type: "dropdown"})
           +input({
             attr: {
               "type": "text",

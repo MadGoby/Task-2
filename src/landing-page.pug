@@ -3,7 +3,7 @@ include blocks/logo/logo.pug
 include blocks/nav/nav.pug
 include blocks/button/button.pug
 include blocks/footer/footer.pug
-include blocks/social-networks/social-networks.pug
+include blocks/social-media-link/social-media-link.pug
 include blocks/copyright/copyright.pug
 include blocks/input/input.pug
 include blocks/search-room/search-room.pug
@@ -20,23 +20,22 @@ html
     meta(name="viewport" content="initial-scale=1.0, width=device-width")
     title Landing Page
   body
-    header.landing-page__header
-      +header()
-        +logo({
-          src: "img/logo-color.svg"
+    +header()
+      +logo({
+        src: "img/logo-color.svg"
+      })
+      +nav()
+        +nav__link({
+          links: [
+            {"text": "О нас"},
+            {"text": "Услуги", "type": "with-button"},
+            {"text": "Вакансии"},
+            {"text": "Новости"},
+            {"text": "Соглашения", "type": "with-button"}
+          ]
         })
-        +nav()
-          +nav__link({
-            links: [
-              {"text": "О нас"},
-              {"text": "Услуги", "type": "dropdown"},
-              {"text": "Вакансии"},
-              {"text": "Новости"},
-              {"text": "Соглашения", "type": "dropdown"}
-            ]
-          })
-        +header__unauthorized()
-    main.landing-page__main
+      +header__buttons()
+    main.main
       +search-room({
         action: "for-change"
       })
@@ -44,7 +43,7 @@ html
         .search-room__double-input
           .input__wrapper.text_type_simple
             +input__title({text: "прибытие"})
-            +input__dropdown-label()
+            +input__label({type: "dropdown"})
               +input({
                 attr: {
                   "type": "text",
@@ -58,7 +57,7 @@ html
               })
           .input__wrapper.text_type_simple
             +input__title({text: "выезд"})
-            +input__dropdown-label()
+            +input__label({type: "dropdown"})
               +input({
                 attr: {
                   "type": "text",
@@ -78,7 +77,7 @@ html
         })
         .search-room__guests-wrapper.text_type_simple
           +input__title({text: "гости"})
-          +input__dropdown-label()
+          +input__label({type: "dropdown"})
             +input({
               attr: {
                 "type": "text",

@@ -1,0 +1,6 @@
+mixin footer__title(settings)
+  - let title = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
+  - }
+  p.footer__title= title

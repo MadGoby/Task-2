@@ -1,15 +1,19 @@
-@import '../social-networks/social-networks.scss';
+@import '../../overall/mixins.scss';
 
 .copyright {
+  @include text_type($mont, 14px, 400, 17px, $dark75);
   background: #FFFFFF;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   padding: 23px 140px;
-  .copyright__text {
+  &__text {
     margin: 0px;
     display: inline-block;
   }
-  .social-networks {
+  &__social-media {
     display: inline-block;
     float: right;
+    & .social-media-link:not(:last-child) {
+      margin-right: 20px;
+    }
   }
 }

@@ -1,3 +1,8 @@
 mixin text-sample__description(settings)
-  - const textType = `text_type_${settings.textType}`;
-  p(class=textType).text-sample__description= settings.text
+  - let text = ""
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("type") ? type = `text-sample__description_type_${settings.type}` : type = ""
+  - }
+  p(class=`text-sample__description ${type}`)= text

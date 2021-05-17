@@ -3,7 +3,7 @@ include blocks/logo/logo.pug
 include blocks/nav/nav.pug
 include blocks/button/button.pug
 include blocks/footer/footer.pug
-include blocks/social-networks/social-networks.pug
+include blocks/social-media-link/social-media-link.pug
 include blocks/copyright/copyright.pug
 include blocks/input/input.pug
 include blocks/registration/registration.pug
@@ -20,23 +20,22 @@ html
     meta(name="keywords" content="HTML, CSS, JavaScript")
     meta(name="viewport" content="initial-scale=1.0, width=device-width")
   body
-    header.registration__header
-      +header()
-        +logo({
-          src: "img/logo-color.svg"
+    +header()
+      +logo({
+        src: "img/logo-color.svg"
+      })
+      +nav()
+        +nav__link({
+          links: [
+            {"text": "О нас"},
+            {"text": "Услуги", "type": "expanded"},
+            {"text": "Вакансии"},
+            {"text": "Новости"},
+            {"text": "Соглашения", "type": "expanded"}
+          ]
         })
-        +nav()
-          +nav__link({
-            links: [
-              {"text": "О нас"},
-              {"text": "Услуги", "type": "dropdown"},
-              {"text": "Вакансии"},
-              {"text": "Новости"},
-              {"text": "Соглашения", "type": "dropdown"}
-            ]
-          })
-        +header__unauthorized()
-    main.registration__main 
+      +header__buttons()
+    main.main 
       +registration({
         action: "for-change"
       })
@@ -49,7 +48,7 @@ html
               "type": "text",
               "placeholder": "Имя"
             },
-            length: "long",
+            length: "l",
             type: "simple"
           })
           +input({
@@ -57,33 +56,31 @@ html
               "type": "text",
               "placeholder": "Фамилия"
             },
-            length: "long",
+            length: "l",
             type: "simple"
           })
         .registration__gender.text_type_simple
-          +toggle__label({type: "radio"})
-            +toggle({
-              type: "radio",
-              attr: {
-                "type": "radio",
-                "hidden": "hidden",
-                "name": "gender",
-                "value": "male",
-                "checked": "checked"
-              }
-            })
+          +toggle({
+            type: "radio",
+            attr: {
+              "type": "radio",
+              "hidden": "hidden",
+              "name": "gender",
+              "value": "male",
+              "checked": "checked"
+            }
+          })
             +toggle__mimic({type: "radio"})
             +toggle__text({text: "Мужчина"})
-          +toggle__label({type: "radio"})
-            +toggle({
-              type: "radio",
-              attr: {
-                "type": "radio",
-                "hidden": "hidden",
-                "name": "gender",
-                "value": "female"
-              }
-            })
+          +toggle({
+            type: "radio",
+            attr: {
+              "type": "radio",
+              "hidden": "hidden",
+              "name": "gender",
+              "value": "female"
+            }
+          })
             +toggle__mimic({type: "radio"})
             +toggle__text({text: "Женщина"})
         .registration__birthday.text_type_simple
@@ -93,7 +90,7 @@ html
               "type": "date",
               "placeholder": "ДД.ММ.ГГ",
             },
-            length: "long",
+            length: "l",
             type: "date"
           })
         .registration__login-data.text_type_simple
@@ -103,7 +100,7 @@ html
               "type": "email",
               "placeholder": "Email"
             },
-            length: "long",
+            length: "l",
             type: "simple"
           })
           +input({
@@ -111,18 +108,17 @@ html
               "type": "password",
               "placeholder": "Пароль"
             },
-            length: "long",
+            length: "l",
             type: "simple"
           })
         .registration__special-toggle.text_type_simple
-          +toggle__label({type: "toggle"})
-            +toggle({
-              type: "toggle",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              }
-            })
+          +toggle({
+            type: "toggle",
+            attr: {
+              "type": "checkbox",
+              "hidden": "hidden"
+            }
+          })
             +toggle__mimic({type: "toggle"})
             +toggle__text({text: "Получать спецпредложения"})
         .registration__submit-button
@@ -138,9 +134,9 @@ html
             text: "войти",
             attr: {"type": "button"}
           })
-    footer.registration__footer 
+    footer.footer 
       +footer()
-        +footer__logo({
+        +footer__description({
           text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
         })
         +footer__nav({
@@ -173,4 +169,4 @@ html
         })
       +copyright({
         text: "Copyright © 2018 Toxin отель. Все права защищены."
-      })  
+      })

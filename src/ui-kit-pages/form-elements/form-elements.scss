@@ -6,6 +6,7 @@
 @import '../../blocks/list/list.scss';
 @import '../../blocks/positive-feature/positive-feature.scss';
 @import '../../blocks/comment/comment.scss';
+@import '../../blocks/title/title.scss';
 
 .form-elements {
   width: 1440px;
@@ -13,12 +14,12 @@
   position: relative;
   box-sizing: border-box;
   margin: auto;
-  .form-elements__wrapper {
-    .inputs, .toggles, .buttons {
+  .form-elements__content {
+    .form-elements__inputs, .form-elements__toggles, .buttons {
       display: inline-block;
       vertical-align: top;
     }
-    .toggles {
+    .form-elements__toggles {
       margin-left: 126px;
     }
     .buttons {
@@ -30,10 +31,10 @@
     .lists {
       margin-top: 55px;
     }
-    .input__wrapper {
+    .form-elements__input-wrapper {
       max-width: 320px;
     }
-    .toggle__wrapper {
+    .form-elements__toggle-wrapper {
       max-width: 260px;
     }
     .slider__wrapper {
@@ -112,33 +113,33 @@
         margin-bottom: 30px;
       }
     }
-    .inputs {
-      .input__wrapper:not(:last-child) {
+    .form-elements__inputs {
+      .form-elements__input-wrapper:not(:last-child) {
         margin-bottom: 20px;
       }
-      .input__wrapper:last-child {
-        margin-top: 37px;
+      .form-elements__input-wrapper:last-child {
+        margin-top: 42px;
       }
-      .double-input .input__wrapper {
+      .form-elements__double-input .form-elements__input-wrapper {
         margin-bottom: 0px;
         margin-top: 0px;
       }
-      .double-input .input__wrapper:last-child {
+      .form-elements__double-input .form-elements__input-wrapper:last-child {
         margin-left: 20px;
       }
-      .double-input {
-        margin: 35px 0 37px;
+      .form-elements__double-input {
+        margin: 41px 0 ;
       }
-      .double-input .input__wrapper {
+      .form-elements__double-input .form-elements__input-wrapper {
         max-width: 150px;
         display: inline-block;
-        & .input__title {
+        & .title {
           width: 100%;
         }
       }
     }
-    .toggles {
-      .toggle__wrapper {
+    .form-elements__toggles {
+      .form-elements__toggle-wrapper {
         .toggle__label_type_radio {
           display: inline-block;
           &:first-of-type {
@@ -160,7 +161,7 @@
           display: inline-block;
         }
       }
-      .toggle__wrapper:not(:last-child) {
+      .form-elements__toggle-wrapper:not(:last-child) {
         margin-bottom: 40px;
       }
       .toggle__5rate-wrapper:not(:last-child) {

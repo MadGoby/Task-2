@@ -1,2 +1,6 @@
 mixin input__state(settings)
-  p.input__state.text_type_h3=settings.text
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - }
+  p.input__state=text

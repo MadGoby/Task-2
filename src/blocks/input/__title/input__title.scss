@@ -1,7 +1,10 @@
 .input__title {
-  display: inline-block;
-  margin: 0;
-  vertical-align: bottom;
-  width: 70%;
+  line-height: 15px;
   margin-bottom: 5px;
+  & .title {
+    width: 65%;
+  }
+  & .input__state {
+    width: 35%;
+  }
 }

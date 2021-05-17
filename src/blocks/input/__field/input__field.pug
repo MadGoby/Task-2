@@ -1,0 +1,19 @@
+mixin input__field(settings)
+  - let length = ""
+  - let attr = ""
+  - let type = ""
+  - let jsClass = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("length") ? length = `input__field_length_${settings.length}` : length = ""
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  -   settings.hasOwnProperty("type") ? type = `input__field_type_${settings.type}` : type = ""
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  - }
+  if type === "input__field_type_dropdown" 
+    +input__label({type: "dropdown"})
+      input(class = "input__field" class=`${length} ${type} ${jsClass}`)&attributes(attr)
+  else if type === "input__field_type_submit"
+    +input__label({type: "submit"})
+      input(class = "input__field" class=`${length} ${type} ${jsClass}`)&attributes(attr)
+  else
+    input(class = "input__field" class=`${length} ${type} ${jsClass}`)&attributes(attr)

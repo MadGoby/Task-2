@@ -1,0 +1,10 @@
+mixin color-description__text(settings)
+  - let name = ""
+  - let index = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("name") ? name = settings.name : name = ""
+  -   settings.hasOwnProperty("index") ? index = settings.index : index = ""
+  - }
+  .color-description__text
+    p.color-description__name= name
+    p.color-description__index= index

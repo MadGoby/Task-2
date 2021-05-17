@@ -1,0 +1,20 @@
+@import '../../../overall/mixins.scss';
+
+.input__field {
+  height: 44px;
+  border: 1px solid $dark25;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  outline: none;
+  @include text_type($mont, 14px, 400, 24px, $dark75);
+  &::placeholder {
+    color: $dark25;
+  }
+  &:hover + .input__dropdown-button, &:focus + .input__dropdown-button {
+    border-color: $dark50;
+  }
+}
+
+@import '_type/input__field_type.scss';
+@import '_length/input__field_length.scss';

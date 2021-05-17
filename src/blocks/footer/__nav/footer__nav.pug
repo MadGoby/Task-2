@@ -13,5 +13,4 @@ mixin footer__nav(settings)
           -   link.hasOwnProperty("text") ? text = link.text : text = ""
           -   link.hasOwnProperty("href") ? href = link.href : href = "./for-change"
           - }
-          div.footer__nav-link-wrapper
-            a(class="text_type_simple footer__nav-link" href=href)= text
+          a(class="footer__nav-link" href=href)= text

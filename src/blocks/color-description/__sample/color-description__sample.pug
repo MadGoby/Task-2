@@ -1,0 +1,6 @@
+mixin color-description__sample(settings)
+  - let type = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("type") ? type = `color-description__sample_color_${settings.type}` : type = ""
+  - }
+  div(class=`color-description__sample ${type}`)

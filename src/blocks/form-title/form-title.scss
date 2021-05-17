@@ -1,3 +1,6 @@
+@import '../../overall/mixins.scss';
+
 .form-title {
+  @include text_type($mont, 24px, 700, 30px, $dark100);
   margin: 0px;
 }

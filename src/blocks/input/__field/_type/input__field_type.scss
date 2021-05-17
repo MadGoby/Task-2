@@ -1,0 +1,37 @@
+.input__field {
+  &_type_simple {
+    &:hover, &:focus {
+      border-color: $dark50;
+    }
+  }
+  &_type_focus {
+    border: 1px solid $dark50;
+    color: $dark75;
+  }
+  &_type_dropdown {
+    cursor: pointer;
+    position: relative;
+    vertical-align: top;
+  }
+  &_type_submit {
+    display: inline-block;
+  }
+  &_type_date {
+    &::-webkit-calendar-picker-indicator{
+      display: none;
+    }
+    &::-webkit-datetime-edit { 
+      color: $dark75;
+      font-size: 18px;
+      line-height: 18px;
+      letter-spacing: -0.5px;
+    }
+    &::-moz-placeholder {
+      color: red;
+    }
+  }
+  &_type_submit {
+    position: relative;
+    display: inline-block;
+  }
+}

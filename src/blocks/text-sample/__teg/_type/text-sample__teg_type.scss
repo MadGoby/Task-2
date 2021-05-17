@@ -1,0 +1,16 @@
+@import '../../../../overall/mixins.scss';
+
+.text-sample__teg {
+  &_type_h1 {
+    @include text_type($mont, 24px, 400, 29px, $dark100); 
+  }
+  &_type_h2 {
+    @include text_type($mont, 19px, 400, 23px, $dark100); 
+  }
+  &_type_h3 {
+    @include text_type($mont, 12px, 400, 14px, $dark100); 
+  }
+  &_type_normal {
+    @include text_type($mont, 14px, 400, 24px, $dark75); 
+  }
+}

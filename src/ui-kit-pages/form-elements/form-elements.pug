@@ -5,220 +5,224 @@ include ../../blocks/button/button.pug
 include ../../blocks/dropdown/dropdown.pug
 include ../../blocks/list/list.pug
 include ../../blocks/positive-feature/positive-feature.pug
+include ../../blocks/title/title.pug
 include ../../blocks/comment/comment.pug
 
 .form-elements
   +logo({
     src: "img/logo.svg",
-    type: "corner_top-left"
+    type: "in-corner"
   })
-  .form-elements__wrapper
-    .inputs
-      .input__wrapper.text_type_simple
-        +input__title({text: "text field"})
-        +input__state({text: "default"})
-        +input({
-          attr: {
-            "type": "email",
-            "placeholder": "Email"
-          },
-          length: "long",
-          type: "simple"
-        })
-      .input__wrapper.text_type_simple
-        +input__title({text: "text field"})
-        +input__state({text: "hover/focus"})
-        +input({
-          attr: {
-            "type": "text",
-            "placeholder": "Text",
-            "value": "This is pretty awesome"
-          },
-          length: "long",
-          type: "simple"
-        })
-      .input__wrapper.text_type_simple
-        +input__title({text: "dropdown"})
-        +input__dropdown-label()
-          +input({
+  .form-elements__content
+    .form-elements__inputs
+      .form-elements__input-wrapper
+        +input()
+          +input__title()
+            +title({text: "text field"})
+            +input__state({text: "default"})
+          +input__field({
+            attr: {
+              "type": "email",
+              "placeholder": "Email"
+            },
+            length: "l",
+            type: "simple"
+          })
+      .form-elements__input-wrapper
+        +input()
+          +input__title()
+            +title({text: "text field"})
+            +input__state({text: "hover / focus"})
+          +input__field({
+            attr: {
+              "type": "text",
+              "placeholder": "Text",
+              "value": "This is pretty awesome"
+            },
+            length: "l",
+            type: "focus"
+          })
+      .form-elements__input-wrapper
+        +input()
+          +input__title()
+            +title({text: "dropdown"})
+          +input__field({
             attr: {
               "type": "text",
               "placeholder": "Text",
               "value": "Сколько гостей",
               "readonly": "readonly"
             },
-            length: "long",
+            length: "l",
             type: "dropdown"
           })
-      .input__wrapper.text_type_simple
-        +input__title({text: "masked text field"})
-        +input({
-          attr: {
-            "type": "date",
-            "placeholder": "ДД.ММ.ГГ",
-          },
-          length: "long",
-          type: "date"
-        })
-      .double-input
-        .input__wrapper.text_type_simple
-          +input__title({text: "date Dropdown"})
-          +input__dropdown-label()
-            +input({
+      .form-elements__input-wrapper
+        +input()
+          +input__title()
+            +title({text: "masked text field"})
+          +input__field({
+            attr: {
+              "type": "date",
+              "placeholder": "ДД.ММ.ГГ",
+            },
+            length: "l",
+            type: "date"
+          })
+      .form-elements__double-input
+        .form-elements__input-wrapper
+          +input()
+            +input__title()
+              +title({text: "date Dropdown"})
+            +input__field({
               attr: {
                 "type": "text",
-                "placeholder": "ДД.ММ.ГГ",
-                "value": "ДД.ММ.ГГ",
+                "placeholder": "ДД.ММ.ГГГГ",
+                "value": "ДД.ММ.ГГГГ",
                 "readonly": "readonly"
               },
-              length: "short",
+              length: "s",
               type: "dropdown"
-            })
-        .input__wrapper.text_type_simple
-          +input__title({text: "date Dropdown"})
-          +input__dropdown-label()
-            +input({
+              })
+        .form-elements__input-wrapper
+          +input()
+            +input__title()
+              +title({text: "date Dropdown"})
+            +input__field({
               attr: {
                 "type": "text",
                 "placeholder": "ДД.ММ.ГГ",
                 "value": "19.08.2019",
                 "readonly": "readonly"
               },
-              length: "short",
-              type: "dropdown"
-          })
-      .input__wrapper.text_type_simple
-          +input__title({text: "filter date dropdown"})
-          +input__dropdown-label()
-            +input({
-              attr: {
-                "type": "text",
-                "placeholder": "ДД.ММ.ГГ",
-                "value": "19 авг - 23 авг",
-                "readonly": "readonly"
-              },
-              length: "middle",
+              length: "s",
               type: "dropdown"
             })
-      .input__wrapper.text_type_simple
-          +input__title({text: "subscription text field"})
-          +input({
+      .form-elements__input-wrapper
+        +input()
+          +input__title()
+            +title({text: "filter date dropdown"})
+          +input__field({
+            attr: {
+              "type": "text",
+              "placeholder": "ДД.ММ.ГГ",
+              "value": "19 авг - 23 авг",
+              "readonly": "readonly"
+            },
+            length: "m",
+            type: "dropdown"
+            })
+      .form-elements__input-wrapper
+        +input()
+          +input__title()
+            +title({text: "subscription text field"})
+          +input__field({
             attr: {
               "type": "email",
               "placeholder": "Email"
             },
-            length: "middle",
+            length: "m",
             type: "submit"
           })
-    .toggles
-      .toggle__wrapper.text_type_simple
+    .form-elements__toggles
+      .form-elements__toggle-wrapper 
         +toggle__title({text: "Checkbox Buttons"})
-        +toggle__label({type: "checkbox"})
-          +toggle({
-            type: "checkbox",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden"
-            }
-          })
-          +toggle__mimic({type: "checkbox"})
-          +toggle__text({text: "Можно курить"})
-        +toggle__label({type: "checkbox"})
-          +toggle({
-            type: "checkbox",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden",
-              "checked": "checked"
-            }
-          })
-          +toggle__mimic({type: "checkbox"})
-          +toggle__text({text: "Можно с питомцами"})
-        +toggle__label({type: "checkbox"})
-          +toggle({
-            type: "checkbox",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden",
-              "checked": "checked"
-            }
-          })
-          +toggle__mimic({type: "checkbox"})
-          +toggle__text({text: "Можно пригласить гостей (до 10 человек)"})
-      .toggle__wrapper.text_type_simple
+        +toggle({
+          type: "checkbox",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden"
+          }
+        })
+        +toggle__mimic({type: "checkbox"})
+        +toggle__text({text: "Можно курить"})
+        +toggle({
+          type: "checkbox",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden",
+            "checked": "checked"
+          }
+        })
+        +toggle__mimic({type: "checkbox"})
+        +toggle__text({text: "Можно с питомцами"})
+        +toggle({
+          type: "checkbox",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden",
+            "checked": "checked"
+          }
+        })
+        +toggle__mimic({type: "checkbox"})
+        +toggle__text({text: "Можно пригласить гостей (до 10 человек)"})
+      .form-elements__toggle-wrapper 
         +toggle__title({text: "Radio Buttons"})
-        +toggle__label({type: "radio"})
-          +toggle({
-            type: "radio",
-            attr: {
-              "type": "radio",
-              "hidden": "hidden",
-              "name": "gender",
-              "value": "male",
-              "checked": "checked"
-            }
-          })
-          +toggle__mimic({type: "radio"})
-          +toggle__text({text: "Мужчина"})
-        +toggle__label({type: "radio"})
-          +toggle({
-            type: "radio",
-            attr: {
-              "type": "radio",
-              "hidden": "hidden",
-              "name": "gender",
-              "value": "female"
-            }
-          })
-          +toggle__mimic({type: "radio"})
-          +toggle__text({text: "Женщина"})
-      .toggle__wrapper.text_type_simple
+        +toggle({
+          type: "radio",
+          attr: {
+            "type": "radio",
+            "hidden": "hidden",
+            "name": "gender",
+            "value": "male",
+            "checked": "checked"
+          }
+        })
+        +toggle__mimic({type: "radio"})
+        +toggle__text({text: "Мужчина"})
+        +toggle({
+          type: "radio",
+          attr: {
+            "type": "radio",
+            "hidden": "hidden",
+            "name": "gender",
+            "value": "female"
+          }
+        })
+        +toggle__mimic({type: "radio"})
+        +toggle__text({text: "Женщина"})
+      .form-elements__toggle-wrapper 
         +toggle__title({text: "Toggle"})
-        +toggle__label({type: "toggle"})
-          +toggle({
-            type: "toggle",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden",
-              "checked": "checked"
-            }
-          })
-          +toggle__mimic({type: "toggle"})
-          +toggle__text({text: "Получать спецпредложения"})
-        +toggle__label({type: "toggle"})
-          +toggle({
-            type: "toggle",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden" 
-            }
-          })
-          +toggle__mimic({type: "toggle"})
-          +toggle__text({text: "Получать спецпредложения"})
-      .toggle__wrapper.text_type_simple
+        +toggle({
+          type: "toggle",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden",
+            "checked": "checked"
+          }
+        })
+        +toggle__mimic({type: "toggle"})
+        +toggle__text({text: "Получать спецпредложения"})
+        +toggle({
+          type: "toggle",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden" 
+          }
+        })
+        +toggle__mimic({type: "toggle"})
+        +toggle__text({text: "Получать спецпредложения"})
+      .form-elements__toggle-wrapper 
         +toggle__title({text: "like button"})
-        +toggle__label({type: "like"})
-          +toggle({
-            type: "like",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden"
-            }
-          })
-          +toggle__mimic({type: "like"})
-            +toggle__text({text: "2", type: "like"})
-        +toggle__label({type: "like"})
-          +toggle({
-            type: "like",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden",
-              "checked": "checked"
-            }
-          })
-          +toggle__mimic({type: "like"})
-            +toggle__text({text: "12", type: "like"})
-      .toggle__wrapper.text_type_simple
+        +toggle({
+          type: "like",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden"
+          }
+        })
+        +toggle__mimic({type: "like"})
+          +toggle__text({text: "2", type: "like"})
+        +toggle({
+          type: "like",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden",
+            "checked": "checked"
+          }
+        })
+        +toggle__mimic({type: "like"})
+          +toggle__text({text: "12", type: "like"})
+      .form-elements__toggle-wrapper
         +toggle__title({text: "rate button"})
         .toggle__5rate-wrapper
           +toggle({
@@ -305,7 +309,7 @@ include ../../blocks/comment/comment.pug
             }
           })
     .buttons
-      .slider__wrapper.text_type_simple
+      .slider__wrapper
         +slider__title({text: "range slider"})
         +slider__output({jsClass: "js-slider__output"})
         +slider({jsClass: "js-slider"})
@@ -389,33 +393,31 @@ include ../../blocks/comment/comment.pug
         +button__description({text: "1 – 15 из 100+ вариантов аренды"})
     .dropdowns
       .dropdown__wrapper
-        +input__title({text: "dropdown"})
+        +title({text: "dropdown"})
         +input__state({text: "default"})
-        +input__dropdown-label()
-          +input({
-            attr: {
-              "type": "text",
-              "placeholder": "Text",
-              "value": "2 спальни, 2 кровати...",
-              "readonly": "readonly"
-            },
-            length: "middle",
-            type: "dropdown"
+        +input({
+          attr: {
+            "type": "text",
+            "placeholder": "Text",
+            "value": "2 спальни, 2 кровати...",
+            "readonly": "readonly"
+          },
+          length: "middle",
+          type: "dropdown"
           })
-        +input__title({text: "dropdown"})
+        +title({text: "dropdown"})
         +input__state({text: "expanded"})
-        +input__dropdown-label()
-          +input({
-            attr: {
-              "type": "text",
-              "placeholder": "Text",
-              "value": "2 спальни, 2 кровати...",
-              "readonly": "readonly",
-              "class": "dropdown_type_uncovered"
-            },
-            length: "middle",
-            type: "dropdown",
-            jsClass: "js-dropdown-input"
+        +input({
+          attr: {
+            "type": "text",
+            "placeholder": "Text",
+            "value": "2 спальни, 2 кровати...",
+            "readonly": "readonly",
+            "class": "dropdown_type_uncovered"
+          },
+          length: "middle",
+          type: "dropdown",
+          jsClass: "js-dropdown-input"
           })
         +dropdown({jsClass: "js-dropdown"})
           +dropdown__list-body()
@@ -496,19 +498,18 @@ include ../../blocks/comment/comment.pug
                   }
                 })
       .dropdown__wrapper
-        +input__title({text: "dropdown"})
-        +input__dropdown-label()
-          +input({
-            attr: {
-              "type": "text",
-              "placeholder": "Text",
-              "value": "Сколько гостей",
-              "readonly": "readonly",
-              "class": "dropdown_type_uncovered"
-            },
-            length: "long",
-            type: "dropdown",
-            jsClass: "js-dropdown-input2"
+        +title({text: "dropdown"})
+        +input({
+          attr: {
+            "type": "text",
+            "placeholder": "Text",
+            "value": "Сколько гостей",
+            "readonly": "readonly",
+            "class": "dropdown_type_uncovered"
+          },
+          length: "long",
+          type: "dropdown",
+          jsClass: "js-dropdown-input2"
           })
         +dropdown({jsClass: "js-dropdown2"})
           +dropdown__list-body()
@@ -609,19 +610,18 @@ include ../../blocks/comment/comment.pug
                 }
               }) 
       .dropdown__wrapper
-        +input__title({text: "dropdown"})
-        +input__dropdown-label()
-          +input({
-            attr: {
-              "type": "text",
-              "placeholder": "Text",
-              "value": "3 гостя",
-              "readonly": "readonly",
-              "class": "dropdown_type_uncovered"
-            },
-            length: "long",
-            type: "dropdown",
-            jsClass: "js-dropdown-input3"
+        +title({text: "dropdown"})
+        +input({
+          attr: {
+            "type": "text",
+            "placeholder": "Text",
+            "value": "3 гостя",
+            "readonly": "readonly",
+            "class": "dropdown_type_uncovered"
+          },
+          length: "long",
+          type: "dropdown",
+          jsClass: "js-dropdown-input3"
           })
         +dropdown({jsClass: "js-dropdown3"})
           +dropdown__list-body()
@@ -720,7 +720,7 @@ include ../../blocks/comment/comment.pug
                 }
               }) 
     .lists
-      .list__wrapper.text_type_simple
+      .list__wrapper
         +list__title({
             text: "expandable checkbox list",
             type: "arrow-down",
@@ -732,106 +732,98 @@ include ../../blocks/comment/comment.pug
         })   
         +list({jsClass: "js-list"})
           +list__item()
-            +toggle__label({type: "checkbox"})
-              +toggle({
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                }
-              })
-              +toggle__mimic({type: "checkbox"})
-              +toggle__text({text: "Завтрак"})
+            +toggle({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden"
+              }
+            })
+            +toggle__mimic({type: "checkbox"})
+            +toggle__text({text: "Завтрак"})
           +list__item()
-            +toggle__label({type: "checkbox"})
-              +toggle({
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                }
-              })
-              +toggle__mimic({type: "checkbox"})
-              +toggle__text({text: "Письменный стол"})
+            +toggle({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
+              }
+            })
+            +toggle__mimic({type: "checkbox"})
+            +toggle__text({text: "Письменный стол"})
           +list__item()
-            +toggle__label({type: "checkbox"})
-              +toggle({
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                }
-              })
-              +toggle__mimic({type: "checkbox"})
-              +toggle__text({text: "Стул для кормления"})
+            +toggle({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
+              }
+            })
+            +toggle__mimic({type: "checkbox"})
+            +toggle__text({text: "Стул для кормления"})
           +list__item()
-            +toggle__label({type: "checkbox"})
-              +toggle({
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                }
-              })
-              +toggle__mimic({type: "checkbox"})
-              +toggle__text({text: "Кроватка"})
+            +toggle({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
+              }
+            })
+            +toggle__mimic({type: "checkbox"})
+            +toggle__text({text: "Кроватка"})
           +list__item()
-            +toggle__label({type: "checkbox"})
-              +toggle({
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                }
-              })
-              +toggle__mimic({type: "checkbox"})
-              +toggle__text({text: "Телевизор"})
+            +toggle({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden"
+              }
+            })
+            +toggle__mimic({type: "checkbox"})
+            +toggle__text({text: "Телевизор"})
           +list__item()
-            +toggle__label({type: "checkbox"})
-              +toggle({
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                }
-              })
-              +toggle__mimic({type: "checkbox"})
-              +toggle__text({text: "Шампунь"})
-      .list__wrapper.text_type_simple
+            +toggle({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden"
+              }
+            })
+            +toggle__mimic({type: "checkbox"})
+            +toggle__text({text: "Шампунь"})
+      .list__wrapper
         +list__title({
           text: "rich Checkbox Buttons"
         })
         +list()
           +list__item()
-            +toggle__label({type: "checkbox"})
-              +toggle({
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                }
-              })
-              +toggle__mimic({type: "checkbox"})
-              .toggle__text-wrapper
-                +toggle__text({text: "Широкий коридор", type: "rich"})
-                +toggle__text({text: "Ширина коридоров в номере не менее 91 см.", type: "little"})
+            +toggle({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden"
+              }
+            })
+            +toggle__mimic({type: "checkbox"})
+            .toggle__text-wrapper
+              +toggle__text({text: "Широкий коридор", type: "rich"})
+              +toggle__text({text: "Ширина коридоров в номере не менее 91 см.", type: "little"})
           +list__item()
-            +toggle__label({type: "checkbox"})
-              +toggle({
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                }
-              })
-              +toggle__mimic({type: "checkbox"})
-              .toggle__text-wrapper
-                +toggle__text({text: "Помощник для инвалидов", type: "rich"})
-                +toggle__text({text: "На 1 этаже вас встретит специалист  и проводит до номера.", type: "little"})
-      .list__wrapper.text_type_simple
+            +toggle({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden"
+              }
+            })
+            +toggle__mimic({type: "checkbox"})
+            .toggle__text-wrapper
+              +toggle__text({text: "Помощник для инвалидов", type: "rich"})
+              +toggle__text({text: "На 1 этаже вас встретит специалист  и проводит до номера.", type: "little"})
+      .list__wrapper
         +list__title({
           text: "bullet list"
         })
@@ -881,17 +873,16 @@ include ../../blocks/comment/comment.pug
             })
           +comment__main()
             +comment__like()
-              +toggle__label({type: "like"})
-                +toggle({
-                  type: "like",
-                  attr: {
-                    "type": "checkbox",
-                    "hidden": "hidden",
-                    "checked": "checked"
-                  }
-                })
-                +toggle__mimic({type: "like"})
-                  +toggle__text({text: "12", type: "like"})
+              +toggle({
+                type: "like",
+                attr: {
+                  "type": "checkbox",
+                  "hidden": "hidden",
+                  "checked": "checked"
+                }
+              })
+              +toggle__mimic({type: "like"})
+                +toggle__text({text: "12", type: "like"})
             +comment__text({
               text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
             })

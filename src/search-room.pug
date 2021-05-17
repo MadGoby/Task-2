@@ -3,7 +3,7 @@ include blocks/logo/logo.pug
 include blocks/nav/nav.pug
 include blocks/button/button.pug
 include blocks/footer/footer.pug
-include blocks/social-networks/social-networks.pug
+include blocks/social-media-link/social-media-link.pug
 include blocks/copyright/copyright.pug
 include blocks/input/input.pug
 include blocks/slider/slider.pug
@@ -38,12 +38,12 @@ html
               {"text": "Соглашения", "type": "dropdown"}
             ]
           })
-        +header__unauthorized()
+        +header__buttons()
     main.search-room__main
       aside.search-room__sidebar
         .arrival-date.text_type_simple
           +input__title({text: "даты пребывания в отеле"})
-          +input__dropdown-label()
+          +input__label({type: "dropdown"})
             +input({
               attr: {
                 "type": "text",
@@ -56,7 +56,7 @@ html
             })
         .guests-number.text_type_simple
           +input__title({text: "гости"})
-          +input__dropdown-label()
+          +input__label({type: "dropdown"})
             +input({
               attr: {
                 "type": "text",
@@ -139,7 +139,7 @@ html
                   +toggle__text({text: "На 1 этаже вас встретит специалист  и проводит до номера.", type: "little"})
         .room-configutration
           +input__title({text: "удобства номера"})
-          +input__dropdown-label()
+          +input__label({type: "dropdown"})
             +input({
               attr: {
                 "type": "text",

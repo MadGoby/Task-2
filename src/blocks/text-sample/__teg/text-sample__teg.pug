@@ -1,3 +1,8 @@
 mixin text-sample__teg(settings)
-  - const textType = `text_type_${settings.textType}`;
-  p(class=textType).text-sample__teg= settings.text
+  - let text = ""
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("type") ? type = `text-sample__teg_type_${settings.type}` : type = ""
+  - }
+  p(class=`text-sample__teg ${type}`)= text

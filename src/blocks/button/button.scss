@@ -1,8 +1,11 @@
+@import '../../overall/mixins.scss';
 @import '__title/button__title.scss';
 @import '_type/button_type.scss';
 @import '__description/button__description.scss';
 
 .button {
+  @include text_type($mont, 12px, 700, 15px, white);
+  text-transform: uppercase;
   outline: none;
   cursor: pointer;
   user-select: none;

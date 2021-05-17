@@ -1,0 +1,6 @@
+mixin title(settings)
+  - let text = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - }
+  p.title= text

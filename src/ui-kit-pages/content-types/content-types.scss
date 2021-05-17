@@ -1,0 +1,23 @@
+@import '../../blocks/color-description/color-description.scss';
+@import '../../blocks/text-sample/text-sample.scss';
+
+.content-types {
+  width: 1440px;
+  padding: 145px 158px 145px 149px;
+  position: relative;
+  box-sizing: border-box;
+  margin: auto;
+}
+.content-types__colors .color-description:not(:last-child) {
+  margin-bottom: 20px;
+}
+.content-types__text .text-sample:not(:last-child) {
+  margin-bottom: 50px;
+}
+.content-types__colors, .content-types__text {
+  display: inline-block;
+}
+.content-types__text {
+  vertical-align: top;
+  float: right;
+}

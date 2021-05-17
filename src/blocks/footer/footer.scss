@@ -1,9 +1,12 @@
-@import '__logo/footer__logo.scss';
+@import '../../overall/mixins.scss';
+@import '__description/footer__description.scss';
 @import '__nav/footer__nav.scss';
 @import '__subscribe/footer__subscribe.scss';
 @import '_type/footer_type.scss';
+@import '__title/footer__title.scss';
 
-.footer-wrapper {
+.footer__wrapper {
+  @include text_type($mont, 14px, 400, 24px, $dark75); 
   width: 100%;
   padding: 100px 140px;
   background: #FFFFFF;

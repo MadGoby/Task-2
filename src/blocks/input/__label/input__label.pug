@@ -1,0 +1,7 @@
+mixin input__label(settings)
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("type") ? type = `input__label_type_${settings.type}` : type = ""
+  - }
+  label(class=`input__label ${type}`)
+    block

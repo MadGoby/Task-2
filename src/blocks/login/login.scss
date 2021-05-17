@@ -1,3 +1,5 @@
+@import '__registration-question/login__registration-question.scss';
+
 .login {
   padding: 40px 30px 30px;
   background-color: white;
@@ -9,23 +11,17 @@
   .form-title {
     margin-bottom: 20px;
   }
-  .login__inputs {
+  .login__password-input {
     margin-bottom: 20px;
-    .input:not(:last-child) {
-      margin-bottom: 10px;
-    }
+  }
+  .login__email-input {
+    margin-bottom: 10px;
   }
   .login__login-button {
     margin-bottom: 30px;
   }
   .login__registration-button {
-    .login__registration-text {
-      display: inline-block;
-      margin: 0px;
-      height: 44px;
-      line-height: 44px;
-    }
-    .button__border-mimic {
+    .button-border {
       display: inline-block;
       width: 99px;
       height: 44px;

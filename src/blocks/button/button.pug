@@ -13,7 +13,7 @@ mixin button(settings)
   -   settings.hasOwnProperty("type") ? type = `button_type_${settings.type}` : attr=""
   - }
   if settings.type == "border"
-    div.button__border-mimic
-      button(class="button text_type_h3"  class=jsClass, class=type, value=text)&attributes(attr)= text
+    div.button-border
+      button(class="button"  class=jsClass, class=type, value=text)&attributes(attr)= text
   else
-    button(class="button text_type_h3" class=jsClass, class=type, value=text)&attributes(attr)= text
+    button(class="button" class=jsClass, class=type, value=text)&attributes(attr)= text

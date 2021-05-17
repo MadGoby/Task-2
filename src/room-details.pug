@@ -3,7 +3,7 @@ include blocks/logo/logo.pug
 include blocks/nav/nav.pug
 include blocks/button/button.pug
 include blocks/footer/footer.pug
-include blocks/social-networks/social-networks.pug
+include blocks/social-media-link/social-media-link.pug
 include blocks/copyright/copyright.pug
 include blocks/input/input.pug
 include blocks/final-booking/final-booking.pug
@@ -38,7 +38,7 @@ html
               {"text": "Соглашения", "type": "dropdown"}
             ]
           })
-        +header__unauthorized()
+        +header__buttons()
     main.room-details__main
       .room-details__room-photos 
         img(src="./img/room-photo-big.jpg", alt="Room photo").room-photo_big.room-photo
@@ -58,7 +58,7 @@ html
           .final-booking__double-input
             .input__wrapper.text_type_simple
               +input__title({text: "прибытие"})
-              +input__dropdown-label()
+              +input__label({type: "dropdown"})
                 +input({
                   attr: {
                     "type": "text",
@@ -71,7 +71,7 @@ html
                 })
             .input__wrapper.text_type_simple
               +input__title({text: "выезд"})
-              +input__dropdown-label()
+              +input__label({type: "dropdown"})
                 +input({
                   attr: {
                     "type": "text",
@@ -84,7 +84,7 @@ html
               })
           .final-booking__guests-number.text_type_simple
             +input__title({text: "гости"})
-            +input__dropdown-label()
+            +input__label({type: "dropdown"})
               +input({
                 attr: {
                   "type": "text",
