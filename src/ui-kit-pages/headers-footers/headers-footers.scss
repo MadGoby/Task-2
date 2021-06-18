@@ -10,43 +10,13 @@
   box-sizing: border-box;
   margin: auto;
   background-color: #E5E5E5;
-  .headers-footers_wrapper {
-    display: inline-block;
-    vertical-align: top;
+  &__header_authorized {
+    margin-bottom: 40px;
   }
-  .headers-footers__header-authorized {
-    margin-top: 40px;
+  &__header_unauthorized {
+    margin-bottom: 40px;
   }
-  .headers-footers__footer {
-    margin-top: 40px;
-    .footer__logo {
-      max-width: 260px;
-    }
-    .footer__nav-wrapper {
-      margin-left: 40px;
-      .footer__nav {
-        &:first-child {
-          margin-right: 57px;
-        }
-        &:last-child {
-          margin-left: 92px;
-        }
-      }
-    }
-    .footer__subscribe {
-      margin-left: 51px;
-    }
-  }
-  .copyright {
-    margin-top: 1px;
-  }
-  .headers-footers__small-footer {
-    margin-top: 40px;
-  }
-  .nav {
-    .nav__link:first-child {
-      font-weight: 700;
-      color: $dark75;
-    }
+  &__footer_big {
+    margin-bottom: 40px;
   }
 }

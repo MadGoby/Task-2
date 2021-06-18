@@ -11,4 +11,4 @@ mixin impressions-diagram__description(settings)
       -   line.hasOwnProperty("text") ? text = line.text : text = ""
       -   line.hasOwnProperty("type") ? type = `impressions-diagram__description-line_${line.type}` : type = ""
       - }
-      li(class="impressions-diagram__description-line" class=type).text_type_simple=text
+      li(class="impressions-diagram__description-line" class=type)=text

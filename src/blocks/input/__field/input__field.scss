@@ -1,5 +1,3 @@
-@import '../../../overall/mixins.scss';
-
 .input__field {
   height: 44px;
   border: 1px solid $dark25;
@@ -15,6 +13,3 @@
     border-color: $dark50;
   }
 }
-
-@import '_type/input__field_type.scss';
-@import '_length/input__field_length.scss';

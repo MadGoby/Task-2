@@ -1,0 +1,6 @@
+mixin slider__description(settings)
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
+  - }
+  p.slider__description=text

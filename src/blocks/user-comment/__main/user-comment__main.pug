@@ -1,0 +1,10 @@
+mixin user-comment__main(settings)
+  - let likeSettings = {}
+  - let textSettings = {}
+  - if (settings) {
+  -   settings.hasOwnProperty("likeSettings") ? likeSettings = settings.likeSettings : likeSettings = {}
+  -   settings.hasOwnProperty("textSettings") ? textSettings = settings.textSettings : textSettings = {}
+  - }
+  .user-comment__main
+    +user-comment__like(likeSettings)
+    +user-comment__text(textSettings)

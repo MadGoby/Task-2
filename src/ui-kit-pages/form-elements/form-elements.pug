@@ -6,7 +6,8 @@ include ../../blocks/dropdown/dropdown.pug
 include ../../blocks/list/list.pug
 include ../../blocks/positive-feature/positive-feature.pug
 include ../../blocks/title/title.pug
-include ../../blocks/comment/comment.pug
+include ../../blocks/user-comment/user-comment.pug
+include ../../blocks/content-nav/content-nav.pug
 
 .form-elements
   +logo({
@@ -14,11 +15,13 @@ include ../../blocks/comment/comment.pug
     type: "in-corner"
   })
   .form-elements__content
-    .form-elements__inputs
-      .form-elements__input-wrapper
+    .form-elements__input-types
+      .form-elements__text-input
         +input()
-          +input__title()
-            +title({text: "text field"})
+          +input__title({type: "with-state"})
+            +title({
+              text: "text field"
+            })
             +input__state({text: "default"})
           +input__field({
             attr: {
@@ -28,10 +31,12 @@ include ../../blocks/comment/comment.pug
             length: "l",
             type: "simple"
           })
-      .form-elements__input-wrapper
+      .form-elements__text-input
         +input()
-          +input__title()
-            +title({text: "text field"})
+          +input__title({type: "with-state"})
+            +title({
+              text: "text field"
+            })
             +input__state({text: "hover / focus"})
           +input__field({
             attr: {
@@ -42,10 +47,12 @@ include ../../blocks/comment/comment.pug
             length: "l",
             type: "focus"
           })
-      .form-elements__input-wrapper
+      .form-elements__dropdown
         +input()
           +input__title()
-            +title({text: "dropdown"})
+            +title({
+              text: "dropdown"
+            })
           +input__field({
             attr: {
               "type": "text",
@@ -56,10 +63,12 @@ include ../../blocks/comment/comment.pug
             length: "l",
             type: "dropdown"
           })
-      .form-elements__input-wrapper
+      .form-elements__masked-input
         +input()
           +input__title()
-            +title({text: "masked text field"})
+            +title({
+              text: "masked text field"
+            })
           +input__field({
             attr: {
               "type": "date",
@@ -68,11 +77,13 @@ include ../../blocks/comment/comment.pug
             length: "l",
             type: "date"
           })
-      .form-elements__double-input
+      .form-elements__date-dropdowns
         .form-elements__input-wrapper
           +input()
             +input__title()
-              +title({text: "date Dropdown"})
+              +title({
+                text: "date Dropdown"
+              })
             +input__field({
               attr: {
                 "type": "text",
@@ -86,7 +97,9 @@ include ../../blocks/comment/comment.pug
         .form-elements__input-wrapper
           +input()
             +input__title()
-              +title({text: "date Dropdown"})
+              +title({
+                text: "date Dropdown"
+              })
             +input__field({
               attr: {
                 "type": "text",
@@ -97,10 +110,12 @@ include ../../blocks/comment/comment.pug
               length: "s",
               type: "dropdown"
             })
-      .form-elements__input-wrapper
+      .form-elements__filter-dropdown
         +input()
           +input__title()
-            +title({text: "filter date dropdown"})
+            +title({
+              text: "filter date dropdown"
+            })
           +input__field({
             attr: {
               "type": "text",
@@ -110,11 +125,13 @@ include ../../blocks/comment/comment.pug
             },
             length: "m",
             type: "dropdown"
-            })
-      .form-elements__input-wrapper
+          })
+      .form-elements__subscription-input
         +input()
           +input__title()
-            +title({text: "subscription text field"})
+            +title({
+              text: "subscription text field"
+            })
           +input__field({
             attr: {
               "type": "email",
@@ -123,720 +140,492 @@ include ../../blocks/comment/comment.pug
             length: "m",
             type: "submit"
           })
-    .form-elements__toggles
-      .form-elements__toggle-wrapper 
-        +toggle__title({text: "Checkbox Buttons"})
-        +toggle({
-          type: "checkbox",
-          attr: {
-            "type": "checkbox",
-            "hidden": "hidden"
-          }
-        })
-        +toggle__mimic({type: "checkbox"})
-        +toggle__text({text: "Можно курить"})
-        +toggle({
-          type: "checkbox",
-          attr: {
-            "type": "checkbox",
-            "hidden": "hidden",
-            "checked": "checked"
-          }
-        })
-        +toggle__mimic({type: "checkbox"})
-        +toggle__text({text: "Можно с питомцами"})
-        +toggle({
-          type: "checkbox",
-          attr: {
-            "type": "checkbox",
-            "hidden": "hidden",
-            "checked": "checked"
-          }
-        })
-        +toggle__mimic({type: "checkbox"})
-        +toggle__text({text: "Можно пригласить гостей (до 10 человек)"})
-      .form-elements__toggle-wrapper 
-        +toggle__title({text: "Radio Buttons"})
-        +toggle({
-          type: "radio",
-          attr: {
-            "type": "radio",
-            "hidden": "hidden",
-            "name": "gender",
-            "value": "male",
-            "checked": "checked"
-          }
-        })
-        +toggle__mimic({type: "radio"})
-        +toggle__text({text: "Мужчина"})
-        +toggle({
-          type: "radio",
-          attr: {
-            "type": "radio",
-            "hidden": "hidden",
-            "name": "gender",
-            "value": "female"
-          }
-        })
-        +toggle__mimic({type: "radio"})
-        +toggle__text({text: "Женщина"})
-      .form-elements__toggle-wrapper 
-        +toggle__title({text: "Toggle"})
-        +toggle({
-          type: "toggle",
-          attr: {
-            "type": "checkbox",
-            "hidden": "hidden",
-            "checked": "checked"
-          }
-        })
-        +toggle__mimic({type: "toggle"})
-        +toggle__text({text: "Получать спецпредложения"})
-        +toggle({
-          type: "toggle",
-          attr: {
-            "type": "checkbox",
-            "hidden": "hidden" 
-          }
-        })
-        +toggle__mimic({type: "toggle"})
-        +toggle__text({text: "Получать спецпредложения"})
-      .form-elements__toggle-wrapper 
-        +toggle__title({text: "like button"})
-        +toggle({
-          type: "like",
-          attr: {
-            "type": "checkbox",
-            "hidden": "hidden"
-          }
-        })
-        +toggle__mimic({type: "like"})
-          +toggle__text({text: "2", type: "like"})
-        +toggle({
-          type: "like",
-          attr: {
-            "type": "checkbox",
-            "hidden": "hidden",
-            "checked": "checked"
-          }
-        })
-        +toggle__mimic({type: "like"})
-          +toggle__text({text: "12", type: "like"})
-      .form-elements__toggle-wrapper
-        +toggle__title({text: "rate button"})
-        .toggle__5rate-wrapper
-          +toggle({
-            type: "rate",
-            attr: {
-              "type": "radio",
-              "name": "rate",
-              "value": "5"
-            }
+    .form-elements__toggle-types
+      .form-elements__checkboxes
+          +title({
+            text: "Checkbox Buttons"
           })
-          +toggle({
-            type: "rate",
+          +toggle()
+            +toggle__controller({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden"
+              },
+              text: "Можно курить"
+            })
+          +toggle()
+            +toggle__controller({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
+              },
+              text: "Можно с питомцами"
+            })
+          +toggle()
+            +toggle__controller({
+              type: "checkbox",
+              attr: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
+              },
+              text: "Можно пригласить гостей (до 10 человек)"
+            })
+      .form-elements__radios
+        +title({
+          text: "Radio Buttons"
+        })
+        +toggle()
+          +toggle__controller({
+            type: "radio",
             attr: {
               "type": "radio",
-              "name": "rate",
-              "value": "4",
+              "hidden": "hidden",
+              "name": "gender",
+              "value": "male",
               "checked": "checked"
-            }
+            },
+            text: "Мужчина"
           })
-          +toggle({
-            type: "rate",
+          +toggle__controller({
+            type: "radio",
             attr: {
               "type": "radio",
-              "name": "rate",
-              "value": "3"
-            }
+              "hidden": "hidden",
+              "name": "gender",
+              "value": "female",
+            },
+            text: "Женщина"
           })
-          +toggle({
-            type: "rate",
+      .form-elements__toggles
+        +title({
+          text: "Toggle"
+        })
+        +toggle()
+          +toggle__controller({
+            type: "toggle",
             attr: {
-              "type": "radio",
-              "name": "rate",
-              "value": "2"
-            }
-          })
-          +toggle({
-            type: "rate",
-            attr: {
-              "type": "radio",
-              "name": "rate",
-              "value": "1"
-            }
-          })
-        .toggle__5rate-wrapper
-          +toggle({
-            type: "rate",
-            attr: {
-              "type": "radio",
-              "name": "rate2",
-              "value": "5",
+              "type": "checkbox",
+              "hidden": "hidden",
               "checked": "checked"
-            }
+            },
+            text: "Получать спецпредложения"
           })
-          +toggle({
+        +toggle()
+          +toggle__controller({
+            type: "toggle",
+            attr: {
+              "type": "checkbox",
+              "hidden": "hidden"
+            },
+            text: "Получать спецпредложения"
+          })
+      .form-elements__likes
+        +title({
+          text: "like button"
+        })
+        +toggle()
+          +toggle__controller({
+            type: "like",
+            attr: {
+              "type": "checkbox",
+              "hidden": "hidden"
+            },
+            text: "2"
+          })
+        +toggle()
+          +toggle__controller({
+            type: "like",
+            attr: {
+              "type": "checkbox",
+              "hidden": "hidden",
+              "checked": "checked"
+            },
+            text: "12"
+          })
+      .form-elements__rates
+        +title({
+          text: "rate button"
+        })
+        +toggle()
+          +toggle__controller({
             type: "rate",
             attr: {
-              "type": "radio",
-              "name": "rate2",
-              "value": "4"
+              name: "rate1",
+              rate: 4
             }
           })
-          +toggle({
+        +toggle()
+          +toggle__controller({
             type: "rate",
             attr: {
-              "type": "radio",
-              "name": "rate2",
-              "value": "3"
+              name: "rate2",
+              rate: 5
             }
           })
-          +toggle({
-            type: "rate",
-            attr: {
-              "type": "radio",
-              "name": "rate2",
-              "value": "2"
-            }
-          })
-          +toggle({
-            type: "rate",
-            attr: {
-              "type": "radio",
-              "name": "rate2",
-              "value": "1"
-            }
-          })
-    .buttons
-      .slider__wrapper
-        +slider__title({text: "range slider"})
-        +slider__output({jsClass: "js-slider__output"})
-        +slider({jsClass: "js-slider"})
-      .buttons__wrapper
-        +button__title({text: "buttons"})
-        .button__wrapper
+    .form-elements__button-types
+      .form-elements__slider
+        +slider()
+          +slider__title()
+            +title({text: "range slider"})
+            +slider__output({jsClass: "js-slider__output"})
+          +slider__body({jsClass: "js-slider__body"})
+      .form-elements__buttons
+        +title({text: 'buttons'})
+        .form-elements__simple-buttons
           +button({
             type: "simple",
             text: "click me",
             attr: {"type": "button"}
           })
-        .button__wrapper
           +button({
             type: "simple",
             text: "click me",
             attr: {"type": "button"}
           })
-        .button__wrapper
+        .form-elements__border-buttons
           +button({
             type: "border",
             text: "click me",
             attr: {"type": "button"}
           })
-        .button__wrapper
           +button({
             type: "border",
             text: "click me",
             attr: {"type": "button"}
           })
-        .text-button__wrapper
+        .form-elements__text-buttons
           +button({
             type: "text",
             text: "click me",
             attr: {"type": "button"}
           })
-        .text-button__wrapper
           +button({
             type: "text",
             text: "click me",
             attr: {"type": "button"}
           })
-        .button__wrapper
+        .form-elements__big-button
           +button({
             type: "big",
             text: "перейти к оплате",
             attr: {"type": "button"}
           })
-      .pagination__wrapper 
-        +button__title({text: "pagination"})
-        .pagination
-          +button({
-            type: "pagination",
-            text: "1",
-            attr: {"type": "button"}
+      .form-elements__pagination
+        +content-nav()
+          +content-nav__title({
+            text: "pagination"
           })
-          +button({
-            type: "pagination",
-            text: "2",
-            attr: {"type": "button"}
-          })
-          +button({
-            type: "pagination",
-            text: "3",
-            attr: {"type": "button"}
-          })
-          +button({
-            type: "pagination",
-            text: "...",
-            attr: {"type": "button"}
-          })
-          +button({
-            type: "pagination",
-            text: "15",
-            attr: {"type": "button"}
-          })
-          +button({
-            type: "pagination",
-            text: "",
-            attr: {"type": "button"}
-          })
-        +button__description({text: "1 – 15 из 100+ вариантов аренды"})
-    .dropdowns
-      .dropdown__wrapper
-        +title({text: "dropdown"})
-        +input__state({text: "default"})
-        +input({
-          attr: {
-            "type": "text",
-            "placeholder": "Text",
-            "value": "2 спальни, 2 кровати...",
-            "readonly": "readonly"
-          },
-          length: "middle",
-          type: "dropdown"
-          })
-        +title({text: "dropdown"})
-        +input__state({text: "expanded"})
-        +input({
-          attr: {
-            "type": "text",
-            "placeholder": "Text",
-            "value": "2 спальни, 2 кровати...",
-            "readonly": "readonly",
-            "class": "dropdown_type_uncovered"
-          },
-          length: "middle",
-          type: "dropdown",
-          jsClass: "js-dropdown-input"
-          })
-        +dropdown({jsClass: "js-dropdown"})
-          +dropdown__list-body()
-            +dropdown__list-element()
-              +dropdown__text({text: "спальни"})
-              +dropdown__calc()
-                +dropdown__button({
-                  text: "-",
-                  type: "minus",
+          +content-nav__buttons()
+            +button({type: "pagination"})
+              +button__control({
+                type: "pagination",
+                text: "1",
+                attr: {"type": "button"}
+              })
+            +button({type: "pagination"})
+              +button__control({
+                type: "pagination",
+                text: "2",
+                attr: {"type": "button"}
+              })
+            +button({type: "pagination"})
+              +button__control({
+                type: "pagination",
+                text: "3",
+                attr: {"type": "button"}
+              })
+            +button({type: "pagination"})
+              +button__control({
+                type: "pagination",
+                text: "...",
+                attr: {"type": "button"}
+              })
+            +button({type: "pagination"})
+              +button__control({
+                type: "pagination",
+                text: "15",
+                attr: {"type": "button"}
+              })
+            +button({type: "pagination"})
+              +button__control({
+                type: "pagination",
+                text: "",
+                attr: {"type": "button"}
+              })
+          +content-nav__counter({text: "1 – 15 из 100+ вариантов аренды"})
+    .form-elements__dropdown-types
+      .form-elements__fittings-dropdown
+        .form-elements__closed-dropdown
+          +dropdown()
+            +dropdown__input({expanded: false})
+              +input()
+                +input__title({type: "with-state"})
+                  +title({
+                    text: "dropdown"
+                  })
+                  +input__state({text: "default"})
+                +input__field({
                   attr: {
-                    "data-target": "bedroom",
-                    "data-action": "minus"
-                  }
+                    "type": "text",
+                    "placeholder": "Text",
+                    "value": "2 спальни, 2 кровати...",
+                    "readonly": "readonly"
+                  },
+                  length: "m",
+                  type: "dropdown"
                 })
-                +dropdown__output({
-                  text: "2",
+        .form-elements__expanded-dropdown
+          +dropdown()
+            +dropdown__input({expanded: true})
+              +input()
+                +input__title({type: "with-state"})
+                  +title({
+                    text: "dropdown"
+                  })
+                  +input__state({text: "expanded"})
+                +input__field({
                   attr: {
-                    "data-target": "bedroom"
-                  }
+                    "type": "text",
+                    "placeholder": "Text",
+                    "value": "2 спальни, 2 кровати...",
+                    "readonly": "readonly"
+                  },
+                  length: "m",
+                  type: "dropdown",
+                  jsClass: "js-input__field"
                 })
-                +dropdown__button({
-                  text: "+",
-                  type: "plus",
-                  attr: {
-                    "data-target": "bedroom",
-                    "data-action": "plus"
-                  }
+            +dropdown__control({jsClass: "js-dropdown__control"})
+              +dropdown__list({
+                elements: [
+                  { 
+                    text: "спальни",
+                    dataTarget: "bedroom",
+                    output: "2"
+                  },
+                  { 
+                    text: "кровати",
+                    dataTarget: "bed",
+                    output: "2"
+                  },
+                  { 
+                    text: "ванные комнаты",
+                    dataTarget: "bathroom",
+                    output: "0",
+                  },
+                ]
+              })
+      .form-elements__guests-dropdown
+        +dropdown()
+          +dropdown__input({expanded: true})
+            +input()
+              +input__title({type: "with-state"})
+                +title({
+                  text: "dropdown"
                 })
-            +dropdown__list-element()
-              +dropdown__text({text: "кровати"})
-              +dropdown__calc()
-                +dropdown__button({
-                  text: "-",
-                  type: "minus",
-                  attr: {
-                    "data-target": "bed",
-                    "data-action": "minus"
-                  }
-                })
-                +dropdown__output({
-                  text: "2",
-                  attr: {
-                    "data-target": "bed"
-                  }
-                })
-                +dropdown__button({
-                  text: "+",
-                  type: "plus",
-                  attr: {
-                    "data-target": "bed",
-                    "data-action": "plus"
-                  }
-                })
-            +dropdown__list-element()
-              +dropdown__text({text: "ванные комнаты"})
-              +dropdown__calc()
-                +dropdown__button({
-                  text: "-",
-                  type: "minus",
-                  attr: {
-                    "data-target": "bathroom",
-                    "data-action": "minus",
-                    "class": "dropdown__button_type_transparent"
-                  }
-                })
-                +dropdown__output({
-                  text: "0",
-                  attr: {
-                    "data-target": "bathroom"
-                  }
-                })
-                +dropdown__button({
-                  text: "+",
-                  type: "plus",
-                  attr: {
-                    "data-target": "bathroom",
-                    "data-action": "plus"
-                  }
-                })
-      .dropdown__wrapper
-        +title({text: "dropdown"})
-        +input({
-          attr: {
-            "type": "text",
-            "placeholder": "Text",
-            "value": "Сколько гостей",
-            "readonly": "readonly",
-            "class": "dropdown_type_uncovered"
-          },
-          length: "long",
-          type: "dropdown",
-          jsClass: "js-dropdown-input2"
-          })
-        +dropdown({jsClass: "js-dropdown2"})
-          +dropdown__list-body()
-            +dropdown__list-element()
-              +dropdown__text({text: "взрослые"})
-              +dropdown__calc()
-                +dropdown__button({
-                  text: "-",
-                  type: "minus",
-                  attr: {
-                    "data-target": "adult",
-                    "data-action": "minus",
-                    "class": "dropdown__button_type_transparent"
-                  }
-                })
-                +dropdown__output({
-                  text: "0",
-                  attr: {
-                    "data-target": "adult"
-                  }
-                })
-                +dropdown__button({
-                  text: "+",
-                  type: "plus",
-                  attr: {
-                    "data-target": "adult",
-                    "data-action": "plus"
-                  }
-                })
-            +dropdown__list-element()
-              +dropdown__text({text: "дети"})
-              +dropdown__calc()
-                +dropdown__button({
-                  text: "-",
-                  type: "minus",
-                  attr: {
-                    "data-target": "child",
-                    "data-action": "minus",
-                    "class": "dropdown__button_type_transparent"
-                  }
-                })
-                +dropdown__output({
-                  text: "0",
-                  attr: {
-                    "data-target": "child"
-                  }
-                })
-                +dropdown__button({
-                  text: "+",
-                  type: "plus",
-                  attr: {
-                    "data-target": "child",
-                    "data-action": "plus"
-                  }
-                })
-            +dropdown__list-element()
-              +dropdown__text({text: "младенцы"})
-              +dropdown__calc()
-                +dropdown__button({
-                  text: "-",
-                  type: "minus",
-                  attr: {
-                    "data-target": "baby",
-                    "data-action": "minus",
-                    "class": "dropdown__button_type_transparent"
-                  }
-                })
-                +dropdown__output({
-                  text: "0",
-                  attr: {
-                    "data-target": "baby"
-                  }
-                })
-                +dropdown__button({
-                  text: "+",
-                  type: "plus",
-                  attr: {
-                    "data-target": "baby",
-                    "data-action": "plus"
-                  }
-                })
-          .dropdown__submit-buttons
-              +button({
-                type: "text",
-                text: "очистить",
+              +input__field({
                 attr: {
-                  "type": "button",
-                  "data-target": "clear",
-                  "hidden": "hidden"
-                }
-              }) 
-              +button({
-                type: "text",
-                text: "применить",
+                  "type": "text",
+                  "placeholder": "Text",
+                  "value": "Сколько гостей",
+                  "readonly": "readonly"
+                },
+                length: "l",
+                type: "dropdown",
+                jsClass: "js-input__field_2"
+              })
+          +dropdown__control({jsClass: "js-dropdown__control_2"})
+            +dropdown__list({
+              elements: [
+                { 
+                  text: "взрослые",
+                  dataTarget: "adult",
+                  output: "0"
+                },
+                { 
+                  text: "дети",
+                  dataTarget: "child",
+                  output: "0"
+                },
+                { 
+                  text: "младенцы",
+                  dataTarget: "baby",
+                  output: "0",
+                },
+              ]
+            })
+            +dropdown__submit-buttons({hidden: true})
+      .form-elements__guests-dropdown
+        +dropdown()
+          +dropdown__input({expanded: true})
+            +input()
+              +input__title({type: "with-state"})
+                +title({
+                  text: "dropdown"
+                })
+              +input__field({
                 attr: {
-                  "type": "button",
-                  "data-target": "submit",
-                }
-              }) 
-      .dropdown__wrapper
-        +title({text: "dropdown"})
-        +input({
-          attr: {
-            "type": "text",
-            "placeholder": "Text",
-            "value": "3 гостя",
-            "readonly": "readonly",
-            "class": "dropdown_type_uncovered"
-          },
-          length: "long",
-          type: "dropdown",
-          jsClass: "js-dropdown-input3"
-          })
-        +dropdown({jsClass: "js-dropdown3"})
-          +dropdown__list-body()
-            +dropdown__list-element()
-              +dropdown__text({text: "взрослые"})
-              +dropdown__calc()
-                +dropdown__button({
-                  text: "-",
-                  type: "minus",
-                  attr: {
-                    "data-target": "adult",
-                    "data-action": "minus"
-                  }
-                })
-                +dropdown__output({
-                  text: "2",
-                  attr: {
-                    "data-target": "adult"
-                  }
-                })
-                +dropdown__button({
-                  text: "+",
-                  type: "plus",
-                  attr: {
-                    "data-target": "adult",
-                    "data-action": "plus"
-                  }
-                })
-            +dropdown__list-element()
-              +dropdown__text({text: "дети"})
-              +dropdown__calc()
-                +dropdown__button({
-                  text: "-",
-                  type: "minus",
-                  attr: {
-                    "data-target": "child",
-                    "data-action": "minus"
-                  }
-                })
-                +dropdown__output({
-                  text: "1",
-                  attr: {
-                    "data-target": "child"
-                  }
-                })
-                +dropdown__button({
-                  text: "+",
-                  type: "plus",
-                  attr: {
-                    "data-target": "child",
-                    "data-action": "plus"
-                  }
-                })
-            +dropdown__list-element()
-              +dropdown__text({text: "младенцы"})
-              +dropdown__calc()
-                +dropdown__button({
-                  text: "-",
-                  type: "minus",
-                  attr: {
-                    "data-target": "baby",
-                    "data-action": "minus",
-                    "class": "dropdown__button_type_transparent"
-                  }
-                })
-                +dropdown__output({
-                  text: "0",
-                  attr: {
-                    "data-target": "baby"
-                  }
-                })
-                +dropdown__button({
-                  text: "+",
-                  type: "plus",
-                  attr: {
-                    "data-target": "baby",
-                    "data-action": "plus"
-                  }
-                })
-          .dropdown__submit-buttons
-              +button({
-                type: "text",
-                text: "очистить",
-                attr: {
-                  "type": "button",
-                  "data-target": "clear",
-                  "hidden": "hidden"
-                }
-              }) 
-              +button({
-                type: "text",
-                text: "применить",
-                attr: {
-                  "type": "button",
-                  "data-target": "submit",
-                }
-              }) 
-    .lists
-      .list__wrapper
-        +list__title({
-            text: "expandable checkbox list",
-            type: "arrow-down",
-          }) 
-        +list__title({
-          text: "expandable checkbox list",
-          type: "arrow-up",
-          jsClass: "js-list__title"
-        })   
-        +list({jsClass: "js-list"})
-          +list__item()
-            +toggle({
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              }
+                  "type": "text",
+                  "placeholder": "Text",
+                  "value": "3 гостя",
+                  "readonly": "readonly"
+                },
+                length: "l",
+                type: "dropdown",
+                jsClass: "js-input__field_3"
+              })
+          +dropdown__control({jsClass: "js-dropdown__control_3"})
+            +dropdown__list({
+              elements: [
+                { 
+                  text: "взрослые",
+                  dataTarget: "adult",
+                  output: "2"
+                },
+                { 
+                  text: "дети",
+                  dataTarget: "child",
+                  output: "1"
+                },
+                { 
+                  text: "младенцы",
+                  dataTarget: "baby",
+                  output: "0",
+                },
+              ]
             })
-            +toggle__mimic({type: "checkbox"})
-            +toggle__text({text: "Завтрак"})
-          +list__item()
-            +toggle({
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden",
-                "checked": "checked"
-              }
+            +dropdown__submit-buttons({hidden: false})
+    .form-elements__list-types
+      .form-elements__expandable-lists 
+        .form-elements__closed-list
+          +list()
+            +list__title({
+              text: "expandable checkbox list",
+              type: "closed"
             })
-            +toggle__mimic({type: "checkbox"})
-            +toggle__text({text: "Письменный стол"})
-          +list__item()
-            +toggle({
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden",
-                "checked": "checked"
-              }
+        .form-elements__expanded-list
+          +list()
+            +list__title({
+              text: "expandable checkbox list",
+              type: "expanded",
+              jsClass: "js-list__title"
             })
-            +toggle__mimic({type: "checkbox"})
-            +toggle__text({text: "Стул для кормления"})
-          +list__item()
-            +toggle({
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden",
-                "checked": "checked"
-              }
-            })
-            +toggle__mimic({type: "checkbox"})
-            +toggle__text({text: "Кроватка"})
-          +list__item()
-            +toggle({
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              }
-            })
-            +toggle__mimic({type: "checkbox"})
-            +toggle__text({text: "Телевизор"})
-          +list__item()
-            +toggle({
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              }
-            })
-            +toggle__mimic({type: "checkbox"})
-            +toggle__text({text: "Шампунь"})
-      .list__wrapper
-        +list__title({
-          text: "rich Checkbox Buttons"
-        })
+            +list__container({jsClass: "js-list__container"})
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
+                    },
+                    text: "Завтрак"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
+                    },
+                    text: "Письменный стол"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
+                    },
+                    text: "Стул для кормления"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
+                    },
+                    text: "Кроватка"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
+                    },
+                    text: "Телевизор"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
+                    },
+                    text: "Шампунь"
+                  })
+      .form-elements__rich-list
         +list()
+          +list__title({
+            text: "rich Checkbox Buttons"
+          })
           +list__item()
-            +toggle({
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              }
-            })
-            +toggle__mimic({type: "checkbox"})
-            .toggle__text-wrapper
-              +toggle__text({text: "Широкий коридор", type: "rich"})
-              +toggle__text({text: "Ширина коридоров в номере не менее 91 см.", type: "little"})
+            +toggle()
+              +toggle__controller({
+                type: "checkbox",
+                attr: {
+                  "type": "checkbox",
+                  "hidden": "hidden"
+                },
+                richText: "Широкий коридор",
+                text: "Ширина коридоров в номере не менее 91 см."
+              })
           +list__item()
-            +toggle({
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              }
-            })
-            +toggle__mimic({type: "checkbox"})
-            .toggle__text-wrapper
-              +toggle__text({text: "Помощник для инвалидов", type: "rich"})
-              +toggle__text({text: "На 1 этаже вас встретит специалист  и проводит до номера.", type: "little"})
-      .list__wrapper
-        +list__title({
-          text: "bullet list"
-        })
+            +toggle()
+              +toggle__controller({
+                type: "checkbox",
+                attr: {
+                  "type": "checkbox",
+                  "hidden": "hidden"
+                },
+                richText: "Помощник для инвалидов",
+                text: "На 1 этаже вас встретит специалист  и проводит до номера."
+              })
+      .form-elements__bullet-list
         +list()
-          +list__item({mark: "dot"})
-            +list__text({text: "Нельзя с питомцами"})
-          +list__item({mark: "dot"})
-            +list__text({text: "Без вечеринок и мероприятий"})
-          +list__item({mark: "dot"})
-            +list__text({text: "Время прибытия — после 13:00, а выезд до 12:00"})
-    .additions
-      .addition__wrapper 
-        +positive-feature()
+          +list__title({
+            text: "bullet list",
+            bullet: true
+          })
+          +list__container()
+            +list__item({type: "bullet"})
+              +list__text({
+                text: "Нельзя с питомцами"
+              })
+            +list__item({type: "bullet"})
+              +list__text({
+                text: "Без вечеринок и мероприятий"
+              })
+            +list__item({type: "bullet"})
+              +list__text({
+                text: "Время прибытия — после 13:00, а выезд до 12:00"
+              })
+    .form-elements__additions
+      .form-elements__positive-features
+        +positive-feature({border: "border_bottom"})
           +positive-feature__img({
             attr: {
               "alt": "Feeling comfortable",
@@ -844,10 +633,10 @@ include ../../blocks/comment/comment.pug
             }
           })
           +positive-feature__text({
-            textTitle: "Комфорт",
-            text: "Шумопоглощающие стены"
+            titleText: "Комфорт",
+            descText: "Шумопоглощающие стены"
           })
-        +positive-feature()
+        +positive-feature({border: "border_bottom"})
           +positive-feature__img({
             attr: {
               "alt": "Abstract image of a modern house",
@@ -855,35 +644,24 @@ include ../../blocks/comment/comment.pug
             }
           })
           +positive-feature__text({
-            textTitle: "Удобство",
-            text: "Окно в каждой из спален"
+            titleText: "Удобство",
+            descText: "Окно в каждой из спален"
           })
-      .addition__wrapper
-        +comment()
-          +comment__info-wrapper()
-            +comment__profile-pic({
+      .form-elements__user-comment
+        +user-comment()
+          +user-comment__title({
+            avatarSettings: {
               attr: {
                 "alt": "Profile picture",
                 "src": "img/user.jpg"
               }
-            })
-            +comment__info({
+            },
+            infoSettings: {
               name: "Мурад Сарафанов",
               daysHavePassed: "5 дней назад"
-            })
-          +comment__main()
-            +comment__like()
-              +toggle({
-                type: "like",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                }
-              })
-              +toggle__mimic({type: "like"})
-                +toggle__text({text: "12", type: "like"})
-            +comment__text({
-              text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
-            })
-            
+            }
+          })
+          +user-comment__main({
+            likeSettings: {text: "12", checked: true},
+            textSettings: {text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."},
+          })

@@ -1,0 +1,4 @@
+mixin slider__body(settings)
+  - let jsClass = "";
+  - settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  div(class=`slider__body ${jsClass}`)

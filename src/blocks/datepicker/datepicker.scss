@@ -1,4 +1,5 @@
 @import '../button/button.scss';
+@import '../../overall/mixins.scss';
 
 .datepicker {
   background: #FFFFFF;
@@ -29,9 +30,11 @@
     min-width: 229px;
     margin: 0px;
     text-align: center;
+    @include text_type($mont, 20px, 700, 24px, $dark100);
   }
   .calendar {
     margin: 30px 0 20px;
+    @include text_type($mont, 12px, 400, 15px, $dark50);
     .calendar__cell {
       width: 39px; height: 40px;
       box-sizing: border-box;
@@ -44,6 +47,7 @@
     }
     .calendar__week-day {
       color: $purple;
+      font-weight: 700;
       cursor: default;
     }
     .calendar__cell_transparent {
@@ -89,9 +93,12 @@
     }
   }
   .datepicker__confirmation-buttons {
-    height: 15px;
+    line-height: 15px;
     .button {
-      vertical-align: top;
+      height: 15px;
+      &:last-child {
+        float: right;
+      }
     }
     .datepicker__apply-button {
       float: right;

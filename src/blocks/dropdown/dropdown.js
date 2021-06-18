@@ -38,10 +38,10 @@ function dropdownFunctionality(settings) {
   function discloseDropdown(event) {
     if(dropdown.hasAttribute("hidden")) {
       dropdown.removeAttribute("hidden");
-      input.classList.add("dropdown_type_uncovered");
+      input.parentNode.parentNode.parentNode.classList.add("dropdown__input_expanded");
     } else {
       dropdown.setAttribute("hidden", "hidden");
-      input.classList.remove("dropdown_type_uncovered");
+      input.parentNode.parentNode.parentNode.classList.remove("dropdown__input_expanded");
     };
   };
 
@@ -69,14 +69,14 @@ function dropdownFunctionality(settings) {
         return (action === "minus") && (Number(output.innerText) > 0)
       };
       function isButtonTransparent(button, action) {
-        return (button.classList.contains("dropdown__button_type_transparent")) && (button.getAttribute("data-action") == action && button.getAttribute("data-target") == target);
+        return (button.classList.contains("dropdown__button_transparent")) && (button.getAttribute("data-action") == action && button.getAttribute("data-target") == target);
       };
 
       function removeTransparentClass(action, num, target) {
         if(Number(output.innerText) == num) {
           [...dropdown.querySelectorAll("button")].map(function(button) {
             if(isButtonTransparent(button, action, target)) {
-              button.classList.remove("dropdown__button_type_transparent");
+              button.classList.remove("dropdown__button_transparent");
             };
           });
         };
@@ -90,7 +90,7 @@ function dropdownFunctionality(settings) {
         output.innerText = Number(output.innerText) + 1;
         input.setAttribute(`data-${target}`, output.innerText);
         if(Number(output.innerText) == 10) {
-          button.classList.add('dropdown__button_type_transparent');
+          button.classList.add('dropdown__button_transparent');
         };
       } else if (checkSubtractionPossinility(action)) {
         if(Number(output.innerText) == 10) {
@@ -100,7 +100,7 @@ function dropdownFunctionality(settings) {
         output.innerText = Number(output.innerText) - 1;
         input.setAttribute(`data-${target}`, output.innerText);
         if(Number(output.innerText) == 0) {
-          button.classList.add('dropdown__button_type_transparent');
+          button.classList.add('dropdown__button_transparent');
         };
       };
     };
@@ -126,9 +126,12 @@ function dropdownFunctionality(settings) {
       
       if(setToZero(outputVal)) {
         input.setAttribute("value", defaultTemplate);
+        dropdownButtons.map(function(button) {
+          if (button.getAttribute("data-action") === 'minus') button.classList.add('dropdown__button_transparent');
+        });
       } else {
         dropdownButtons.map(function(button) {
-          if (button.hasAttribute("data-target", "clear")) button.removeAttribute("hidden")
+          if (button.getAttribute("data-target") === 'clear') button.removeAttribute("hidden")
         });
 
         let result = "";

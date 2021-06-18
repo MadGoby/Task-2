@@ -1,27 +1,12 @@
+@import '../../../overall/mixins.scss';
+
 .toggle__text {
-  font-family: inherit;
   cursor: pointer;
   user-select: none;
   display: inline-block;
-  vertical-align: top;
-  padding-top: 2px;
-  line-height: 18px;
-  margin: 0 0 0 10px
+  margin: 0;
+  line-height: 20px;
 }
 .toggle__text-wrapper {
   display: inline-block;
-}
-.toggle__text_type_rich {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 18px;
-  color: $dark75;
-}
-.toggle__text_type_little {
-  display: block;
-  font-size: 12px;
-  line-height: 14px;
-  padding: 0px;
-  padding-top: 5px;
 }

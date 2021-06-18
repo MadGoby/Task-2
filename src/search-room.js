@@ -1,7 +1,9 @@
 import "./search-room.scss";
-import slider from "./blocks/slider/slider.js";
+require('webpack-jquery-ui');
+require('webpack-jquery-ui/css');
 import * as dropdown from "./blocks/dropdown/dropdown.js";
 import * as list from "./blocks/list/list.js";
+import { event } from "jquery";
 require("./img/980.jpg");
 require("./img/856.jpg");
 require("./img/740.jpg");
@@ -14,28 +16,84 @@ require("./img/444.jpg");
 require("./img/352.jpg");
 
 dropdown.dropdownFunctionality ({
-  inputClass: ".js-dropdown-input",
-  dropdownClass: ".js-dropdown",
+  inputClass: ".js-input__field",
+  dropdownClass: ".js-dropdown__control",
   inputResultTemplate: {type: "oneByOne", values: ['спальни', 'кровати']},
   defaultTemplate: "Конфигурация номера"
 })
 
 list.listFunctionality ({
   titleClass: ".js-list__title",
-  listClass: ".js-list"
+  listClass: ".js-list__container"
 })
 
 $(document).ready(function () {
-  $(".js-slider").slider({
+  $(".js-slider__body").slider({
     range : true,
     min: 0,
     max: 15000,
     values: [ 5000, 10000 ],
     slide: function( event, ui ) {
-      $(".js-slider__output").val( ui.values[ 0 ] + "₽" + " - " + ui.values[ 1 ] + "₽" );
+      $(".js-slider__output").val(ui.values[ 0 ] + "₽" + " - " + ui.values[ 1 ] + "₽" );
     }
   });
   $(".js-slider__output").val( 
-    "" + $(".js-slider").slider(
-    "values", 0 ) + "₽" + " - " + $(".js-slider").slider("values", 1 ) + "₽" );
+    "" + $(".js-slider__body").slider(
+    "values", 0 ) + "₽" + " - " + $(".js-slider__body").slider("values", 1 ) + "₽" );
 });
+
+function sidebarDropdown(settings) {
+  const {titleClass, sidebarClass} = settings;
+  
+  function getHtmlElements() {
+    const title = document.querySelector(titleClass);
+    const sidebar = document.querySelector(sidebarClass);
+    return {title, sidebar}
+  };
+
+  const resultElements = getHtmlElements();
+  const {title, sidebar} = resultElements;
+  
+  function bindEventListeners() {
+    title.addEventListener("click", discloseSidebar);
+    document.body.onresize = convertPassesVariable;
+  };
+
+  function discloseSidebar(event) {
+    if(sidebar.style.display == "none") {
+      sidebar.style.display = "inline-block";
+      title.classList.remove("title_closed");
+      title.classList.add("title_expanded");
+    } else {
+      sidebar.style.display = "none";
+      title.classList.remove("title_expanded");
+      title.classList.add("title_closed");
+    };
+  };
+  
+  function changeSidebarDisplay(userWidth) {
+    if (userWidth > 680 && sidebar.style.display == "none") {
+      sidebar.style.display = "block";
+      if(title.classList.contains("title_expanded")) {
+        title.classList.remove("title_expanded");
+        title.classList.add("title_closed");
+      }
+    } else if (userWidth < 680) {
+      sidebar.style.display = "none";
+    }; 
+  }
+
+  function convertPassesVariable(event) {
+    let userWidth = +event.target.innerWidth;
+    changeSidebarDisplay(userWidth);
+  };
+
+  changeSidebarDisplay(+document.body.offsetWidth + 17)
+  
+  bindEventListeners()
+};
+
+sidebarDropdown({
+  titleClass: ".js-search-room__sidebar-title",
+  sidebarClass: ".js-search-room__sidebar"
+})

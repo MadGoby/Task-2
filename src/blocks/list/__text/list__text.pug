@@ -1,6 +1,6 @@
 mixin list__text(settings)
   - let text = ""
   - if(settings) {
-  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
+  -  settings.hasOwnProperty("text") ? text=settings.text : text=""
   - }
-  p.list__text.text_type_simple=text
+  p(class="list__text")=text

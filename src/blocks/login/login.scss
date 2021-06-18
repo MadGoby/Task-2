@@ -1,4 +1,6 @@
-@import '__registration-question/login__registration-question.scss';
+@import '__inputs/login__inputs.scss';
+@import '__text/login__text.scss';
+@import '__registration/login__registration.scss';
 
 .login {
   padding: 40px 30px 30px;
@@ -8,24 +10,13 @@
   border-radius: 4px;
   max-width: 380px;
   box-sizing: border-box;
-  .form-title {
+  &__title {
     margin-bottom: 20px;
   }
-  .login__password-input {
+  &__inputs {
     margin-bottom: 20px;
   }
-  .login__email-input {
-    margin-bottom: 10px;
-  }
-  .login__login-button {
+  &__confirm-button {
     margin-bottom: 30px;
-  }
-  .login__registration-button {
-    .button-border {
-      display: inline-block;
-      width: 99px;
-      height: 44px;
-      float: right;
-    }
   }
 }

@@ -1,0 +1,8 @@
+@import '../../../overall/mixins.scss';
+
+.registration__text {
+  @include text_type($mont, 14px, 400, 18px, #000000);
+  margin: 0;
+  display: inline-block;
+  line-height: 44px;
+}

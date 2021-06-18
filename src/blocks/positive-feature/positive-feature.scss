@@ -1,13 +1,12 @@
 @import '__text/positive-feature__text.scss';
 @import '__img/positive-feature__img.scss';
-.positive-feature__text-wrapper {
-  display: inline-block;
-  vertical-align: top;
-}
+@import '__title/positive-feature__title.scss';
+@import '__description/positive-feature__description.scss';
+@import '_border/positive-feature_border.scss';
+
 .positive-feature {
-  padding: 17px 0;
-  border-bottom: 1px solid $dark25;
-  &:first-of-type {
-    padding: 0 0 17px;
+  padding: 20px 0;
+  &:first-child {
+  padding: 0 0 20px;
   }
 }

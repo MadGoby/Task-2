@@ -1,4 +1,7 @@
+@import '../../../overall/mixins.scss';
+
 .impressions-diagram__description  {
+  @include text_type($mont, 14px, 400, 24px, $dark75);
   display: inline-block;
   margin: 0 0 0 30px; 
   padding: 0;

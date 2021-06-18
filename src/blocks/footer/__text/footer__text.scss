@@ -1,0 +1,7 @@
+@import '../../../overall/mixins.scss';
+
+.footer__text {
+  @include text_type($mont, 14px, 400, 18px, $dark75);
+  max-width: 260px;
+  text-align: initial;
+}

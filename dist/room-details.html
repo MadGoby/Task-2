@@ -1,1 +1,119 @@
-<!DOCTYPE html><html><head><title>Room Details</title><meta charset="utf-8"><meta name="description" content="Room Details page of the hotel room website."><meta name="keywords" content="HTML, CSS, JavaScript"><meta name="viewport" content="initial-scale=1.0, width=device-width"></head><body><header class="room-details__header"><div class="header-wrapper"><img class="logo" alt="logo" src="img/logo-color.svg"><nav class="nav text_type_simple"><a class="nav__link" href="./for-change">О нас</a><a class="nav__link nav__link_dropdown" href="./for-change">Услуги</a><a class="nav__link" href="./for-change">Вакансии</a><a class="nav__link" href="./for-change">Новости</a><a class="nav__link nav__link_dropdown" href="./for-change">Соглашения</a></nav><div class="header__unauthorized"><div class="header__login"><div class="button__border-mimic"><button class="button text_type_h3 button_type_border" value="войти" type="button">войти</button></div></div><div class="header__registration"><button class="button text_type_h3 button_type_simple" value="зарегистрироваться" type="button">зарегистрироваться</button></div></div></div></header><main class="room-details__main"><div class="room-details__room-photos"> <img class="room-photo_big room-photo" src="./img/room-photo-big.jpg" alt="Room photo"><div class="room-details__small-photos-wrapper"><img class="room-photo_small_1 room-photo" src="./img/room-photo-small1.jpg" alt="Room photo"><img class="room-photo_small_2 room-photo" src="./img/room-photo-small2.jpg" alt="Room photo"></div></div><div class="room-details__details"> <form class="final-booking" action="for-change"><div class="final-booking__room-info"><div class="room-info"><span class="room-info__number text_type_h1 room-info__price_luxury">888</span><span class="room-info__price text_type_simple"><em class="room-info__price-value text_type_h3">9 990₽ </em>в сутки</span></div></div><div class="final-booking__double-input"><div class="input__wrapper text_type_simple"><p class="input__title text_type_h3">прибытие</p><label class="input__dropdown-label"><input class="input input_length_short input_type_dropdown " type="text" placeholder="ДД.ММ.ГГГГ" value="19.08.2019" readonly="readonly"></label></div><div class="input__wrapper text_type_simple"><p class="input__title text_type_h3">выезд</p><label class="input__dropdown-label"><input class="input input_length_short input_type_dropdown " type="text" placeholder="ДД.ММ.ГГГГ" value="23.08.2019 " readonly="readonly"></label></div></div><div class="final-booking__guests-number text_type_simple"><p class="input__title text_type_h3">гости</p><label class="input__dropdown-label"><input class="input input_length_long input_type_dropdown " type="text" placeholder="Text" value="3 гостя" readonly="readonly"></label></div><ul class="final-booking__service-list"><li class="final-booking__service"><div class="final-booking__service-title-wrapper"><span class="final-booking__service-title text_type_simple">9 990₽ х 4 суток</span></div><span class="final-booking__service-price text_type_simple">39 960₽ </span></li><li class="final-booking__service"><div class="final-booking__service-title-wrapper"><span class="final-booking__service-title text_type_simple final-booking__service-title_clarification-sign">Сбор за услуги: скидка 2 179₽</span></div><span class="final-booking__service-price text_type_simple">0₽ </span></li><li class="final-booking__service"><div class="final-booking__service-title-wrapper"><span class="final-booking__service-title text_type_simple final-booking__service-title_clarification-sign">Сбор за дополнительные услуги</span></div><span class="final-booking__service-price text_type_simple">300₽ </span></li><li class="final-booking__service_total"><div class="final-booking__service-title-wrapper"><span class="final-booking__service-title text_type_simple">Итого</span></div><span class="final-booking__service-price text_type_simple">38 081₽ </span></li></ul><div class="final-booking__submit-button"><button class="button text_type_h3 button_type_big" value="забронировать" type="submit">забронировать</button></div></form><div class="room-information"><h2 class="room-details__title text_type_h2">Сведения о номере</h2><div class="positive-feature"><img class="positive-feature__img" alt="Feeling comfortable" src="img/smile.svg"><div class="positive-feature__text-wrapper text_type_simple"><p class="positive-feature__title">Комфорт</p><p class="positive-feature__text">Шумопоглощающие стены</p></div></div><div class="positive-feature"><img class="positive-feature__img" alt="Abstract image of a modern house" src="img/house.svg"><div class="positive-feature__text-wrapper text_type_simple"><p class="positive-feature__title">Удобство</p><p class="positive-feature__text">Окно в каждой из спален</p></div></div><div class="positive-feature"><img class="positive-feature__img" alt="cozy flame" src="img/flame.svg"><div class="positive-feature__text-wrapper text_type_simple"><p class="positive-feature__title">Уют</p><p class="positive-feature__text">Номер оснащён камином</p></div></div></div><div class="room-impressions"><h2 class="room-details__title text_type_h2">Впечатления от номера</h2><div class="impressions-diagram"><div class="impressions-diagram__reviews-wrapper"><p class="impressions-diagram__reviews-count"></p></div><ul class="impressions-diagram__description"> <li class="impressions-diagram__description-line impressions-diagram__description-line_perfectly text_type_simple">Великолепно</li><li class="impressions-diagram__description-line impressions-diagram__description-line_good text_type_simple">Хорошо</li><li class="impressions-diagram__description-line impressions-diagram__description-line_satisfactorily text_type_simple">Удовлетворительно</li><li class="impressions-diagram__description-line impressions-diagram__description-line_disappointed text_type_simple">Разочарован</li></ul></div></div><div class="visitor-reviews"><h2 class="text_type_h2 visitor-reviews__title room-details__title">Отзывы посетителей номера</h2><p class="text_type_simple visitor-reviews__counter">2 отзыва</p><div class="comment"><div class="comment__info-wrapper"><img class="comment__profile-pic" alt="Profile picture" src="img/user.jpg"><div class="comment__info text_type_simple"><p class="comment__name">Мурад Сарафанов</p><p class="comment__days-passed">5 дней назад</p></div></div><div class="comment__main"> <div class="comment__like text_type_simple"><label class="toggle__label toggle__label_type_like"><input class="toggle toggle_type_like" type="checkbox" hidden="hidden" checked="checked"><span class="toggle__mimic toggle__mimic_type_like"><p class="toggle__text toggle__text_type_like">12</p></span></label></div><p class="comment__text text_type_simple">Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.</p></div></div><div class="comment"><div class="comment__info-wrapper"><img class="comment__profile-pic" alt="Profile picture" src="img/user2.jpg"><div class="comment__info text_type_simple"><p class="comment__name">Патрисия Стёклышкова</p><p class="comment__days-passed">Неделю назад</p></div></div><div class="comment__main"> <div class="comment__like text_type_simple"><label class="toggle__label toggle__label_type_like"><input class="toggle toggle_type_like" type="checkbox" hidden="hidden"><span class="toggle__mimic toggle__mimic_type_like"><p class="toggle__text toggle__text_type_like">2</p></span></label></div><p class="comment__text text_type_simple">Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент</p></div></div></div><div class="rules text_type_simple"><h2 class="text_type_h2 room-details__title">Правила</h2><ul class="list"><li class="list__item list__item_mark_dot"><p class="list__text text_type_simple">Нельзя с питомцами</p></li><li class="list__item list__item_mark_dot"><p class="list__text text_type_simple">Без вечеринок и мероприятий</p></li><li class="list__item list__item_mark_dot"><p class="list__text text_type_simple">Время прибытия — после 13:00, а выезд до 12:00</p></li></ul></div><div class="cancellation text_type_simple"><h2 class="text_type_h2 room-details__title">Отмена</h2><p class="cancellation__text">Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.</p></div></div></main><footer class="room-details__footer"><div class="footer-wrapper"><div class="footer__logo"><img class="logo" alt="logo" src="img/logo-color.svg"><p class="text_type_simple footer__logo-description">Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»</p></div><div class="footer__nav-wrapper"><div class="footer__nav"><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">навигация</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">О нас</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Новости</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Служба поддержки</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Услуги</a></div></div><div class="footer__nav"><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">о нас</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">О сервисе</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Наша команда</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Вакансии</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Инвесторы</a></div></div><div class="footer__nav"><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Служба поддержки</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Соглашения</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Сообщества</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Связь с нами</a></div></div></div><div class="footer__subscribe"><p class="text_type_h3 footer__subscribe-title">Подписка</p><p class="text_type_simple footer__subscribe-text">Получайте специальные предложения и новости сервиса</p><div class="input-wrapper_type_submit"><input class="input input_length_middle input_type_submit " type="email" placeholder="Email"><button class="input__submit-button" type="submit"></button></div></div></div><div class="copyright"><p class="text_type_simple copyright__text">Copyright © 2018 Toxin отель. Все права защищены.</p><div class="social-networks"><a class="social-networks__link social-networks__twitter" target="_blank" rel="noopener noreferrer" href="./for-change"><img class="social-networks__icon" src="img/twitter.svg"></a><a class="social-networks__link social-networks__facebook" target="_blank" rel="noopener noreferrer" href="./for-change"><img class="social-networks__icon" src="img/facebook.svg"></a><a class="social-networks__link social-networks__instagram" target="_blank" rel="noopener noreferrer" href="./for-change"><img class="social-networks__icon" src="img/instagram.svg"></a></div></div></footer><script src="js/room-details.js"></script></body></html>
+Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module build failed (from ../node_modules/pug-loader/index.js):
+  Error: Can't resolve './blocks/content-nav/content-nav.pug' in 'C:\Users\stasf\Desktop\Front\Task2\Tas  k2\src'
+  
+  - Resolver.js:209 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:209:21
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - UnsafeCachePlugin.js:44 
+    [Task2]/[enhanced-resolve]/lib/UnsafeCachePlugin.js:44:7
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DescriptionFilePlugin.js:67 
+    [Task2]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - RootPlugin.js:37 
+    [Task2]/[enhanced-resolve]/lib/RootPlugin.js:37:38
+  
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DescriptionFilePlugin.js:67 
+    [Task2]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DirectoryExistsPlugin.js:27 
+    [Task2]/[enhanced-resolve]/lib/DirectoryExistsPlugin.js:27:15
+  
+  - CachedInputFileSystem.js:85 
+    [Task2]/[enhanced-resolve]/lib/CachedInputFileSystem.js:85:15
+  
+  
+  - Error: Can't resolve './blocks/content-nav/content-nav.pug' in 'C:\Users\stasf\Desktop\Front\Task2\T    ask2\src'
+  
+  - ModuleBuildError: Module build failed (from ../node_modules/pug-loader/index.js):
+  
+  - Error: Can't resolve './blocks/content-nav/content-nav.pug' in 'C:\Users\stasf\Desktop\Front\Task2\T    ask2\src'
+  
+  - Resolver.js:209 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:209:21
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - UnsafeCachePlugin.js:44 
+    [Task2]/[enhanced-resolve]/lib/UnsafeCachePlugin.js:44:7
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DescriptionFilePlugin.js:67 
+    [Task2]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - RootPlugin.js:37 
+    [Task2]/[enhanced-resolve]/lib/RootPlugin.js:37:38
+  
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DescriptionFilePlugin.js:67 
+    [Task2]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DirectoryExistsPlugin.js:27 
+    [Task2]/[enhanced-resolve]/lib/DirectoryExistsPlugin.js:27:15
+  
+  - CachedInputFileSystem.js:85 
+    [Task2]/[enhanced-resolve]/lib/CachedInputFileSystem.js:85:15
+  
+  - task_queues.js:77 processTicksAndRejections
+    internal/process/task_queues.js:77:11
+  
+</pre><script src="js/room-details.js"></script>

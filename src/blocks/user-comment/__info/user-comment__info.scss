@@ -1,0 +1,13 @@
+@import '../../../overall/mixins.scss';
+
+.user-comment__info {
+  @include text_type($mont, 14px, 400, 24px, $dark75);
+  display: inline-block;
+  vertical-align: top;
+}
+.user-comment__name, .user-comment__age {
+  margin: 0px;
+}
+.user-comment__name {
+  font-weight: 700;
+}

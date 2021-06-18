@@ -1,5 +1,5 @@
+include __control/button__control.pug
 include __title/button__title.pug
-include __description/button__description.pug
 
 mixin button(settings)
   - let attr = ""
@@ -10,10 +10,24 @@ mixin button(settings)
   -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr=""
   -   settings.hasOwnProperty("text") ? text = settings.text : text=""
   -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass=""
-  -   settings.hasOwnProperty("type") ? type = `button_type_${settings.type}` : attr=""
+  -   settings.hasOwnProperty("type") ? type = settings.type : attr=""
   - }
-  if settings.type == "border"
-    div.button-border
-      button(class="button"  class=jsClass, class=type, value=text)&attributes(attr)= text
+  if type === "big"
+    div(class="button button_type_big")
+      +button__control({
+        text: text,
+        jsClass: jsClass,
+        attr: attr,
+        type: type
+      })
+  else if type === "pagination"
+    div(class="button button_type_pagination")
+      block
   else
-    button(class="button" class=jsClass, class=type, value=text)&attributes(attr)= text
+    div(class="button")
+      +button__control({
+        text: text,
+        jsClass: jsClass,
+        attr: attr,
+        type: type
+      })

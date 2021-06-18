@@ -1,0 +1,9 @@
+mixin list__container(settings)
+  - let jsClass = ""
+  - let attr = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
+  - }
+  ul(class="list__container" class=jsClass)&attributes(attr)
+    block

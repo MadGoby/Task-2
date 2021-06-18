@@ -1,0 +1,14 @@
+.search-room__period {
+  position: relative;
+  .datepicker {
+    position: absolute;
+    margin-top: 6px;
+    z-index: 2;
+  }
+  .input {
+    display: inline-block;
+    &:not(:first-child) {
+      float: right;
+    }
+  }
+}

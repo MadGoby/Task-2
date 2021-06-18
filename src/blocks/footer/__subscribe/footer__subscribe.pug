@@ -1,19 +1,24 @@
 mixin footer__subscribe(settings)
   - let title = ""
   - let text = ""
+  - let action = ""
   - if (settings) {
   -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""  
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("action") ? action = settings.action : action = "./for-change"    
   - }
   .footer__subscribe
     +footer__title({title: title})
     +footer__text({text: text })   
-    +input({
-      attr: {
-        "type": "email",
-        "placeholder": "Email"
-      },
-      length: "m",
-      type: "submit" 
-    })
+    form(action=action)
+      +input()
+        +input__field({
+          attr: {
+            "type": "email",
+            "placeholder": "Email"
+          },
+          length: "m",
+          type: "submit"
+        })
+
     

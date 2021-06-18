@@ -1,0 +1,6 @@
+@import '../../../overall/mixins.scss';
+
+.positive-feature__description {
+  @include text_type($mont, 14px, 400, 24px, $dark75);
+  margin: 0px;
+}

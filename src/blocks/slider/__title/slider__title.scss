@@ -1,5 +1,11 @@
+@import '../../../overall/mixins.scss';
+
 .slider__title {
-  width: 50%;
-  display: inline-block;
-  margin: 0 0 20px;
+  line-height: 15px;
+  @include text_type($mont, 14px, 400, 20px, $dark75);
+  .title {
+    width: 50%;
+    display: inline-block;
+  }
+  margin: 0 0 23px;
 }

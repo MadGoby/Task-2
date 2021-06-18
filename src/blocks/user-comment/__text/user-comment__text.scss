@@ -1,0 +1,8 @@
+@import '../../../overall/mixins.scss';
+
+.user-comment__text {
+  @include text_type($mont, 14px, 400, 24px, $dark75);
+  display: inline-block;
+  margin: 0;
+  max-width: 653px;
+}

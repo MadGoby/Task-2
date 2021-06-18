@@ -3,673 +3,264 @@
     src: "img/888.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "888",
       price: "9 990",
       type: "luxury"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_888",
-            "value": "5",
-            "checked": "checked"
+            name: "rate1",
+            rate: 5
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_888",
-            "value": "4"
-          }
+        +rate-counter({
+          value: "145"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_888",
-            "value": "3"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_888",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_888",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "145"
-      })
 +room-card()
   +room-card__image({
     src: "img/840.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "840",
-      price: "9 990"
+      price: "9 900"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_840",
-            "value": "5"
+            name: "rate2",
+            rate: 4
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_840",
-            "value": "4",
-            "checked": "checked"
-          }
+        +rate-counter({
+          value: "65"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_840",
-            "value": "3"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_840",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_840",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "65"
-      })
 +room-card()
   +room-card__image({
     src: "img/980.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "980",
-      price: "8 500",
-      type: "luxury"
+      price: "8 500"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_980",
-            "value": "5"
+            name: "rate3",
+            rate: 3
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_980",
-            "value": "4"
-          }
+        +rate-counter({
+          value: "35"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_980",
-            "value": "3",
-            "checked": "checked"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_980",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_980",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "35"
-      })
 +room-card()
   +room-card__image({
     src: "img/856.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "856",
       price: "7 300"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_856",
-            "value": "5",
-            "checked": "checked"
+            name: "rate4",
+            rate: 5
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_856",
-            "value": "4"
-          }
+        +rate-counter({
+          value: "19"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_856",
-            "value": "3"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_856",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_856",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "19"
-      })
 +room-card()
   +room-card__image({
     src: "img/740.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "740",
       price: "6 000"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_740",
-            "value": "5"
+            name: "rate5",
+            rate: 4
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_740",
-            "value": "4",
-            "checked": "checked"
-          }
+        +rate-counter({
+          value: "44"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_740",
-            "value": "3"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_740",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_740",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "44"
-      })
 +room-card()
   +room-card__image({
     src: "img/982.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "982",
       price: "5 800"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_982",
-            "value": "5"
+            name: "rate6",
+            rate: 3
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_982",
-            "value": "4"
-          }
+        +rate-counter({
+          value: "56"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_982",
-            "value": "3",
-            "checked": "checked"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_982",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_982",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "56"
-      })
 +room-card()
   +room-card__image({
     src: "img/678.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "678",
       price: "5 500"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_678",
-            "value": "5",
-            "checked": "checked"
+            name: "rate7",
+            rate: 5
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_678",
-            "value": "4"
-          }
+        +rate-counter({
+          value: "45"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_678",
-            "value": "3"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_678",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_678",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "45"
-      })
 +room-card()
   +room-card__image({
     src: "img/450.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "450",
       price: "5 300"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_450",
-            "value": "5"
+            name: "rate8",
+            rate: 4
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_450",
-            "value": "4",
-            "checked": "checked"
-          }
+        +rate-counter({
+          value: "39"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_450",
-            "value": "3"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_450",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_450",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "39"
-      })
 +room-card()
   +room-card__image({
     src: "img/350.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "350",
-      price: "5 300"
+      price: "5 000"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_350",
-            "value": "5"
+            name: "rate9",
+            rate: 3
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_350",
-            "value": "4"
-          }
+        +rate-counter({
+          value: "77"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_350",
-            "value": "3",
-            "checked": "checked"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_350",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_350",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "77"
-      })
 +room-card()
   +room-card__image({
     src: "img/666.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "666",
       price: "5 000"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_666",
-            "value": "5",
-            "checked": "checked"
+            name: "rate10",
+            rate: 5
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_666",
-            "value": "4"
-          }
+        +rate-counter({
+          value: "25"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_666",
-            "value": "3"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_666",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_666",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "25"
-      })
 +room-card()
   +room-card__image({
     src: "img/444.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "444",
       price: "5 000"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_444",
-            "value": "5"
+            name: "rate11",
+            rate: 3
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_444",
-            "value": "4"
-          }
+        +rate-counter({
+          value: "15"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_444",
-            "value": "3",
-            "checked": "checked"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_444",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_444",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "15"
-      })
 +room-card()
   +room-card__image({
     src: "img/352.jpg",
     alt: "Photo of the room"
   })
-  .room-card__room-info
+  +room-card__room-info()
     +room-info({
       number: "352",
       price: "5 000"
     })
-    .room-rate 
-      .toggle__5rate-wrapper
-        +toggle({
+    +room-card__rate()
+      +toggle()
+        +toggle__controller({
           type: "rate",
           attr: {
-            "type": "radio",
-            "name": "rate_352",
-            "value": "5"
+            name: "rate12",
+            rate: 3
           }
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_352",
-            "value": "4"
-          }
+        +rate-counter({
+          value: "55"
         })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_352",
-            "value": "3",
-            "checked": "checked"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_352",
-            "value": "2"
-          }
-        })
-        +toggle({
-          type: "rate",
-          attr: {
-            "type": "radio",
-            "name": "rate_352",
-            "value": "1"
-          }
-        })
-      +rate-counter({
-        value: "55"
-      })
-          
+        

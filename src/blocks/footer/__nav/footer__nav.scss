@@ -1,9 +1,17 @@
 .footer__nav-wrapper {
   display: inline-block;
   vertical-align: top;
+  padding-top: 3px;
+  text-align: initial;
   .footer__nav {
     display: inline-block;
     vertical-align: top;
+    &:first-child {
+      margin-right: 57px;
+    }
+    &:last-child {
+      margin-left: 92px;
+    }
     .footer__nav-link {
       line-height: 18px;
       display: block;
@@ -15,7 +23,7 @@
         line-height: 15px;
       }
       &:not(:last-child) {
-        margin-bottom: 15px;
+        margin-bottom: 21px;
       }
     }
     .footer__nav-link {

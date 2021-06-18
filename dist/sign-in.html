@@ -1,1 +1,119 @@
-<!DOCTYPE html><html><head><title>Sing In</title><meta charset="utf-8"><meta name="description" content="Sing In page of the hotel room website."><meta name="keywords" content="HTML, CSS, JavaScript"><meta name="viewport" content="initial-scale=1.0, width=device-width"><link href="css/sign-in.css" rel="stylesheet"></head><body><header class="login__header"><div class="header-wrapper"><img class="logo" alt="logo" src="img/logo-color.svg"><nav class="nav text_type_simple"><a class="nav__link" href="./for-change">О нас</a><a class="nav__link nav__link_dropdown" href="./for-change">Услуги</a><a class="nav__link" href="./for-change">Вакансии</a><a class="nav__link" href="./for-change">Новости</a><a class="nav__link nav__link_dropdown" href="./for-change">Соглашения</a></nav><div class="header__unauthorized"><div class="header__login"><div class="button__border-mimic"><button class="button text_type_h3 button_type_border" value="войти" type="button">войти</button></div></div><div class="header__registration"><button class="button text_type_h3 button_type_simple" value="зарегистрироваться" type="button">зарегистрироваться</button></div></div></div></header><main class="login__main"> <form class="login" action="for-change"><h2 class="text_type_h1 form-title">Войти</h2><div class="login__inputs"><input class="input input_length_long input_type_simple " type="email" placeholder="Email"><input class="input input_length_long input_type_simple " type="password" placeholder="Пароль"></div><div class="login__login-button"><button class="button text_type_h3 button_type_big" value="войти" type="submit">войти</button></div><div class="login__registration-button"><p class="text_type_simple login__registration-text">Нет аккаунта на Toxin?</p><div class="button__border-mimic"><button class="button text_type_h3 button_type_border" value="создать" type="button">создать</button></div></div></form></main><footer class="login__footer"> <div class="footer-wrapper"><div class="footer__logo"><img class="logo" alt="logo" src="img/logo-color.svg"><p class="text_type_simple footer__logo-description">Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»</p></div><div class="footer__nav-wrapper"><div class="footer__nav"><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">навигация</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">О нас</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Новости</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Служба поддержки</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Услуги</a></div></div><div class="footer__nav"><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">о нас</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">О сервисе</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Наша команда</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Вакансии</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Инвесторы</a></div></div><div class="footer__nav"><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Служба поддержки</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Соглашения</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Сообщества</a></div><div class="footer__nav-link-wrapper"><a class="text_type_simple footer__nav-link" href="./for-change">Связь с нами</a></div></div></div><div class="footer__subscribe"><p class="text_type_h3 footer__subscribe-title">Подписка</p><p class="text_type_simple footer__subscribe-text">Получайте специальные предложения и новости сервиса</p><div class="input-wrapper_type_submit"><input class="input input_length_middle input_type_submit " type="email" placeholder="Email"><button class="input__submit-button" type="submit"></button></div></div></div><div class="copyright"><p class="text_type_simple copyright__text">Copyright © 2018 Toxin отель. Все права защищены.</p><div class="social-networks"><a class="social-networks__link social-networks__twitter" target="_blank" rel="noopener noreferrer" href="./for-change"><img class="social-networks__icon" src="img/twitter.svg"></a><a class="social-networks__link social-networks__facebook" target="_blank" rel="noopener noreferrer" href="./for-change"><img class="social-networks__icon" src="img/facebook.svg"></a><a class="social-networks__link social-networks__instagram" target="_blank" rel="noopener noreferrer" href="./for-change"><img class="social-networks__icon" src="img/instagram.svg"></a></div></div></footer><script src="js/sign-in.js"></script></body></html>
+<head><link href="css/sign-in.css" rel="stylesheet"></head>Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module build failed (from ../node_modules/pug-loader/index.js):
+  Error: Can't resolve './blocks/content-nav/content-nav.pug' in 'C:\Users\stasf\Desktop\Front\Task2\Tas  k2\src'
+  
+  - Resolver.js:209 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:209:21
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - UnsafeCachePlugin.js:44 
+    [Task2]/[enhanced-resolve]/lib/UnsafeCachePlugin.js:44:7
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DescriptionFilePlugin.js:67 
+    [Task2]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - RootPlugin.js:37 
+    [Task2]/[enhanced-resolve]/lib/RootPlugin.js:37:38
+  
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DescriptionFilePlugin.js:67 
+    [Task2]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DirectoryExistsPlugin.js:27 
+    [Task2]/[enhanced-resolve]/lib/DirectoryExistsPlugin.js:27:15
+  
+  - CachedInputFileSystem.js:85 
+    [Task2]/[enhanced-resolve]/lib/CachedInputFileSystem.js:85:15
+  
+  
+  - Error: Can't resolve './blocks/content-nav/content-nav.pug' in 'C:\Users\stasf\Desktop\Front\Task2\T    ask2\src'
+  
+  - ModuleBuildError: Module build failed (from ../node_modules/pug-loader/index.js):
+  
+  - Error: Can't resolve './blocks/content-nav/content-nav.pug' in 'C:\Users\stasf\Desktop\Front\Task2\T    ask2\src'
+  
+  - Resolver.js:209 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:209:21
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - UnsafeCachePlugin.js:44 
+    [Task2]/[enhanced-resolve]/lib/UnsafeCachePlugin.js:44:7
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DescriptionFilePlugin.js:67 
+    [Task2]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - RootPlugin.js:37 
+    [Task2]/[enhanced-resolve]/lib/RootPlugin.js:37:38
+  
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DescriptionFilePlugin.js:67 
+    [Task2]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - Resolver.js:285 
+    [Task2]/[enhanced-resolve]/lib/Resolver.js:285:5
+  
+  
+  - DirectoryExistsPlugin.js:27 
+    [Task2]/[enhanced-resolve]/lib/DirectoryExistsPlugin.js:27:15
+  
+  - CachedInputFileSystem.js:85 
+    [Task2]/[enhanced-resolve]/lib/CachedInputFileSystem.js:85:15
+  
+  - task_queues.js:77 processTicksAndRejections
+    internal/process/task_queues.js:77:11
+  
+</pre><script src="js/sign-in.js"></script>

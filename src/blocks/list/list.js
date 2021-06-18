@@ -17,12 +17,12 @@ function listFunctionality(settings) {
   function discloseList(event) {
     if(list.hasAttribute("hidden")) {
       list.removeAttribute("hidden");
-      title.classList.remove("list__title_type_arrow-down");
-      title.classList.add("list__title_type_arrow-up");
+      title.classList.remove("title_closed");
+      title.classList.add("title_expanded");
     } else {
       list.setAttribute("hidden", "hidden");
-      title.classList.remove("list__title_type_arrow-up");
-      title.classList.add("list__title_type_arrow-down");
+      title.classList.remove("title_expanded");
+      title.classList.add("title_closed");
     };
   };
   

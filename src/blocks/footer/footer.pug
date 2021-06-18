@@ -3,11 +3,14 @@ include __nav/footer__nav.pug
 include __subscribe/footer__subscribe.pug
 include __text/footer__text.pug
 include __title/footer__title.pug
+include __social-media/footer__social-media.pug
 include ../social-media-link/social-media-link.pug
+
 mixin footer(settings)
-  - let type = "footer__wrapper"
+  - let type = ""
   - if (settings) {
-  -  settings.hasOwnProperty("type") ? type = `footer__wrapper_type_${settings.type}` : type="footer__wrapper"
+  -  settings.hasOwnProperty("type") ? type = `footer_type_${settings.type}` : type=""
   - }
-  div(class=type)
-    block
+  div(class="footer" class=type)
+    .footer__wrapper
+      block

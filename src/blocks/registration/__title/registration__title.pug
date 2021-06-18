@@ -1,0 +1,10 @@
+mixin registration__title(settings)
+  - let text = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - }
+  .registration__title
+    +title({
+      text: text,
+      type: "big"
+    })

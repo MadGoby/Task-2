@@ -2,7 +2,7 @@
   margin-top: 10px;
 }
 .final-booking__service {
-  .final-booking__service-title-wrapper {
+  .final-booking__service-wrapper {
     display: inline-block;
     width: 239px;
     position: relative;
@@ -18,7 +18,7 @@
     text-align: right;
     vertical-align: top;
   }
-  .final-booking__service-title_clarification-sign {
+  .final-booking__service-title_with-sign {
     &::after {
       content: 'i';
       font-size: 12px;
@@ -38,7 +38,7 @@
 }
 .final-booking__service_total {
   margin-top: 30px;
-  .final-booking__service-title-wrapper {
+  .final-booking__service-wrapper {
     display: inline-block;
     max-width: 60px;
     .final-booking__service-title {

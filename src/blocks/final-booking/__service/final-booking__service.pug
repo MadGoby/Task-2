@@ -10,6 +10,6 @@ mixin final-booking__service(settings)
   -   settings.hasOwnProperty("modifier") ? modifier = `final-booking__service-title_${settings.modifier}` : modifier = ""
   - };
   li(class=type)
-    .final-booking__service-title-wrapper
-      span(class="final-booking__service-title text_type_simple" class=modifier)=title
-    span.final-booking__service-price.text_type_simple=price
+    .final-booking__service-wrapper
+      span(class="final-booking__service-title" class=modifier)=title
+    span.final-booking__service-price=price

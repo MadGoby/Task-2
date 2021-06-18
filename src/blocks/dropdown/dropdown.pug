@@ -1,16 +1,13 @@
-include __list-body/dropdown__list-body.pug
+include __list/dropdown__list.pug
 include __list-element/dropdown__list-element.pug
 include __text/dropdown__text.pug
 include __calc/dropdown__calc.pug
 include __output/dropdown__output.pug
 include __button/dropdown__button.pug
+include __input/dropdown__input.pug
+include __control/dropdown__control.pug
+include __submit-buttons/dropdown__submit-buttons.pug
 
 mixin dropdown(settings)
-  - let jsClass = ""
-  - let attr = ""
-  - if(settings) {
-  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
-  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
-  - }
-  div(class="dropdown" class=jsClass)&attributes(attr)
+  div.dropdown
     block

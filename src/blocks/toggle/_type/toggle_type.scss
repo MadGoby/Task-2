@@ -1,44 +1,13 @@
-.toggle__label_type_checkbox {
-  line-height: 18px;
-  .toggle_type_checkbox:checked + .toggle__mimic_type_checkbox {
-    content: url(img/check-arrow.jpg);
-    padding: 3px 4px 5px;
-    border-color: $purple;
-  }
-  .toggle__mimic_type_checkbox {
+.toggle__mimic {
+  &_type_checkbox {
     width: 20px;
     border-radius: 4px;
   }
-  .toggle__text {
-    max-width: 192px;
-  }
-}
-.toggle__label_type_radio {
-  .toggle_type_radio:checked + .toggle__mimic_type_radio {
-    padding: 3px;
-    border-color: $purple;
-    &::before {
-      content: '';
-      display: block;
-      width: 12px; height: 12px;
-      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-      border-radius: 50%;
-    }
-  }
-  .toggle__mimic_type_radio{
+  &_type_radio {
     width: 20px;
     border-radius: 50%;
   }
-}
-.toggle__label_type_toggle {
-  .toggle_type_toggle:checked + .toggle__mimic_type_toggle {
-    border-color: $purple;
-    &::before {
-      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-      float: right;
-    }
-  }
-  .toggle__mimic_type_toggle {
+  &_type_toggle {
     width: 40px;
     border-radius: 10px;
     padding: 3px;
@@ -50,61 +19,80 @@
       border-radius: 50%;
     }
   }
-}
-.toggle__label_type_like {
-  .toggle_type_like:checked + .toggle__mimic_type_like {
-    border-color: $purple;
-    .toggle__text_type_like {
-      color: $purple;
-    }
-    &::before {
-      background-image: url('img/favorite.jpg');;
-    }
-  }
-  .toggle__mimic_type_like {
+  &_type_like {
     min-width: 40px;
-    box-sizing: border-box;
     border-radius: 10px;
-    padding: 0 4px;
-    
+    & .toggle__text {
+      font-size: 10px;
+      line-height: 18px;
+      color: $dark25;
+      vertical-align: top;
+      margin: 0;
+      padding-right: 5px;
+    } 
     &::before {
       content: '';
-      background-image: url('img/favorite-border.jpg');
+      background-image: url('img/favorite-border.svg');
       background-repeat: no-repeat;
-      background-position-y: 5px;
-      height: 18px;
-      width: 10px;
+      background-position-y: center;
+      background-position-x: center;
       display: inline-block;
-    }
-    .toggle__text_type_like {
-      color: $dark25;
-      font-size: 10px;
-      line-height: 12px;
-      padding-top: 3px;
-      margin-left: 7px;
+      height: 18px;
+      width: 21px
     }
   }
 }
-.toggle_type_rate {
-  height: 19px;
-  width: 19px;
-  margin: 0 5px 0 0;
-  float: right;
-  &::before {
-    content: '';
-    background-image: url('img/star-border.jpg');
-    background-repeat: no-repeat;
-    display: inline-block;
-    height: 19px;
+
+.toggle__controller {
+  &_type_checkbox:checked + .toggle__mimic_type_checkbox {
+    content: url('img/check-arrow.jpg');
+    padding: 3px 4px 5px;
+    border-color: $purple;
+  }
+  &_type_radio:checked + .toggle__mimic_type_radio {
+    padding: 3px;
+    border-color: $purple;
+    &::before {
+      content: '';
+      display: block;
+      width: 12px; height: 12px;
+      background: linear-gradient(180deg, $purple 0%, #8BA4F9 100%);
+      border-radius: 50%;
+    }
+  }
+  &_type_toggle:checked + .toggle__mimic_type_toggle {
+    border-color: $purple;
+    &::before {
+      float: right;
+      background: linear-gradient(180deg, $purple 0%, #8BA4F9 100%);
+    }
+  }
+  &_type_like:checked + .toggle__mimic_type_like {
+    border-color: $purple;
+    &::before {
+      background-image: url('img/favorite.svg');
+    }
+    & .toggle__text {
+      color: $purple;
+    } 
+  }
+  &_type_rate {
+    float: right;
+    margin: 0;
     width: 19px;
-  }
-  &:hover::before {
-    transform: scale(1.2, 1.2);
-  }
-  &:hover::before, &:hover ~ &::before {
-    background: url('img/star.jpg');
-  }
-  &:checked:before, &:checked ~ &::before {
-    background: url('img/star.jpg');
+    height: 19px;
+    margin-right: 5px;
+    &::before {
+      content: '';
+      width: 19px; height: 19px;
+      background-image: url('img/star-border.jpg');
+      display: inline-block;
+      margin-right: 4px;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+    &:checked::before, &:checked ~ &::before {
+      background-image: url('img/star.jpg');
+    }
   }
 }

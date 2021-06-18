@@ -1,10 +1,8 @@
 @import '__title/list__title.scss';
 @import '__item/list__item.scss';
 @import '__text/list__text.scss';
+@import '__container/list__container.scss';
 @import '_type/list_type.scss';
+@import '_bullet/list__item_bullet.scss';
+@import '_bullet/list__title_bullet.scss';
 
-.list {
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
-}

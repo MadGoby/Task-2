@@ -1,7 +1,7 @@
 mixin list__item(settings)
-  - let mark = ""
+  - let type = ""
   - if(settings) {
-  -   settings.hasOwnProperty("mark") ? mark=`list__item_mark_${settings.mark}` : mark=""
+  -  settings.hasOwnProperty("type") ? type=`list__item_${settings.type}` : type=""
   - }
-  li(class="list__item" class=mark)
+  li(class="list__item" class=type)
     block

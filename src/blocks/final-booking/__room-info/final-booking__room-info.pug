@@ -1,0 +1,15 @@
+mixin final-booking__room-info(settings)
+  - let number = ""
+  - let price = ""
+  - let type = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("number") ? number = settings.number : number = ""
+  -   settings.hasOwnProperty("price") ? price = settings.price : price = ""
+  -   settings.hasOwnProperty("type") ? type = settings.type : type = "simple"
+  - }
+  .final-booking__room-info
+    +room-info({
+      number: number,
+      price: price,
+      type: type
+    })

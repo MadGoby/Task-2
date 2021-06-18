@@ -1,0 +1,6 @@
+mixin login__text(settings)
+  - let text = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - };
+  p.login__text=text

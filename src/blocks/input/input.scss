@@ -1,7 +1,11 @@
-@import '__label/input__label.scss';
+@import '__wrapper/input__wrapper.scss';
 @import '__field/input__field.scss';
 @import '__state/input__state.scss';
 @import '__title/input__title.scss';
+@import '_length/input__field_length.scss';
+@import '_type/input__field_type.scss';
+@import '_type/input__wrapper_type.scss';
+@import '_with-state/input__title_with-state.scss';
 @import '../../overall/mixins.scss';
 
 .input {

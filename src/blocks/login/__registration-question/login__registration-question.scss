@@ -1,8 +1,0 @@
-@import '../../../overall/mixins.scss';
-.login__registration-question {
-  @include text_type($mont, 14px, 400, 18px, rgba(0, 0, 0, 1));
-  display: inline-block;
-  margin: 0px;
-  height: 44px;
-  line-height: 44px;
-}

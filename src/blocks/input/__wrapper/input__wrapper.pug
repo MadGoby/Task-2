@@ -1,0 +1,7 @@
+mixin input__wrapper(settings)
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("type") ? type = `input__wrapper_type_${settings.type}` : type = ""
+  - }
+  label(class=`input__wrapper ${type}`)
+    block

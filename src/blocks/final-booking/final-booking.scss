@@ -1,5 +1,6 @@
 @import '__service-list/final-booking__service-list.scss';
 @import '__service/final-booking__service.scss';
+@import '__period/final-booking__period.scss';
 
 .final-booking {
   padding: 40px 29px  30px 30px;
@@ -9,25 +10,19 @@
   border-radius: 4px;
   max-width: 380px;
   box-sizing: border-box;
-  .room-info {
-    margin-bottom: 13px;
+  &__room-info {
+    margin-bottom: 23px;
   }
-  .final-booking__guests-number {
+  &__period {
     margin-bottom: 20px;
   }
-  .final-booking__double-input{
-    margin-bottom: 16px;
+  &__guests {
+    margin-bottom: 20px;
   }
-  .final-booking__double-input {
-    .input__wrapper {
-      display: inline-block;
-      width: 150px;
-      &:last-child {
-        margin-left: 18px;
-      }
-    }
+  &__service-list {
+    margin-bottom: 20px;
   }
-  .final-booking__submit-button {
+  &__submit-button {
     margin-top: 20px;
   }
 }

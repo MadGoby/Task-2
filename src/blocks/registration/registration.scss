@@ -1,3 +1,7 @@
+@import '__gender/registration__gender.scss';
+@import '__text/registration__text.scss';
+@import '__login/registration__login.scss';
+
 .registration {
   padding: 40px 30px 30px;
   background-color: white;
@@ -6,49 +10,30 @@
   border-radius: 4px;
   max-width: 380px;
   box-sizing: border-box;
-  .form-title {
+  &__title {
     margin-bottom: 20px;
   }
-  .registration__personal-data {
-    margin-bottom: 10px;
-    .input:last-child {
-      margin-top: 10px;
+  &__personal-data {
+    margin-bottom: 24px;
+    .input {
+      margin-bottom: 10px;
     }
   }
-  .registration__gender {
-    margin-bottom: 17px;
-    .toggle__label {
-      display: inline-block;
-      &:last-child {
-        margin-left: 20px;
-      }
-    }
-  }
-  .registration__birthday {
-    margin-bottom: 17px;
-  }
-  .registration__login-data {
-    margin-bottom: 10px;
-    .input:last-child {
-      margin-top: 10px;
-    }
-  }
-  .registration__special-toggle {
+  &__birthday {
     margin-bottom: 20px;
   }
-  .registration__login-button {
-    margin-top: 30px;
-    .registration__login-text {
-      margin: 0px;
-      display: inline-block;
-      height: 44px;
-      line-height: 44px;
+  &__login-data {
+    margin-bottom: 24px;
+    input {
+      margin-bottom: 10px;
     }
-    .button__border-mimic {
-      width: 99px;
-      height: 44px;
-      display: inline-block;
-      float: right;
+  }
+  &__confirm-button {
+    margin-bottom: 30px;
+  }
+  &__gender {
+    .toggle__wrapper:first-child {
+      margin-right: 20px;
     }
   }
 }

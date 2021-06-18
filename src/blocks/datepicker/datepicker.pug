@@ -9,9 +9,9 @@ mixin datepicker(settings)
   - }
   div(class="datepicker" class=mainJsClass)&attributes(attr)
     button(class="datepicker__scroll-button datepicker__scroll-button_left js-datepicker__scroll-button_left" type="button")
-    p(class="text_type_h2 datepicker__selected-month js-datepicker__selected-month")
+    p(class="datepicker__selected-month js-datepicker__selected-month")
     button(class="datepicker__scroll-button datepicker__scroll-button_right js-datepicker__scroll-button_right" type="button")
-    table(class="calendar js-calendar text_type_simple")
+    table(class="calendar js-calendar")
       tr(class="calendar__line")
         th(class="calendar__cell calendar__week-day")= "Пн"
         th(class="calendar__cell calendar__week-day")= "Вт"

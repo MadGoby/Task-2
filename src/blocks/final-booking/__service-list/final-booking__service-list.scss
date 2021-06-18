@@ -1,4 +1,7 @@
+@import './../../../overall/mixins.scss';
+
 .final-booking__service-list {
+  @include text_type($mont, 14px, 400, 24px, $dark75);
   list-style: none;
   margin: 0;
   padding: 0 0 0 1px;

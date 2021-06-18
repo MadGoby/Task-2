@@ -1,0 +1,6 @@
+mixin content-nav__counter(settings)
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
+  - }
+  p.content-nav__counter=text

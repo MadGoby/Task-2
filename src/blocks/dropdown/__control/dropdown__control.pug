@@ -1,0 +1,9 @@
+mixin dropdown__control(settings)
+  - let jsClass = ""
+  - let attr = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
+  - }
+  div(class="dropdown__control" class=`${jsClass}`)&attributes(attr)
+    block

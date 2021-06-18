@@ -5,8 +5,9 @@
 @import '../../blocks/dropdown/dropdown.scss';
 @import '../../blocks/list/list.scss';
 @import '../../blocks/positive-feature/positive-feature.scss';
-@import '../../blocks/comment/comment.scss';
+@import '../../blocks/user-comment/user-comment.scss';
 @import '../../blocks/title/title.scss';
+@import '../../blocks/content-nav/content-nav.scss';
 
 .form-elements {
   width: 1440px;
@@ -14,172 +15,171 @@
   position: relative;
   box-sizing: border-box;
   margin: auto;
-  .form-elements__content {
-    .form-elements__inputs, .form-elements__toggles, .buttons {
-      display: inline-block;
-      vertical-align: top;
-    }
-    .form-elements__toggles {
-      margin-left: 126px;
-    }
-    .buttons {
-      margin-left: 132px;
-    }
-    .dropdowns {
-      margin-top: 100px;
-    }
-    .lists {
-      margin-top: 55px;
-    }
-    .form-elements__input-wrapper {
-      max-width: 320px;
-    }
-    .form-elements__toggle-wrapper {
-      max-width: 260px;
-    }
-    .slider__wrapper {
-      width: 266px;
-      margin-bottom: 40px;
-    }
-    .buttons__wrapper {
-      max-width: 320px;
-      margin-bottom: 40px;
-    }
-    .dropdown__wrapper {
-      max-width: 320px;
-      display: inline-block;
-      vertical-align: top;
-      &:first-child {
-        width: 266px;
-        margin-right: 181px;
-        .input__dropdown-label:first-of-type {
-          margin-bottom: 20px;
-        }
-      }
-      &:last-child {
-        margin-left: 72px;
-      }
-    }
-    .list__wrapper {
-      display: inline-block;
-      vertical-align: top;
-      &:nth-child(2) {
-        .list__item:not(:last-child) {
-          margin-bottom: 11px;
-        }
-        .list__item:last-child {
-          .toggle__text_type_rich {
-            max-width: 100%;
-          }
-          .toggle__text_type_little {
-            max-width: 230px;
-          }
-        }
-      }
-      &:first-child {
-        width: 266px;
-        margin-right: 181px;
-        .list__title:first-of-type {
-          margin-bottom: 50px;
-        }
-        .list__item {
-          &:not(:last-child) {
-            margin-bottom: 10px;
-          }
-        }
-      }
-      &:last-child {
-        margin-left: 132px;
-        max-width: 270px;
-        .list__item:not(:last-child) {
-          margin-bottom: 10px;
-        }
-      }
-    }
-    .text-button__wrapper {
-      display: inline-block;
-      width: 85px;
-      margin-bottom: 30px;
-    }
-    .button__wrapper {
-      height: 44px;
-      width: 101px;
-      display: inline-block;
-      &:last-child {
-        width: 320px;
-      }
-      &:not(:last-child) {
-        margin-right: 20px;
-        margin-bottom: 30px;
-      }
-    }
-    .form-elements__inputs {
-      .form-elements__input-wrapper:not(:last-child) {
+  &__input-types, &__toggle-types, &__button-types {
+    display: inline-block;
+    vertical-align: top;
+  }
+  &__input-types {
+    min-width: 320px;
+    .form-elements {
+      &__text-input {
         margin-bottom: 20px;
       }
-      .form-elements__input-wrapper:last-child {
-        margin-top: 42px;
+      &__dropdown {
+        margin-bottom: 20px;
       }
-      .form-elements__double-input .form-elements__input-wrapper {
-        margin-bottom: 0px;
-        margin-top: 0px;
+      &__masked-input {
+        margin-bottom: 40px;
       }
-      .form-elements__double-input .form-elements__input-wrapper:last-child {
-        margin-left: 20px;
-      }
-      .form-elements__double-input {
-        margin: 41px 0 ;
-      }
-      .form-elements__double-input .form-elements__input-wrapper {
-        max-width: 150px;
-        display: inline-block;
-        & .title {
-          width: 100%;
-        }
-      }
-    }
-    .form-elements__toggles {
-      .form-elements__toggle-wrapper {
-        .toggle__label_type_radio {
+      &__date-dropdowns {
+        margin-bottom: 40px;
+        .form-elements__input-wrapper {
           display: inline-block;
-          &:first-of-type {
+          &:not(:last-child) {
             margin-right: 20px;
           }
         }
-        .toggle__label_type_toggle {
-          &:first-of-type {
-            margin-bottom: 10px;
-          }
-        }
-        .toggle__label_type_checkbox:not(:last-child) {
-          margin-bottom: 10px;
-        }
-        .toggle__label_type_like:not(:last-child) {
-          margin-right: 10px;
-        }
-        .toggle__label_type_like {
-          display: inline-block;
-        }
       }
-      .form-elements__toggle-wrapper:not(:last-child) {
+      &__filter-dropdown {
         margin-bottom: 40px;
       }
-      .toggle__5rate-wrapper:not(:last-child) {
-        margin-right: 20px;
+    }
+  }
+  &__toggle-types {
+    max-width: 260px;
+    margin-left: 126px;
+    .form-elements {
+      &__checkboxes {
+        margin-bottom: 40px;
+        .title {
+          margin-bottom: 16px;
+        }
+        .toggle {
+          margin-bottom: 10px;
+          &__text {
+            max-width: 192px;
+          }
+        }
+      }
+      &__radios {
+        margin-bottom: 40px;
+        .title {
+          margin-bottom: 16px;
+        }
+        .toggle__wrapper {
+          margin-right: 20px;
+        }
+      }
+      &__toggles {
+        margin-bottom: 44px;
+        .title {
+          margin-bottom: 16px;
+        }
+        .toggle:not(:last-child) {
+          margin-bottom: 14px;
+        }
+      }
+      &__likes {
+        margin-bottom: 40px;
+        .title {
+          margin-bottom: 16px;
+        }
+        .toggle {
+          display: inline-block;
+        }
+        .toggle:not(:last-child) {
+          margin-right: 10px;
+        } 
+      }
+      &__rates {
+        .title {
+          margin-bottom: 16px;
+        }
+        .toggle{
+          display: inline-block;
+          &:not(:last-child) {
+            margin-right: 20px;
+          }
+        }
       }
     }
-    .additions {
-      margin-top: 80px;
-      .addition__wrapper {
+  }
+  &__button-types {
+    margin-left: 132px;
+    width: 320px;
+    .form-elements {
+      &__slider {
+        margin-bottom: 44px;
+        max-width: 266px;
+      }
+      &__buttons {
+        .title {
+          margin-bottom: 16px;
+        }
+      }
+      &__simple-buttons, &__border-buttons, &__text-buttons {
+        margin-bottom: 30px;
+        .button:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+      &__big-button {
+        margin-bottom: 40px;
+      }
+    }
+  }
+  &__dropdown-types {
+    margin-top: 100px;
+    .form-elements {
+      &__fittings-dropdown {
+        display: inline-block;
+        margin-right: 181px;
+      }
+      &__closed-dropdown {
+        margin-bottom: 20px;
+      }
+      &__guests-dropdown {
         display: inline-block;
         vertical-align: top;
-        &:first-child {
-          max-width: 280px;
-          margin-right: 167px;
-        }
         &:last-child {
-          max-width: 720px;
+          margin-left: 72px;
         }
+      }
+    }
+  }
+  &__list-types {
+    margin-top: 54px;
+    .form-elements {
+      &__expandable-lists {
+        max-width: 266px;
+        display: inline-block;
+      }
+      &__closed-list {
+        margin-bottom: 49px;
+      }
+      &__rich-list {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 180px;
+      }
+      &__bullet-list {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 132px;
+      }
+    }
+  }
+  &__additions {
+    margin-top: 100px;
+    .form-elements {
+      &__positive-features {
+        max-width: 280px;
+        display: inline-block;
+      }
+      &__user-comment {
+        margin-left: 156px;
+        display: inline-block;
+        vertical-align: top;
       }
     }
   }

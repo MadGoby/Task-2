@@ -1,0 +1,11 @@
+mixin dropdown__input(settings)
+  - let expanded = false
+  - if(settings && settings.hasOwnProperty("expanded")) {
+  -   settings.expanded ? expanded = true : expanded = false
+  - }
+  if expanded
+    div.dropdown__input.dropdown__input_expanded
+      block
+  else
+    div.dropdown__input
+      block

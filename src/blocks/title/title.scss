@@ -1,8 +1,13 @@
 @import '../../overall/mixins.scss';
+
 .title {
   @include text_type($mont, 12px, 700, 15px, $dark100);
   text-transform: uppercase;
-  display: inline-block;
   margin: 0;
   vertical-align: bottom;
+  user-select: none;
 }
+
+@import '_expanded/title_expanded.scss';
+@import '_big/title_big.scss';
+@import '_middle/title_middle.scss';

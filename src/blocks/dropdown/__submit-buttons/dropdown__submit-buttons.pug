@@ -1,0 +1,25 @@
+mixin dropdown__submit-buttons(settings)
+  - let clearHidden = false
+  - if(settings) {
+  -   if(settings.hasOwnProperty("hidden")) {
+  -     settings.hidden === true ? hidden="hidden" : hidden=false
+  -   } 
+  - }
+  .dropdown__submit-buttons
+    +button({
+      type: "text",
+      text: "очистить",
+      attr: {
+        "type": "button",
+        "data-target": "clear",
+        "hidden": hidden
+      }
+    }) 
+    +button({
+      type: "text",
+      text: "применить",
+      attr: {
+        "type": "button",
+        "data-target": "submit",
+      }
+    }) 

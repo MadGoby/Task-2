@@ -1,8 +1,29 @@
 mixin list__title(settings)
   - let jsCLass = ""
+  - let text = ""
   - let type = ""
+  - let bullet = false
+  - let teg = "p"
   - if(settings) {
-  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
-  -   settings.hasOwnProperty("type") ? type=`list__title_type_${settings.type}` : type=""
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("text") ? text = settings.text : text=""
+  -   settings.hasOwnProperty("type") ? type = settings.type : type=""
+  -   settings.hasOwnProperty("bullet") && settings.bullet === true ? bullet = true : bullet = false
+  -   settings.hasOwnProperty("teg") ? teg = settings.teg : teg = "p"
   - }
-  p(class="list__title text_type_h3" class=`${jsClass} ${type}`)= settings.text
+  if bullet 
+    div(class="list__title list__title_bullet")
+      +title({
+        text: text,
+        type: type,
+        jsClass: jsClass,
+        teg: teg
+      })
+  else 
+    div(class="list__title")
+      +title({
+        text: text,
+        type: type,
+        jsClass: jsClass,
+        teg: teg
+      })

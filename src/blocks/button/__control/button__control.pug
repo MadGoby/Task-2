@@ -1,0 +1,16 @@
+mixin button__control(settings)
+  - let attr = ""
+  - let type = ""
+  - let text = ""
+  - let jsClass = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr=""
+  -   settings.hasOwnProperty("text") ? text = settings.text : text=""
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("type") ? type = `button__control_type_${settings.type}` : attr=""
+  - }
+  if type == "button__control_type_border"
+    div.button__border-mimic
+      button(class="button__control"  class=jsClass, class=type, value=text)&attributes(attr)= text
+  else
+    button(class="button__control" class=jsClass, class=type, value=text)&attributes(attr)= text

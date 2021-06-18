@@ -1,2 +1,13 @@
 mixin toggle__title(settings)
-  p.toggle__title.text_type_h3= settings.text
+  - let titleText = ""
+  - let titleType = ""
+  - if (settings) {
+  -  settings.hasOwnProperty("text") ? titleText  = settings.text : titleText="";
+  -  settings.hasOwnProperty("text") ? titleType  = settings.type : titleType = "";
+  - };
+  if titleType == true 
+    div.toggle__title
+      +title({text: titleText, type: titleType})
+  else 
+    div.toggle__title
+      +title({text: titleText})

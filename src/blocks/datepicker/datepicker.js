@@ -81,7 +81,6 @@ function datepicerFunctionality(settings) {
       currentDay = new Date()
     };
   };
-
   setsStandardSettings();
   
   function makesCalendarByDate(data) {
@@ -248,7 +247,7 @@ function datepicerFunctionality(settings) {
   };
 
   function applyButtonClick() {
-    datepickerBody.setAttribute("hidden", "hidden");
+    if(inputFrom || inputTo) datepickerBody.setAttribute("hidden", "hidden");
   };
   
   function inputClick(event) {

@@ -1,0 +1,6 @@
+mixin registration__text(settings)
+  - let text = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - };
+  p.registration__text=text

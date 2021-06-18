@@ -1,9 +1,19 @@
+@import '../../../overall/mixins.scss';
+
 .header__authorized {
+  @include text_type($mont, 14px, 400, 40px, $dark50);
   display: inline-block;
   margin: 0px;
-  color: $dark50;
-  line-height: 30px;
-  padding-left: 20px;
-  border-left: 1px solid $dark10;
-  margin-left: 20px;
+  
+  &::before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    line-height: 40px;
+    background-color: $dark10;
+    display: inline-block;
+    margin: 0 20px;
+    vertical-align: top;
+    padding: 5px 0;
+  }
 }
