@@ -6,6 +6,7 @@
 @import '../../blocks/datepicker/datepicker.scss';
 @import '../../blocks/room-card/room-card.scss';
 @import '../../blocks/rate-counter/rate-counter.scss';
+@import '../../blocks/dropdown/dropdown.scss';
 
 .cards {
   width: 1440px;
@@ -30,6 +31,7 @@
   }
   &__datepicker {
     margin-bottom: 40px;
+    min-height: 387px;
   }
   &__room:last-child {
     margin-top: 40px;

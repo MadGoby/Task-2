@@ -11,7 +11,7 @@
 
 .form-elements {
   width: 1440px;
-  padding: 140px  140px 130px;
+  padding: 140px 0px 130px 140px;
   position: relative;
   box-sizing: border-box;
   margin: auto;
@@ -33,9 +33,9 @@
       }
       &__date-dropdowns {
         margin-bottom: 40px;
-        .form-elements__input-wrapper {
+        .input {
           display: inline-block;
-          &:not(:last-child) {
+          &:first-of-type {
             margin-right: 20px;
           }
         }
@@ -106,13 +106,13 @@
   }
   &__button-types {
     margin-left: 132px;
-    width: 320px;
     .form-elements {
       &__slider {
         margin-bottom: 44px;
         max-width: 266px;
       }
       &__buttons {
+        width: 320px;
         .title {
           margin-bottom: 16px;
         }
@@ -130,6 +130,7 @@
   }
   &__dropdown-types {
     margin-top: 100px;
+    min-height: 272px;
     .form-elements {
       &__fittings-dropdown {
         display: inline-block;
@@ -137,6 +138,9 @@
       }
       &__closed-dropdown {
         margin-bottom: 20px;
+        .dropdown__control {
+          z-index: 3;
+        }
       }
       &__guests-dropdown {
         display: inline-block;
@@ -149,9 +153,10 @@
   }
   &__list-types {
     margin-top: 54px;
+    min-height: 267px;
     .form-elements {
       &__expandable-lists {
-        max-width: 266px;
+        width: 266px;
         display: inline-block;
       }
       &__closed-list {

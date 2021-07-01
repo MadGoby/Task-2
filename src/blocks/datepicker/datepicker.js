@@ -1,10 +1,11 @@
-function datepicerFunctionality(settings) {
-  const {targetClass, inputFromClass, inputToClass, defaultSettings} = settings;
+function datepickerFunctionality(settings) {
+  const {targetClass, inputFromClass, inputToClass, inputTotalClass, defaultSettings} = settings;
   
   function elementsInitialization() {
     let datepickerBody = document.querySelector(targetClass);
     let inputFrom = document.querySelector(inputFromClass);
     let inputTo = document.querySelector(inputToClass);
+    let inputTotal = document.querySelector(inputTotalClass);
     let buttonPrevious = datepickerBody.querySelector(".js-datepicker__scroll-button_left");
     let buttonNext = datepickerBody.querySelector(".js-datepicker__scroll-button_right");
     let selectedMonth = datepickerBody.querySelector(".js-datepicker__selected-month");
@@ -22,6 +23,7 @@ function datepicerFunctionality(settings) {
       datepickerBody,
       inputFrom,
       inputTo,
+      inputTotal,
       buttonPrevious,
       buttonNext,
       selectedMonth,
@@ -43,6 +45,7 @@ function datepicerFunctionality(settings) {
     datepickerBody,
     inputFrom,
     inputTo,
+    inputTotal,
     buttonPrevious,
     buttonNext,
     selectedMonth,
@@ -58,15 +61,16 @@ function datepicerFunctionality(settings) {
     "Июль", "Август", "Сентябрь",
     "Октябрь", "Ноябрь", "Декабрь"
   ];
-  
+
   let currentInputTarget;
+  let currentValueTarget = "from";
+  inputTotal ? currentInputTarget = inputTotal : currentInputTarget = inputFrom;
 
   let pickedYear;
   let pickedMonth;
   let currentDay;
   let from;
   let to;
-
 
   function setsStandardSettings() {
     if (defaultSettings) {
@@ -75,6 +79,7 @@ function datepicerFunctionality(settings) {
       defaultSettings.hasOwnProperty("currentDay") ? currentDay = defaultSettings.currentDay : false;
       defaultSettings.hasOwnProperty("from") ? from = defaultSettings.from : false;
       defaultSettings.hasOwnProperty("to") ? to = defaultSettings.to : false;
+      defaultSettings.hasOwnProperty("total") ? total = defaultSettings.total : false;
     } else {
       pickedYear = new Date().getFullYear();
       pickedMonth = new Date().getMonth();
@@ -201,7 +206,6 @@ function datepicerFunctionality(settings) {
   refreshCalendar(calendarDays);
   refreshSelectedMonth(pickedMonth, pickedYear);
 
-  
   function bindEventListeners() {
     buttonPrevious.addEventListener("click", previousMonthButtonClick);
     buttonNext.addEventListener("click", nextMonthButtonClick);
@@ -209,15 +213,14 @@ function datepicerFunctionality(settings) {
     applyButton.addEventListener("click", applyButtonClick);
     if (inputFrom) inputFrom.addEventListener("click", inputClick);
     if (inputTo) inputTo.addEventListener("click", inputClick);
+    if (inputTotal) inputTotal.addEventListener("click", inputClick);
   };
 
   function bindCalendarCellsListener() {
     let calendarCells = [...calendar.querySelectorAll("td")];
-    if (inputFrom && inputTo) {
-      calendarCells.map(function(cell) {
-        cell.addEventListener("click", calendarCellClick);
-      }); 
-    }
+    calendarCells.map(function(cell) {
+      cell.addEventListener("click", calendarCellClick);
+    }); 
   };
 
   function refreshDatepicker(date) {
@@ -247,24 +250,23 @@ function datepicerFunctionality(settings) {
   };
 
   function applyButtonClick() {
-    if(inputFrom || inputTo) datepickerBody.setAttribute("hidden", "hidden");
+    if(inputFrom || inputTo || inputTotal) datepickerBody.setAttribute("hidden", "hidden");
+    if(inputFrom) inputFrom.classList.remove("input__field_active");
+    if(inputTo) inputTo.classList.remove("input__field_active");
+    if(inputTotal) inputTotal.classList.remove("input__field_active");
   };
   
   function inputClick(event) {
     if (datepickerBody.hasAttribute("hidden", "hidden")) {
-      currentInputTarget = event.target;
-      currentInputTarget.classList.add("input_current-target")
+      if(inputFrom) inputFrom.classList.add("input__field_active");
+      if(inputTo) inputTo.classList.add("input__field_active");
+      if(inputTotal) inputTotal.classList.add("input__field_active");
       datepickerBody.removeAttribute("hidden", "hidden")
     } else {
-      if(currentInputTarget && currentInputTarget !== event.target) {
-        currentInputTarget.classList.remove("input_current-target")
-        currentInputTarget = event.target;
-        currentInputTarget.classList.add("input_current-target")
-      } else {
-        currentInputTarget.classList.remove("input_current-target")
-        currentInputTarget = false;
-        datepickerBody.setAttribute("hidden", "hidden");
-      };
+      if(inputFrom) inputFrom.classList.remove("input__field_active");
+      if(inputTo) inputTo.classList.remove("input__field_active");
+      if(inputTotal) inputTotal.classList.remove("input__field_active");
+      datepickerBody.setAttribute("hidden", "hidden");
     };
   };
 
@@ -296,49 +298,71 @@ function datepicerFunctionality(settings) {
       year: pickedYear
     };
 
-    
     let value = `${date.day}.${date.month}.${date.year}`;
 
     function checkDateForValidity(value, date) {
       let pickedDate = new Date(date.year, date.month - 1, date.day);
-      if (currentInputTarget === inputFrom) {
-        if (to) {
-          if (pickedDate > currentDay && pickedDate < to) {
-            currentInputTarget.setAttribute("value", value);
-            from = new Date(date.year, date.month - 1, date.day)
-            refreshDatepicker(new Date(pickedYear, pickedMonth));
-          } else {
-            alert("Дата прибытия должна быть не ранее чем через день от текущей и как миниум за день до выезда!");
+      let nextDate =  new Date(currentDay.getFullYear(), currentDay.getMonth(), currentDay.getDate() + 1);
+      if (currentInputTarget === inputFrom && currentInputTarget) {
+        if(pickedDate > currentDay) {
+           currentInputTarget.setAttribute("value", value);
+          from = new Date(date.year, date.month - 1, date.day);
+          if(pickedDate > to) {
+            inputTo.setAttribute("value", "")
+            to = undefined;
           }
+          currentInputTarget = inputTo;
+          refreshDatepicker(new Date(pickedYear, pickedMonth));
         } else {
-          if(pickedDate > currentDay) {
-            currentInputTarget.setAttribute("value", value);
-            from = new Date(date.year, date.month - 1, date.day)
-            refreshDatepicker(new Date(pickedYear, pickedMonth));
-          } else {
-            alert("Дата прибытия должна быть не ранее чем через день от текущей!");
-          };
+          alert("Дата прибытия должна быть не ранее чем через день от текущей!");
         };
-      } else if(currentInputTarget === inputTo) {
+      } else if(currentInputTarget === inputTo && currentInputTarget) {
         if (from) {
           if (pickedDate > from) {
             currentInputTarget.setAttribute("value", value);
-            to = new Date(date.year, date.month - 1, date.day)
+            to = new Date(date.year, date.month - 1, date.day);
             refreshDatepicker(new Date(pickedYear, pickedMonth));
+            currentInputTarget = inputFrom;
           } else {
             alert("Дата выезда должна быть не ранее чем через день от даты прибытия!");
           }
         } else {
-          if (pickedDate > new Date(currentDay.getFullYear(), currentDay.getMonth(), currentDay.getDate() + 1)) {
-            to = new Date(date.year, date.month - 1, date.day)
+          if (pickedDate > nextDate) {
+            currentInputTarget.setAttribute("value", value);
+            to = new Date(date.year, date.month - 1, date.day);
             refreshDatepicker(new Date(pickedYear, pickedMonth));
           } else {
             alert("Дата выезда должна быть не ранее чем через два дня от текущей!");
           }
         };
+      } else if(currentInputTarget === inputTotal || !currentInputTarget) {
+        if(currentValueTarget === "from") {
+          if (pickedDate > currentDay) {
+            from = new Date(date.year, date.month - 1, date.day);
+            currentValueTarget = "to";
+            if(pickedDate > to) {
+              to = undefined;
+            }
+            refreshDatepicker(new Date(pickedYear, pickedMonth));
+          } else {
+            alert("Дата прибытия должна быть не ранее чем через день от текущей!");
+          }
+        } else {
+          if (pickedDate > nextDate && pickedDate > from) { 
+            to = new Date(date.year, date.month - 1, date.day);
+            currentValueTarget = "from";
+            refreshDatepicker(new Date(pickedYear, pickedMonth));
+          } else {
+            alert("Дата выезда должна быть не ранее чем через день от даты прибытия!");
+          }
+        };
+        let transformedFrom = `${from.getDate()} ${monthNames[from.getMonth()].slice(0, 3).toLowerCase()}`;
+        let transformedto = "...";
+        if(to) transformedto = `${to.getDate()} ${monthNames[to.getMonth()].slice(0, 3).toLowerCase()}`;
+        let value = `${transformedFrom} - ${transformedto}`
+        if(currentInputTarget) currentInputTarget.setAttribute("value", value);
       };
     };
-
     checkDateForValidity(value, date);
   };
 
@@ -346,4 +370,4 @@ function datepicerFunctionality(settings) {
   bindCalendarCellsListener()
 };
 
-export {datepicerFunctionality};
+export {datepickerFunctionality};

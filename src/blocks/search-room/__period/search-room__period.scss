@@ -7,8 +7,8 @@
   }
   .input {
     display: inline-block;
-    &:not(:first-child) {
-      float: right;
+    &:first-of-type {
+      margin-right: 20px;
     }
   }
 }

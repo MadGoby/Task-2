@@ -13,11 +13,17 @@
     position: relative;
     vertical-align: top;
     user-select: none;
+    &:hover {
+      border-color: $dark50;
+    }
   }
   &_submit {
     display: inline-block;
   }
   &_date {
+    &:hover, &:focus {
+      border-color: $dark50;
+    }
     &::-webkit-calendar-picker-indicator{
       display: none;
     }
@@ -34,5 +40,8 @@
   &_submit {
     position: relative;
     display: inline-block;
+    &:hover, &:focus {
+      border-color: $dark50;
+    }
   }
 }

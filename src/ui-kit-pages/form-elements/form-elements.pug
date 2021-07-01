@@ -8,6 +8,7 @@ include ../../blocks/positive-feature/positive-feature.pug
 include ../../blocks/title/title.pug
 include ../../blocks/user-comment/user-comment.pug
 include ../../blocks/content-nav/content-nav.pug
+include ../../blocks/datepicker/datepicker.pug
 
 .form-elements
   +logo({
@@ -48,21 +49,48 @@ include ../../blocks/content-nav/content-nav.pug
             type: "focus"
           })
       .form-elements__dropdown
-        +input()
-          +input__title()
-            +title({
-              text: "dropdown"
-            })
-          +input__field({
-            attr: {
-              "type": "text",
-              "placeholder": "Text",
-              "value": "Сколько гостей",
-              "readonly": "readonly"
-            },
-            length: "l",
-            type: "dropdown"
+        +dropdown()
+          +dropdown__input({expanded: false})
+            +input()
+              +input__title()
+                +title({
+                  text: "dropdown"
+                })
+              +input__field({
+                attr: {
+                  "type": "text",
+                  "placeholder": "Text",
+                  "value": "Сколько гостей",
+                  "readonly": "readonly"
+                },
+                length: "l",
+                type: "dropdown",
+                jsClass: "js-input__field_4"
+              })
+          +dropdown__control({
+            jsClass: "js-dropdown__control_4",
+            attr: {"hidden": "hidden"}
           })
+            +dropdown__list({
+              elements: [
+                { 
+                  text: "взрослые",
+                  dataTarget: "adult",
+                  output: "0"
+                },
+                { 
+                  text: "дети",
+                  dataTarget: "child",
+                  output: "0"
+                },
+                { 
+                  text: "младенцы",
+                  dataTarget: "baby",
+                  output: "0",
+                },
+              ]
+            })
+            +dropdown__submit-buttons({hidden: true})
       .form-elements__masked-input
         +input()
           +input__title()
@@ -78,38 +106,44 @@ include ../../blocks/content-nav/content-nav.pug
             type: "date"
           })
       .form-elements__date-dropdowns
-        .form-elements__input-wrapper
-          +input()
-            +input__title()
-              +title({
-                text: "date Dropdown"
-              })
-            +input__field({
-              attr: {
-                "type": "text",
-                "placeholder": "ДД.ММ.ГГГГ",
-                "value": "ДД.ММ.ГГГГ",
-                "readonly": "readonly"
-              },
-              length: "s",
-              type: "dropdown"
-              })
-        .form-elements__input-wrapper
-          +input()
-            +input__title()
-              +title({
-                text: "date Dropdown"
-              })
-            +input__field({
-              attr: {
-                "type": "text",
-                "placeholder": "ДД.ММ.ГГ",
-                "value": "19.08.2019",
-                "readonly": "readonly"
-              },
-              length: "s",
-              type: "dropdown"
+        +input()
+          +input__title()
+            +title({
+              text: "date Dropdown"
             })
+          +input__field({
+            attr: {
+              "type": "text",
+              "placeholder": "ДД.ММ.ГГГГ",
+              "value": "ДД.ММ.ГГГГ",
+              "readonly": "readonly"
+            },
+            length: "s",
+            type: "dropdown",
+            jsClass: "js-input__field_from-2"
+          })
+        +input()
+          +input__title()
+            +title({
+              text: "date Dropdown"
+            })
+          +input__field({
+            attr: {
+              "type": "text",
+              "placeholder": "ДД.ММ.ГГ",
+              "value": "19.08.2019",
+              "readonly": "readonly"
+            },
+            length: "s",
+            type: "dropdown",
+            jsClass: "js-input__field_to-2"
+          })
+        +datepicker({
+          jsClass: "js-datepicker-2",
+          attr: {
+            "hidden": "hidden"
+          }
+        })
       .form-elements__filter-dropdown
         +input()
           +input__title()
@@ -124,8 +158,16 @@ include ../../blocks/content-nav/content-nav.pug
               "readonly": "readonly"
             },
             length: "m",
-            type: "dropdown"
+            type: "dropdown",
+            jsClass: "js-input__field_total-3"
           })
+        +datepicker({
+          jsClass: "js-datepicker-3",
+          attr: {
+            "hidden": "hidden"
+          },
+          size: "m"
+        })
       .form-elements__subscription-input
         +input()
           +input__title()
@@ -315,47 +357,11 @@ include ../../blocks/content-nav/content-nav.pug
             attr: {"type": "button"}
           })
       .form-elements__pagination
-        +content-nav()
+        +content-nav({jsClass: "js-content-nav"})
           +content-nav__title({
             text: "pagination"
           })
           +content-nav__buttons()
-            +button({type: "pagination"})
-              +button__control({
-                type: "pagination",
-                text: "1",
-                attr: {"type": "button"}
-              })
-            +button({type: "pagination"})
-              +button__control({
-                type: "pagination",
-                text: "2",
-                attr: {"type": "button"}
-              })
-            +button({type: "pagination"})
-              +button__control({
-                type: "pagination",
-                text: "3",
-                attr: {"type": "button"}
-              })
-            +button({type: "pagination"})
-              +button__control({
-                type: "pagination",
-                text: "...",
-                attr: {"type": "button"}
-              })
-            +button({type: "pagination"})
-              +button__control({
-                type: "pagination",
-                text: "15",
-                attr: {"type": "button"}
-              })
-            +button({type: "pagination"})
-              +button__control({
-                type: "pagination",
-                text: "",
-                attr: {"type": "button"}
-              })
           +content-nav__counter({text: "1 – 15 из 100+ вариантов аренды"})
     .form-elements__dropdown-types
       .form-elements__fittings-dropdown
@@ -376,8 +382,32 @@ include ../../blocks/content-nav/content-nav.pug
                     "readonly": "readonly"
                   },
                   length: "m",
-                  type: "dropdown"
+                  type: "dropdown",
+                  jsClass: "js-input__field-5"
                 })
+            +dropdown__control({
+              jsClass: "js-dropdown__control-5",
+              attr: {"hidden": "hidden"}
+            })
+              +dropdown__list({
+                elements: [
+                  { 
+                    text: "спальни",
+                    dataTarget: "bedroom",
+                    output: "2"
+                  },
+                  { 
+                    text: "кровати",
+                    dataTarget: "bed",
+                    output: "2"
+                  },
+                  { 
+                    text: "ванные комнаты",
+                    dataTarget: "bathroom",
+                    output: "0",
+                  },
+                ]
+              }) 
         .form-elements__expanded-dropdown
           +dropdown()
             +dropdown__input({expanded: true})
@@ -504,8 +534,73 @@ include ../../blocks/content-nav/content-nav.pug
           +list()
             +list__title({
               text: "expandable checkbox list",
-              type: "closed"
+              type: "closed",
+              jsClass: "js-list__title-2"
             })
+            +list__container({jsClass: "js-list__container-2", attr: {"hidden": "hidden"}})
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
+                    },
+                    text: "Завтрак"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
+                    },
+                    text: "Письменный стол"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
+                    },
+                    text: "Стул для кормления"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
+                    },
+                    text: "Кроватка"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
+                    },
+                    text: "Телевизор"
+                  })
+              +list__item()
+                +toggle()
+                  +toggle__controller({
+                    type: "checkbox",
+                    attr: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
+                    },
+                    text: "Шампунь"
+                  })
         .form-elements__expanded-list
           +list()
             +list__title({

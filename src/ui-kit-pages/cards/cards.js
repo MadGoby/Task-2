@@ -1,6 +1,33 @@
-import * as datepicer from "../../blocks/datepicker/datepicker.js";
+import * as datepicker from "../../blocks/datepicker/datepicker.js";
+import * as dropdown from "../../blocks/dropdown/dropdown.js";
 
-datepicer.datepicerFunctionality({
+datepicker.datepickerFunctionality({
+  targetClass: ".js-datepicker-4",
+  inputFromClass: ".js-input__field_from-4",
+  inputToClass: ".js-input__field_to-4"
+});
+
+datepicker.datepickerFunctionality({
+  targetClass: ".js-datepicker-5",
+  inputFromClass: ".js-input__field_from-5",
+  inputToClass: ".js-input__field_to-5"
+});
+
+dropdown.dropdownFunctionality ({
+  inputClass: ".js-input__field-6",
+  dropdownClass: ".js-dropdown__control-6",
+  inputResultTemplate: {type: "sum", values: 'гостя'},
+  defaultTemplate: "Сколько гостей"
+})
+
+dropdown.dropdownFunctionality ({
+  inputClass: ".js-input__field-7",
+  dropdownClass: ".js-dropdown__control-7",
+  inputResultTemplate: {type: "sum", values: 'гостя'},
+  defaultTemplate: "Сколько гостей"
+})
+
+datepicker.datepickerFunctionality({
   targetClass: ".js-datepicker",
   defaultSettings: {
     pickedYear: new Date(2019, 7, 8).getFullYear(),

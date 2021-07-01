@@ -9,6 +9,9 @@
   border-radius: 4px;
   padding: 20px;
   width: 320px;
+  position: absolute;
+  z-index: 3;
+  margin-top: 6px;
   .datepicker__scroll-button {
     background-image: url('img/arrow-forward.svg');
     background-repeat: no-repeat;
@@ -105,3 +108,5 @@
     }
   }
 }
+
+@import '_size/datepicker_size.scss';

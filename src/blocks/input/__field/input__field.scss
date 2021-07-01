@@ -9,7 +9,4 @@
   &::placeholder {
     color: $dark25;
   }
-  &:hover + .input__dropdown-button, &:focus + .input__dropdown-button {
-    border-color: $dark50;
-  }
 }

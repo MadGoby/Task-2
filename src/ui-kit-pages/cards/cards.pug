@@ -6,6 +6,7 @@ include ../../blocks/login/login.pug
 include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/room-card/room-card.pug
 include ../../blocks/rate-counter/rate-counter.pug
+include ../../blocks/dropdown/dropdown.pug
 
 .cards
   +logo({
@@ -35,7 +36,8 @@ include ../../blocks/rate-counter/rate-counter.pug
                   "readonly": "readonly"
                 },
                 length: "s",
-                type: "dropdown"
+                type: "dropdown",
+                jsClass: "js-input__field_from-4",
                 })
             +input()
               +input__title()
@@ -50,24 +52,58 @@ include ../../blocks/rate-counter/rate-counter.pug
                   "readonly": "readonly"
                 },
                 length: "s",
-                type: "dropdown"
-              })
-          +search-room__guests()
-            +input()
-              +input__title({type: "with-state"})
-                +title({
-                  text: "гости"
-                })
-              +input__field({
-                attr: {
-                  "type": "text",
-                  "placeholder": "Text",
-                  "value": "Сколько гостей",
-                  "readonly": "readonly"
-                },
-                length: "l",
                 type: "dropdown",
+                jsClass: "js-input__field_to-4",
               })
+            +datepicker({
+              jsClass: "js-datepicker-4",
+              attr: {
+                "hidden": "hidden"
+              }
+            })
+          +search-room__guests()
+            +dropdown()
+              +dropdown__input({expanded: false})
+                +input()
+                  +input__title({type: "with-state"})
+                    +title({
+                      text: "гости"
+                    })
+                  +input__field({
+                    attr: {
+                      "type": "text",
+                      "placeholder": "Text",
+                      "value": "Сколько гостей",
+                      "readonly": "readonly"
+                    },
+                    length: "l",
+                    type: "dropdown",
+                    jsClass: "js-input__field-6"
+                  })
+              +dropdown__control({
+                jsClass: "js-dropdown__control-6",
+                attr: {"hidden": "hidden"}
+              })
+                +dropdown__list({
+                  elements: [
+                    { 
+                      text: "взрослые",
+                      dataTarget: "adult",
+                      output: "0"
+                    },
+                    { 
+                      text: "дети",
+                      dataTarget: "child",
+                      output: "0"
+                    },
+                    { 
+                      text: "младенцы",
+                      dataTarget: "baby",
+                      output: "0",
+                    },
+                  ]
+                })
+                +dropdown__submit-buttons({hidden: true})
           +search-room__confirm-button()
             +button({
               type: "big",
@@ -203,7 +239,8 @@ include ../../blocks/rate-counter/rate-counter.pug
                   "readonly": "readonly"
                 },
                 length: "s",
-                type: "dropdown"
+                type: "dropdown",
+                jsClass: "js-input__field_from-5"
                 })
             +input()
               +input__title()
@@ -218,24 +255,58 @@ include ../../blocks/rate-counter/rate-counter.pug
                   "readonly": "readonly"
                 },
                 length: "s",
-                type: "dropdown"
-              })
-          +final-booking__guests()
-            +input()
-              +input__title({type: "with-state"})
-                +title({
-                  text: "гости"
-                })
-              +input__field({
-                attr: {
-                  "type": "text",
-                  "placeholder": "Text",
-                  "value": "Сколько гостей",
-                  "readonly": "readonly"
-                },
-                length: "l",
                 type: "dropdown",
+                jsClass: "js-input__field_to-5"
               })
+            +datepicker({
+              jsClass: "js-datepicker-5",
+              attr: {
+                "hidden": "hidden"
+              }
+            })
+          +final-booking__guests()
+            +dropdown()
+              +dropdown__input({expanded: false})
+                +input()
+                  +input__title()
+                    +title({
+                      text: "гости"
+                    })
+                  +input__field({
+                    attr: {
+                      "type": "text",
+                      "placeholder": "Text",
+                      "value": "Сколько гостей",
+                      "readonly": "readonly"
+                    },
+                    length: "l",
+                    type: "dropdown",
+                    jsClass: "js-input__field-7",
+                  })
+              +dropdown__control({
+                jsClass: "js-dropdown__control-7",
+                attr: {"hidden": "hidden"}
+              })
+                +dropdown__list({
+                  elements: [
+                    { 
+                      text: "взрослые",
+                      dataTarget: "adult",
+                      output: "0"
+                    },
+                    { 
+                      text: "дети",
+                      dataTarget: "child",
+                      output: "0"
+                    },
+                    { 
+                      text: "младенцы",
+                      dataTarget: "baby",
+                      output: "0",
+                    },
+                  ]
+                })
+                +dropdown__submit-buttons({hidden: true})
           +final-booking__service-list()
             +final-booking__service({
               title: "9 990₽ х 4 суток",

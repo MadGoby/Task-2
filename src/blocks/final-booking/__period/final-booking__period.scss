@@ -1,8 +1,8 @@
 .final-booking__period {
   .input {
     display: inline-block;
-    &:last-child {
-      float: right;
+    &:first-of-type {
+      margin-right: 19px;
     }
   }
 }

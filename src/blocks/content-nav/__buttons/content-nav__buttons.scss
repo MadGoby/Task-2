@@ -1,26 +1,4 @@
 .content-nav__buttons {
-  .button {
-    &:first-child {
-      .button__control {
-        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-        color: white;
-        font-weight: 700;
-      }
-    }
-    &:last-of-type {
-      .button__control {
-        &::after {
-          content: url('img/arrow-forward-white.svg');
-          height: 40px;
-          width: 40px;
-          box-sizing: border-box;
-          display: inline-block;
-          padding: 11px 0;
-          vertical-align: top;
-        }
-        background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-      }
-    }
-  }  
+  margin: 0;
+  padding: 0;
 }
-
