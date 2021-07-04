@@ -3,7 +3,10 @@ require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
 import * as dropdown from "./blocks/dropdown/dropdown.js";
 import * as list from "./blocks/list/list.js";
+import * as swiperSlider from "./blocks/room-card/room-card.js";
+import * as contentNavigation from "./blocks/content-nav/content-nav.js";
 import { event } from "jquery";
+
 require("./img/980.jpg");
 require("./img/856.jpg");
 require("./img/740.jpg");
@@ -14,6 +17,7 @@ require("./img/350.jpg");
 require("./img/666.jpg");
 require("./img/444.jpg");
 require("./img/352.jpg");
+require("./img/room-slider.jpg");
 
 dropdown.dropdownFunctionality ({
   inputClass: ".js-input__field",
@@ -97,3 +101,55 @@ sidebarDropdown({
   titleClass: ".js-search-room__sidebar-title",
   sidebarClass: ".js-search-room__sidebar"
 })
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-2"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-3"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-4"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-5"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-6"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-7"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-8"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-9"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-10"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-11"
+});
+
+swiperSlider.swiperSlider({
+  roomCardClass: ".js-room-card-12"
+});
+
+contentNavigation.contentNav({
+  navClass: ".js-content-nav"
+});

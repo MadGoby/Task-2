@@ -150,11 +150,10 @@ function contentNav(settings) {
       };
 
       function multiplierEditor() {
-        let counterTo = getButtonFromWrapper(currentButton).textContent * 15;
-        console.log(counterTo)
-        counter.textContent = `${counterTo - 14} - ${counterTo} из 100+ вариантов аренды`
+        let counterTo = getButtonFromWrapper(currentButton).textContent * 12;
+        counter.textContent = `${counterTo - 11} - ${counterTo} из 100+ вариантов аренды`
       };
-  
+      
       controlButtonsNumbers(ind, targetNum);
       navDisplayControl();
       multiplierEditor();
@@ -164,4 +163,5 @@ function contentNav(settings) {
   bindEventListeners()
   navDisplayControl()
 };
+
 export {contentNav};

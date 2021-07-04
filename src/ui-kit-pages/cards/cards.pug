@@ -377,10 +377,26 @@ include ../../blocks/dropdown/dropdown.pug
           jsClass: "js-datepicker"
         })
       .cards__room  
-        +room-card()
+        +room-card({jsClass: "js-room-card"})
           +room-card__image({
-            src: "img/888.jpg",
-            alt: "Photo of the room"
+            img: [
+              {
+                src: "img/888.jpg",
+                alt: "Photo of the room"
+              },
+              {
+                src: "img/room-slider.jpg",
+                alt: "Photo of the room"
+              },
+              {
+                src: "img/888.jpg",
+                alt: "Photo of the room"
+              },
+              {
+                src: "img/room-slider.jpg",
+                alt: "Photo of the room"
+              }
+            ]
           })
           +room-card__room-info()
             +room-info({
@@ -401,10 +417,26 @@ include ../../blocks/dropdown/dropdown.pug
                   value: "145"
                 })
       .cards__room  
-        +room-card()
+        +room-card({jsClass: "js-room-card-2"})
           +room-card__image({
-            src: "img/840.jpg",
-            alt: "Photo of the room"
+            img: [
+              {
+                src: "img/840.jpg",
+                alt: "Photo of the room"
+              },
+              {
+                src: "img/room-slider.jpg",
+                alt: "Photo of the room"
+              },
+              {
+                src: "img/840.jpg",
+                alt: "Photo of the room"
+              },
+              {
+                src: "img/room-slider.jpg",
+                alt: "Photo of the room"
+              }
+            ]
           })
           +room-card__room-info()
             +room-info({

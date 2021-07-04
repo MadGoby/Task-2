@@ -18,6 +18,7 @@ require("./img/logo-color.svg");
 require("./img/twitter.svg");
 require("./img/facebook.svg");
 require("./img/instagram.svg");
+require("./img/room-slider.jpg");
 
 import "./ui-kit.scss";
 import * as formElements from "./ui-kit-pages/form-elements/form-elements.js";

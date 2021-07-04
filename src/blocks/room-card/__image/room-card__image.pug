@@ -1,14 +1,19 @@
 mixin room-card__image(settings)
-  - let src = ""
-  - let alt = ""
+  - let images = []
   - if (settings) {
-  -   settings.hasOwnProperty("src") ? src = settings.src : src = ""
-  -   settings.hasOwnProperty("alt") ? alt = settings.alt : alt = ""
+  -   settings.hasOwnProperty("img") ? images = settings.img : images = []
   - }
   div.room-card__image-wrapper
-    img(class="room-card__image" src=src, alt=alt)
-    button(type="button" class="room-card__image-button room-card__image-button_left")
-    button(type="button" class="room-card__image-button room-card__image-button_right")
+    each img in images
+      - let src = ""
+      - let alt = ""
+      - if (img) {
+      -   img.hasOwnProperty("src") ? src = img.src : src = ""
+      -   img.hasOwnProperty("alt") ? alt = img.alt : alt = ""
+      - }
+      img(class="room-card__image" src=src, alt=alt)
+    button(type="button" class="room-card__image-button room-card__image-button_previous")
+    button(type="button" class="room-card__image-button room-card__image-button_next")
     .room-card__image-position-wrapper
       span.room-card__image-position.room-card__image-position_active
       span.room-card__image-position
