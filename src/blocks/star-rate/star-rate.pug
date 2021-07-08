@@ -1,0 +1,15 @@
+include __star/star-rate__star.pug
+
+mixin star-rate(settings)
+  - let n = 1
+  - let rate = 0
+  - if (settings) {
+  -   settings.hasOwnProperty("rate") ? rate = settings.rate : rate = 0
+  - };
+  .star-rate
+    while n <= 5
+      if (n <= rate)
+        +star-rate__star({type: "active"})
+      else
+        +star-rate__star()
+      - n = n + 1

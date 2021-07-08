@@ -15,6 +15,8 @@ include blocks/room-info/room-info.pug
 include blocks/rate-counter/rate-counter.pug
 include blocks/title/title.pug
 include blocks/content-nav/content-nav.pug
+include blocks/datepicker/datepicker.pug
+include blocks/star-rate/star-rate.pug
 
 doctype html
 html
@@ -67,15 +69,23 @@ html
                     "readonly": "readonly"
                   },
                   length: "m",
-                  type: "dropdown"
+                  type: "dropdown",
+                  jsClass: "js-input__field_total"
                 })
+              +datepicker({
+                jsClass: "js-datepicker",
+                attr: {
+                  "hidden": "hidden"
+                },
+                size: "m"
+              })
             .search-room__guests
               +dropdown()
-                +dropdown__input()
+                +dropdown__input({expanded: false})
                   +input()
                     +input__title()
                       +title({
-                        text: "гости"
+                        text: "Гости"
                       })
                     +input__field({
                       attr: {
@@ -86,7 +96,29 @@ html
                       },
                       length: "m",
                       type: "dropdown",
+                      jsClass: "js-input__field_2"
                     })
+                +dropdown__control({jsClass: "js-dropdown__control_2", attr: {"hidden": "hidden"}})
+                  +dropdown__list({
+                    elements: [
+                      { 
+                        text: "взрослые",
+                        dataTarget: "adult",
+                        output: "2"
+                      },
+                      { 
+                        text: "дети",
+                        dataTarget: "child",
+                        output: "1"
+                      },
+                      { 
+                        text: "младенцы",
+                        dataTarget: "baby",
+                        output: "1",
+                      },
+                    ]
+                  })
+                  +dropdown__submit-buttons({hidden: true})
             .search-room__slider
               +slider()
                 +slider__title()

@@ -14,6 +14,8 @@ include blocks/user-comment/user-comment.pug
 include blocks/toggle/toggle.pug
 include blocks/list/list.pug
 include blocks/title/title.pug
+include blocks/datepicker/datepicker.pug
+include blocks/dropdown/dropdown.pug
 
 doctype html
 html
@@ -64,7 +66,7 @@ html
                   +input()
                     +input__title()
                       +title({
-                        text: "прибытие",
+                        text: "прибытие"
                       })
                     +input__field({
                       attr: {
@@ -74,12 +76,13 @@ html
                         "readonly": "readonly"
                       },
                       length: "s",
-                      type: "dropdown"
+                      type: "dropdown",
+                      jsClass: "js-input__field_from",
                       })
                   +input()
                     +input__title()
                       +title({
-                        text: "выезд",
+                        text: "выезд"
                       })
                     +input__field({
                       attr: {
@@ -89,24 +92,58 @@ html
                         "readonly": "readonly"
                       },
                       length: "s",
-                      type: "dropdown"
-                    })
-                +final-booking__guests()
-                  +input()
-                    +input__title({type: "with-state"})
-                      +title({
-                        text: "гости",
-                      })
-                    +input__field({
-                      attr: {
-                        "type": "text",
-                        "placeholder": "Text",
-                        "value": "3 гостя",
-                        "readonly": "readonly"
-                      },
-                      length: "l",
                       type: "dropdown",
+                      jsClass: "js-input__field_to",
                     })
+                  +datepicker({
+                    jsClass: "js-datepicker",
+                    attr: {
+                      "hidden": "hidden"
+                    }
+                  })
+                +final-booking__guests()
+                  +dropdown()
+                    +dropdown__input({expanded: false})
+                      +input()
+                        +input__title()
+                          +title({
+                            text: "гости"
+                          })
+                        +input__field({
+                          attr: {
+                            "type": "text",
+                            "placeholder": "Сколько гостей",
+                            "value": "3 гостя",
+                            "readonly": "readonly"
+                          },
+                          length: "l",
+                          type: "dropdown",
+                          jsClass: "js-input__field"
+                        })
+                    +dropdown__control({
+                      jsClass: "js-dropdown__control",
+                      attr: {"hidden": "hidden"}
+                    })
+                      +dropdown__list({
+                        elements: [
+                          { 
+                            text: "взрослые",
+                            dataTarget: "adult",
+                            output: "2"
+                          },
+                          { 
+                            text: "дети",
+                            dataTarget: "child",
+                            output: "1"
+                          },
+                          { 
+                            text: "младенцы",
+                            dataTarget: "baby",
+                            output: "0",
+                          },
+                        ]
+                      })
+                      +dropdown__submit-buttons({hidden: true})
                 +final-booking__service-list()
                   +final-booking__service({
                     title: "9 990₽ х 4 суток",
@@ -313,61 +350,3 @@ html
                 }
               ]
             })
-
-
-
-
-
-
-
-
-    
-  
-    //-     .rules.text_type_simple
-    //-       h2.text_type_h2.room-details__title="Правила"
-    //-       +list()
-    //-         +list__item({mark: "dot"})
-    //-           +list__text({text: "Нельзя с питомцами"})
-    //-         +list__item({mark: "dot"})
-    //-           +list__text({text: "Без вечеринок и мероприятий"})
-    //-         +list__item({mark: "dot"})
-    //-           +list__text({text: "Время прибытия — после 13:00, а выезд до 12:00"})
-    //-     .cancellation.text_type_simple
-    //-       h2.text_type_h2.room-details__title="Отмена"
-    //-       p.cancellation__text="Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
-    //- footer.room-details__footer
-    //-   +footer()
-    //-     +footer__logo({
-    //-       text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-    //-     })
-    //-     +footer__nav({
-    //-       lists: [
-    //-         [
-    //-           {"text": "навигация"}, 
-    //-           {"text": "О нас"},
-    //-           {"text": "Новости"},
-    //-           {"text": "Служба поддержки"},
-    //-           {"text": "Услуги"}
-    //-         ],
-    //-         [
-    //-           {"text": "о нас"}, 
-    //-           {"text": "О сервисе"},
-    //-           {"text": "Наша команда"},
-    //-           {"text": "Вакансии"},
-    //-           {"text": "Инвесторы"}
-    //-         ],
-    //-         [
-    //-           {"text": "Служба поддержки"}, 
-    //-           {"text": "Соглашения"},
-    //-           {"text": "Сообщества"},
-    //-           {"text": "Связь с нами"}
-    //-         ]
-    //-       ]
-    //-     })
-    //-     +footer__subscribe({
-    //-       title: "Подписка",
-    //-       text: "Получайте специальные предложения и новости сервиса"
-    //-     })
-    //-   +copyright({
-    //-     text: "Copyright © 2018 Toxin отель. Все права защищены."
-    //-   })

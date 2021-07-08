@@ -149,7 +149,16 @@ function dropdownFunctionality(settings) {
             result = Number(result) + value;
           });
           result = String(result) + " " + String(inputResultTemplate.values)
-        };
+        } else if(inputResultTemplate.type === 'twoByOne') {
+          for(let i = 0; i < outputVal.length; i++) {
+            if (inputResultTemplate.values.length < outputVal.length && i == Number(inputResultTemplate.values.length - 1)) {
+              result += `${outputVal[i + 1]} ${inputResultTemplate.values[i]}`
+              break
+            } else {
+              result += `${outputVal[i] + outputVal[i + 1]} ${inputResultTemplate.values[i]}, `
+            };
+          };
+        }
         input.setAttribute("value", result);
       }
     };

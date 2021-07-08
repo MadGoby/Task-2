@@ -163,7 +163,7 @@ include ../../blocks/dropdown/dropdown.pug
                 })
               +input__field({
                 attr: {
-                  "type": "date",
+                  "type": "text",
                   "placeholder": "ДД.ММ.ГГ",
                 },
                 length: "l",
@@ -405,17 +405,10 @@ include ../../blocks/dropdown/dropdown.pug
               type: "luxury"
             })
             +room-card__rate()
-              +toggle()
-                +toggle__controller({
-                  type: "rate",
-                  attr: {
-                    name: "rate3",
-                    rate: 5
-                  }
-                })
-                +rate-counter({
-                  value: "145"
-                })
+              +star-rate({rate: "4"})
+              +rate-counter({
+                value: "145"
+              })
       .cards__room  
         +room-card({jsClass: "js-room-card-2"})
           +room-card__image({
@@ -444,14 +437,7 @@ include ../../blocks/dropdown/dropdown.pug
               price: "9 990"
             })
             +room-card__rate()
-              +toggle()
-                +toggle__controller({
-                  type: "rate",
-                  attr: {
-                    name: "rate4",
-                    rate: 4
-                  }
-                })
-                +rate-counter({
-                  value: "65"
-                })
+              +star-rate({rate: "4"})
+              +rate-counter({
+                value: "65"
+              })

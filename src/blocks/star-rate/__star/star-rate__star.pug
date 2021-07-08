@@ -1,0 +1,6 @@
+mixin star-rate__star(settings)
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("type") ? type = `star-rate__star_${settings.type}` : type = ""
+  - };
+  span(class=`star-rate__star ${type}`)

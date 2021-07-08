@@ -15,5 +15,6 @@ mixin input__field(settings)
   else if type === "input__field_type_submit"
     +input__wrapper({type: "submit"})
       input(class = "input__field" class=`${length} ${type} ${jsClass}`)&attributes(attr)
+      button(type="submit" class="input__submit-button")
   else
     input(class = "input__field" class=`${length} ${type} ${jsClass}`)&attributes(attr)

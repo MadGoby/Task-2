@@ -5,6 +5,7 @@ import * as dropdown from "./blocks/dropdown/dropdown.js";
 import * as list from "./blocks/list/list.js";
 import * as swiperSlider from "./blocks/room-card/room-card.js";
 import * as contentNavigation from "./blocks/content-nav/content-nav.js";
+import * as datepicker from "./blocks/datepicker/datepicker.js";
 import { event } from "jquery";
 
 require("./img/980.jpg");
@@ -24,6 +25,13 @@ dropdown.dropdownFunctionality ({
   dropdownClass: ".js-dropdown__control",
   inputResultTemplate: {type: "oneByOne", values: ['спальни', 'кровати']},
   defaultTemplate: "Конфигурация номера"
+})
+
+dropdown.dropdownFunctionality ({
+  inputClass: ".js-input__field_2",
+  dropdownClass: ".js-dropdown__control_2",
+  inputResultTemplate: {type: "twoByOne", values: ['гостя', 'младенец']},
+  defaultTemplate: "Сколько гостей"
 })
 
 list.listFunctionality ({
@@ -152,4 +160,16 @@ swiperSlider.swiperSlider({
 
 contentNavigation.contentNav({
   navClass: ".js-content-nav"
+});
+
+datepicker.datepickerFunctionality({
+  targetClass: ".js-datepicker",
+  inputTotalClass: ".js-input__field_total",
+  defaultSettings: {
+    pickedYear: new Date(2019, 7, 8).getFullYear(),
+    pickedMonth: new Date(2019, 7, 8).getMonth(),
+    currentDay: new Date(2019, 7, 8),
+    from: new Date(2019, 7, 19),
+    to: new Date(2019, 7, 23)
+  },
 });

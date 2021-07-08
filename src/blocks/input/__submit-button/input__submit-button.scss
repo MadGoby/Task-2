@@ -1,0 +1,17 @@
+.input__submit-button {
+  background-image: url('img/arrow-forward.svg');
+  content: '';
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 43px;
+  height: 42px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}

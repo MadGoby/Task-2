@@ -15,16 +15,7 @@ mixin toggle__controller(settings)
   -   settings.hasOwnProperty("richText") ? richText = settings.richText : richText = "";
   - };
   label(class="toggle__wrapper")
-    
-    if (settings.type === "rate")
-      while n !== 0
-        if (attr.rate === n)
-          input(class = `toggle____controller ${type}` type="radio" name=attr.name, value=n--, checked="checked")
-        else
-          input(class = `toggle____controller ${type}` type="radio" name=attr.name, value=n--)
-    else
-      input(class = `toggle____controller ${type}`)&attributes(attr)
-
+    input(class = `toggle____controller ${type}`)&attributes(attr)
     if settings.type === "like" && settings.text
       +toggle__mimic({type: mimicType})
         if settings.richText

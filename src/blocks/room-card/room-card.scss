@@ -92,5 +92,8 @@
   .room-card__rate {
     border-top: 1px solid rgba(31, 32, 65, 0.1);
     padding-top: 8px;
+    .star-rate {
+      display: inline-block;
+    }
   }
 }

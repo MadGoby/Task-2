@@ -76,23 +76,6 @@
       color: $purple;
     } 
   }
-  &_type_rate {
-    float: right;
-    margin: 0;
-    width: 19px;
-    height: 19px;
-    margin-right: 5px;
-    &::before {
-      content: '';
-      width: 19px; height: 19px;
-      background-image: url('img/star-border.jpg');
-      display: inline-block;
-      margin-right: 4px;
-      background-repeat: no-repeat;
-      cursor: pointer;
-    }
-    &:checked::before, &:checked ~ &::before {
-      background-image: url('img/star.jpg');
-    }
-  }
+  
+  
 }

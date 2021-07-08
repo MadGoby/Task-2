@@ -9,6 +9,7 @@ include ../../blocks/title/title.pug
 include ../../blocks/user-comment/user-comment.pug
 include ../../blocks/content-nav/content-nav.pug
 include ../../blocks/datepicker/datepicker.pug
+include ../../blocks/star-rate/star-rate.pug
 
 .form-elements
   +logo({
@@ -99,8 +100,8 @@ include ../../blocks/datepicker/datepicker.pug
             })
           +input__field({
             attr: {
-              "type": "date",
-              "placeholder": "ДД.ММ.ГГ",
+              "type": "text",
+              "placeholder": "ДД.ММ.ГГГГ",
             },
             length: "l",
             type: "date"
@@ -169,19 +170,20 @@ include ../../blocks/datepicker/datepicker.pug
           size: "m"
         })
       .form-elements__subscription-input
-        +input()
-          +input__title()
-            +title({
-              text: "subscription text field"
+        form(action="./for-change").form-elements__subscription-form
+          +input()
+            +input__title()
+              +title({
+                text: "subscription text field"
+              })
+            +input__field({
+              attr: {
+                "type": "email",
+                "placeholder": "Email"
+              },
+              length: "m",
+              type: "submit"
             })
-          +input__field({
-            attr: {
-              "type": "email",
-              "placeholder": "Email"
-            },
-            length: "m",
-            type: "submit"
-          })
     .form-elements__toggle-types
       .form-elements__checkboxes
           +title({
@@ -292,22 +294,8 @@ include ../../blocks/datepicker/datepicker.pug
         +title({
           text: "rate button"
         })
-        +toggle()
-          +toggle__controller({
-            type: "rate",
-            attr: {
-              name: "rate1",
-              rate: 4
-            }
-          })
-        +toggle()
-          +toggle__controller({
-            type: "rate",
-            attr: {
-              name: "rate2",
-              rate: 5
-            }
-          })
+        +star-rate({rate: "4"})
+        +star-rate({rate: "5"})
     .form-elements__button-types
       .form-elements__slider
         +slider()

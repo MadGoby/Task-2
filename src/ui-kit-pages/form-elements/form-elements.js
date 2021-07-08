@@ -1,5 +1,6 @@
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
+require('inputmask');
 import * as dropdown from "../../blocks/dropdown/dropdown.js";
 import * as list from "../../blocks/list/list.js";
 import * as datepicker from "../../blocks/datepicker/datepicker.js";
@@ -92,3 +93,8 @@ $(document).ready(function () {
 contentNavigation.contentNav({
   navClass: ".js-content-nav"
 });
+
+Inputmask({
+  mask: '99.99.9999',
+  placeholder: 'ДД.ММ.ГГГГ',
+}).mask(document.querySelectorAll(".input__field_type_date"));

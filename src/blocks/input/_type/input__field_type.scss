@@ -24,19 +24,9 @@
     &:hover, &:focus {
       border-color: $dark50;
     }
-    &::-webkit-calendar-picker-indicator{
-      display: none;
-    }
-    &::-webkit-datetime-edit { 
-      color: $dark75;
-      font-size: 18px;
-      line-height: 18px;
-      letter-spacing: -0.5px;
-    }
-    &::-moz-placeholder {
-      color: red;
-    }
+    
   }
+  
   &_submit {
     position: relative;
     display: inline-block;

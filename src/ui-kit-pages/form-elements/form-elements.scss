@@ -8,6 +8,7 @@
 @import '../../blocks/user-comment/user-comment.scss';
 @import '../../blocks/title/title.scss';
 @import '../../blocks/content-nav/content-nav.scss';
+@import '../../blocks/star-rate/star-rate.scss';
 
 .form-elements {
   width: 1440px;
@@ -95,9 +96,9 @@
         .title {
           margin-bottom: 16px;
         }
-        .toggle{
+        .star-rate {
           display: inline-block;
-          &:not(:last-child) {
+          &:not(:last-of-type) {
             margin-right: 20px;
           }
         }
