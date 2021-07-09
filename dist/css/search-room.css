@@ -393,6 +393,23 @@
   line-height: 15px;
   margin-bottom: 5px; }
 
+.input__submit-button {
+  background-image: url(../img/arrow-forward.svg);
+  content: '';
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 43px;
+  height: 42px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 4px; }
+
 .input__field_length_l {
   width: 320px;
   box-sizing: border-box; }
@@ -427,18 +444,6 @@
 .input__field_type_date:hover, .input__field_type_date:focus {
   border-color: rgba(31, 32, 65, 0.5); }
 
-.input__field_type_date::-webkit-calendar-picker-indicator {
-  display: none; }
-
-.input__field_type_date::-webkit-datetime-edit {
-  color: rgba(31, 32, 65, 0.75);
-  font-size: 18px;
-  line-height: 18px;
-  letter-spacing: -0.5px; }
-
-.input__field_type_date::-moz-placeholder {
-  color: red; }
-
 .input__field_type_submit {
   position: relative;
   display: inline-block; }
@@ -451,20 +456,6 @@
   background-repeat: no-repeat;
   background-position-x: 16px;
   background-position-y: 17px;
-  position: absolute;
-  right: 0px;
-  top: 1px;
-  width: 44px;
-  height: 42px;
-  text-align: center;
-  box-sizing: border-box; }
-
-.input__wrapper_type_submit::after {
-  background-image: url(../img/arrow-forward.svg);
-  background-position-x: 14px;
-  background-position-y: 11px;
-  content: '';
-  background-repeat: no-repeat;
   position: absolute;
   right: 0px;
   top: 1px;
@@ -626,24 +617,6 @@
     background-image: url(../img/favorite.svg); }
   .toggle__controller_type_like:checked + .toggle__mimic_type_like .toggle__text {
     color: #BC9CFF; }
-
-.toggle__controller_type_rate {
-  float: right;
-  margin: 0;
-  width: 19px;
-  height: 19px;
-  margin-right: 5px; }
-  .toggle__controller_type_rate::before {
-    content: '';
-    width: 19px;
-    height: 19px;
-    background-image: url(../img/star-border.jpg);
-    display: inline-block;
-    margin-right: 4px;
-    background-repeat: no-repeat;
-    cursor: pointer; }
-  .toggle__controller_type_rate:checked::before, .toggle__controller_type_rate:checked ~ .toggle__controller_type_rate::before {
-    background-image: url(../img/star.jpg); }
 
 .toggle__text_rich {
   display: block;
@@ -873,6 +846,8 @@
   .room-card .room-card__rate {
     border-top: 1px solid rgba(31, 32, 65, 0.1);
     padding-top: 8px; }
+    .room-card .room-card__rate .star-rate {
+      display: inline-block; }
 
 .room-info__number {
   display: inline-block;
@@ -925,7 +900,12 @@
   font-style: normal; }
 
 .rate-counter {
-  margin: 0px; }
+  margin: 0px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgba(31, 32, 65, 0.5); }
 
 .title {
   font-family: Montserrat, Arial, sans-serif;
@@ -1212,6 +1192,17 @@
     line-height: 35px; }
   .datepicker_size_m .datepicker__selected-month {
     min-width: 201px; }
+
+.star-rate__star {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background-image: url(../img/star-border.jpg); }
+  .star-rate__star:not(:last-of-type) {
+    margin-right: 4px; }
+
+.star-rate__star_active {
+  background-image: url(../img/star.jpg); }
 
 body {
   margin: 0; }

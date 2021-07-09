@@ -3,7 +3,7 @@
 /******/ 	function webpackJsonpCallback(data) {
 /******/ 		var chunkIds = data[0];
 /******/ 		var moreModules = data[1];
-/******/
+/******/ 		var executeModules = data[2];
 /******/
 /******/ 		// add "moreModules" to the modules object,
 /******/ 		// then flag all "chunkIds" as loaded and fire callback
@@ -26,8 +26,29 @@
 /******/ 			resolves.shift()();
 /******/ 		}
 /******/
-/******/ 	};
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
 /******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		return result;
+/******/ 	}
 /******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -44,7 +65,7 @@
 /******/ 		"room-details": 0
 /******/ 	};
 /******/
-/******/
+/******/ 	var deferredModules = [];
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
@@ -241,8 +262,10 @@
 /******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./room-details.js");
+/******/ 	// add entry module to deferred list
+/******/ 	deferredModules.push(["./room-details.js","landing-page~room-details~search-room~ui-kit"]);
+/******/ 	// run deferred modules when ready
+/******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -323,10 +346,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /*!*************************!*\
   !*** ./room-details.js ***!
   \*************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./room-details.scss */ \"./room-details.scss\", 7))\r\n__webpack_require__(/*! ./img/room-photo-big.jpg */ \"./img/room-photo-big.jpg\");\r\n__webpack_require__(/*! ./img/room-photo-small1.jpg */ \"./img/room-photo-small1.jpg\");\r\n__webpack_require__(/*! ./img/room-photo-small2.jpg */ \"./img/room-photo-small2.jpg\");\r\n__webpack_require__(/*! ./img/diagram.svg */ \"./img/diagram.svg\");\r\n__webpack_require__(/*! ./img/user2.jpg */ \"./img/user2.jpg\");\r\n__webpack_require__(/*! ./img/flame.svg */ \"./img/flame.svg\");\n\n//# sourceURL=webpack:///./room-details.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _blocks_datepicker_datepicker_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blocks/datepicker/datepicker.js */ \"./blocks/datepicker/datepicker.js\");\n/* harmony import */ var _blocks_dropdown_dropdown_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blocks/dropdown/dropdown.js */ \"./blocks/dropdown/dropdown.js\");\n\r\n\r\n\r\n__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./room-details.scss */ \"./room-details.scss\", 7));\r\n__webpack_require__(/*! ./img/room-photo-big.jpg */ \"./img/room-photo-big.jpg\");\r\n__webpack_require__(/*! ./img/room-photo-small1.jpg */ \"./img/room-photo-small1.jpg\");\r\n__webpack_require__(/*! ./img/room-photo-small2.jpg */ \"./img/room-photo-small2.jpg\");\r\n__webpack_require__(/*! ./img/diagram.svg */ \"./img/diagram.svg\");\r\n__webpack_require__(/*! ./img/user2.jpg */ \"./img/user2.jpg\");\r\n__webpack_require__(/*! ./img/flame.svg */ \"./img/flame.svg\");\r\n\r\n_blocks_datepicker_datepicker_js__WEBPACK_IMPORTED_MODULE_0__[\"datepickerFunctionality\"]({\r\n  targetClass: \".js-datepicker\",\r\n  inputFromClass: \".js-input__field_from\",\r\n  inputToClass: \".js-input__field_to\",\r\n  defaultSettings: {\r\n    pickedYear: new Date(2019, 7, 8).getFullYear(),\r\n    pickedMonth: new Date(2019, 7, 8).getMonth(),\r\n    currentDay: new Date(2019, 7, 8),\r\n    from: new Date(2019, 7, 19),\r\n    to: new Date(2019, 7, 23)\r\n  },\r\n});\r\n\r\n_blocks_dropdown_dropdown_js__WEBPACK_IMPORTED_MODULE_1__[\"dropdownFunctionality\"] ({\r\n  inputClass: \".js-input__field\",\r\n  dropdownClass: \".js-dropdown__control\",\r\n  inputResultTemplate: {type: \"sum\", values: 'гостя'},\r\n  defaultTemplate: \"Сколько гостей\"\r\n});\n\n//# sourceURL=webpack:///./room-details.js?");
 
 /***/ })
 
