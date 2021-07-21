@@ -78,9 +78,10 @@ datepicker.datepickerFunctionality({
 $(document).ready(function () {
   $(".js-slider__body").slider({
     range : true,
-    min: 0,
-    max: 15000,
-    values: [ 5000, 10000 ],
+    min: -10000,
+    max: 10000,
+    step: 50,
+    values: [ -5000, 5000 ],
     slide: function( event, ui ) {
       $(".js-slider__output").val(ui.values[ 0 ] + "₽" + " - " + ui.values[ 1 ] + "₽" );
     }

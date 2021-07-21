@@ -1,8 +1,22 @@
-# Task2
+# Макет страниц по поиску номеров в отеле
 
-Результат выполнения "Задание 2. Практика верстки" обучающей программы фронтенд разработчика от FSD.
+## Описание
 
-## Github pages
+Проект является выполненным заданием номер 2 обучающей программы frontend разработчика от MetaLamp.
+
+## Информация по развёртыванию
+```
+git clone https://github.com/MadGoby/Task-2
+npm install
+```
+## Команды для запуска
+
+- Сборка версии для разработки: `npm run dev`
+- Сборка версии для публикации: `npm run build`
+- Автоматическая сборка после внесения изменений: `npm run watch`
+- Сборка с дев-сервером: `npm run start`
+
+## Ссылки на Github pages
 
 1. [UI-Kit](https://madgoby.github.io/Task-2/dist/ui-kit.html)
 2. [Sing In](https://madgoby.github.io/Task-2/dist/sign-in.html)
@@ -10,3 +24,8 @@
 4. [Room Details](https://madgoby.github.io/Task-2/dist/room-details.html)
 5. [Registration](https://madgoby.github.io/Task-2/dist/registration.html)
 6. [Landing Page](https://madgoby.github.io/Task-2/dist/landing-page.html)
+
+## Глобальные библиотеки
+
+- [JQuery](https://jquery.com/)
+- [InputMask](https://www.npmjs.com/package/inputmask/v/5.0.6-beta.15)
