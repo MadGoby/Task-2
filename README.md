@@ -18,12 +18,12 @@ npm install
 
 ## Ссылки на Github pages
 
-1. [UI-Kit](https://madgoby.github.io/Task-2/dist/ui-kit.html)
-2. [Sing In](https://madgoby.github.io/Task-2/dist/sign-in.html)
-3. [Search Room](https://madgoby.github.io/Task-2/dist/search-room.html)
-4. [Room Details](https://madgoby.github.io/Task-2/dist/room-details.html)
-5. [Registration](https://madgoby.github.io/Task-2/dist/registration.html)
-6. [Landing Page](https://madgoby.github.io/Task-2/dist/landing-page.html)
+1. [UI-Kit](https://madgoby.github.io/Task-2/gh-pages/ui-kit.html)
+2. [Sing In](https://madgoby.github.io/Task-2/gh-pages/sign-in.html)
+3. [Search Room](https://madgoby.github.io/Task-2/gh-pages/search-room.html)
+4. [Room Details](https://madgoby.github.io/Task-2/gh-pages/room-details.html)
+5. [Registration](https://madgoby.github.io/Task-2/gh-pages/registration.html)
+6. [Landing Page](https://madgoby.github.io/Task-2/gh-pages/landing-page.html)
 
 ## Глобальные библиотеки
 
