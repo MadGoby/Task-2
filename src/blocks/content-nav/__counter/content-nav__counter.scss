@@ -1,7 +1,0 @@
-@import '../../../overall/mixins.scss';
-
-.content-nav__counter {
-  @include text_type($mont, 14px, 400, 24px, $dark75);
-  margin: 10px 0 0;
-  text-align: center;
-}

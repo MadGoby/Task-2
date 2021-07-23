@@ -1,8 +1,0 @@
-@import '__sample/color-description__sample.scss';
-@import '__text/color-description__text.scss';
-@import '../../overall/mixins.scss';
-
-.color-description {
-  @include text_type($mont, 19px, 400, 28px, $dark100);
-  max-height: 70px;
-}

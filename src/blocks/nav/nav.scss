@@ -1,9 +1,0 @@
-@import '../../overall/mixins.scss';
-@import '__link/nav__link.scss';
-
-.nav {
-  @include text_type($mont, 14px, 400, 17px, $dark50)
-}
-
-@import '_expanded/nav__link_expanded';
-@import '_bold/nav__link_bold.scss';

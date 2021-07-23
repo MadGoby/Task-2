@@ -1,9 +1,0 @@
-@import '../../../overall/mixins.scss';
-
-.button__control {
-  @include text_type($mont, 12px, 700, 15px, white);
-  text-transform: uppercase;
-  outline: none;
-  cursor: pointer;
-  user-select: none;
-}

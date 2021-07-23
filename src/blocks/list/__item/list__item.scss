@@ -1,9 +1,0 @@
-.list__item {
-  list-style: none;
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
-  .toggle__text {
-    max-width: 230px;
-  }
-}

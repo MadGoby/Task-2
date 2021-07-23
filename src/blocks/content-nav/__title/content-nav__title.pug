@@ -1,7 +1,0 @@
-mixin content-nav__title(settings)
-  - let text = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
-  - }
-  .content-nav__title
-    +title({text: text})
