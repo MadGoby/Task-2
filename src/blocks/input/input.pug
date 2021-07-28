@@ -1,8 +1,57 @@
-include __wrapper/input__wrapper.pug
-include __field/input__field.pug
-include __state/input__state.pug
-include __title/input__title.pug
-
 mixin input(settings)
   .input
+    block
+
+mixin input__field(settings)
+  - let length = ""
+  - let attr = ""
+  - let type = ""
+  - let state = ""
+  - let jsClass = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("length") ? length = `input__field_length_${settings.length}` : length = ""
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  -   settings.hasOwnProperty("type") ? type = `input__field_type_${settings.type}` : type = ""
+  -   settings.hasOwnProperty("state") ? type = `input__field_${settings.state}` : state = ""
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  - }
+  if type === "input__field_type_dropdown" 
+    +input__wrapper({type: "dropdown"})
+      input(class = "input__field" class=`${length} ${type} ${state} ${jsClass}`)&attributes(attr)
+  else if type === "input__field_type_submit"
+    +input__wrapper({type: "submit"})
+      input(class = "input__field" class=`${length} ${type} ${state} ${jsClass}`)&attributes(attr)
+      button(type="submit" class="input__submit-button")
+  else
+    input(class = "input__field" class=`${length} ${type} ${state} ${jsClass}`)&attributes(attr)
+
+mixin input__state(settings)
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - }
+  p.input__state=text
+
+mixin input__title(settings)
+  div(class="input__title")
+    block
+
+mixin input__title-text(settings)
+  - let type = ""
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("type") ? type =`input__title-text_${settings.type}` : type = ""
+  -   settings.hasOwnProperty("text") ? text =settings.text : text = ""
+  - }
+  div(class="input__title-text" class=type)
+    +title({
+      text: text
+    })
+
+mixin input__wrapper(settings)
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("type") ? type = `input__wrapper_type_${settings.type}` : type = ""
+  - }
+  label(class=`input__wrapper ${type}`)
     block

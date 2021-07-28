@@ -5,14 +5,14 @@ const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require ('mini-css-extract-plugin');
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, './src'),
     entry: {
-      'ui-kit': './ui-kit.js',
-      'landing-page': './landing-page.js',
-      'search-room': './search-room.js',
-      'registration': './registration.js',
-      'sign-in': './sign-in.js',
-      'room-details': './room-details.js',
+      'ui-kit': './ui-kit/main/ui-kit.js',
+      'landing-page': './pages/landing-page/landing-page.js',
+      'search-room': './pages/search-room/search-room.js',
+      'registration': './pages/registration/registration.js',
+      'sign-in': './pages/sign-in/sign-in.js',
+      'room-details': './pages/room-details/room-details.js',
     },
   output: {
     filename: 'js/[name].js',
@@ -20,7 +20,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      images: path.resolve(__dirname, 'src/img/'),
+      images: path.resolve(__dirname, './src/img'),
     },
   },
   devServer: {
@@ -35,32 +35,32 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './ui-kit.pug',
+      template: './ui-kit/main/ui-kit.pug',
       filename: 'ui-kit.html',
       excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details'], 
     }),
     new HTMLWebpackPlugin({
-      template: './landing-page.pug',
+      template: './pages/landing-page/landing-page.pug',
       filename: 'landing-page.html',
       excludeChunks: ['ui-kit', 'search-room', 'registration', 'sign-in', 'room-details'],
     }),
     new HTMLWebpackPlugin({
-      template: './search-room.pug',
+      template: './pages/search-room/search-room.pug',
       filename: 'search-room.html',
       excludeChunks: ['ui-kit', 'landing-page', 'registration', 'sign-in', 'room-details'], 
     }),
     new HTMLWebpackPlugin({
-      template: './room-details.pug',
+      template: './pages/room-details/room-details.pug',
       filename: 'room-details.html',
       excludeChunks: ['ui-kit', 'landing-page', 'registration', 'sign-in', 'search-room'],
     }),
     new HTMLWebpackPlugin({
-      template: './registration.pug',
+      template: './pages/registration/registration.pug',
       filename: 'registration.html',
       excludeChunks: ['ui-kit', 'landing-page', 'search-room', 'sign-in', 'room-details'],
     }),
     new HTMLWebpackPlugin({
-      template: './sign-in.pug',
+      template: './pages/sign-in/sign-in.pug',
       filename: 'sign-in.html',
       excludeChunks: ['ui-kit', 'landing-page', 'search-room', 'registration', 'room-details'],
     }),

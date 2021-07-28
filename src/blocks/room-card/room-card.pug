@@ -1,11 +1,49 @@
-include __image/room-card__image.pug
-include __room-info/room-card__room-info.pug
-include __rate/room-card__rate.pug
-
 mixin room-card(settings)
   - let jsClass = ""
   - if (settings) {
   -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
   - }
   div(class="room-card" class=jsClass)
+    block
+
+mixin room-card__image(settings)
+  - let images = []
+  - if (settings) {
+  -   settings.hasOwnProperty("img") ? images = settings.img : images = []
+  - }
+  div.room-card__image-wrapper
+    each img in images
+      - let src = ""
+      - let alt = ""
+      - if (img) {
+      -   img.hasOwnProperty("src") ? src = img.src : src = ""
+      -   img.hasOwnProperty("alt") ? alt = img.alt : alt = ""
+      - }
+      img(class="room-card__image" src=src, alt=alt)
+    button(type="button" class="room-card__image-button room-card__image-button_previous")
+    button(type="button" class="room-card__image-button room-card__image-button_next")
+    .room-card__image-position-wrapper
+      span.room-card__image-position.room-card__image-position_active
+      span.room-card__image-position
+      span.room-card__image-position
+      span.room-card__image-position
+
+mixin room-card__rate()
+  .room-card__rate
+    block
+
+mixin room-card__price()
+  .room-card__price
+    block
+
+mixin room-card__stars()
+  .room-card__stars
+    block
+
+mixin room-card__counter()
+  .room-card__counter
+    block
+
+mixin room-card__room-info()
+  .room-card__room-info
     block

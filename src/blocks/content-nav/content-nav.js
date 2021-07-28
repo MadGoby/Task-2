@@ -73,7 +73,7 @@ function contentNav(settings) {
 
     if (!parent.classList.contains("content-nav__button_space")) {
       function controlCurrentPageСlass(selectedButton) {
-        selectedButton.classList.toggle("content-nav__button_current");
+        selectedButton.querySelector(".button__control").classList.toggle("button__control_pagination_active");
       };
   
       function controlButtonsNumbers(ind, targetNum) {

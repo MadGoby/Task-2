@@ -1,53 +1,44 @@
-@import '__image/room-card__image.scss';
-
 .room-card {
   background: white;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   width: 270px;
   box-sizing: border-box;
   border-radius: 4px;
-  .room-card__image-wrapper {
+  &__image-wrapper {
     position: relative;
     height: 151.5px;
     overflow: hidden;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
-  .room-card__image {
+  &__image {
     width: 270px;
     display: inline-block;
     position: absolute;
-    left: 275px
+    left: 275px;
   }
-  .room-card__image-position-wrapper {
+  &__image-position-wrapper {
     bottom: 15px; right: 15px;
     height: 7.5px;
-    .room-card__image-position {
-      display: inline-block;
-      box-sizing: border-box;
-      width: 7.5px; height: 7.5px;
-      border: 1px solid white;
-      border-radius: 50%;
-      vertical-align: top;
-    }
-    .room-card__image-position:not(:last-child) {
+  }
+  &__image-position {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 7.5px; height: 7.5px;
+    border: 1px solid white;
+    border-radius: 50%;
+    vertical-align: top;
+    &:not(:last-child) {
       margin-right: 3.5px;
     }
-    .room-card__image-position_active {
+    &_active {
       background-color: white;
     }
   }
-  .room-card__image-button, .room-card__image-position-wrapper {
+  &__image-button, &__image-position-wrapper {
     position: absolute;
   }
-  .room-card__image-wrapper {
-    &:hover {
-      .room-card__image-button {
-        display: inline-block;
-      }
-    }
-  }
-  .room-card__image-button {
+  &__image-button {
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
     border: none;
     outline: none;
@@ -59,41 +50,46 @@
     position: absolute;
     top: 0;
     &::after {
-      content: url('img/scroll-arrow.svg');
+      content: url('../../img/scroll-arrow.svg');
       display: block;
       height: 44px;
       padding: 16px 0;
       box-sizing: border-box;
     }
-  }
-  .room-card__image-button_previous {
-    border-top-left-radius: 4px;
-    left: 0px;
-  }
-  .room-card__image-button_next {
-    right: 0px;
-    transform: rotate(180deg);
-    border-bottom-left-radius: 4px;
-  }
-  .room-card__room-info {
-    padding: 15px 19px 19px;
-    .room-info__number {
-      font-size: 19px;
+    &_previous {
+      border-top-left-radius: 4px;
+      left: 0px;
+    }
+    &_next {
+      right: 0px;
+      transform: rotate(180deg);
+      border-bottom-left-radius: 4px;
     }
   }
-  .rate-counter {
+  &__room-info {
+    padding: 15px 19px 19px;
+    
+  }
+  &__number {
+    font-size: 19px;
+  }
+  &__counter {
     display: inline-block;
     vertical-align: top;
     float: right;
+    padding-top: 2px;
   }
-  .room-info {
+  &__stars {
+    display: inline-block;
+  }
+  &__price {
     padding-bottom: 8px;
   }
-  .room-card__rate {
+  &__rate {
     border-top: 1px solid rgba(31, 32, 65, 0.1);
     padding-top: 8px;
-    .star-rate {
-      display: inline-block;
-    }
+  }
+  &__image-wrapper:hover &__image-button {
+    display: inline-block;
   }
 }

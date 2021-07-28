@@ -1,8 +1,0 @@
-mixin text-sample__teg(settings)
-  - let text = ""
-  - let type = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  -   settings.hasOwnProperty("type") ? type = `text-sample__teg_type_${settings.type}` : type = ""
-  - }
-  p(class=`text-sample__teg ${type}`)= text

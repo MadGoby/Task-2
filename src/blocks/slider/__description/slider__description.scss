@@ -1,6 +1,0 @@
-@import "../../../overall/mixins.scss";
-
-.slider__description {
-  margin: 14px 0 0;
-  @include text_type($mont, 12px, 400, 14px, $dark50);
-}

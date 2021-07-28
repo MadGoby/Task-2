@@ -1,15 +1,16 @@
-include __control/button__control.pug
-include __title/button__title.pug
-
 mixin button(settings)
   - let attr = ""
   - let type = ""
   - let text = ""
   - let jsClass = ""
+  - let pagClass = ""
+  - let height = ""
   - if (settings) {
   -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr=""
   -   settings.hasOwnProperty("text") ? text = settings.text : text=""
+  -   settings.hasOwnProperty("height") ? height = settings.height : height=""
   -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("pagClass") ? pagClass = settings.pagClass : pagClass=""
   -   settings.hasOwnProperty("type") ? type = settings.type : attr=""
   - }
   if type === "big"
@@ -18,7 +19,8 @@ mixin button(settings)
         text: text,
         jsClass: jsClass,
         attr: attr,
-        type: type
+        type: type,
+        height: height
       })
   else if type === "pagination"
     div(class="button button_type_pagination")
@@ -28,6 +30,33 @@ mixin button(settings)
       +button__control({
         text: text,
         jsClass: jsClass,
+        pagClass: pagClass,
         attr: attr,
-        type: type
+        type: type,
+        height: height
       })
+
+mixin button__control(settings)
+  - let attr = ""
+  - let type = ""
+  - let text = ""
+  - let pugClass = ""
+  - let jsClass = ""
+  - let height = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr=""
+  -   settings.hasOwnProperty("text") ? text = settings.text : text=""
+  -   settings.hasOwnProperty("height") ? height = `button__control_height_${settings.height}` : height=""
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("pagClass") ? pagClass = settings.pagClass : pagClass=""
+  -   settings.hasOwnProperty("type") ? type = `button__control_type_${settings.type}` : attr=""
+  - }
+  if type == "button__control_type_border"
+    div.button__border-mimic
+      button(class="button__control"  class=jsClass, class=type, class=pagClass, class= height, value=text)&attributes(attr)= text
+  else
+    button(class="button__control" class=jsClass, class=type, class=pagClass, class= height, value=text)&attributes(attr)= text
+
+mixin button__title(settings)
+  div(class="button__title")
+    block

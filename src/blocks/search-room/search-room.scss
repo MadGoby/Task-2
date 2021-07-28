@@ -1,6 +1,3 @@
-@import '__period/search-room__period.scss';
-@import '__guests/search-room__guests.scss';
-
 .search-room {
   padding: 40px 29px 30px;
   background-color: white;
@@ -14,8 +11,16 @@
   }
   &__period {
     margin-bottom: 20px;
+    position: relative;
   }
   &__guests {
     margin-bottom: 30px;
+    position: relative;
+  }
+  &__from, &__to {
+    display: inline-block;
+  }
+  &__to {
+    float: right;
   }
 }

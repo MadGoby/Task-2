@@ -1,6 +1,0 @@
-mixin user-comment__avatar(settings)
-  - let attr = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
-  - };
-  img(class="user-comment__avatar")&attributes(attr)

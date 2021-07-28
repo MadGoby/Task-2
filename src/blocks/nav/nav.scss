@@ -1,9 +1,33 @@
 @import '../../overall/mixins.scss';
-@import '__link/nav__link.scss';
 
 .nav {
-  @include text_type($mont, 14px, 400, 17px, $dark50)
+  @include text_type($mont, 14px, 400, 17px, $dark50);
+  line-height: 40px;
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+    &_bold {
+      font-weight: 700;
+      color: $dark75;
+    }
+    &_expanded{
+      &::after {
+        content: url('../../img/dropdown-nav.svg');
+        display: inline-block;
+        width: 24px;
+        height: 17px;
+        line-height: 100%;
+        text-align: center;
+      }
+    }
+    @media screen and (max-width: 650px) {
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin: 0 0 0 20px;
+    }
+  }
 }
-
-@import '_expanded/nav__link_expanded';
-@import '_bold/nav__link_bold.scss';

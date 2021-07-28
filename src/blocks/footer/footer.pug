@@ -1,9 +1,3 @@
-include __description/footer__description.pug
-include __nav/footer__nav.pug
-include __subscribe/footer__subscribe.pug
-include __text/footer__text.pug
-include __title/footer__title.pug
-include __social-media/footer__social-media.pug
 include ../social-media-link/social-media-link.pug
 
 mixin footer(settings)
@@ -12,5 +6,87 @@ mixin footer(settings)
   -  settings.hasOwnProperty("type") ? type = `footer_type_${settings.type}` : type=""
   - }
   div(class="footer" class=type)
-    .footer__wrapper
-      block
+    if settings && settings.type == "small"
+      div(class="footer__wrapper footer__wrapper_small")
+        block
+    else
+      .footer__wrapper
+        block
+
+mixin footer__description(settings)
+  - let type = ""
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("type") ? type = `footer__description_${settings.type}` : type="" 
+  - }
+  div(class="footer__description" class=type)
+    +logo({
+      src: "img/logo-color.svg"
+    })
+    if settings && settings.type == "small"
+      p(class="footer__text footer__text_small")=text
+    else 
+      p.footer__text=text
+
+mixin footer__nav(settings)
+  - let lists = []
+  - if (settings) {
+  -   settings.hasOwnProperty("lists") ? lists = settings.lists : lists = []  
+  - }
+  .footer__nav-wrapper
+    each list in lists
+      .footer__nav
+        each link in list
+          - let text = ""
+          - let href = ""
+          - if (settings) {
+          -   link.hasOwnProperty("text") ? text = link.text : text = ""
+          -   link.hasOwnProperty("href") ? href = link.href : href = "./for-change"
+          - }
+          a(class="footer__nav-link" href=href)= text
+
+mixin footer__social-media(settings)
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("type") ? type = `footer__social-media_${settings.type}` : type="" 
+  - }
+  div(class="footer__social-media" class=type)
+    block
+
+mixin footer__subscribe(settings)
+  - let title = ""
+  - let text = ""
+  - let action = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("action") ? action = settings.action : action = "./for-change"    
+  - }
+  .footer__subscribe
+    +footer__title({title: title})
+    +footer__text({text: text })   
+    form(action=action class="footer__subscribe-form")
+      +input()
+        +input__field({
+          attr: {
+            "type": "email",
+            "placeholder": "Email"
+          },
+          length: "m",
+          type: "submit"
+        })
+
+mixin footer__text(settings)
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""  
+  - }
+  p.footer__text=text
+
+mixin footer__title(settings)
+  - let title = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
+  - }
+  p.footer__title= title

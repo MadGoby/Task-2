@@ -1,0 +1,11 @@
+@import '../../overall/variables.scss';
+@import '../../fonts/fonts.scss';
+@import '../../blocks/logo/logo.scss';
+@import '../content-types/content-types.scss';
+@import '../form-elements/form-elements.scss';
+@import '../cards/cards.scss';
+@import '../headers-footers/headers-footers.scss';
+
+body {
+  margin: auto;
+}

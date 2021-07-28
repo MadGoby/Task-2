@@ -1,9 +1,35 @@
-include __buttons/header__buttons.pug
-include __authorized/header__authorized.pug
-include __nav/header__nav.pug
-include __logo/header__logo.pug
-
-
 mixin header(settings)
   .header
+    block
+
+mixin header__authorized(settings)
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""  
+  - }
+  p.header__authorized= text
+
+mixin header__buttons()
+  .header__buttons
+    .header__login-button
+      +button({
+        type: "border",
+        text: "войти",
+        attr: {"type": "button"},
+        height: "border-s"
+      })
+    .header__registration-button
+      +button({
+        type: "simple",
+        text: "зарегистрироваться",
+        attr: {"type": "button"},
+        height: "simple-s"
+      })
+
+mixin header__logo()
+  .header__logo
+    block
+
+mixin header__nav()
+  .header__nav
     block

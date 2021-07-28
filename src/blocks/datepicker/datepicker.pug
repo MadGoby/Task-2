@@ -11,38 +11,52 @@ mixin datepicker(settings)
   - }
   div(class="datepicker" class=size class=mainJsClass)&attributes(attr)
     button(class="datepicker__scroll-button datepicker__scroll-button_left js-datepicker__scroll-button_left" type="button")
-    p(class="datepicker__selected-month js-datepicker__selected-month")
+    if settings.size == "m"
+      p(class="datepicker__selected-month datepicker__selected-month_size_m js-datepicker__selected-month")
+    else 
+      p(class="datepicker__selected-month js-datepicker__selected-month")
     button(class="datepicker__scroll-button datepicker__scroll-button_right js-datepicker__scroll-button_right" type="button")
-    table(class="calendar js-calendar")
-      tr(class="calendar__line")
-        th(class="calendar__cell calendar__week-day")= "Пн"
-        th(class="calendar__cell calendar__week-day")= "Вт"
-        th(class="calendar__cell calendar__week-day")= "Ср"
-        th(class="calendar__cell calendar__week-day")= "Чт"
-        th(class="calendar__cell calendar__week-day")= "Пт"
-        th(class="calendar__cell calendar__week-day")= "Сб"
-        th(class="calendar__cell calendar__week-day")= "Вс"
-      tr(class="calendar__line js-calendar__line_num_1")
-      tr(class="calendar__line js-calendar__line_num_2")
-      tr(class="calendar__line js-calendar__line_num_3")
-      tr(class="calendar__line js-calendar__line_num_4")
-      tr(class="calendar__line js-calendar__line_num_5")
-      tr(class="calendar__line js-calendar__line_num_6")
+    table(class="datepicker__calendar js-datepicker__calendar")
+      tr(class="datepicker__calendar-line")
+        if settings.size == "m"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Пн"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Вт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Ср"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Чт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Пт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Сб"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Вс"
+        else
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Пн"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Вт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Ср"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Чт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Пт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Сб"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Вс"
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_1")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_2")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_3")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_4")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_5")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_6")
     .datepicker__confirmation-buttons
-      +button({
-        type: "text",
-        text: "очистить",
-        attr: {
-          "type": "button",
-          "class": "datepicker__clear-button js-datepicker__clear-button"
-        }
-      })
-      +button({
-        type: "text",
-        text: "применить",
-        attr: {
-          "type": "button",
-          "class": "datepicker__apply-button js-datepicker__apply-button"
-        }
-      })
+      .datepicker__clear-button
+        +button({
+          type: "text",
+          text: "очистить",
+          attr: {
+            "type": "button",
+            "class": "js-datepicker__clear-button"
+          }
+        })
+      .datepicker__apply-button
+        +button({
+          type: "text",
+          text: "применить",
+          attr: {
+            "type": "button",
+            "class": "js-datepicker__apply-button"
+          }
+        })
     

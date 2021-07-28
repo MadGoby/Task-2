@@ -1,0 +1,368 @@
+include ../../blocks/header/header.pug
+include ../../blocks/logo/logo.pug
+include ../../blocks/nav/nav.pug
+include ../../blocks/button/button.pug
+include ../../blocks/footer/footer.pug
+include ../../blocks/social-media-link/social-media-link.pug
+include ../../blocks/copyright/copyright.pug
+include ../../blocks/input/input.pug
+include ../../blocks/slider/slider.pug
+include ../../blocks/toggle/toggle.pug
+include ../../blocks/list/list.pug
+include ../../blocks/dropdown/dropdown.pug
+include ../../blocks/room-card/room-card.pug
+include ../../blocks/room-info/room-info.pug
+include ../../blocks/rate-counter/rate-counter.pug
+include ../../blocks/title/title.pug
+include ../../blocks/content-nav/content-nav.pug
+include ../../blocks/datepicker/datepicker.pug
+include ../../blocks/star-rate/star-rate.pug
+
+doctype html
+html
+  head
+    title Search Room
+    meta(charset="utf-8")
+    meta(name="description" content="Search page of the hotel room website.")
+    meta(name="keywords" content="HTML, CSS, JavaScript")
+    meta(name="viewport" content="initial-scale=1.0, width=device-width")
+  body
+    .search-room
+      header.search-room__header
+        +header()
+          +header__logo()
+            +logo({
+              src: "img/logo-color.svg"
+            })
+          +header__nav()
+            +nav()
+              +nav__link({
+                links: [
+                  {"text": "О нас"},
+                  {"text": "Услуги", "type": "expanded"},
+                  {"text": "Вакансии"},
+                  {"text": "Новости"},
+                  {"text": "Соглашения", "type": "expanded"}
+                ]
+              })
+          +header__buttons()
+      main.search-room__main 
+        .search-room__sidebar-wrapper
+          .search-room__sidebar-title
+            +title({
+              text: "Фильтры для поиска",
+              type: "closed",
+              jsClass: "js-search-room__sidebar-title",
+              for: "sidebar"
+            })
+          aside.search-room__sidebar.js-search-room__sidebar
+            .search-room__date-filter
+              +input()
+                +input__title()
+                  +title({
+                    text: "даты пребывания в отеле",
+                  })
+                +input__field({
+                  attr: {
+                    "type": "text",
+                    "placeholder": "ДД.ММ.ГГ",
+                    "value": "19 авг - 23 авг",
+                    "readonly": "readonly"
+                  },
+                  length: "m",
+                  type: "dropdown",
+                  jsClass: "js-input__field_total"
+                })
+              +datepicker({
+                jsClass: "js-datepicker",
+                attr: {
+                  "hidden": "hidden"
+                },
+                size: "m"
+              })
+            .search-room__guests
+              +dropdown()
+                +dropdown__input({expanded: false})
+                  +input()
+                    +input__title()
+                      +title({
+                        text: "Гости"
+                      })
+                    +input__field({
+                      attr: {
+                        "type": "text",
+                        "placeholder": "Text",
+                        "value": "3 гостя, 1 младенец",
+                        "readonly": "readonly"
+                      },
+                      length: "m",
+                      type: "dropdown",
+                      jsClass: "js-input__field_2"
+                    })
+                +dropdown__control({jsClass: "js-dropdown__control_2", attr: {"hidden": "hidden"}})
+                  +dropdown__list({
+                    elements: [
+                      { 
+                        text: "взрослые",
+                        dataTarget: "adult",
+                        output: "2"
+                      },
+                      { 
+                        text: "дети",
+                        dataTarget: "child",
+                        output: "1"
+                      },
+                      { 
+                        text: "младенцы",
+                        dataTarget: "baby",
+                        output: "1",
+                      },
+                    ]
+                  })
+                  +dropdown__submit-buttons({hidden: true})
+            .search-room__slider
+              +slider()
+                +slider__title()
+                  +slider__title-text()
+                    +title({text: "диапазон цены"})
+                  +slider__output({jsClass: "js-slider__output"})
+                +slider__body({jsClass: "js-slider__body"})
+                +slider__description({text: "Стоимость за сутки пребывания в номере"})
+            .search-room__additional-features
+              .search-room__features-title
+                +title({
+                  text: "правила дома"
+                })
+              +toggle()
+                +toggle__controller({
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden"
+                  },
+                  text: "Можно курить"
+                })
+              +toggle()
+                +toggle__controller({
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                    "checked": "checked"
+                  },
+                  text: "Можно с питомцами"
+                })
+              +toggle()
+                +toggle__controller({
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                    "checked": "checked"
+                  },
+                  text: "Можно пригласить гостей (до 10 человек)",
+                  length: "s"
+                })
+            .search-room__availability
+              +list()
+                +list__title({
+                  text: "доступность"
+                })
+                +list__item()
+                  +toggle()
+                    +toggle__controller({
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden"
+                      },
+                      richText: "Широкий коридор",
+                      text: "Ширина коридоров в номере не менее 91 см."
+                    })
+                +list__item()
+                  +toggle()
+                    +toggle__controller({
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden"
+                      },
+                      richText: "Помощник для инвалидов",
+                      text: "На 1 этаже вас встретит специалист  и проводит до номера."
+                    })   
+            .search-room__room-amenities
+              +dropdown()
+                +dropdown__input({expanded: false})
+                  +input()
+                    +input__title()
+                      +title({
+                        text: "удобства номера"
+                      })
+                    +input__field({
+                      attr: {
+                        "type": "text",
+                        "placeholder": "Text",
+                        "value": "2 спальни, 2 кровати...",
+                        "readonly": "readonly"
+                      },
+                      length: "m",
+                      type: "dropdown",
+                      jsClass: "js-input__field"
+                    })
+                +dropdown__control({jsClass: "js-dropdown__control", attr: {"hidden": "hidden"}})
+                  +dropdown__list({
+                    elements: [
+                      { 
+                        text: "спальни",
+                        dataTarget: "bedroom",
+                        output: "2"
+                      },
+                      { 
+                        text: "кровати",
+                        dataTarget: "bed",
+                        output: "2"
+                      },
+                      { 
+                        text: "ванные комнаты",
+                        dataTarget: "bathroom",
+                        output: "0",
+                      },
+                    ]
+                  })  
+            .search-room__additional-amenities
+              +list()
+                +list__title({
+                  text: "expandable checkbox list",
+                  type: "closed",
+                  jsClass: "js-list__title"
+                })
+                +list__container({jsClass: "js-list__container", attr: {"hidden": "hidden"}})
+                  +list__item()
+                    +toggle()
+                      +toggle__controller({
+                        type: "checkbox",
+                        attr: {
+                          "type": "checkbox",
+                          "hidden": "hidden"
+                        },
+                        text: "Завтрак"
+                      })
+                  +list__item()
+                    +toggle()
+                      +toggle__controller({
+                        type: "checkbox",
+                        attr: {
+                          "type": "checkbox",
+                          "hidden": "hidden",
+                          "checked": "checked"
+                        },
+                        text: "Письменный стол"
+                      })
+                  +list__item()
+                    +toggle()
+                      +toggle__controller({
+                        type: "checkbox",
+                        attr: {
+                          "type": "checkbox",
+                          "hidden": "hidden",
+                          "checked": "checked"
+                        },
+                        text: "Стул для кормления"
+                      })
+                  +list__item()
+                    +toggle()
+                      +toggle__controller({
+                        type: "checkbox",
+                        attr: {
+                          "type": "checkbox",
+                          "hidden": "hidden",
+                          "checked": "checked"
+                        },
+                        text: "Кроватка"
+                      })
+                  +list__item()
+                    +toggle()
+                      +toggle__controller({
+                        type: "checkbox",
+                        attr: {
+                          "type": "checkbox",
+                          "hidden": "hidden"
+                        },
+                        text: "Телевизор"
+                      })
+                  +list__item()
+                    +toggle()
+                      +toggle__controller({
+                        type: "checkbox",
+                        attr: {
+                          "type": "checkbox",
+                          "hidden": "hidden"
+                        },
+                        text: "Шампунь"
+                      })
+        article.search-room__rooms
+          .search-room__rooms-title
+            +title({
+              text: "Номера, которые мы для вас подобрали",
+              type: "big",
+              teg: "h1"
+            })
+          .search-room__rooms-wrapper
+            include ../search-room-cards/search-room-cards.pug
+          .search-room__rooms-nav
+            +content-nav({jsClass: "js-content-nav"})
+              +content-nav__buttons()
+              +content-nav__counter({text: "1 – 12 из 100+ вариантов аренды"})
+      footer.search-room__footer
+        +footer()
+          +footer__description({
+            text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+          })
+          +footer__nav({
+            lists: [
+              [
+                {"text": "навигация"}, 
+                {"text": "О нас"},
+                {"text": "Новости"},
+                {"text": "Служба поддержки"},
+                {"text": "Услуги"}
+              ],
+              [
+                {"text": "о нас"}, 
+                {"text": "О сервисе"},
+                {"text": "Наша команда"},
+                {"text": "Вакансии"},
+                {"text": "Инвесторы"}
+              ],
+              [
+                {"text": "Служба поддержки"}, 
+                {"text": "Соглашения"},
+                {"text": "Сообщества"},
+                {"text": "Связь с нами"}
+              ]
+            ]
+          })
+          +footer__subscribe({
+            title: "Подписка",
+            text: "Получайте специальные предложения и новости сервиса"
+          })
+        +copyright({
+          text: "Copyright © 2018 Toxin отель. Все права защищены."
+        })
+          +copyright__social-media()
+            +social-media-link({
+              socialLinks: [
+                {
+                  "name": "twitter",
+                  "iconSrc": "img/twitter.svg"
+                },
+                {
+                  "name": "facebook",
+                  "iconSrc": "img/facebook.svg"
+                },
+                {
+                  "name": "instagram",
+                  "iconSrc": "img/instagram.svg"
+                }
+              ]
+            })

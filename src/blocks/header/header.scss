@@ -1,7 +1,4 @@
-@import '__buttons/header__buttons.scss';
-@import '__authorized/header__authorized.scss';
-@import '__nav/header__nav.scss';
-@import '__logo/header__logo.scss';
+@import '../../overall/mixins.scss';
 
 .header {
   width: 100%;
@@ -11,4 +8,57 @@
   box-sizing: border-box;
   text-align: right;
   position: relative;
+  &__authorized {
+    @include text_type($mont, 14px, 400, 40px, $dark50);
+    display: inline-block;
+    margin: 0px;
+    &::before {
+      content: '';
+      width: 1px;
+      height: 30px;
+      line-height: 40px;
+      background-color: $dark10;
+      display: inline-block;
+      margin: 0 20px;
+      vertical-align: top;
+      padding: 5px 0;
+    }
+  }
+  &__buttons {
+    display: inline-block;
+    text-align: initial;
+    margin-left: 20px;
+    margin-top: 3px;
+  }
+  &__login-button, &__registration-button {
+    display: inline-block;
+    height: 34px;
+  }
+  &__login-button {
+    margin-right: 20px;
+  }
+  &__logo {
+    float: left;
+    vertical-align: top;
+    @media screen and (max-width: 650px) {
+      display: block;
+      text-align: center;
+      float: none;
+    }
+  }
+  &__nav { 
+    display: inline-block;
+    line-height: 40px;
+    vertical-align: top;
+    @media screen and (max-width: 650px) {
+      max-width: 310px;
+      margin: 20px 0;
+    }
+  }
+  @media screen and (max-width: 880px) {
+    padding: 15px 30px;
+  }
+  @media screen and (max-width: 650px) {
+    text-align: center;
+  }
 }

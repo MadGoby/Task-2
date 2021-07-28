@@ -1,5 +1,3 @@
-include __star/star-rate__star.pug
-
 mixin star-rate(settings)
   - let n = 1
   - let rate = 0
@@ -13,3 +11,10 @@ mixin star-rate(settings)
       else
         +star-rate__star()
       - n = n + 1
+
+mixin star-rate__star(settings)
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("type") ? type = `star-rate__star_${settings.type}` : type = ""
+  - };
+  span(class=`star-rate__star ${type}`)

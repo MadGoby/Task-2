@@ -1,5 +1,5 @@
 function datepickerFunctionality(settings) {
-  const {targetClass, inputFromClass, inputToClass, inputTotalClass, defaultSettings} = settings;
+  const {targetClass, inputFromClass, inputToClass, inputTotalClass, defaultSettings, size} = settings;
   
   function elementsInitialization() {
     let datepickerBody = document.querySelector(targetClass);
@@ -9,13 +9,13 @@ function datepickerFunctionality(settings) {
     let buttonPrevious = datepickerBody.querySelector(".js-datepicker__scroll-button_left");
     let buttonNext = datepickerBody.querySelector(".js-datepicker__scroll-button_right");
     let selectedMonth = datepickerBody.querySelector(".js-datepicker__selected-month");
-    let calendar = datepickerBody.querySelector(".js-calendar");
-    let calendarLine1 = calendar.querySelector(".js-calendar__line_num_1");
-    let calendarLine2 = calendar.querySelector(".js-calendar__line_num_2");
-    let calendarLine3 = calendar.querySelector(".js-calendar__line_num_3");
-    let calendarLine4 = calendar.querySelector(".js-calendar__line_num_4");
-    let calendarLine5 = calendar.querySelector(".js-calendar__line_num_5");
-    let calendarLine6 = calendar.querySelector(".js-calendar__line_num_6");
+    let calendar = datepickerBody.querySelector(".js-datepicker__calendar");
+    let calendarLine1 = calendar.querySelector(".js-datepicker__calendar-line_num_1");
+    let calendarLine2 = calendar.querySelector(".js-datepicker__calendar-line_num_2");
+    let calendarLine3 = calendar.querySelector(".js-datepicker__calendar-line_num_3");
+    let calendarLine4 = calendar.querySelector(".js-datepicker__calendar-line_num_4");
+    let calendarLine5 = calendar.querySelector(".js-datepicker__calendar-line_num_5");
+    let calendarLine6 = calendar.querySelector(".js-datepicker__calendar-line_num_6");
     let clearButton = datepickerBody.querySelector(".js-datepicker__clear-button");
     let applyButton = datepickerBody.querySelector(".js-datepicker__apply-button");
     
@@ -128,15 +128,19 @@ function datepickerFunctionality(settings) {
 
     function makeCalendarCell(date, whatMonth) {
       let calendarCell = document.createElement("td");
-      calendarCell.classList.add("calendar__cell");
+      calendarCell.classList.add("datepicker__calendar-cell");
+
+      if (size == "m") {
+        calendarCell.classList.add("datepicker__calendar-cell_size_m");
+      };
 
       if(whatMonth === "next") {
-        calendarCell.classList.add("calendar__cell_transparent");
+        calendarCell.classList.add("datepicker__calendar-cell_transparent");
         calendarCell.setAttribute("data-month", "next")
       } else if(whatMonth === "previous") {
-        calendarCell.classList.add("calendar__cell_transparent");
+        calendarCell.classList.add("datepicker__calendar-cell_transparent");
         calendarCell.setAttribute("data-month", "previous")
-      };
+      }
 
       function checkMatchByDay(day) {
         return day.getFullYear() == date.getFullYear() && day.getMonth() == date.getMonth() && day.getDate() == date.getDate();
@@ -146,26 +150,26 @@ function datepickerFunctionality(settings) {
       };
       
       if(checkMatchByDay(currentDay)) {
-        calendarCell.classList.add("calendar__cell_current-day");
+        calendarCell.classList.add("datepicker__calendar-cell_current-day");
       };
       if (from) {
         if(checkMatchByDay(from)) {
-          calendarCell.classList.add("calendar__cell_from");
+          calendarCell.classList.add("datepicker__calendar-cell_from");
         };
       };
       if (to) {
         if(checkMatchByDay(to)) {
-          calendarCell.classList.add("calendar__cell_to");
+          calendarCell.classList.add("datepicker__calendar-cell_to");
         };
       };
       
       if (from && to) {
         if(checkRangeMatch() && checkMatchByDay(from)) {
-          calendarCell.classList.add("calendar__cell_range-from");
+          calendarCell.classList.add("datepicker__calendar-cell_range-from");
         } else if(checkRangeMatch() && checkMatchByDay(to)) {
-          calendarCell.classList.add("calendar__cell_range-to");
+          calendarCell.classList.add("datepicker__calendar-cell_range-to");
         } else if(checkRangeMatch()) {
-          calendarCell.classList.add("calendar__cell_range");
+          calendarCell.classList.add("datepicker__calendar-cell_range");
         };
       };
       

@@ -1,9 +1,3 @@
-include __title/login__title.pug
-include __inputs/login__inputs.pug
-include __confirm-button/login__confirm-button.pug
-include __registration/login__registration.pug
-include __text/login__text.pug
-
 mixin login(settings)
   - let action = ""
   - if (settings) {
@@ -11,3 +5,52 @@ mixin login(settings)
   - };
   form(action=action).login
     block
+
+mixin login__confirm-button()
+  .login__confirm-button
+    block
+
+mixin login__inputs()
+  .login__inputs
+    .login__email-input
+      +input()
+        +input__field({
+          attr: {
+            "type": "email",
+            "placeholder": "Email"
+          },
+          length: "l",
+          type: "simple"
+        })
+    .login__pass-input
+      +input()
+        +input__field({
+          attr: {
+            "type": "password",
+            "placeholder": "Пароль"
+          },
+          length: "l",
+          type: "simple"
+        })
+
+mixin login__registration()
+  .login__registration
+    block
+
+mixin login__text(settings)
+  - let text = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - };
+  p.login__text=text
+
+mixin login__title(settings)
+  - let text = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - }
+  .login__title
+    +title({
+      text: text,
+      type: "big"
+    })

@@ -1,7 +1,0 @@
-mixin input__title(settings)
-  - let type = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("type") ? type =`input__title_${settings.type}` : type = ""
-  - }
-  div(class="input__title" class=type)
-    block

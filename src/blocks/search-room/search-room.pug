@@ -1,8 +1,3 @@
-include __title/search-room__title.pug
-include __period/search-room__period.pug
-include __guests/search-room__guests.pug
-include __confirm-button/search-room__confirm-button.pug
-
 mixin search-room(settings)
   - let action = ""
   - if (settings) {
@@ -10,3 +5,34 @@ mixin search-room(settings)
   - };
   form(action=action).search-room
     block
+
+mixin search-room__confirm-button()
+  .search-room__confirm-button
+    block
+
+mixin search-room__guests()
+  .search-room__guests
+    block
+
+mixin search-room__period()
+  .search-room__period
+    block
+
+mixin search-room__from()
+  .search-room__from
+    block
+
+mixin search-room__to()
+  .search-room__to
+    block
+
+mixin search-room__title(settings)
+  - let text = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - }
+  .search-room__title
+    +title({
+      text: text,
+      type: "big"
+    })

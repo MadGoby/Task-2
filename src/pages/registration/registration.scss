@@ -1,0 +1,43 @@
+@import '../../overall/variables.scss';
+@import '../../fonts/fonts.scss';
+@import '../../blocks/header/header.scss';
+@import '../../blocks/logo/logo.scss';
+@import '../../blocks/nav/nav.scss';
+@import '../../blocks/button/button.scss';
+@import '../../blocks/footer/footer.scss';
+@import '../../blocks/social-media-link/social-media-link.scss';
+@import '../../blocks/copyright/copyright.scss';
+@import '../../blocks/input/input.scss';
+@import '../../blocks/registration/registration.scss';
+@import '../../blocks/button/button.scss';
+@import '../../blocks/toggle/toggle.scss';
+@import '../../blocks/title/title.scss';
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+.registration-page {
+  margin: 0;
+  background: #F4F4F6;
+  min-width: 400px;
+  display: flex;
+	flex-direction: column;
+  min-height: 100%;
+  &__main {
+    flex: 1 0 auto;
+    background-image: url('../../img/reg-back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 693px;
+    text-align: center;
+  }
+  &__form {
+    display: inline-block;
+    margin-top: 20px;
+  }
+  &__footer {
+    flex: 0 0 auto;
+  }
+}

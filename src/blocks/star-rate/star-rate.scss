@@ -1,2 +1,13 @@
-@import '__star/star-rate__star.scss';
-@import '_active/star-rate__star_active.scss';
+.star-rate {
+  &__star {
+    display: inline-block;
+    width: 19px; height: 19px;
+    background-image: url('../../img/star-border.jpg');
+    &:not(:last-of-type) {
+      margin-right: 4px;
+    }
+    &_active {
+      background-image: url('../../img/star.jpg');
+    }
+  }
+}

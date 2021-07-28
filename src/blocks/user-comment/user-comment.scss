@@ -1,5 +1,38 @@
-@import '__avatar/user-comment__avatar.scss';
-@import '__info/user-comment__info.scss';
-@import '__text/user-comment__text.scss';
-@import '__like/user-comment__like.scss';
-@import '__main/user-comment__main.scss';
+@import '../../overall/mixins.scss';
+
+.user-comment {
+  &__avatar {
+    width: 48px; height: 48px;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 20px 0px $dark10;
+    border-radius: 100%;
+    border: 2px solid white;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  &__info {
+    @include text_type($mont, 14px, 400, 24px, $dark75);
+    display: inline-block;
+    vertical-align: top;
+  }
+  &__name, &__age {
+    margin: 0px;
+  }
+  &__name {
+    font-weight: 700;
+  }
+  &__like {
+    display: inline-block;
+    margin-right: 14px;
+    vertical-align: top;
+  }
+  &__main {
+    margin: 7px 0 0 4px;
+  }
+  &__text {
+    @include text_type($mont, 14px, 400, 24px, $dark75);
+    display: inline-block;
+    margin: 0;
+    max-width: 653px;
+  }
+}

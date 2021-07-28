@@ -1,4 +1,45 @@
-@import '__title/slider__title.scss';
-@import '__output/slider__output.scss';
-@import '__body/slider__body.scss';
-@import '__description/slider__description.scss';
+@import "../../overall/mixins.scss";
+
+.slider {
+  &__body {
+    height: 6px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid $dark25;
+  }
+  &__description {
+    margin: 14px 0 0;
+    @include text_type($mont, 12px, 400, 14px, $dark50);
+  }
+  &__output {
+    display: inline-block;
+    line-height: 15px;
+    width: 50%;
+    font-weight: 400;
+    color: $dark50;
+    text-align: right;
+  }
+  &__title {
+    line-height: 15px;
+    margin: 0 0 23px;
+    @include text_type($mont, 14px, 400, 20px, $dark75);
+  }
+  &__title-text {
+    width: 50%;
+    display: inline-block;
+  }
+}
+
+.ui-slider .ui-slider-handle {
+  outline: none;
+  top: -6px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+}
+.ui-slider .ui-slider-range {
+  height: 6px;
+  top: -1px;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+}

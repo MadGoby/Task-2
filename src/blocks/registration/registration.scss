@@ -1,6 +1,4 @@
-@import '__gender/registration__gender.scss';
-@import '__text/registration__text.scss';
-@import '__login/registration__login.scss';
+@import '../../overall/mixins.scss';
 
 .registration {
   padding: 40px 30px 30px;
@@ -10,30 +8,32 @@
   border-radius: 4px;
   max-width: 380px;
   box-sizing: border-box;
+  text-align: initial;
   &__title {
     margin-bottom: 20px;
   }
   &__personal-data {
     margin-bottom: 24px;
-    .input {
-      margin-bottom: 10px;
-    }
   }
   &__birthday {
     margin-bottom: 20px;
   }
   &__login-data {
     margin-bottom: 24px;
-    input {
-      margin-bottom: 10px;
-    }
   }
   &__confirm-button {
     margin-bottom: 30px;
   }
-  &__gender {
-    .toggle__wrapper:first-child {
-      margin-right: 20px;
-    }
+  &__name, &__surname, &__email, &__pass {
+    margin-bottom: 10px;
+  }
+  &__text {
+    @include text_type($mont, 14px, 400, 18px, #000000);
+    margin: 0;
+    display: inline-block;
+    line-height: 44px;
+  }
+  &__link {
+    float: right;
   }
 }

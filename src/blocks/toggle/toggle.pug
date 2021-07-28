@@ -1,8 +1,68 @@
-include __mimic/toggle__mimic.pug
-include __text/toggle__text.pug
-include __controller/toggle__controller.pug
-include __title/toggle__title.pug
-
 mixin toggle(settings)
   .toggle
     block
+
+mixin toggle__controller(settings)
+  - let type = ""
+  - let mimicType = ""
+  - let attr = ""
+  - let text = ""
+  - let richText = ""
+  - let n = 5
+  - let length = false
+  - if (settings) {
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  -   settings.hasOwnProperty("length") ? length = settings.length : length = false
+  -   if  (settings.hasOwnProperty("type")) {
+  -     type = `toggle__controller_type_${settings.type}`
+  -     mimicType=settings.type
+  -   }
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = "";
+  -   settings.hasOwnProperty("richText") ? richText = settings.richText : richText = "";
+  - };
+  label(class="toggle__wrapper")
+    input(class = `toggle____controller ${type}`)&attributes(attr)
+    if settings.type === "like" && settings.text
+      +toggle__mimic({type: mimicType})
+        if settings.richText
+          +toggle__text({text: richText, type: "rich", length})
+        +toggle__text({text: text, length})
+    else if settings.text
+      +toggle__mimic({type: mimicType})
+      .toggle__text-wrapper
+        if settings.richText
+          +toggle__text({text: richText, type: "rich", length})
+        +toggle__text({text: text, length})
+    else if !settings.type === "rate"
+      +toggle__mimic({type: mimicType})
+
+mixin toggle__mimic(settings)
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("type") ? type = `toggle__mimic_type_${settings.type}` : type = "";
+  - };
+  span(class=`toggle__mimic ${type}`)
+    block
+
+mixin toggle__text(settings)
+  - let textType = ""
+  - let length = ""
+  - if (settings) {
+  -  settings.hasOwnProperty("type") ? textType  = `toggle__text_${settings.type}` : textType="";
+  -  settings.hasOwnProperty("length") ? length  = `toggle__text_length_${settings.length}` : length="";
+  - };
+  p(class="toggle__text" class=textType, class=length)= settings.text
+
+mixin toggle__title(settings)
+  - let titleText = ""
+  - let titleType = ""
+  - if (settings) {
+  -  settings.hasOwnProperty("text") ? titleText  = settings.text : titleText="";
+  -  settings.hasOwnProperty("text") ? titleType  = settings.type : titleType = "";
+  - };
+  if titleType == true 
+    div.toggle__title
+      +title({text: titleText, type: titleType})
+  else 
+    div.toggle__title
+      +title({text: titleText})

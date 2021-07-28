@@ -1,10 +1,79 @@
-include __main/user-comment__main.pug
-include __title/user-comment__title.pug
-include __avatar/user-comment__avatar.pug
-include __info/user-comment__info.pug
-include __text/user-comment__text.pug
-include __like/user-comment__like.pug
-
 mixin user-comment()
   .user-comment
     block
+
+mixin user-comment__avatar(settings)
+  - let attr = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
+  - };
+  img(class="user-comment__avatar")&attributes(attr)
+
+mixin user-comment__info(settings)
+  - let name = ""
+  - let daysHavePassed = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("name") ? name = settings.name : name = ""
+  -   settings.hasOwnProperty("daysHavePassed") ? daysHavePassed = settings.daysHavePassed : daysHavePassed = ""
+  - }
+  .user-comment__info
+    p.user-comment__name=name
+    p.user-comment__age=daysHavePassed
+
+mixin user-comment__like(settings)
+  - let text = ""
+  - let checked = false
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("checked") && settings.checked === true ? checked = settings.checked : checked = false
+  - }
+  .user-comment__like
+    +toggle()
+      if checked === true
+        +toggle__controller({
+          type: "like",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden",
+            "checked": "checked"
+          },
+          text: text
+        })
+      else
+        +toggle__controller({
+          type: "like",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden"
+          },
+          text: text
+        })
+
+mixin user-comment__main(settings)
+  - let likeSettings = {}
+  - let textSettings = {}
+  - if (settings) {
+  -   settings.hasOwnProperty("likeSettings") ? likeSettings = settings.likeSettings : likeSettings = {}
+  -   settings.hasOwnProperty("textSettings") ? textSettings = settings.textSettings : textSettings = {}
+  - }
+  .user-comment__main
+    +user-comment__like(likeSettings)
+    +user-comment__text(textSettings)
+
+mixin user-comment__text(settings)
+  - let text = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  - }
+  p.user-comment__text=text
+
+mixin user-comment__title(settings)
+  - let avatarSettings = {}
+  - let infoSettings = {}
+  - if (settings) {
+  -   settings.hasOwnProperty("avatarSettings") ? avatarSettings = settings.avatarSettings : avatarSettings = {}
+  -   settings.hasOwnProperty("infoSettings") ? infoSettings = settings.infoSettings : daysHavePassed = {}
+  - }
+  .user-comment__title
+    +user-comment__avatar(avatarSettings)
+    +user-comment__info(infoSettings)

@@ -1,8 +1,45 @@
-@import '__title/list__title.scss';
-@import '__item/list__item.scss';
-@import '__text/list__text.scss';
-@import '__container/list__container.scss';
-@import '_type/list_type.scss';
-@import '_bullet/list__item_bullet.scss';
-@import '_bullet/list__title_bullet.scss';
+@import '../../overall/mixins.scss';
 
+.list {
+  &__container {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+  }
+  &__item {
+    list-style: none;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &_bullet {
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 10px; height: 10px;
+        background-color: $dark25;
+        margin-right: 10px;
+        border-radius: 100%;
+        vertical-align: top;
+        margin-top: 7px;  
+      }
+    }
+  }
+  &__text {
+    @include text_type($mont, 14px, 400, 24px, $dark75);
+    margin: 0;
+    max-width: 240px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  &__title {
+    margin: 0px;
+    margin-bottom: 18px;
+    line-height: 15px;
+    &_bullet {
+      margin-bottom: 13px;
+    }
+    &_with-margin {
+      margin-left: 20px;
+    }
+  }
+}

@@ -38,10 +38,10 @@ function dropdownFunctionality(settings) {
   function discloseDropdown(event) {
     if(dropdown.hasAttribute("hidden")) {
       dropdown.removeAttribute("hidden");
-      input.parentNode.parentNode.parentNode.classList.add("dropdown__input_expanded");
+      input.classList.add("input__field_expanded");
     } else {
       dropdown.setAttribute("hidden", "hidden");
-      input.parentNode.parentNode.parentNode.classList.remove("dropdown__input_expanded");
+      input.classList.remove("input__field_expanded");
     };
   };
 

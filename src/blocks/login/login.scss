@@ -1,6 +1,4 @@
-@import '__inputs/login__inputs.scss';
-@import '__text/login__text.scss';
-@import '__registration/login__registration.scss';
+@import '../../overall/mixins.scss';
 
 .login {
   padding: 40px 30px 30px;
@@ -16,7 +14,19 @@
   &__inputs {
     margin-bottom: 20px;
   }
+  &__email-input {
+    margin-bottom: 10px;
+  }
   &__confirm-button {
     margin-bottom: 30px;
+  }
+  &__link {
+    float: right
+  }
+  &__text {
+    @include text_type($mont, 14px, 400, 18px, #000000);
+    margin: 0;
+    display: inline-block;
+    line-height: 44px;
   }
 }

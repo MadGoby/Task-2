@@ -1,13 +1,138 @@
-include __list/dropdown__list.pug
-include __list-element/dropdown__list-element.pug
-include __text/dropdown__text.pug
-include __calc/dropdown__calc.pug
-include __output/dropdown__output.pug
-include __button/dropdown__button.pug
-include __input/dropdown__input.pug
-include __control/dropdown__control.pug
-include __submit-buttons/dropdown__submit-buttons.pug
-
 mixin dropdown(settings)
   div.dropdown
     block
+
+mixin dropdown__calc(settings)
+  .dropdown__calc
+    block
+
+mixin dropdown__button(settings)
+  - let type = ""
+  - let text = ""
+  - let attr = ""
+  - let transparent = false
+  - if(settings) {
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  -   settings.hasOwnProperty("type") ? type = `dropdown__button_type_${settings.type}` : type = ""
+  -   if(settings.hasOwnProperty("transparent")) {
+  -     settings.transparent === true ? transparent = true : transparent = false
+  -   }
+  - }
+  if transparent 
+    button(class="dropdown__button dropdown__button_transparent" type="button" class=`${type}`)&attributes(attr)=text
+  else
+    button(class="dropdown__button" type="button" class=`${type}`)&attributes(attr)=text
+
+mixin dropdown__control(settings)
+  - let jsClass = ""
+  - let attr = ""
+  - let z = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
+  -   settings.hasOwnProperty("z") ? z = `dropdown__control_z_${settings.z}` : z = ""
+  - }
+  div(class="dropdown__control" class=jsClass, class=z)&attributes(attr)
+    block
+
+mixin dropdown__input(settings)
+    div.dropdown__input
+      block
+
+mixin dropdown__list-element()
+  li.dropdown__list-element 
+    block
+
+mixin dropdown__output(settings)
+  - let jsClass = ""
+  - let text = ""
+  - let attr = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  - }
+  output(class="dropdown__output" class=jsClass)&attributes(attr)=text
+
+mixin dropdown__list(settings)
+  - let elements = []
+  - if(settings) {
+  -   settings.hasOwnProperty("elements") ? elements=settings.elements : elements=[]
+  - }
+  ul.dropdown__list
+    each element in elements
+      - let text = ""
+      - let dataTarget = ""
+      - let output = ""
+      - let minusTransparent = false
+      - let plusTransparent = false
+      - if(element) {
+      -   element.hasOwnProperty("text") ? text = element.text : text=""
+      -   element.hasOwnProperty("dataTarget") ? dataTarget = element.dataTarget : dataTarget=""
+      -   element.hasOwnProperty("output") ? output = Number(element.output) : output=""
+      -   output === 0 ? minusTransparent = true : minusTransparent = false
+      -   output === 10 ? plusTransparent = true : plusTransparent = false
+      - }
+      +dropdown__list-element()
+        +dropdown__text({text: text})
+        +dropdown__calc()
+          +dropdown__button({
+            text: "-",
+            type: "minus",
+            attr: {
+              "data-target": dataTarget,
+              "data-action": "minus",
+            },
+            transparent: minusTransparent
+          })
+          +dropdown__output({
+            text: output,
+            attr: {
+              "data-target": dataTarget
+            }
+          })
+          +dropdown__button({
+            text: "+",
+            type: "plus",
+            attr: {
+              "data-target": dataTarget,
+              "data-action": "plus"
+            },
+            transparent: plusTransparent
+          })
+
+mixin dropdown__submit-buttons(settings)
+  - let clearHidden = false
+  - if(settings) {
+  -   if(settings.hasOwnProperty("hidden")) {
+  -     settings.hidden === true ? hidden="hidden" : hidden=false
+  -   } 
+  - }
+  .dropdown__submit-buttons
+    .dropdown__clear-button
+      +button({
+        type: "text",
+        text: "очистить",
+        attr: {
+          "type": "button",
+          "data-target": "clear",
+          "hidden": hidden
+        }
+      })
+    .dropdown__submit-button
+      +button({
+        type: "text",
+        text: "применить",
+        attr: {
+          "type": "button",
+          "data-target": "submit",
+        }
+      })
+
+mixin dropdown__text(settings)
+  - let text = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
+  - }
+  span.dropdown__text=text

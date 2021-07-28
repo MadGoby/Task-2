@@ -1,7 +1,0 @@
-@import '../../../overall/mixins.scss';
-
-.positive-feature__text-wrapper {
-  @include text_type($mont, 14px, 700, 24px, $dark75);
-  display: inline-block;
-  vertical-align: top;
-}

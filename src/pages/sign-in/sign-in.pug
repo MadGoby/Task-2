@@ -1,0 +1,131 @@
+include ../../blocks/header/header.pug
+include ../../blocks/logo/logo.pug
+include ../../blocks/nav/nav.pug
+include ../../blocks/button/button.pug
+include ../../blocks/footer/footer.pug
+include ../../blocks/copyright/copyright.pug
+include ../../blocks/input/input.pug
+include ../../blocks/login/login.pug
+include ../../blocks/button/button.pug
+include ../../blocks/toggle/toggle.pug
+include ../../blocks/title/title.pug
+
+doctype html
+html(lang=ru)
+  head
+    title Sing In
+    meta(charset="utf-8")
+    meta(name="description" content="Sing In page of the hotel room website.")
+    meta(name="keywords" content="HTML, CSS, JavaScript")
+    meta(name="viewport" content="initial-scale=1.0, width=device-width")
+  body
+    .sign-in
+      header.sign-in__header
+        +header()
+          +header__logo()
+            +logo({
+              src: "img/logo-color.svg"
+            })
+          +header__nav()
+            +nav()
+              +nav__link({
+                links: [
+                  {"text": "О нас"},
+                  {"text": "Услуги", "type": "expanded"},
+                  {"text": "Вакансии"},
+                  {"text": "Новости"},
+                  {"text": "Соглашения", "type": "expanded"}
+                ]
+              })
+          +header__buttons()
+      main.sign-in__main 
+        +login({
+          action: "for-change"
+        })
+          +login__title({text: "Войти"})
+          +login__inputs
+            +input()
+              +input__field({
+                attr: {
+                  "type": "email",
+                  "placeholder": "Email"
+                },
+                length: "l",
+                type: "simple"
+              })
+            +input()
+              +input__field({
+                attr: {
+                  "type": "password",
+                  "placeholder": "Пароль"
+                },
+                length: "l",
+                type: "simple"
+              })
+          +login__confirm-button()
+            +button({
+              type: "big",
+              text: "войти",
+              attr: {"type": "submit"}
+            })
+          +login__registration()
+            +login__text({text: "Нет аккаунта на Toxin?"})
+            a(href="./for-change").login__link 
+              +button({
+                type: "border",
+                text: "войти",
+                attr: {"type": "button"}
+              })
+      footer.sign-in__footer
+        +footer()
+          +footer__description({
+            text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+          })
+          +footer__nav({
+            lists: [
+              [
+                {"text": "навигация"}, 
+                {"text": "О нас"},
+                {"text": "Новости"},
+                {"text": "Служба поддержки"},
+                {"text": "Услуги"}
+              ],
+              [
+                {"text": "о нас"}, 
+                {"text": "О сервисе"},
+                {"text": "Наша команда"},
+                {"text": "Вакансии"},
+                {"text": "Инвесторы"}
+              ],
+              [
+                {"text": "Служба поддержки"}, 
+                {"text": "Соглашения"},
+                {"text": "Сообщества"},
+                {"text": "Связь с нами"}
+              ]
+            ]
+          })
+          +footer__subscribe({
+            title: "Подписка",
+            text: "Получайте специальные предложения и новости сервиса"
+          })
+        +copyright({
+          text: "Copyright © 2018 Toxin отель. Все права защищены."
+        })
+          +copyright__social-media()
+            +social-media-link({
+              socialLinks: [
+                {
+                  "name": "twitter",
+                  "iconSrc": "img/twitter.svg"
+                },
+                {
+                  "name": "facebook",
+                  "iconSrc": "img/facebook.svg"
+                },
+                {
+                  "name": "instagram",
+                  "iconSrc": "img/instagram.svg"
+                }
+              ]
+            })

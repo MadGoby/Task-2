@@ -1,9 +1,60 @@
-include __title/list__title.pug
-include __item/list__item.pug 
-include __container/list__container.pug
-include __text/list__text.pug
-
-
 mixin list(settings)
   .list
     block
+
+mixin list__container(settings)
+  - let jsClass = ""
+  - let attr = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
+  - }
+  ul(class="list__container" class=jsClass)&attributes(attr)
+    block
+
+mixin list__item(settings)
+  - let type = ""
+  - if(settings) {
+  -  settings.hasOwnProperty("type") ? type=`list__item_${settings.type}` : type=""
+  - }
+  li(class="list__item" class=type)
+    block
+
+mixin list__text(settings)
+  - let text = ""
+  - if(settings) {
+  -  settings.hasOwnProperty("text") ? text=settings.text : text=""
+  - }
+  p(class="list__text")=text
+
+mixin list__title(settings)
+  - let jsCLass = ""
+  - let text = ""
+  - let type = ""
+  - let bullet = false
+  - let margin = false
+  - let teg = "p"
+  - if(settings) {
+  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass=""
+  -   settings.hasOwnProperty("text") ? text = settings.text : text=""
+  -   settings.hasOwnProperty("type") ? type = settings.type : type=""
+  -   settings.hasOwnProperty("bullet") && settings.bullet === true ? bullet = true : bullet = false
+  -   settings.hasOwnProperty("margin") && settings.margin === true ? margin = `list__title_with-margin` : margin = ""
+  -   settings.hasOwnProperty("teg") ? teg = settings.teg : teg = "p"
+  - }
+  if bullet 
+    div(class="list__title list__title_bullet" class=margin)
+      +title({
+        text: text,
+        type: type,
+        jsClass: jsClass,
+        teg: teg
+      })
+  else 
+    div(class="list__title" class=margin)
+      +title({
+        text: text,
+        type: type,
+        jsClass: jsClass,
+        teg: teg
+      })

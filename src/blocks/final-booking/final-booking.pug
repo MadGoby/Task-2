@@ -1,14 +1,68 @@
-include __service-list/final-booking__service-list.pug
-include __service/final-booking__service.pug
-include __room-info/final-booking__room-info.pug
-include __period/final-booking__period.pug
-include __guests/final-booking__guests.pug
-include __confirm-button/final-booking__confirm-button.pug
-
 mixin final-booking(settings)
   - let action = ""
   - if (settings) {
   -   settings.hasOwnProperty("action") ? action = settings.action : action = ""
   - };
   form(action=action).final-booking
+    block
+
+mixin final-booking__confirm-button()
+  .final-booking__confirm-button
+    block
+
+mixin final-booking__guests()
+  .final-booking__guests
+    block
+
+mixin final-booking__period()
+  .final-booking__period
+    block
+
+mixin final-booking__from()
+  .final-booking__from
+    block
+
+mixin final-booking__to()
+  .final-booking__to
+    block
+
+mixin final-booking__room-info(settings)
+  - let number = ""
+  - let price = ""
+  - let type = ""
+  - if (settings) { 
+  -   settings.hasOwnProperty("number") ? number = settings.number : number = ""
+  -   settings.hasOwnProperty("price") ? price = settings.price : price = ""
+  -   settings.hasOwnProperty("type") ? type = settings.type : type = "simple"
+  - }
+  .final-booking__room-info
+    +room-info({
+      number: number,
+      price: price,
+      type: type
+    })
+
+mixin final-booking__service(settings)
+  - let modifier = ""
+  - let title = ""
+  - let price = ""
+  - let type = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
+  -   settings.hasOwnProperty("price") ? price = `${settings.price} ` : price = ""
+  -   settings.hasOwnProperty("modifier") ? modifier = `final-booking__service-title_${settings.modifier}` : modifier = ""
+  - };
+  if settings.type == "total"
+    li(class="final-booking__service final-booking__service_total")
+      div(class="final-booking__service-wrapper final-booking__service-wrapper_total")
+        span(class="final-booking__service-title final-booking__service-title_total" class=modifier)=title
+      span(class="final-booking__service-price final-booking__service-price_total")=price
+  else 
+    li(class="final-booking__service")
+      .final-booking__service-wrapper
+        span(class="final-booking__service-title" class=modifier)=title
+      span.final-booking__service-price=price
+
+mixin final-booking__service-list(settings)
+  ul.final-booking__service-list
     block

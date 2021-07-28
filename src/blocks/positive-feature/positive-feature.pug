@@ -1,8 +1,3 @@
-include __text/positive-feature__text.pug
-include __img/positive-feature__img.pug
-include __title/positive-feature__title.pug
-include __description/positive-feature__description.pug
-
 mixin positive-feature(settings)
   - let border = ""
   - if(settings) {
@@ -10,3 +5,35 @@ mixin positive-feature(settings)
   - };
   div(class="positive-feature" class=border)
     block
+
+mixin positive-feature__description(settings)
+  - let text = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
+  - };
+  p.positive-feature__description=text
+
+mixin positive-feature__img(settings)
+  - let attr = ""
+  - if (settings) {
+  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
+  - };
+  img(class="positive-feature__img")&attributes(attr)
+
+mixin positive-feature__text(settings)
+  - let descText = ""
+  - let titleText = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("descText") ? descText=settings.descText : descText=""
+  -   settings.hasOwnProperty("titleText") ? titleText=settings.titleText : titleText=""
+  - };
+  .positive-feature__text-wrapper 
+    +positive-feature__title({text: titleText})
+    +positive-feature__description({text: descText})
+
+mixin positive-feature__title(settings)
+  - let text = ""
+  - if(settings) {
+  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
+  - };
+  p.positive-feature__title=text

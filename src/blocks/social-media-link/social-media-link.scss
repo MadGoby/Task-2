@@ -1,10 +1,10 @@
-.social-network {
-  .social-network__link {
-    display: inline-block;
-    height: 24px; width: 24px;
+.social-media-link {
+  display: inline-block;
+  height: 24px; width: 24px;
+  &__icon {
     vertical-align: top;
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
+  }
+  &:not(:last-child) {
+    margin-right: 20px;
   }
 }

@@ -1,0 +1,158 @@
+@import '../../overall/variables.scss';
+@import '../../fonts/fonts.scss';
+@import '../../blocks/header/header.scss';
+@import '../../blocks/logo/logo.scss';
+@import '../../blocks/nav/nav.scss';
+@import '../../blocks/button/button.scss';
+@import '../../blocks/footer/footer.scss';
+@import '../../blocks/social-media-link/social-media-link.scss';
+@import '../../blocks/copyright/copyright.scss';
+@import '../../blocks/input/input.scss';
+@import '../../blocks/final-booking/final-booking.scss';
+@import '../../blocks/room-info/room-info.scss';
+@import '../../blocks/positive-feature/positive-feature.scss';
+@import '../../blocks/impressions-diagram/impressions-diagram.scss';
+@import '../../blocks/user-comment/user-comment.scss';
+@import '../../blocks/toggle/toggle.scss';
+@import '../../blocks/list/list.scss';
+@import '../../blocks/title/title.scss';
+@import '../../blocks/datepicker/datepicker.scss';
+@import '../../blocks/dropdown/dropdown.scss';
+@import '../../overall/mixins.scss';
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+.room-details {
+  margin: 0;
+  background: #F4F4F6;
+  min-width: 400px;
+  display: flex;
+	flex-direction: column;
+  min-height: 100%;
+  &__main {
+    flex: 1 0 auto;
+    background-color: white;
+  }
+  &__photos  {
+    position: relative;
+  }
+  &__details {
+    padding: 70px 140px;
+    text-align: center;
+    @media screen and (max-width: 1430px) {
+      padding: 40px 35px;
+    }
+    @media screen and (max-width: 500px) {
+      padding: 20px 10px;
+    }
+  }
+  &__details-wrapper {
+    max-width: 1160px;
+    text-align: initial;
+    display: inline-block;
+  }
+  &__float-wrapper {
+    display: inline-block;
+    max-width: 711px;
+    @media screen and (max-width: 1220px) {
+      text-align: center;
+    }
+  }
+  &__final-booking {
+    float: right;
+    margin-left: 40px;
+    @media screen and (max-width: 1220px) { 
+      float: none;
+      text-align: center;
+      margin: 0 0 35px 0;
+    }
+  }
+  &__positive-features {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 280px;
+    margin-right: 81px;
+    text-align: initial;
+    @media screen and (max-width: 750px) {
+      margin: 0;
+    }
+  }
+  &__impressions {
+    text-align: initial;
+    display: inline-block;
+    @media screen and (max-width: 750px) {
+      display: block;
+      max-width: 311px;
+      margin: 30px auto 0;
+    }
+  }
+  &__impression-title {
+    margin-bottom: 20px;
+  }
+  &__rules {
+    margin-top: 30px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 100px;
+    text-align: initial;
+  }
+  &__cancellation {
+    display: inline-block;
+    max-width: 341px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    vertical-align: top;
+    text-align: initial;
+  }
+  &__photos-wrapper {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    max-width: 31.88%;
+    height: 100%;
+  }
+  &__comments-count {
+    @include text_type($mont, 14px, 400, 24px, $dark50);
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+  }
+  &__comments {
+    margin-top: 30px;
+    text-align: initial;
+  }
+  &__comments-title {
+    margin-bottom: 20px;
+  }
+  &__comment {
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+  }
+  &__footer {
+    flex: 0 0 auto;
+  }
+}
+.room-photo {
+  height: 50%;
+  vertical-align: top;
+  &_big {
+    width: 68.13%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  &_small_upper, &_small_lower {
+    width: 100%;
+  }
+}
+.cancellation {
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__text {
+    margin: 0;
+    @include text_type($mont, 14px, 400, 24px, $dark75);
+  }
+}
