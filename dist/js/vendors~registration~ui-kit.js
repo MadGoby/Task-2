@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~registration"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~registration~ui-kit"],{
 
 /***/ "../node_modules/inputmask/dist/inputmask.js":
 /*!***************************************************!*\
