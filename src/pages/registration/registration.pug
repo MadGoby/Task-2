@@ -10,15 +10,9 @@ include ../../blocks/registration/registration.pug
 include ../../blocks/button/button.pug
 include ../../blocks/toggle/toggle.pug
 include ../../blocks/title/title.pug
+include ../../overall/page-head.pug
 
-doctype html
-html
-  head
-    title 
-    meta(charset="utf-8")
-    meta(name="description" content="Registation page of the hotel room website.")
-    meta(name="keywords" content="HTML, CSS, JavaScript")
-    meta(name="viewport" content="initial-scale=1.0, width=device-width")
++page-head({title: "Registration Page", desc: "Registation page of the hotel room website."})
   body
     .registration-page
       header.registration-page__header

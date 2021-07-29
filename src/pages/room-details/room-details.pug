@@ -16,15 +16,9 @@ include ../../blocks/list/list.pug
 include ../../blocks/title/title.pug
 include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/dropdown/dropdown.pug
+include ../../overall/page-head.pug
 
-doctype html
-html
-  head
-    title Room Details
-    meta(charset="utf-8")
-    meta(name="description" content="Room Details page of the hotel room website.")
-    meta(name="keywords" content="HTML, CSS, JavaScript")
-    meta(name="viewport" content="initial-scale=1.0, width=device-width")
++page-head({title: "Room Details", desc: "Room Details page of the hotel room website."})
   body
     .room-details
       header.room-details__header

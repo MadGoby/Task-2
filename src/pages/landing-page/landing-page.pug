@@ -10,15 +10,9 @@ include ../../blocks/search-room/search-room.pug
 include ../../blocks/dropdown/dropdown.pug
 include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/title/title.pug
+include ../../overall/page-head.pug
 
-doctype html
-html
-  head
-    meta(charset="utf-8")
-    meta(name="description" content="Landing page of the hotel room website.")
-    meta(name="keywords" content="HTML, CSS, JavaScript")
-    meta(name="viewport" content="initial-scale=1.0, width=device-width")
-    title Landing Page
++page-head({title: "Landing Page", desc: "Landing page of the hotel room website."})
   body
     .landing-page
       header.landing-page__header

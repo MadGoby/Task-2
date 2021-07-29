@@ -17,15 +17,9 @@ include ../../blocks/title/title.pug
 include ../../blocks/content-nav/content-nav.pug
 include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/star-rate/star-rate.pug
+include ../../overall/page-head.pug
 
-doctype html
-html
-  head
-    title Search Room
-    meta(charset="utf-8")
-    meta(name="description" content="Search page of the hotel room website.")
-    meta(name="keywords" content="HTML, CSS, JavaScript")
-    meta(name="viewport" content="initial-scale=1.0, width=device-width")
++page-head({title: "Search Room", desc: "Search page of the hotel room website."})
   body
     .search-room
       header.search-room__header

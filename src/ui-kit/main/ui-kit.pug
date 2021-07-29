@@ -1,11 +1,6 @@
-doctype html
-html
-  head
-    title UI-Kit
-    meta(charset="utf-8")
-    meta(name="description" content="UI-Kit page of the hotel room website.")
-    meta(name="keywords" content="HTML, CSS, JavaScript")
-    meta(name="viewport" content="initial-scale=1.0, width=device-width")
+include ../../overall/page-head.pug
+
++page-head({title: "UI-Kit", desc: "UI-Kit page of the hotel room website."})
   body
     include ../content-types/content-types.pug
     include ../form-elements/form-elements.pug
