@@ -12,21 +12,20 @@ function dropdownFunctionality(settings) {
     return {input, dropdown}
   };
 
-  function writeDefaultValues(dropdown) {
-    const defaultValues = [];
-
-    let outputs = [...dropdown.querySelectorAll("output")];
-    outputs.map(function(output) {
-      defaultValues.push(output.innerText)  
-    })
-    
-    return defaultValues;
-  };
-
   const resultElements = getHtmlElements();
   const {input, dropdown} = resultElements;
   const dropdownButtons = [...dropdown.querySelectorAll("button")];
-  const defaultValues = writeDefaultValues(dropdown);
+  const defaultValues = [0, 0, 0,];
+
+  function checkClearButtonVisibility() {
+    let a = 0;
+    [...dropdown.querySelectorAll("output")].map(function(output) {
+      a = a + (Number(output.innerText));
+    });
+    dropdownButtons.map(function(button) {
+      if (button.getAttribute("data-target") === 'clear' && a > 0) button.removeAttribute("hidden");
+    });
+  }
 
   function bindEventListeners() {
     input.addEventListener("click", discloseDropdown);
@@ -128,6 +127,7 @@ function dropdownFunctionality(settings) {
         input.setAttribute("value", defaultTemplate);
         dropdownButtons.map(function(button) {
           if (button.getAttribute("data-action") === 'minus') button.classList.add('dropdown__button_transparent');
+          if (button.getAttribute("data-target") === 'clear') button.setAttribute("hidden", "hidden");
         });
       } else {
         dropdownButtons.map(function(button) {
@@ -183,6 +183,7 @@ function dropdownFunctionality(settings) {
       refreshInput(input);
     };
   };
+  checkClearButtonVisibility();
   bindEventListeners();
 };
 

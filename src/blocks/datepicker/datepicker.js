@@ -141,7 +141,7 @@ function datepickerFunctionality(settings) {
         calendarCell.classList.add("datepicker__calendar-cell_transparent");
         calendarCell.setAttribute("data-month", "previous")
       }
-
+      
       function checkMatchByDay(day) {
         return day.getFullYear() == date.getFullYear() && day.getMonth() == date.getMonth() && day.getDate() == date.getDate();
       };
@@ -162,8 +162,8 @@ function datepickerFunctionality(settings) {
           calendarCell.classList.add("datepicker__calendar-cell_to");
         };
       };
-      
-      if (from && to) {
+
+      if ((from && to)) {
         if(checkRangeMatch() && checkMatchByDay(from)) {
           calendarCell.classList.add("datepicker__calendar-cell_range-from");
         } else if(checkRangeMatch() && checkMatchByDay(to)) {
@@ -252,54 +252,23 @@ function datepickerFunctionality(settings) {
   };
 
   function clearButtonClick() {
-    setsStandardSettings();
 
-    let fromVal = "..."
-    let toVal = "..."
-    
     if(from) {
-      fromVal = from;
+      from = undefined;
     };
     if(to) {
-      toVal = to;
+      to = undefined;
     }
 
-    let fromData = {
-      day: () => { return from.getDate() < 10 ? `0${from.getDate()}` : from.getDate() },
-      month: () => { return from.getMonth() < 10 ? `0${from.getMonth() + 1}` : from.getMonth() + 1 },
-      totalMonth: () => { return from.getMonth()},
-      year: () => { return from.getFullYear()}
-    };
-    let toData = {
-      day: () => { return to.getDate() < 10 ? `0${to.getDate()}` : to.getDate() },
-      month: () => { return to.getMonth() < 10 ? `0${to.getMonth() + 1}` : to.getMonth() + 1 },
-      totalMonth: () => { return to.getMonth()},
-      year: () => { return to.getFullYear()}
-    };
-
-    if (currentInputTarget == inputTotal) {
-      if (fromVal === "..." && toVal === "...") {
-        inputTotal.setAttribute("value", "");
+    if(inputTotal || inputFrom || inputTo) {
+      if (currentInputTarget == inputTotal) {
+        inputTotal.setAttribute("value", "ДД.ММ - ДД.ММ");
       } else {
-        inputTotal.setAttribute("value", `${fromData.day()} ${monthNames[fromData.totalMonth()].substr(0, 3).toLowerCase()} - ${toData.day()} ${monthNames[toData.totalMonth()].substr(0, 3).toLowerCase()}`);
-      } 
-    } else {
-      if (fromVal === "..." && toVal === "...") {
-        inputFrom.setAttribute("value", "");
-        inputTo.setAttribute("value", "");
-      } else {
-        if(fromVal !== "...") {
-          inputFrom.setAttribute("value", `${fromData.day()}.${fromData.month()}.${fromData.year()}`);
-        } else {
-          inputFrom.setAttribute("value", "");
-        }
-        if(toVal !== "...") {
-          inputTo.setAttribute("value", `${toData.day()}.${toData.month()}.${toData.year()}`);
-        } else {
-          inputTo.setAttribute("value", "");
-        } 
+        inputFrom.setAttribute("value", "ДД.ММ.ГГГГ");
+        inputTo.setAttribute("value", "ДД.ММ.ГГГГ");
       }
     }
+    
     refreshDatepicker(new Date(pickedYear, pickedMonth))
   };
 
