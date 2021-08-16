@@ -873,6 +873,10 @@
     margin-bottom: 16px; }
   .form-elements__likes {
     margin-bottom: 40px; }
+  .form-elements__radio {
+    display: inline-block; }
+    .form-elements__radio:not(:last-child) {
+      margin-right: 20px; }
   .form-elements__like {
     display: inline-block; }
     .form-elements__like:not(:last-child) {
@@ -886,7 +890,8 @@
     .form-elements__rate:not(:last-of-type) {
       margin-right: 20px; }
   .form-elements__button-types {
-    margin-left: 132px; }
+    margin-left: 132px;
+    min-width: 266px; }
   .form-elements__slider {
     margin-bottom: 44px;
     max-width: 266px; }
@@ -904,7 +909,7 @@
     margin-bottom: 40px; }
   .form-elements__dropdown-types {
     margin-top: 100px;
-    min-height: 272px; }
+    min-height: 306px; }
   .form-elements__fittings-dropdown {
     display: inline-block;
     margin-right: 181px; }
@@ -994,6 +999,12 @@
     line-height: 44px; }
   .registration__link {
     float: right; }
+  .registration__male, .registration__female {
+    display: inline-block; }
+  .registration__login-title {
+    margin-bottom: 5px; }
+  .registration__male {
+    margin-right: 20px; }
 
 .final-booking {
   padding: 40px 29px  30px 30px;
@@ -1739,7 +1750,7 @@
     line-height: 15px;
     margin: 0; }
   .footer__social-media_small {
-    margin-top: 25px; }
+    margin-top: 18px; }
   .footer_type_small {
     padding: 120px 0;
     background: #FFFFFF;
@@ -1747,6 +1758,8 @@
     max-width: 768px;
     margin: auto;
     text-align: center; }
+  .footer__small-copyright {
+    margin: 0 0 20px 0; }
   @media screen and (max-width: 1460px) {
     .footer {
       padding: 100px 30px; } }

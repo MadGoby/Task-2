@@ -351,7 +351,7 @@
     line-height: 15px;
     margin: 0; }
   .footer__social-media_small {
-    margin-top: 25px; }
+    margin-top: 18px; }
   .footer_type_small {
     padding: 120px 0;
     background: #FFFFFF;
@@ -359,6 +359,8 @@
     max-width: 768px;
     margin: auto;
     text-align: center; }
+  .footer__small-copyright {
+    margin: 0 0 20px 0; }
   @media screen and (max-width: 1460px) {
     .footer {
       padding: 100px 30px; } }
@@ -542,6 +544,12 @@
     line-height: 44px; }
   .registration__link {
     float: right; }
+  .registration__male, .registration__female {
+    display: inline-block; }
+  .registration__login-title {
+    margin-bottom: 5px; }
+  .registration__male {
+    margin-right: 20px; }
 
 .button {
   display: inline-block; }
