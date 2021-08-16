@@ -11,7 +11,7 @@ function dropdownFunctionality(settings) {
     const dropdown = document.querySelector(dropdownClass);
     return {input, dropdown}
   };
-
+  
   const resultElements = getHtmlElements();
   const {input, dropdown} = resultElements;
   const dropdownButtons = [...dropdown.querySelectorAll("button")];

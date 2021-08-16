@@ -1,21 +1,22 @@
-mixin color-description()
+mixin color-description(settings)
+  - let sample = {
+  -   type: "for-change" 
+  - }
+  - let text = {
+  -   name: "for-change",
+  -   index: "for-Change"
+  - }
+  - if(settings) {
+  -   if(settings.sample) {
+  -     if(settings.sample.hasOwnProperty("type")) sample.type = `color-description__sample_color_${settings.sample.type}`
+  -   }
+  -   if(settings.text) {
+  -     if(settings.text.hasOwnProperty("name")) text.name = settings.text.name
+  -     if(settings.text.hasOwnProperty("index")) text.index = settings.text.index
+  -   }
+  - }
   .color-description
-    block
-
-mixin color-description__sample(settings)
-  - let type = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("type") ? type = `color-description__sample_color_${settings.type}` : type = ""
-  - }
-  div(class=`color-description__sample ${type}`)
-
-mixin color-description__text(settings)
-  - let name = ""
-  - let index = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("name") ? name = settings.name : name = ""
-  -   settings.hasOwnProperty("index") ? index = settings.index : index = ""
-  - }
-  .color-description__text
-    p.color-description__name= name
-    p.color-description__index= index
+    div(class="color-description__sample", class=sample.type)
+    .color-description__text
+      p.color-description__name= text.name
+      p.color-description__index= text.index

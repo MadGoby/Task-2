@@ -1,49 +1,67 @@
 mixin room-card(settings)
   - let jsClass = ""
+  - let images = [
+  -   {
+  -     src: "img/for-change.jpg",
+  -     alt: "Alt for change"
+  -   },
+  -   {
+  -     src: "img/for-change.jpg",
+  -     alt: "Alt for change"
+  -   },
+  -   {
+  -     src: "img/for-change.jpg",
+  -     alt: "Alt for change"
+  -   },
+  -   {
+  -     src: "img/for-change.jpg",
+  -     alt: "Alt for change"
+  -   }
+  - ]
+  - let roomInfo = {
+  -   number: "000",
+  -   price: "000",
+  -   type: false
+  - }
+  - let starRate = { rate: "5" }
+  - let rateCounter = { value: "000"} 
   - if (settings) {
-  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  -   if(settings.hasOwnProperty("jsClass")) jsClass = settings.jsClass
+  -   if(settings.hasOwnProperty("images")) images = settings.images
+  -   if(settings.hasOwnProperty("roomInfo")) {
+  -     if(settings.roomInfo.hasOwnProperty("number")) roomInfo.number = settings.roomInfo.number
+  -     if(settings.roomInfo.hasOwnProperty("price")) roomInfo.price = settings.roomInfo.price 
+  -     if(settings.roomInfo.hasOwnProperty("type")) roomInfo.type = settings.roomInfo.type 
+  -   }
+  -   if(settings.starRate.hasOwnProperty("rate")) starRate.rate = settings.starRate.rate
+  -   if(settings.rateCounter.hasOwnProperty("value")) rateCounter.value = settings.rateCounter.value
   - }
   div(class="room-card" class=jsClass)
-    block
-
-mixin room-card__image(settings)
-  - let images = []
-  - if (settings) {
-  -   settings.hasOwnProperty("img") ? images = settings.img : images = []
-  - }
-  div.room-card__image-wrapper
-    each img in images
-      - let src = ""
-      - let alt = ""
-      - if (img) {
-      -   img.hasOwnProperty("src") ? src = img.src : src = ""
-      -   img.hasOwnProperty("alt") ? alt = img.alt : alt = ""
-      - }
-      img(class="room-card__image" src=src, alt=alt)
-    button(type="button" class="room-card__image-button room-card__image-button_previous")
-    button(type="button" class="room-card__image-button room-card__image-button_next")
-    .room-card__image-position-wrapper
-      span.room-card__image-position.room-card__image-position_active
-      span.room-card__image-position
-      span.room-card__image-position
-      span.room-card__image-position
-
-mixin room-card__rate()
-  .room-card__rate
-    block
-
-mixin room-card__price()
-  .room-card__price
-    block
-
-mixin room-card__stars()
-  .room-card__stars
-    block
-
-mixin room-card__counter()
-  .room-card__counter
-    block
-
-mixin room-card__room-info()
-  .room-card__room-info
-    block
+    div.room-card__image-wrapper
+      each img in images
+        - let src = ""
+        - let alt = ""
+        - if (img) {
+        -   img.hasOwnProperty("src") ? src = img.src : src = ""
+        -   img.hasOwnProperty("alt") ? alt = img.alt : alt = ""
+        - }
+        img(class="room-card__image" src=src, alt=alt)
+      button(type="button" class="room-card__image-button room-card__image-button_previous")
+      button(type="button" class="room-card__image-button room-card__image-button_next")
+      .room-card__image-position-wrapper
+        span.room-card__image-position.room-card__image-position_active
+        span.room-card__image-position
+        span.room-card__image-position
+        span.room-card__image-position
+    .room-card__room-info
+      .room-card__price
+        +room-info({
+          number: roomInfo.number,
+          price: roomInfo.price,
+          type: roomInfo.type
+        })
+      .room-card__rate
+        .room-card__stars
+          +star-rate({rate: starRate.rate})
+        .room-card__counter
+          +rate-counter({value: rateCounter.value})

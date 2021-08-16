@@ -14,22 +14,22 @@ dropdown.dropdownFunctionality ({
 })
 
 dropdown.dropdownFunctionality ({
-  inputClass: ".js-input__field_2",
-  dropdownClass: ".js-dropdown__control_2",
+  inputClass: ".js-input__field-2",
+  dropdownClass: ".js-dropdown__control-2",
   inputResultTemplate: {type: "sum", values: 'гостя'},
   defaultTemplate: "Сколько гостей"
 })
 
 dropdown.dropdownFunctionality ({
-  inputClass: ".js-input__field_3",
-  dropdownClass: ".js-dropdown__control_3",
+  inputClass: ".js-input__field-3",
+  dropdownClass: ".js-dropdown__control-3",
   inputResultTemplate: {type: "sum", values: 'гостя'},
   defaultTemplate: "Сколько гостей"
 })
 
 dropdown.dropdownFunctionality ({
-  inputClass: ".js-input__field_4",
-  dropdownClass: ".js-dropdown__control_4",
+  inputClass: ".js-input__field-4",
+  dropdownClass: ".js-dropdown__control-4",
   inputResultTemplate: {type: "sum", values: 'гостя'},
   defaultTemplate: "Сколько гостей"
 })
@@ -37,8 +37,8 @@ dropdown.dropdownFunctionality ({
 dropdown.dropdownFunctionality ({
   inputClass: ".js-input__field-5",
   dropdownClass: ".js-dropdown__control-5",
-  inputResultTemplate: {type: "sum", values: 'гостя'},
-  defaultTemplate: "Сколько гостей"
+  inputResultTemplate: {type: "oneByOne", values: ['спальни', 'кровати']},
+  defaultTemplate: "Конфигурация номера"
 })
 
 list.listFunctionality ({

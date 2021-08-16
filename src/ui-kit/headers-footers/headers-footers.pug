@@ -3,8 +3,6 @@ include ../../blocks/nav/nav.pug
 include ../../blocks/footer/footer.pug
 include ../../blocks/copyright/copyright.pug
 
-
-
 .headers-footers
   +logo({
     src: "img/logo.svg",
@@ -12,118 +10,95 @@ include ../../blocks/copyright/copyright.pug
   })
   .headers-footers__content
     .headers-footers__header_authorized
-      +header()
-        +header__logo()
-          +logo({
-            src: "img/logo-color.svg"
-          })
-        +header__nav()
-          +nav()
-            +nav__link({
-              links: [
-                {"text": "О нас", "type": "bold"},
-                {"text": "Услуги", "type": "expanded"},
-                {"text": "Вакансии"},
-                {"text": "Новости"},
-                {"text": "Соглашения", "type": "expanded"}
-              ]
-            })
-        +header__buttons()
-    .headers-footers__header_unauthorized
-      +header()
-        +header__logo()
-          +logo({
-            src: "img/logo-color.svg"
-          })
-        +header__nav()
-          +nav()
-            +nav__link({
-              links: [
-                {"text": "О нас", "type": "bold"},
-                {"text": "Услуги", "type": "expanded"},
-                {"text": "Вакансии"},
-                {"text": "Новости"},
-                {"text": "Соглашения", "type": "expanded"}
-              ]
-            })
-        +header__authorized({
-          text: "Юлий Цезарь"
-        })
-    .headers-footers__footer_big
-      +footer()
-        +footer__description({
-          text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-        })
-        +footer__nav({
-          lists: [
-            [
-              {"text": "навигация"}, 
-              {"text": "О нас"},
-              {"text": "Новости"},
-              {"text": "Служба поддержки"},
-              {"text": "Услуги"}
-            ],
-            [
-              {"text": "о нас"}, 
-              {"text": "О сервисе"},
-              {"text": "Наша команда"},
-              {"text": "Вакансии"},
-              {"text": "Инвесторы"}
-            ],
-            [
-              {"text": "Служба поддержки"}, 
-              {"text": "Соглашения"},
-              {"text": "Сообщества"},
-              {"text": "Связь с нами"}
-            ]
+      +header({
+        nav: { 
+          links: [
+            {"text": "О нас", "type": "bold"},
+            {"text": "Услуги", "type": "expanded"},
+            {"text": "Вакансии"},
+            {"text": "Новости"},
+            {"text": "Соглашения", "type": "expanded"}
           ]
-        })
-        +footer__subscribe({
+        }
+      })
+    .headers-footers__header_unauthorized
+      +header({
+        nav: { 
+          links: [
+            {"text": "О нас", "type": "bold"},
+            {"text": "Услуги", "type": "expanded"},
+            {"text": "Вакансии"},
+            {"text": "Новости"},
+            {"text": "Соглашения", "type": "expanded"}
+          ]
+        },
+        authorized: {text: "Юлий Цезарь"}
+      })
+    .headers-footers__footer_big
+      +footer({
+        description: {
+          text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+        },
+        lists: [
+          [
+            {"text": "навигация"}, 
+            {"text": "О нас"},
+            {"text": "Новости"},
+            {"text": "Служба поддержки"},
+            {"text": "Услуги"}
+          ],
+          [
+            {"text": "о нас"},
+            {"text": "О сервисе"},
+            {"text": "Наша команда"},
+            {"text": "Вакансии"},
+            {"text": "Инвесторы"}
+          ],
+          [
+            {"text": "Служба поддержки"}, 
+            {"text": "Соглашения"},
+            {"text": "Сообщества"},
+            {"text": "Связь с нами"}
+          ]
+        ],
+        subscribe: {
           title: "Подписка",
           text: "Получайте специальные предложения и новости сервиса"
-        })
-      +copyright({
-        text: "Copyright © 2018 Toxin отель. Все права защищены."
+        }
       })
-        +copyright__social-media()
-          +social-media-link({
-            socialLinks: [
-              {
-                "name": "twitter",
-                "iconSrc": "img/twitter.svg"
-              },
-              {
-                "name": "facebook",
-                "iconSrc": "img/facebook.svg"
-              },
-              {
-                "name": "instagram",
-                "iconSrc": "img/instagram.svg"
-              }
-            ]
-          })
+      +copyright({
+        text: "Copyright © 2018 Toxin отель. Все права защищены.",
+        links: [
+          {
+            "name": "twitter",
+            "iconSrc": "img/twitter.svg"
+          },
+          {
+            "name": "facebook",
+            "iconSrc": "img/facebook.svg"
+          },
+          {
+            "name": "instagram",
+            "iconSrc": "img/instagram.svg"
+          }
+        ]
+      })
     .headers-footers__footer_small
       +footer({
-        type: "small"
+        footer: { type: "small" },
+        copyright: { text: "Copyright © 2018 Toxin отель. Все права защищены." },
+        links: [
+          {
+            "name": "twitter",
+            "iconSrc": "img/twitter.svg"
+          },
+          {
+            "name": "facebook",
+            "iconSrc": "img/facebook.svg"
+          },
+          {
+            "name": "instagram",
+            "iconSrc": "img/instagram.svg"
+          }
+        ]
       })
-        +footer__description({
-          text: "Copyright © 2018 Toxin отель. Все права защищены.",
-          type: "small"
-        })
-        +footer__social-media({type: "small"})
-          +social-media-link({
-            socialLinks: [
-              {
-                "name": "twitter",
-                "iconSrc": "img/twitter.svg"
-              },
-              {
-                "name": "facebook",
-                "iconSrc": "img/facebook.svg"
-              },
-              {
-                "name": "instagram",
-                "iconSrc": "img/instagram.svg"
-              }
-            ]
-          })

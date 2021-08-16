@@ -17,423 +17,161 @@ include ../../blocks/dropdown/dropdown.pug
     .cards__column
       .cards__search-room
         +search-room({
-          action: "./for-change"
+          title: {text: "Найдём номера под ваши пожелания"},
+          period: {
+            from: {
+              title: "прибытие",
+              value: "ДД.ММ.ГГГГ",
+              jsClass: "js-input__field_from-4"
+            },
+            to: {
+              title: "выезд",
+              value: "ДД.ММ.ГГГГ",
+              jsClass: "js-input__field_to-4"
+            },
+            jsDatepicker: "js-datepicker-4"
+          },
+          guests: {
+            title: { text: "гости" },
+            input: {
+              value: "Сколько гостей",
+              jsClass: "js-input__field-6"
+            },
+            control: { jsClass: "js-dropdown__control-6" },
+            lists: [
+              {text: "взрослые", dataTarget: "adult", output: "0"},
+              {text: "дети", dataTarget: "child", output: "0"},
+              {text: "младенцы", dataTarget: "baby", output: "0"}
+            ]
+          },
+          confirm: {text: "подобрать номер"}
         })
-          +search-room__title({
-            text: "Найдём номера под ваши пожелания"
-          })
-          +search-room__period({})
-            +search-room__from()
-              +input()
-                +input__title()
-                  +title({
-                    text: "прибытие"
-                  })
-                +input__field({
-                  attr: {
-                    "type": "text",
-                    "placeholder": "ДД.ММ.ГГГГ",
-                    "value": "ДД.ММ.ГГГГ",
-                    "readonly": "readonly"
-                  },
-                  length: "s",
-                  type: "dropdown",
-                  jsClass: "js-input__field_from-4",
-                  })
-            +search-room__to()
-              +input()
-                +input__title()
-                  +title({
-                    text: "выезд"
-                  })
-                +input__field({
-                  attr: {
-                    "type": "text",
-                    "placeholder": "ДД.ММ.ГГГГ",
-                    "value": "ДД.ММ.ГГГГ",
-                    "readonly": "readonly"
-                  },
-                  length: "s",
-                  type: "dropdown",
-                  jsClass: "js-input__field_to-4",
-                })
-            +datepicker({
-              jsClass: "js-datepicker-4",
-              attr: {
-                "hidden": "hidden"
-              }
-            })
-          +search-room__guests()
-            +dropdown()
-              +dropdown__input({expanded: false})
-                +input()
-                  +input__title({type: "with-state"})
-                    +title({
-                      text: "гости"
-                    })
-                  +input__field({
-                    attr: {
-                      "type": "text",
-                      "placeholder": "Text",
-                      "value": "Сколько гостей",
-                      "readonly": "readonly"
-                    },
-                    length: "l",
-                    type: "dropdown",
-                    jsClass: "js-input__field-6"
-                  })
-              +dropdown__control({
-                jsClass: "js-dropdown__control-6",
-                attr: {"hidden": "hidden"}
-              })
-                +dropdown__list({
-                  elements: [
-                    { 
-                      text: "взрослые",
-                      dataTarget: "adult",
-                      output: "0"
-                    },
-                    { 
-                      text: "дети",
-                      dataTarget: "child",
-                      output: "0"
-                    },
-                    { 
-                      text: "младенцы",
-                      dataTarget: "baby",
-                      output: "0",
-                    },
-                  ]
-                })
-                +dropdown__submit-buttons({hidden: true})
-          +search-room__confirm-button()
-            +button({
-              type: "big",
-              text: "подобрать номер",
-              attr: {"type": "submit"}
-            })
       .cards__registration
-        +registration({action: "./for-change"})
-          +registration__title({text: "Регистрация аккаунта"})
-          +registration__personal-data()
-            +registration__name
-              +input()
-                +input__field({
-                  attr: {
-                    "type": "text",
-                    "placeholder": "Имя"
-                  },
-                  length: "l",
-                  type: "simple"
-                })
-            +registration__surname
-              +input()
-                +input__field({
-                  attr: {
-                    "type": "text",
-                    "placeholder": "Фамилия"
-                  },
-                  length: "l",
-                  type: "simple"
-                })
-            +registration__gender()
-              +toggle()
-                +toggle__controller({
-                  type: "radio",
-                  attr: {
-                    "type": "radio",
-                    "hidden": "hidden",
-                    "name": "gender",
-                    "value": "male",
-                    "checked": "checked"
-                  },
-                  text: "Мужчина"
-                })
-                +toggle__controller({
-                  type: "radio",
-                  attr: {
-                    "type": "radio",
-                    "hidden": "hidden",
-                    "name": "gender",
-                    "value": "female",
-                  },
-                  text: "Женщина"
-                })
-          +registration__birthday()
-            +input()
-              +input__title()
-                +title({
-                  text: "дата рождения"
-                })
-              +input__field({
-                attr: {
-                  "type": "text",
-                  "placeholder": "ДД.ММ.ГГ",
-                },
-                length: "l",
-                type: "date"
-              })
-          +registration__login-data
-            +registration__email()
-              +input()
-                +input__title()
-                  +title({
-                    text: "данные для входа в сервис"
-                  })
-                +input__field({
-                  attr: {
-                    "type": "email",
-                    "placeholder": "Email"
-                  },
-                  length: "l",
-                  type: "simple"
-                })
-            +registration__pass()
-              +input()
-                +input__field({
-                  attr: {
-                    "type": "password",
-                    "placeholder": "Пароль"
-                  },
-                  length: "l",
-                  type: "simple"
-                })
-            +toggle()
-              +toggle__controller({
-                type: "toggle",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                },
-                text: "Получать спецпредложения"
-              })
-          +registration__confirm-button()
-            +button({
-              type: "big",
-              text: "перейти к оплате",
-              attr: {"type": "submit"}
-            })
-          +registration__login()
-            +registration__text({text: "Уже есть аккаунт на Toxin"})
-            a(href="./for-change").registration__link 
-              +button({
-                type: "border",
-                text: "войти",
-                attr: {"type": "button"}
-              })
+        +registration({
+          title: { text:"Регистрация аккаунта" }
+        })
     .cards__column
       .cards__final-booking
         +final-booking({
-          action: "for-change"
-        })
-          +final-booking__room-info({
+          roomInfo: {
             number: "888",
             price: "9 990",
             type: "luxury"
-          })
-          +final-booking__period({})
-            +final-booking__from
-              +input()
-                +input__title()
-                  +title({
-                    text: "прибытие"
-                  })
-                +input__field({
-                  attr: {
-                    "type": "text",
-                    "placeholder": "ДД.ММ.ГГГГ",
-                    "value": "ДД.ММ.ГГГГ",
-                    "readonly": "readonly"
-                  },
-                  length: "s",
-                  type: "dropdown",
-                  jsClass: "js-input__field_from-5"
-                  })
-            +final-booking__to
-              +input()
-                +input__title()
-                  +title({
-                    text: "выезд"
-                  })
-                +input__field({
-                  attr: {
-                    "type": "text",
-                    "placeholder": "ДД.ММ.ГГГГ",
-                    "value": "ДД.ММ.ГГГГ",
-                    "readonly": "readonly"
-                  },
-                  length: "s",
-                  type: "dropdown",
-                  jsClass: "js-input__field_to-5"
-                })
-            +datepicker({
-              jsClass: "js-datepicker-5",
-              attr: {
-                "hidden": "hidden"
-              }
-            })
-          +final-booking__guests()
-            +dropdown()
-              +dropdown__input({expanded: false})
-                +input()
-                  +input__title()
-                    +title({
-                      text: "гости"
-                    })
-                  +input__field({
-                    attr: {
-                      "type": "text",
-                      "placeholder": "Text",
-                      "value": "Сколько гостей",
-                      "readonly": "readonly"
-                    },
-                    length: "l",
-                    type: "dropdown",
-                    jsClass: "js-input__field-7",
-                  })
-              +dropdown__control({
-                jsClass: "js-dropdown__control-7",
-                attr: {"hidden": "hidden"}
-              })
-                +dropdown__list({
-                  elements: [
-                    { 
-                      text: "взрослые",
-                      dataTarget: "adult",
-                      output: "0"
-                    },
-                    { 
-                      text: "дети",
-                      dataTarget: "child",
-                      output: "0"
-                    },
-                    { 
-                      text: "младенцы",
-                      dataTarget: "baby",
-                      output: "0",
-                    },
-                  ]
-                })
-                +dropdown__submit-buttons({hidden: true})
-          +final-booking__service-list()
-            +final-booking__service({
+          },
+          period: {
+            from: {
+              title: "прибытие",
+              value: "ДД.ММ.ГГГГ",
+              jsClass: "js-input__field_from-5"
+            },
+            to: {
+              title: "выезд",
+              value: "ДД.ММ.ГГГГ",
+              jsClass: "js-input__field_to-5"
+            },
+            jsDatepicker: "js-datepicker-5"
+          },
+          guests: {
+            title: { text: "гости" },
+            input: {
+              value: "Сколько гостей",
+              jsClass: "js-input__field-7"
+            },
+            control: { jsClass: "js-dropdown__control-7" },
+            lists: [
+              {text: "взрослые", dataTarget: "adult", output: "0"},
+              {text: "дети", dataTarget: "child", output: "0"},
+              {text: "младенцы", dataTarget: "baby", output: "0"}
+            ]
+          },
+          serviceList: [
+            {
               title: "9 990₽ х 4 суток",
               price: "39 960₽"
-            })
-            +final-booking__service({
+            },
+            {
               title: "Сбор за услуги: скидка 2 179₽",
               price: "0₽",
               modifier: "with-sign"
-            })
-            +final-booking__service({
+            },
+            {
               title: "Сбор за дополнительные услуги",
               price: "300₽",
               modifier: "with-sign"
-            })
-            +final-booking__service({
+            },
+            {
               title: "Итого",
               price: "38 081₽",
               type: "total"
-            })
-          +final-booking__confirm-button()
-            +button({
-              type: "big",
-              text: "забронировать",
-              attr: {"type": "submit"}
-            })
+            }
+          ],
+          confirm: { text: "забронировать"}
+        })
       .cards__login
         +login({
-          action: "for-change"
+          title: { text: "Войти" },
+          confirm: { text: "войти"}
         })
-          +login__title({text: "Войти"})
-          +login__inputs
-          +login__confirm-button()
-            +button({
-              type: "big",
-              text: "войти",
-              attr: {"type": "submit"}
-            })
-          +login__registration()
-            +login__text({text: "Нет аккаунта на Toxin?"})
-            a(href="./for-change").login__link 
-              +button({
-                type: "border",
-                text: "войти",
-                attr: {"type": "button"}
-              })
     .cards__column
       .cards__datepicker
         +datepicker({
           jsClass: "js-datepicker"
         })
-      .cards__room  
-        +room-card({jsClass: "js-room-card"})
-          +room-card__image({
-            img: [
-              {
-                src: "img/888.jpg",
-                alt: "Photo of the room"
-              },
-              {
-                src: "img/room-slider.jpg",
-                alt: "Photo of the room"
-              },
-              {
-                src: "img/888.jpg",
-                alt: "Photo of the room"
-              },
-              {
-                src: "img/room-slider.jpg",
-                alt: "Photo of the room"
-              }
-            ]
-          })
-          +room-card__room-info()
-            +room-card__price()
-              +room-info({
-                number: "888",
-                price: "9 990",
-                type: "luxury"
-              })
-            +room-card__rate()
-              +room-card__stars
-                +star-rate({rate: "4"})
-              +room-card__counter
-                +rate-counter({
-                  value: "145"
-                })
-      .cards__room  
-        +room-card({jsClass: "js-room-card-2"})
-          +room-card__image({
-            img: [
-              {
-                src: "img/840.jpg",
-                alt: "Photo of the room"
-              },
-              {
-                src: "img/room-slider.jpg",
-                alt: "Photo of the room"
-              },
-              {
-                src: "img/840.jpg",
-                alt: "Photo of the room"
-              },
-              {
-                src: "img/room-slider.jpg",
-                alt: "Photo of the room"
-              }
-            ]
-          })
-          +room-card__room-info()
-            +room-card__price()
-              +room-info({
-                number: "840",
-                price: "9 990"
-              })
-            +room-card__rate()
-              +room-card__stars
-                +star-rate({rate: "4"})
-              +room-card__counter
-                +rate-counter({
-                  value: "65"
-                })
+      .cards__room
+        +room-card({
+          jsClass: "js-room-card",
+          images: [
+            {
+              src: "img/888.jpg",
+              alt: "Photo of the room"
+            },
+            {
+              src: "img/room-slider.jpg",
+              alt: "Photo of the room"
+            },
+            {
+              src: "img/888.jpg",
+              alt: "Photo of the room"
+            },
+            {
+              src: "img/room-slider.jpg",
+              alt: "Photo of the room"
+            }
+          ],
+          roomInfo: {
+            number: "888",
+            price: "9 990",
+            type: "luxury"
+          },
+          starRate: { rate: "5" },
+          rateCounter: { value: "145" }
+        })
+      .cards__room
+        +room-card({
+          jsClass: "js-room-card-2",
+          images: [
+            {
+              src: "img/840.jpg",
+              alt: "Photo of the room"
+            },
+            {
+              src: "img/room-slider.jpg",
+              alt: "Photo of the room"
+            },
+            {
+              src: "img/840.jpg",
+              alt: "Photo of the room"
+            },
+            {
+              src: "img/room-slider.jpg",
+              alt: "Photo of the room"
+            }
+          ],
+          roomInfo: {
+            number: "840",
+            price: "9 990",
+            type: false
+          },
+          starRate: { rate: "4" },
+          rateCounter: { value: "65" }
+        })

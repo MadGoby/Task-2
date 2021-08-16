@@ -1,92 +1,104 @@
 include ../social-media-link/social-media-link.pug
 
 mixin footer(settings)
-  - let type = ""
-  - if (settings) {
-  -  settings.hasOwnProperty("type") ? type = `footer_type_${settings.type}` : type=""
+  - let footer = {
+  -   type: "",
+  -   wrappType: ""
   - }
-  div(class="footer" class=type)
-    if settings && settings.type == "small"
-      div(class="footer__wrapper footer__wrapper_small")
-        block
-    else
-      .footer__wrapper
-        block
-
-mixin footer__description(settings)
-  - let type = ""
-  - let text = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  -   settings.hasOwnProperty("type") ? type = `footer__description_${settings.type}` : type="" 
+  - let description = {
+  -   text: false
   - }
-  div(class="footer__description" class=type)
-    +logo({
-      src: "img/logo-color.svg"
-    })
-    if settings && settings.type == "small"
-      p(class="footer__text footer__text_small")=text
-    else 
-      p.footer__text=text
-
-mixin footer__nav(settings)
-  - let lists = []
-  - if (settings) {
-  -   settings.hasOwnProperty("lists") ? lists = settings.lists : lists = []  
+  - let lists = [
+  -   [
+  -     {"text": "For change"}, 
+  -     {"text": "For change"},
+  -     {"text": "For change"}
+  -   ],
+  -   [
+  -     {"text": "For change"}, 
+  -     {"text": "For change"},
+  -     {"text": "For change"}
+  -   ],
+  -   [
+  -     {"text": "For change"}, 
+  -     {"text": "For change"},
+  -     {"text": "For change"}
+  -   ]
+  - ]
+  - let links = [
+  -   {
+  -     "name": "For change",
+  -     "iconSrc": "img/for-change.svg"
+  -   },
+  -   {
+  -     "name": "For change",
+  -     "iconSrc": "img/for-change.svg"
+  -   },
+  -   {
+  -     "name": "For change",
+  -     "iconSrc": "img/for-change.svg"
+  -   }
+  - ]
+  - let subscribe = {
+  -   title: "For change",
+  -   text: "For change",
+  -   action: "./for-change"
   - }
-  .footer__nav-wrapper
-    each list in lists
-      .footer__nav
-        each link in list
-          - let text = ""
-          - let href = ""
-          - if (settings) {
-          -   link.hasOwnProperty("text") ? text = link.text : text = ""
-          -   link.hasOwnProperty("href") ? href = link.href : href = "./for-change"
-          - }
-          a(class="footer__nav-link" href=href)= text
-
-mixin footer__social-media(settings)
-  - let type = ""
+  - let copyright = { text: "For change" }
   - if (settings) {
-  -   settings.hasOwnProperty("type") ? type = `footer__social-media_${settings.type}` : type="" 
+  -   if(settings.footer) {
+  -     if(settings.footer.hasOwnProperty("type")) {
+  -       footer.type = `footer_type_${settings.footer.type}`
+  -       footer.wrappType = `footer__wrapper_${settings.footer.type}`
+  -     }
+  -   }
+  -   if(settings.description && settings.description.hasOwnProperty("text")) description.text = settings.description.text
+  -   if(settings.hasOwnProperty("lists")) lists = settings.lists
+  -   if(settings.subscribe) {
+  -     if(settings.subscribe.hasOwnProperty("title")) subscribe.title = settings.subscribe.title
+  -     if(settings.subscribe.hasOwnProperty("text")) subscribe.text = settings.subscribe.text
+  -     if(settings.subscribe.hasOwnProperty("action")) subscribe.action = settings.subscribe.action
+  -   }
+  -   if(settings.links) links = settings.links
+  -   if(settings.copyright && settings.copyright.text) copyright.text = settings.copyright.text
   - }
-  div(class="footer__social-media" class=type)
-    block
-
-mixin footer__subscribe(settings)
-  - let title = ""
-  - let text = ""
-  - let action = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  -   settings.hasOwnProperty("action") ? action = settings.action : action = "./for-change"    
-  - }
-  .footer__subscribe
-    +footer__title({title: title})
-    +footer__text({text: text })   
-    form(action=action class="footer__subscribe-form")
-      +input()
-        +input__field({
-          attr: {
-            "type": "email",
-            "placeholder": "Email"
-          },
-          length: "m",
-          type: "submit"
+  div(class="footer" class=footer.type)
+    div(class="footer__wrapper" class=footer.wrappType)
+      div(class="footer__description")
+        +logo({
+          src: "img/logo-color.svg"
         })
-
-mixin footer__text(settings)
-  - let text = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""  
-  - }
-  p.footer__text=text
-
-mixin footer__title(settings)
-  - let title = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
-  - }
-  p.footer__title= title
+        if(description.text)
+          p(class="footer__text")=description.text
+      if footer.type !== "footer_type_small"
+        .footer__nav-wrapper
+          each list in lists
+            .footer__nav
+              each link in list
+                - let text = ""
+                - let href = "./for-change"
+                - if (link) {
+                -   if(link.hasOwnProperty("text")) text = link.text
+                -   if(link.hasOwnProperty("href")) href = link.href
+                - }
+                a(class="footer__nav-link" href=href)= text
+        .footer__subscribe
+          p.footer__title=subscribe.title
+          p.footer__text=subscribe.text 
+          form(class="footer__subscribe-form" action=subscribe.action)
+            +input({
+              input: {
+                attr: {
+                  type: "email",
+                  placeholder: "Email"
+                },
+                length: "m",
+                type: "submit"
+              }
+            })
+      else
+        div(class="footer__social-media footer__social-media_small")
+          p(class="footer__small-copyright")= copyright.text
+          +social-media-link({
+            socialLinks: links
+          })

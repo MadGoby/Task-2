@@ -28,8 +28,8 @@ dropdown.dropdownFunctionality ({
 })
 
 dropdown.dropdownFunctionality ({
-  inputClass: ".js-input__field_2",
-  dropdownClass: ".js-dropdown__control_2",
+  inputClass: ".js-input__field-2",
+  dropdownClass: ".js-dropdown__control-2",
   inputResultTemplate: {type: "twoByOne", values: ['гостя', 'младенец']},
   defaultTemplate: "Сколько гостей"
 })

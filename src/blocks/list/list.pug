@@ -1,60 +1,85 @@
 mixin list(settings)
+  - title = {
+  -   jsCLass: "js-for-change",
+  -   text: "For Change",
+  -   type: "",
+  -   bullet: "",
+  -   margin: "",
+  -   teg:  "p"
+  - }
+  - let container = {
+  -   jsClass: "js-for-change",
+  -   attr: {}
+  - }
+  - let listType = ""
+  - let list = [
+  -   {
+  -     type: "checkbox",
+  -     attr: {
+  -       "type": "checkbox",
+  -       "hidden": "hidden",
+  -       "checked": "checked"
+  -     },
+  -     text: "For change",
+  -     richText: false,
+  -     listType: ""
+  -   },
+  -   {
+  -     type: "checkbox",
+  -     attr: {
+  -       "type": "checkbox",
+  -       "hidden": "hidden"
+  -     },
+  -     text: "For change 2",
+  -     richText: false,
+  -     listType: ""
+  -   }
+  - ]
+  - let textList = false
+  - if(settings) {
+  -   if(settings.hasOwnProperty("title")) {
+  -     if(settings.title.hasOwnProperty("jsClass")) title.jsClass = settings.title.jsClass
+  -     if(settings.title.hasOwnProperty("text")) title.text = settings.title.text
+  -     if(settings.title.hasOwnProperty("type")) title.type = settings.title.type
+  -     if(settings.title.hasOwnProperty("bullet") && settings.title.bullet !== false) title.bullet = "list__title_bullet"
+  -     if(settings.title.hasOwnProperty("margin") && settings.title.margin == true) title.margin = "list__title_with-margin"
+  -     if(settings.title.hasOwnProperty("teg")) title.teg = settings.title.teg
+  -   }
+  -   if(settings.hasOwnProperty("container")) {
+  -     if(settings.container.hasOwnProperty("jsClass")) container.jsClass=settings.container.jsClass
+  -     if(settings.container.hasOwnProperty("attr")) container.attr=settings.container.attr
+  -   }
+  -   if(settings.hasOwnProperty("list")) {
+  -     list = settings.list 
+  -   }
+  -   if(settings.hasOwnProperty("textList")) {
+  -     textList = settings.textList 
+  -   }
+  -   if(settings.hasOwnProperty("listType")) listType = settings.listType
+  - }
   .list
-    block
-
-mixin list__container(settings)
-  - let jsClass = ""
-  - let attr = ""
-  - if(settings) {
-  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
-  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
-  - }
-  ul(class="list__container" class=jsClass)&attributes(attr)
-    block
-
-mixin list__item(settings)
-  - let type = ""
-  - if(settings) {
-  -  settings.hasOwnProperty("type") ? type=`list__item_${settings.type}` : type=""
-  - }
-  li(class="list__item" class=type)
-    block
-
-mixin list__text(settings)
-  - let text = ""
-  - if(settings) {
-  -  settings.hasOwnProperty("text") ? text=settings.text : text=""
-  - }
-  p(class="list__text")=text
-
-mixin list__title(settings)
-  - let jsCLass = ""
-  - let text = ""
-  - let type = ""
-  - let bullet = false
-  - let margin = false
-  - let teg = "p"
-  - if(settings) {
-  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass=""
-  -   settings.hasOwnProperty("text") ? text = settings.text : text=""
-  -   settings.hasOwnProperty("type") ? type = settings.type : type=""
-  -   settings.hasOwnProperty("bullet") && settings.bullet === true ? bullet = true : bullet = false
-  -   settings.hasOwnProperty("margin") && settings.margin === true ? margin = `list__title_with-margin` : margin = ""
-  -   settings.hasOwnProperty("teg") ? teg = settings.teg : teg = "p"
-  - }
-  if bullet 
-    div(class="list__title list__title_bullet" class=margin)
+    div(class="list__title", class=title.margin, class=title.bullet)
       +title({
-        text: text,
-        type: type,
-        jsClass: jsClass,
-        teg: teg
+        text: title.text,
+        type: title.type,
+        jsClass: title.jsClass,
+        teg: title.teg
       })
-  else 
-    div(class="list__title" class=margin)
-      +title({
-        text: text,
-        type: type,
-        jsClass: jsClass,
-        teg: teg
-      })
+    ul(class="list__container" class=container.jsClass)&attributes(container.attr)
+      if textList 
+        each val in textList
+          li(class="list__item list__item_bullet" class=vallistType)
+            p(class="list__text")=val
+      else
+        each val in list
+          li(class="list__item" class=val.listType)
+            +toggle({
+              controller: {
+                type: val.type,
+                attr: val.attr
+              },
+              text: {
+                text: val.text,
+                richText: val.richText
+              }
+            })

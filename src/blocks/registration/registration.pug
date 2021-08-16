@@ -1,66 +1,136 @@
 mixin registration(settings)
-  - let action = ""
+  - let action = "./for-change"
+  - let title = {
+  -   text: "For change"
+  - }
+  - let loginLink = "./for-change"
   - if (settings) {
-  -   settings.hasOwnProperty("action") ? action = settings.action : action = ""
+  -   if(settings.hasOwnProperty("action")) action = settings.action
+  -   if(settings.title.hasOwnProperty("text")) title.text = settings.title.text
+  -   if(settings.hasOwnProperty("loginLink")) loginLink = settings.loginLink
   - };
   form(action=action).registration
-    block
-
-mixin registration__birthday()
-  .registration__birthday
-    block
-
-mixin registration__confirm-button()
-  .registration__confirm-button
-    block
-
-mixin registration__gender()
-  .registration__gender
-    block
-
-mixin registration__login()
-  .registration__login
-    block
-
-mixin registration__login-data()
-  .registration__login-data
-    block
-
-mixin registration__personal-data()
-  .registration__personal-data
-    block
-
-mixin registration__name()
-  .registration__name
-    block
-
-mixin registration__surname()
-  .registration__surname
-    block
-
-mixin registration__email()
-  .registration__email
-    block
-
-mixin registration__pass()
-  .registration__pass
-    block
-
-
-mixin registration__text(settings)
-  - let text = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  - };
-  p.registration__text=text
-
-mixin registration__title(settings)
-  - let text = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  - }
-  .registration__title
-    +title({
-      text: text,
-      type: "big"
-    })
+    .registration__title
+      +title({
+        text: title.text,
+        type: "big"
+      })
+    .registration__personal-data
+      .registration__name
+        +input({
+          input: {
+            attr: {
+              "type": "text",
+              "placeholder": "Имя"
+            },
+            length: "l",
+            type: "simple"
+          }
+        })
+      .registration__surname
+        +input({
+          input: {
+            attr: {
+              "type": "text",
+              "placeholder": "Фамилия"
+            },
+            length: "l",
+            type: "simple"
+          }
+        })
+      .registration__gender
+        .registration__male
+          +toggle({
+            controller: {
+              type: "radio",
+              attr: {
+                "type": "radio",
+                "hidden": "hidden",
+                "name": "gender",
+                "value": "male",
+                "checked": "checked"
+              }
+            },
+            text: {
+              text: "Мужчина"
+            }
+          })
+        .registration__female
+          +toggle({
+            controller: {
+              type: "radio",
+              attr: {
+                "type": "radio",
+                "hidden": "hidden",
+                "name": "gender",
+                "value": "female"
+              }
+            },
+            text: {
+              text: "Женщина"
+            }
+          })
+    .registration__birthday
+      +input({
+        title: {text: "дата рождения"},
+        input: {
+          attr: {
+            type: "text",
+            placeholder: "ДД.ММ.ГГГГ"
+          },
+          length: "l",
+          type: "date"
+        }
+      })
+    .registration__login-data
+      .registration__login-title
+        +title({text: "данные для входа в сервис"})
+      .registration__email
+        +input({
+          input: {
+            attr: {
+              "type": "email",
+              "placeholder": "Email"
+            },
+            length: "l",
+            type: "simple"
+          }
+        })
+      .registration__pass
+        +input({
+          input: {
+            attr: {
+              "type": "password",
+              "placeholder": "Пароль"
+            },
+            length: "l",
+            type: "simple"
+          }
+        })
+      +toggle({
+        controller: {
+          type: "toggle",
+          attr: {
+            "type": "checkbox",
+            "hidden": "hidden",
+            "value": "female",
+          }
+        },
+        text: {
+          text: "Получать спецпредложения"
+        }
+      })
+    .registration__confirm-button
+      +button({
+        type: "big",
+        text: "перейти к оплате",
+        attr: {"type": "submit"}
+      })
+    .registration__login
+      p.registration__text="Уже есть аккаунт на Toxin"
+      a(class="registration__link" href=loginLink)
+        +button({
+          type: "border",
+          text: "Войти",
+          attr: {"type": "button"}
+        })

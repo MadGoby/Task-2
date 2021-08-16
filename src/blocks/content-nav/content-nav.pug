@@ -1,103 +1,77 @@
 mixin content-nav(settings)
-  - let jsClass = ""
+  - let title = {
+  -   text: false
+  - }
+  - let jsClass = "js-for-change"
+  - let counter = {
+  -   text: "For Change"
+  - } 
   - if (settings) {
-  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
+  -   if(settings.hasOwnProperty("jsClass")) jsClass = settings.jsClass
+  -   if(settings.title && settings.title.hasOwnProperty("text")) title.text = settings.title.text
+  -   if(settings.counter && settings.counter.hasOwnProperty("text")) counter.text = settings.counter.text
   - }
-  div(class="content-nav" class=jsClass) 
-    block
-
-mixin content-nav__button(settings)
-  - let type = ""
-  - let attr = ""
-  - let current = ""
-  - if(settings) {
-  -   settings.hasOwnProperty("type") ? type = `content-nav__button_${settings.type}` : type = ""
-  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
-  -   settings.hasOwnProperty("current") && settings.current == true ? current = "content-nav__button_current" : current = ""
-  - }
-  li(class="content-nav__button" class=type, class=current)&attributes(attr)
-    block
-
-mixin content-nav__counter(settings)
-  - let text = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
-  - }
-  p.content-nav__counter=text
-
-mixin content-nav__title(settings)
-  - let text = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
-  - }
-  .content-nav__title
-    +title({text: text})
-
-mixin content-nav__buttons(settings)
-  ul.content-nav__buttons
-    +content-nav__button({type: "previous"})
-      +button({type: "pagination"})
-        +button__control({
+  div(class="content-nav" class=jsClass)
+    if title.text 
+      .content-nav__title
+        +title({text: title.text})
+    ul.content-nav__buttons
+      li(class="content-nav__button content-nav__button_previous")
+        +button({
           type: "pagination",
           text: "",
           attr: {"type": "button"},
           pagClass: "button__control_pagination_previous"
         })
-    +content-nav__button({type: "first", current: true})    
-      +button({type: "pagination"})
-        +button__control({
+      li(class="content-nav__button content-nav__button_current" )
+        +button({
           type: "pagination",
           text: "1",
           attr: {"type": "button"},
           pagClass: "button__control_pagination_active"
         })
-    +content-nav__button({type: "space"})  
-      +button({type: "pagination"})
-        +button__control({
+      li(class="content-nav__button content-nav__button_space")
+        +button({
           type: "pagination",
           text: "...",
           attr: {"type": "button"}
         })
-    +content-nav__button({type: "num"})  
-      +button({type: "pagination"})
-        +button__control({
+      li(class="content-nav__button")
+        +button({
           type: "pagination",
           text: "2",
           attr: {"type": "button"}
         })
-    +content-nav__button({type: "num"})  
-      +button({type: "pagination"})
-        +button__control({
+      li(class="content-nav__button")
+        +button({
           type: "pagination",
           text: "3",
           attr: {"type": "button"}
         })
-    +content-nav__button({type: "num"})  
-      +button({type: "pagination"})
-        +button__control({
+      li(class="content-nav__button")
+        +button({
           type: "pagination",
           text: "4",
           attr: {"type": "button"}
         })
-    +content-nav__button({type: "space"})  
-      +button({type: "pagination"})
-        +button__control({
+      li(class="content-nav__button")
+        +button({
           type: "pagination",
           text: "...",
           attr: {"type": "button"}
         })
-    +content-nav__button({type: "last"})  
-      +button({type: "pagination"})
-        +button__control({
+      li(class="content-nav__button")
+        +button({
           type: "pagination",
           text: "15",
           attr: {"type": "button"}
         })
-    +content-nav__button({type: "next"})  
-      +button({type: "pagination"})
-        +button__control({
+      li(class="content-nav__button")
+        +button({
           type: "pagination",
           text: "",
           attr: {"type": "button"},
           pagClass: "button__control_pagination_next"
         })
+    if counter.text
+      p.content-nav__counter=counter.text

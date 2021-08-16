@@ -1,28 +1,27 @@
 mixin slider(settings)
-  div(class="slider")
-    block
-
-mixin slider__body(settings)
-  - let jsClass = "";
-  - settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
-  div(class=`slider__body ${jsClass}`)
-
-mixin slider__description(settings)
-  - let text = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
+  - let title = {
+  -   text: "For change"
   - }
-  p.slider__description=text
-
-mixin slider__output(settings)
-  - let jsClass = ""
-  - settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
-  output(class="slider__output" class=jsClass)
-
-mixin slider__title(settings)
-  .slider__title
-    block
-
-mixin slider__title-text(settings)
-  .slider__title-text
-    block
+  - let output = {
+  -   jsClass: ""
+  - }
+  - let container = {
+  -   jsClass: ""
+  - }
+  - let description= {
+  -   text: false 
+  - }
+  - if(settings) {
+  -   if(settings.title && settings.title.hasOwnProperty("text")) title.text = settings.title.text
+  -   if(settings.output && settings.output.hasOwnProperty("jsClass")) output.jsClass = settings.output.jsClass
+  -   if(settings.container && settings.container.hasOwnProperty("jsClass")) container.jsClass = settings.container.jsClass
+  -   if(settings.description && settings.description.hasOwnProperty("text")) description.text = settings.description.text
+  - }
+  div(class="slider")
+    .slider__title
+      .slider__title-text
+        +title({text: title.text})
+      output(class="slider__output" class=output.jsClass)
+    div(class="slider__body" class=container.jsClass)
+    if description.text
+      p.slider__description=description.text

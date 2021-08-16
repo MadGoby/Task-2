@@ -1,12 +1,26 @@
 mixin copyright(settings)
   - let text = ""
+  - let links = [
+  -   {
+  -     "name": "For change",
+  -     "iconSrc": "img/for-change.svg"
+  -   },
+  -   {
+  -     "name": "For change",
+  -     "iconSrc": "img/for-change.svg"
+  -   },
+  -   {
+  -     "name": "For change",
+  -     "iconSrc": "img/for-change.svg"
+  -   }
+  - ]
   - if (settings) { 
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
+  -   if(settings.hasOwnProperty("text")) text = settings.text
+  -   if(settings.hasOwnProperty("links")) links = settings.links
   - }
   .copyright
     p.copyright__text= text
-    block 
-
-mixin copyright__social-media()
-  .copyright__social-media
-    block
+    .copyright__social-media
+      +social-media-link({
+        socialLinks: links
+      })

@@ -103,7 +103,7 @@
   }
   &__social-media {
     &_small {
-      margin-top: 25px;
+      margin-top: 18px;
     }
   }
   &_type_small {
@@ -113,6 +113,9 @@
     max-width: 768px;
     margin: auto;
     text-align: center;
+  }
+  &__small-copyright {
+    margin: 0 0 20px 0;
   }
   @media screen and (max-width: 1460px) {
     padding: 100px 30px;

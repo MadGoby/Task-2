@@ -1,33 +1,24 @@
 mixin impressions-diagram(settings)
-  - let text = ""
-  - let lines = []
+  - let text = "000 голосов"
+  - let lines = [
+  -   {text: "For change 1", type: "perfectly"},
+  -   {text: "For change 2", type: "good"},
+  -   {text: "For change 3", type: "satisfactorily"},
+  -   {text: "For change 4", type: "disappointed"}
+  - ]
   - if(settings) {
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  -   settings.hasOwnProperty("lines") ? lines = settings.lines : lines = []
+  -   if(settings.hasOwnProperty("text")) text = settings.text
+  -   if(settings.hasOwnProperty("lines")) lines = settings.lines
   - }
   .impressions-diagram
-    +impressions-diagram__reviews-count({text: text})
-    +impressions-diagram__description({lines: lines})
-
-mixin impressions-diagram__description(settings)
-  - let lines = []
-  - if(settings) {
-  -   settings.hasOwnProperty("lines") ? lines = settings.lines : lines = ""
-  - }
-  ul.impressions-diagram__description 
-    each line in lines 
-      - let text = ""
-      - let type = ""
-      - if(line) {
-      -   line.hasOwnProperty("text") ? text = line.text : text = ""
-      -   line.hasOwnProperty("type") ? type = `impressions-diagram__description-line_${line.type}` : type = ""
-      - }
-      li(class="impressions-diagram__description-line" class=type)=text
-
-mixin impressions-diagram__reviews-count(settings)
-  - let text = ""
-  - if(settings) {
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  - }
-  .impressions-diagram__reviews-wrapper
-    p.impressions-diagram__reviews-count=text
+    .impressions-diagram__reviews-wrapper
+      p.impressions-diagram__reviews-count=text
+    ul.impressions-diagram__description 
+      each line in lines 
+        - let text = ""
+        - let type = ""
+        - if(line) {
+        -   if(line.hasOwnProperty("text")) text = line.text
+        -   if(line.hasOwnProperty("type")) type = `impressions-diagram__description-line_${line.type}`
+        - }
+        li(class="impressions-diagram__description-line" class=type)=text

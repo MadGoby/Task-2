@@ -1,56 +1,54 @@
 mixin login(settings)
-  - let action = ""
+  - let action = "./for-change"
+  - let title = { text: "For change" }
+  - let confirm = { text: "For change" }
+  - let loginLink = "./for-change"
   - if (settings) {
-  -   settings.hasOwnProperty("action") ? action = settings.action : action = ""
+  -   if(settings.hasOwnProperty("action")) action = settings.action
+  -   if(settings.title && settings.title.hasOwnProperty("text")) title.text = settings.title.text
+  -   if(settings.confirm && settings.confirm.hasOwnProperty("text")) confirm.text= settings.confirm.text
+  -   if(settings.hasOwnProperty("loginLink")) loginLink = settings.loginLink
   - };
   form(action=action).login
-    block
-
-mixin login__confirm-button()
-  .login__confirm-button
-    block
-
-mixin login__inputs()
-  .login__inputs
-    .login__email-input
-      +input()
-        +input__field({
-          attr: {
-            "type": "email",
-            "placeholder": "Email"
-          },
-          length: "l",
-          type: "simple"
+    .login__title
+      +title({
+        text: title.text,
+        type: "big"
+      })
+    .login__inputs
+      .login__email-input
+        +input({
+          input: {
+            attr: {
+              "type": "email",
+              "placeholder": "Email"
+            },
+            length: "l",
+            type: "simple"
+          }
         })
-    .login__pass-input
-      +input()
-        +input__field({
-          attr: {
-            "type": "password",
-            "placeholder": "Пароль"
-          },
-          length: "l",
-          type: "simple"
+      .login__pass-input
+        +input({
+          input: {
+            attr: {
+              "type": "password",
+              "placeholder": "Пароль"
+            },
+            length: "l",
+            type: "simple"
+          }
         })
-
-mixin login__registration()
-  .login__registration
-    block
-
-mixin login__text(settings)
-  - let text = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  - };
-  p.login__text=text
-
-mixin login__title(settings)
-  - let text = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  - }
-  .login__title
-    +title({
-      text: text,
-      type: "big"
-    })
+    .login__confirm-button
+      +button({
+        type: "big",
+        text: confirm.text,
+        attr: {"type": "submit"}
+      })
+    .login__registration
+      p.login__text="Нет аккаунта на Toxin?"
+      a(class="login__link" href=loginLink)
+        +button({
+          type: "border",
+          text: "создать",
+          attr: {"type": "button"}
+        })

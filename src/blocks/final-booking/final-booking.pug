@@ -1,68 +1,168 @@
 mixin final-booking(settings)
   - let action = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("action") ? action = settings.action : action = ""
-  - };
-  form(action=action).final-booking
-    block
-
-mixin final-booking__confirm-button()
-  .final-booking__confirm-button
-    block
-
-mixin final-booking__guests()
-  .final-booking__guests
-    block
-
-mixin final-booking__period()
-  .final-booking__period
-    block
-
-mixin final-booking__from()
-  .final-booking__from
-    block
-
-mixin final-booking__to()
-  .final-booking__to
-    block
-
-mixin final-booking__room-info(settings)
-  - let number = ""
-  - let price = ""
-  - let type = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("number") ? number = settings.number : number = ""
-  -   settings.hasOwnProperty("price") ? price = settings.price : price = ""
-  -   settings.hasOwnProperty("type") ? type = settings.type : type = "simple"
+  - let roomInfo = {
+  -   number: "000",
+  -   price: "000",
+  -   type: false
   - }
-  .final-booking__room-info
-    +room-info({
-      number: number,
-      price: price,
-      type: type
-    })
-
-mixin final-booking__service(settings)
-  - let modifier = ""
-  - let title = ""
-  - let price = ""
-  - let type = ""
+  - let period = {
+  -   from: {
+  -     title: "For change",
+  -     value: "ДД.ММ.ГГГГ",
+  -     jsClass: "js-for-change"
+  -   },
+  -   to: {
+  -     title: "For change",
+  -     value: "ДД.ММ.ГГГГ",
+  -     jsClass: "js-for-change"
+  -   },
+  -   jsDatepicker: "js-for-change"
+  - }
+  - let guests = {
+  -   title: { text: "For change" },
+  -   input: {
+  -     value: "For Change",
+  -     jsClass: "js-for-change"
+  -   },
+  -   control: { jsClass: "js-for-change" },
+  -   lists: [
+  -     {text: "For change 1", dataTarget: "for-change-1", output: "0"},
+  -     {text: "For change 2", dataTarget: "for-change-2", output: "0"},
+  -     {text: "For change 3", dataTarget: "for-change-3", output: "0"}
+  -   ]
+  - }
+  - let serviceList = [
+  -   {
+  -     title: "For change 1",
+  -     price: "111",
+  -     modifier: "",
+  -     type: ""
+  -   },
+  -   {
+  -     title: "For change 2",
+  -     price: "222",
+  -     modifier: "final-booking__service-title_with-sign",
+  -     type: ""
+  -   },
+  -   {
+  -     title: "Итого",
+  -     price: "333",
+  -     type: "total"
+  -   }
+  - ]
+  - let confirm = { text: "For Change" }
   - if (settings) {
-  -   settings.hasOwnProperty("title") ? title = settings.title : title = ""
-  -   settings.hasOwnProperty("price") ? price = `${settings.price} ` : price = ""
-  -   settings.hasOwnProperty("modifier") ? modifier = `final-booking__service-title_${settings.modifier}` : modifier = ""
+  -   if(settings.hasOwnProperty("action")) action = settings.action
+  -   if(settings.roomInfo) {
+  -     if(settings.roomInfo.hasOwnProperty("number")) roomInfo.number = settings.roomInfo.number
+  -     if(settings.roomInfo.hasOwnProperty("price")) roomInfo.price = settings.roomInfo.price
+  -     if(settings.roomInfo.hasOwnProperty("type")) roomInfo.type = settings.roomInfo.type
+  -   }
+  -   if(settings.period) {
+  -     if(settings.period.from) {
+  -       if(settings.period.from.hasOwnProperty("title")) period.from.title = settings.period.from.title
+  -       if(settings.period.from.hasOwnProperty("value")) period.from.value = settings.period.from.value
+  -       if(settings.period.from.hasOwnProperty("jsClass")) period.from.jsClass = settings.period.from.jsClass
+  -     }
+  -     if(settings.period.to) {
+  -       if(settings.period.to.hasOwnProperty("title")) period.to.title = settings.period.to.title
+  -       if(settings.period.to.hasOwnProperty("value")) period.to.value = settings.period.to.value
+  -       if(settings.period.to.hasOwnProperty("jsClass")) period.to.jsClass = settings.period.to.jsClass
+  -     }
+  -     if(settings.period.jsDatepicker) period.jsDatepicker = settings.period.jsDatepicker
+  -   }
+  -   if(settings.guests) {
+  -     if(settings.guests.title && settings.guests.title.hasOwnProperty("text")) guests.title.text = settings.guests.title.text
+  -     if(settings.guests.input && settings.guests.input.hasOwnProperty("value")) guests.input.value = settings.guests.input.value
+  -     if(settings.guests.input && settings.guests.input.hasOwnProperty("jsClass")) guests.input.jsClass = settings.guests.input.jsClass
+  -     if(settings.guests.control && settings.guests.control.hasOwnProperty("jsClass")) guests.control.jsClass = settings.guests.control.jsClass
+  -     if(settings.guests.hasOwnProperty("lists")) guests.lists = settings.guests.lists
+  -   }
+  -   if(settings.hasOwnProperty("serviceList")) serviceList = settings.serviceList
+  -   if(settings.confirm && settings.confirm.hasOwnProperty("text")) confirm.text = settings.confirm.text
   - };
-  if settings.type == "total"
-    li(class="final-booking__service final-booking__service_total")
-      div(class="final-booking__service-wrapper final-booking__service-wrapper_total")
-        span(class="final-booking__service-title final-booking__service-title_total" class=modifier)=title
-      span(class="final-booking__service-price final-booking__service-price_total")=price
-  else 
-    li(class="final-booking__service")
-      .final-booking__service-wrapper
-        span(class="final-booking__service-title" class=modifier)=title
-      span.final-booking__service-price=price
-
-mixin final-booking__service-list(settings)
-  ul.final-booking__service-list
-    block
+  form(class="final-booking" action=action)
+    .final-booking__room-info
+      +room-info({
+        number: roomInfo.number,
+        price: roomInfo.price,
+        type: roomInfo.type
+      })
+    .final-booking__period
+      .final-booking__from
+        +input({
+          title: {text: period.from.title},
+          input: {
+            attr: {
+              type: "text",
+              placeholder: "ДД.ММ.ГГГГ",
+              value: period.from.value,
+              readonly: "readonly"
+            },
+            length: "s",
+            type: "dropdown",
+            jsClass: period.from.jsClass
+          }
+        })
+      .final-booking__to
+        +input({
+          title: {text: period.to.title},
+          input: {
+            attr: {
+              type: "text",
+              placeholder: "ДД.ММ.ГГГГ",
+              value: period.to.value,
+              readonly: "readonly"
+            },
+            length: "s",
+            type: "dropdown",
+            jsClass: period.to.jsClass
+          }
+        })
+      +datepicker({
+        jsClass: period.jsDatepicker,
+        attr: {
+          "hidden": "hidden"
+        }
+      })
+    .final-booking__guests
+      +dropdown({
+        inputSettings: {
+          title: {text: guests.title.text},
+          input: {
+            attr: {
+              type: "text",
+              placeholder: "Text",
+              value: guests.input.value,
+              readonly: "readonly",
+            },
+            length: "l",
+            type: "dropdown",
+            jsClass: guests.input.jsClass
+          }
+        },
+        control: {
+          jsClass: guests.control.jsClass,
+          attr: {"hidden": "hidden"}
+        },
+        lists: guests.lists
+      })
+    ul.final-booking__service-list
+      each list in serviceList
+        - if (list.modifier) list.modifier = `final-booking__service-title_${list.modifier}`
+        if list.type == "total"
+          li(class="final-booking__service final-booking__service_total")
+            div(class="final-booking__service-wrapper final-booking__service-wrapper_total")
+              span(class="final-booking__service-title final-booking__service-title_total" class=list.modifier)=list.title
+            span(class="final-booking__service-price final-booking__service-price_total")=list.price
+        else 
+          li(class="final-booking__service")
+            .final-booking__service-wrapper
+              span(class="final-booking__service-title" class=list.modifier)=list.title
+            span.final-booking__service-price=list.price
+    .final-booking__confirm-button
+      +button({
+        type: "big",
+        text: confirm.text,
+        attr: {"type": "submit"}
+      })

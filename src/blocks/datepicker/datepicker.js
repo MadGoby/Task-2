@@ -252,7 +252,6 @@ function datepickerFunctionality(settings) {
   };
 
   function clearButtonClick() {
-
     if(from) {
       from = undefined;
     };
@@ -266,9 +265,10 @@ function datepickerFunctionality(settings) {
       } else {
         inputFrom.setAttribute("value", "ДД.ММ.ГГГГ");
         inputTo.setAttribute("value", "ДД.ММ.ГГГГ");
+        currentInputTarget = inputFrom;
       }
     }
-    
+    currentValueTarget = "from";
     refreshDatepicker(new Date(pickedYear, pickedMonth))
   };
 

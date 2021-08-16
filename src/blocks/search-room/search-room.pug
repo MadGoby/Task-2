@@ -1,38 +1,128 @@
 mixin search-room(settings)
-  - let action = ""
+  - let action = "./for-change"
+  - let title = {
+  -   text: "For change"
+  - }
+  - let period = {
+  -   from: {
+  -     title: "For change",
+  -     value: "ДД.ММ.ГГГГ",
+  -     jsClass: "js-for-change"
+  -   },
+  -   to: {
+  -     title: "For change",
+  -     value: "ДД.ММ.ГГГГ",
+  -     jsClass: "js-for-change"
+  -   },
+  -   jsDatepicker: "js-for-change"
+  - }
+  - let guests = {
+  -   title: { text: "For change" },
+  -   input: {
+  -     value: "For Change",
+  -     jsClass: "js-for-change"
+  -   },
+  -   control: { jsClass: "js-for-change" },
+  -   lists: [
+  -     {text: "For change 1", dataTarget: "for-change-1", output: "0"},
+  -     {text: "For change 2", dataTarget: "for-change-2", output: "0"},
+  -     {text: "For change 3", dataTarget: "for-change-3", output: "0"}
+  -   ]
+  - }
+  - let confirm = { text: "For Change" }
   - if (settings) {
-  -   settings.hasOwnProperty("action") ? action = settings.action : action = ""
+  -   if(settings.action) action = settings.action
+  -   if(settings.title && settings.title.hasOwnProperty("text")) title.text = settings.title.text
+  -   if(settings.period) {
+  -     if(settings.period.from) {
+  -       if(settings.period.from.hasOwnProperty("title")) period.from.title = settings.period.from.title
+  -       if(settings.period.from.hasOwnProperty("value")) period.from.value = settings.period.from.value
+  -       if(settings.period.from.hasOwnProperty("jsClass")) period.from.jsClass = settings.period.from.jsClass
+  -     }
+  -     if(settings.period.to) {
+  -       if(settings.period.to.hasOwnProperty("title")) period.to.title = settings.period.to.title
+  -       if(settings.period.to.hasOwnProperty("value")) period.to.value = settings.period.to.value
+  -       if(settings.period.to.hasOwnProperty("jsClass")) period.to.jsClass = settings.period.to.jsClass
+  -     }
+  -     if(settings.period.jsDatepicker) period.jsDatepicker = settings.period.jsDatepicker
+  -   }
+  -   if(settings.guests) {
+  -     if(settings.guests.title && settings.guests.title.hasOwnProperty("text")) guests.title.text = settings.guests.title.text
+  -     if(settings.guests.input && settings.guests.input.hasOwnProperty("value")) guests.input.value = settings.guests.input.value
+  -     if(settings.guests.input && settings.guests.input.hasOwnProperty("jsClass")) guests.input.jsClass = settings.guests.input.jsClass
+  -     if(settings.guests.control && settings.guests.control.hasOwnProperty("jsClass")) guests.control.jsClass = settings.guests.control.jsClass
+  -     if(settings.guests.hasOwnProperty("lists")) guests.lists = settings.guests.lists
+  -   }
+  -   if(settings.confirm && settings.confirm.hasOwnProperty("text")) confirm.text = settings.confirm.text
   - };
   form(action=action).search-room
-    block
-
-mixin search-room__confirm-button()
-  .search-room__confirm-button
-    block
-
-mixin search-room__guests()
-  .search-room__guests
-    block
-
-mixin search-room__period()
-  .search-room__period
-    block
-
-mixin search-room__from()
-  .search-room__from
-    block
-
-mixin search-room__to()
-  .search-room__to
-    block
-
-mixin search-room__title(settings)
-  - let text = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  - }
-  .search-room__title
-    +title({
-      text: text,
-      type: "big"
-    })
+    .search-room__title
+      +title({
+        text: title.text,
+        type: "big"
+      })
+    .search-room__period
+      .search-room__from
+        +input({
+          title: {text: period.from.title},
+          input: {
+            attr: {
+              type: "text",
+              placeholder: "ДД.ММ.ГГГГ",
+              value: period.from.value,
+              readonly: "readonly"
+            },
+            length: "s",
+            type: "dropdown",
+            jsClass: period.from.jsClass
+          }
+        })
+      .search-room__to
+        +input({
+          title: {text: period.to.title},
+          input: {
+            attr: {
+              type: "text",
+              placeholder: "ДД.ММ.ГГГГ",
+              value: period.to.value,
+              readonly: "readonly"
+            },
+            length: "s",
+            type: "dropdown",
+            jsClass: period.to.jsClass
+          }
+        })
+      +datepicker({
+        jsClass: period.jsDatepicker,
+        attr: {
+          "hidden": "hidden"
+        }
+      })
+    .search-room__guests
+      +dropdown({
+        inputSettings: {
+          title: {text: guests.title.text},
+          input: {
+            attr: {
+              type: "text",
+              placeholder: "Text",
+              value: guests.input.value,
+              readonly: "readonly",
+            },
+            length: "l",
+            type: "dropdown",
+            jsClass: guests.input.jsClass
+          }
+        },
+        control: {
+          jsClass: guests.control.jsClass,
+          attr: {"hidden": "hidden"}
+        },
+        lists: guests.lists
+      })
+    .search-room__confirm-button
+      +button({
+        type: "big",
+        text: confirm.text,
+        attr: {"type": "submit"}
+      })

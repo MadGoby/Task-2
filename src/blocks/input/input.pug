@@ -1,57 +1,49 @@
 mixin input(settings)
+  - let title = {
+  -  text: false,
+  -  type: "",
+  -  state: false
+  - }
+  - let input = {
+  -   length: "input__field_length_l",
+  -   type: "input__field_type_simple",
+  -   attr: {placeholder: "For-change"},
+  -   state: "",
+  -   jsClass: ""
+  - }
+  - let wrapp = {
+  -   type: ""
+  - }
+  - if (settings) {
+  -   if (settings.title)  {
+  -     if(settings.title.hasOwnProperty("text")) title.text = settings.title.text
+  -     if(settings.title.hasOwnProperty("type")) title.type = `input__title-text_${settings.title.type}`
+  -     if(settings.title.hasOwnProperty("state")) title.state = settings.title.state
+  -   }
+  -   if (settings.input)  {
+  -     if(settings.input.hasOwnProperty("length")) input.length = `input__field_length_${settings.input.length}`
+  -     if(settings.input.hasOwnProperty("type")) {
+  -       input.type = `input__field_type_${settings.input.type}`
+  -       if(settings.input.type === "dropdown" || settings.input.type === "submit") wrapp.type = `input__wrapper_type_${settings.input.type}`
+  -     }
+  -     if(settings.input.hasOwnProperty("state")) input.state = `input__field_${settings.input.state}`
+  -     if(settings.input.hasOwnProperty("jsClass")) input.jsClass = settings.input.jsClass
+  -     if(settings.input.hasOwnProperty("attr")) input.attr = settings.input.attr
+  -   }
+  - }
   .input
-    block
-
-mixin input__field(settings)
-  - let length = ""
-  - let attr = ""
-  - let type = ""
-  - let state = ""
-  - let jsClass = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("length") ? length = `input__field_length_${settings.length}` : length = ""
-  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
-  -   settings.hasOwnProperty("type") ? type = `input__field_type_${settings.type}` : type = ""
-  -   settings.hasOwnProperty("state") ? type = `input__field_${settings.state}` : state = ""
-  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
-  - }
-  if type === "input__field_type_dropdown" 
-    +input__wrapper({type: "dropdown"})
-      input(class = "input__field" class=`${length} ${type} ${state} ${jsClass}`)&attributes(attr)
-  else if type === "input__field_type_submit"
-    +input__wrapper({type: "submit"})
-      input(class = "input__field" class=`${length} ${type} ${state} ${jsClass}`)&attributes(attr)
-      button(type="submit" class="input__submit-button")
-  else
-    input(class = "input__field" class=`${length} ${type} ${state} ${jsClass}`)&attributes(attr)
-
-mixin input__state(settings)
-  - let text = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  - }
-  p.input__state=text
-
-mixin input__title(settings)
-  div(class="input__title")
-    block
-
-mixin input__title-text(settings)
-  - let type = ""
-  - let text = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("type") ? type =`input__title-text_${settings.type}` : type = ""
-  -   settings.hasOwnProperty("text") ? text =settings.text : text = ""
-  - }
-  div(class="input__title-text" class=type)
-    +title({
-      text: text
-    })
-
-mixin input__wrapper(settings)
-  - let type = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("type") ? type = `input__wrapper_type_${settings.type}` : type = ""
-  - }
-  label(class=`input__wrapper ${type}`)
-    block
+    if title.text
+      .input__title
+        div(class="input__title-text" class=title.type)
+          +title({
+            text: title.text
+          })
+        if title.state
+          p.input__state=title.state
+    if wrapp.type === "input__wrapper_type_dropdown" || wrapp.type === "input__wrapper_type_submit"
+      label(class="input__wrapper" class=wrapp.type)
+        input(class="input__field", class=input.length, class=input.type, class=input.state, class=input.jsClass)&attributes(input.attr)
+        if wrapp.type === "submit"
+          button(type="submit" class="input__submit-button")
+    else
+      input(class="input__field", class=input.length, class=input.type, class=input.state, class=input.jsClass)&attributes(input.attr)

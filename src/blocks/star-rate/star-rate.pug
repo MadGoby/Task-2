@@ -7,14 +7,7 @@ mixin star-rate(settings)
   .star-rate
     while n <= 5
       if (n <= rate)
-        +star-rate__star({type: "active"})
+        span(class="star-rate__star star-rate__star_active")
       else
-        +star-rate__star()
+        span(class="star-rate__star")
       - n = n + 1
-
-mixin star-rate__star(settings)
-  - let type = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("type") ? type = `star-rate__star_${settings.type}` : type = ""
-  - };
-  span(class=`star-rate__star ${type}`)

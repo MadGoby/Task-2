@@ -70,6 +70,12 @@
   &__likes {
     margin-bottom: 40px;
   }
+  &__radio {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 20px;
+    } 
+  }
   &__like {
     display: inline-block;
     &:not(:last-child) {
@@ -90,6 +96,7 @@
   }
   &__button-types {
     margin-left: 132px;
+    min-width: 266px;
   }
   &__slider {
     margin-bottom: 44px;
@@ -115,7 +122,7 @@
   }
   &__dropdown-types {
     margin-top: 100px;
-    min-height: 272px;
+    min-height: 306px;
   }
   &__fittings-dropdown {
     display: inline-block;

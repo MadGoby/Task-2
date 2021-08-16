@@ -1,138 +1,83 @@
 mixin dropdown(settings)
-  div.dropdown
-    block
-
-mixin dropdown__calc(settings)
-  .dropdown__calc
-    block
-
-mixin dropdown__button(settings)
-  - let type = ""
-  - let text = ""
-  - let attr = ""
-  - let transparent = false
+  - let inputSettings = {
+  -   length: "input__field_length_m",
+  -   type: "input__field_type_simple",
+  -   attr: {placeholder: "For-change"},
+  -   state: "",
+  -   jsClass: "js-for-change"  
+  - }
+  - let control = {
+  -   jsClass: "js-for-change",
+  -   attr: {},
+  -   z: ""
+  - }
+  - let lists = [
+  -   {text: "For Change", dataTarget: "forChange1", output: "0", minusTransparent: false, plusTransparent: false},
+  -   {text: "For Change", dataTarget: "forChange2", output: "0", minusTransparent: false, plusTransparent: false},
+  -   {text: "For Change", dataTarget: "forChange3", output: "0", minusTransparent: false, plusTransparent: false}
+  - ]
+  - let clearHide = true
   - if(settings) {
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
-  -   settings.hasOwnProperty("type") ? type = `dropdown__button_type_${settings.type}` : type = ""
-  -   if(settings.hasOwnProperty("transparent")) {
-  -     settings.transparent === true ? transparent = true : transparent = false
+  -   if(settings.hasOwnProperty("inputSettings")) inputSettings = settings.inputSettings
+  -   if(settings.control) {
+  -     if(settings.control.hasOwnProperty("jsClass")) control.jsClass = settings.control.jsClass
+  -     if(settings.control.hasOwnProperty("attr")) control.attr = settings.control.attr
+  -     if(settings.control.hasOwnProperty("z")) control.z = `dropdown__control_z_${settings.control.z}`
+  -   }
+  -   if(settings.lists) {
+  -     lists = settings.lists
+  -     lists.map(function(list) {
+  -       if(list.output == "0") list.minusTransparent = true
+  -       if(list.output == "10") list.plusTransparent = true
+  -       if(list.output > "0") clearHide = false
+  -     })
   -   }
   - }
-  if transparent 
-    button(class="dropdown__button dropdown__button_transparent" type="button" class=`${type}`)&attributes(attr)=text
-  else
-    button(class="dropdown__button" type="button" class=`${type}`)&attributes(attr)=text
-
-mixin dropdown__control(settings)
-  - let jsClass = ""
-  - let attr = ""
-  - let z = ""
-  - if(settings) {
-  -   settings.hasOwnProperty("jsClass") ? jsClass=settings.jsClass : jsClass=""
-  -   settings.hasOwnProperty("attr") ? attr=settings.attr : attr=""
-  -   settings.hasOwnProperty("z") ? z = `dropdown__control_z_${settings.z}` : z = ""
-  - }
-  div(class="dropdown__control" class=jsClass, class=z)&attributes(attr)
-    block
-
-mixin dropdown__input(settings)
+  div.dropdown
     div.dropdown__input
-      block
-
-mixin dropdown__list-element()
-  li.dropdown__list-element 
-    block
-
-mixin dropdown__output(settings)
-  - let jsClass = ""
-  - let text = ""
-  - let attr = ""
-  - if(settings) {
-  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
-  - }
-  output(class="dropdown__output" class=jsClass)&attributes(attr)=text
-
-mixin dropdown__list(settings)
-  - let elements = []
-  - if(settings) {
-  -   settings.hasOwnProperty("elements") ? elements=settings.elements : elements=[]
-  - }
-  ul.dropdown__list
-    each element in elements
-      - let text = ""
-      - let dataTarget = ""
-      - let output = ""
-      - let minusTransparent = false
-      - let plusTransparent = false
-      - if(element) {
-      -   element.hasOwnProperty("text") ? text = element.text : text=""
-      -   element.hasOwnProperty("dataTarget") ? dataTarget = element.dataTarget : dataTarget=""
-      -   element.hasOwnProperty("output") ? output = Number(element.output) : output=""
-      -   output === 0 ? minusTransparent = true : minusTransparent = false
-      -   output === 10 ? plusTransparent = true : plusTransparent = false
-      - }
-      +dropdown__list-element()
-        +dropdown__text({text: text})
-        +dropdown__calc()
-          +dropdown__button({
-            text: "-",
-            type: "minus",
+      +input(inputSettings)
+    div(class="dropdown__control" class=control.jsClass, class=control.z)&attributes(control.attr)
+      ul.dropdown__list
+        each list in lists
+          li.dropdown__list-element
+            span.dropdown__text=list.text
+            .dropdown__calc
+              if list.minusTransparent 
+                button(class="dropdown__button dropdown__button_transparent" type="button" class="dropdown__button_type_minus" data-target=list.dataTarget data-action="minus")="-"
+              else
+                button(class="dropdown__button" type="button" class="dropdown__button_type_minus" data-target=list.dataTarget data-action="minus")="-"
+              output(class="dropdown__output" data-target=list.dataTarget)=list.output
+              if list.plusTransparent
+                button(class="dropdown__button dropdown__button_transparent" type="button" class="dropdown__button_type_plus" data-target=list.dataTarget data-action="plus")="+"
+              else
+                button(class="dropdown__button" type="button" class="dropdown__button_type_plus" data-target=list.dataTarget data-action="plus")="+"
+      .dropdown__submit-buttons
+        .dropdown__clear-button
+          if clearHide == true
+            +button({
+              type: "text",
+              text: "очистить",
+              attr: {
+                "type": "button",
+                "data-target": "clear",
+                "hidden": "hidden"
+              }
+            })
+          else 
+            +button({
+              type: "text",
+              text: "очистить",
+              attr: {
+                "type": "button",
+                "data-target": "clear"
+              }
+            })
+        .dropdown__submit-button
+          +button({
+            type: "text",
+            text: "применить",
             attr: {
-              "data-target": dataTarget,
-              "data-action": "minus",
-            },
-            transparent: minusTransparent
-          })
-          +dropdown__output({
-            text: output,
-            attr: {
-              "data-target": dataTarget
+              "type": "button",
+              "data-target": "submit",
             }
           })
-          +dropdown__button({
-            text: "+",
-            type: "plus",
-            attr: {
-              "data-target": dataTarget,
-              "data-action": "plus"
-            },
-            transparent: plusTransparent
-          })
-
-mixin dropdown__submit-buttons(settings)
-  - let clearHidden = false
-  - if(settings) {
-  -   if(settings.hasOwnProperty("hidden")) {
-  -     settings.hidden === true ? hidden="hidden" : hidden=false
-  -   } 
-  - }
-  .dropdown__submit-buttons
-    .dropdown__clear-button
-      +button({
-        type: "text",
-        text: "очистить",
-        attr: {
-          "type": "button",
-          "data-target": "clear",
-          "hidden": hidden
-        }
-      })
-    .dropdown__submit-button
-      +button({
-        type: "text",
-        text: "применить",
-        attr: {
-          "type": "button",
-          "data-target": "submit",
-        }
-      })
-
-mixin dropdown__text(settings)
-  - let text = ""
-  - if(settings) {
-  -   settings.hasOwnProperty("text") ? text=settings.text : text=""
-  - }
-  span.dropdown__text=text

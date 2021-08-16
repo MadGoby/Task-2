@@ -1,35 +1,40 @@
 mixin header(settings)
-  .header
-    block
-
-mixin header__authorized(settings)
-  - let text = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""  
+  - let nav = { links: [
+  -     {"text": "For change", "type": "bold"},
+  -     {"text": "For change"},
+  -     {"text": "For change"},
+  -     {"text": "For change"}
+  -   ] 
   - }
-  p.header__authorized= text
-
-mixin header__buttons()
-  .header__buttons
-    .header__login-button
-      +button({
-        type: "border",
-        text: "войти",
-        attr: {"type": "button"},
-        height: "border-s"
+  - let authorized = { text: "" }
+  - if(settings) {
+  -   if(settings.nav && settings.nav.hasOwnProperty("links")) nav.links = settings.nav.links
+  -   if(settings.authorized && settings.authorized.hasOwnProperty("text")) authorized.text = settings.authorized.text
+  - }
+  .header
+    .header__logo
+      +logo({
+        src: "img/logo-color.svg"
       })
-    .header__registration-button
-      +button({
-        type: "simple",
-        text: "зарегистрироваться",
-        attr: {"type": "button"},
-        height: "simple-s"
+    .header__nav
+      +nav({
+        links: nav.links
       })
-
-mixin header__logo()
-  .header__logo
-    block
-
-mixin header__nav()
-  .header__nav
-    block
+    if authorized.text
+      p.header__authorized= authorized.text
+    else
+      .header__buttons
+        .header__login-button
+          +button({
+            type: "border",
+            text: "войти",
+            attr: {"type": "button"},
+            height: "border-s"
+          })
+        .header__registration-button
+          +button({
+            type: "simple",
+            text: "зарегистрироваться",
+            attr: {"type": "button"},
+            height: "simple-s"
+          })

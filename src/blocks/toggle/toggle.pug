@@ -1,68 +1,38 @@
 mixin toggle(settings)
-  .toggle
-    block
-
-mixin toggle__controller(settings)
-  - let type = ""
-  - let mimicType = ""
-  - let attr = ""
-  - let text = ""
-  - let richText = ""
-  - let n = 5
-  - let length = false
+  - let controller = {
+  -   type: "",
+  -   attr: {}
+  - }
+  - let mimic = {
+  -   type: ""
+  - }
+  - let text = {
+  -   text: "For change",
+  -   richText: false,
+  -   length: ""
+  - }
   - if (settings) {
-  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
-  -   settings.hasOwnProperty("length") ? length = settings.length : length = false
-  -   if  (settings.hasOwnProperty("type")) {
-  -     type = `toggle__controller_type_${settings.type}`
-  -     mimicType=settings.type
+  -   if(settings.controller) {
+  -     if(settings.controller.hasOwnProperty("type")) {
+  -       controller.type = `toggle__controller_type_${settings.controller.type}`
+  -       mimic.type = `toggle__mimic_type_${settings.controller.type}`
+  -     }
+  -     if(settings.controller.hasOwnProperty("attr")) controller.attr = settings.controller.attr
   -   }
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = "";
-  -   settings.hasOwnProperty("richText") ? richText = settings.richText : richText = "";
-  - };
-  label(class="toggle__wrapper")
-    input(class = `toggle____controller ${type}`)&attributes(attr)
-    if settings.type === "like" && settings.text
-      +toggle__mimic({type: mimicType})
-        if settings.richText
-          +toggle__text({text: richText, type: "rich", length})
-        +toggle__text({text: text, length})
-    else if settings.text
-      +toggle__mimic({type: mimicType})
-      .toggle__text-wrapper
-        if settings.richText
-          +toggle__text({text: richText, type: "rich", length})
-        +toggle__text({text: text, length})
-    else if !settings.type === "rate"
-      +toggle__mimic({type: mimicType})
-
-mixin toggle__mimic(settings)
-  - let type = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("type") ? type = `toggle__mimic_type_${settings.type}` : type = "";
-  - };
-  span(class=`toggle__mimic ${type}`)
-    block
-
-mixin toggle__text(settings)
-  - let textType = ""
-  - let length = ""
-  - if (settings) {
-  -  settings.hasOwnProperty("type") ? textType  = `toggle__text_${settings.type}` : textType="";
-  -  settings.hasOwnProperty("length") ? length  = `toggle__text_length_${settings.length}` : length="";
-  - };
-  p(class="toggle__text" class=textType, class=length)= settings.text
-
-mixin toggle__title(settings)
-  - let titleText = ""
-  - let titleType = ""
-  - if (settings) {
-  -  settings.hasOwnProperty("text") ? titleText  = settings.text : titleText="";
-  -  settings.hasOwnProperty("text") ? titleType  = settings.type : titleType = "";
-  - };
-  if titleType == true 
-    div.toggle__title
-      +title({text: titleText, type: titleType})
-  else 
-    div.toggle__title
-      +title({text: titleText})
+  -   if(settings.text) {
+  -     if(settings.text.hasOwnProperty("text")) text.text = settings.text.text
+  -     if(settings.text.hasOwnProperty("richText") && settings.text.richText !== false) text.richText = settings.text.richText
+  -     if(settings.text.hasOwnProperty("length")) text.length = `toggle__text_length_${settings.text.length}`
+  -   }
+  - }
+  .toggle
+    label(class="toggle__wrapper")
+      input(class = "toggle____controller" class=controller.type)&attributes(controller.attr)
+      span(class="toggle__mimic" class=mimic.type)
+        if mimic.type === "toggle__mimic_type_like"
+          p(class="toggle__text" class=text.length)= text.text
+      if mimic.type !== "toggle__mimic_type_like"
+        .toggle__text-wrapper
+          if text.richText
+            p(class="toggle__text toggle__text_rich", class=text.length)= text.richText
+          p(class="toggle__text", class=text.length)= text.text

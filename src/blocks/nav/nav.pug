@@ -1,19 +1,21 @@
 mixin nav(settings)
-  nav.nav
-   block
-
-mixin nav__link(settings)
-  - let links = []
+  - let links = [
+  -   {"text": "For change", "type": "bold"},
+  -   {"text": "For change"},
+  -   {"text": "For change"},
+  -   {"text": "For change"}
+  - ]
   - if(settings) {
-  -   settings.hasOwnProperty("links") ? links = settings.links : links = []
+  -   if(settings.hasOwnProperty("links")) links = settings.links
   - }
-  each link in links
-    - let href = ""
-    - let type = ""
-    - let text = ""
-    - if(link) {
-    -   link.hasOwnProperty("href") ? href = link.href : href = "./for-change"
-    -   link.hasOwnProperty("type") ? type = `nav__link_${link.type}` : type = ""
-    -   link.hasOwnProperty("text") ? text = link.text : text = ""
-    - }
-    a(class="nav__link",  href=href, class=type)= text
+  nav.nav
+    each link in links
+      - let href = "./for-change"
+      - let type = ""
+      - let text = ""
+      - if(link) {
+      -   if(link.hasOwnProperty("href")) href = link.href
+      -   if(link.hasOwnProperty("type")) type = `nav__link_${link.type}`
+      -   if(link.hasOwnProperty("text")) text = link.text
+      - }
+      a(class="nav__link",  href=href, class=type)= text
