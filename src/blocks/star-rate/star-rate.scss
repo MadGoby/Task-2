@@ -1,5 +1,6 @@
 .star-rate {
   &__star {
+    cursor: pointer;
     display: inline-block;
     width: 19px; height: 19px;
     background-image: url('../../img/star-border.jpg');

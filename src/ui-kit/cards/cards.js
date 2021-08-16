@@ -1,6 +1,7 @@
 import * as datepicker from "../../blocks/datepicker/datepicker.js";
 import * as dropdown from "../../blocks/dropdown/dropdown.js";
 import * as swiperSlider from "../../blocks/room-card/room-card.js";
+import * as starRatting from "../../blocks/star-rate/star-rate.js";
 
 datepicker.datepickerFunctionality({
   targetClass: ".js-datepicker-4",
@@ -46,3 +47,11 @@ datepicker.datepickerFunctionality({
     to: new Date(2019, 7, 23)
   },
 });
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-3"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-4"
+})

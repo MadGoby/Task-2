@@ -5,6 +5,7 @@ import * as dropdown from "../../blocks/dropdown/dropdown.js";
 import * as list from "../../blocks/list/list.js";
 import * as datepicker from "../../blocks/datepicker/datepicker.js";
 import * as contentNavigation from "../../blocks/content-nav/content-nav.js";
+import * as starRatting from "../../blocks/star-rate/star-rate.js";
 
 dropdown.dropdownFunctionality ({
   inputClass: ".js-input__field",
@@ -99,3 +100,11 @@ Inputmask({
   mask: '99.99.9999',
   placeholder: 'ДД.ММ.ГГГГ',
 }).mask(document.querySelectorAll(".input__field_type_date"));
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-2"
+})

@@ -6,6 +6,7 @@ import * as list from "../../blocks/list/list.js";
 import * as swiperSlider from "../../blocks/room-card/room-card.js";
 import * as contentNavigation from "../../blocks/content-nav/content-nav.js";
 import * as datepicker from "../../blocks/datepicker/datepicker.js";
+import * as starRatting from "../../blocks/star-rate/star-rate.js";
 import { event } from "jquery";
 
 require("../../img/980.jpg");
@@ -174,3 +175,47 @@ datepicker.datepickerFunctionality({
   },
   size: "m"
 });
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-2"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-3"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-4"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-5"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-6"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-7"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-8"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-9"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-10"
+})
+
+starRatting.starRatting({
+  containerClass: ".js-star-rate-11"
+})

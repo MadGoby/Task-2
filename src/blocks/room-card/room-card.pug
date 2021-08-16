@@ -23,7 +23,7 @@ mixin room-card(settings)
   -   price: "000",
   -   type: false
   - }
-  - let starRate = { rate: "5" }
+  - let starRate = { rate: "5", jsClass: "" }
   - let rateCounter = { value: "000"} 
   - if (settings) {
   -   if(settings.hasOwnProperty("jsClass")) jsClass = settings.jsClass
@@ -33,7 +33,10 @@ mixin room-card(settings)
   -     if(settings.roomInfo.hasOwnProperty("price")) roomInfo.price = settings.roomInfo.price 
   -     if(settings.roomInfo.hasOwnProperty("type")) roomInfo.type = settings.roomInfo.type 
   -   }
-  -   if(settings.starRate.hasOwnProperty("rate")) starRate.rate = settings.starRate.rate
+  -   if(settings.starRate) {
+  -     if(settings.starRate.hasOwnProperty("rate")) starRate.rate = settings.starRate.rate
+  -     if(settings.starRate.hasOwnProperty("jsClass")) starRate.jsClass = settings.starRate.jsClass
+  -   }
   -   if(settings.rateCounter.hasOwnProperty("value")) rateCounter.value = settings.rateCounter.value
   - }
   div(class="room-card" class=jsClass)
@@ -62,6 +65,6 @@ mixin room-card(settings)
         })
       .room-card__rate
         .room-card__stars
-          +star-rate({rate: starRate.rate})
+          +star-rate({rate: starRate.rate, jsClass: starRate.jsClass})
         .room-card__counter
           +rate-counter({value: rateCounter.value})

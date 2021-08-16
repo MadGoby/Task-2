@@ -1,10 +1,12 @@
 mixin star-rate(settings)
+  - let jsClass = ""
   - let n = 1
   - let rate = 0
   - if (settings) {
-  -   settings.hasOwnProperty("rate") ? rate = settings.rate : rate = 0
+  -   if(settings.hasOwnProperty("rate")) rate = settings.rate
+  -   if(settings.hasOwnProperty("jsClass")) jsClass = settings.jsClass
   - };
-  .star-rate
+  div(class="star-rate" class=jsClass)
     while n <= 5
       if (n <= rate)
         span(class="star-rate__star star-rate__star_active")
