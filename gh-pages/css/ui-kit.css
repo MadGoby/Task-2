@@ -813,6 +813,7 @@
     margin-bottom: 20px; }
 
 .star-rate__star {
+  cursor: pointer;
   display: inline-block;
   width: 19px;
   height: 19px;
@@ -1404,6 +1405,7 @@
     right: 15px;
     height: 7.5px; }
   .room-card__image-position {
+    cursor: pointer;
     display: inline-block;
     box-sizing: border-box;
     width: 7.5px;
