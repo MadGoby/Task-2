@@ -31,7 +31,6 @@ function swiperSlider(settings) {
   };
 
   function animationOfImg(target, anim) {
-    console.log(target)
     let animLength = 500;
     if(anim && typeof anim == "number") animLength = anim
     target == "previous" ? toPrevious() : toNext();
@@ -45,14 +44,16 @@ function swiperSlider(settings) {
         { left: "0px" },
         { left: `${roomCard.offsetWidth}px` }
       ], {
-        duration: animLength
+        duration: animLength,
+        easing: "ease-in-out"
       })
 
       currentImage.animate([
         { left: `${0 - (roomCard.offsetWidth)}px` },
         { left: "0px" }
       ], {
-        duration: animLength
+        duration: animLength,
+        easing: "ease-in-out"
       })
 
       currentImage.style.left = "0px"
@@ -68,14 +69,16 @@ function swiperSlider(settings) {
         { left: "0px" },
         { left: `${0 - roomCard.offsetWidth}px` }
       ], {
-        duration: animLength
+        duration: animLength,
+        easing: "ease-in-out"
       })
 
       currentImage.animate([
         { left: `${(roomCard.offsetWidth)}px` },
         { left: "0px" }
       ], {
-        duration: animLength
+        duration: animLength,
+        easing: "ease-in-out"
       })
 
       currentImage.style.left = "0px"
@@ -108,29 +111,47 @@ function swiperSlider(settings) {
   };
 
   function imagePositionClick(event) {
-    // let action;
-    // let posIndex = imagePositions.indexOf(event.target)
+    let action;
+    let posIndex = imagePositions.indexOf(event.target)
 
-    // if(posIndex > images.indexOf(currentImage)) {
-    //   action = "next"
-    // } else if(posIndex < images.indexOf(currentImage)) {
-    //   action = "previous"
-    // }
+    if(posIndex > images.indexOf(currentImage)) {
+      action = "next"
+    } else if(posIndex < images.indexOf(currentImage)) {
+      action = "previous"
+    }
     
-    // if(action) {
-    //   for(let i = images.indexOf(currentImage); i <= posIndex; i++) {
-    //     setTimeout(function () {
-    //       animationOfImg(action);
-    //       currentImagePosition.classList.toggle("room-card__image-position_active");
-    //       if(action == "next") {
-    //         currentImage = images[images.indexOf(currentImage) + 1];
-    //       } else {
-    //         currentImage = images[images.indexOf(currentImage) - 1];
-    //       }
-    //       currentImagePosition.classList.toggle("room-card__image-position_active");
-    //     }, 500);
-    //   } 
-    // }
+    if(action) {
+      function anim(first) {
+        function iteration() {
+          if (action == "next") {
+            let i = images.indexOf(currentImage) + 1
+            currentImage = images[i];
+            currentImagePosition.classList.toggle("room-card__image-position_active");
+            currentImagePosition = imagePositions[i];
+            currentImagePosition.classList.toggle("room-card__image-position_active");
+          } else {
+            let i = images.indexOf(currentImage) - 1
+            currentImage = images[i];
+            currentImagePosition.classList.toggle("room-card__image-position_active");
+            currentImagePosition = imagePositions[i];
+            currentImagePosition.classList.toggle("room-card__image-position_active");
+          }
+          animationOfImg(action, 300);
+          if (currentImage !== images[posIndex] ) { 
+            anim();
+          } 
+        };
+        if(first) {
+          iteration()
+        } else {
+          setTimeout(function() {
+            iteration()
+          }, 300) 
+        }
+      }
+
+      anim(true);
+    }
   }
 
   bindEventListeners()
