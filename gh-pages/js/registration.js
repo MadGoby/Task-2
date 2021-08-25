@@ -175,7 +175,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _registration_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./registration.scss */ \"./pages/registration/registration.scss\");\n/* harmony import */ var _registration_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_registration_scss__WEBPACK_IMPORTED_MODULE_0__);\n\r\n__webpack_require__(/*! ../../img/reg-back.jpg */ \"./img/reg-back.jpg\");\r\n__webpack_require__(/*! inputmask */ \"../node_modules/inputmask/dist/inputmask.js\");\r\n\r\nInputmask({\r\n  mask: '99.99.9999',\r\n  placeholder: 'ДД.ММ.ГГГГ',\r\n}).mask(document.querySelectorAll(\".input__field_type_date\"));\n\n//# sourceURL=webpack:///./pages/registration/registration.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _registration_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./registration.scss */ \"./pages/registration/registration.scss\");\n/* harmony import */ var _registration_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_registration_scss__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\n__webpack_require__(/*! ../../img/reg-back.jpg */ \"./img/reg-back.jpg\");\r\n__webpack_require__(/*! inputmask */ \"../node_modules/inputmask/dist/inputmask.js\");\r\n\r\nInputmask({\r\n  mask: '99.99.9999',\r\n  placeholder: 'ДД.ММ.ГГГГ',\r\n}).mask(document.querySelectorAll('.input__field_type_date'));\r\n\n\n//# sourceURL=webpack:///./pages/registration/registration.js?");
 
 /***/ }),
 
