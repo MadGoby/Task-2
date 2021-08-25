@@ -8,21 +8,27 @@
   border-radius: 4px;
   max-width: 380px;
   box-sizing: border-box;
+
   &__title {
     margin-bottom: 20px;
   }
+
   &__inputs {
     margin-bottom: 20px;
   }
+
   &__email-input {
     margin-bottom: 10px;
   }
+
   &__confirm-button {
     margin-bottom: 30px;
   }
+
   &__link {
-    float: right
+    float: right;
   }
+  
   &__text {
     @include text_type($mont, 14px, 400, 18px, #000000);
     margin: 0;

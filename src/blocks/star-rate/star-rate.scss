@@ -2,11 +2,14 @@
   &__star {
     cursor: pointer;
     display: inline-block;
-    width: 19px; height: 19px;
+    width: 19px;
+    height: 19px;
     background-image: url('../../img/star-border.jpg');
+
     &:not(:last-of-type) {
       margin-right: 4px;
     }
+
     &_active {
       background-image: url('../../img/star.jpg');
     }

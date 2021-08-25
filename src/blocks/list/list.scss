@@ -6,24 +6,29 @@
     padding: 0px;
     margin: 0px;
   }
+
   &__item {
     list-style: none;
+
     &:not(:last-child) {
       margin-bottom: 10px;
     }
+
     &_bullet {
       &:before {
         content: '';
         display: inline-block;
-        width: 10px; height: 10px;
+        width: 10px;
+        height: 10px;
         background-color: $dark25;
         margin-right: 10px;
         border-radius: 100%;
         vertical-align: top;
-        margin-top: 7px;  
+        margin-top: 7px;
       }
     }
   }
+
   &__text {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     margin: 0;
@@ -31,13 +36,16 @@
     display: inline-block;
     vertical-align: top;
   }
+
   &__title {
     margin: 0px;
     margin-bottom: 18px;
     line-height: 15px;
+
     &_bullet {
       margin-bottom: 13px;
     }
+
     &_with-margin {
       margin-left: 20px;
     }

@@ -17,159 +17,209 @@
   position: relative;
   box-sizing: border-box;
   margin: auto;
-  &__input-types, &__toggle-types, &__button-types {
+
+  &__input-types,
+  &__toggle-types,
+  &__button-types {
     display: inline-block;
     vertical-align: top;
   }
+
   &__input-types {
     min-width: 320px;
   }
+
   &__text-input {
     margin-bottom: 20px;
   }
+
   &__dropdown {
     margin-bottom: 20px;
   }
+
   &__masked-input {
     margin-bottom: 40px;
   }
+
   &__date-dropdowns {
     margin-bottom: 40px;
   }
+
   &__date-from {
     margin-right: 20px;
   }
-  &__date-from, &__date-to {
+
+  &__date-from,
+  &__date-to {
     display: inline-block;
   }
+
   &__filter-dropdown {
     margin-bottom: 40px;
   }
+
   &__toggle-types {
     max-width: 260px;
     margin-left: 126px;
   }
+
   &__checkboxes {
     margin-bottom: 40px;
   }
+
   &__checkboxes-title {
     margin-bottom: 16px;
   }
+
   &__radios {
     margin-bottom: 40px;
   }
+
   &__radios-title {
     margin-bottom: 16px;
   }
+
   &__toggles {
     margin-bottom: 44px;
   }
+
   &__toggles-title {
     margin-bottom: 16px;
   }
+
   &__likes {
     margin-bottom: 40px;
   }
+
   &__radio {
     display: inline-block;
+
     &:not(:last-child) {
       margin-right: 20px;
-    } 
+    }
   }
+
   &__like {
     display: inline-block;
+
     &:not(:last-child) {
       margin-right: 10px;
-    } 
+    }
   }
+
   &__likes-title {
     margin-bottom: 16px;
   }
+
   &__rates-title {
     margin-bottom: 16px;
   }
+
   &__rate {
     display: inline-block;
+
     &:not(:last-of-type) {
       margin-right: 20px;
     }
   }
+
   &__button-types {
     margin-left: 132px;
     min-width: 266px;
   }
+
   &__slider {
     margin-bottom: 44px;
     max-width: 266px;
   }
+
   &__buttons {
     width: 320px;
   }
+
   &__buttons-title {
     margin-bottom: 16px;
   }
-  &__simple-buttons, &__border-buttons, &__text-buttons {
+
+  &__simple-buttons,
+  &__border-buttons,
+  &__text-buttons {
     margin-bottom: 30px;
   }
+
   &__button-wrapp {
     display: inline-block;
+
     &:not(:last-child) {
       margin-right: 20px;
     }
   }
+
   &__big-button {
     margin-bottom: 40px;
   }
+
   &__dropdown-types {
     margin-top: 100px;
     min-height: 306px;
   }
+
   &__fittings-dropdown {
     display: inline-block;
     margin-right: 181px;
   }
+
   &__closed-dropdown {
     margin-bottom: 20px;
   }
+
   &__guests-dropdown {
     display: inline-block;
     vertical-align: top;
+
     &:last-child {
       margin-left: 72px;
     }
   }
+
   &__list-types {
     margin-top: 54px;
     min-height: 267px;
   }
+
   &__expandable-lists {
     width: 266px;
     display: inline-block;
   }
+
   &__closed-list {
     margin-bottom: 49px;
   }
+
   &__rich-list {
     display: inline-block;
     vertical-align: top;
     margin-left: 180px;
   }
+
   &__bullet-list {
     display: inline-block;
     vertical-align: top;
     margin-left: 132px;
   }
+
   &__additions {
     margin-top: 100px;
   }
+
   &__positive-features {
     max-width: 280px;
     display: inline-block;
   }
+
   &__user-comment {
     margin-left: 156px;
     display: inline-block;
     vertical-align: top;
   }
 }
-

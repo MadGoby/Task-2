@@ -10,29 +10,35 @@
 
 .cards {
   width: 1440px;
-  padding: 140px  140px 130px;
+  padding: 140px 140px 130px;
   position: relative;
   box-sizing: border-box;
   margin: auto;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
+
   &__column {
     display: inline-block;
     vertical-align: top;
     max-width: 380px;
+
     &:nth-child(2) {
       margin: 0 40px;
     }
   }
+
   &__search-room {
     margin-bottom: 40px;
   }
+
   &__final-booking {
     margin-bottom: 40px;
   }
+
   &__datepicker {
     margin-bottom: 40px;
     min-height: 387px;
   }
+
   &__room:last-child {
     margin-top: 40px;
   }

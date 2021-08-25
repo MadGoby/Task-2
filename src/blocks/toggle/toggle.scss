@@ -4,20 +4,25 @@
   display: block;
   min-height: 20px;
   @include text_type($mont, 14px, 400, 20px, $dark75);
+
   &:not(:last-of-type) {
     margin-bottom: 10px;
   }
+
   &__wrapper {
     display: inline-block;
     min-height: 20px;
     position: relative;
+
     &:not(:last-of-type) {
       margin-right: 20px;
     }
   }
+
   &__text-wrapper {
     margin-left: 10px;
   }
+
   &__mimic {
     height: 20px;
     display: inline-block;
@@ -25,29 +30,36 @@
     border: 1px solid $dark25;
     box-sizing: border-box;
     vertical-align: top;
+
     &_type_checkbox {
       width: 20px;
       border-radius: 4px;
     }
+
     &_type_radio {
       width: 20px;
       border-radius: 50%;
     }
+
     &_type_toggle {
       width: 40px;
       border-radius: 10px;
       padding: 3px;
+
       &::before {
         content: '';
         display: block;
-        width: 12px; height: 12px;
+        width: 12px;
+        height: 12px;
         background: $dark25;
         border-radius: 50%;
       }
     }
+
     &_type_like {
       min-width: 40px;
       border-radius: 10px;
+
       & .toggle__text {
         font-size: 10px;
         line-height: 18px;
@@ -55,7 +67,8 @@
         vertical-align: top;
         margin: 0;
         padding-right: 5px;
-      } 
+      }
+
       &::before {
         content: '';
         background-image: url('../../img/favorite-border.svg');
@@ -64,10 +77,11 @@
         background-position-x: center;
         display: inline-block;
         height: 18px;
-        width: 21px
+        width: 21px;
       }
     }
   }
+
   &__text {
     cursor: pointer;
     user-select: none;
@@ -75,9 +89,11 @@
     margin: 0;
     line-height: 20px;
     max-width: 230px;
+
     &_rich {
       display: block;
       @include text_type($mont, 14px, 700, 18px, $dark75);
+
       & ~ .toggle__text {
         display: block;
         font-size: 12px;
@@ -87,49 +103,61 @@
         color: $dark50;
       }
     }
+
     &_length_s {
       max-width: 192px;
     }
   }
+
   &__text-wrapper {
     display: inline-block;
   }
+
   &__title {
     margin: 0 0 17px;
     line-height: 15px;
   }
+
   &__controller {
     &_type_checkbox:checked + .toggle__mimic_type_checkbox {
       content: url('../../img/check-arrow.jpg');
       padding: 3px 4px 5px;
       border-color: $purple;
     }
+
     &_type_radio:checked + .toggle__mimic_type_radio {
       padding: 3px;
       border-color: $purple;
+
       &::before {
         content: '';
         display: block;
-        width: 12px; height: 12px;
-        background: linear-gradient(180deg, $purple 0%, #8BA4F9 100%);
+        width: 12px;
+        height: 12px;
+        background: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
         border-radius: 50%;
       }
     }
+
     &_type_toggle:checked + .toggle__mimic_type_toggle {
       border-color: $purple;
+
       &::before {
         float: right;
-        background: linear-gradient(180deg, $purple 0%, #8BA4F9 100%);
+        background: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
       }
     }
+
     &_type_like:checked + .toggle__mimic_type_like {
       border-color: $purple;
+
       &::before {
         background-image: url('../../img/favorite.svg');
       }
+
       & .toggle__text {
         color: $purple;
-      } 
+      }
     }
   }
 }

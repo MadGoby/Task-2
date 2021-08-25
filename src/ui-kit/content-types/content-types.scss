@@ -7,9 +7,12 @@
   position: relative;
   box-sizing: border-box;
   margin: auto;
-  &__colors, &__text {
+
+  &__colors,
+  &__text {
     display: inline-block;
   }
+
   &__text {
     vertical-align: top;
     float: right;

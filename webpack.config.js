@@ -72,7 +72,7 @@ module.exports = {
       jQuery: "jquery",
       "window.jQuery": "jquery'",
       "window.$": "jquery"
-    }),
+    })
   ],
   module: {
     rules: [

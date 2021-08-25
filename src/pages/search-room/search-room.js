@@ -1,221 +1,220 @@
-import "./search-room.scss";
+import './search-room.scss';
+import dropdownFunctionality from '../../blocks/dropdown/dropdown';
+import listFunctionality from '../../blocks/list/list';
+import swiperSlider from '../../blocks/room-card/room-card';
+import contentNav from '../../blocks/content-nav/content-nav';
+import datepickerFunctionality from '../../blocks/datepicker/datepicker';
+import starRatting from '../../blocks/star-rate/star-rate';
+
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
-import * as dropdown from "../../blocks/dropdown/dropdown.js";
-import * as list from "../../blocks/list/list.js";
-import * as swiperSlider from "../../blocks/room-card/room-card.js";
-import * as contentNavigation from "../../blocks/content-nav/content-nav.js";
-import * as datepicker from "../../blocks/datepicker/datepicker.js";
-import * as starRatting from "../../blocks/star-rate/star-rate.js";
-import { event } from "jquery";
+require('../../img/980.jpg');
+require('../../img/856.jpg');
+require('../../img/740.jpg');
+require('../../img/982.jpg');
+require('../../img/678.jpg');
+require('../../img/450.jpg');
+require('../../img/350.jpg');
+require('../../img/666.jpg');
+require('../../img/444.jpg');
+require('../../img/352.jpg');
+require('../../img/room-slider.jpg');
 
-require("../../img/980.jpg");
-require("../../img/856.jpg");
-require("../../img/740.jpg");
-require("../../img/982.jpg");
-require("../../img/678.jpg");
-require("../../img/450.jpg");
-require("../../img/350.jpg");
-require("../../img/666.jpg");
-require("../../img/444.jpg");
-require("../../img/352.jpg");
-require("../../img/room-slider.jpg");
+dropdownFunctionality({
+  inputClass: '.js-input__field',
+  dropdownClass: '.js-dropdown__control',
+  inputResultTemplate: { type: 'oneByOne', values: ['спальни', 'кровати'] },
+  defaultTemplate: 'Конфигурация номера',
+});
 
-dropdown.dropdownFunctionality ({
-  inputClass: ".js-input__field",
-  dropdownClass: ".js-dropdown__control",
-  inputResultTemplate: {type: "oneByOne", values: ['спальни', 'кровати']},
-  defaultTemplate: "Конфигурация номера"
-})
+dropdownFunctionality({
+  inputClass: '.js-input__field-2',
+  dropdownClass: '.js-dropdown__control-2',
+  inputResultTemplate: { type: 'twoByOne', values: ['гостя', 'младенец'] },
+  defaultTemplate: 'Сколько гостей',
+});
 
-dropdown.dropdownFunctionality ({
-  inputClass: ".js-input__field-2",
-  dropdownClass: ".js-dropdown__control-2",
-  inputResultTemplate: {type: "twoByOne", values: ['гостя', 'младенец']},
-  defaultTemplate: "Сколько гостей"
-})
+listFunctionality({
+  titleClass: '.js-list__title',
+  listClass: '.js-list__container',
+});
 
-list.listFunctionality ({
-  titleClass: ".js-list__title",
-  listClass: ".js-list__container"
-})
+const $sliderBody = $('.js-slider__body');
 
-$(document).ready(function () {
-  $(".js-slider__body").slider({
-    range : true,
+$(document).ready(() => {
+  $sliderBody.slider({
+    range: true,
     min: 0,
     max: 15000,
-    values: [ 5000, 10000 ],
-    slide: function( event, ui ) {
-      $(".js-slider__output").val(ui.values[ 0 ] + "₽" + " - " + ui.values[ 1 ] + "₽" );
-    }
+    values: [5000, 10000],
+    slide(event, ui) {
+      $('.js-slider__output').val(`${ui.values[0]}₽ - ${ui.values[1]}₽`);
+    },
   });
-  $(".js-slider__output").val( 
-    "" + $(".js-slider__body").slider(
-    "values", 0 ) + "₽" + " - " + $(".js-slider__body").slider("values", 1 ) + "₽" );
+  $('.js-slider__output').val(`${$sliderBody.slider('values', 0)}₽ - ${$sliderBody.slider('values', 1)}₽`);
 });
 
 function sidebarDropdown(settings) {
-  const {titleClass, sidebarClass} = settings;
-  
+  const { titleClass, sidebarClass } = settings;
+
   function getHtmlElements() {
     const title = document.querySelector(titleClass);
     const sidebar = document.querySelector(sidebarClass);
-    return {title, sidebar}
-  };
+    return { title, sidebar };
+  }
 
   const resultElements = getHtmlElements();
-  const {title, sidebar} = resultElements;
-  
-  function bindEventListeners() {
-    title.addEventListener("click", discloseSidebar);
-    document.body.onresize = convertPassesVariable;
-  };
+  const { title, sidebar } = resultElements;
 
-  function discloseSidebar(event) {
-    if(sidebar.style.display == "none") {
-      sidebar.style.display = "inline-block";
-      title.classList.remove("title_closed");
-      title.classList.add("title_expanded");
+  function discloseSidebar() {
+    if (sidebar.style.display === 'none') {
+      sidebar.style.display = 'inline-block';
+      title.classList.remove('title_closed');
+      title.classList.add('title_expanded');
     } else {
-      sidebar.style.display = "none";
-      title.classList.remove("title_expanded");
-      title.classList.add("title_closed");
-    };
-  };
-  
+      sidebar.style.display = 'none';
+      title.classList.remove('title_expanded');
+      title.classList.add('title_closed');
+    }
+  }
+
   function changeSidebarDisplay(userWidth) {
-    if (userWidth > 680 && sidebar.style.display == "none") {
-      sidebar.style.display = "block";
-      if(title.classList.contains("title_expanded")) {
-        title.classList.remove("title_expanded");
-        title.classList.add("title_closed");
+    if (userWidth > 680 && sidebar.style.display === 'none') {
+      sidebar.style.display = 'block';
+      if (title.classList.contains('title_expanded')) {
+        title.classList.remove('title_expanded');
+        title.classList.add('title_closed');
       }
     } else if (userWidth < 680) {
-      sidebar.style.display = "none";
-    }; 
+      sidebar.style.display = 'none';
+    }
   }
 
   function convertPassesVariable(event) {
-    let userWidth = +event.target.innerWidth;
+    const userWidth = +event.target.innerWidth;
     changeSidebarDisplay(userWidth);
-  };
+  }
 
-  changeSidebarDisplay(+document.body.offsetWidth + 17)
-  
-  bindEventListeners()
-};
+  changeSidebarDisplay(+document.body.offsetWidth + 17);
+
+  function bindEventListeners() {
+    title.addEventListener('click', discloseSidebar);
+    document.body.onresize = convertPassesVariable;
+  }
+
+  bindEventListeners();
+}
 
 sidebarDropdown({
-  titleClass: ".js-search-room__sidebar-title",
-  sidebarClass: ".js-search-room__sidebar"
-})
-
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card"
+  titleClass: '.js-search-room__sidebar-title',
+  sidebarClass: '.js-search-room__sidebar',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-2"
+swiperSlider({
+  roomCardClass: '.js-room-card',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-3"
+swiperSlider({
+  roomCardClass: '.js-room-card-2',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-4"
+swiperSlider({
+  roomCardClass: '.js-room-card-3',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-5"
+swiperSlider({
+  roomCardClass: '.js-room-card-4',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-6"
+swiperSlider({
+  roomCardClass: '.js-room-card-5',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-7"
+swiperSlider({
+  roomCardClass: '.js-room-card-6',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-8"
+swiperSlider({
+  roomCardClass: '.js-room-card-7',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-9"
+swiperSlider({
+  roomCardClass: '.js-room-card-8',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-10"
+swiperSlider({
+  roomCardClass: '.js-room-card-9',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-11"
+swiperSlider({
+  roomCardClass: '.js-room-card-10',
 });
 
-swiperSlider.swiperSlider({
-  roomCardClass: ".js-room-card-12"
+swiperSlider({
+  roomCardClass: '.js-room-card-11',
 });
 
-contentNavigation.contentNav({
-  navClass: ".js-content-nav"
+swiperSlider({
+  roomCardClass: '.js-room-card-12',
 });
 
-datepicker.datepickerFunctionality({
-  targetClass: ".js-datepicker",
-  inputTotalClass: ".js-input__field_total",
+contentNav({
+  navClass: '.js-content-nav',
+});
+
+datepickerFunctionality({
+  targetClass: '.js-datepicker',
+  inputTotalClass: '.js-input__field_total',
   defaultSettings: {
     pickedYear: new Date(2019, 7, 8).getFullYear(),
     pickedMonth: new Date(2019, 7, 8).getMonth(),
     currentDay: new Date(2019, 7, 8),
     from: new Date(2019, 7, 19),
-    to: new Date(2019, 7, 23)
+    to: new Date(2019, 7, 23),
   },
-  size: "m"
+  size: 'm',
 });
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate"
-})
+starRatting({
+  containerClass: '.js-star-rate',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-2"
-})
+starRatting({
+  containerClass: '.js-star-rate-2',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-3"
-})
+starRatting({
+  containerClass: '.js-star-rate-3',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-4"
-})
+starRatting({
+  containerClass: '.js-star-rate-4',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-5"
-})
+starRatting({
+  containerClass: '.js-star-rate-5',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-6"
-})
+starRatting({
+  containerClass: '.js-star-rate-6',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-7"
-})
+starRatting({
+  containerClass: '.js-star-rate-7',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-8"
-})
+starRatting({
+  containerClass: '.js-star-rate-8',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-9"
-})
+starRatting({
+  containerClass: '.js-star-rate-9',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-10"
-})
+starRatting({
+  containerClass: '.js-star-rate-10',
+});
 
-starRatting.starRatting({
-  containerClass: ".js-star-rate-11"
-})
+starRatting({
+  containerClass: '.js-star-rate-11',
+});

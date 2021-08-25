@@ -3,36 +3,46 @@
 .color-description {
   @include text_type($mont, 19px, 400, 28px, $dark100);
   max-height: 70px;
+
   &:not(:last-child) {
     margin-bottom: 20px;
   }
+
   &__sample {
     height: 70px;
     width: 70px;
     border-radius: 6px;
     display: inline-block;
+
     &_color_shade100 {
       background-color: $dark100;
     }
+
     &_color_shade75 {
       background-color: $dark75;
     }
+
     &_color_shade50 {
       background-color: $dark50;
     }
+
     &_color_shade25 {
       background-color: $dark25;
     }
+
     &_color_shade5 {
       background-color: $dark5;
     }
+
     &_color_purple {
       background-color: $purple;
     }
+
     &_color_green {
       background-color: $green;
     }
   }
+
   &__text {
     display: inline-block;
     line-height: 28px;
@@ -40,11 +50,13 @@
     vertical-align: top;
     margin-left: 40px;
   }
+
   &__name {
     font-weight: 700;
     margin: 0;
   }
-  &__index{
+
+  &__index {
     margin: 0;
     font-weight: 400;
   }

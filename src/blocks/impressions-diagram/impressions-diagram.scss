@@ -1,37 +1,46 @@
 @import '../../overall/mixins.scss';
 
 .impressions-diagram {
-  &__description  {
+  &__description {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     display: inline-block;
-    margin: 0 0 0 30px; 
+    margin: 0 0 0 30px;
     padding: 0;
   }
+
   &__description-line {
     list-style: none;
+
     &::before {
       content: '';
-      width: 10px; height: 10px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       display: inline-block;
       margin-right: 5px;
     }
+
     &_perfectly::before {
-      background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);;
+      background: linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%);
     }
+
     &_good::before {
-      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+      background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
     }
+
     &_satisfactorily:before {
-      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
     }
+
     &_disappointed::before {
-      background: linear-gradient(180deg, #919191 0%, #3D4975 100%);
+      background: linear-gradient(180deg, #919191 0%, #3d4975 100%);
     }
   }
+
   &__reviews-wrapper {
     background-image: url('../../img/diagram.svg');
-    width: 120px; height: 120px;
+    width: 120px;
+    height: 120px;
     display: inline-block;
   }
 }

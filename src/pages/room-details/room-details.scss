@@ -20,77 +20,95 @@
 @import '../../blocks/dropdown/dropdown.scss';
 @import '../../overall/mixins.scss';
 
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
 }
+
 .room-details {
   margin: 0;
-  background: #F4F4F6;
+  background: #f4f4f6;
   min-width: 400px;
   display: flex;
-	flex-direction: column;
+  flex-direction: column;
   min-height: 100%;
+
   &__main {
     flex: 1 0 auto;
     background-color: white;
   }
-  &__photos  {
+
+  &__photos {
     position: relative;
   }
+
   &__details {
     padding: 70px 140px;
     text-align: center;
+
     @media screen and (max-width: 1430px) {
       padding: 40px 35px;
     }
+
     @media screen and (max-width: 500px) {
       padding: 20px 10px;
     }
   }
+
   &__details-wrapper {
     max-width: 1160px;
     text-align: initial;
     display: inline-block;
   }
+
   &__float-wrapper {
     display: inline-block;
     max-width: 711px;
+
     @media screen and (max-width: 1220px) {
       text-align: center;
     }
   }
+
   &__final-booking {
     float: right;
     margin-left: 40px;
-    @media screen and (max-width: 1220px) { 
+
+    @media screen and (max-width: 1220px) {
       float: none;
       text-align: center;
       margin: 0 0 35px 0;
     }
   }
+
   &__positive-features {
     display: inline-block;
     vertical-align: top;
     min-width: 280px;
     margin-right: 81px;
     text-align: initial;
+
     @media screen and (max-width: 750px) {
       margin: 0;
     }
   }
+
   &__impressions {
     text-align: initial;
     display: inline-block;
+
     @media screen and (max-width: 750px) {
       display: block;
       max-width: 311px;
       margin: 30px auto 0;
     }
   }
+
   &__impression-title {
     margin-bottom: 20px;
   }
+
   &__rules {
     margin-top: 30px;
     display: inline-block;
@@ -98,6 +116,7 @@ html, body {
     margin-right: 100px;
     text-align: initial;
   }
+
   &__cancellation {
     display: inline-block;
     max-width: 341px;
@@ -106,6 +125,7 @@ html, body {
     vertical-align: top;
     text-align: initial;
   }
+
   &__photos-wrapper {
     display: inline-block;
     position: absolute;
@@ -113,44 +133,55 @@ html, body {
     max-width: 31.88%;
     height: 100%;
   }
+
   &__comments-count {
     @include text_type($mont, 14px, 400, 24px, $dark50);
     display: inline-block;
     vertical-align: top;
     float: right;
   }
+
   &__comments {
     margin-top: 30px;
     text-align: initial;
   }
+
   &__comments-title {
     margin-bottom: 20px;
   }
+
   &__comment {
     &:not(:last-of-type) {
       margin-bottom: 20px;
     }
   }
+
   &__footer {
     flex: 0 0 auto;
   }
 }
+
 .room-photo {
   height: 50%;
   vertical-align: top;
+
   &_big {
     width: 68.13%;
     display: inline-block;
     vertical-align: top;
   }
-  &_small_upper, &_small_lower {
+
+  &_small_upper,
+  &_small_lower {
     width: 100%;
   }
 }
+
 .cancellation {
   &__title {
     margin-bottom: 20px;
   }
+
   &__text {
     margin: 0;
     @include text_type($mont, 14px, 400, 24px, $dark75);

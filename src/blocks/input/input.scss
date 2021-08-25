@@ -2,6 +2,7 @@
 
 .input {
   @include text_type($mont, 14px, 400, 24px, $dark25);
+
   &__field {
     height: 44px;
     border: 1px solid $dark25;
@@ -10,65 +11,83 @@
     padding: 13px 15px;
     outline: none;
     @include text_type($mont, 14px, 400, 24px, $dark75);
+
     &::placeholder {
       color: $dark25;
     }
+
     &_expanded {
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
       border: 1px solid $dark50;
     }
+
     &_active {
       border-color: $dark50;
     }
+
     &_length_l {
       width: 320px;
       box-sizing: border-box;
     }
+
     &_length_m {
       width: 266px;
       box-sizing: border-box;
     }
+
     &_length_s {
       width: 150px;
       box-sizing: border-box;
       display: inline-block;
     }
+
     &_type_simple {
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         border-color: $dark50;
       }
     }
+
     &_type_focus {
       border: 1px solid $dark50;
       color: $dark75;
     }
+
     &_type_dropdown {
       cursor: pointer;
       position: relative;
       vertical-align: top;
       user-select: none;
+
       &:hover {
         border-color: $dark50;
       }
     }
+
     &_type_submit {
       display: inline-block;
     }
+
     &_type_date {
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         border-color: $dark50;
       }
     }
+
     &_type_submit {
       position: relative;
       display: inline-block;
-      &:hover, &:focus {
+
+      &:hover,
+      &:focus {
         border-color: $dark50;
       }
     }
   }
-  &__state{
+
+  &__state {
     width: 35%;
     font-size: 12px;
     line-height: 15px;
@@ -96,14 +115,17 @@
     outline: none;
     border-radius: 4px;
   }
+
   &__title {
     line-height: 15px;
     margin-bottom: 5px;
   }
+
   &__wrapper {
     display: inline-block;
     position: relative;
     cursor: pointer;
+
     &_type_dropdown {
       &::after {
         content: '';
@@ -121,8 +143,10 @@
       }
     }
   }
+
   &__title-text {
     display: inline-block;
+
     &_with-state {
       width: 65%;
     }

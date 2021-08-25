@@ -6,20 +6,26 @@
   border-radius: 4px;
   max-width: 380px;
   box-sizing: border-box;
+
   &__title {
     margin-bottom: 20px;
   }
+
   &__period {
     margin-bottom: 20px;
     position: relative;
   }
+
   &__guests {
     margin-bottom: 30px;
     position: relative;
   }
-  &__from, &__to {
+
+  &__from,
+  &__to {
     display: inline-block;
   }
+  
   &__to {
     float: right;
   }

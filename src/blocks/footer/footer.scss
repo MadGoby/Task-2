@@ -1,43 +1,52 @@
 .footer {
-  @include text_type($mont, 14px, 400, 24px, $dark75); 
+  @include text_type($mont, 14px, 400, 24px, $dark75);
   width: 100%;
   padding: 100px 140px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-sizing: border-box;
   box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);
   text-align: center;
+
   &__nav-wrapper {
     margin: 0 51px 0 40px;
     display: inline-block;
     vertical-align: top;
     text-align: initial;
+
     @media screen and (max-width: 1260px) {
       display: block;
       margin: 40px 0;
     }
   }
+
   &__wrapper {
     display: inline-block;
     text-align: initial;
+
     &_small {
       width: 100%;
       text-align: center;
     }
+
     @media screen and (max-width: 1260px) {
       text-align: center;
     }
   }
+
   &__description {
     display: inline-block;
+
     &_small {
       width: 100%;
-      text-align: center
+      text-align: center;
     }
   }
+  
   &__text {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     margin: 11px 0 0;
     max-width: 260px;
+
     &_small {
       max-width: 100%;
     }
@@ -45,29 +54,36 @@
   &__nav {
     display: inline-block;
     vertical-align: top;
+
     &:first-child {
       margin-right: 57px;
     }
+
     &:last-child {
       margin-left: 92px;
     }
+
     @media screen and (max-width: 625px) {
       display: block;
+
       &:first-child {
         margin-right: 0;
         margin-bottom: 40px;
       }
+
       &:last-child {
         margin-left: 0;
         margin-top: 40px;
       }
     }
   }
+
   &__nav-link {
     text-decoration: none;
     color: $dark50;
     line-height: 18px;
     display: block;
+
     &:first-child {
       text-transform: uppercase;
       font-weight: 700;
@@ -75,22 +91,28 @@
       font-size: 12px;
       line-height: 15px;
     }
+
     &:not(:last-child) {
       margin-bottom: 21px;
     }
   }
+
   &__subscribe {
     display: inline-block;
     vertical-align: top;
     max-width: 260px;
     text-align: initial;
   }
+
   &__subscribe-form {
     margin-top: 20px;
   }
-  &__title, &__text {
+
+  &__title,
+  &__text {
     box-sizing: border-box;
   }
+
   &__title {
     max-width: 260px;
     margin-bottom: 18px;
@@ -101,25 +123,30 @@
     line-height: 15px;
     margin: 0;
   }
+
   &__social-media {
     &_small {
       margin-top: 18px;
     }
   }
+
   &_type_small {
     padding: 120px 0;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 10px 20px 0px rgba(31, 32, 65, 0.05);
     max-width: 768px;
     margin: auto;
     text-align: center;
   }
+
   &__small-copyright {
     margin: 0 0 20px 0;
   }
+
   @media screen and (max-width: 1460px) {
     padding: 100px 30px;
   }
+  
   @media screen and (max-width: 1260px) {
     padding: 100px 30px;
   }

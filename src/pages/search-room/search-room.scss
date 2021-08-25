@@ -20,89 +20,112 @@
 @import '../../blocks/datepicker/datepicker.scss';
 @import '../../blocks/star-rate/star-rate.scss';
 
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
 }
+
 .search-room {
   margin: 0;
-  background: #F4F4F6;
+  background: #f4f4f6;
   min-width: 400px;
   display: flex;
-	flex-direction: column;
+  flex-direction: column;
   min-height: 100%;
+
   &__sidebar {
     max-width: 266px;
     text-align: initial;
     box-sizing: border-box;
     vertical-align: top;
     float: left;
+
     @media screen and (max-width: 680px) {
       float: none;
       display: inline-block;
     }
   }
+
   &__sidebar-wrapper {
     @media screen and (max-width: 680px) {
       text-align: center;
     }
   }
+
   &__main {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 40px 140px;
     min-height: 930px;
     flex: 1 0 auto;
+
     @media screen and (max-width: 900px) {
       padding: 40px 40px;
     }
   }
+
   &__rooms {
     text-align: initial;
     vertical-align: top;
     max-width: 1700px;
     padding-left: 326px;
+
     @media screen and (max-width: 900px) {
       padding-left: 300px;
     }
+
     @media screen and (max-width: 680px) {
       padding-left: 0px;
     }
   }
+
   &__rooms-wrapper {
     @media screen and (max-width: 680px) {
       text-align: center;
     }
   }
+
   &__rooms-title {
     margin-bottom: 20px;
   }
+
   &__rooms-nav {
     text-align: center;
     margin-top: 20px;
   }
+
   &__date-filter {
     margin-bottom: 20px;
   }
-  &__guests, &__slider, &__availability {
+
+  &__guests,
+  &__slider,
+  &__availability {
     margin-bottom: 30px;
   }
+
   &__additional-features {
     margin-bottom: 30px;
   }
+
   &__features-title {
     margin-bottom: 16px;
   }
+
   &__room-amenities {
     margin-bottom: 30px;
   }
+
   &__footer {
     flex: 0 0 auto;
   }
 }
+
 .room-card {
   display: inline-block;
-  margin:0 12px 20px 0;
+  margin: 0 12px 20px 0;
 }
+
 .title {
   &_for-sidebar {
     @media screen and (max-width: 680px) {

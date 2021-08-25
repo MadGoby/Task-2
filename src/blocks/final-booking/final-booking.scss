@@ -1,5 +1,5 @@
 .final-booking {
-  padding: 40px 29px  30px 30px;
+  padding: 40px 29px 30px 30px;
   background-color: white;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -7,76 +7,91 @@
   max-width: 380px;
   box-sizing: border-box;
   display: inline-block;
+
   &__room-info {
     margin-bottom: 23px;
   }
+
   &__period {
     margin-bottom: 20px;
   }
+
   &__guests {
     margin-bottom: 20px;
   }
+
   &__service-list {
     margin-bottom: 20px;
   }
+
   &__submit-button {
     margin-top: 20px;
   }
+
   &__service {
     &:not(:last-of-type) {
       margin-bottom: 10px;
     }
+
     &_total {
       margin-top: 30px;
     }
   }
+
   &__service-wrapper {
     display: inline-block;
     width: 239px;
     position: relative;
+
     &_total {
       display: inline-block;
       max-width: 60px;
     }
   }
+
   &__service-title {
     line-height: 18px;
     display: inline-block;
     max-width: 214px;
-    &_with-sign {
-      &::after {
-        content: 'i';
-        font-size: 12px;
-        font-weight: 700;
-        display: inline-block;
-        width: 20px; height: 20px;
-        box-sizing: border-box;
-        color: $dark25;
-        border: 1px solid $dark25;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 20px;
-        position: absolute;
-        right: 0; top: 0;
-      }
+
+    &_with-sign::after {
+      content: 'i';
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      box-sizing: border-box;
+      color: $dark25;
+      border: 1px solid $dark25;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 20px;
+      position: absolute;
+      right: 0;
+      top: 0;
     }
+
     &_total {
       font-weight: 700;
       font-size: 19px;
       color: $dark100;
     }
   }
+
   &__service-price {
     display: inline-block;
     width: 78px;
     text-align: right;
     vertical-align: top;
+
     &_total {
       display: inline-block;
       width: 257px;
       font-size: 19px;
       font-weight: 700;
       color: $dark100;
+
       &::before {
         content: '';
         display: inline-block;
@@ -87,6 +102,7 @@
       }
     }
   }
+
   &__service-list {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     list-style: none;
@@ -94,9 +110,12 @@
     padding: 0 0 0 1px;
     margin-bottom: 20px;
   }
-  &__from, &__to {
+
+  &__from,
+  &__to {
     display: inline-block;
   }
+  
   &__to {
     float: right;
   }

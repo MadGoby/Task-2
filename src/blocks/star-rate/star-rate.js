@@ -1,46 +1,36 @@
-function starRatting(settings) {
-  const {containerClass} = settings;
+export default function starRatting(settings) {
+  const { containerClass } = settings;
 
   function initializeElements() {
-    let container = document.querySelector(containerClass);
-    let stars = [...container.querySelectorAll(".star-rate__star")];
-    let currentStar;
-    stars.map(function(star) {
-      if(!star.classList.contains(".star-rate__star_active")) currentStar = star;
-    })
+    const container = document.querySelector(containerClass);
+    const stars = [...container.querySelectorAll('.star-rate__star')];
 
-    return {container, stars, currentStar};
+    return stars;
   }
 
-  const {container, stars, currentStar} = initializeElements();
-
-  function bindEventListeners() {
-    stars.map(function(star) {
-      star.addEventListener("click", starClicked)
-    });
-  };
+  const stars = initializeElements();
 
   function starClicked(event) {
-    let eStar = event.target;
-    
+    const eStar = event.target;
+
     function cleanActiveClass() {
-      stars.map(function(star) {
-        star.classList.remove("star-rate__star_active");
-      });
-    };
+      stars.forEach((star) => star.classList.remove('star-rate__star_active'));
+    }
 
     function addActiveClass() {
-      let index = stars.indexOf(eStar);
-      for(let i = 0; i<= index; i++) {
-        stars[i].classList.add("star-rate__star_active");
-      };
-    };
+      const index = stars.indexOf(eStar);
+
+      for (let i = 0; i <= index; i += 1) {
+        stars[i].classList.add('star-rate__star_active');
+      }
+    }
 
     cleanActiveClass();
     addActiveClass();
-  };
+  }
+  function bindEventListeners() {
+    stars.forEach((star) => star.addEventListener('click', starClicked));
+  }
 
   bindEventListeners();
-};
-
-export {starRatting};
+}

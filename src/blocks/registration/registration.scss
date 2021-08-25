@@ -9,39 +9,54 @@
   max-width: 380px;
   box-sizing: border-box;
   text-align: initial;
+
   &__title {
     margin-bottom: 20px;
   }
+
   &__personal-data {
     margin-bottom: 24px;
   }
+
   &__birthday {
     margin-bottom: 20px;
   }
+
   &__login-data {
     margin-bottom: 24px;
   }
+
   &__confirm-button {
     margin-bottom: 30px;
   }
-  &__name, &__surname, &__email, &__pass {
+
+  &__name,
+  &__surname,
+  &__email,
+  &__pass {
     margin-bottom: 10px;
   }
+
   &__text {
     @include text_type($mont, 14px, 400, 18px, #000000);
     margin: 0;
     display: inline-block;
     line-height: 44px;
   }
+
   &__link {
     float: right;
   }
-  &__male, &__female {
+
+  &__male,
+  &__female {
     display: inline-block;
   }
+
   &__login-title {
     margin-bottom: 5px;
   }
+
   &__male {
     margin-right: 20px;
   }

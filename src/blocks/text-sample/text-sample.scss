@@ -4,23 +4,28 @@
   &:not(:last-child) {
     margin-bottom: 50px;
   }
+
   &__description {
     margin: 0 0 0 30px;
     display: inline-block;
     max-width: 369px;
     vertical-align: top;
+
     &_type_h1 {
-      @include text_type($mont, 24px, 700, 29px, $dark100); 
+      @include text_type($mont, 24px, 700, 29px, $dark100);
     }
+
     &_type_h2 {
-      @include text_type($mont, 19px, 700, 23px, $dark100); 
+      @include text_type($mont, 19px, 700, 23px, $dark100);
     }
+
     &_type_h3 {
       @include text_type($mont, 12px, 700, 14px, $dark100);
       text-transform: uppercase;
     }
+
     &_type_normal {
-      @include text_type($mont, 14px, 400, 24px, $dark75); 
+      @include text_type($mont, 14px, 400, 24px, $dark75);
     }
   }
   &__teg {
@@ -30,17 +35,21 @@
     margin: 0px;
     min-width: 40px;
     text-align: right;
+
     &_type_h1 {
-      @include text_type($mont, 24px, 400, 29px, $dark25); 
+      @include text_type($mont, 24px, 400, 29px, $dark25);
     }
+
     &_type_h2 {
-      @include text_type($mont, 19px, 400, 23px, $dark25); 
+      @include text_type($mont, 19px, 400, 23px, $dark25);
     }
+
     &_type_h3 {
-      @include text_type($mont, 12px, 400, 14px, $dark25); 
+      @include text_type($mont, 12px, 400, 14px, $dark25);
     }
+
     &_type_normal {
-      @include text_type($mont, 14px, 400, 24px, $dark25); 
+      @include text_type($mont, 14px, 400, 24px, $dark25);
     }
   }
   &:last-child .text-sample__description {

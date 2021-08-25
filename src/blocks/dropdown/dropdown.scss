@@ -5,8 +5,10 @@
   text-transform: uppercase;
   display: inline-block;
   position: relative;
+
   &__button {
-    min-width: 30px; min-height: 30px;
+    min-width: 30px;
+    min-height: 30px;
     box-sizing: border-box;
     border-radius: 50%;
     background: none;
@@ -16,17 +18,21 @@
     color: $dark50;
     outline: none;
     cursor: pointer;
+
     &_transparent {
       opacity: 0.25;
     }
+
     &:hover {
       border: 1px solid $dark50;
     }
   }
+
   &__calc {
     display: inline-block;
     float: right;
   }
+
   &__control {
     border: 1px solid $dark50;
     border-top: none;
@@ -38,32 +44,40 @@
     position: absolute;
     z-index: 4;
     width: 100%;
+
     &_z_6 {
       z-index: 6;
     }
   }
+
   &__submit-buttons {
     height: 15px;
     margin-top: 19px;
   }
+
   &__clear-button {
     display: inline-block;
   }
+
   &__submit-button {
     display: inline-block;
     float: right;
   }
+
   &__list {
     margin: 0;
     padding: 0;
   }
+
   &__list-element {
     list-style-type: none;
     min-height: 30px;
+
     &:not(:last-child) {
       margin-bottom: 7px;
     }
   }
+
   &__output {
     min-width: 30px;
     min-height: 30px;
@@ -75,6 +89,7 @@
     user-select: none;
     cursor: default;
   }
+  
   &__text {
     display: inline-block;
     vertical-align: top;

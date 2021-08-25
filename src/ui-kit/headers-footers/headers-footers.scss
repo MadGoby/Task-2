@@ -9,13 +9,16 @@
   position: relative;
   box-sizing: border-box;
   margin: auto;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
+
   &__header_authorized {
     margin-bottom: 40px;
   }
+
   &__header_unauthorized {
     margin-bottom: 40px;
   }
+  
   &__footer_big {
     margin-bottom: 40px;
   }

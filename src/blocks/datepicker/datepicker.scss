@@ -2,7 +2,7 @@
 @import '../../overall/mixins.scss';
 
 .datepicker {
-  background: #FFFFFF;
+  background: #ffffff;
   border: 1px solid rgba(31, 32, 65, 0.25);
   box-sizing: border-box;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
@@ -12,12 +12,14 @@
   position: absolute;
   z-index: 5;
   margin-top: 6px;
+
   &__scroll-button {
     background-image: url('../../img/arrow-forward.svg');
     background-repeat: no-repeat;
     background-position: center;
     border: 0px;
-    width: 24px; height: 24px;
+    width: 24px;
+    height: 24px;
     background-color: white;
     padding: 0px;
     cursor: pointer;
@@ -25,25 +27,31 @@
     vertical-align: top;
     outline: none;
   }
+
   &__scroll-button_left {
     transform: rotate(180deg);
   }
+
   &__selected-month {
     display: inline-block;
     min-width: 229px;
     margin: 0px;
     text-align: center;
     @include text_type($mont, 20px, 700, 24px, $dark100);
+
     &_size_m {
       min-width: 201px;
     }
   }
+
   &__calendar {
     margin: 30px 0 20px;
     @include text_type($mont, 12px, 400, 15px, $dark50);
   }
+
   &__calendar-cell {
-    width: 39px; height: 40px;
+    width: 39px;
+    height: 40px;
     box-sizing: border-box;
     padding: 0px;
     display: inline-block;
@@ -51,69 +59,98 @@
     text-align: center;
     user-select: none;
     cursor: pointer;
+
     &_size_m {
       width: 35px;
       height: 35px;
       line-height: 35px;
     }
   }
+
   &__calendar-cell_day {
     color: $purple;
     font-weight: 700;
     cursor: default;
   }
+
   &__calendar-cell_transparent {
     color: $dark25;
   }
-  &__calendar-cell_current-day, &__calendar-cell_from, &__calendar-cell_to {
+
+  &__calendar-cell_current-day,
+  &__calendar-cell_from,
+  &__calendar-cell_to {
     border-radius: 50%;
     color: white;
     font-weight: 700;
   }
+
   &__calendar-cell_current-day {
-    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
   }
-  &__calendar-cell_from, &__calendar-cell_to {
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+
+  &__calendar-cell_from,
+  &__calendar-cell_to {
+    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
   }
-  &__calendar-cell_range, &__calendar-cell_range-from, &__calendar-cell_range-to {
+
+  &__calendar-cell_range,
+  &__calendar-cell_range-from,
+  &__calendar-cell_range-to {
     position: relative;
     z-index: 2;
+
     &::before {
       content: '';
       display: inline-block;
-      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
       opacity: 0.25;
       position: absolute;
       z-index: -1;
     }
   }
+
   &__calendar-cell_range {
     &::before {
-      left: 0; right: 0; top: 0; bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
     }
   }
+
   &__calendar-cell_range-from {
     &::before {
-      left: 20px; right: 0; top: 0; bottom: 0;
+      left: 20px;
+      right: 0;
+      top: 0;
+      bottom: 0;
     }
   }
+
   &__calendar-cell_range-to {
     &::before {
-      left: 0; right: 20px; top: 0; bottom: 0;
+      left: 0;
+      right: 20px;
+      top: 0;
+      bottom: 0;
     }
   }
+
   &__confirmation-buttons {
     line-height: 15px;
   }
+
   &__clear-button {
     display: inline-block;
   }
+
   &__apply-button {
     display: inline-block;
     float: right;
     vertical-align: top;
   }
+
   &_size_m {
     width: 266px;
     padding: 8px 8px 8px 7px;

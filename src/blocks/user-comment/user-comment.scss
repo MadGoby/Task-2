@@ -2,7 +2,8 @@
 
 .user-comment {
   &__avatar {
-    width: 48px; height: 48px;
+    width: 48px;
+    height: 48px;
     box-sizing: border-box;
     box-shadow: 0px 10px 20px 0px $dark10;
     border-radius: 100%;
@@ -10,25 +11,32 @@
     display: inline-block;
     margin-right: 10px;
   }
+
   &__info {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     display: inline-block;
     vertical-align: top;
   }
-  &__name, &__age {
+
+  &__name,
+  &__age {
     margin: 0px;
   }
+
   &__name {
     font-weight: 700;
   }
+
   &__like {
     display: inline-block;
     margin-right: 14px;
     vertical-align: top;
   }
+
   &__main {
     margin: 7px 0 0 4px;
   }
+  
   &__text {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     display: inline-block;

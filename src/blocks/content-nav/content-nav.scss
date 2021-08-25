@@ -2,18 +2,22 @@
 
 .content-nav {
   display: inline-block;
+
   &__button {
     display: inline-block;
   }
+
   &__buttons {
     margin: 0;
     padding: 0;
   }
+
   &__counter {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     margin: 10px 0 0;
     text-align: center;
   }
+
   &__title {
     margin-bottom: 20px;
   }

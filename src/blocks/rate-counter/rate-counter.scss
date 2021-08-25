@@ -1,12 +1,15 @@
 @import '../../overall/mixins.scss';
 
-.rate-counter, .rate-counter__value {
+.rate-counter,
+.rate-counter__value {
   color: $dark50;
 }
+
 .rate-counter__value {
   font-weight: 700;
   font-style: normal;
 }
+
 .rate-counter {
   margin: 0px;
   @include text_type($mont, 14px, 400, 18px, $dark50);

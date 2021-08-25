@@ -13,17 +13,20 @@
 @import '../../blocks/toggle/toggle.scss';
 @import '../../blocks/title/title.scss';
 
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
 }
+
 .registration-page {
   margin: 0;
-  background: #F4F4F6;
+  background: #f4f4f6;
   min-width: 400px;
   display: flex;
-	flex-direction: column;
+  flex-direction: column;
   min-height: 100%;
+
   &__main {
     flex: 1 0 auto;
     background-image: url('../../img/reg-back.jpg');
@@ -33,10 +36,12 @@ html, body {
     min-height: 693px;
     text-align: center;
   }
+
   &__form {
     display: inline-block;
     margin-top: 20px;
   }
+
   &__footer {
     flex: 0 0 auto;
   }
