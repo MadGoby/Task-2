@@ -7,7 +7,7 @@
   box-sizing: border-box;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 4px;
-  padding: 20px;
+  padding: 20px 19px;
   width: 320px;
   position: absolute;
   z-index: 5;
@@ -37,20 +37,21 @@
     min-width: 229px;
     margin: 0px;
     text-align: center;
-    @include text_type($mont, 20px, 700, 24px, $dark100);
+    @include text_type($mont, 19px, 700, 24px, $dark100);
 
     &_size_m {
-      min-width: 201px;
+      min-width: 197px;
     }
   }
-
+  
   &__calendar {
     margin: 30px 0 20px;
+    border-collapse: collapse;
     @include text_type($mont, 12px, 400, 15px, $dark50);
   }
 
   &__calendar-cell {
-    width: 39px;
+    width: 39.88px;
     height: 40px;
     box-sizing: border-box;
     padding: 0px;
@@ -153,6 +154,10 @@
 
   &_size_m {
     width: 266px;
-    padding: 8px 8px 8px 7px;
+    padding: 9px 10px 10px 9px;
+  }
+  
+  &_without-margin {
+    margin-top: 0;
   }
 }

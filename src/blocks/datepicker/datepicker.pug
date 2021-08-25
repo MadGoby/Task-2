@@ -1,15 +1,17 @@
 include ../button/button.pug
 
 mixin datepicker(settings)
+  - let margin = ""
   - let mainJsClass = ""
   - let attr = ""
   - let size = ""
   - if (settings) {
-  -   settings.hasOwnProperty("jsClass") ? mainJsClass = settings.jsClass : mainJsClass = ""
-  -   settings.hasOwnProperty("size") ? size = `datepicker_size_${settings.size}` : size = ""
-  -   settings.hasOwnProperty("attr") ? attr = settings.attr : attr = ""
+  -   if(settings.hasOwnProperty("margin")) margin = `datepicker_${settings.margin}`
+  -   if(settings.hasOwnProperty("jsClass")) mainJsClass = settings.jsClass
+  -   if(settings.hasOwnProperty("size")) size = `datepicker_size_${settings.size}`
+  -   if(settings.hasOwnProperty("attr")) attr = settings.attr
   - }
-  div(class="datepicker" class=size class=mainJsClass)&attributes(attr)
+  div(class="datepicker" class=size, class=margin, class=mainJsClass)&attributes(attr)
     button(class="datepicker__scroll-button datepicker__scroll-button_left js-datepicker__scroll-button_left" type="button")
     if settings.size == "m"
       p(class="datepicker__selected-month datepicker__selected-month_size_m js-datepicker__selected-month")
