@@ -21,7 +21,8 @@
       border-radius: 22px;
     }
 
-    &_type_simple {
+    &_type_simple,
+    &_type_simple-hover {
       height: 100%;
       border: none;
       color: white;
@@ -29,20 +30,33 @@
       border-radius: 22px;
       padding: 14px 19px 15px;
 
-      &:active {
+      &:hover {
         opacity: 0.5;
       }
     }
 
-    &_type_text {
+    &_type_simple-hover {
+      opacity: 0.5;
+    }
+
+    &_type_text,
+    &_type_text-hover {
       background: none;
       border: none;
       padding: 0;
       color: $purple;
 
-      &:active {
+      &:hover {
         color: $dark50;
       }
+
+      &_hover {
+        color: $dark50;
+      }
+    }
+
+    &_type_text-hover {
+      color: $dark50;
     }
 
     &_type_big {
@@ -76,6 +90,10 @@
       border-radius: 50%;
       padding: 0;
       font-weight: 400;
+
+      &:hover {
+        opacity: 0.5;
+      }
     }
 
     &_pagination_previous {
@@ -132,8 +150,12 @@
     display: inline-block;
     min-width: 99px;
 
-    &:active {
-      opacity: 0.5;
+    &:hover {
+      background: linear-gradient(180deg, #deceff 0%, #c5d2fc 100%);
+    }
+
+    &_hover {
+      background: linear-gradient(180deg, #deceff 0%, #c5d2fc 100%);
     }
   }
 
@@ -141,7 +163,7 @@
     display: block;
     width: 100%;
 
-    &:active {
+    &:hover {
       opacity: 0.5;
     }
   }

@@ -11,11 +11,26 @@ mixin nav(settings)
   nav.nav
     each link in links
       - let href = "./for-change"
-      - let type = ""
       - let text = ""
+      - let jsClass = "js-for-change"
+      - let expandedLinks = [
+      -   {"text": "For change"},
+      -   {"text": "For change"},
+      -   {"text": "For change"},
+      - ]
       - if(link) {
       -   if(link.hasOwnProperty("href")) href = link.href
-      -   if(link.hasOwnProperty("type")) type = `nav__link_${link.type}`
       -   if(link.hasOwnProperty("text")) text = link.text
+      -   if(link.hasOwnProperty("expandedLinks")) expandedLinks = link.expandedLinks
       - }
-      a(class="nav__link",  href=href, class=type)= text
+      .nav__link-wrapp
+        if link.type && link.type === "expanded"
+          span(class="nav__link-title", class=jsClass)= text
+          .nav__expanded-container
+            each expLink in expandedLinks
+              - let href = "./for-change"
+              - let text = expLink.text
+              - if(expLink.hasOwnProperty("href")) href = expLink.href
+              a(class="nav__link nav__link_expanded",  href=href)= text
+        else
+          a(class="nav__link",  href=href, class=type)= text

@@ -20,11 +20,13 @@
     font-weight: 400;
     color: $dark50;
     text-align: right;
+    font-size: 13px;
+    letter-spacing: -0.5px;
   }
 
   &__title {
     line-height: 15px;
-    margin: 0 0 23px;
+    margin: 0 0 21px;
     @include text_type($mont, 14px, 400, 20px, $dark75);
   }
 

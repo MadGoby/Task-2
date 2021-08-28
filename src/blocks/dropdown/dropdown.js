@@ -121,6 +121,53 @@ export default function dropdownFunctionality(settings) {
         return arr.every((val) => val === 0);
       }
 
+      function wordEndCheck(val) {
+        const value = val;
+
+        function checkRemainder(num) {
+          const remainder = num % 10;
+          let result;
+
+          if (remainder === 0) {
+            result = true;
+          } else {
+            result = false;
+          }
+
+          return result;
+        }
+
+        function comparesFirstDigits() {
+          return checkRemainder(value - 2) || checkRemainder(value - 3) || checkRemainder(value - 4);
+        }
+
+        let result;
+
+        if (value > 4 && value < 21) {
+          result = 3;
+        } else if (value === 1 || checkRemainder(value - 1)) {
+          result = 1;
+        } else if (comparesFirstDigits()) {
+          result = 2;
+        } else {
+          result = 3;
+        }
+
+        return result;
+      }
+
+      function oneOfValuesZero() {
+        return Number(outputVal[0]) === 0 || Number(outputVal[1]) === 0;
+      }
+
+      function oneOfValuesNotZero() {
+        return Number(outputVal[0]) !== 0 || Number(outputVal[1]) !== 0;
+      }
+
+      function lastValueNotZero(i) {
+        return i === 2 && Number(outputVal[i]) !== 0;
+      }
+
       if (setToZero(outputVal)) {
         inputForRefreshing.setAttribute('value', defaultTemplate);
 
@@ -144,16 +191,32 @@ export default function dropdownFunctionality(settings) {
         });
 
         let result = '';
+
         if (inputResultTemplate.type === 'oneByOne') {
           for (let i = 0; i < outputVal.length; i += 1) {
-            if (
-              inputResultTemplate.values.length < outputVal.length &&
-              i === Number(inputResultTemplate.values.length - 1)
-            ) {
-              result += `${outputVal[i]} ${inputResultTemplate.values[i]}...`;
-              break;
-            } else {
-              result += `${outputVal[i]} ${inputResultTemplate.values[i]}, `;
+            if (i !== 2 && outputVal[i] !== 0) {
+              result += `${outputVal[i]} ${inputResultTemplate.values[i][0]}${
+                inputResultTemplate.values[i][wordEndCheck(outputVal[i])]
+              }`;
+            }
+
+            if (lastValueNotZero(i) && oneOfValuesZero()) {
+              result += `${outputVal[i]} ${inputResultTemplate.values[i][0]}${
+                inputResultTemplate.values[i][wordEndCheck(outputVal[i])]
+              }`;
+            }
+
+            if (i === 0 && outputVal[0] !== 0) {
+              if (outputVal[1] !== 0 || outputVal[2] !== 0) {
+                result += ', ';
+              } else {
+                result += '...';
+              }
+            } else if (i === 1 && outputVal[1] !== 0) {
+              if (outputVal[0] === 0 && outputVal[2] !== 0) result += ', ';
+              if (outputVal[2] === 0 || outputVal[0] !== 0) result += '...';
+            } else if (i === 2 && outputVal[2] !== 0) {
+              if (outputVal[0] === 0 || outputVal[1] === 0) result += '...';
             }
           }
         } else if (inputResultTemplate.type === 'sum') {
@@ -161,17 +224,21 @@ export default function dropdownFunctionality(settings) {
             result = Number(result) + value;
           });
 
-          result = `${String(result)} ${String(inputResultTemplate.values)}`;
+          result = `${result} ${inputResultTemplate.values[0]}${inputResultTemplate.values[wordEndCheck(result)]}`;
         } else if (inputResultTemplate.type === 'twoByOne') {
           for (let i = 0; i < outputVal.length; i += 1) {
-            if (
-              inputResultTemplate.values.length < outputVal.length &&
-              i === Number(inputResultTemplate.values.length - 1)
-            ) {
-              result += `${outputVal[i + 1]} ${inputResultTemplate.values[i]}`;
-              break;
-            } else {
-              result += `${outputVal[i] + outputVal[i + 1]} ${inputResultTemplate.values[i]}, `;
+            if (i === 0 && oneOfValuesNotZero()) {
+              result += `${outputVal[i] + outputVal[1]} ${inputResultTemplate.values[0][0]}${
+                inputResultTemplate.values[0][wordEndCheck(outputVal[i] + outputVal[i + 1])]
+              }`;
+
+              if (outputVal[2] !== 0) {
+                result += ', ';
+              }
+            } else if (i === 2 && outputVal[i] !== 0) {
+              result += `${outputVal[i]} ${inputResultTemplate.values[1][0]}${
+                inputResultTemplate.values[1][wordEndCheck(outputVal[i])]
+              }`;
             }
           }
         }

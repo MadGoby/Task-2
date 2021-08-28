@@ -14,10 +14,18 @@ include ../../blocks/copyright/copyright.pug
         nav: { 
           links: [
             {"text": "О нас", "type": "bold"},
-            {"text": "Услуги", "type": "expanded"},
+            {"text": "Услуги", "type": "expanded", "expandedLinks": [
+              {"text": "Пункт 1"},
+              {"text": "Пункт 2"},
+              {"text": "Пункт 3"},
+            ]},
             {"text": "Вакансии"},
             {"text": "Новости"},
-            {"text": "Соглашения", "type": "expanded"}
+            {"text": "Соглашения", "type": "expanded", "expandedLinks": [
+              {"text": "Пункт 1"},
+              {"text": "Пункт 2"},
+              {"text": "Пункт 3"},
+            ]},
           ]
         }
       })
@@ -26,10 +34,18 @@ include ../../blocks/copyright/copyright.pug
         nav: { 
           links: [
             {"text": "О нас", "type": "bold"},
-            {"text": "Услуги", "type": "expanded"},
+            {"text": "Услуги", "type": "expanded", "expandedLinks": [
+              {"text": "Пункт 1"},
+              {"text": "Пункт 2"},
+              {"text": "Пункт 3"},
+            ]},
             {"text": "Вакансии"},
             {"text": "Новости"},
-            {"text": "Соглашения", "type": "expanded"}
+            {"text": "Соглашения", "type": "expanded", "expandedLinks": [
+              {"text": "Пункт 1"},
+              {"text": "Пункт 2"},
+              {"text": "Пункт 3"},
+            ]},
           ]
         },
         authorized: {text: "Юлий Цезарь"}
@@ -41,21 +57,21 @@ include ../../blocks/copyright/copyright.pug
         },
         lists: [
           [
-            {"text": "навигация"}, 
+            {"title": "навигация"}, 
             {"text": "О нас"},
             {"text": "Новости"},
             {"text": "Служба поддержки"},
             {"text": "Услуги"}
           ],
           [
-            {"text": "о нас"},
+            {"title": "о нас"},
             {"text": "О сервисе"},
             {"text": "Наша команда"},
             {"text": "Вакансии"},
             {"text": "Инвесторы"}
           ],
           [
-            {"text": "Служба поддержки"}, 
+            {"title": "Служба поддержки"}, 
             {"text": "Соглашения"},
             {"text": "Сообщества"},
             {"text": "Связь с нами"}

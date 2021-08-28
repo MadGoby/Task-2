@@ -8,38 +8,45 @@ require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
 require('inputmask');
 
+const rooms = [
+  ['спал', 'ьня', 'ьни', 'ен'],
+  ['кроват', 'ь', 'и', 'ей'],
+  ['ванн', 'ая', 'ые', 'ых'],
+];
+const guests = ['гост', 'ь', 'я', 'ей'];
+
 dropdownFunctionality({
   inputClass: '.js-input__field',
   dropdownClass: '.js-dropdown__control',
-  inputResultTemplate: { type: 'oneByOne', values: ['спальни', 'кровати'] },
+  inputResultTemplate: { type: 'oneByOne', values: rooms },
   defaultTemplate: 'Конфигурация номера',
 });
 
 dropdownFunctionality({
   inputClass: '.js-input__field-2',
   dropdownClass: '.js-dropdown__control-2',
-  inputResultTemplate: { type: 'sum', values: 'гостя' },
+  inputResultTemplate: { type: 'sum', values: guests },
   defaultTemplate: 'Сколько гостей',
 });
 
 dropdownFunctionality({
   inputClass: '.js-input__field-3',
   dropdownClass: '.js-dropdown__control-3',
-  inputResultTemplate: { type: 'sum', values: 'гостя' },
+  inputResultTemplate: { type: 'sum', values: guests },
   defaultTemplate: 'Сколько гостей',
 });
 
 dropdownFunctionality({
   inputClass: '.js-input__field-4',
   dropdownClass: '.js-dropdown__control-4',
-  inputResultTemplate: { type: 'sum', values: 'гостя' },
+  inputResultTemplate: { type: 'sum', values: guests },
   defaultTemplate: 'Сколько гостей',
 });
 
 dropdownFunctionality({
   inputClass: '.js-input__field-5',
   dropdownClass: '.js-dropdown__control-5',
-  inputResultTemplate: { type: 'oneByOne', values: ['спальни', 'кровати'] },
+  inputResultTemplate: { type: 'oneByOne', values: rooms },
   defaultTemplate: 'Конфигурация номера',
 });
 
@@ -81,16 +88,30 @@ datepickerFunctionality({
 const $sliderBody = $('.js-slider__body');
 
 $(document).ready(() => {
+  function addPadding(outputStr) {
+    let value = outputStr;
+
+    if (value.length > 3) {
+      value = `${value.slice(0, value.length - 3)} ${value.slice(value.length - 3)}`;
+    }
+
+    return value;
+  }
+
   $sliderBody.slider({
     range: true,
     min: 0,
     max: 15000,
     values: [5000, 10000],
     slide(event, ui) {
-      $('.js-slider__output').val(`${ui.values[0]}₽ - ${ui.values[1]}₽`);
+      $('.js-slider__output').val(`${addPadding(String(ui.values[0]))}₽ - ${addPadding(String(ui.values[1]))}₽`);
     },
   });
-  $('.js-slider__output').val(`${$sliderBody.slider('values', 0)}₽ - ${$('.js-slider__body').slider('values', 1)}₽`);
+
+  const from = String($sliderBody.slider('values', 0));
+  const to = String($sliderBody.slider('values', 1));
+
+  $('.js-slider__output').val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);
 });
 
 contentNav({

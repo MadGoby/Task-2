@@ -77,11 +77,17 @@ mixin footer(settings)
               each link in list
                 - let text = ""
                 - let href = "./for-change"
+                - let title = false
                 - if (link) {
                 -   if(link.hasOwnProperty("text")) text = link.text
                 -   if(link.hasOwnProperty("href")) href = link.href
+                -   if(link.hasOwnProperty("title")) title = link.title
                 - }
-                a(class="footer__nav-link" href=href)= text
+                if title 
+                  span(class="footer__link-title")= title
+                else 
+                  if title 
+                  a(class="footer__nav-link" href=href)= text
         .footer__subscribe
           p.footer__title=subscribe.title
           p.footer__text=subscribe.text 

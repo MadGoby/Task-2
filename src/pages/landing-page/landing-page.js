@@ -4,10 +4,12 @@ import datepickerFunctionality from '../../blocks/datepicker/datepicker';
 
 require('../../img/landing-main.jpg');
 
+const guests = ['гост', 'ь', 'я', 'ей'];
+
 dropdownFunctionality({
   inputClass: '.js-input__field',
   dropdownClass: '.js-dropdown__control',
-  inputResultTemplate: { type: 'sum', values: 'гостя' },
+  inputResultTemplate: { type: 'sum', values: guests },
   defaultTemplate: 'Сколько гостей',
 });
 

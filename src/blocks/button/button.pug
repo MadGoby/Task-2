@@ -5,6 +5,7 @@ mixin button(settings)
   - let jsClass = ""
   - let pagClass = ""
   - let height = ""
+  - let hover = ""
   - if (settings) {
   -   if(settings.hasOwnProperty("attr")) attr = settings.attr
   -   if(settings.hasOwnProperty("text")) text = settings.text
@@ -12,6 +13,9 @@ mixin button(settings)
   -   if(settings.hasOwnProperty("jsClass")) jsClass = settings.jsClass
   -   if(settings.hasOwnProperty("pagClass")) pagClass = settings.pagClass
   -   if(settings.hasOwnProperty("type")) type = `button__control_type_${settings.type}`
+  -   if(settings.hasOwnProperty("hover") && settings.hover === true) {
+  -     settings.type === "border" ? hover="button__border-mimic_hover"  : type=`${type}-hover`
+  -   }
   - }
   if settings && settings.type == "pagination"
     div(class="button button_type_pagination")
@@ -26,7 +30,7 @@ mixin button(settings)
   else
     div(class="button")
       if settings.type == "border"
-        div.button__border-mimic
+        div(class="button__border-mimic", class=hover)
           button(class="button__control"  class=jsClass, class=type, class=pagClass, class=height, value=text)&attributes(attr)= text
       else
         button(class="button__control" class=jsClass, class=type, class=pagClass, class= height, value=text)&attributes(attr)= text

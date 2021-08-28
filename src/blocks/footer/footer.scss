@@ -78,22 +78,27 @@
     }
   }
 
+  &__link-title {
+    width: 100%;
+    @include text_type($mont, 12px, 700, 15px, $dark100);
+    text-transform: uppercase;
+    margin-bottom: 21px;
+    display: inline-block;
+    cursor: default;
+  }
+
   &__nav-link {
     text-decoration: none;
     color: $dark50;
     line-height: 18px;
     display: block;
 
-    &:first-child {
-      text-transform: uppercase;
-      font-weight: 700;
-      color: $dark100;
-      font-size: 12px;
-      line-height: 15px;
-    }
-
     &:not(:last-child) {
       margin-bottom: 21px;
+    }
+
+    &:hover {
+      color: $dark75;
     }
   }
 

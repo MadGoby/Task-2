@@ -3,6 +3,8 @@ import dropdownFunctionality from '../../blocks/dropdown/dropdown';
 import swiperSlider from '../../blocks/room-card/room-card';
 import starRatting from '../../blocks/star-rate/star-rate';
 
+const guests = ['гост', 'ь', 'я', 'ей'];
+
 datepickerFunctionality({
   targetClass: '.js-datepicker-4',
   inputFromClass: '.js-input__field_from-4',
@@ -18,14 +20,14 @@ datepickerFunctionality({
 dropdownFunctionality({
   inputClass: '.js-input__field-6',
   dropdownClass: '.js-dropdown__control-6',
-  inputResultTemplate: { type: 'sum', values: 'гостя' },
+  inputResultTemplate: { type: 'sum', values: guests },
   defaultTemplate: 'Сколько гостей',
 });
 
 dropdownFunctionality({
   inputClass: '.js-input__field-7',
   dropdownClass: '.js-dropdown__control-7',
-  inputResultTemplate: { type: 'sum', values: 'гостя' },
+  inputResultTemplate: { type: 'sum', values: guests },
   defaultTemplate: 'Сколько гостей',
 });
 

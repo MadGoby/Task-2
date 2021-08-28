@@ -139,6 +139,14 @@
       }
     }
 
+    &_type_radio ~ .toggle__text-wrapper .toggle__text {
+      color: $dark50
+    }
+    
+    &_type_radio:checked ~ .toggle__text-wrapper .toggle__text {
+      color: $dark75
+    }
+
     &_type_toggle:checked + .toggle__mimic_type_toggle {
       border-color: $purple;
 

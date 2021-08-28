@@ -5,27 +5,20 @@
   line-height: 40px;
 
   &__link {
-    color: inherit;
+    color: $dark50;
     text-decoration: none;
 
-    &:not(:last-child) {
-      margin-right: 20px;
+    &:hover {
+      color: $dark75;
     }
 
     &_bold {
       font-weight: 700;
       color: $dark75;
     }
-
+    
     &_expanded {
-      &::after {
-        content: url('../../img/dropdown-nav.svg');
-        display: inline-block;
-        width: 24px;
-        height: 17px;
-        line-height: 100%;
-        text-align: center;
-      }
+      display: block;
     }
 
     @media screen and (max-width: 650px) {
@@ -35,5 +28,44 @@
 
       margin: 0 0 0 20px;
     }
+  }
+
+  &__link-wrapp {
+    display: inline-block;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__link-title {
+    cursor: pointer;
+
+    &::after {
+      content: url('../../img/dropdown-nav.svg');
+      display: inline-block;
+      width: 24px;
+      height: 17px;
+      line-height: 100%;
+      text-align: center;
+    }
+
+    &:hover {
+      color: $dark75;
+    }
+  }
+
+  &__expanded-container {
+    display: none;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 40px;
+    z-index: 3;
+    background-color: white;
+    padding: 0 4px 4px;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    text-align: center;
   }
 }

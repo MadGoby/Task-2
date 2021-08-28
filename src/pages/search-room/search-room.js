@@ -20,17 +20,27 @@ require('../../img/444.jpg');
 require('../../img/352.jpg');
 require('../../img/room-slider.jpg');
 
+const rooms = [
+  ['спал', 'ьня', 'ьни', 'ен'],
+  ['кроват', 'ь', 'и', 'ей'],
+  ['ванн', 'ая', 'ые', 'ых'],
+];
+const guestsWithBaby = [
+  ['гост', 'ь', 'я', 'ей'],
+  ['младен', 'ец', 'ца', 'ев'],
+];
+
 dropdownFunctionality({
   inputClass: '.js-input__field',
   dropdownClass: '.js-dropdown__control',
-  inputResultTemplate: { type: 'oneByOne', values: ['спальни', 'кровати'] },
+  inputResultTemplate: { type: 'oneByOne', values: rooms },
   defaultTemplate: 'Конфигурация номера',
 });
 
 dropdownFunctionality({
   inputClass: '.js-input__field-2',
   dropdownClass: '.js-dropdown__control-2',
-  inputResultTemplate: { type: 'twoByOne', values: ['гостя', 'младенец'] },
+  inputResultTemplate: { type: 'twoByOne', values: guestsWithBaby },
   defaultTemplate: 'Сколько гостей',
 });
 
@@ -42,16 +52,30 @@ listFunctionality({
 const $sliderBody = $('.js-slider__body');
 
 $(document).ready(() => {
+  function addPadding(outputStr) {
+    let value = outputStr;
+
+    if (value.length > 3) {
+      value = `${value.slice(0, value.length - 3)} ${value.slice(value.length - 3)}`;
+    }
+
+    return value;
+  }
+
   $sliderBody.slider({
     range: true,
     min: 0,
     max: 15000,
     values: [5000, 10000],
     slide(event, ui) {
-      $('.js-slider__output').val(`${ui.values[0]}₽ - ${ui.values[1]}₽`);
+      $('.js-slider__output').val(`${addPadding(String(ui.values[0]))}₽ - ${addPadding(String(ui.values[1]))}₽`);
     },
   });
-  $('.js-slider__output').val(`${$sliderBody.slider('values', 0)}₽ - ${$sliderBody.slider('values', 1)}₽`);
+
+  const from = String($sliderBody.slider('values', 0));
+  const to = String($sliderBody.slider('values', 1));
+
+  $('.js-slider__output').val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);
 });
 
 function sidebarDropdown(settings) {

@@ -9,6 +9,8 @@ require('../../img/diagram.svg');
 require('../../img/user2.jpg');
 require('../../img/flame.svg');
 
+const guests = ['гост', 'ь', 'я', 'ей'];
+
 datepickerFunctionality({
   targetClass: '.js-datepicker',
   inputFromClass: '.js-input__field_from',
@@ -25,6 +27,6 @@ datepickerFunctionality({
 dropdownFunctionality({
   inputClass: '.js-input__field',
   dropdownClass: '.js-dropdown__control',
-  inputResultTemplate: { type: 'sum', values: 'гостя' },
+  inputResultTemplate: { type: 'sum', values: guests },
   defaultTemplate: 'Сколько гостей',
 });
