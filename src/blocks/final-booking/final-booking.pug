@@ -35,13 +35,13 @@ mixin final-booking(settings)
   -   {
   -     title: "For change 1",
   -     price: "111",
-  -     modifier: "",
+  -     sign: false,
   -     type: ""
   -   },
   -   {
   -     title: "For change 2",
   -     price: "222",
-  -     modifier: "final-booking__service-title_with-sign",
+  -     sign: true,
   -     type: ""
   -   },
   -   {
@@ -149,16 +149,17 @@ mixin final-booking(settings)
       })
     ul.final-booking__service-list
       each list in serviceList
-        - if (list.modifier) list.modifier = `final-booking__service-title_${list.modifier}`
         if list.type == "total"
           li(class="final-booking__service final-booking__service_total")
             div(class="final-booking__service-wrapper final-booking__service-wrapper_total")
-              span(class="final-booking__service-title final-booking__service-title_total" class=list.modifier)=list.title
+              span(class="final-booking__service-title final-booking__service-title_total")=list.title
             span(class="final-booking__service-price final-booking__service-price_total")=list.price
         else 
           li(class="final-booking__service")
             .final-booking__service-wrapper
-              span(class="final-booking__service-title" class=list.modifier)=list.title
+              span(class="final-booking__service-title")=list.title
+              if list.sign === true
+                span.final-booking__service-sign="i"
             span.final-booking__service-price=list.price
     .final-booking__confirm-button
       +button({

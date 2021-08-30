@@ -1,5 +1,6 @@
 import datepickerFunctionality from '../../blocks/datepicker/datepicker';
 import dropdownFunctionality from '../../blocks/dropdown/dropdown';
+import headerNav from '../../blocks/header/header';
 import './room-details.scss';
 
 require('../../img/room-photo-big.jpg');
@@ -29,4 +30,9 @@ dropdownFunctionality({
   dropdownClass: '.js-dropdown__control',
   inputResultTemplate: { type: 'sum', values: guests },
   defaultTemplate: 'Сколько гостей',
+});
+
+headerNav({
+  buttonClass: '.js-header-nav-button',
+  navClass: '.js-header-nav',
 });

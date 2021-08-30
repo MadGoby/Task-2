@@ -28,11 +28,21 @@
   &__link {
     float: right;
   }
-  
+
   &__text {
     @include text_type($mont, 14px, 400, 18px, #000000);
     margin: 0;
     display: inline-block;
     line-height: 44px;
+
+    @media screen and (max-width: 380px) {
+      max-width: 140px;
+      line-height: 22px;
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    max-width: 320px;
+    padding: 40px 26px 30px;
   }
 }

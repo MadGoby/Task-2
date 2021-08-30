@@ -1,6 +1,7 @@
 import './landing-page.scss';
 import dropdownFunctionality from '../../blocks/dropdown/dropdown';
 import datepickerFunctionality from '../../blocks/datepicker/datepicker';
+import headerNav from '../../blocks/header/header';
 
 require('../../img/landing-main.jpg');
 
@@ -17,4 +18,9 @@ datepickerFunctionality({
   targetClass: '.js-datepicker',
   inputFromClass: '.js-input__field_from',
   inputToClass: '.js-input__field_to',
+});
+
+headerNav({
+  buttonClass: '.js-header-nav-button',
+  navClass: '.js-header-nav',
 });

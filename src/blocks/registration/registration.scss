@@ -42,6 +42,11 @@
     margin: 0;
     display: inline-block;
     line-height: 44px;
+
+    @media screen and (max-width: 380px) {
+      max-width: 140px;
+      line-height: 22px;
+    }
   }
 
   &__link {
@@ -59,5 +64,11 @@
 
   &__male {
     margin-right: 20px;
+  }
+
+  @media screen and (max-width: 380px) {
+    max-width: 320px;
+    margin: 20px 0;
+    padding: 40px 26px 30px;
   }
 }

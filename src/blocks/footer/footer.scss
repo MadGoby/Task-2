@@ -17,6 +17,10 @@
       display: block;
       margin: 40px 0;
     }
+
+    @media screen and (max-width: 768px) { 
+      display: none;
+    }
   }
 
   &__wrapper {
@@ -40,6 +44,10 @@
       width: 100%;
       text-align: center;
     }
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 11px;
+    }
   }
   
   &__text {
@@ -50,7 +58,12 @@
     &_small {
       max-width: 100%;
     }
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
+
   &__nav {
     display: inline-block;
     vertical-align: top;
@@ -107,6 +120,10 @@
     vertical-align: top;
     max-width: 260px;
     text-align: initial;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__subscribe-form {
@@ -154,5 +171,9 @@
   
   @media screen and (max-width: 1260px) {
     padding: 100px 30px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 120px 0 0;
   }
 }

@@ -29,6 +29,10 @@
     &_length_l {
       width: 320px;
       box-sizing: border-box;
+
+      @media screen and (max-width: 380px) {
+        width: 266px;
+      }
     }
 
     &_length_m {
@@ -40,6 +44,10 @@
       width: 150px;
       box-sizing: border-box;
       display: inline-block;
+
+      @media screen and (max-width: 380px) {
+        width: 266px;
+      }
     }
 
     &_type_simple {
@@ -119,6 +127,7 @@
   &__title {
     line-height: 15px;
     margin-bottom: 5px;
+    text-align: initial;
   }
 
   &__wrapper {

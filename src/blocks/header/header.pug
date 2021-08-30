@@ -4,11 +4,15 @@ mixin header(settings)
   -     {"text": "For change"},
   -     {"text": "For change"},
   -     {"text": "For change"}
-  -   ] 
+  -   ],
+  -   buttonJsClass: "js-for-change",
+  -   navJsClass: "js-for-change"
   - }
   - let authorized = { text: "" }
   - if(settings) {
   -   if(settings.nav && settings.nav.hasOwnProperty("links")) nav.links = settings.nav.links
+  -   if(settings.nav && settings.nav.hasOwnProperty("buttonJsClass")) nav.buttonJsClass = settings.nav.buttonJsClass
+  -   if(settings.nav && settings.nav.hasOwnProperty("navJsClass")) nav.navJsClass = settings.nav.navJsClass
   -   if(settings.authorized && settings.authorized.hasOwnProperty("text")) authorized.text = settings.authorized.text
   - }
   .header
@@ -17,9 +21,12 @@ mixin header(settings)
         src: "img/logo-color.svg"
       })
     .header__nav
-      +nav({
-        links: nav.links
-      })
+      button(class="header__nav-button" class=nav.buttonJsClass)
+        span.header__hamburger
+      div(class="header__nav-wrapp" class=nav.navJsClass)
+        +nav({
+          links: nav.links
+        })
     if authorized.text
       p.header__authorized= authorized.text
     else

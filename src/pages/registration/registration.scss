@@ -17,12 +17,13 @@ html,
 body {
   margin: 0;
   height: 100%;
+  min-width: 320px;
 }
 
 .registration-page {
   margin: 0;
   background: #f4f4f6;
-  min-width: 400px;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -35,11 +36,16 @@ body {
     background-position: center;
     min-height: 693px;
     text-align: center;
+    box-sizing: border-box;
   }
 
   &__form {
     display: inline-block;
     margin-top: 20px;
+
+    @media screen and (max-width: 380px) {
+      margin: 20px 0;
+    }
   }
 
   &__footer {

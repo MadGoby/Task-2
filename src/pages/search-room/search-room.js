@@ -5,6 +5,7 @@ import swiperSlider from '../../blocks/room-card/room-card';
 import contentNav from '../../blocks/content-nav/content-nav';
 import datepickerFunctionality from '../../blocks/datepicker/datepicker';
 import starRatting from '../../blocks/star-rate/star-rate';
+import headerNav from '../../blocks/header/header';
 
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
@@ -29,6 +30,11 @@ const guestsWithBaby = [
   ['гост', 'ь', 'я', 'ей'],
   ['младен', 'ец', 'ца', 'ев'],
 ];
+
+headerNav({
+  buttonClass: '.js-header-nav-button',
+  navClass: '.js-header-nav',
+});
 
 dropdownFunctionality({
   inputClass: '.js-input__field',
