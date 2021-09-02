@@ -1,77 +1,60 @@
 mixin list(settings)
-  - title = {
-  -   jsCLass: "js-for-change",
-  -   text: "For Change",
-  -   type: "",
-  -   bullet: "",
-  -   margin: "",
-  -   teg:  "p"
-  - }
-  - let container = {
-  -   jsClass: "js-for-change",
-  -   attr: {}
-  - }
-  - let listType = ""
-  - let list = [
-  -   {
-  -     type: "checkbox",
-  -     attr: {
-  -       "type": "checkbox",
-  -       "hidden": "hidden",
-  -       "checked": "checked"
-  -     },
-  -     text: "For change",
-  -     richText: false,
-  -     listType: ""
+  - let {
+  -   title: {
+  -     jsClass: titleJs = "js-for-change",
+  -     text: titleText = "For Change",
+  -     type: titleType = false,
+  -     bullet: titleBullet = false,
+  -     margin: titleMargin = false,
+  -     teg: titleTeg = "p"
   -   },
-  -   {
-  -     type: "checkbox",
-  -     attr: {
+  -   container: {
+  -     jsClass: containerJs = "js-for-change",
+  -     attr: containerAttr = false
+  -   },
+  -   listType = false,
+  -   listCheckbox = [
+  -     {
+  -       type: "checkbox",
+  -       attr: {
+  -         "type": "checkbox",
+  -         "hidden": "hidden",
+  -         "checked": "checked"
+  -       },
+  -       text: "For change",
+  -       richText: false,
+  -       listType: ""
+  -     },
+  -     {
+  -       type: "checkbox",
+  -       attr: {
   -       "type": "checkbox",
   -       "hidden": "hidden"
-  -     },
-  -     text: "For change 2",
-  -     richText: false,
-  -     listType: ""
-  -   }
-  - ]
-  - let textList = false
-  - if(settings) {
-  -   if(settings.hasOwnProperty("title")) {
-  -     if(settings.title.hasOwnProperty("jsClass")) title.jsClass = settings.title.jsClass
-  -     if(settings.title.hasOwnProperty("text")) title.text = settings.title.text
-  -     if(settings.title.hasOwnProperty("type")) title.type = settings.title.type
-  -     if(settings.title.hasOwnProperty("bullet") && settings.title.bullet !== false) title.bullet = "list__title_bullet"
-  -     if(settings.title.hasOwnProperty("margin") && settings.title.margin == true) title.margin = "list__title_with-margin"
-  -     if(settings.title.hasOwnProperty("teg")) title.teg = settings.title.teg
-  -   }
-  -   if(settings.hasOwnProperty("container")) {
-  -     if(settings.container.hasOwnProperty("jsClass")) container.jsClass=settings.container.jsClass
-  -     if(settings.container.hasOwnProperty("attr")) container.attr=settings.container.attr
-  -   }
-  -   if(settings.hasOwnProperty("list")) {
-  -     list = settings.list 
-  -   }
-  -   if(settings.hasOwnProperty("textList")) {
-  -     textList = settings.textList 
-  -   }
-  -   if(settings.hasOwnProperty("listType")) listType = settings.listType
-  - }
+  -       },
+  -       text: "For change 2",
+  -       richText: false,
+  -       listType: ""
+  -     }
+  -   ],
+  -   textList = false
+  - } = settings
+  - if(titleBullet) titleBullet = "list__title_bullet"
+  - if(titleMargin) titleMargin = "list__title_with-margin"
   .list
-    div(class="list__title", class=title.margin, class=title.bullet)
+    div(class="list__title", class=titleMargin, class=titleBullet)
       +title({
-        text: title.text,
-        type: title.type,
-        jsClass: title.jsClass,
-        teg: title.teg
+        text: titleText,
+        type: titleType,
+        jsClass: titleJs,
+        teg: titleTeg
       })
-    ul(class="list__container" class=container.jsClass)&attributes(container.attr)
+    ul(class="list__container" class=containerJs)&attributes(containerAttr)
       if textList 
         each val in textList
-          li(class="list__item list__item_bullet" class=vallistType)
+          li(class="list__item list__item_bullet")
             p(class="list__text")=val
       else
-        each val in list
+        each val in listCheckbox
           li(class="list__item" class=val.listType)
             +toggle({
               controller: {

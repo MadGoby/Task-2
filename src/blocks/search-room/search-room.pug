@@ -1,99 +1,76 @@
 mixin search-room(settings)
-  - let action = "./for-change"
-  - let title = {
-  -   text: "For change"
-  - }
-  - let period = {
-  -   from: {
-  -     title: "For change",
-  -     value: "ДД.ММ.ГГГГ",
-  -     jsClass: "js-for-change"
+  - let {
+  -   action = "./for-change",
+  -   title: {
+  -     text: titleText = "For change"
   -   },
-  -   to: {
-  -     title: "For change",
-  -     value: "ДД.ММ.ГГГГ",
-  -     jsClass: "js-for-change"
+  -   period: {
+  -     from: {
+  -       title: fromTitle = "For change",
+  -       value: fromValue = "ДД.ММ.ГГГГ",
+  -       jsClass: fromJs = "js-for-change"
+  -     },
+  -     to: {
+  -       title: toTitle = "For change",
+  -       value: toValue = "ДД.ММ.ГГГГ",
+  -       jsClass: toJs = "js-for-change"
+  -     },
+  -     jsDatepicker = "js-for-change"
   -   },
-  -   jsDatepicker: "js-for-change"
-  - }
-  - let guests = {
-  -   title: { text: "For change" },
-  -   input: {
-  -     value: "For Change",
-  -     jsClass: "js-for-change"
+  -   guests: {
+  -     title: { text: guestsTitle = "For change" },
+  -     input: {
+  -       value: guestsInputValue = "For Change",
+  -       jsClass: guestsInputJs = "js-for-change"
+  -     },
+  -     control: { jsClass: guestsControlJs = "js-for-change" },
+  -     lists = [
+  -       {text: "For change 1", dataTarget: "for-change-1", output: "0"},
+  -       {text: "For change 2", dataTarget: "for-change-2", output: "0"},
+  -       {text: "For change 3", dataTarget: "for-change-3", output: "0"}
+  -     ]
   -   },
-  -   control: { jsClass: "js-for-change" },
-  -   lists: [
-  -     {text: "For change 1", dataTarget: "for-change-1", output: "0"},
-  -     {text: "For change 2", dataTarget: "for-change-2", output: "0"},
-  -     {text: "For change 3", dataTarget: "for-change-3", output: "0"}
-  -   ]
-  - }
-  - let confirm = { text: "For Change" }
-  - if (settings) {
-  -   if(settings.action) action = settings.action
-  -   if(settings.title && settings.title.hasOwnProperty("text")) title.text = settings.title.text
-  -   if(settings.period) {
-  -     if(settings.period.from) {
-  -       if(settings.period.from.hasOwnProperty("title")) period.from.title = settings.period.from.title
-  -       if(settings.period.from.hasOwnProperty("value")) period.from.value = settings.period.from.value
-  -       if(settings.period.from.hasOwnProperty("jsClass")) period.from.jsClass = settings.period.from.jsClass
-  -     }
-  -     if(settings.period.to) {
-  -       if(settings.period.to.hasOwnProperty("title")) period.to.title = settings.period.to.title
-  -       if(settings.period.to.hasOwnProperty("value")) period.to.value = settings.period.to.value
-  -       if(settings.period.to.hasOwnProperty("jsClass")) period.to.jsClass = settings.period.to.jsClass
-  -     }
-  -     if(settings.period.jsDatepicker) period.jsDatepicker = settings.period.jsDatepicker
-  -   }
-  -   if(settings.guests) {
-  -     if(settings.guests.title && settings.guests.title.hasOwnProperty("text")) guests.title.text = settings.guests.title.text
-  -     if(settings.guests.input && settings.guests.input.hasOwnProperty("value")) guests.input.value = settings.guests.input.value
-  -     if(settings.guests.input && settings.guests.input.hasOwnProperty("jsClass")) guests.input.jsClass = settings.guests.input.jsClass
-  -     if(settings.guests.control && settings.guests.control.hasOwnProperty("jsClass")) guests.control.jsClass = settings.guests.control.jsClass
-  -     if(settings.guests.hasOwnProperty("lists")) guests.lists = settings.guests.lists
-  -   }
-  -   if(settings.confirm && settings.confirm.hasOwnProperty("text")) confirm.text = settings.confirm.text
-  - };
+  -   confirm: { text: confirmText = "For Change" }
+  - } = settings
   form(action=action).search-room
     .search-room__title
       +title({
-        text: title.text,
+        text: titleText,
         type: "big"
       })
     .search-room__period
       .search-room__from
         +input({
-          title: {text: period.from.title},
+          title: {text: fromTitle},
           input: {
             attr: {
               type: "text",
               placeholder: "ДД.ММ.ГГГГ",
-              value: period.from.value,
+              value: fromValue,
               readonly: "readonly"
             },
             length: "s",
             type: "dropdown",
-            jsClass: period.from.jsClass
+            jsClass: fromJs
           }
         })
       .search-room__to
         +input({
-          title: {text: period.to.title},
+          title: {text: toTitle},
           input: {
             attr: {
               type: "text",
               placeholder: "ДД.ММ.ГГГГ",
-              value: period.to.value,
+              value: toValue,
               readonly: "readonly"
             },
             length: "s",
             type: "dropdown",
-            jsClass: period.to.jsClass
+            jsClass: toJs
           }
         })
       +datepicker({
-        jsClass: period.jsDatepicker,
+        jsClass: jsDatepicker,
         attr: {
           "hidden": "hidden"
         }
@@ -101,28 +78,28 @@ mixin search-room(settings)
     .search-room__guests
       +dropdown({
         inputSettings: {
-          title: {text: guests.title.text},
+          title: {text: guestsTitle},
           input: {
             attr: {
               type: "text",
               placeholder: "Text",
-              value: guests.input.value,
+              value: guestsInputValue,
               readonly: "readonly",
             },
             length: "l",
             type: "dropdown",
-            jsClass: guests.input.jsClass
+            jsClass: guestsInputJs
           }
         },
         control: {
-          jsClass: guests.control.jsClass,
+          jsClass: guestsControlJs,
           attr: {"hidden": "hidden"}
         },
-        lists: guests.lists
+        lists: lists
       })
     .search-room__confirm-button
       +button({
         type: "big",
-        text: confirm.text,
+        text: confirmText,
         attr: {"type": "submit"}
       })

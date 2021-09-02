@@ -1,8 +1,7 @@
 mixin logo(settings)
-  - let type = ""
-  - let src = ""
-  - if(settings) {
-  -   settings.hasOwnProperty("src") ? src = settings.src : src = ""
-  -   settings.hasOwnProperty("type") ? type = `logo_${settings.type}` : type = ""
-  - }
+  - let {
+  -   type = false,
+  -   src = false
+  - } = settings
+  - if(type) type = `logo_${type}`
   img(class="logo" alt="logo" class=type, src=src)

@@ -1,6 +1,6 @@
 export default function listFunctionality(settings) {
   const { titleClass, listClass } = settings;
-
+  
   function getHtmlElements() {
     const title = document.querySelector(titleClass);
     const list = document.querySelector(listClass);
@@ -9,7 +9,7 @@ export default function listFunctionality(settings) {
 
   const resultElements = getHtmlElements();
   const { title, list } = resultElements;
-
+  
   function discloseList() {
     if (list.hasAttribute('hidden')) {
       list.removeAttribute('hidden');

@@ -1,38 +1,29 @@
 mixin toggle(settings)
-  - let controller = {
-  -   type: "",
-  -   attr: {}
-  - }
-  - let mimic = {
-  -   type: ""
-  - }
-  - let text = {
-  -   text: "For change",
-  -   richText: false,
-  -   length: ""
-  - }
-  - if (settings) {
-  -   if(settings.controller) {
-  -     if(settings.controller.hasOwnProperty("type")) {
-  -       controller.type = `toggle__controller_type_${settings.controller.type}`
-  -       mimic.type = `toggle__mimic_type_${settings.controller.type}`
-  -     }
-  -     if(settings.controller.hasOwnProperty("attr")) controller.attr = settings.controller.attr
+  - let {
+  -   controller: {
+  -     type: controllerType = "checkbox",
+  -     attr: controllerAttr = { type: "checkbox" }
+  -   },
+  -   mimicType = false,
+  -   text: {
+  -     text: textContent = "For change",
+  -     richText: richText = false,
+  -     length: textLength = ""
   -   }
-  -   if(settings.text) {
-  -     if(settings.text.hasOwnProperty("text")) text.text = settings.text.text
-  -     if(settings.text.hasOwnProperty("richText") && settings.text.richText !== false) text.richText = settings.text.richText
-  -     if(settings.text.hasOwnProperty("length")) text.length = `toggle__text_length_${settings.text.length}`
-  -   }
+  - } = settings
+  - if (controllerType) {
+  -   mimicType = `toggle__mimic_type_${controllerType}`
+  -   controllerType = `toggle__controller_type_${controllerType}`
   - }
+  - if (textLength) textLength = `toggle__text_length_${textLength}`
   .toggle
     label(class="toggle__wrapper")
-      input(class = "toggle____controller" class=controller.type)&attributes(controller.attr)
-      span(class="toggle__mimic" class=mimic.type)
-        if mimic.type === "toggle__mimic_type_like"
-          p(class="toggle__text" class=text.length)= text.text
-      if mimic.type !== "toggle__mimic_type_like"
+      input(class = "toggle__controller" class=controllerType)&attributes(controllerAttr)
+      span(class="toggle__mimic" class=mimicType)
+        if mimicType === "toggle__mimic_type_like"
+          p(class="toggle__text" class=textLength)= textContent
+      if mimicType !== "toggle__mimic_type_like"
         .toggle__text-wrapper
-          if text.richText
-            p(class="toggle__text toggle__text_rich", class=text.length)= text.richText
-          p(class="toggle__text", class=text.length)= text.text
+          if richText
+            p(class="toggle__text toggle__text_rich", class=textLength)= richText
+          p(class="toggle__text", class=textLength)= textContent

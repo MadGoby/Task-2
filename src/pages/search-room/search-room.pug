@@ -150,7 +150,7 @@ include ../../overall/page-head.pug
                 title: {
                   text: "доступность",
                 },
-                list: [
+                listCheckbox: [
                   {
                     type: "checkbox",
                     attr: {
@@ -170,7 +170,8 @@ include ../../overall/page-head.pug
                     text: "На 1 этаже вас встретит специалист  и проводит до номера.",
                     richText: "Помощник для инвалидов"
                   }
-                ]
+                ],
+                container: false
               })  
             .search-room__room-amenities
               +dropdown({
@@ -209,7 +210,7 @@ include ../../overall/page-head.pug
                   jsClass: "js-list__container",
                   attr: {hidden: "hidden"}
                 },
-                list: [
+                listCheckbox: [
                   {
                     type: "checkbox",
                     attr: {
@@ -274,6 +275,7 @@ include ../../overall/page-head.pug
             include ../search-room-cards/search-room-cards.pug
           .search-room__rooms-nav
             +content-nav({
+              title: false,
               jsClass: "js-content-nav",
               counter: {text: "1 - 12 из 100+ вариантов аренды"}
             })
@@ -284,21 +286,21 @@ include ../../overall/page-head.pug
           },
           lists: [
             [
-              {"text": "навигация"}, 
+              {"title": "навигация"}, 
               {"text": "О нас"},
               {"text": "Новости"},
               {"text": "Служба поддержки"},
               {"text": "Услуги"}
             ],
             [
-              {"text": "о нас"},
+              {"title": "о нас"},
               {"text": "О сервисе"},
               {"text": "Наша команда"},
               {"text": "Вакансии"},
               {"text": "Инвесторы"}
             ],
             [
-              {"text": "Служба поддержки"}, 
+              {"title": "Служба поддержки"}, 
               {"text": "Соглашения"},
               {"text": "Сообщества"},
               {"text": "Связь с нами"}
@@ -307,7 +309,9 @@ include ../../overall/page-head.pug
           subscribe: {
             title: "Подписка",
             text: "Получайте специальные предложения и новости сервиса"
-          }
+          },
+          footer: false,
+          copyright: false
         })
         +copyright({
           text: "Copyright © 2018 Toxin отель. Все права защищены.",

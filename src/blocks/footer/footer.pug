@@ -1,98 +1,84 @@
 include ../social-media-link/social-media-link.pug
 
 mixin footer(settings)
-  - let footer = {
-  -   type: "",
-  -   wrappType: ""
-  - }
-  - let description = {
-  -   text: false
-  - }
-  - let lists = [
-  -   [
-  -     {"text": "For change"}, 
-  -     {"text": "For change"},
-  -     {"text": "For change"}
-  -   ],
-  -   [
-  -     {"text": "For change"}, 
-  -     {"text": "For change"},
-  -     {"text": "For change"}
-  -   ],
-  -   [
-  -     {"text": "For change"}, 
-  -     {"text": "For change"},
-  -     {"text": "For change"}
-  -   ]
-  - ]
-  - let links = [
-  -   {
-  -     "name": "For change",
-  -     "iconSrc": "img/for-change.svg"
+  - let {
+  -   footer: {
+  -     type: footerType = false,
+  -     wrappType = false
   -   },
-  -   {
-  -     "name": "For change",
-  -     "iconSrc": "img/for-change.svg"
+  -   description: {
+  -     text: descriptionText = false
   -   },
-  -   {
-  -     "name": "For change",
-  -     "iconSrc": "img/for-change.svg"
-  -   }
-  - ]
-  - let subscribe = {
-  -   title: "For change",
-  -   text: "For change",
-  -   action: "./for-change"
-  - }
-  - let copyright = { text: "For change" }
-  - if (settings) {
-  -   if(settings.footer) {
-  -     if(settings.footer.hasOwnProperty("type")) {
-  -       footer.type = `footer_type_${settings.footer.type}`
-  -       footer.wrappType = `footer__wrapper_${settings.footer.type}`
+  -   lists = [
+  -     [
+  -       {"text": "For change"}, 
+  -       {"text": "For change"},
+  -       {"text": "For change"}
+  -     ],
+  -     [
+  -       {"text": "For change"}, 
+  -       {"text": "For change"},
+  -       {"text": "For change"}
+  -     ],
+  -     [
+  -       {"text": "For change"}, 
+  -       {"text": "For change"},
+  -       {"text": "For change"}
+  -     ]
+  -   ],
+  -   links = [
+  -     {
+  -       "name": "For change",
+  -       "iconSrc": "img/for-change.svg"
+  -     },
+  -     {
+  -       "name": "For change",
+  -       "iconSrc": "img/for-change.svg"
+  -     },
+  -     {
+  -       "name": "For change",
+  -       "iconSrc": "img/for-change.svg"
   -     }
-  -   }
-  -   if(settings.description && settings.description.hasOwnProperty("text")) description.text = settings.description.text
-  -   if(settings.hasOwnProperty("lists")) lists = settings.lists
-  -   if(settings.subscribe) {
-  -     if(settings.subscribe.hasOwnProperty("title")) subscribe.title = settings.subscribe.title
-  -     if(settings.subscribe.hasOwnProperty("text")) subscribe.text = settings.subscribe.text
-  -     if(settings.subscribe.hasOwnProperty("action")) subscribe.action = settings.subscribe.action
-  -   }
-  -   if(settings.links) links = settings.links
-  -   if(settings.copyright && settings.copyright.text) copyright.text = settings.copyright.text
+  -   ],
+  -   subscribe: {
+  -     title: subscribeTitle = "For change",
+  -     text: subscribeText = "For change",
+  -     action: subscribeAction = "./for-change"
+  -   },
+  -   copyright: { text: copyrightText = "For change" }
+  - } = settings
+  - if(footerType) {
+  -   wrappType = `footer__wrapper_${footerType}`
+  -   footerType = `footer_type_${settings.footer.type}`
   - }
-  div(class="footer" class=footer.type)
-    div(class="footer__wrapper" class=footer.wrappType)
+  div(class="footer" class=footerType)
+    div(class="footer__wrapper" class=wrappType)
       div(class="footer__description")
         +logo({
           src: "img/logo-color.svg"
         })
-        if(description.text)
-          p(class="footer__text")=description.text
-      if footer.type !== "footer_type_small"
+        if descriptionText
+          p(class="footer__text")=descriptionText
+      if footerType !== "footer_type_small"
         .footer__nav-wrapper
           each list in lists
             .footer__nav
               each link in list
-                - let text = ""
-                - let href = "./for-change"
-                - let title = false
-                - if (link) {
-                -   if(link.hasOwnProperty("text")) text = link.text
-                -   if(link.hasOwnProperty("href")) href = link.href
-                -   if(link.hasOwnProperty("title")) title = link.title
-                - }
-                if title 
-                  span(class="footer__link-title")= title
+                - let {
+                -   text: linkText,
+                -   href: linkHref = "./for-change",
+                -   title: linkTitle = false
+                - } = link
+                if linkTitle 
+                  span(class="footer__link-title")= linkTitle
                 else 
-                  if title 
-                  a(class="footer__nav-link" href=href)= text
+                  a(class="footer__nav-link" href=linkHref)= linkText
         .footer__subscribe
-          p.footer__title=subscribe.title
-          p.footer__text=subscribe.text 
-          form(class="footer__subscribe-form" action=subscribe.action)
+          p.footer__title=subscribeTitle
+          p.footer__text=subscribeText 
+          form(class="footer__subscribe-form" action=subscribeAction)
             +input({
+              title: false,
               input: {
                 attr: {
                   type: "email",
@@ -104,7 +90,7 @@ mixin footer(settings)
             })
       else
         div(class="footer__social-media footer__social-media_small")
-          p(class="footer__small-copyright")= copyright.text
+          p(class="footer__small-copyright")= copyrightText
           +social-media-link({
             socialLinks: links
           })

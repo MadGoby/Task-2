@@ -1,14 +1,11 @@
 mixin title(settings)
-  - let text = ""
-  - let type = ""
-  - let teg = ""
-  - let jsClass = ""
-  - let modFor = ""
-  - if (settings) { 
-  -   settings.hasOwnProperty("text") ? text = settings.text : text = ""
-  -   settings.hasOwnProperty("type") ? type =`title_${settings.type}` : type = ""
-  -   settings.hasOwnProperty("teg") ? teg = settings.teg : teg = "p"
-  -   settings.hasOwnProperty("for") ? modFor = `title_for-${settings.for}` : modFor = ""
-  -   settings.hasOwnProperty("jsClass") ? jsClass = settings.jsClass : jsClass = ""
-  - }
-  #{teg}(class="title", class=type,  class=modFor, class=jsClass)= text
+  - let {
+  -   text = "For change",
+  -   teg = "p",
+  -   type = false,
+  -   jsClass = false,
+  -   for: targetClass = false
+  - } = settings
+  - if (type) type = `title_${type}`
+  - if (targetClass) targetClass = `title_for-${targetClass}`
+  #{teg}(class="title", class=type,  class=targetClass, class=jsClass)=text

@@ -1,36 +1,32 @@
 mixin button(settings)
-  - let attr = {type: "button"}
-  - let type = "button__control_type_simple"
-  - let text = "For Change"
-  - let jsClass = ""
-  - let pagClass = ""
-  - let height = ""
-  - let hover = ""
-  - if (settings) {
-  -   if(settings.hasOwnProperty("attr")) attr = settings.attr
-  -   if(settings.hasOwnProperty("text")) text = settings.text
-  -   if(settings.hasOwnProperty("height")) height = `button__control_height_${settings.height}`
-  -   if(settings.hasOwnProperty("jsClass")) jsClass = settings.jsClass
-  -   if(settings.hasOwnProperty("pagClass")) pagClass = settings.pagClass
-  -   if(settings.hasOwnProperty("type")) type = `button__control_type_${settings.type}`
-  -   if(settings.hasOwnProperty("hover") && settings.hover === true) {
-  -     settings.type === "border" ? hover="button__border-mimic_hover"  : type=`${type}-hover`
-  -   }
+  - let {
+  -   attr: buttonAttr = {type: "button"},
+  -   type: buttonType = "simple",
+  -   text: buttonText= "For Change",
+  -   jsClass: buttonJs = false,
+  -   pagClass: buttonPagination = false,
+  -   height: buttonHeight = false,
+  -   hover: buttonHover = false,
+  - } = settings
+  - if(buttonHover) {
+  -   buttonType === "border" ? buttonHover="button__border-mimic_hover" : buttonType=`${buttonType}-hover`
   - }
-  if settings && settings.type == "pagination"
+  - if(buttonType) buttonType = `button__control_type_${buttonType}`
+  - if(buttonHeight) buttonHeight = `button__control_height_${buttonHeight}`
+  if buttonType == "button__control_type_pagination"
     div(class="button button_type_pagination")
-      button(class="button__control" class=jsClass, class=type, class=pagClass, class= height, value=text)&attributes(attr)= text
-  else if settings && settings.type == "big"
+      button(class="button__control" class=buttonJs, class=buttonType, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
+  else if buttonType == "button__control_type_big"
     div(class="button button_type_big")
-      if type == "border"
+      if buttonType == "button__control_type_border"
         div.button__border-mimic
           button(class="button__control"  class=jsClass, class=type, class=pagClass, class=height, value=text)&attributes(attr)= text
       else
-        button(class="button__control" class=jsClass, class=type, class=pagClass, class= height, value=text)&attributes(attr)= text
+        button(class="button__control" class=buttonJs, class=buttonType, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
   else
     div(class="button")
-      if settings.type == "border"
-        div(class="button__border-mimic", class=hover)
-          button(class="button__control"  class=jsClass, class=type, class=pagClass, class=height, value=text)&attributes(attr)= text
+      if buttonType == "button__control_type_border"
+        div(class="button__border-mimic", class=buttonHover)
+          button(class="button__control"  class=buttonJs, class=buttonType, class=buttonPagination, class=buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
       else
-        button(class="button__control" class=jsClass, class=type, class=pagClass, class= height, value=text)&attributes(attr)= text
+        button(class="button__control" class=buttonJs, class=buttonType, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText

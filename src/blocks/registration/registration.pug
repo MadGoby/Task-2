@@ -1,23 +1,21 @@
 mixin registration(settings)
-  - let action = "./for-change"
-  - let title = {
-  -   text: "For change"
-  - }
-  - let loginLink = "./for-change"
-  - if (settings) {
-  -   if(settings.hasOwnProperty("action")) action = settings.action
-  -   if(settings.title.hasOwnProperty("text")) title.text = settings.title.text
-  -   if(settings.hasOwnProperty("loginLink")) loginLink = settings.loginLink
-  - };
+  - let {
+  -   action = "./for-change",
+  -   title: {
+  -     text: titleText = "For change"
+  -   },
+  -   loginLink = "./for-change"
+  - } = settings
   form(action=action).registration
     .registration__title
       +title({
-        text: title.text,
+        text: titleText,
         type: "big"
       })
     .registration__personal-data
       .registration__name
         +input({
+          title: {},
           input: {
             attr: {
               "type": "text",
@@ -29,6 +27,7 @@ mixin registration(settings)
         })
       .registration__surname
         +input({
+          title: {},
           input: {
             attr: {
               "type": "text",
@@ -87,6 +86,7 @@ mixin registration(settings)
         +title({text: "данные для входа в сервис"})
       .registration__email
         +input({
+          title: {},
           input: {
             attr: {
               "type": "email",
@@ -98,6 +98,7 @@ mixin registration(settings)
         })
       .registration__pass
         +input({
+          title: {},
           input: {
             attr: {
               "type": "password",

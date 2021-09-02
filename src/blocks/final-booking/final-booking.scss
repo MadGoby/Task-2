@@ -73,7 +73,7 @@
   &__service-title {
     line-height: 18px;
     display: inline-block;
-    max-width: 86%;
+    max-width: 214px;
 
     &_total {
       font-weight: 700;
@@ -81,12 +81,21 @@
       color: $dark100;
       width: 18%;
     }
+
+    @media screen and (max-width: 380px) {
+      width: 86%;
+    }
   }
 
   &__service-price {
     display: inline-block;
     width: 78px;
+    vertical-align: top;
     text-align: right;
+
+    @media screen and (max-width: 380px) {
+      width: 85px;
+    }
 
     &_total {
       display: inline-block;

@@ -1,27 +1,20 @@
 mixin positive-feature(settings)
-  - let border = ""
-  - let img = {
-  -   attr: {
-  -     alt: "For Change",
-  -     src: "img/forChange.jpg"
-  -   } 
-  - }
-  - let text = {
-  -   title: "For change",
-  -   desc: "Description for change"
-  - }
-  - if(settings) {
-  -   if(settings.hasOwnProperty("border")) border=`positive-feature_${settings.border}`
-  -   if(settings.hasOwnProperty("img")) {
-  -     if(settings.img.hasOwnProperty("attr")) img.attr = settings.img.attr
+  - let {
+  -   border = false,
+  -   img: {
+  -     attr: imgAttr = {
+  -       alt: "For Change",
+  -       src: "img/forChange.jpg"
+  -     } 
+  -   },
+  -   text: {
+  -     title: titleText = "For change",
+  -     description: descriptionText = "Description for change"
   -   }
-  -   if(settings.hasOwnProperty("text")) {
-  -     if(settings.text.hasOwnProperty("title")) text.title = settings.text.title
-  -     if(settings.text.hasOwnProperty("desc")) text.desc = settings.text.desc
-  -   }
-  - };
+  - } = settings
+  - if(border) border=`positive-feature_${border}`
   div(class="positive-feature" class=border)
-    img(class="positive-feature__img")&attributes(img.attr)
+    img(class="positive-feature__img")&attributes(imgAttr)
     .positive-feature__text-wrapper
-      p.positive-feature__title=text.title
-      p.positive-feature__description=text.desc
+      p.positive-feature__title=titleText
+      p.positive-feature__description=descriptionText

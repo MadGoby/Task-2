@@ -1,39 +1,27 @@
 mixin user-comment(settings)
-  - let title = {
-  -   imgAttr: {
-  -     alt: "For Change",
-  -     src: "img/forChange.jpg"
+  - let {
+  -   title: {
+  -     imgAttr = {
+  -       alt: "For Change",
+  -       src: "img/forChange.jpg"
+  -     },
+  -     name: titleName = "Name",
+  -     age: titleAge = "Age"
   -   },
-  -   name: "Name",
-  -   age: "Age"
-  - }
-  - let main = {
-  -   toggle: {
-  -     checked: false,
-  -     text: "0"
-  -   },
-  -   text: "Text for change"
-  - }
-  - if(settings){
-  -   if(settings.title) {
-  -     if(settings.title.hasOwnProperty("imgAttr")) title.imgAttr = settings.title.imgAttr
-  -     if(settings.title.hasOwnProperty("name")) title.name = settings.title.name
-  -     if(settings.title.hasOwnProperty("age")) title.age = settings.title.age
+  -   main: {
+  -     toggle: {
+  -       checked: toggleChecked = false,
+  -       text: toggleText = "0"
+  -     },
+  -     text: mainText = "Text for change"
   -   }
-  -   if(settings.main) {
-  -     if(settings.main.hasOwnProperty("toggle")) {
-  -       if(settings.main.toggle.hasOwnProperty("checked")) main.toggle.checked = settings.main.toggle.checked
-  -       if(settings.main.toggle.hasOwnProperty("text")) main.toggle.text = settings.main.toggle.text
-  -     }
-  -     if(settings.main.hasOwnProperty("text")) main.text = settings.main.text
-  -   }
-  - }
+  - } = settings
   .user-comment
     .user-comment__title
-      img(class="user-comment__avatar")&attributes(title.imgAttr)
+      img(class="user-comment__avatar")&attributes(imgAttr)
       .user-comment__info
-        p.user-comment__name=title.name
-        p.user-comment__age=title.age
+        p.user-comment__name=titleName
+        p.user-comment__age=titleAge
     .user-comment__main
       .user-comment__like
         +toggle({
@@ -42,11 +30,11 @@ mixin user-comment(settings)
             attr: {
               "type": "checkbox",
               "hidden": "hidden",
-              "checked": main.toggle.checked
+              "checked": toggleChecked
             }
           },
           text: {
-            text: main.toggle.text
+            text: toggleText
           }
         })
-      p.user-comment__text=main.text
+      p.user-comment__text=mainText

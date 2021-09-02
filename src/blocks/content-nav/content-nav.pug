@@ -1,20 +1,17 @@
 mixin content-nav(settings)
-  - let title = {
-  -   text: false
-  - }
-  - let jsClass = "js-for-change"
-  - let counter = {
-  -   text: "For Change"
-  - } 
-  - if (settings) {
-  -   if(settings.hasOwnProperty("jsClass")) jsClass = settings.jsClass
-  -   if(settings.title && settings.title.hasOwnProperty("text")) title.text = settings.title.text
-  -   if(settings.counter && settings.counter.hasOwnProperty("text")) counter.text = settings.counter.text
-  - }
-  div(class="content-nav" class=jsClass)
-    if title.text 
+  - let {
+  -   title: {
+  -     text: contentNavTitle = false
+  -   },
+  -   jsClass: contentNavJs = "js-for-change",
+  -   counter: {
+  -     text: contentNavCounter = "For Change"
+  -   }
+  - } = settings 
+  div(class="content-nav" class=contentNavJs)
+    if contentNavTitle 
       .content-nav__title
-        +title({text: title.text})
+        +title({text: contentNavTitle})
     ul.content-nav__buttons
       li(class="content-nav__button content-nav__button_previous")
         +button({
@@ -73,5 +70,5 @@ mixin content-nav(settings)
           attr: {"type": "button"},
           pagClass: "button__control_pagination_next"
         })
-    if counter.text
-      p.content-nav__counter=counter.text
+    if contentNavCounter
+      p.content-nav__counter=contentNavCounter

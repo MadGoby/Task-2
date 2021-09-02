@@ -1,49 +1,37 @@
 mixin input(settings)
-  - let title = {
-  -  text: false,
-  -  type: "",
-  -  state: false
-  - }
-  - let input = {
-  -   length: "input__field_length_l",
-  -   type: "input__field_type_simple",
-  -   attr: {placeholder: "For-change"},
-  -   state: "",
-  -   jsClass: ""
-  - }
-  - let wrapp = {
-  -   type: ""
-  - }
-  - if (settings) {
-  -   if (settings.title)  {
-  -     if(settings.title.hasOwnProperty("text")) title.text = settings.title.text
-  -     if(settings.title.hasOwnProperty("type")) title.type = `input__title-text_${settings.title.type}`
-  -     if(settings.title.hasOwnProperty("state")) title.state = settings.title.state
-  -   }
-  -   if (settings.input)  {
-  -     if(settings.input.hasOwnProperty("length")) input.length = `input__field_length_${settings.input.length}`
-  -     if(settings.input.hasOwnProperty("type")) {
-  -       input.type = `input__field_type_${settings.input.type}`
-  -       if(settings.input.type === "dropdown" || settings.input.type === "submit") wrapp.type = `input__wrapper_type_${settings.input.type}`
-  -     }
-  -     if(settings.input.hasOwnProperty("state")) input.state = `input__field_${settings.input.state}`
-  -     if(settings.input.hasOwnProperty("jsClass")) input.jsClass = settings.input.jsClass
-  -     if(settings.input.hasOwnProperty("attr")) input.attr = settings.input.attr
-  -   }
-  - }
+  - let { 
+  -   title: {
+  -     text: titleText = false,
+  -     type: titleType = false,
+  -     state: titleState = false
+  -   },
+  -   input: {
+  -     length: inputLength = "l",
+  -     type: inputType = "simple",
+  -     attr: inputAttr = { placeholder: "For-change" },
+  -     state: inputState = false,
+  -     jsClass: inputJs = false
+  -   },
+  -   wrappType = false
+  - } = settings
+  - if (titleType) titleType = `input__title-text_${titleType}`
+  - if (inputLength) inputLength = `input__field_length_${inputLength}`
+  - if (inputType === "dropdown" || inputType === "submit") wrappType = inputType
+  - if (inputType) inputType = `input__field_type_${inputType}`
+  - if (inputState) inputState = `input__field_${inputState}`
   .input
-    if title.text
+    if titleText
       .input__title
-        div(class="input__title-text" class=title.type)
+        div(class="input__title-text" class=titleType)
           +title({
-            text: title.text
+            text: titleText
           })
-        if title.state
-          p.input__state=title.state
-    if wrapp.type === "input__wrapper_type_dropdown" || wrapp.type === "input__wrapper_type_submit"
-      label(class="input__wrapper" class=wrapp.type)
-        input(class="input__field", class=input.length, class=input.type, class=input.state, class=input.jsClass)&attributes(input.attr)
-        if wrapp.type === "submit"
+        if titleState
+          p.input__state=titleState
+    if wrappType === "dropdown" || wrappType === "submit"
+      label(class="input__wrapper" class=`input__wrapper_type_${wrappType}`)
+        input(class="input__field", class=inputLength, class=inputType, class=inputState, class=inputJs)&attributes(inputAttr)
+        if wrappType === "submit"
           button(type="submit" class="input__submit-button")
     else
-      input(class="input__field", class=input.length, class=input.type, class=input.state, class=input.jsClass)&attributes(input.attr)
+      input(class="input__field", class=inputLength, class=inputType, class=inputState, class=inputJs)&attributes(inputAttr)

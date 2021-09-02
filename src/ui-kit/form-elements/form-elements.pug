@@ -312,6 +312,7 @@ include ../../blocks/star-rate/star-rate.pug
           title: { text: "range slider" },
           output: { jsClass: "js-slider__output" },
           container: { jsClass: "js-slider__body" },
+          description: { text: false }
         })
       .form-elements__buttons
         .form-elements__buttons-title
@@ -490,7 +491,7 @@ include ../../blocks/star-rate/star-rate.pug
               jsClass: "js-list__container", 
               attr: {"hidden": "hidden"}
             },
-            list: [
+            listCheckbox: [
               {
                 type: "checkbox",
                 attr: {
@@ -554,7 +555,7 @@ include ../../blocks/star-rate/star-rate.pug
             container: {
               jsClass: "js-list__container-2"
             },
-            list: [
+            listCheckbox: [
               {
                 type: "checkbox",
                 attr: {
@@ -611,9 +612,10 @@ include ../../blocks/star-rate/star-rate.pug
       .form-elements__rich-list
         +list({
           title: {
-            text: "rich checkbox buttons",
+            text: "rich checkbox buttons"
           },
-          list: [
+          container: {},
+          listCheckbox: [
             {
               type: "checkbox",
               attr: {
@@ -639,8 +641,9 @@ include ../../blocks/star-rate/star-rate.pug
         +list({
           title: {
             text: "bullet list",
-            bullet: true
+            bullet: true,
           },
+          container: {},
           textList: [
             "Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"
           ]
@@ -657,7 +660,7 @@ include ../../blocks/star-rate/star-rate.pug
           },
           text: {
             title: "Комфорт",
-            desc: "Шумопоглощающие стены"
+            description: "Шумопоглощающие стены"
           }
         })
         +positive-feature({
@@ -670,7 +673,7 @@ include ../../blocks/star-rate/star-rate.pug
           },
           text: {
             title: "Удобство",
-            desc: "Окно в каждой из спален"
+            description: "Окно в каждой из спален"
           }
         })
       .form-elements__user-comment

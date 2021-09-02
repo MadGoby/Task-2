@@ -1,53 +1,39 @@
 mixin room-card(settings)
-  - let jsClass = ""
-  - let images = [
-  -   {
-  -     src: "img/for-change.jpg",
-  -     alt: "Alt for change"
+  - let {
+  -   jsClass = "",
+  -   images = [
+  -     {
+  -       src: "img/for-change.jpg",
+  -       alt: "Alt for change"
+  -     },
+  -     {
+  -       src: "img/for-change.jpg",
+  -       alt: "Alt for change"
+  -     },
+  -     {
+  -       src: "img/for-change.jpg",
+  -       alt: "Alt for change"
+  -     },
+  -     {
+  -       src: "img/for-change.jpg",
+  -       alt: "Alt for change"
+  -     }
+  -   ],
+  -   roomInfo: {
+  -     number: roomNumber = "000",
+  -     price: roomPrice = "000",
+  -     type: roomType = false
   -   },
-  -   {
-  -     src: "img/for-change.jpg",
-  -     alt: "Alt for change"
+  -   starRate: { 
+  -     rate: starsCounter = "5",
+  -     jsClass: starJs = ""
   -   },
-  -   {
-  -     src: "img/for-change.jpg",
-  -     alt: "Alt for change"
-  -   },
-  -   {
-  -     src: "img/for-change.jpg",
-  -     alt: "Alt for change"
-  -   }
-  - ]
-  - let roomInfo = {
-  -   number: "000",
-  -   price: "000",
-  -   type: false
-  - }
-  - let starRate = { rate: "5", jsClass: "" }
-  - let rateCounter = { value: "000"} 
-  - if (settings) {
-  -   if(settings.hasOwnProperty("jsClass")) jsClass = settings.jsClass
-  -   if(settings.hasOwnProperty("images")) images = settings.images
-  -   if(settings.hasOwnProperty("roomInfo")) {
-  -     if(settings.roomInfo.hasOwnProperty("number")) roomInfo.number = settings.roomInfo.number
-  -     if(settings.roomInfo.hasOwnProperty("price")) roomInfo.price = settings.roomInfo.price 
-  -     if(settings.roomInfo.hasOwnProperty("type")) roomInfo.type = settings.roomInfo.type 
-  -   }
-  -   if(settings.starRate) {
-  -     if(settings.starRate.hasOwnProperty("rate")) starRate.rate = settings.starRate.rate
-  -     if(settings.starRate.hasOwnProperty("jsClass")) starRate.jsClass = settings.starRate.jsClass
-  -   }
-  -   if(settings.rateCounter.hasOwnProperty("value")) rateCounter.value = settings.rateCounter.value
-  - }
+  -   rateCounter: { value: counterValue = "000"} 
+  - } = settings
   div(class="room-card" class=jsClass)
     div.room-card__image-wrapper
-      each img in images
-        - let src = ""
-        - let alt = ""
-        - if (img) {
-        -   img.hasOwnProperty("src") ? src = img.src : src = ""
-        -   img.hasOwnProperty("alt") ? alt = img.alt : alt = ""
-        - }
+      each image in images
+        - let {img="", src=""} = image
         img(class="room-card__image" src=src, alt=alt)
       button(type="button" class="room-card__image-button room-card__image-button_previous")
       button(type="button" class="room-card__image-button room-card__image-button_next")
@@ -59,12 +45,12 @@ mixin room-card(settings)
     .room-card__room-info
       .room-card__price
         +room-info({
-          number: roomInfo.number,
-          price: roomInfo.price,
-          type: roomInfo.type
+          number: roomNumber,
+          price: roomPrice,
+          type: roomTtype
         })
       .room-card__rate
         .room-card__stars
-          +star-rate({rate: starRate.rate, jsClass: starRate.jsClass})
+          +star-rate({rate: starsCounter, jsClass: starJs})
         .room-card__counter
-          +rate-counter({value: rateCounter.value})
+          +rate-counter({value: counterValue})

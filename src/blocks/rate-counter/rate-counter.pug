@@ -1,8 +1,5 @@
 mixin rate-counter(settings)
-  - let value = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("value") ? value = settings.value : value = ""
-  - }
+  - let { value = "000" } = settings
   p.rate-counter
     em.rate-counter__value=value
     =" Отзывов"

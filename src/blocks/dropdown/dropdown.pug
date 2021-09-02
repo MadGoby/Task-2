@@ -1,42 +1,36 @@
 mixin dropdown(settings)
-  - let inputSettings = {
-  -   length: "input__field_length_m",
-  -   type: "input__field_type_simple",
-  -   attr: {placeholder: "For-change"},
-  -   state: "",
-  -   jsClass: "js-for-change"  
-  - }
-  - let control = {
-  -   jsClass: "js-for-change",
-  -   attr: {},
-  -   z: ""
-  - }
-  - let lists = [
-  -   {text: "For Change", dataTarget: "forChange1", output: "0", minusTransparent: false, plusTransparent: false},
-  -   {text: "For Change", dataTarget: "forChange2", output: "0", minusTransparent: false, plusTransparent: false},
-  -   {text: "For Change", dataTarget: "forChange3", output: "0", minusTransparent: false, plusTransparent: false}
-  - ]
-  - let clearHide = true
-  - if(settings) {
-  -   if(settings.hasOwnProperty("inputSettings")) inputSettings = settings.inputSettings
-  -   if(settings.control) {
-  -     if(settings.control.hasOwnProperty("jsClass")) control.jsClass = settings.control.jsClass
-  -     if(settings.control.hasOwnProperty("attr")) control.attr = settings.control.attr
-  -     if(settings.control.hasOwnProperty("z")) control.z = `dropdown__control_z_${settings.control.z}`
-  -   }
-  -   if(settings.lists) {
-  -     lists = settings.lists
-  -     lists.map(function(list) {
-  -       if(list.output == "0") list.minusTransparent = true
-  -       if(list.output == "10") list.plusTransparent = true
-  -       if(list.output > "0") clearHide = false
-  -     })
-  -   }
+  - let {
+  -   inputSettings = {
+  -     length: "m",
+  -     type: "simple",
+  -     attr: {placeholder: "For-change"},
+  -     state: "",
+  -     jsClass: "js-for-change"  
+  -   },
+  -   control: {
+  -     jsClass: controlJs = "js-for-change",
+  -     attr: controlAttr = false,
+  -     z: controlZ = false,
+  -   },
+  -   lists = [
+  -     {text: "For Change", dataTarget: "forChange1", output: "0", minusTransparent: false, plusTransparent: false},
+  -     {text: "For Change", dataTarget: "forChange2", output: "0", minusTransparent: false, plusTransparent: false},
+  -     {text: "For Change", dataTarget: "forChange3", output: "0", minusTransparent: false, plusTransparent: false}
+  -   ],
+  -   clearHide = true
+  - } = settings
+  - if (controlZ) controlZ = `dropdown__control_z_${controlZ}`
+  - if (lists) {
+  -   lists.forEach(function(list) {
+  -     if(list.output == "0") list.minusTransparent = true
+  -     if(list.output == "10") list.plusTransparent = true
+  -     if(list.output > "0") clearHide = false
+  -   })
   - }
   div.dropdown
     div.dropdown__input
       +input(inputSettings)
-    div(class="dropdown__control" class=control.jsClass, class=control.z)&attributes(control.attr)
+    div(class="dropdown__control" class=controlJs, class=controlZ)&attributes(controlAttr)
       ul.dropdown__list
         each list in lists
           li.dropdown__list-element

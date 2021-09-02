@@ -14,18 +14,10 @@ include ../../blocks/copyright/copyright.pug
         nav: { 
           links: [
             {"text": "О нас", "type": "bold"},
-            {"text": "Услуги", "type": "expanded", "expandedLinks": [
-              {"text": "Пункт 1"},
-              {"text": "Пункт 2"},
-              {"text": "Пункт 3"},
-            ]},
+            {"text": "Услуги", "type": "expanded"},
             {"text": "Вакансии"},
             {"text": "Новости"},
-            {"text": "Соглашения", "type": "expanded", "expandedLinks": [
-              {"text": "Пункт 1"},
-              {"text": "Пункт 2"},
-              {"text": "Пункт 3"},
-            ]},
+            {"text": "Соглашения", "type": "expanded"},
           ]
         }
       })
@@ -34,21 +26,13 @@ include ../../blocks/copyright/copyright.pug
         nav: { 
           links: [
             {"text": "О нас", "type": "bold"},
-            {"text": "Услуги", "type": "expanded", "expandedLinks": [
-              {"text": "Пункт 1"},
-              {"text": "Пункт 2"},
-              {"text": "Пункт 3"},
-            ]},
+            {"text": "Услуги", "type": "expanded"},
             {"text": "Вакансии"},
             {"text": "Новости"},
-            {"text": "Соглашения", "type": "expanded", "expandedLinks": [
-              {"text": "Пункт 1"},
-              {"text": "Пункт 2"},
-              {"text": "Пункт 3"},
-            ]},
+            {"text": "Соглашения", "type": "expanded"},
           ]
         },
-        authorized: {text: "Юлий Цезарь"}
+        authorized: "Юлий Цезарь"
       })
     .headers-footers__footer_big
       +footer({
@@ -80,7 +64,9 @@ include ../../blocks/copyright/copyright.pug
         subscribe: {
           title: "Подписка",
           text: "Получайте специальные предложения и новости сервиса"
-        }
+        },
+        footer: false,
+        copyright: false
       })
       +copyright({
         text: "Copyright © 2018 Toxin отель. Все права защищены.",
@@ -116,5 +102,7 @@ include ../../blocks/copyright/copyright.pug
             "name": "instagram",
             "iconSrc": "img/instagram.svg"
           }
-        ]
+        ],
+        description: false,
+        subscribe: false
       })

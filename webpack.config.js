@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require ('mini-css-extract-plugin');
 
 module.exports = {
@@ -10,9 +9,9 @@ module.exports = {
       'ui-kit': './ui-kit/main/ui-kit.js',
       'landing-page': './pages/landing-page/landing-page.js',
       'search-room': './pages/search-room/search-room.js',
+      'room-details': './pages/room-details/room-details.js',
       'registration': './pages/registration/registration.js',
       'sign-in': './pages/sign-in/sign-in.js',
-      'room-details': './pages/room-details/room-details.js',
     },
   output: {
     filename: 'js/[name].js',

@@ -1,23 +1,20 @@
 mixin login(settings)
-  - let action = "./for-change"
-  - let title = { text: "For change" }
-  - let confirm = { text: "For change" }
-  - let loginLink = "./for-change"
-  - if (settings) {
-  -   if(settings.hasOwnProperty("action")) action = settings.action
-  -   if(settings.title && settings.title.hasOwnProperty("text")) title.text = settings.title.text
-  -   if(settings.confirm && settings.confirm.hasOwnProperty("text")) confirm.text= settings.confirm.text
-  -   if(settings.hasOwnProperty("loginLink")) loginLink = settings.loginLink
-  - };
+  - let {
+  -   action = "./for-change",
+  -   title: { text: titleText = "For change" },
+  -   confirm: { text: confirmText = "For change" },
+  -   loginLink = "./for-change"
+  - } = settings
   form(action=action).login
     .login__title
       +title({
-        text: title.text,
+        text: titleText,
         type: "big"
       })
     .login__inputs
       .login__email-input
         +input({
+          title: {},
           input: {
             attr: {
               "type": "email",
@@ -29,6 +26,7 @@ mixin login(settings)
         })
       .login__pass-input
         +input({
+          title: {},
           input: {
             attr: {
               "type": "password",
@@ -41,7 +39,7 @@ mixin login(settings)
     .login__confirm-button
       +button({
         type: "big",
-        text: confirm.text,
+        text: confirmText,
         attr: {"type": "submit"}
       })
     .login__registration

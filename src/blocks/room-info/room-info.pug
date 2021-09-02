@@ -1,14 +1,12 @@
 mixin room-info(settings)
-  - let number = ""
-  - let price = ""
-  - let type = ""
-  - if (settings) {
-  -   settings.hasOwnProperty("number") ? number = settings.number : number = ""
-  -   settings.hasOwnProperty("price") ? price = `${settings.price}₽ ` : price = ""
-  -   settings.hasOwnProperty("type") ? type = `room-info__number_${settings.type}` : type = ""
-  - };
+  - let {
+  -   number = "000",
+  -   price = "0000",
+  -   type = false
+  - } = settings
+  - if (type) type = `room-info__number_${type}`
   div.room-info
     span(class="room-info__number" class=type)=number
     span.room-info__price-wrapper
       em.room-info__price=price 
-      ="в сутки"
+      =" в сутки"
