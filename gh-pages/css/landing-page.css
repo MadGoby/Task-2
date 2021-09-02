@@ -456,7 +456,8 @@
     text-transform: uppercase;
     margin-bottom: 21px;
     display: inline-block;
-    cursor: default; }
+    cursor: default;
+    vertical-align: top; }
   .footer__nav-link {
     text-decoration: none;
     color: rgba(31, 32, 65, 0.5);

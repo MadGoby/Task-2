@@ -1116,16 +1116,23 @@
   .final-booking__service-title {
     line-height: 18px;
     display: inline-block;
-    max-width: 86%; }
+    max-width: 214px; }
     .final-booking__service-title_total {
       font-weight: 700;
       font-size: 19px;
       color: #1f2041;
       width: 18%; }
+    @media screen and (max-width: 380px) {
+      .final-booking__service-title {
+        width: 86%; } }
   .final-booking__service-price {
     display: inline-block;
     width: 78px;
+    vertical-align: top;
     text-align: right; }
+    @media screen and (max-width: 380px) {
+      .final-booking__service-price {
+        width: 85px; } }
     .final-booking__service-price_total {
       display: inline-block;
       font-size: 19px;
@@ -1956,7 +1963,8 @@
     text-transform: uppercase;
     margin-bottom: 21px;
     display: inline-block;
-    cursor: default; }
+    cursor: default;
+    vertical-align: top; }
   .footer__nav-link {
     text-decoration: none;
     color: rgba(31, 32, 65, 0.5);
