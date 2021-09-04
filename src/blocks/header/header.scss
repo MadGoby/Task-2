@@ -75,7 +75,7 @@
     }
   }
 
-  &__nav {
+  &__navigation {
     display: inline-block;
     line-height: 40px;
     vertical-align: top;
@@ -92,14 +92,14 @@
     }
   }
 
-  &__nav-wrapp {
+  &__navigation-wrapper {
     @media screen and (max-width: 350px) {
       text-align: center;
       display: none;
     }
   }
 
-  &__nav-button {
+  &__navigation-button {
     display: none;
     height: 25px;
     line-height: 3px;
@@ -112,7 +112,7 @@
     }
   }
 
-  &__nav-button:hover > &__hamburger {
+  &__navigation-button:hover > &__hamburger {
     background-color: $dark75;
 
     &::before,
@@ -154,7 +154,7 @@
       top: -8px;
     }
 
-    &_open {
+    &_expanded {
       height: 0px;
 
       &::after,

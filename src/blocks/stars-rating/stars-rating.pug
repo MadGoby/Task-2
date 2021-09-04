@@ -1,0 +1,13 @@
+mixin stars-rating(settings)
+  - let {
+  -   jsClass = "js-for-change",
+  -   rating = 0
+  - } = settings
+  - let starStep = 1
+  div(class="stars-rating" class=jsClass)
+    while starStep <= 5
+      if (starStep <= rating)
+        span(class="stars-rating__star stars-rating__star_color_purple")
+      else
+        span(class="stars-rating__star")
+      - starStep = starStep + 1

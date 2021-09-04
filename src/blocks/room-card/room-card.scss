@@ -40,7 +40,7 @@
       margin-right: 3.5px;
     }
 
-    &_active {
+    &_selected {
       background-color: white;
     }
   }
@@ -75,19 +75,19 @@
       box-sizing: border-box;
     }
 
-    &_previous {
+    &_side_left {
       border-top-left-radius: 4px;
       left: 0px;
     }
 
-    &_next {
+    &_side_rigth {
       right: 0px;
       transform: rotate(180deg);
       border-bottom-left-radius: 4px;
     }
   }
 
-  &__room-info {
+  &__room-information {
     padding: 15px 19px 19px;
   }
 

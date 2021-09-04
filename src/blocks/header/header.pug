@@ -1,6 +1,6 @@
 mixin header(settings)
   - let {
-  -   nav: { 
+  -   navigation: { 
   -     links = [
   -       {"text": "For change", "type": "bold"},
   -       {"text": "For change"},
@@ -8,7 +8,7 @@ mixin header(settings)
   -       {"text": "For change"}
   -     ],
   -     buttonJsClass = "js-for-change",
-  -     navJsClass = "js-for-change"
+  -     navigationJsClass = "js-for-change"
   -   },
   -   authorized = false
   - } = settings
@@ -17,11 +17,11 @@ mixin header(settings)
       +logo({
         src: "img/logo-color.svg"
       })
-    .header__nav
-      button(class="header__nav-button" class=buttonJsClass)
+    .header__navigation
+      button(class="header__navigation-button" class=buttonJsClass)
         span.header__hamburger
-      div(class="header__nav-wrapp" class=navJsClass)
-        +nav({
+      div(class="header__navigation-wrapper" class=navigationJsClass)
+        +navigation({
           links: links
         })
     if authorized
@@ -33,12 +33,12 @@ mixin header(settings)
             type: "border",
             text: "войти",
             attr: {"type": "button"},
-            height: "border-s"
+            height: "border_small"
           })
         .header__registration-button
           +button({
-            type: "simple",
+            type: "regular",
             text: "зарегистрироваться",
             attr: {"type": "button"},
-            height: "simple-s"
+            height: "height_small"
           })

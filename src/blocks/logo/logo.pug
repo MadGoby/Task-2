@@ -1,7 +1,7 @@
 mixin logo(settings)
   - let {
-  -   type = false,
+  -   position = false,
   -   src = false
   - } = settings
-  - if(type) type = `logo_${type}`
-  img(class="logo" alt="logo" class=type, src=src)
+  - if(position) position = `logo_position_${position}`
+  img(class="logo" alt="logo" class=position, src=src)

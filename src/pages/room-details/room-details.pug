@@ -1,13 +1,13 @@
 include ../../blocks/header/header.pug
 include ../../blocks/logo/logo.pug
-include ../../blocks/nav/nav.pug
+include ../../blocks/navigation/navigation.pug
 include ../../blocks/button/button.pug
 include ../../blocks/footer/footer.pug
 include ../../blocks/social-media-link/social-media-link.pug
 include ../../blocks/copyright/copyright.pug
 include ../../blocks/input/input.pug
 include ../../blocks/final-booking/final-booking.pug
-include ../../blocks/room-info/room-info.pug
+include ../../blocks/room-information/room-information.pug
 include ../../blocks/positive-feature/positive-feature.pug
 include ../../blocks/impressions-diagram/impressions-diagram.pug
 include ../../blocks/user-comment/user-comment.pug
@@ -18,12 +18,12 @@ include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/dropdown/dropdown.pug
 include ../../overall/page-head.pug
 
-+page-head({title: "Room Details", desc: "Room Details page of the hotel room website."})
++page-head({title: "Room Details", description: "Room Details page of the hotel room website."})
   body
     .room-details
       header.room-details__header
         +header({
-          nav: { 
+          navigation: { 
             links: [
               {"text": "О нас"},
               {"text": "Услуги", "type": "expanded"},
@@ -31,24 +31,24 @@ include ../../overall/page-head.pug
               {"text": "Новости"},
               {"text": "Соглашения", "type": "expanded"}
             ],
-            buttonJsClass: "js-header-nav-button",
-            navJsClass: "js-header-nav"
+            buttonJsClass: "js-header-navigation-button",
+            navigationJsClass: "js-header-navigation"
           }
         })
       main.room-details__main
         .room-details__photos 
-          img(src="./img/room-photo-big.jpg", alt="Room photo"  class="room-photo room-photo_big")
+          img(src="./img/room-photo-big.jpg", alt="Room photo"  class="room-photo room-photo_size_large")
           .room-details__photos-wrapper
-            img(src="./img/room-photo-small1.jpg", alt="Room photo" class="room-photo room-photo_small_upper")
-            img(src="./img/room-photo-small2.jpg", alt="Room photo" class="room-photo room-photo_small_lower")
+            img(src="./img/room-photo-small1.jpg", alt="Room photo" class="room-photo room-photo_corner_top-right")
+            img(src="./img/room-photo-small2.jpg", alt="Room photo" class="room-photo room-photo_corner_bottom-right")
         .room-details__details
           .room-details__details-wrapper
             .room-details__final-booking
               +final-booking({
-                roomInfo: {
+                roomInformation: {
                   number: "888",
                   price: "9 990",
-                  type: "luxury"
+                  type: "with-postfix"
                 },
                 period: {
                   from: {
@@ -99,15 +99,15 @@ include ../../overall/page-head.pug
                 ],
                 confirm: { text: "забронировать"}
               })
-            .room-details__float-wrapper
+            .room-details__content-wrapper
               .room-details__positive-features
                 +title({
                   text: "Сведения о номере",
-                  type: "middle",
+                  type: "size_regular",
                   teg: "h2"
                 })
                 +positive-feature({
-                  border: "border_bottom",
+                  border: "with-border",
                   img: {
                     attr: {
                       "alt": "Feeling comfortable",
@@ -120,7 +120,7 @@ include ../../overall/page-head.pug
                   }
                 })
                 +positive-feature({
-                  border: "border_bottom",
+                  border: "with-border",
                   img: {
                     attr: {
                       "alt": "Abstract image of a modern house",
@@ -148,26 +148,26 @@ include ../../overall/page-head.pug
                 .room-details__impression-title
                   +title({
                     text: "Впечатления от номера",
-                    type: "middle",
+                    type: "size_regular",
                     teg: "h2"
                   })
                 +impressions-diagram({
                   text: "",
                   lines: [
-                    {text: "Великолепно", type: "perfectly"},
-                    {text: "Хорошо", type: "good"},
-                    {text: "Удовлетворительно", type: "satisfactorily"},
-                    {text: "Разочарован", type: "disappointed"}
+                    {text: "Великолепно", type: "color_yellow"},
+                    {text: "Хорошо", type: "color_green"},
+                    {text: "Удовлетворительно", type: "color_purple"},
+                    {text: "Разочарован", type: "color_black"}
                   ]
                 })
               .room-details__comments
                 .room-details__comments-title
                   +title({
                     text: "Отзывы посетителей номера",
-                    type: "middle",
+                    type: "size_regular",
                     teg: "h2"
                   })
-                  span.room-details__comments-count="2 отзыва"
+                  span.room-details__comments-counter="2 отзыва"
                 .room-details__comment
                   +user-comment({
                     title: {
@@ -208,7 +208,7 @@ include ../../overall/page-head.pug
                 +list({
                   title: {
                     text: "Правила",
-                    type: "middle",
+                    type: "size_regular",
                     bullet: true,
                     margin: true,
                     teg: "h2"
@@ -223,7 +223,7 @@ include ../../overall/page-head.pug
                   .cancellation__title
                     +title({
                       text: "Отмена",
-                      type: "middle",
+                      type: "size_regular",
                       teg: "h2"
                     })
                   p.cancellation__text="Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."

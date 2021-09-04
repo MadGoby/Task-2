@@ -6,16 +6,11 @@ export default function datepickerFunctionality(settings) {
     const inputFrom = document.querySelector(inputFromClass);
     const inputTo = document.querySelector(inputToClass);
     const inputTotal = document.querySelector(inputTotalClass);
-    const buttonPrevious = datepickerBody.querySelector('.js-datepicker__scroll-button_left');
-    const buttonNext = datepickerBody.querySelector('.js-datepicker__scroll-button_right');
+    const buttonPrevious = datepickerBody.querySelector('.js-datepicker__scroll-button_arrow_back');
+    const buttonNext = datepickerBody.querySelector('.js-datepicker__scroll-button_arrow_forward');
     const selectedMonth = datepickerBody.querySelector('.js-datepicker__selected-month');
     const calendar = datepickerBody.querySelector('.js-datepicker__calendar');
-    const calendarLine1 = calendar.querySelector('.js-datepicker__calendar-line_num_1');
-    const calendarLine2 = calendar.querySelector('.js-datepicker__calendar-line_num_2');
-    const calendarLine3 = calendar.querySelector('.js-datepicker__calendar-line_num_3');
-    const calendarLine4 = calendar.querySelector('.js-datepicker__calendar-line_num_4');
-    const calendarLine5 = calendar.querySelector('.js-datepicker__calendar-line_num_5');
-    const calendarLine6 = calendar.querySelector('.js-datepicker__calendar-line_num_6');
+    const lines = [...calendar.querySelectorAll('.js-datepicker__calendar-line')];
     const clearButton = datepickerBody.querySelector('.js-datepicker__clear-button');
     const applyButton = datepickerBody.querySelector('.js-datepicker__apply-button');
 
@@ -30,7 +25,7 @@ export default function datepickerFunctionality(settings) {
       calendar,
       clearButton,
       applyButton,
-      lines: [calendarLine1, calendarLine2, calendarLine3, calendarLine4, calendarLine5, calendarLine6],
+      lines,
     };
   }
 
@@ -100,8 +95,8 @@ export default function datepickerFunctionality(settings) {
       const calendarCell = document.createElement('td');
       calendarCell.classList.add('datepicker__calendar-cell');
 
-      if (size === 'm') {
-        calendarCell.classList.add('datepicker__calendar-cell_size_m');
+      if (size === 'small') {
+        calendarCell.classList.add('datepicker__calendar-cell_size_small');
       }
 
       if (whatMonth === 'next') {
@@ -125,28 +120,28 @@ export default function datepickerFunctionality(settings) {
       }
 
       if (checkMatchByDay(currentDay)) {
-        calendarCell.classList.add('datepicker__calendar-cell_current-day');
+        calendarCell.classList.add('datepicker__calendar-cell_color_green');
       }
 
       if (from) {
         if (checkMatchByDay(from)) {
-          calendarCell.classList.add('datepicker__calendar-cell_from');
+          calendarCell.classList.add('datepicker__calendar-cell_color_purple');
         }
       }
 
       if (to) {
         if (checkMatchByDay(to)) {
-          calendarCell.classList.add('datepicker__calendar-cell_to');
+          calendarCell.classList.add('datepicker__calendar-cell_color_purple');
         }
       }
 
       if (from && to) {
         if (checkRangeMatch() && checkMatchByDay(from)) {
-          calendarCell.classList.add('datepicker__calendar-cell_range-from');
+          calendarCell.classList.add('datepicker__calendar-cell_right-half_shaded');
         } else if (checkRangeMatch() && checkMatchByDay(to)) {
-          calendarCell.classList.add('datepicker__calendar-cell_range-to');
+          calendarCell.classList.add('datepicker__calendar-cell_left-half_shaded');
         } else if (checkRangeMatch()) {
-          calendarCell.classList.add('datepicker__calendar-cell_range');
+          calendarCell.classList.add('datepicker__calendar-cell_shaded');
         }
       }
 

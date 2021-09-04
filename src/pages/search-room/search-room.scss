@@ -2,7 +2,7 @@
 @import '../../fonts/fonts.scss';
 @import '../../blocks/header/header.scss';
 @import '../../blocks/logo/logo.scss';
-@import '../../blocks/nav/nav.scss';
+@import '../../blocks/navigation/navigation.scss';
 @import '../../blocks/button/button.scss';
 @import '../../blocks/footer/footer.scss';
 @import '../../blocks/social-media-link/social-media-link.scss';
@@ -13,12 +13,12 @@
 @import '../../blocks/list/list.scss';
 @import '../../blocks/dropdown/dropdown.scss';
 @import '../../blocks/room-card/room-card.scss';
-@import '../../blocks/room-info/room-info.scss';
-@import '../../blocks/rate-counter/rate-counter.scss';
+@import '../../blocks/room-information/room-information.scss';
+@import '../../blocks/reviews-counter/reviews-counter.scss';
 @import '../../blocks/title/title.scss';
-@import '../../blocks/content-nav/content-nav.scss';
+@import '../../blocks/content-navigation/content-navigation.scss';
 @import '../../blocks/datepicker/datepicker.scss';
-@import '../../blocks/star-rate/star-rate.scss';
+@import '../../blocks/stars-rating/stars-rating.scss';
 
 html,
 body {
@@ -95,7 +95,7 @@ body {
     margin-bottom: 20px;
   }
 
-  &__rooms-nav {
+  &__rooms-navigation {
     text-align: center;
     margin-top: 20px;
   }

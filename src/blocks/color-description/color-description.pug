@@ -4,13 +4,13 @@ mixin color-description(settings)
   -     type: sampleType = "for-change" 
   -   },
   -   text: {
-  -     name: textName = "for-change",
-  -     index: textIndex = "for-Change"
+  -     name = "for-change",
+  -     index = "for-Change"
   -   }
   - } = settings
   - if(sampleType) sampleType = `color-description__sample_color_${sampleType}`
   .color-description
     div(class="color-description__sample", class=sampleType)
     .color-description__text
-      p.color-description__name= textName
-      p.color-description__index= textIndex
+      p.color-description__name= name
+      p.color-description__index= index

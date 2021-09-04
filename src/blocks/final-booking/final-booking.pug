@@ -1,7 +1,7 @@
 mixin final-booking(settings)
   - let {
   -   action = "./for-change",
-  -   roomInfo: {
+  -   roomInformation: {
   -     number: roomNumber = "000",
   -     price: roomPrice = "000",
   -     type: roomType = false
@@ -54,8 +54,8 @@ mixin final-booking(settings)
   -   confirm: { text: confirmText = "For Change" }
   - } = settings
   form(class="final-booking" action=action)
-    .final-booking__room-info
-      +room-info({
+    .final-booking__room-information
+      +room-information({
         number: roomNumber,
         price: roomPrice,
         type: roomType
@@ -71,7 +71,7 @@ mixin final-booking(settings)
               value: fromValue,
               readonly: "readonly"
             },
-            length: "s",
+            length: "short",
             type: "dropdown",
             jsClass: fromJs
           }
@@ -86,7 +86,7 @@ mixin final-booking(settings)
               value: toValue,
               readonly: "readonly"
             },
-            length: "s",
+            length: "short",
             type: "dropdown",
             jsClass: toJs
           }
@@ -108,7 +108,7 @@ mixin final-booking(settings)
               value: guestsInputValue,
               readonly: "readonly",
             },
-            length: "l",
+            length: "long",
             type: "dropdown",
             jsClass: guestsInputJs
           }
@@ -122,10 +122,10 @@ mixin final-booking(settings)
     ul.final-booking__service-list
       each list in serviceList
         if list.type == "total"
-          li(class="final-booking__service final-booking__service_total")
-            div(class="final-booking__service-wrapper final-booking__service-wrapper_total")
-              span(class="final-booking__service-title final-booking__service-title_total")=list.title
-            span(class="final-booking__service-price final-booking__service-price_total")=list.price
+          li(class="final-booking__service final-booking__service_text_bold")
+            div(class="final-booking__service-wrapper final-booking__service-wrapper_text_bold")
+              span(class="final-booking__service-title final-booking__service-title_text_bold")=list.title
+            span(class="final-booking__service-price final-booking__service-price_text_bold")=list.price
         else 
           li(class="final-booking__service")
             .final-booking__service-wrapper
@@ -135,7 +135,7 @@ mixin final-booking(settings)
             span.final-booking__service-price=list.price
     .final-booking__confirm-button
       +button({
-        type: "big",
+        type: "confirm",
         text: confirmText,
         attr: {"type": "submit"}
       })

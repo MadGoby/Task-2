@@ -25,5 +25,5 @@ mixin toggle(settings)
       if mimicType !== "toggle__mimic_type_like"
         .toggle__text-wrapper
           if richText
-            p(class="toggle__text toggle__text_rich", class=textLength)= richText
+            p(class="toggle__text-title", class=textLength)= richText
           p(class="toggle__text", class=textLength)= textContent

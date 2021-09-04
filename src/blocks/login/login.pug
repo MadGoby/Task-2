@@ -9,7 +9,7 @@ mixin login(settings)
     .login__title
       +title({
         text: titleText,
-        type: "big"
+        type: "size_large"
       })
     .login__inputs
       .login__email-input
@@ -20,11 +20,11 @@ mixin login(settings)
               "type": "email",
               "placeholder": "Email"
             },
-            length: "l",
-            type: "simple"
+            length: "long",
+            type: "regular"
           }
         })
-      .login__pass-input
+      .login__password-input
         +input({
           title: {},
           input: {
@@ -32,13 +32,13 @@ mixin login(settings)
               "type": "password",
               "placeholder": "Пароль"
             },
-            length: "l",
-            type: "simple"
+            length: "long",
+            type: "regular"
           }
         })
     .login__confirm-button
       +button({
-        type: "big",
+        type: "confirm",
         text: confirmText,
         attr: {"type": "submit"}
       })

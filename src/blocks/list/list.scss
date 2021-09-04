@@ -14,7 +14,7 @@
       margin-bottom: 10px;
     }
 
-    &_bullet {
+    &_with-bullet {
       &:before {
         content: '';
         display: inline-block;
@@ -42,7 +42,7 @@
     margin-bottom: 18px;
     line-height: 15px;
 
-    &_bullet {
+    &_with-bullet {
       margin-bottom: 13px;
     }
 

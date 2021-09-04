@@ -2,16 +2,16 @@ mixin impressions-diagram(settings)
   - let {
   -   text = "000 голосов",
   -   lines = [
-  -     {text: "For change 1", type: "perfectly"},
-  -     {text: "For change 2", type: "good"},
-  -     {text: "For change 3", type: "satisfactorily"},
-  -     {text: "For change 4", type: "disappointed"}
+  -     {text: "For change 1", type: "color_yellow"},
+  -     {text: "For change 2", type: "color_green"},
+  -     {text: "For change 3", type: "color_purple"},
+  -     {text: "For change 4", type: "color_black"}
   -   ]
   - } = settings
   .impressions-diagram
     .impressions-diagram__reviews-wrapper
-      p.impressions-diagram__reviews-count=text
-    ul.impressions-diagram__description 
+      p.impressions-diagram__reviews-counter=text
+    ul.impressions-diagram__description
       each line in lines 
         - let {
         -   text: lineText,

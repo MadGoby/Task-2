@@ -6,19 +6,21 @@ mixin input(settings)
   -     state: titleState = false
   -   },
   -   input: {
-  -     length: inputLength = "l",
-  -     type: inputType = "simple",
+  -     length: inputLength = "long",
+  -     type: inputType = "regular",
   -     attr: inputAttr = { placeholder: "For-change" },
   -     state: inputState = false,
-  -     jsClass: inputJs = false
-  -   },
-  -   wrappType = false
+  -     jsClass: inputJs = false,
+  -     border: inputBorder = false
+  -   }
   - } = settings
+  - let wrapperType = false
   - if (titleType) titleType = `input__title-text_${titleType}`
   - if (inputLength) inputLength = `input__field_length_${inputLength}`
-  - if (inputType === "dropdown" || inputType === "submit") wrappType = inputType
+  - if (inputType === "dropdown" || inputType === "submit") wrapperType = inputType
   - if (inputType) inputType = `input__field_type_${inputType}`
   - if (inputState) inputState = `input__field_${inputState}`
+  - if (inputBorder) inputBorder = `input__field_border_${inputBorder}`
   .input
     if titleText
       .input__title
@@ -28,10 +30,10 @@ mixin input(settings)
           })
         if titleState
           p.input__state=titleState
-    if wrappType === "dropdown" || wrappType === "submit"
-      label(class="input__wrapper" class=`input__wrapper_type_${wrappType}`)
+    if wrapperType === "dropdown" || wrapperType === "submit"
+      label(class="input__wrapper" class=`input__wrapper_type_${wrapperType}`)
         input(class="input__field", class=inputLength, class=inputType, class=inputState, class=inputJs)&attributes(inputAttr)
-        if wrappType === "submit"
+        if wrapperType === "submit"
           button(type="submit" class="input__submit-button")
     else
-      input(class="input__field", class=inputLength, class=inputType, class=inputState, class=inputJs)&attributes(inputAttr)
+      input(class="input__field", class=inputLength, class=inputType, class=inputBorder, class=inputState, class=inputJs)&attributes(inputAttr)

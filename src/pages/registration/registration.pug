@@ -1,6 +1,6 @@
 include ../../blocks/header/header.pug
 include ../../blocks/logo/logo.pug
-include ../../blocks/nav/nav.pug
+include ../../blocks/navigation/navigation.pug
 include ../../blocks/button/button.pug
 include ../../blocks/footer/footer.pug
 include ../../blocks/social-media-link/social-media-link.pug
@@ -12,12 +12,12 @@ include ../../blocks/toggle/toggle.pug
 include ../../blocks/title/title.pug
 include ../../overall/page-head.pug
 
-+page-head({title: "Registration Page", desc: "Registation page of the hotel room website."})
++page-head({title: "Registration Page", description: "Registation page of the hotel room website."})
   body
     .registration-page
       header.registration-page__header
         +header({
-          nav: { 
+          navigation: { 
             links: [
               {"text": "О нас"},
               {"text": "Услуги", "type": "expanded"},
@@ -25,8 +25,8 @@ include ../../overall/page-head.pug
               {"text": "Новости"},
               {"text": "Соглашения", "type": "expanded"}
             ],
-            buttonJsClass: "js-header-nav-button",
-            navJsClass: "js-header-nav"
+            buttonJsClass: "js-header-navigation-button",
+            navigationJsClass: "js-header-navigation"
           }
         })
       main.registration-page__main 

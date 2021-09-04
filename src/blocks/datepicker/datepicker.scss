@@ -26,10 +26,10 @@
     display: inline-block;
     vertical-align: top;
     outline: none;
-  }
 
-  &__scroll-button_left {
-    transform: rotate(180deg);
+    &_arrow_back {
+      transform: rotate(180deg);
+    }
   }
 
   &__selected-month {
@@ -39,7 +39,7 @@
     text-align: center;
     @include text_type($mont, 19px, 700, 24px, $dark100);
 
-    &_size_m {
+    &_size_small {
       min-width: 197px;
     }
 
@@ -65,86 +65,84 @@
     user-select: none;
     cursor: pointer;
 
-    &_size_m {
+    &_size_small {
       width: 35px;
       height: 35px;
       line-height: 35px;
+    }
+
+    &_font_bold {
+      color: $purple;
+      font-weight: 700;
+      cursor: default;
+    }
+
+    &_transparent {
+      color: $dark25;
+    }
+
+    &_color_green,
+    &_color_purple {
+      border-radius: 50%;
+      color: white;
+      font-weight: 700;
+    }
+
+    &_color_purple {
+      background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    }
+
+    &_color_green {
+      background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+    }
+
+    &_shaded,
+    &_right-half_shaded,
+    &_left-half_shaded {
+      position: relative;
+      z-index: 2;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+        opacity: 0.25;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+
+    &_right-half_shaded {
+      &::before {
+        left: 20px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+    }
+
+    &_left-half_shaded {
+      &::before {
+        left: 0;
+        right: 20px;
+        top: 0;
+        bottom: 0;
+      }
+    }
+
+    &_shaded {
+      &::before {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
     }
 
     @media screen and (max-width: 380px) {
       width: 35px;
       height: 35px;
       line-height: 35px;
-    }
-  }
-
-  &__calendar-cell_day {
-    color: $purple;
-    font-weight: 700;
-    cursor: default;
-  }
-
-  &__calendar-cell_transparent {
-    color: $dark25;
-  }
-
-  &__calendar-cell_current-day,
-  &__calendar-cell_from,
-  &__calendar-cell_to {
-    border-radius: 50%;
-    color: white;
-    font-weight: 700;
-  }
-
-  &__calendar-cell_current-day {
-    background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
-  }
-
-  &__calendar-cell_from,
-  &__calendar-cell_to {
-    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-  }
-
-  &__calendar-cell_range,
-  &__calendar-cell_range-from,
-  &__calendar-cell_range-to {
-    position: relative;
-    z-index: 2;
-
-    &::before {
-      content: '';
-      display: inline-block;
-      background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-      opacity: 0.25;
-      position: absolute;
-      z-index: -1;
-    }
-  }
-
-  &__calendar-cell_range {
-    &::before {
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-    }
-  }
-
-  &__calendar-cell_range-from {
-    &::before {
-      left: 20px;
-      right: 0;
-      top: 0;
-      bottom: 0;
-    }
-  }
-
-  &__calendar-cell_range-to {
-    &::before {
-      left: 0;
-      right: 20px;
-      top: 0;
-      bottom: 0;
     }
   }
 
@@ -162,7 +160,7 @@
     vertical-align: top;
   }
 
-  &_size_m {
+  &_size_small {
     width: 266px;
     padding: 9px 10px 10px 9px;
   }

@@ -4,8 +4,8 @@ export default function swiperSlider(settings) {
   function initializeElements() {
     const roomCard = document.querySelector(roomCardClass);
     const images = [...roomCard.querySelectorAll('.room-card__image')];
-    const previousButton = roomCard.querySelector('.room-card__image-button_previous');
-    const nextButton = roomCard.querySelector('.room-card__image-button_next');
+    const previousButton = roomCard.querySelector('.room-card__image-button_side_left');
+    const nextButton = roomCard.querySelector('.room-card__image-button_side_rigth');
     const imagePositions = [...roomCard.querySelectorAll('.room-card__image-position')];
     const currentImage = images[0];
     const currentImagePosition = imagePositions[0];
@@ -27,9 +27,9 @@ export default function swiperSlider(settings) {
   const { roomCard, images, previousButton, nextButton, imagePositions } = initializeElements();
 
   function animationOfImg(target, animation) {
-    let animLength = 500;
+    let animationLength = 500;
 
-    if (animation && typeof animation === 'number') animLength = animation;
+    if (animation && typeof animation === 'number') animationLength = animation;
 
     function toPrevious() {
       let index = images.indexOf(currentImage, 0) + 1;
@@ -37,12 +37,12 @@ export default function swiperSlider(settings) {
       if (index > 3) index = 0;
 
       images[index].animate([{ left: '0px' }, { left: `${roomCard.offsetWidth}px` }], {
-        duration: animLength,
+        duration: animationLength,
         easing: 'ease-in-out',
       });
 
       currentImage.animate([{ left: `${0 - roomCard.offsetWidth}px` }, { left: '0px' }], {
-        duration: animLength,
+        duration: animationLength,
         easing: 'ease-in-out',
       });
 
@@ -57,12 +57,12 @@ export default function swiperSlider(settings) {
       if (index > 3) index = 0;
 
       images[index].animate([{ left: '0px' }, { left: `${0 - roomCard.offsetWidth}px` }], {
-        duration: animLength,
+        duration: animationLength,
         easing: 'ease-in-out',
       });
 
       currentImage.animate([{ left: `${roomCard.offsetWidth}px` }, { left: '0px' }], {
-        duration: animLength,
+        duration: animationLength,
         easing: 'ease-in-out',
       });
 
@@ -82,7 +82,7 @@ export default function swiperSlider(settings) {
 
     function changeImage() {
       let index = images.indexOf(currentImage, 0);
-      if (button.classList.contains('room-card__image-button_previous')) {
+      if (button.classList.contains('room-card__image-button_side_left')) {
         index -= 1;
       } else {
         index += 1;
@@ -93,14 +93,14 @@ export default function swiperSlider(settings) {
 
       currentImage = images[index];
 
-      currentImagePosition.classList.toggle('room-card__image-position_active');
+      currentImagePosition.classList.toggle('room-card__image-position_selected');
       currentImagePosition = imagePositions[index];
-      currentImagePosition.classList.toggle('room-card__image-position_active');
+      currentImagePosition.classList.toggle('room-card__image-position_selected');
     }
 
     changeImage();
 
-    if (button.classList.contains('room-card__image-button_previous')) {
+    if (button.classList.contains('room-card__image-button_side_left')) {
       animationOfImg('previous');
     } else {
       animationOfImg('next');
@@ -113,16 +113,16 @@ export default function swiperSlider(settings) {
         const i = images.indexOf(currentImage) + 1;
         
         currentImage = images[i];
-        currentImagePosition.classList.toggle('room-card__image-position_active');
+        currentImagePosition.classList.toggle('room-card__image-position_selected');
         currentImagePosition = imagePositions[i];
-        currentImagePosition.classList.toggle('room-card__image-position_active');
+        currentImagePosition.classList.toggle('room-card__image-position_selected');
       } else {
         const i = images.indexOf(currentImage) - 1;
         
         currentImage = images[i];
-        currentImagePosition.classList.toggle('room-card__image-position_active');
+        currentImagePosition.classList.toggle('room-card__image-position_selected');
         currentImagePosition = imagePositions[i];
-        currentImagePosition.classList.toggle('room-card__image-position_active');
+        currentImagePosition.classList.toggle('room-card__image-position_selected');
       }
 
       animationOfImg(action, 300);

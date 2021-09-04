@@ -2,10 +2,10 @@ import './search-room.scss';
 import dropdownFunctionality from '../../blocks/dropdown/dropdown';
 import listFunctionality from '../../blocks/list/list';
 import swiperSlider from '../../blocks/room-card/room-card';
-import contentNav from '../../blocks/content-nav/content-nav';
+import contentNavigation from '../../blocks/content-navigation/content-navigation';
 import datepickerFunctionality from '../../blocks/datepicker/datepicker';
-import starRatting from '../../blocks/star-rate/star-rate';
-import headerNav from '../../blocks/header/header';
+import starsRating from '../../blocks/stars-rating/stars-rating';
+import headerNavigation from '../../blocks/header/header';
 
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
@@ -31,9 +31,9 @@ const guestsWithBaby = [
   ['младен', 'ец', 'ца', 'ев'],
 ];
 
-headerNav({
-  buttonClass: '.js-header-nav-button',
-  navClass: '.js-header-nav',
+headerNavigation({
+  buttonClass: '.js-header-navigation-button',
+  navigationClass: '.js-header-navigation',
 });
 
 dropdownFunctionality({
@@ -58,8 +58,8 @@ listFunctionality({
 const $sliderBody = $('.js-slider__body');
 
 $(document).ready(() => {
-  function addPadding(outputStr) {
-    let value = outputStr;
+  function addPadding(outputString) {
+    let value = outputString;
 
     if (value.length > 3) {
       value = `${value.slice(0, value.length - 3)} ${value.slice(value.length - 3)}`;
@@ -120,7 +120,7 @@ function sidebarDropdown(settings) {
     }
   }
 
-  function convertPassesVariable(event) {
+  function passesPageWidth(event) {
     const userWidth = +event.target.innerWidth;
     changeSidebarDisplay(userWidth);
   }
@@ -129,7 +129,7 @@ function sidebarDropdown(settings) {
 
   function bindEventListeners() {
     title.addEventListener('click', discloseSidebar);
-    document.body.onresize = convertPassesVariable;
+    document.body.onresize = passesPageWidth;
   }
 
   bindEventListeners();
@@ -188,8 +188,8 @@ swiperSlider({
   roomCardClass: '.js-room-card-12',
 });
 
-contentNav({
-  navClass: '.js-content-nav',
+contentNavigation({
+  navigationClass: '.js-content-navigation',
 });
 
 datepickerFunctionality({
@@ -202,49 +202,53 @@ datepickerFunctionality({
     from: new Date(2019, 7, 19),
     to: new Date(2019, 7, 23),
   },
-  size: 'm',
+  size: 'small',
 });
 
-starRatting({
-  containerClass: '.js-star-rate',
+starsRating({
+  containerClass: '.js-stars-rating',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-2',
+starsRating({
+  containerClass: '.js-stars-rating-2',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-3',
+starsRating({
+  containerClass: '.js-stars-rating-3',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-4',
+starsRating({
+  containerClass: '.js-stars-rating-4',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-5',
+starsRating({
+  containerClass: '.js-stars-rating-5',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-6',
+starsRating({
+  containerClass: '.js-stars-rating-6',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-7',
+starsRating({
+  containerClass: '.js-stars-rating-7',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-8',
+starsRating({
+  containerClass: '.js-stars-rating-8',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-9',
+starsRating({
+  containerClass: '.js-stars-rating-9',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-10',
+starsRating({
+  containerClass: '.js-stars-rating-10',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-11',
+starsRating({
+  containerClass: '.js-stars-rating-11',
+});
+
+starsRating({
+  containerClass: '.js-stars-rating-12',
 });

@@ -8,37 +8,38 @@ mixin datepicker(settings)
   -   size = false
   - } = settings
   - if(size) size = `datepicker_size_${size}`
+  - if(margin) margin = `datepicker_${margin}`
   div(class="datepicker" class=size, class=margin, class=mainJsClass)&attributes(attr)
-    button(class="datepicker__scroll-button datepicker__scroll-button_left js-datepicker__scroll-button_left" type="button")
-    if settings.size == "m"
-      p(class="datepicker__selected-month datepicker__selected-month_size_m js-datepicker__selected-month")
+    button(class="datepicker__scroll-button datepicker__scroll-button_arrow_back js-datepicker__scroll-button_arrow_back" type="button")
+    if settings.size == "small"
+      p(class="datepicker__selected-month datepicker__selected-month_size_small js-datepicker__selected-month")
     else 
       p(class="datepicker__selected-month js-datepicker__selected-month")
-    button(class="datepicker__scroll-button datepicker__scroll-button_right js-datepicker__scroll-button_right" type="button")
+    button(class="datepicker__scroll-button datepicker__scroll-button_arrow_forward js-datepicker__scroll-button_arrow_forward" type="button")
     table(class="datepicker__calendar js-datepicker__calendar")
       tr(class="datepicker__calendar-line")
-        if settings.size == "m"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Пн"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Вт"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Ср"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Чт"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Пт"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Сб"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day datepicker__calendar-cell_size_m")= "Вс"
+        if settings.size == "small"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Пн"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Вт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Ср"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Чт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Пт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Сб"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Вс"
         else
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Пн"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Вт"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Ср"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Чт"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Пт"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Сб"
-          th(class="datepicker__calendar-cell datepicker__calendar-cell_day")= "Вс"
-      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_1")
-      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_2")
-      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_3")
-      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_4")
-      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_5")
-      tr(class="datepicker__calendar-line js-datepicker__calendar-line_num_6")
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Пн"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Вт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Ср"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Чт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Пт"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Сб"
+          th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Вс"
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line")
+      tr(class="datepicker__calendar-line js-datepicker__calendar-line")
     .datepicker__confirmation-buttons
       .datepicker__clear-button
         +button({

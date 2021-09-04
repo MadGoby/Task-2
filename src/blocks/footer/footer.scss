@@ -27,7 +27,7 @@
     display: inline-block;
     text-align: initial;
 
-    &_small {
+    &_size_small {
       width: 100%;
       text-align: center;
     }
@@ -40,7 +40,7 @@
   &__description {
     display: inline-block;
 
-    &_small {
+    &_size_small {
       width: 100%;
       text-align: center;
     }
@@ -55,7 +55,7 @@
     margin: 11px 0 0;
     max-width: 260px;
 
-    &_small {
+    &_size_small {
       max-width: 100%;
     }
 
@@ -148,12 +148,12 @@
   }
 
   &__social-media {
-    &_small {
+    &_size_small {
       margin-top: 18px;
     }
   }
 
-  &_type_small {
+  &_size_small {
     padding: 120px 0;
     background: #ffffff;
     box-shadow: 0px 10px 20px 0px rgba(31, 32, 65, 0.05);

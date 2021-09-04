@@ -2,7 +2,7 @@
 @import '../../fonts/fonts.scss';
 @import '../../blocks/header/header.scss';
 @import '../../blocks/logo/logo.scss';
-@import '../../blocks/nav/nav.scss';
+@import '../../blocks/navigation/navigation.scss';
 @import '../../blocks/button/button.scss';
 @import '../../blocks/footer/footer.scss';
 @import '../../blocks/social-media-link/social-media-link.scss';
@@ -30,7 +30,7 @@ body {
 
   &__main {
     flex: 1 0 auto;
-    background-image: url('../../img/reg-back.jpg');
+    background-image: url('../../img/room-background.jpg');
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;

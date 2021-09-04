@@ -1,6 +1,6 @@
 include ../../blocks/header/header.pug
 include ../../blocks/logo/logo.pug
-include ../../blocks/nav/nav.pug
+include ../../blocks/navigation/navigation.pug
 include ../../blocks/button/button.pug
 include ../../blocks/footer/footer.pug
 include ../../blocks/copyright/copyright.pug
@@ -11,12 +11,12 @@ include ../../blocks/toggle/toggle.pug
 include ../../blocks/title/title.pug
 include ../../overall/page-head.pug
 
-+page-head({title: "Sign In", desc: "Sing In page of the hotel room website."})
++page-head({title: "Sign In", description: "Sing In page of the hotel room website."})
   body
     .sign-in
       header.sign-in__header
         +header({
-          nav: { 
+          navigation: { 
             links: [
               {"text": "О нас"},
               {"text": "Услуги", "type": "expanded"},
@@ -24,8 +24,8 @@ include ../../overall/page-head.pug
               {"text": "Новости"},
               {"text": "Соглашения", "type": "expanded"}
             ],
-            buttonJsClass: "js-header-nav-button",
-            navJsClass: "js-header-nav"
+            buttonJsClass: "js-header-navigation-button",
+            navigationJsClass: "js-header-navigation"
           }
         })
       main.sign-in__main

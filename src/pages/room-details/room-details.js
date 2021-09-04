@@ -1,6 +1,6 @@
 import datepickerFunctionality from '../../blocks/datepicker/datepicker';
 import dropdownFunctionality from '../../blocks/dropdown/dropdown';
-import headerNav from '../../blocks/header/header';
+import headerNavigation from '../../blocks/header/header';
 import './room-details.scss';
 
 require('../../img/room-photo-big.jpg');
@@ -32,7 +32,7 @@ dropdownFunctionality({
   defaultTemplate: 'Сколько гостей',
 });
 
-headerNav({
-  buttonClass: '.js-header-nav-button',
-  navClass: '.js-header-nav',
+headerNavigation({
+  buttonClass: '.js-header-navigation-button',
+  navigationClass: '.js-header-navigation',
 });

@@ -7,14 +7,14 @@ include ../../blocks/list/list.pug
 include ../../blocks/positive-feature/positive-feature.pug
 include ../../blocks/title/title.pug
 include ../../blocks/user-comment/user-comment.pug
-include ../../blocks/content-nav/content-nav.pug
+include ../../blocks/content-navigation/content-navigation.pug
 include ../../blocks/datepicker/datepicker.pug
-include ../../blocks/star-rate/star-rate.pug
+include ../../blocks/stars-rating/stars-rating.pug
 
 .form-elements
   +logo({
     src: "img/logo.svg",
-    type: "in-corner"
+    position: "in-corner"
   })
   .form-elements__content
     .form-elements__input-types
@@ -26,8 +26,8 @@ include ../../blocks/star-rate/star-rate.pug
               "type": "email",
               "placeholder": "Email"
             },
-            length: "l",
-            type: "simple"
+            length: "long",
+            type: "regular"
           }
         })
       .form-elements__text-input
@@ -39,8 +39,9 @@ include ../../blocks/star-rate/star-rate.pug
               "placeholder": "Text",
               "value": "This is pretty awesome"
             },
-            length: "l",
-            type: "focus"
+            length: "long",
+            type: "regular",
+            border: "dark"
           }
         })
       .form-elements__dropdown
@@ -54,7 +55,7 @@ include ../../blocks/star-rate/star-rate.pug
                 value: "Сколько гостей",
                 readonly: "readonly"
               },
-              length: "l",
+              length: "long",
               type: "dropdown",
               jsClass: "js-input__field-4"
             }
@@ -77,7 +78,7 @@ include ../../blocks/star-rate/star-rate.pug
               type: "text",
               placeholder: "ДД.ММ.ГГГГ"
             },
-            length: "l",
+            length: "long",
             type: "date"
           }
         })
@@ -92,7 +93,7 @@ include ../../blocks/star-rate/star-rate.pug
                 value: "ДД.ММ.ГГГГ",
                 readonly: "readonly"
               },
-              length: "s",
+              length: "short",
               type: "dropdown",
               jsClass: "js-input__field_from-2"
             }
@@ -107,7 +108,7 @@ include ../../blocks/star-rate/star-rate.pug
                 value: "19.08.2019",
                 readonly: "readonly"
               },
-              length: "s",
+              length: "short",
               type: "dropdown",
               jsClass: "js-input__field_to-2"
             }
@@ -128,7 +129,7 @@ include ../../blocks/star-rate/star-rate.pug
               value: "19 авг - 23 авг",
               readonly: "readonly"
             },
-            length: "m",
+            length: "average",
             type: "dropdown",
             jsClass: "js-input__field_total-3"
           }
@@ -149,7 +150,7 @@ include ../../blocks/star-rate/star-rate.pug
                 type: "email",
                 placeholder: "Email"
               },
-              length: "m",
+              length: "average",
               type: "submit"
             }
           })
@@ -195,7 +196,7 @@ include ../../blocks/star-rate/star-rate.pug
           },
           text: {
             text: "Можно пригласить гостей (до 10 человек)",
-            length: "s"
+            length: "short"
           }
         })
       .form-elements__radios
@@ -297,15 +298,15 @@ include ../../blocks/star-rate/star-rate.pug
               text: "12"
             }
           })
-      .form-elements__rates
-        .form-elements__rates-title
+      .form-elements__ratings
+        .form-elements__rating-title
           +title({
             text: "rate button"
           })
-        .form-elements__rate
-          +star-rate({rate: "4", jsClass: "js-star-rate"})
-        .form-elements__rate
-          +star-rate({rate: "5", jsClass: "js-star-rate-2"})
+        .form-elements__rating
+          +stars-rating({rating: "4", jsClass: "js-stars-rating"})
+        .form-elements__rating
+          +stars-rating({rating: "5", jsClass: "js-stars-rating-2"})
     .form-elements__button-types
       .form-elements__slider
         +slider({
@@ -320,16 +321,16 @@ include ../../blocks/star-rate/star-rate.pug
         .form-elements__simple-buttons
           .form-elements__button-wrapp
             +button({
-              type: "simple",
+              type: "regular",
               text: "click me",
               attr: {"type": "button"}
             })
           .form-elements__button-wrapp
             +button({
-              type: "simple",
+              type: "regular",
               text: "click me",
               attr: {"type": "button"},
-              hover: true,
+              hover: "transparent",
             })
         .form-elements__border-buttons
           .form-elements__button-wrapp
@@ -343,7 +344,7 @@ include ../../blocks/star-rate/star-rate.pug
               type: "border",
               text: "click me",
               attr: {"type": "button"},
-              hover: true,
+              hover: "background_transparent",
             })
         .form-elements__text-buttons
           .form-elements__button-wrapp
@@ -357,19 +358,19 @@ include ../../blocks/star-rate/star-rate.pug
               type: "text",
               text: "click me",
               attr: {"type": "button"},
-              hover: true,
+              hover: "color_black",
             })
         .form-elements__big-button
           +button({
-            type: "big",
+            type: "confirm",
             text: "перейти к оплате",
             attr: {"type": "button"}
           })
       .form-elements__pagination
-        +content-nav({
-          jsClass: "js-content-nav",
+        +content-navigation({
+          jsClass: "js-content-navigation",
           title: {text: "pagination"},
-          counter: {text: "1  12 из 100+ вариантов аренды"}
+          counter: {text: "1 - 12 из 100+ вариантов аренды"}
         })
     .form-elements__dropdown-types
       .form-elements__fittings-dropdown
@@ -384,7 +385,7 @@ include ../../blocks/star-rate/star-rate.pug
                   value: "2 спальни, 2 кровати...",
                   readonly: "readonly"
                 },
-                length: "m",
+                length: "average",
                 type: "dropdown",
                 jsClass: "js-input__field-5"
               }
@@ -412,7 +413,7 @@ include ../../blocks/star-rate/star-rate.pug
                   readonly: "readonly",
                   class: "input__field_expanded"
                 },
-                length: "m",
+                length: "average",
                 type: "dropdown",
                 jsClass: "js-input__field"
               }
@@ -438,7 +439,7 @@ include ../../blocks/star-rate/star-rate.pug
                 readonly: "readonly",
                 class: "input__field_expanded"
               },
-              length: "l",
+              length: "long",
               type: "dropdown",
               jsClass: "js-input__field-2"
             }
@@ -464,7 +465,7 @@ include ../../blocks/star-rate/star-rate.pug
                 readonly: "readonly",
                 class: "input__field_expanded"
               },
-              length: "l",
+              length: "long",
               type: "dropdown",
               jsClass: "js-input__field-3"
             }
@@ -651,7 +652,7 @@ include ../../blocks/star-rate/star-rate.pug
     .form-elements__additions
       .form-elements__positive-features
         +positive-feature({
-          border: "border_bottom",
+          border: "with-border",
           img: {
             attr: {
               "alt": "Abstract image of a modern house",
@@ -664,7 +665,7 @@ include ../../blocks/star-rate/star-rate.pug
           }
         })
         +positive-feature({
-          border: "border_bottom",
+          border: "with-border",
           img: {
             attr: {
               "alt": "Abstract image of a modern house",

@@ -1,5 +1,5 @@
 @import '../../blocks/header/header.scss';
-@import '../../blocks/nav/nav.scss';
+@import '../../blocks/navigation/navigation.scss';
 @import '../../blocks/footer/footer.scss';
 @import '../../blocks/copyright/copyright.scss';
 
@@ -11,15 +11,11 @@
   margin: auto;
   background-color: #e5e5e5;
 
-  &__header_authorized {
-    margin-bottom: 40px;
-  }
-
-  &__header_unauthorized {
+  &__header {
     margin-bottom: 40px;
   }
   
-  &__footer_big {
+  &__footer_size_large {
     margin-bottom: 40px;
   }
 }

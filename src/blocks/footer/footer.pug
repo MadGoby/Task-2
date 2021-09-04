@@ -3,8 +3,7 @@ include ../social-media-link/social-media-link.pug
 mixin footer(settings)
   - let {
   -   footer: {
-  -     type: footerType = false,
-  -     wrappType = false
+  -     size: footerSize = false
   -   },
   -   description: {
   -     text: descriptionText = false
@@ -47,19 +46,20 @@ mixin footer(settings)
   -   },
   -   copyright: { text: copyrightText = "For change" }
   - } = settings
-  - if(footerType) {
-  -   wrappType = `footer__wrapper_${footerType}`
-  -   footerType = `footer_type_${settings.footer.type}`
+  - let wrapperSize = false
+  - if(footerSize) {
+  -   wrapperSize = `footer__wrapper_size_${footerSize}`
+  -   footerSize = `footer_size_${footerSize}`
   - }
-  div(class="footer" class=footerType)
-    div(class="footer__wrapper" class=wrappType)
+  div(class="footer" class=footerSize)
+    div(class="footer__wrapper" class=wrapperSize)
       div(class="footer__description")
         +logo({
           src: "img/logo-color.svg"
         })
         if descriptionText
           p(class="footer__text")=descriptionText
-      if footerType !== "footer_type_small"
+      if footerSize !== "footer_size_small"
         .footer__nav-wrapper
           each list in lists
             .footer__nav
@@ -84,12 +84,12 @@ mixin footer(settings)
                   type: "email",
                   placeholder: "Email"
                 },
-                length: "m",
+                length: "average",
                 type: "submit"
               }
             })
       else
-        div(class="footer__social-media footer__social-media_small")
+        div(class="footer__social-media footer__social-media_size_small")
           p(class="footer__small-copyright")= copyrightText
           +social-media-link({
             socialLinks: links

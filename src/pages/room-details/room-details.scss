@@ -2,14 +2,14 @@
 @import '../../fonts/fonts.scss';
 @import '../../blocks/header/header.scss';
 @import '../../blocks/logo/logo.scss';
-@import '../../blocks/nav/nav.scss';
+@import '../../blocks/navigation/navigation.scss';
 @import '../../blocks/button/button.scss';
 @import '../../blocks/footer/footer.scss';
 @import '../../blocks/social-media-link/social-media-link.scss';
 @import '../../blocks/copyright/copyright.scss';
 @import '../../blocks/input/input.scss';
 @import '../../blocks/final-booking/final-booking.scss';
-@import '../../blocks/room-info/room-info.scss';
+@import '../../blocks/room-information/room-information.scss';
 @import '../../blocks/positive-feature/positive-feature.scss';
 @import '../../blocks/impressions-diagram/impressions-diagram.scss';
 @import '../../blocks/user-comment/user-comment.scss';
@@ -67,7 +67,7 @@ body {
     display: inline-block;
   }
 
-  &__float-wrapper {
+  &__content-wrapper {
     display: inline-block;
     max-width: 711px;
 
@@ -151,7 +151,7 @@ body {
     height: 100%;
   }
 
-  &__comments-count {
+  &__comments-counter {
     @include text_type($mont, 14px, 400, 24px, $dark50);
     display: inline-block;
     vertical-align: top;
@@ -190,14 +190,14 @@ body {
   height: 50%;
   vertical-align: top;
 
-  &_big {
+  &_size_large {
     width: 68.13%;
     display: inline-block;
     vertical-align: top;
   }
 
-  &_small_upper,
-  &_small_lower {
+  &_corner_top-right,
+  &_corner_bottom-right {
     width: 100%;
   }
 }

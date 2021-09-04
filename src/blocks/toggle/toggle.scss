@@ -90,23 +90,24 @@
     line-height: 20px;
     max-width: 230px;
 
-    &_rich {
-      display: block;
-      @include text_type($mont, 14px, 700, 18px, $dark75);
-
-      & ~ .toggle__text {
-        display: block;
-        font-size: 12px;
-        line-height: 14px;
-        padding: 0px;
-        padding-top: 5px;
-        color: $dark50;
-      }
-    }
-
-    &_length_s {
+    &_length_short {
       max-width: 192px;
     }
+  }
+
+  &__text-title {
+    @include text_type($mont, 14px, 700, 18px, $dark75);
+    display: block;
+    margin: 0;
+  }
+
+  &__text-title ~ &__text {
+    display: block;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 0px;
+    padding-top: 5px;
+    color: $dark50;
   }
 
   &__text-wrapper {

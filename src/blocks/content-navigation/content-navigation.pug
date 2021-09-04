@@ -1,0 +1,74 @@
+mixin content-navigation(settings)
+  - let {
+  -   title: {
+  -     text: contentNavigationTitle = false
+  -   },
+  -   jsClass: contentNavigationJs = "js-for-change",
+  -   counter: {
+  -     text: contentNavigationCounter = "For Change"
+  -   }
+  - } = settings 
+  div(class="content-navigation" class=contentNavigationJs)
+    if contentNavigationTitle 
+      .content-navigation__title
+        +title({text: contentNavigationTitle})
+    ul.content-navigation__buttons
+      li(class="content-navigation__button content-navigation__button_purpose_previous")
+        +button({
+          type: "pagination",
+          text: "",
+          attr: {"type": "button"},
+          paginationClass: "button__control_arrow_back"
+        })
+      li(class="content-navigation__button content-navigation__button_active" )
+        +button({
+          type: "pagination",
+          text: "1",
+          attr: {"type": "button"},
+          paginationClass: "button__control_color_purple"
+        })
+      li(class="content-navigation__button content-navigation__decorative-button")
+        +button({
+          type: "pagination",
+          text: "...",
+          attr: {"type": "button"}
+        })
+      li(class="content-navigation__button")
+        +button({
+          type: "pagination",
+          text: "2",
+          attr: {"type": "button"}
+        })
+      li(class="content-navigation__button")
+        +button({
+          type: "pagination",
+          text: "3",
+          attr: {"type": "button"}
+        })
+      li(class="content-navigation__button")
+        +button({
+          type: "pagination",
+          text: "4",
+          attr: {"type": "button"}
+        })
+      li(class="content-navigation__button content-navigation__decorative-button")
+        +button({
+          type: "pagination",
+          text: "...",
+          attr: {"type": "button"}
+        })
+      li(class="content-navigation__button")
+        +button({
+          type: "pagination",
+          text: "15",
+          attr: {"type": "button"}
+        })
+      li(class="content-navigation__button content-navigation__button_purpose_next")
+        +button({
+          type: "pagination",
+          text: "",
+          attr: {"type": "button"},
+          paginationClass: "button__control_arrow_forward"
+        })
+    if contentNavigationCounter
+      p.content-navigation__counter=contentNavigationCounter

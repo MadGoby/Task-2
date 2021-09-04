@@ -38,7 +38,7 @@ mixin list(settings)
   -   ],
   -   textList = false
   - } = settings
-  - if(titleBullet) titleBullet = "list__title_bullet"
+  - if(titleBullet) titleBullet = "list__title_with-bullet"
   - if(titleMargin) titleMargin = "list__title_with-margin"
   .list
     div(class="list__title", class=titleMargin, class=titleBullet)
@@ -51,7 +51,7 @@ mixin list(settings)
     ul(class="list__container" class=containerJs)&attributes(containerAttr)
       if textList 
         each val in textList
-          li(class="list__item list__item_bullet")
+          li(class="list__item list__item_with-bullet")
             p(class="list__text")=val
       else
         each val in listCheckbox

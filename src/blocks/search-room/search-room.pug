@@ -36,7 +36,7 @@ mixin search-room(settings)
     .search-room__title
       +title({
         text: titleText,
-        type: "big"
+        type: "size_large"
       })
     .search-room__period
       .search-room__from
@@ -49,7 +49,7 @@ mixin search-room(settings)
               value: fromValue,
               readonly: "readonly"
             },
-            length: "s",
+            length: "short",
             type: "dropdown",
             jsClass: fromJs
           }
@@ -64,7 +64,7 @@ mixin search-room(settings)
               value: toValue,
               readonly: "readonly"
             },
-            length: "s",
+            length: "short",
             type: "dropdown",
             jsClass: toJs
           }
@@ -86,7 +86,7 @@ mixin search-room(settings)
               value: guestsInputValue,
               readonly: "readonly",
             },
-            length: "l",
+            length: "long",
             type: "dropdown",
             jsClass: guestsInputJs
           }
@@ -99,7 +99,7 @@ mixin search-room(settings)
       })
     .search-room__confirm-button
       +button({
-        type: "big",
+        type: "confirm",
         text: confirmText,
         attr: {"type": "submit"}
       })

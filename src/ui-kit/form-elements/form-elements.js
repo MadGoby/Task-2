@@ -1,8 +1,8 @@
 import dropdownFunctionality from '../../blocks/dropdown/dropdown';
 import listFunctionality from '../../blocks/list/list';
 import datepickerFunctionality from '../../blocks/datepicker/datepicker';
-import contentNav from '../../blocks/content-nav/content-nav';
-import starRatting from '../../blocks/star-rate/star-rate';
+import contentNavigation from '../../blocks/content-navigation/content-navigation';
+import starsRating from '../../blocks/stars-rating/stars-rating';
 
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
@@ -82,7 +82,7 @@ datepickerFunctionality({
     from: new Date(2019, 7, 19),
     to: new Date(2019, 7, 23),
   },
-  size: 'm',
+  size: 'small',
 });
 
 const $sliderBody = $('.js-slider__body');
@@ -114,8 +114,8 @@ $(document).ready(() => {
   $('.js-slider__output').val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);
 });
 
-contentNav({
-  navClass: '.js-content-nav',
+contentNavigation({
+  navigationClass: '.js-content-navigation',
 });
 
 Inputmask({
@@ -123,10 +123,10 @@ Inputmask({
   placeholder: 'ДД.ММ.ГГГГ',
 }).mask(document.querySelectorAll('.input__field_type_date'));
 
-starRatting({
-  containerClass: '.js-star-rate',
+starsRating({
+  containerClass: '.js-stars-rating',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-2',
+starsRating({
+  containerClass: '.js-stars-rating-2',
 });

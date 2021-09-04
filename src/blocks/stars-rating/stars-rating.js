@@ -1,9 +1,9 @@
-export default function starRatting(settings) {
+export default function starsRating(settings) {
   const { containerClass } = settings;
 
   function initializeElements() {
     const container = document.querySelector(containerClass);
-    const stars = [...container.querySelectorAll('.star-rate__star')];
+    const stars = [...container.querySelectorAll('.stars-rating__star')];
 
     return stars;
   }
@@ -14,14 +14,14 @@ export default function starRatting(settings) {
     const eStar = event.target;
 
     function cleanActiveClass() {
-      stars.forEach((star) => star.classList.remove('star-rate__star_active'));
+      stars.forEach((star) => star.classList.remove('stars-rating__star_color_purple'));
     }
 
     function addActiveClass() {
       const index = stars.indexOf(eStar);
 
       for (let i = 0; i <= index; i += 1) {
-        stars[i].classList.add('star-rate__star_active');
+        stars[i].classList.add('stars-rating__star_color_purple');
       }
     }
 

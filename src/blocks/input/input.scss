@@ -22,11 +22,11 @@
       border: 1px solid $dark50;
     }
 
-    &_active {
+    &_border_dark {
       border-color: $dark50;
     }
 
-    &_length_l {
+    &_length_long {
       width: 320px;
       box-sizing: border-box;
 
@@ -35,12 +35,12 @@
       }
     }
 
-    &_length_m {
+    &_length_average {
       width: 266px;
       box-sizing: border-box;
     }
 
-    &_length_s {
+    &_length_short {
       width: 150px;
       box-sizing: border-box;
       display: inline-block;
@@ -50,14 +50,14 @@
       }
     }
 
-    &_type_simple {
+    &_type_regular {
       &:hover,
       &:focus {
         border-color: $dark50;
       }
     }
 
-    &_type_focus {
+    &_focused {
       border: 1px solid $dark50;
       color: $dark75;
     }
@@ -71,10 +71,6 @@
       &:hover {
         border-color: $dark50;
       }
-    }
-
-    &_type_submit {
-      display: inline-block;
     }
 
     &_type_date {
@@ -106,9 +102,11 @@
     display: inline-block;
     margin: 0;
   }
+  
   &__submit-button {
     background-image: url('../../img/arrow-forward.svg');
     content: '';
+    cursor: pointer;
     background-position: center;
     background-repeat: no-repeat;
     position: absolute;

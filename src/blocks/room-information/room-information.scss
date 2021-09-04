@@ -1,6 +1,6 @@
 @import '../../overall/mixins.scss';
 
-.room-info {
+.room-information {
   &__number {
     display: inline-block;
     width: 50%;
@@ -12,7 +12,7 @@
       padding-right: 4px;
     }
 
-    &_luxury:after {
+    &_with-postfix:after {
       content: 'люкс';
       @include text_type($mont, 14px, 700, 15px, $purple);
       margin-left: 2px;

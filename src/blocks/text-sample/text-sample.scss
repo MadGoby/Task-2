@@ -24,7 +24,7 @@
       text-transform: uppercase;
     }
 
-    &_type_normal {
+    &_type_regular {
       @include text_type($mont, 14px, 400, 24px, $dark75);
     }
   }
@@ -48,7 +48,7 @@
       @include text_type($mont, 12px, 400, 14px, $dark25);
     }
 
-    &_type_normal {
+    &_type_regular {
       @include text_type($mont, 14px, 400, 24px, $dark25);
     }
   }

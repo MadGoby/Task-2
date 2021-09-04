@@ -1,19 +1,19 @@
 include ../../blocks/header/header.pug
-include ../../blocks/nav/nav.pug
+include ../../blocks/navigation/navigation.pug
 include ../../blocks/footer/footer.pug
 include ../../blocks/copyright/copyright.pug
 
 .headers-footers
   +logo({
     src: "img/logo.svg",
-    type: "in-corner"
+    position: "in-corner"
   })
   .headers-footers__content
-    .headers-footers__header_authorized
+    .headers-footers__header
       +header({
-        nav: { 
+        navigation: { 
           links: [
-            {"text": "О нас", "type": "bold"},
+            {"text": "О нас", "type": "text_bold"},
             {"text": "Услуги", "type": "expanded"},
             {"text": "Вакансии"},
             {"text": "Новости"},
@@ -21,11 +21,11 @@ include ../../blocks/copyright/copyright.pug
           ]
         }
       })
-    .headers-footers__header_unauthorized
+    .headers-footers__header
       +header({
-        nav: { 
+        navigation: { 
           links: [
-            {"text": "О нас", "type": "bold"},
+            {"text": "О нас", "type": "text_bold"},
             {"text": "Услуги", "type": "expanded"},
             {"text": "Вакансии"},
             {"text": "Новости"},
@@ -34,7 +34,7 @@ include ../../blocks/copyright/copyright.pug
         },
         authorized: "Юлий Цезарь"
       })
-    .headers-footers__footer_big
+    .headers-footers__footer_size_large
       +footer({
         description: {
           text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
@@ -87,7 +87,7 @@ include ../../blocks/copyright/copyright.pug
       })
     .headers-footers__footer_small
       +footer({
-        footer: { type: "small" },
+        footer: { size: "small" },
         copyright: { text: "Copyright © 2018 Toxin отель. Все права защищены." },
         links: [
           {

@@ -1,0 +1,12 @@
+@import '../../overall/mixins.scss';
+
+.reviews-counter {
+  @include text_type($mont, 14px, 400, 18px, $dark50);
+  margin: 0px;
+
+  &__value {
+    color: inherit;
+    font-weight: 700;
+    font-style: normal;
+  } 
+}

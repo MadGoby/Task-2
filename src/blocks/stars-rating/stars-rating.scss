@@ -1,4 +1,4 @@
-.star-rate {
+.stars-rating {
   &__star {
     cursor: pointer;
     display: inline-block;
@@ -10,7 +10,7 @@
       margin-right: 4px;
     }
 
-    &_active {
+    &_color_purple {
       background-image: url('../../img/star.jpg');
     }
   }

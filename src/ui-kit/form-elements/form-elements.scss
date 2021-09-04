@@ -7,9 +7,9 @@
 @import '../../blocks/positive-feature/positive-feature.scss';
 @import '../../blocks/user-comment/user-comment.scss';
 @import '../../blocks/title/title.scss';
-@import '../../blocks/content-nav/content-nav.scss';
-@import '../../blocks/star-rate/star-rate.scss';
-@import '../../blocks//social-media-link/social-media-link.scss';
+@import '../../blocks/content-navigation/content-navigation.scss';
+@import '../../blocks/stars-rating/stars-rating.scss';
+@import '../../blocks/social-media-link/social-media-link.scss';
 
 .form-elements {
   width: 1440px;
@@ -111,11 +111,11 @@
     margin-bottom: 16px;
   }
 
-  &__rates-title {
+  &__rating-title {
     margin-bottom: 16px;
   }
 
-  &__rate {
+  &__rating {
     display: inline-block;
 
     &:not(:last-of-type) {

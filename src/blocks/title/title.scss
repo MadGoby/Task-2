@@ -7,9 +7,15 @@
   vertical-align: bottom;
   user-select: none;
 
-  &_big {
+  &_size_large {
     font-size: 24px;
     line-height: 30px;
+    text-transform: none;
+  }
+  
+  &_size_regular {
+    font-size: 19px;
+    line-height: 24px;
     text-transform: none;
   }
 
@@ -38,13 +44,7 @@
       transform: rotate(180deg);
     }
   }
-
-  &_middle {
-    font-size: 19px;
-    line-height: 24px;
-    text-transform: none;
-  }
-
+  
   &_for-sidebar {
     max-width: 280px;
     text-transform: none;

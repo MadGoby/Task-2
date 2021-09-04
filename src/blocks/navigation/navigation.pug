@@ -1,0 +1,35 @@
+mixin navigation(settings)
+  - let {
+  -   links = [
+  -     {"text": "For change", "type": "text_bold"},
+  -     {"text": "For change"},
+  -     {"text": "For change"},
+  -     {"text": "For change"}
+  -   ]
+  - } = settings
+  nav.navigation
+    each link in links
+      - let {
+      -   href: linkHref = "./for-change",
+      -   text: linkText = "For change",
+      -   type: linkType= "",
+      -   jsClass: linkJs = false,
+      -   expandedLinks = [
+      -     {text: "For change", href: "./for-change"},
+      -     {text: "For change", href: "./for-change"},
+      -     {text: "For change", href: "./for-change"},
+      -   ]
+      - } = link
+      - if(linkType) linkType=` navigation__link_${linkType}`
+      .navigation__link-wrapper
+        if link.type === "expanded" && expandedLinks
+          span(class="navigation__link-title", class=linkJs)= linkText
+          .navigation__expanded-container
+            each expandedLink in expandedLinks
+              - let {
+              -   href: expandedLinkHref,
+              -   text: expandedLinkText,
+              - } = expandedLink
+              a(class="navigation__link navigation__link_expanded",  href=expandedLinkHref)= expandedLinkText
+        else
+          a(class="navigation__link",  href=linkHref, class=linkType)= linkText

@@ -1,8 +1,8 @@
 mixin dropdown(settings)
   - let {
   -   inputSettings = {
-  -     length: "m",
-  -     type: "simple",
+  -     length: "average",
+  -     type: "regular",
   -     attr: {placeholder: "For-change"},
   -     state: "",
   -     jsClass: "js-for-change"  
@@ -10,27 +10,27 @@ mixin dropdown(settings)
   -   control: {
   -     jsClass: controlJs = "js-for-change",
   -     attr: controlAttr = false,
-  -     z: controlZ = false,
+  -     z: controlZIndex = false,
   -   },
   -   lists = [
   -     {text: "For Change", dataTarget: "forChange1", output: "0", minusTransparent: false, plusTransparent: false},
   -     {text: "For Change", dataTarget: "forChange2", output: "0", minusTransparent: false, plusTransparent: false},
   -     {text: "For Change", dataTarget: "forChange3", output: "0", minusTransparent: false, plusTransparent: false}
   -   ],
-  -   clearHide = true
+  -   clearHidden = true
   - } = settings
-  - if (controlZ) controlZ = `dropdown__control_z_${controlZ}`
+  - if (controlZIndex) controlZIndex = `dropdown__control_z-index_${controlZIndex}`
   - if (lists) {
   -   lists.forEach(function(list) {
   -     if(list.output == "0") list.minusTransparent = true
   -     if(list.output == "10") list.plusTransparent = true
-  -     if(list.output > "0") clearHide = false
+  -     if(list.output > "0") clearHidden = false
   -   })
   - }
   div.dropdown
     div.dropdown__input
       +input(inputSettings)
-    div(class="dropdown__control" class=controlJs, class=controlZ)&attributes(controlAttr)
+    div(class="dropdown__control" class=controlJs, class=controlZIndex)&attributes(controlAttr)
       ul.dropdown__list
         each list in lists
           li.dropdown__list-element
@@ -47,7 +47,7 @@ mixin dropdown(settings)
                 button(class="dropdown__button" type="button" class="dropdown__button_type_plus" data-target=list.dataTarget data-action="plus")="+"
       .dropdown__submit-buttons
         .dropdown__clear-button
-          if clearHide == true
+          if clearHidden == true
             +button({
               type: "text",
               text: "очистить",

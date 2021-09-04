@@ -1,8 +1,9 @@
 @import '../../overall/mixins.scss';
 
-.content-nav {
+.content-navigation {
   display: inline-block;
-
+  
+  &__decorative-button,
   &__button {
     display: inline-block;
   }

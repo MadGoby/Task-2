@@ -19,38 +19,38 @@ mixin room-card(settings)
   -       alt: "Alt for change"
   -     }
   -   ],
-  -   roomInfo: {
+  -   roomInformation: {
   -     number: roomNumber = "000",
   -     price: roomPrice = "000",
   -     type: roomType = false
   -   },
-  -   starRate: { 
-  -     rate: starsCounter = "5",
-  -     jsClass: starJs = ""
+  -   starsRating: { 
+  -     rating: starsCounter = "5",
+  -     jsClass: starsJs = ""
   -   },
-  -   rateCounter: { value: counterValue = "000"} 
+  -   reviewsCounter: { value: counterValue = "000"} 
   - } = settings
   div(class="room-card" class=jsClass)
     div.room-card__image-wrapper
       each image in images
         - let {img="", src=""} = image
         img(class="room-card__image" src=src, alt=alt)
-      button(type="button" class="room-card__image-button room-card__image-button_previous")
-      button(type="button" class="room-card__image-button room-card__image-button_next")
+      button(type="button" class="room-card__image-button room-card__image-button_side_left")
+      button(type="button" class="room-card__image-button room-card__image-button_side_rigth")
       .room-card__image-position-wrapper
-        span.room-card__image-position.room-card__image-position_active
+        span.room-card__image-position.room-card__image-position_selected
         span.room-card__image-position
         span.room-card__image-position
         span.room-card__image-position
-    .room-card__room-info
+    .room-card__room-information
       .room-card__price
-        +room-info({
+        +room-information({
           number: roomNumber,
           price: roomPrice,
-          type: roomTtype
+          type: roomType
         })
-      .room-card__rate
+      .room-card__rating
         .room-card__stars
-          +star-rate({rate: starsCounter, jsClass: starJs})
+          +stars-rating({rating: starsCounter, jsClass: starsJs})
         .room-card__counter
-          +rate-counter({value: counterValue})
+          +reviews-counter({value: counterValue})

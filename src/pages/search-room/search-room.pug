@@ -1,6 +1,6 @@
 include ../../blocks/header/header.pug
 include ../../blocks/logo/logo.pug
-include ../../blocks/nav/nav.pug
+include ../../blocks/navigation/navigation.pug
 include ../../blocks/button/button.pug
 include ../../blocks/footer/footer.pug
 include ../../blocks/social-media-link/social-media-link.pug
@@ -11,20 +11,20 @@ include ../../blocks/toggle/toggle.pug
 include ../../blocks/list/list.pug
 include ../../blocks/dropdown/dropdown.pug
 include ../../blocks/room-card/room-card.pug
-include ../../blocks/room-info/room-info.pug
-include ../../blocks/rate-counter/rate-counter.pug
+include ../../blocks/room-information/room-information.pug
+include ../../blocks/reviews-counter/reviews-counter.pug
 include ../../blocks/title/title.pug
-include ../../blocks/content-nav/content-nav.pug
+include ../../blocks/content-navigation/content-navigation.pug
 include ../../blocks/datepicker/datepicker.pug
-include ../../blocks/star-rate/star-rate.pug
+include ../../blocks/stars-rating/stars-rating.pug
 include ../../overall/page-head.pug
 
-+page-head({title: "Search Room", desc: "Search page of the hotel room website."})
++page-head({title: "Search Room", description: "Search page of the hotel room website."})
   body
     .search-room
       header.search-room__header
         +header({
-          nav: { 
+          navigation: { 
             links: [
               {"text": "О нас"},
               {"text": "Услуги", "type": "expanded"},
@@ -32,8 +32,8 @@ include ../../overall/page-head.pug
               {"text": "Новости"},
               {"text": "Соглашения", "type": "expanded"}
             ],
-            buttonJsClass: "js-header-nav-button",
-            navJsClass: "js-header-nav"
+            buttonJsClass: "js-header-navigation-button",
+            navigationJsClass: "js-header-navigation"
           }
         })
       main.search-room__main 
@@ -56,7 +56,7 @@ include ../../overall/page-head.pug
                     value: "19 авг - 23 авг",
                     readonly: "readonly"
                   },
-                  length: "m",
+                  length: "average",
                   type: "dropdown",
                   jsClass: "js-input__field_total"
                 }
@@ -66,7 +66,7 @@ include ../../overall/page-head.pug
                 attr: {
                   "hidden": "hidden"
                 },
-                size: "m"
+                size: "small"
               })
             .search-room__guests
               +dropdown({
@@ -79,7 +79,7 @@ include ../../overall/page-head.pug
                       value: "3 гостя, 1 младенец",
                       readonly: "readonly",
                     },
-                    length: "m",
+                    length: "average",
                     type: "dropdown",
                     jsClass: "js-input__field-2"
                   }
@@ -142,7 +142,7 @@ include ../../overall/page-head.pug
                 },
                 text: {
                   text: "Можно пригласить гостей (до 10 человек)",
-                  length: "s"
+                  length: "short"
                 }
               })
             .search-room__availability
@@ -184,7 +184,7 @@ include ../../overall/page-head.pug
                       value: "2 спальни, 2 кровати...",
                       readonly: "readonly"
                     },
-                    length: "m",
+                    length: "average",
                     type: "dropdown",
                     jsClass: "js-input__field"
                   }
@@ -273,10 +273,10 @@ include ../../overall/page-head.pug
             })
           .search-room__rooms-wrapper
             include ../search-room-cards/search-room-cards.pug
-          .search-room__rooms-nav
-            +content-nav({
+          .search-room__rooms-navigation
+            +content-navigation({
               title: false,
-              jsClass: "js-content-nav",
+              jsClass: "js-content-navigation",
               counter: {text: "1 - 12 из 100+ вариантов аренды"}
             })
       footer.search-room__footer

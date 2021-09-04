@@ -1,6 +1,6 @@
 @import '../../overall/mixins.scss';
 
-.nav {
+.navigation {
   @include text_type($mont, 14px, 400, 17px, $dark50);
   line-height: 40px;
 
@@ -12,7 +12,7 @@
       color: $dark75;
     }
 
-    &_bold {
+    &_text_bold {
       font-weight: 700;
       color: $dark75;
     }
@@ -30,7 +30,7 @@
     }
   }
 
-  &__link-wrapp {
+  &__link-wrapper {
     display: inline-block;
     position: relative;
 

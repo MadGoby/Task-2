@@ -9,7 +9,7 @@
   display: inline-block;
   text-align: initial;
 
-  &__room-info {
+  &__room-information {
     margin-bottom: 23px;
   }
 
@@ -34,7 +34,7 @@
       margin-bottom: 10px;
     }
 
-    &_total {
+    &_text_bold {
       margin-top: 30px;
     }
   }
@@ -44,7 +44,7 @@
     width: 239px;
     position: relative;
 
-    &_total {
+    &_text_bold {
       display: inline-block;
       max-width: 60px;
     }
@@ -75,7 +75,7 @@
     display: inline-block;
     max-width: 214px;
 
-    &_total {
+    &_text_bold {
       font-weight: 700;
       font-size: 19px;
       color: $dark100;
@@ -97,7 +97,7 @@
       width: 85px;
     }
 
-    &_total {
+    &_text_bold {
       display: inline-block;
       font-size: 19px;
       font-weight: 700;

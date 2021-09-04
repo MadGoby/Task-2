@@ -1,7 +1,7 @@
 import datepickerFunctionality from '../../blocks/datepicker/datepicker';
 import dropdownFunctionality from '../../blocks/dropdown/dropdown';
 import swiperSlider from '../../blocks/room-card/room-card';
-import starRatting from '../../blocks/star-rate/star-rate';
+import starsRating from '../../blocks/stars-rating/stars-rating';
 
 const guests = ['гост', 'ь', 'я', 'ей'];
 
@@ -50,10 +50,10 @@ datepickerFunctionality({
   },
 });
 
-starRatting({
-  containerClass: '.js-star-rate-3',
+starsRating({
+  containerClass: '.js-stars-rating-3',
 });
 
-starRatting({
-  containerClass: '.js-star-rate-4',
+starsRating({
+  containerClass: '.js-stars-rating-4',
 });

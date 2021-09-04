@@ -5,28 +5,28 @@ include ../../blocks/text-sample/text-sample.pug
 .content-types
   +logo({
     src: "img/logo.svg",
-    type: "in-corner"
+    position: "in-corner"
   })
   .content-types__wrapper
     .content-types__colors
       +color-description({
-        sample: {type: "shade100"},
+        sample: {type: "dark-100"},
         text: {name: "Dark Shade 100%", index: "#1F2041"}
       })
       +color-description({
-        sample: {type: "shade75"},
+        sample: {type: "dark-75"},
         text: {name: "Dark Shade 75%", index: "#1F2041"}
       })
       +color-description({
-        sample: {type: "shade50"},
+        sample: {type: "dark-50"},
         text: {name: "Dark Shade 50%", index: "#1F2041"}
       })
       +color-description({
-        sample: {type: "shade25"},
+        sample: {type: "dark-25"},
         text: {name: "Dark Shade 25%", index: "#1F2041"}
       })
       +color-description({
-        sample: {type: "shade5"},
+        sample: {type: "dark-5"},
         text: {name: "Dark Shade 5%", index: "#1F2041"}
       })
       +color-description({
@@ -51,6 +51,6 @@ include ../../blocks/text-sample/text-sample.pug
         description: {type: "h3", text: "This is a label or CTA text"}
       })
       +text-sample({
-        teg: {type: "normal", text: "Body"},
-        description: {type: "normal", text: "This is the body text which is used for most of the design, like paragraphs, lists, etc."}
+        teg: {type: "regular", text: "Body"},
+        description: {type: "regular", text: "This is the body text which is used for most of the design, like paragraphs, lists, etc."}
       })

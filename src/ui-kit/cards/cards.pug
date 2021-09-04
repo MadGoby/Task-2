@@ -1,17 +1,17 @@
 include ../../blocks/search-room/search-room.pug
 include ../../blocks/registration/registration.pug
 include ../../blocks/final-booking/final-booking.pug
-include ../../blocks/room-info/room-info.pug
+include ../../blocks/room-information/room-information.pug
 include ../../blocks/login/login.pug
 include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/room-card/room-card.pug
-include ../../blocks/rate-counter/rate-counter.pug
+include ../../blocks/reviews-counter/reviews-counter.pug
 include ../../blocks/dropdown/dropdown.pug
 
 .cards
   +logo({
     src: "img/logo.svg",
-    type: "in-corner"
+    position: "in-corner"
   })
   .cards__content
     .cards__column
@@ -53,10 +53,10 @@ include ../../blocks/dropdown/dropdown.pug
     .cards__column
       .cards__final-booking
         +final-booking({
-          roomInfo: {
+          roomInformation: {
             number: "888",
             price: "9 990",
-            type: "luxury"
+            type: "with-postfix"
           },
           period: {
             from: {
@@ -139,13 +139,13 @@ include ../../blocks/dropdown/dropdown.pug
               alt: "Photo of the room"
             }
           ],
-          roomInfo: {
+          roomInformation: {
             number: "888",
             price: "9 990",
-            type: "luxury"
+            type: "with-postfix"
           },
-          starRate: { rate: "5", jsClass: "js-star-rate-3" },
-          rateCounter: { value: "145" }
+          starsRating: { rating: "5", jsClass: "js-stars-rating-3" },
+          reviewsCounter: { value: "145" }
         })
       .cards__room
         +room-card({
@@ -168,11 +168,11 @@ include ../../blocks/dropdown/dropdown.pug
               alt: "Photo of the room"
             }
           ],
-          roomInfo: {
+          roomInformation: {
             number: "840",
             price: "9 990",
             type: false
           },
-          starRate: { rate: "4", jsClass: "js-star-rate-4"},
-          rateCounter: { value: "65" }
+          starsRating: { rating: "4", jsClass: "js-stars-rating-4"},
+          reviewsCounter: { value: "65" }
         })

@@ -1,26 +1,26 @@
 mixin button(settings)
   - let {
   -   attr: buttonAttr = {type: "button"},
-  -   type: buttonType = "simple",
+  -   type: buttonType = "type_regular",
   -   text: buttonText= "For Change",
   -   jsClass: buttonJs = false,
-  -   pagClass: buttonPagination = false,
+  -   paginationClass: buttonPagination = false,
   -   height: buttonHeight = false,
   -   hover: buttonHover = false,
   - } = settings
   - if(buttonHover) {
-  -   buttonType === "border" ? buttonHover="button__border-mimic_hover" : buttonType=`${buttonType}-hover`
+  -   buttonType === "type_border" ? buttonHover="button__border-mimic_transparent" : buttonHover=`button__control_${buttonHover}`
   - }
   - if(buttonType) buttonType = `button__control_type_${buttonType}`
-  - if(buttonHeight) buttonHeight = `button__control_height_${buttonHeight}`
-  if buttonType == "button__control_type_pagination"
-    div(class="button button_type_pagination")
+  - if(buttonHeight) buttonHeight = `button__control_${buttonHeight}`
+  if buttonType == "button__control_shape_circle"
+    div(class="button button_shape_circle")
       button(class="button__control" class=buttonJs, class=buttonType, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
-  else if buttonType == "button__control_type_big"
-    div(class="button button_type_big")
+  else if buttonType == "button__control_type_confirm"
+    div(class="button button_type_confirm")
       if buttonType == "button__control_type_border"
         div.button__border-mimic
-          button(class="button__control"  class=jsClass, class=type, class=pagClass, class=height, value=text)&attributes(attr)= text
+          button(class="button__control"  class=buttonJs, class=buttonType, class=buttonPagination, class=buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
       else
         button(class="button__control" class=buttonJs, class=buttonType, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
   else
@@ -29,4 +29,4 @@ mixin button(settings)
         div(class="button__border-mimic", class=buttonHover)
           button(class="button__control"  class=buttonJs, class=buttonType, class=buttonPagination, class=buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
       else
-        button(class="button__control" class=buttonJs, class=buttonType, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
+        button(class="button__control" class=buttonJs, class=buttonType, class=buttonHover, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
