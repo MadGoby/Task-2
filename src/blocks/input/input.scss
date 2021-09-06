@@ -8,9 +8,9 @@
     border: 1px solid $dark25;
     border-radius: 4px;
     box-sizing: border-box;
-    padding: 13px 15px;
+    padding: 11px 14px 12px;
     outline: none;
-    @include text_type($mont, 14px, 400, 24px, $dark75);
+    @include text_type($mont, 14px, 400, 18px, $dark75);
 
     &::placeholder {
       color: $dark25;
@@ -40,10 +40,15 @@
       box-sizing: border-box;
     }
 
+    &_length_adaptive {
+      width: 100%;
+    }
+
     &_length_short {
       width: 150px;
       box-sizing: border-box;
       display: inline-block;
+      padding: 10px 14px 13px;
 
       @media screen and (max-width: 380px) {
         width: 266px;
@@ -112,7 +117,7 @@
     position: absolute;
     right: 1px;
     top: 1px;
-    width: 43px;
+    width: 42px;
     height: 42px;
     text-align: center;
     box-sizing: border-box;
@@ -139,7 +144,7 @@
         background-image: url('../../img/input-dropdown.svg');
         background-repeat: no-repeat;
         background-position-x: 16px;
-        background-position-y: 17px;
+        background-position-y: 18px;
         position: absolute;
         right: 0px;
         top: 1px;
@@ -148,6 +153,24 @@
         text-align: center;
         box-sizing: border-box;
       }
+    }
+
+    &_length_long {
+      width: 320px;
+      box-sizing: border-box;
+  
+      @media screen and (max-width: 380px) {
+        width: 266px;
+      }
+    }
+  
+    &_length_average {
+      width: 266px;
+      box-sizing: border-box;
+    }
+
+    &_length_adaptive {
+      width: 100%;
     }
   }
 

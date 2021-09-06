@@ -33,9 +33,9 @@
   &__link-wrapper {
     display: inline-block;
     position: relative;
-
+    
     &:not(:last-child) {
-      margin-right: 20px;
+      margin-right: 20.5px;
     }
   }
 
@@ -49,6 +49,7 @@
       height: 17px;
       line-height: 100%;
       text-align: center;
+      margin-left: 1px;
     }
 
     &:hover {

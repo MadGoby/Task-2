@@ -1,5 +1,5 @@
 .final-booking {
-  padding: 40px 29px 30px 30px;
+  padding: 39px 29px 30px 29px;
   background-color: white;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -10,7 +10,7 @@
   text-align: initial;
 
   &__room-information {
-    margin-bottom: 23px;
+    margin-bottom: 17px;
   }
 
   &__period {
@@ -18,19 +18,11 @@
   }
 
   &__guests {
-    margin-bottom: 20px;
-  }
-
-  &__service-list {
-    margin-bottom: 20px;
-  }
-
-  &__submit-button {
-    margin-top: 20px;
+    margin-bottom: 18px;
   }
 
   &__service {
-    &:not(:last-of-type) {
+    &:not(:last-child) {
       margin-bottom: 10px;
     }
 
@@ -71,9 +63,9 @@
   }
 
   &__service-title {
-    line-height: 18px;
     display: inline-block;
     max-width: 214px;
+    line-height: 18px;
 
     &_text_bold {
       font-weight: 700;
@@ -89,9 +81,10 @@
 
   &__service-price {
     display: inline-block;
-    width: 78px;
+    width: 80px;
     vertical-align: top;
     text-align: right;
+    box-sizing: border-box;
 
     @media screen and (max-width: 380px) {
       width: 85px;
@@ -129,7 +122,7 @@
     list-style: none;
     margin: 0;
     padding: 0 0 0 1px;
-    margin-bottom: 20px;
+    margin-bottom: 19px;
   }
 
   &__from,

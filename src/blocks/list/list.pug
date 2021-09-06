@@ -15,25 +15,30 @@ mixin list(settings)
   -   listType = false,
   -   listCheckbox = [
   -     {
-  -       type: "checkbox",
-  -       attr: {
-  -         "type": "checkbox",
-  -         "hidden": "hidden",
-  -         "checked": "checked"
+  -       controller: {
+  -         type: "checkbox",
+  -         attr: {
+  -           "type": "checkbox",
+  -           "hidden": "hidden"
+  -         },
   -       },
-  -       text: "For change",
-  -       richText: false,
-  -       listType: ""
+  -       text: {
+  -          text: "For change 2",
+  -          richText: false,
+  -       }
   -     },
   -     {
-  -       type: "checkbox",
-  -       attr: {
-  -       "type": "checkbox",
-  -       "hidden": "hidden"
+  -       controller: {
+  -         type: "checkbox",
+  -         attr: {
+  -           "type": "checkbox",
+  -           "hidden": "hidden"
+  -         },
   -       },
-  -       text: "For change 2",
-  -       richText: false,
-  -       listType: ""
+  -       text: {
+  -          text: "For change 2",
+  -          richText: false,
+  -       }
   -     }
   -   ],
   -   textList = false
@@ -56,13 +61,4 @@ mixin list(settings)
       else
         each val in listCheckbox
           li(class="list__item" class=val.listType)
-            +toggle({
-              controller: {
-                type: val.type,
-                attr: val.attr
-              },
-              text: {
-                text: val.text,
-                richText: val.richText
-              }
-            })
+            +toggle(val)

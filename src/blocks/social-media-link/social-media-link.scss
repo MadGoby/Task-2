@@ -2,12 +2,17 @@
   display: inline-block;
   height: 24px;
   width: 24px;
+  line-height: 24px;
 
   &__icon {
     vertical-align: top;
+
+    &_position_center {
+      padding-top: 1px;
+    }
   }
 
-  &:not(:last-child) {
-    margin-right: 20px;
+  &_to-facebook {
+    margin: 0 20px 0 21px;
   }
 }

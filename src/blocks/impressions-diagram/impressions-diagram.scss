@@ -6,6 +6,9 @@
     display: inline-block;
     margin: 0 0 0 30px;
     padding: 0;
+    box-sizing: border-box;
+    vertical-align: top;
+    margin-top: 27px;
 
     @media screen and (max-width: 380px) {
       margin: 0 0 0 15px;

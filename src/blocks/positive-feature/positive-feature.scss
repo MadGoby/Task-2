@@ -1,11 +1,7 @@
 @import '../../overall/mixins.scss';
 
 .positive-feature {
-  padding: 20px 0;
-
-  &:first-child {
-    padding: 0 0 20px;
-  }
+  padding: 20px 0 16px;
 
   &__description {
     @include text_type($mont, 14px, 400, 24px, $dark75);

@@ -7,7 +7,7 @@
   box-sizing: border-box;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 4px;
-  padding: 20px 19px;
+  padding: 19px 18px 19px 19px;
   width: 320px;
   position: absolute;
   z-index: 5;
@@ -34,22 +34,23 @@
 
   &__selected-month {
     display: inline-block;
-    min-width: 229px;
+    min-width: 230px;
     margin: 0px;
+    margin-left: 1px;
     text-align: center;
     @include text_type($mont, 19px, 700, 24px, $dark100);
 
     &_size_small {
-      min-width: 197px;
+      min-width: 196px;
     }
 
     @media screen and (max-width: 380px) {
-      min-width: 197px;
+      min-width: 196px;
     }
   }
   
   &__calendar {
-    margin: 30px 0 20px;
+    margin: 30px 0 19px 1px;
     border-collapse: collapse;
     @include text_type($mont, 12px, 400, 15px, $dark50);
   }
@@ -66,9 +67,9 @@
     cursor: pointer;
 
     &_size_small {
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
     }
 
     &_font_bold {
@@ -140,9 +141,9 @@
     }
 
     @media screen and (max-width: 380px) {
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
     }
   }
 

@@ -25,8 +25,8 @@
 
     &_type_border {
       box-sizing: border-box;
-      width: 96%;
-      padding: 12px 17px 13px;
+      width: calc(100% - 4px);
+      padding: 12px 16px 13px;
       background-color: white;
       color: $purple;
       margin: 2px;
@@ -53,7 +53,7 @@
 
       &::after {
         content: url('../../img/arrow-forward-white.svg');
-        padding: 14px 0;
+        padding: 13px 0 14px;
         height: 100%;
         width: 44px;
         box-sizing: border-box;
@@ -126,8 +126,8 @@
       padding: 7px 18px 8px;
     }
 
-    &_height_small {
-      padding: 9px 19px 10px;
+    &_size_small {
+      padding: 9px 21px 10px 19px;
     }
   }
 
@@ -147,6 +147,10 @@
 
     &_transparent {
       background: linear-gradient(180deg, #deceff 0%, #c5d2fc 100%);
+    }
+
+    &_size_small {
+      min-width: 87px;
     }
   }
 

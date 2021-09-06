@@ -31,13 +31,21 @@ body {
   &__main {
     flex: 1 0 auto;
     background-image: url('../../img/room-background.jpg');
-    background-position: bottom;
+    background-position-y: -70px;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 693px;
+    min-height: 702px;
 
     @media screen and (max-width: 550px) {
       min-height: 520px;
+    }
+
+    @media screen and (max-width: 1439px) {
+      background-position: center;
+    }
+
+    @media screen and (min-height: 1197px) {
+      background-position: center;
     }
   }
 
@@ -47,11 +55,10 @@ body {
 }
 
 .login {
-  position: relative;
-  top: 172px;
   margin: auto;
+  margin-top: 172px;
 
   @media screen and (max-width: 550px) {
-    top: 81px;
+    margin-top: 81px;
   }
 }

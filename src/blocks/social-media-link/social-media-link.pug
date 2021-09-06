@@ -4,8 +4,10 @@ mixin social-media-link(settings)
     - let {
     -   name = "for-change",
     -   link = "./for-change",
-    -   iconSrc = "./for-change"
+    -   iconSrc = "./for-change",
+    -   position = false
     - } = socialLink
     - name = `social-media-link_to-${name}`
+    - if(position) position = `social-media-link__icon_position_${position}`
     a(target="_blank" rel="noopener noreferrer" class="social-media-link" class=name, href=link)
-      img(class="social-media-link__icon", src=iconSrc)
+      img(class="social-media-link__icon", class=position, src=iconSrc)

@@ -7,8 +7,8 @@
   box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);
   text-align: center;
 
-  &__nav-wrapper {
-    margin: 0 51px 0 40px;
+  &__navigation-wrapper {
+    margin: 4px 51px 0 40px;
     display: inline-block;
     vertical-align: top;
     text-align: initial;
@@ -64,16 +64,22 @@
     }
   }
 
-  &__nav {
+  &__logo-description {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__navigation {
     display: inline-block;
     vertical-align: top;
 
     &:first-child {
-      margin-right: 57px;
+      margin-right: 58px;
     }
 
     &:last-child {
-      margin-left: 92px;
+      margin-left: 93px;
     }
 
     @media screen and (max-width: 625px) {
@@ -101,14 +107,14 @@
     vertical-align: top;
   }
 
-  &__nav-link {
+  &__navigation-link {
     text-decoration: none;
     color: $dark50;
     line-height: 18px;
     display: block;
 
     &:not(:last-child) {
-      margin-bottom: 21px;
+      margin-bottom: 20px;
     }
 
     &:hover {
@@ -116,11 +122,21 @@
     }
   }
 
+  &__logo-description {
+    max-width: 260px;
+    margin: 10px 0 0;
+  }
+
+  &__subscribe-text {
+    margin: 18px 0 0;
+  }
+
   &__subscribe {
     display: inline-block;
     vertical-align: top;
     max-width: 260px;
     text-align: initial;
+    margin-top: 4px;
 
     @media screen and (max-width: 768px) {
       display: none;
@@ -128,7 +144,7 @@
   }
 
   &__subscribe-form {
-    margin-top: 20px;
+    margin-top: 23px;
   }
 
   &__title,

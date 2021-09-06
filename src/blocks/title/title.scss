@@ -9,7 +9,7 @@
 
   &_size_large {
     font-size: 24px;
-    line-height: 30px;
+    line-height: 29.26px;
     text-transform: none;
   }
   
@@ -17,6 +17,11 @@
     font-size: 19px;
     line-height: 24px;
     text-transform: none;
+  }
+
+  &_length_half {
+    width: 50%;
+    display: inline-block;
   }
 
   &_closed,

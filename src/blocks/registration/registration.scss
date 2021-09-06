@@ -1,7 +1,7 @@
 @import '../../overall/mixins.scss';
 
 .registration {
-  padding: 40px 30px 30px;
+  padding: 39px 29px 31px 29px;
   background-color: white;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -11,7 +11,7 @@
   text-align: initial;
 
   &__title {
-    margin-bottom: 20px;
+    margin-bottom: 21px;
   }
 
   &__personal-data {
@@ -38,10 +38,10 @@
   }
 
   &__text {
-    @include text_type($mont, 14px, 400, 18px, #000000);
-    margin: 0;
+    @include text_type($mont, 14px, 400, 42px, #000000);
     display: inline-block;
-    line-height: 44px;
+    margin: 0;
+    padding-left: 1px;
 
     @media screen and (max-width: 380px) {
       max-width: 140px;

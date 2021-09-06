@@ -4,8 +4,10 @@ mixin title(settings)
   -   teg = "p",
   -   type = false,
   -   jsClass = false,
+  -   length = false,
   -   for: targetClass = false
   - } = settings
   - if (type) type = `title_${type}`
   - if (targetClass) targetClass = `title_for-${targetClass}`
-  #{teg}(class="title", class=type,  class=targetClass, class=jsClass)=text
+  - if (length) length = `title_length_${length}`
+  #{teg}(class="title", class=type,  class=targetClass, class=jsClass, class=length)=text

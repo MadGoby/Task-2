@@ -152,24 +152,32 @@ include ../../overall/page-head.pug
                 },
                 listCheckbox: [
                   {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
+                    controller: {
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden"
+                      },
                     },
-                    text: "Ширина коридоров в номере не менее 91 см.",
-                    richText: "Широкий коридор"
+                    text: {
+                      text: "Ширина коридоров в номере не менее 91 см.",
+                      richText: "Широкий коридор",
+                      length: "short"
+                    }
                   },
                   {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
+                    controller: {
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden"
+                      },
                     },
-                    length: "short",
-                    text: "На 1 этаже вас встретит специалист  и проводит до номера.",
-                    richText: "Помощник для инвалидов"
-                  }
+                    text: {
+                      text: "На 1 этаже вас встретит специалист  и проводит до номера.",
+                      richText: "Помощник для инвалидов",
+                    }
+                  },
                 ],
                 container: false
               })  
@@ -208,67 +216,91 @@ include ../../overall/page-head.pug
                 },
                 container: {
                   jsClass: "js-list__container",
-                  attr: {hidden: "hidden"}
+                  attr: {"hidden": "hidden"}
                 },
                 listCheckbox: [
                   {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
+                    controller: {
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden"
+                      },
                     },
-                    text: "Завтрак"
+                    text: {
+                      text: "Завтрак",
+                    }
                   },
                   {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                      "checked": "checked"
+                    controller: {
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden",
+                        "checked": "checked"
+                      },
                     },
-                    text: "Письменный стол"
+                    text: {
+                      text: "Письменный стол",
+                    }
                   },
                   {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                      "checked": "checked"
+                    controller: {
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden",
+                        "checked": "checked"
+                      },
                     },
-                    text: "Стул для кормления"
+                    text: {
+                      text: "Стул для кормления",
+                    }
                   },
                   {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                      "checked": "checked"
+                    controller: {
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden",
+                        "checked": "checked"
+                      },
                     },
-                    text: "Кроватка"
+                    text: {
+                      text: "Кроватка",
+                    }
                   },
                   {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
+                    controller: {
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden"
+                      },
                     },
-                    text: "Телевизор"
+                    text: {
+                      text: "Телевизор",
+                    }
                   },
                   {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
+                    controller: {
+                      type: "checkbox",
+                      attr: {
+                        "type": "checkbox",
+                        "hidden": "hidden",
+                      },
                     },
-                    text: "Шампунь"
-                  }
-                ],
+                    text: {
+                      text: "Шампунь",
+                    }
+                  },
+                ]
               })
         article.search-room__rooms
           .search-room__rooms-title
             +title({
               text: "Номера, которые мы для вас подобрали",
-              type: "big",
+              type: "size_large",
               teg: "h1"
             })
           .search-room__rooms-wrapper
@@ -277,7 +309,7 @@ include ../../overall/page-head.pug
             +content-navigation({
               title: false,
               jsClass: "js-content-navigation",
-              counter: {text: "1 - 12 из 100+ вариантов аренды"}
+              counter: {text: "1 – 12 из 100+ вариантов аренды"}
             })
       footer.search-room__footer
         +footer({

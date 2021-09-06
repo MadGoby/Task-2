@@ -57,7 +57,7 @@ body {
 
   &__main {
     background-color: #ffffff;
-    padding: 40px 126px 40px 140px;
+    padding: 30px 126px 72px 140px;
     min-height: 930px;
     flex: 1 0 auto;
 
@@ -92,22 +92,33 @@ body {
   }
 
   &__rooms-title {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
   &__rooms-navigation {
+    width: calc(100% - 29px);
     text-align: center;
     margin-top: 20px;
+
+    @media screen and (max-width: 1160px) {
+      width: 100%;
+    }
   }
 
   &__date-filter {
     margin-bottom: 20px;
   }
 
-  &__guests,
-  &__slider,
   &__availability {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+  }
+
+  &__slider {
+    margin-bottom: 29px;
+  }
+
+  &__guests {
+    margin-bottom: 27px;
   }
 
   &__additional-features {
@@ -115,14 +126,15 @@ body {
   }
 
   &__features-title {
-    margin-bottom: 16px;
+    margin-bottom: 17px;
   }
 
   &__room-amenities {
-    margin-bottom: 30px;
+    margin-bottom: 29px;
   }
 
   &__footer {
+    border-top: 1px solid $dark25;
     flex: 0 0 auto;
   }
 }

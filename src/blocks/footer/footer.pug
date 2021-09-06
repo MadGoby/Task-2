@@ -58,11 +58,11 @@ mixin footer(settings)
           src: "img/logo-color.svg"
         })
         if descriptionText
-          p(class="footer__text")=descriptionText
+          p(class="footer__logo-description")=descriptionText
       if footerSize !== "footer_size_small"
-        .footer__nav-wrapper
+        .footer__navigation-wrapper
           each list in lists
-            .footer__nav
+            .footer__navigation
               each link in list
                 - let {
                 -   text: linkText,
@@ -72,10 +72,10 @@ mixin footer(settings)
                 if linkTitle 
                   span(class="footer__link-title")= linkTitle
                 else 
-                  a(class="footer__nav-link" href=linkHref)= linkText
+                  a(class="footer__navigation-link" href=linkHref)= linkText
         .footer__subscribe
           p.footer__title=subscribeTitle
-          p.footer__text=subscribeText 
+          p.footer__subscribe-text=subscribeText 
           form(class="footer__subscribe-form" action=subscribeAction)
             +input({
               title: false,
@@ -84,7 +84,7 @@ mixin footer(settings)
                   type: "email",
                   placeholder: "Email"
                 },
-                length: "average",
+                length: "adaptive",
                 type: "submit"
               }
             })

@@ -8,7 +8,7 @@ mixin toggle(settings)
   -   text: {
   -     text: textContent = "For change",
   -     richText: richText = false,
-  -     length: textLength = ""
+  -     length: textLength = false
   -   }
   - } = settings
   - if (controllerType) {
@@ -25,5 +25,5 @@ mixin toggle(settings)
       if mimicType !== "toggle__mimic_type_like"
         .toggle__text-wrapper
           if richText
-            p(class="toggle__text-title", class=textLength)= richText
+            p(class="toggle__text-title")= richText
           p(class="toggle__text", class=textLength)= textContent

@@ -30,8 +30,8 @@
     cursor: pointer;
     display: inline-block;
     box-sizing: border-box;
-    width: 7.5px;
-    height: 7.5px;
+    width: 8px;
+    height: 8px;
     border: 1px solid white;
     border-radius: 50%;
     vertical-align: top;
@@ -88,7 +88,7 @@
   }
 
   &__room-information {
-    padding: 15px 19px 19px;
+    padding: 18px 18px 19px 20px;
   }
 
   &__number {
@@ -107,12 +107,12 @@
   }
 
   &__price {
-    padding-bottom: 8px;
+    padding-bottom: 7px;
   }
 
-  &__rate {
+  &__rating {
     border-top: 1px solid rgba(31, 32, 65, 0.1);
-    padding-top: 8px;
+    padding: 10px 2px 0;
   }
 
   &__image-wrapper:hover &__image-button {

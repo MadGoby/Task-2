@@ -1,4 +1,4 @@
-// Quicksand
+// Quicksand ----------------------------------------------
 @font-face {
   font-family: 'Quicksand';
   src: url('../../fonts/fonts/Quicksand-Regular.woff2'),
@@ -17,9 +17,9 @@
   font-weight: 700;
   font-style: normal;
 };
-// -------------------
+// ---------------------------------------------------------
 
-// Montserrat
+// Montserrat-----------------------------------------------
 @font-face {
   font-family: 'Montserrat';
   src: url('../../fonts/fonts/Montserrat-Regular.woff2'),
@@ -38,6 +38,7 @@
   font-weight: 700;
   font-style: normal;
 };
+// ----------------------------------------------------------
 
 $quick: Quicksand, Arial, sans-serif;
 $mont: Montserrat, Arial, sans-serif;

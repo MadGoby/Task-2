@@ -489,62 +489,86 @@ include ../../blocks/stars-rating/stars-rating.pug
               jsClass: "js-list__title"
             },
             container: {
-              jsClass: "js-list__container", 
+              jsClass: "js-list__container",
               attr: {"hidden": "hidden"}
             },
             listCheckbox: [
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden"
+                  },
                 },
-                text: "Завтрак"
+                text: {
+                  text: "Завтрак",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                    "checked": "checked"
+                  },
                 },
-                text: "Письменный стол"
+                text: {
+                  text: "Письменный стол",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                    "checked": "checked"
+                  },
                 },
-                text: "Стул для кормления"
+                text: {
+                  text: "Стул для кормления",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                    "checked": "checked"
+                  },
                 },
-                text: "Кроватка"
+                text: {
+                  text: "Кроватка",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden"
+                  },
                 },
-                text: "Телевизор"
+                text: {
+                  text: "Телевизор",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                  },
                 },
-                text: "Шампунь"
-              }
-            ],
+                text: {
+                  text: "Шампунь",
+                }
+              },
+            ]
           })
         .form-elements__expanded-list
           +list({
@@ -554,90 +578,122 @@ include ../../blocks/stars-rating/stars-rating.pug
               jsClass: "js-list__title-2"
             },
             container: {
-              jsClass: "js-list__container-2"
+              jsClass: "js-list__container-2",
             },
             listCheckbox: [
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden"
+                  },
                 },
-                text: "Завтрак"
+                text: {
+                  text: "Завтрак",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                    "checked": "checked"
+                  },
                 },
-                text: "Письменный стол"
+                text: {
+                  text: "Письменный стол",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                    "checked": "checked"
+                  },
                 },
-                text: "Стул для кормления"
+                text: {
+                  text: "Стул для кормления",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                    "checked": "checked"
+                  },
                 },
-                text: "Кроватка"
+                text: {
+                  text: "Кроватка",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden"
+                  },
                 },
-                text: "Телевизор"
+                text: {
+                  text: "Телевизор",
+                }
               },
               {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
+                controller: {
+                  type: "checkbox",
+                  attr: {
+                    "type": "checkbox",
+                    "hidden": "hidden",
+                  },
                 },
-                text: "Шампунь"
-              }
-            ],
+                text: {
+                  text: "Шампунь",
+                }
+              },
+            ]
           })
       .form-elements__rich-list
         +list({
           title: {
-            text: "rich checkbox buttons"
+            text: "rich Checkbox Buttons",
           },
-          container: {},
           listCheckbox: [
             {
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden"
+              controller: {
+                type: "checkbox",
+                attr: {
+                  "type": "checkbox",
+                  "hidden": "hidden"
+                },
               },
-              text: "Ширина коридоров в номере не менее 91 см.",
-              richText: "Широкий коридор"
+              text: {
+                text: "Ширина коридоров в номере не менее 91 см.",
+                richText: "Широкий коридор",
+                length: "short"
+              }
             },
             {
-              type: "checkbox",
-              attr: {
-                "type": "checkbox",
-                "hidden": "hidden"
+              controller: {
+                type: "checkbox",
+                attr: {
+                  "type": "checkbox",
+                  "hidden": "hidden"
+                },
               },
-              length: "short",
-              text: "На 1 этаже вас встретит специалист  и проводит до номера.",
-              richText: "Помощник для инвалидов"
-            }
-          ]
-        })
+              text: {
+                text: "На 1 этаже вас встретит специалист  и проводит до номера.",
+                richText: "Помощник для инвалидов",
+              }
+            },
+          ],
+          container: false
+        })  
       .form-elements__bullet-list
         +list({
           title: {

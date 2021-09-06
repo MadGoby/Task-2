@@ -12,26 +12,32 @@
       padding-right: 4px;
     }
 
+    &_size_small {
+      @include text_type($mont, 19px, 700, 24px, $dark100);
+    }
+
     &_with-postfix:after {
+      @include text_type($mont, 15px, 700, 28px, $purple);
       content: 'люкс';
-      @include text_type($mont, 14px, 700, 15px, $purple);
-      margin-left: 2px;
+      margin-left: 8px;
+      position: relative;
+      bottom: -1px;
     }
   }
 
   &__price-wrapper {
     display: inline-block;
-    @include text_type($mont, 12px, 400, 18px, $dark50);
+    @include text_type($mont, 12px, 400, 27px, $dark50);
     color: $dark50;
     width: 50%;
     text-align: right;
     font-size: 12px;
+    vertical-align: bottom
   }
   
   &__price {
-    @include text_type($mont, 14px, 700, 18px, $dark50);
+    @include text_type($mont, 14px, 700, 28px, $dark50);
     font-style: normal;
-    font-size: 14px;
-    color: $dark50;
+    vertical-align: bottom;
   }
 }

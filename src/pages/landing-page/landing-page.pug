@@ -29,7 +29,7 @@ include ../../overall/page-head.pug
             navigationJsClass: "js-header-navigation"
           }
         })
-      main.landing-page__main 
+      main.landing-page__main
         +search-room({
           title: {text: "Найдём номера под ваши пожелания"},
           period: {
@@ -60,6 +60,7 @@ include ../../overall/page-head.pug
           },
           confirm: {text: "подобрать номер"}
         })
+        p(class="landing-page__main-text")="Лучшие номера для вашей работы, отдыха и просто вдохновения"
       footer.landing-page__footer
         +footer({
           description: {
@@ -99,7 +100,8 @@ include ../../overall/page-head.pug
           links: [
             {
               "name": "twitter",
-              "iconSrc": "img/twitter.svg"
+              "iconSrc": "img/twitter.svg",
+              "position": "center"
             },
             {
               "name": "facebook",

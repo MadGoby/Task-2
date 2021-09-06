@@ -8,11 +8,15 @@ mixin button(settings)
   -   height: buttonHeight = false,
   -   hover: buttonHover = false,
   - } = settings
+  - let borderHeight = false
   - if(buttonHover) {
   -   buttonType === "type_border" ? buttonHover="button__border-mimic_transparent" : buttonHover=`button__control_${buttonHover}`
   - }
   - if(buttonType) buttonType = `button__control_type_${buttonType}`
-  - if(buttonHeight) buttonHeight = `button__control_${buttonHeight}`
+  - if(buttonHeight) {
+  -   borderHeight = `button__border-mimic_size_${buttonHeight}`
+  -   buttonType === "button__control_type_border" ? buttonHeight = `button__control_border_${buttonHeight}` : buttonHeight = `button__control_size_${buttonHeight}`
+  - }
   if buttonType == "button__control_shape_circle"
     div(class="button button_shape_circle")
       button(class="button__control" class=buttonJs, class=buttonType, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
@@ -26,7 +30,7 @@ mixin button(settings)
   else
     div(class="button")
       if buttonType == "button__control_type_border"
-        div(class="button__border-mimic", class=buttonHover)
+        div(class="button__border-mimic", class=buttonHover, class=borderHeight)
           button(class="button__control"  class=buttonJs, class=buttonType, class=buttonPagination, class=buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
       else
         button(class="button__control" class=buttonJs, class=buttonType, class=buttonHover, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText

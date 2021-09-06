@@ -59,14 +59,17 @@
     &_type_like {
       min-width: 40px;
       border-radius: 10px;
+      padding: 0 5px 0 16px;
+      position: relative;
 
       & .toggle__text {
+        min-width: 15px;
+        text-align: center;
         font-size: 10px;
         line-height: 18px;
         color: $dark25;
         vertical-align: top;
         margin: 0;
-        padding-right: 5px;
       }
 
       &::before {
@@ -76,8 +79,10 @@
         background-position-y: center;
         background-position-x: center;
         display: inline-block;
+        position: absolute;
+        left: 0;
         height: 18px;
-        width: 21px;
+        width: 18px;
       }
     }
   }
@@ -87,9 +92,8 @@
     user-select: none;
     display: inline-block;
     margin: 0;
-    line-height: 20px;
+    line-height: 18px;
     max-width: 230px;
-
     &_length_short {
       max-width: 192px;
     }
@@ -98,7 +102,7 @@
   &__text-title {
     @include text_type($mont, 14px, 700, 18px, $dark75);
     display: block;
-    margin: 0;
+    margin: 1px 0 0;
   }
 
   &__text-title ~ &__text {

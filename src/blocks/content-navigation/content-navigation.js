@@ -107,7 +107,7 @@ export default function contentNavigation(settings) {
 
     function multiplierEditor() {
       const counterTo = getButtonFromWrapper(currentButton).textContent * 12;
-      counter.textContent = `${counterTo - 11} - ${counterTo} из 100+ вариантов аренды`;
+      counter.textContent = `${counterTo - 11} – ${counterTo} из 100+ вариантов аренды`;
     }
 
     if (!parent.classList.contains('content-navigation__decorative-button')) {
