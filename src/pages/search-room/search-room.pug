@@ -32,9 +32,10 @@ include ../../overall/page-head.pug
               {"text": "Новости"},
               {"text": "Соглашения", "type": "expanded"}
             ],
-            buttonJsClass: "js-header-navigation-button",
-            navigationJsClass: "js-header-navigation"
-          }
+            buttonJsClass: "js-header__navigation-button",
+            navigationJsClass: "js-header__navigation"
+          },
+          mainJsClass: "js-header"
         })
       main.search-room__main 
         .search-room__sidebar-wrapper
@@ -47,22 +48,31 @@ include ../../overall/page-head.pug
             })
           aside.search-room__sidebar.js-search-room__sidebar
             .search-room__date-filter
-              +input({
-                title: {text: "даты пребывания в отеле"},
-                input: {
-                  attr: {
-                    type: "text",
-                    placeholder: "ДД.ММ.ГГГГ",
-                    value: "19 авг - 23 авг",
-                    readonly: "readonly"
-                  },
-                  length: "average",
-                  type: "dropdown",
-                  jsClass: "js-input__field_total"
-                }
-              })
               +datepicker({
-                jsClass: "js-datepicker",
+                input: {
+                  total: {
+                    title: {text: "даты пребывания в отеле"},
+                    input: {
+                      attr: {
+                        type: "text",
+                        placeholder: "ДД.ММ.ГГГГ",
+                        value: "19 авг - 23 авг",
+                        readonly: "readonly"
+                      },
+                      length: "average",
+                      type: "dropdown",
+                      jsClass: "js-input__field_total"
+                    }
+                  }
+                },
+                main: {
+                  jsClass: "js-datepicker",
+                  dataYear: "2019",
+                  dataMonth: "7",
+                  dataCurrentDay: "2019, 8, 9",
+                  dataFrom: "2019, 8, 19",
+                  dataTo: "2019, 8, 23",
+                },
                 attr: {
                   "hidden": "hidden"
                 },
@@ -81,18 +91,23 @@ include ../../overall/page-head.pug
                     },
                     length: "average",
                     type: "dropdown",
-                    jsClass: "js-input__field-2"
+                    jsClass: "js-input__field"
                   }
                 },
                 control: {
-                  jsClass: "js-dropdown__control-2",
+                  jsClass: "js-dropdown__control",
                   attr: {"hidden": "hidden"}
                 },
                 lists: [
                   {text: "взрослые", dataTarget: "adult", output: "2"},
                   {text: "дети", dataTarget: "child", output: "1"},
                   {text: "младенцы", dataTarget: "baby", output: "1"}
-                ]
+                ],
+                main: {
+                  jsClass: "js-dropdown",
+                  dataType: "guestsWithBaby",
+                  outputType: "twoByOne"
+                }
               })
             .search-room__slider
               +slider({
@@ -150,6 +165,7 @@ include ../../overall/page-head.pug
                 title: {
                   text: "доступность",
                 },
+                js: false,
                 listCheckbox: [
                   {
                     controller: {
@@ -205,18 +221,26 @@ include ../../overall/page-head.pug
                   {text: "спальни", dataTarget: "bedroom", output: "2"},
                   {text: "кровати", dataTarget: "bed", output: "2"},
                   {text: "ванные комнаты", dataTarget: "bathroom", output: "0"}
-                ]
+                ],
+                main: {
+                  jsClass: "js-dropdown",
+                  dataType: "rooms",
+                  outputType: "oneByOne"
+                }
               })
             .search-room__additional-amenities
               +list({
                 title: {
                   text: "дополнительные удобства",
                   type: "closed",
-                  jsClass: "js-list__title"
                 },
                 container: {
-                  jsClass: "js-list__container",
                   attr: {"hidden": "hidden"}
+                },
+                js: {
+                  main: "js-list",
+                  title: "js-title",
+                  list: "js-list__container"
                 },
                 listCheckbox: [
                   {

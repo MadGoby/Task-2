@@ -31,9 +31,10 @@ include ../../overall/page-head.pug
               {"text": "Новости"},
               {"text": "Соглашения", "type": "expanded"}
             ],
-            buttonJsClass: "js-header-navigation-button",
-            navigationJsClass: "js-header-navigation"
-          }
+            buttonJsClass: "js-header__navigation-button",
+            navigationJsClass: "js-header__navigation"
+          },
+          mainJsClass: "js-header"
         })
       main.room-details__main
         .room-details__photos 
@@ -54,22 +55,25 @@ include ../../overall/page-head.pug
                   from: {
                     title: "прибытие",
                     value: "19.08.2019",
-                    jsClass: "js-input__field_from"
                   },
                   to: {
                     title: "выезд",
                     value: "23.08.2019",
-                    jsClass: "js-input__field_to"
                   },
-                  jsDatepicker: "js-datepicker"
+                  datepicker: {
+                    jsClass: "js-datepicker",
+                    dataYear: "2019",
+                    dataMonth: "7",
+                    dataCurrentDay: "2019, 8, 9",
+                    dataFrom: "2019, 8, 19",
+                    dataTo: "2019, 8, 23",
+                  },
                 },
                 guests: {
                   title: { text: "гости" },
                   input: {
                     value: "3 гостя",
-                    jsClass: "js-input__field"
                   },
-                  control: { jsClass: "js-dropdown__control" },
                   lists: [
                     {text: "взрослые", dataTarget: "adult", output: "2"},
                     {text: "дети", dataTarget: "child", output: "1"},
@@ -217,7 +221,8 @@ include ../../overall/page-head.pug
                   textList: [
                     "Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"
                   ],
-                  container: false
+                  container: false,
+                  js: false,
                 })
               .room-details__cancellation
                 .cancellation

@@ -1,17 +1,19 @@
-export default function headerNavigation(settings) {
-  const { buttonClass, navigationClass } = settings;
+class HeaderNavigation {
+  constructor(target) {
+    this.container = target;
 
-  function getHtmlElements() {
-    const button = document.querySelector(buttonClass);
-    const navigation = document.querySelector(navigationClass);
-    return { button, navigation };
+    this.getHtmlElements();
+    this.bindObjectLink();
+    this.bindEventListeners();
   }
 
-  const resultElements = getHtmlElements();
-  const { button, navigation } = resultElements;
+  getHtmlElements() {
+    this.button = this.container.querySelector('.js-header__navigation-button');
+    this.navigation = this.container.querySelector('.js-header__navigation');
+  }
 
-  function hambToArrow(state) {
-    const sign = button.querySelector('.header__hamburger');
+  turnsHamburgerIntoCross(state) {
+    const sign = this.button.querySelector('.header__hamburger');
 
     if (state === 'block') {
       sign.classList.add('header__hamburger_expanded');
@@ -20,35 +22,40 @@ export default function headerNavigation(settings) {
     }
   }
 
-  function discloseNavigation() {
-    const styles = getComputedStyle(navigation);
+  discloseNavigation() {
+    const styles = getComputedStyle(this.navigation);
 
     if (styles.display === 'none') {
-      navigation.style.display = 'block';
-      hambToArrow(styles.display);
+      this.navigation.style.display = 'block';
+      this.turnsHamburgerIntoCross(styles.display);
     } else {
-      navigation.style.display = 'none';
-      hambToArrow(styles.display);
+      this.navigation.style.display = 'none';
+      this.turnsHamburgerIntoCross(styles.display);
     }
   }
 
-  function changeSidebarDisplay(userWidth) {
-    if (userWidth > 350 && navigation.style.display === 'none') {
-      navigation.style.display = 'block';
+  changeSidebarDisplay(userWidth) {
+    if (userWidth > 350 && this.navigation.style.display === 'none') {
+      this.navigation.style.display = 'block';
     } else if (userWidth <= 350) {
-      navigation.style.display = 'none';
+      this.navigation.style.display = 'none';
     }
   }
 
-  function convertPassesVariable(event) {
+  convertPassesVariable(event) {
     const userWidth = +event.target.innerWidth;
-    changeSidebarDisplay(userWidth);
+    this.changeSidebarDisplay(userWidth);
   }
 
-  function bindEventListeners() {
-    button.addEventListener('click', discloseNavigation);
-    document.body.onresize = convertPassesVariable;
+  bindObjectLink() {
+    this.discloseNavigation = this.discloseNavigation.bind(this);
+    this.convertPassesVariable = this.convertPassesVariable.bind(this);
   }
 
-  bindEventListeners();
+  bindEventListeners() {
+    this.button.addEventListener('click', this.discloseNavigation);
+    document.body.onresize = this.convertPassesVariable;
+  }
 }
+
+export { HeaderNavigation };

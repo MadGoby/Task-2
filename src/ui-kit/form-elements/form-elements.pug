@@ -57,89 +57,97 @@ include ../../blocks/stars-rating/stars-rating.pug
               },
               length: "long",
               type: "dropdown",
-              jsClass: "js-input__field-4"
+              jsClass: "js-input__field"
             }
           },
           control: {
-            jsClass: "js-dropdown__control-4",
+            jsClass: "js-dropdown__control",
             attr: {"hidden": "hidden"}
           },
           lists: [
             {text: "взрослые", dataTarget: "adult", output: "0"},
             {text: "дети", dataTarget: "child", output: "0"},
             {text: "младенцы", dataTarget: "baby", output: "0"}
-          ]
-        })
-      .form-elements__masked-input
-        +input({
-          title: {text: "masked text field"},
-          input: {
-            attr: {
-              type: "text",
-              placeholder: "ДД.ММ.ГГГГ"
-            },
-            length: "long",
-            type: "date"
+          ],
+          main: {
+            jsClass: "js-dropdown",
+            dataType: "guests",
+            outputType: "sum"
           }
         })
-      .form-elements__date-dropdowns
-        .form-elements__date-from
-          +input({
-            title: {text: "date Dropdown"},
-            input: {
-              attr: {
-                type: "text",
-                placeholder: "ДД.ММ.ГГГГ",
-                value: "ДД.ММ.ГГГГ",
-                readonly: "readonly"
-              },
-              length: "short",
-              type: "dropdown",
-              jsClass: "js-input__field_from-2"
-            }
-          })
-        .form-elements__date-to
-          +input({
-            title: {text: "date Dropdown"},
-            input: {
-              attr: {
-                type: "text",
-                placeholder: "ДД.ММ.ГГГГ",
-                value: "19.08.2019",
-                readonly: "readonly"
-              },
-              length: "short",
-              type: "dropdown",
-              jsClass: "js-input__field_to-2"
-            }
-          })  
+      .form-elements__masked-input  
         +datepicker({
-          jsClass: "js-datepicker-2",
+          input: {
+            from: {
+              title: {text: "date Dropdown"},
+              input: {
+                attr: {
+                  type: "text",
+                  placeholder: "ДД.ММ.ГГГГ",
+                  value: "ДД.ММ.ГГГГ",
+                  readonly: "readonly"
+                },
+                length: "short",
+                type: "dropdown",
+                jsClass: "js-input__field_from"
+              }
+            },
+            to: {
+              title: {text: "date Dropdown"},
+              input: {
+                attr: {
+                  type: "text",
+                  placeholder: "ДД.ММ.ГГГГ",
+                  value: "19.08.2019",
+                  readonly: "readonly"
+                },
+                length: "short",
+                type: "dropdown",
+                jsClass: "js-input__field_to"
+              }
+            }
+          },
+          main: {
+            jsClass: "js-datepicker",
+            dataYear: "2019",
+            dataMonth: "7",
+            dataCurrentDay: "2019, 8, 9",
+            dataTo: "2019, 8, 19",
+          },
           attr: {
             "hidden": "hidden"
           }
         })
       .form-elements__filter-dropdown
-        +input({
-          title: {text: "filter date dropdown"},
-          input: {
-            attr: {
-              type: "text",
-              placeholder: "ДД.ММ.ГГГГ",
-              value: "19 авг - 23 авг",
-              readonly: "readonly"
-            },
-            length: "average",
-            type: "dropdown",
-            jsClass: "js-input__field_total-3"
-          }
-        })
         +datepicker({
-          jsClass: "js-datepicker-3",
+          input: {
+            total: {
+              title: {text: "filter date dropdown"},
+              input: {
+                attr: {
+                  type: "text",
+                  placeholder: "ДД.ММ.ГГГГ",
+                  value: "19 авг - 23 авг",
+                  readonly: "readonly"
+                },
+                length: "average",
+                type: "dropdown",
+                jsClass: "js-input__field_total"
+              }
+            }
+          },
+          main: {
+            jsClass: "js-datepicker",
+            dataYear: "2019",
+            dataMonth: "7",
+            dataCurrentDay: "2019, 8, 9",
+            dataFrom: "2019, 8, 19",
+            dataTo: "2019, 8, 23",
+          },
           attr: {
             "hidden": "hidden"
           },
-          size: "m"
+          size: "small"
         })
       .form-elements__subscription-input
         form(action="./for-change").form-elements__subscription-form
@@ -306,7 +314,7 @@ include ../../blocks/stars-rating/stars-rating.pug
         .form-elements__rating
           +stars-rating({rating: "4", jsClass: "js-stars-rating"})
         .form-elements__rating
-          +stars-rating({rating: "5", jsClass: "js-stars-rating-2"})
+          +stars-rating({rating: "5", jsClass: "js-stars-rating"})
     .form-elements__button-types
       .form-elements__slider
         +slider({
@@ -344,7 +352,7 @@ include ../../blocks/stars-rating/stars-rating.pug
               type: "border",
               text: "click me",
               attr: {"type": "button"},
-              hover: "background_transparent",
+              hover: "transparent",
             })
         .form-elements__text-buttons
           .form-elements__button-wrapp
@@ -387,11 +395,11 @@ include ../../blocks/stars-rating/stars-rating.pug
                 },
                 length: "average",
                 type: "dropdown",
-                jsClass: "js-input__field-5"
+                jsClass: "js-input__field"
               }
             },
             control: {
-              jsClass: "js-dropdown__control-5",
+              jsClass: "js-dropdown__control",
               z: "6",
               attr: {"hidden": "hidden"}
             },
@@ -399,7 +407,12 @@ include ../../blocks/stars-rating/stars-rating.pug
               {text: "спальни", dataTarget: "bedroom", output: "2"},
               {text: "кровати", dataTarget: "bed", output: "2"},
               {text: "ванные комнаты", dataTarget: "bathroom", output: "0"}
-            ]
+            ],
+            main: {
+              jsClass: "js-dropdown",
+              dataType: "rooms",
+              outputType: "oneByOne"
+            }
           })
         .form-elements__expanded-dropdown
           +dropdown({
@@ -425,7 +438,12 @@ include ../../blocks/stars-rating/stars-rating.pug
               {text: "спальни", dataTarget: "bedroom", output: "2"},
               {text: "кровати", dataTarget: "bed", output: "2"},
               {text: "ванные комнаты", dataTarget: "bathroom", output: "0"}
-            ]
+            ],
+            main: {
+              jsClass: "js-dropdown",
+              dataType: "rooms",
+              outputType: "oneByOne"
+            }
           })
       .form-elements__guests-dropdown
         +dropdown({
@@ -441,17 +459,22 @@ include ../../blocks/stars-rating/stars-rating.pug
               },
               length: "long",
               type: "dropdown",
-              jsClass: "js-input__field-2"
+              jsClass: "js-input__field"
             }
           },
           control: {
-            jsClass: "js-dropdown__control-2",
+            jsClass: "js-dropdown__control",
           },
           lists: [
             {text: "взрослые", dataTarget: "adult", output: "0"},
             {text: "дети", dataTarget: "child", output: "0"},
             {text: "младенцы", dataTarget: "baby", output: "0"}
-          ]
+          ],
+          main: {
+            jsClass: "js-dropdown",
+            dataType: "guests",
+            outputType: "sum"
+          }
         })
       .form-elements__guests-dropdown
         +dropdown({
@@ -467,17 +490,22 @@ include ../../blocks/stars-rating/stars-rating.pug
               },
               length: "long",
               type: "dropdown",
-              jsClass: "js-input__field-3"
+              jsClass: "js-input__field"
             }
           },
           control: {
-            jsClass: "js-dropdown__control-3",
+            jsClass: "js-dropdown__control",
           },
           lists: [
             {text: "взрослые", dataTarget: "adult", output: "2"},
             {text: "дети", dataTarget: "child", output: "1"},
             {text: "младенцы", dataTarget: "baby", output: "0"}
-          ]
+          ],
+          main: {
+            jsClass: "js-dropdown",
+            dataType: "guests",
+            outputType: "sum"
+          }
         })
     .form-elements__list-types
       .form-elements__expandable-lists 
@@ -486,11 +514,14 @@ include ../../blocks/stars-rating/stars-rating.pug
             title: {
               text: "expandable checkbox list",
               type: "closed",
-              jsClass: "js-list__title"
             },
             container: {
-              jsClass: "js-list__container",
               attr: {"hidden": "hidden"}
+            },
+            js: {
+              main: "js-list",
+              title: "js-title",
+              list: "js-list__container"
             },
             listCheckbox: [
               {
@@ -575,10 +606,13 @@ include ../../blocks/stars-rating/stars-rating.pug
             title: {
               text: "expandable checkbox list",
               type: "expanded",
-              jsClass: "js-list__title-2"
             },
             container: {
-              jsClass: "js-list__container-2",
+            },
+            js: {
+              main: "js-list",
+              title: "js-title",
+              list: "js-list__container"
             },
             listCheckbox: [
               {
@@ -663,6 +697,7 @@ include ../../blocks/stars-rating/stars-rating.pug
           title: {
             text: "rich Checkbox Buttons",
           },
+          js: false,
           listCheckbox: [
             {
               controller: {
@@ -692,7 +727,7 @@ include ../../blocks/stars-rating/stars-rating.pug
               }
             },
           ],
-          container: false
+          container: false,
         })  
       .form-elements__bullet-list
         +list({
@@ -700,7 +735,8 @@ include ../../blocks/stars-rating/stars-rating.pug
             text: "bullet list",
             bullet: true,
           },
-          container: {},
+          container: false,
+          js: false,
           textList: [
             "Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"
           ]

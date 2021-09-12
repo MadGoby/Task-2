@@ -1,63 +1,51 @@
-export default function contentNavigation(settings) {
-  const { navigationClass } = settings;
+class ContentNavigation {
+  constructor(target) {
+    this.container = target;
 
-  function initializeElements() {
-    const navigation = document.querySelector(navigationClass);
-    const navigationButtons = [...navigation.querySelectorAll('.content-navigation__button')];
-    const counter = navigation.querySelector('.content-navigation__counter');
-    let currentButton;
+    this.getHtmlElements();
+    this.bindObjectLink();
+    this.bindEventListeners();
+    this.navigationDisplayControl();
+  }
 
-    navigationButtons.forEach((navigationButton) => {
-      if (navigationButton.classList.contains('content-navigation__button_active')) {
-        currentButton = navigationButton;
-      }
+  getHtmlElements() {
+    this.buttons = [...this.container.querySelectorAll('.content-navigation__button')];
+    this.counter = this.container.querySelector('.content-navigation__counter');
+    this.buttons.forEach((button) => {
+      if (button.classList.contains('content-navigation__button_active')) this.currentButton = button;
     });
-
-    return {
-      navigation,
-      navigationButtons,
-      currentButton,
-      counter,
-    };
   }
 
-  let { currentButton } = initializeElements();
-  const { navigationButtons, counter } = initializeElements();
+  navigationDisplayControl() {
+    const currentPageNumber = this.currentButton.querySelector('.button__control').textContent;
 
-  function getButtonFromWrapper(element) {
-    return element.querySelector('.button__control');
-  }
-
-  function navigationDisplayControl() {
-    const currentPageNumber = getButtonFromWrapper(currentButton).textContent;
-
-    navigationButtons.forEach((elem) => {
+    this.buttons.forEach((elem) => {
       const button = elem;
       button.style.display = 'inline-block';
     });
 
     if (currentPageNumber === '1') {
-      navigationButtons[0].style.display = 'none';
-      navigationButtons[2].style.display = 'none';
-      navigationButtons[5].style.display = 'none';
+      this.buttons[0].style.display = 'none';
+      this.buttons[2].style.display = 'none';
+      this.buttons[5].style.display = 'none';
     } else if (currentPageNumber === '2') {
-      navigationButtons[5].style.display = 'none';
-      navigationButtons[2].style.display = 'none';
+      this.buttons[5].style.display = 'none';
+      this.buttons[2].style.display = 'none';
     } else if (currentPageNumber === '3') {
-      navigationButtons[2].style.display = 'none';
+      this.buttons[2].style.display = 'none';
     } else if (currentPageNumber === '13') {
-      navigationButtons[6].style.display = 'none';
+      this.buttons[6].style.display = 'none';
     } else if (currentPageNumber === '14') {
-      navigationButtons[6].style.display = 'none';
-      navigationButtons[3].style.display = 'none';
+      this.buttons[6].style.display = 'none';
+      this.buttons[3].style.display = 'none';
     } else if (currentPageNumber === '15') {
-      navigationButtons[6].style.display = 'none';
-      navigationButtons[8].style.display = 'none';
-      navigationButtons[3].style.display = 'none';
+      this.buttons[6].style.display = 'none';
+      this.buttons[8].style.display = 'none';
+      this.buttons[3].style.display = 'none';
     }
   }
 
-  function navigationButtonClick(event) {
+  clickedNavigationButton(event) {
     let parent;
 
     function getParent(button) {
@@ -76,94 +64,99 @@ export default function contentNavigation(settings) {
 
     function controlButtonsNumbers(index, targetNumber) {
       if (index === 5 && targetNumber <= 13) {
-        controlCurrentPageСlass(navigationButtons[index - 1]);
-        currentButton = navigationButtons[index - 1];
-        getButtonFromWrapper(navigationButtons[index - 1]).textContent = targetNumber;
-        getButtonFromWrapper(navigationButtons[index - 2]).textContent = targetNumber - 1;
-        getButtonFromWrapper(navigationButtons[index]).textContent = targetNumber + 1;
+        controlCurrentPageСlass(this.buttons[index - 1]);
+        this.currentButton = this.buttons[index - 1];
+        this.buttons[index - 1].querySelector('.button__control').textContent = targetNumber;
+        this.buttons[index - 2].querySelector('.button__control').textContent = targetNumber - 1;
+        this.buttons[index].querySelector('.button__control').textContent = targetNumber + 1;
       } else if (index === 3 && targetNumber >= 3) {
-        controlCurrentPageСlass(navigationButtons[index + 1]);
-        currentButton = navigationButtons[index + 1];
-        getButtonFromWrapper(navigationButtons[index + 1]).textContent = targetNumber;
-        getButtonFromWrapper(navigationButtons[index + 2]).textContent = targetNumber + 1;
-        getButtonFromWrapper(navigationButtons[index]).textContent = targetNumber - 1;
+        controlCurrentPageСlass(this.buttons[index + 1]);
+        this.currentButton = this.buttons[index + 1];
+        this.buttons[index + 1].querySelector('.button__control').textContent = targetNumber;
+        this.buttons[index + 2].querySelector('.button__control').textContent = targetNumber + 1;
+        this.buttons[index].querySelector('.button__control').textContent = targetNumber - 1;
       } else if (index === 7) {
         controlCurrentPageСlass(parent);
-        currentButton = parent;
-        getButtonFromWrapper(navigationButtons[index - 2]).textContent = targetNumber - 1;
-        getButtonFromWrapper(navigationButtons[index - 3]).textContent = targetNumber - 2;
-        getButtonFromWrapper(navigationButtons[index - 4]).textContent = targetNumber - 3;
+        this.currentButton = parent;
+        this.buttons[index - 2].querySelector('.button__control').textContent = targetNumber - 1;
+        this.buttons[index - 3].querySelector('.button__control').textContent = targetNumber - 2;
+        this.buttons[index - 4].querySelector('.button__control').textContent = targetNumber - 3;
       } else if (index === 1) {
         controlCurrentPageСlass(parent);
-        currentButton = parent;
-        getButtonFromWrapper(navigationButtons[index + 2]).textContent = targetNumber + 1;
-        getButtonFromWrapper(navigationButtons[index + 3]).textContent = targetNumber + 2;
-        getButtonFromWrapper(navigationButtons[index + 4]).textContent = targetNumber + 3;
+        this.currentButton = parent;
+        this.buttons[index + 2].querySelector('.button__control').textContent = targetNumber + 1;
+        this.buttons[index + 3].querySelector('.button__control').textContent = targetNumber + 2;
+        this.buttons[index + 4].querySelector('.button__control').textContent = targetNumber + 3;
       } else {
-        controlCurrentPageСlass(navigationButtons[index]);
-        currentButton = parent;
+        controlCurrentPageСlass(this.buttons[index]);
+        this.currentButton = parent;
       }
     }
 
     function multiplierEditor() {
-      const counterTo = getButtonFromWrapper(currentButton).textContent * 12;
-      counter.textContent = `${counterTo - 11} – ${counterTo} из 100+ вариантов аренды`;
+      const counterTo = this.currentButton.querySelector('.button__control').textContent * 12;
+      this.counter.textContent = `${counterTo - 11} – ${counterTo} из 100+ вариантов аренды`;
     }
 
     if (!parent.classList.contains('content-navigation__decorative-button')) {
-      controlCurrentPageСlass(currentButton);
+      controlCurrentPageСlass(this.currentButton);
 
-      let index = navigationButtons.indexOf(parent);
+      let index = this.buttons.indexOf(parent);
       let targetNumber = Number(event.target.textContent);
 
       if (parent.classList.contains('content-navigation__button_purpose_previous')) {
-        if (Number(getButtonFromWrapper(currentButton).textContent) === 15) {
-          targetNumber = Number(getButtonFromWrapper(currentButton).textContent) - 1;
+        if (Number(this.currentButton.querySelector('.button__control').textContent) === 15) {
+          targetNumber = Number(this.currentButton.querySelector('.button__control').textContent) - 1;
           index = 5;
-          parent = navigationButtons[index];
-        } else if (Number(getButtonFromWrapper(currentButton).textContent) >= 4) {
-          targetNumber = Number(getButtonFromWrapper(currentButton).textContent) - 1;
+          parent = this.buttons[index];
+        } else if (Number(this.currentButton.querySelector('.button__control').textContent) >= 4) {
+          targetNumber = Number(this.currentButton.querySelector('.button__control').textContent) - 1;
           index = 3;
-        } else if (Number(getButtonFromWrapper(currentButton).textContent) === 3) {
-          targetNumber = Number(getButtonFromWrapper(currentButton).textContent) - 1;
+        } else if (Number(this.currentButton.querySelector('.button__control').textContent) === 3) {
+          targetNumber = Number(this.currentButton.querySelector('.button__control').textContent) - 1;
           index = 3;
-          parent = navigationButtons[index];
-        } else if (Number(getButtonFromWrapper(currentButton).textContent) === 2) {
-          targetNumber = Number(getButtonFromWrapper(currentButton).textContent) - 1;
+          parent = this.buttons[index];
+        } else if (Number(this.currentButton.querySelector('.button__control').textContent) === 2) {
+          targetNumber = Number(this.currentButton.querySelector('.button__control').textContent) - 1;
           index = 1;
-          parent = navigationButtons[index];
+          parent = this.buttons[index];
         }
       } else if (parent.classList.contains('content-navigation__button_purpose_next')) {
-        if (Number(getButtonFromWrapper(currentButton).textContent) === 1) {
-          targetNumber = Number(getButtonFromWrapper(currentButton).textContent) + 1;
+        if (Number(this.currentButton.querySelector('.button__control').textContent) === 1) {
+          targetNumber = Number(this.currentButton.querySelector('.button__control').textContent) + 1;
           index = 3;
-          parent = navigationButtons[index];
-        } else if (Number(getButtonFromWrapper(currentButton).textContent) <= 12) {
-          targetNumber = Number(getButtonFromWrapper(currentButton).textContent) + 1;
+          parent = this.buttons[index];
+        } else if (Number(this.currentButton.querySelector('.button__control').textContent) <= 12) {
+          targetNumber = Number(this.currentButton.querySelector('.button__control').textContent) + 1;
           index = 5;
-        } else if (Number(getButtonFromWrapper(currentButton).textContent) === 13) {
-          targetNumber = Number(getButtonFromWrapper(currentButton).textContent) + 1;
+        } else if (Number(this.currentButton.querySelector('.button__control').textContent) === 13) {
+          targetNumber = Number(this.currentButton.querySelector('.button__control').textContent) + 1;
           index = 5;
-          parent = navigationButtons[index];
-        } else if (Number(getButtonFromWrapper(currentButton).textContent) === 14) {
-          targetNumber = Number(getButtonFromWrapper(currentButton).textContent) + 1;
+          parent = this.buttons[index];
+        } else if (Number(this.currentButton.querySelector('.button__control').textContent) === 14) {
+          targetNumber = Number(this.currentButton.querySelector('.button__control').textContent) + 1;
           index = 7;
-          parent = navigationButtons[index];
+          parent = this.buttons[index];
         }
       }
 
-      controlButtonsNumbers(index, targetNumber);
-      navigationDisplayControl();
-      multiplierEditor();
+      const bindedControlButtonsNumbers = controlButtonsNumbers.bind(this);
+      const bindedMultiplierEditor = multiplierEditor.bind(this);
+      bindedControlButtonsNumbers(index, targetNumber);
+      this.navigationDisplayControl();
+      bindedMultiplierEditor();
     }
   }
 
-  function bindEventListeners() {
-    navigationButtons.forEach((navigationButton) => {
-      navigationButton.addEventListener('click', navigationButtonClick);
-    });
+  bindObjectLink() {
+    this.clickedNavigationButton = this.clickedNavigationButton.bind(this);
   }
 
-  bindEventListeners();
-  navigationDisplayControl();
+  bindEventListeners() {
+    this.buttons.forEach((button) => {
+      button.addEventListener('click', this.clickedNavigationButton);
+    });
+  }
 }
+
+export { ContentNavigation };

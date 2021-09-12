@@ -2,16 +2,57 @@
 @import '../../overall/mixins.scss';
 
 .datepicker {
-  background: #ffffff;
-  border: 1px solid rgba(31, 32, 65, 0.25);
-  box-sizing: border-box;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  border-radius: 4px;
-  padding: 19px 18px 19px 19px;
   width: 320px;
-  position: absolute;
-  z-index: 5;
-  margin-top: 6px;
+  box-sizing: border-box;
+
+  &__from,
+  &__to {
+    display: inline-block;
+
+    @media screen and (max-width: 380px) {
+      display: block;
+    }
+  }
+
+  &__from {
+    display: inline-block;
+  }
+
+  &__to {
+    display: inline-block;
+    float: right;
+
+    @media screen and (max-width: 380px) {
+      float: none;
+      margin-top: 10px;
+    }
+  }
+
+  &__inputs {
+    margin-bottom: 6px;
+  }
+
+  &__calendar-wrapper {
+    background: #ffffff;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    border-radius: 4px;
+    padding: 19px 18px 19px 19px;
+    width: 320px;
+    position: absolute;
+    z-index: 5;
+
+    &_size_small {
+      width: 266px;
+      padding: 9px 10px 10px 9px;
+    }
+
+    @media screen and (max-width: 380px) {
+      width: 266px;
+      padding: 9px 10px 10px 9px;
+    }
+  }
 
   &__scroll-button {
     background-image: url('../../img/arrow-forward.svg');
@@ -163,7 +204,6 @@
 
   &_size_small {
     width: 266px;
-    padding: 9px 10px 10px 9px;
   }
   
   &_without-margin {
@@ -172,6 +212,5 @@
 
   @media screen and (max-width: 380px) {
     width: 266px;
-    padding: 9px 10px 10px 9px;
   }
 }

@@ -8,22 +8,17 @@ mixin search-room(settings)
   -     from: {
   -       title: fromTitle = "For change",
   -       value: fromValue = "ДД.ММ.ГГГГ",
-  -       jsClass: fromJs = "js-for-change"
   -     },
   -     to: {
   -       title: toTitle = "For change",
   -       value: toValue = "ДД.ММ.ГГГГ",
-  -       jsClass: toJs = "js-for-change"
-  -     },
-  -     jsDatepicker = "js-for-change"
+  -     }
   -   },
   -   guests: {
   -     title: { text: guestsTitle = "For change" },
   -     input: {
   -       value: guestsInputValue = "For Change",
-  -       jsClass: guestsInputJs = "js-for-change"
   -     },
-  -     control: { jsClass: guestsControlJs = "js-for-change" },
   -     lists = [
   -       {text: "For change 1", dataTarget: "for-change-1", output: "0"},
   -       {text: "For change 2", dataTarget: "for-change-2", output: "0"},
@@ -39,38 +34,40 @@ mixin search-room(settings)
         type: "size_large"
       })
     .search-room__period
-      .search-room__from
-        +input({
-          title: {text: fromTitle},
-          input: {
-            attr: {
-              type: "text",
-              placeholder: "ДД.ММ.ГГГГ",
-              value: fromValue,
-              readonly: "readonly"
-            },
-            length: "short",
-            type: "dropdown",
-            jsClass: fromJs
-          }
-        })
-      .search-room__to
-        +input({
-          title: {text: toTitle},
-          input: {
-            attr: {
-              type: "text",
-              placeholder: "ДД.ММ.ГГГГ",
-              value: toValue,
-              readonly: "readonly"
-            },
-            length: "short",
-            type: "dropdown",
-            jsClass: toJs
-          }
-        })
       +datepicker({
-        jsClass: jsDatepicker,
+        input: {
+          from: {
+            title: {text: fromTitle},
+            input: {
+              attr: {
+                type: "text",
+                placeholder: "ДД.ММ.ГГГГ",
+                value: fromValue,
+                readonly: "readonly"
+              },
+              length: "short",
+              type: "dropdown",
+              jsClass: "js-input__field_from"
+            }
+          },
+          to: {
+            title: {text: toTitle},
+            input: {
+              attr: {
+                type: "text",
+                placeholder: "ДД.ММ.ГГГГ",
+                value: toValue,
+                readonly: "readonly"
+              },
+              length: "short",
+              type: "dropdown",
+              jsClass: "js-input__field_to"
+            }
+          }
+        },
+        main: {
+          jsClass: "js-datepicker"
+        },
         attr: {
           "hidden": "hidden"
         }
@@ -88,14 +85,19 @@ mixin search-room(settings)
             },
             length: "long",
             type: "dropdown",
-            jsClass: guestsInputJs
+            jsClass: "js-input__field"
           }
         },
         control: {
-          jsClass: guestsControlJs,
+          jsClass: "js-dropdown__control",
           attr: {"hidden": "hidden"}
         },
-        lists: lists
+        lists: lists,
+        main: {
+          jsClass: "js-dropdown",
+          dataType: "guests",
+          outputType: "sum"
+        }
       })
     .search-room__confirm-button
       +button({

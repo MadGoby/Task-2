@@ -1,281 +1,248 @@
-export default function dropdownFunctionality(settings) {
-  const { inputClass, dropdownClass, inputResultTemplate, defaultTemplate } = settings;
+class Dropdown {
+  constructor(settings) {
+    this.container = settings.container;
+    this.templates = settings.templates;
 
-  function getHtmlElements() {
-    const input = document.querySelector(inputClass);
-    const dropdown = document.querySelector(dropdownClass);
-    return { input, dropdown };
+    this.getHtmlElements();
+    this.checkClearButtonVisibility();
+    this.bindObjectLink();
+    this.bindEventListeners();
   }
 
-  const resultElements = getHtmlElements();
-  const { input, dropdown } = resultElements;
-  const dropdownButtons = [...dropdown.querySelectorAll('button')];
-  const defaultValues = [0, 0, 0];
-
-  function checkClearButtonVisibility() {
-    let a = 0;
-
-    [...dropdown.querySelectorAll('output')].forEach((output) => {
-      a += Number(output.innerText);
-    });
-
-    dropdownButtons.forEach((button) => {
-      if (button.getAttribute('data-target') === 'clear' && a > 0) button.removeAttribute('hidden');
-    });
+  getHtmlElements() {
+    this.input = this.container.querySelector('.js-input__field');
+    this.dropdown = this.container.querySelector('.js-dropdown__control');
+    this.plusButtons = [...this.container.querySelectorAll('.dropdown__button')].filter(
+      (button) => button.getAttribute('data-action') === 'plus'
+    );
+    this.minusButtons = [...this.container.querySelectorAll('.dropdown__button')].filter(
+      (button) => button.getAttribute('data-action') === 'minus'
+    );
+    this.outputs = [...this.container.querySelectorAll('.dropdown__output')];
+    this.clearButton = this.container.querySelector('.dropdown__clear-button');
+    this.submitButton = this.container.querySelector('.dropdown__submit-button');
   }
 
-  function discloseDropdown() {
-    if (dropdown.hasAttribute('hidden')) {
-      dropdown.removeAttribute('hidden');
-      input.classList.add('input__field_expanded');
+  checkClearButtonVisibility() {
+    function isPositive(number) {
+      return number > 0;
+    }
+
+    if (this.outputs.some((output) => isPositive(output.textContent))) {
+      this.clearButton.style.display = 'inline-block';
+    } else if (!this.clearButton.hasAttribute('hidden')) {
+      this.clearButton.style.display = 'none';
+    }
+  }
+
+  inputClicked() {
+    this.dropdown.toggleAttribute('hidden');
+    this.input.classList.toggle('input__field_expanded');
+  }
+
+  wordEndCheck(value, template, line) {
+    function isEqualToZero(num) {
+      return num % 10 === 0;
+    }
+
+    function fromOneToFour() {
+      return isEqualToZero(value - 2) || isEqualToZero(value - 3) || isEqualToZero(value - 4);
+    }
+
+    let index;
+
+    if (value > 4 && value < 21) {
+      index = 3;
+    } else if (value === 1 || isEqualToZero(value - 1)) {
+      index = 1;
+    } else if (fromOneToFour()) {
+      index = 2;
     } else {
-      dropdown.setAttribute('hidden', 'hidden');
-      input.classList.remove('input__field_expanded');
+      index = 3;
     }
+
+    if (this.container.getAttribute('data-output') === 'sum') {
+      return this.templates[template][index];
+    }
+    return this.templates[template][line][index];
   }
 
-  function implementsButtonsFunctionality(event) {
-    const button = event.target;
+  setDefaultIfZero() {
+    const outputValue =
+      Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
+    const template = this.container.getAttribute('data-template');
+    if (outputValue === 0) this.input.value = `${this.templates[`${template}Default`]}`;
+  }
 
-    function definesModifiesOutput(elem) {
-      const target = elem.getAttribute('data-target');
-
-      function getDesiredOutput(targOut) {
-        let result;
-
-        [...dropdown.querySelectorAll('output')].forEach((out) => {
-          if (out.getAttribute('data-target') === targOut) {
-            result = out;
-          }
-        });
-
-        return result;
-      }
-
-      const output = getDesiredOutput(target);
-      const action = button.getAttribute('data-action');
-
-      function checkAdditionPossinility(addAction) {
-        return addAction === 'plus' && Number(output.innerText) < 10;
-      }
-
-      function checkSubtractionPossinility(subAction) {
-        return subAction === 'minus' && Number(output.innerText) > 0;
-      }
-
-      function isButtonTransparent(transfButton, transfAction) {
-        return (
-          transfButton.classList.contains('dropdown__button_transparent') &&
-          transfButton.getAttribute('data-action') === transfAction &&
-          transfButton.getAttribute('data-target') === target
-        );
-      }
-
-      function removeTransparentClass(removeAction, num, removeTarget) {
-        if (Number(output.innerText) === num) {
-          [...dropdown.querySelectorAll('button')].forEach((removeButtons) => {
-            if (isButtonTransparent(removeButtons, removeAction, removeTarget)) {
-              removeButtons.classList.remove('dropdown__button_transparent');
-            }
-          });
-        }
-      }
-
-      if (checkAdditionPossinility(action)) {
-        if (Number(output.innerText) === 0) {
-          const currTarget = button.getAttribute('data-rarget');
-          removeTransparentClass('minus', 0, currTarget);
-        }
-        output.innerText = Number(output.innerText) + 1;
-        input.setAttribute(`data-${target}`, output.innerText);
-        if (Number(output.innerText) === 10) {
-          button.classList.add('dropdown__button_transparent');
-        }
-      } else if (checkSubtractionPossinility(action)) {
-        if (Number(output.innerText) === 10) {
-          const currTarget = button.getAttribute('data-rarget');
-          removeTransparentClass('plus', 10, currTarget);
-        }
-        output.innerText = Number(output.innerText) - 1;
-        input.setAttribute(`data-${target}`, output.innerText);
-        if (Number(output.innerText) === 0) {
-          button.classList.add('dropdown__button_transparent');
-        }
-      }
+  prepareOutputSum() {
+    const outputValue =
+      Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
+    const template = this.container.getAttribute('data-template');
+    let output;
+    if (outputValue > 0) {
+      output = `${outputValue} ${this.templates[template][0]}${this.wordEndCheck(outputValue, template)}`;
+    } else {
+      output = `${this.templates[`${template}Default`]}`;
     }
+    return output;
+  }
 
-    function refreshInput(inputForRefreshing) {
-      function getOutputValues() {
-        const result = [];
-
-        [...dropdown.querySelectorAll('output')].forEach((output) => {
-          result.push(Number(output.innerText));
-        });
-
-        return result;
-      }
-
-      const outputVal = getOutputValues();
-
-      function setToZero(arr) {
-        return arr.every((val) => val === 0);
-      }
-
-      function wordEndCheck(val) {
-        const value = val;
-
-        function checkRemainder(num) {
-          const remainder = num % 10;
-          let result;
-
-          if (remainder === 0) {
-            result = true;
-          } else {
-            result = false;
-          }
-
-          return result;
-        }
-
-        function comparesFirstDigits() {
-          return checkRemainder(value - 2) || checkRemainder(value - 3) || checkRemainder(value - 4);
-        }
-
-        let result;
-
-        if (value > 4 && value < 21) {
-          result = 3;
-        } else if (value === 1 || checkRemainder(value - 1)) {
-          result = 1;
-        } else if (comparesFirstDigits()) {
-          result = 2;
-        } else {
-          result = 3;
-        }
-
-        return result;
-      }
-
-      function oneOfValuesZero() {
-        return Number(outputVal[0]) === 0 || Number(outputVal[1]) === 0;
-      }
-
-      function oneOfValuesNotZero() {
-        return Number(outputVal[0]) !== 0 || Number(outputVal[1]) !== 0;
-      }
-
-      function lastValueNotZero(i) {
-        return i === 2 && Number(outputVal[i]) !== 0;
-      }
-
-      if (setToZero(outputVal)) {
-        inputForRefreshing.setAttribute('value', defaultTemplate);
-
-        dropdownButtons.forEach((zeroButton) => {
-          if (zeroButton.getAttribute('data-action') === 'minus') {
-            zeroButton.classList.add('dropdown__button_transparent');
-          }
-
-          if (
-            zeroButton.getAttribute('data-action') === 'plus' &&
-            zeroButton.classList.contains('dropdown__button_transparent')
-          ) {
-            zeroButton.classList.remove('dropdown__button_transparent');
-          }
-
-          if (zeroButton.getAttribute('data-target') === 'clear') zeroButton.setAttribute('hidden', 'hidden');
-        });
-      } else {
-        dropdownButtons.forEach((simpButton) => {
-          if (simpButton.getAttribute('data-target') === 'clear') simpButton.removeAttribute('hidden');
-        });
-
-        let result = '';
-
-        if (inputResultTemplate.type === 'oneByOne') {
-          for (let i = 0; i < outputVal.length; i += 1) {
-            if (i !== 2 && outputVal[i] !== 0) {
-              result += `${outputVal[i]} ${inputResultTemplate.values[i][0]}${
-                inputResultTemplate.values[i][wordEndCheck(outputVal[i])]
-              }`;
+  prepareTwoByOne() {
+    const valuesSum =
+      Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
+    const values = this.outputs.map((value) => value.textContent);
+    const template = this.container.getAttribute('data-template');
+    let output = '';
+    if (valuesSum > 0) {
+      this.outputs.forEach((value, index) => {
+        const iteration = () => {
+          if (index === 0) {
+            const valueText = Number(value.textContent) + Number(values[1]);
+            output += `${valueText} ${this.templates[template][index][0]}${this.wordEndCheck(
+              valueText,
+              template,
+              index
+            )}`;
+            if (valuesSum - valueText === 0) {
+              output += '...';
+            } else {
+              output += ', ';
             }
-
-            if (lastValueNotZero(i) && oneOfValuesZero()) {
-              result += `${outputVal[i]} ${inputResultTemplate.values[i][0]}${
-                inputResultTemplate.values[i][wordEndCheck(outputVal[i])]
-              }`;
-            }
-
-            if (i === 0 && outputVal[0] !== 0) {
-              if (outputVal[1] !== 0 || outputVal[2] !== 0) {
-                result += ', ';
-              } else {
-                result += '...';
-              }
-            } else if (i === 1 && outputVal[1] !== 0) {
-              if (outputVal[0] === 0 && outputVal[2] !== 0) result += ', ';
-              if (outputVal[2] === 0 || outputVal[0] !== 0) result += '...';
-            } else if (i === 2 && outputVal[2] !== 0) {
-              if (outputVal[0] === 0 || outputVal[1] === 0) result += '...';
-            }
+          } else if (index === 2) {
+            output += `${value.textContent} ${this.templates[template][1][0]}${this.wordEndCheck(
+              +value.textContent,
+              template,
+              1
+            )}`;
+            if (Number(values[0]) === 0) output += '...';
           }
-        } else if (inputResultTemplate.type === 'sum') {
-          outputVal.forEach((value) => {
-            result = Number(result) + value;
-          });
+        };
 
-          result = `${result} ${inputResultTemplate.values[0]}${inputResultTemplate.values[wordEndCheck(result)]}`;
-        } else if (inputResultTemplate.type === 'twoByOne') {
-          for (let i = 0; i < outputVal.length; i += 1) {
-            if (i === 0 && oneOfValuesNotZero()) {
-              result += `${outputVal[i] + outputVal[1]} ${inputResultTemplate.values[0][0]}${
-                inputResultTemplate.values[0][wordEndCheck(outputVal[i] + outputVal[i + 1])]
-              }`;
-
-              if (outputVal[2] !== 0) {
-                result += ', ';
-              }
-            } else if (i === 2 && outputVal[i] !== 0) {
-              result += `${outputVal[i]} ${inputResultTemplate.values[1][0]}${
-                inputResultTemplate.values[1][wordEndCheck(outputVal[i])]
-              }`;
-            }
-          }
-        }
-        inputForRefreshing.setAttribute('value', result);
-      }
-    }
-
-    function setDefaultValues(container) {
-      const outputs = [...container.querySelectorAll('output')];
-      let i = 0;
-
-      outputs.forEach((outputForEditing) => {
-        const output = outputForEditing;
-        output.innerText = defaultValues[i];
-        i += 1;
+        if (index === 0 && +values[0] + +values[1] > 0) iteration();
+        if (index === 2 && +value.textContent > 0) iteration();
       });
-    }
-
-    if (button.getAttribute('data-target') === 'clear') {
-      setDefaultValues(dropdown);
-      refreshInput(input);
-      button.setAttribute('hidden', 'hidden');
-    } else if (button.getAttribute('data-target') === 'submit') {
-      discloseDropdown();
     } else {
-      definesModifiesOutput(button);
-      refreshInput(input);
+      output = `${this.templates[`${template}Default`]}`;
     }
+    return output;
   }
 
-  function bindEventListeners() {
-    input.addEventListener('click', discloseDropdown);
-    dropdownButtons.forEach((button) => {
-      button.addEventListener('click', implementsButtonsFunctionality);
+  prepareOneByOne() {
+    const valuesSum =
+      Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
+    const values = this.outputs.map((value) => value.textContent);
+    const template = this.container.getAttribute('data-template');
+    let output = '';
+    if (valuesSum > 0) {
+      this.outputs.forEach((value, index) => {
+        const iteration = () => {
+          const valueText = value.innerText;
+          output += `${valueText} ${this.templates[template][index][0]}${this.wordEndCheck(
+            +valueText,
+            template,
+            index
+          )}`;
+          if (index === 0) {
+            if (valuesSum - values[0] === 0) {
+              output += '...';
+            } else {
+              output += ', ';
+            }
+          } else if (index === 1) {
+            if (Number(values[0]) === 0 && Number(values[2]) !== 0) {
+              output += ', ';
+            } else {
+              output += '...';
+            }
+          } else if (index === 2) output += '...';
+        };
+
+        const isLastNotThird = () => index === 2 && (+values[0] === 0 || +values[1] === 0);
+
+        if (isLastNotThird() && value.textContent > 0) {
+          iteration();
+        } else if (index !== 2 && value.textContent > 0) iteration();
+      });
+    } else {
+      output = `${this.templates[`${template}Default`]}`;
+    }
+    return output;
+  }
+
+  refreshInput() {
+    let inputText;
+    const template = this.container.getAttribute('data-output');
+    if (template === 'oneByOne') {
+      inputText = this.prepareOneByOne();
+    } else if (template === 'twoByOne') {
+      inputText = this.prepareTwoByOne();
+    } else {
+      inputText = this.prepareOutputSum();
+    }
+    this.input.value = inputText;
+  }
+
+  plusButtonClicked(event) {
+    const buttonIndex = this.plusButtons.indexOf(event.target);
+    const outputTarget = this.outputs[buttonIndex];
+    if (outputTarget.innerText < 10) {
+      if (outputTarget.innerText === '0')
+        this.minusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
+      outputTarget.innerText = Number(outputTarget.innerText) + 1;
+      if (outputTarget.innerText === '10') event.target.classList.add('dropdown__button_transparent');
+    }
+    this.checkClearButtonVisibility();
+    this.refreshInput();
+  }
+
+  minusButtonClicked(event) {
+    const buttonIndex = this.minusButtons.indexOf(event.target);
+    const outputTarget = this.outputs[buttonIndex];
+    if (outputTarget.innerText > 0) {
+      if (outputTarget.innerText === '10')
+        this.plusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
+      outputTarget.innerText = Number(outputTarget.innerText) - 1;
+      if (outputTarget.innerText === '0') event.target.classList.add('dropdown__button_transparent');
+    }
+    this.checkClearButtonVisibility();
+    this.refreshInput();
+  }
+
+  clearButtonClicked() {
+    this.outputs.forEach((output) => {
+      output.textContent = 0;
     });
+    this.minusButtons.forEach((button) => {
+      button.classList.add('dropdown__button_transparent');
+    });
+    this.plusButtons.forEach((button) => {
+      button.classList.remove('dropdown__button_transparent');
+    });
+    this.setDefaultIfZero();
+    this.checkClearButtonVisibility();
   }
 
-  checkClearButtonVisibility();
-  bindEventListeners();
+  bindObjectLink() {
+    this.checkClearButtonVisibility = this.checkClearButtonVisibility.bind(this);
+    this.inputClicked = this.inputClicked.bind(this);
+    this.plusButtonClicked = this.plusButtonClicked.bind(this);
+    this.minusButtonClicked = this.minusButtonClicked.bind(this);
+    this.clearButtonClicked = this.clearButtonClicked.bind(this);
+    this.refreshInput = this.refreshInput.bind(this);
+    this.prepareOutputSum = this.prepareOutputSum.bind(this);
+    this.wordEndCheck = this.wordEndCheck.bind(this);
+    this.setDefaultIfZero = this.setDefaultIfZero.bind(this);
+    this.prepareOneByOne = this.prepareOneByOne.bind(this);
+    this.prepareTwoByOne = this.prepareTwoByOne.bind(this);
+  }
+
+  bindEventListeners() {
+    this.input.addEventListener('click', this.inputClicked);
+    this.clearButton.addEventListener('click', this.clearButtonClicked);
+    this.submitButton.addEventListener('click', this.inputClicked);
+    this.plusButtons.forEach((button) => button.addEventListener('click', this.plusButtonClicked));
+    this.minusButtons.forEach((button) => button.addEventListener('click', this.minusButtonClicked));
+  }
 }
+
+export { Dropdown };

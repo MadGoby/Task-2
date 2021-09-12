@@ -22,24 +22,6 @@
     position: relative;
   }
 
-  &__from,
-  &__to {
-    display: inline-block;
-
-    @media screen and (max-width: 380px) {
-      display: block;
-    }
-  }
-  
-  &__to {
-    float: right;
-
-    @media screen and (max-width: 380px) {
-      float: none;
-      margin-top: 10px;
-    }
-  }
-
   @media screen and (max-width: 380px) {
     max-width: 320px;
     padding: 40px 26px 30px;

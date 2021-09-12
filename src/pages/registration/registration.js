@@ -1,5 +1,5 @@
 import './registration.scss';
-import headerNavigation from '../../blocks/header/header';
+import { initAllHeaders } from '../../blocks/header/header-init';
 
 require('../../img/room-background.jpg');
 require('inputmask');
@@ -9,7 +9,4 @@ Inputmask({
   placeholder: 'ДД.ММ.ГГГГ',
 }).mask(document.querySelectorAll('.input__field_type_date'));
 
-headerNavigation({
-  buttonClass: '.js-header-navigation-button',
-  navigationClass: '.js-header-navigation',
-});
+initAllHeaders();

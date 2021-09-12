@@ -1,7 +1,6 @@
 mixin list(settings)
   - let {
   -   title: {
-  -     jsClass: titleJs = "js-for-change",
   -     text: titleText = "For Change",
   -     type: titleType = false,
   -     bullet: titleBullet = false,
@@ -9,7 +8,6 @@ mixin list(settings)
   -     teg: titleTeg = "p"
   -   },
   -   container: {
-  -     jsClass: containerJs = "js-for-change",
   -     attr: containerAttr = false
   -   },
   -   listType = false,
@@ -41,19 +39,24 @@ mixin list(settings)
   -       }
   -     }
   -   ],
-  -   textList = false
+  -   textList = false,
+  -   js: {
+  -     main: jsMain = false,
+  -     title: jsTitle = false,
+  -     list: jsList = false
+  -   }
   - } = settings
   - if(titleBullet) titleBullet = "list__title_with-bullet"
   - if(titleMargin) titleMargin = "list__title_with-margin"
-  .list
+  div(class="list" class=jsMain)
     div(class="list__title", class=titleMargin, class=titleBullet)
       +title({
         text: titleText,
         type: titleType,
-        jsClass: titleJs,
+        jsClass: jsTitle,
         teg: titleTeg
       })
-    ul(class="list__container" class=containerJs)&attributes(containerAttr)
+    ul(class="list__container" class=jsList)&attributes(containerAttr)
       if textList 
         each val in textList
           li(class="list__item list__item_with-bullet")

@@ -1,30 +1,36 @@
-export default function listFunctionality(settings) {
-  const { titleClass, listClass } = settings;
-  
-  function getHtmlElements() {
-    const title = document.querySelector(titleClass);
-    const list = document.querySelector(listClass);
-    return { title, list };
+class ListDropdown {
+  constructor(target) {
+    this.container = target;
+
+    this.getHtmlElements();
+    this.bindObjectLink();
+    this.bindEventListeners();
   }
 
-  const resultElements = getHtmlElements();
-  const { title, list } = resultElements;
-  
-  function discloseList() {
-    if (list.hasAttribute('hidden')) {
-      list.removeAttribute('hidden');
-      title.classList.remove('title_closed');
-      title.classList.add('title_expanded');
+  getHtmlElements() {
+    this.list = this.container.querySelector('.js-list__container');
+    this.title = this.container.querySelector('.js-title');
+  }
+
+  changeListDisplay() {
+    if (this.list.hasAttribute('hidden')) {
+      this.list.removeAttribute('hidden');
+      this.title.classList.remove('title_closed');
+      this.title.classList.add('title_expanded');
     } else {
-      list.setAttribute('hidden', 'hidden');
-      title.classList.remove('title_expanded');
-      title.classList.add('title_closed');
+      this.list.setAttribute('hidden', 'hidden');
+      this.title.classList.remove('title_expanded');
+      this.title.classList.add('title_closed');
     }
   }
 
-  function bindEventListeners() {
-    title.addEventListener('click', discloseList);
+  bindObjectLink() {
+    this.changeListDisplay = this.changeListDisplay.bind(this);
   }
 
-  bindEventListeners();
+  bindEventListeners() {
+    this.title.addEventListener('click', this.changeListDisplay);
+  }
 }
+
+export { ListDropdown };

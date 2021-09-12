@@ -6,6 +6,10 @@
     height: 19px;
     background-image: url('../../img/star-border.jpg');
 
+    &:hover {
+      transform: scale(1.2);
+    }
+
     &:not(:last-of-type) {
       margin-right: 5px;
     }

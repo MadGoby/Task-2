@@ -1,91 +1,18 @@
-import dropdownFunctionality from '../../blocks/dropdown/dropdown';
-import listFunctionality from '../../blocks/list/list';
-import datepickerFunctionality from '../../blocks/datepicker/datepicker';
-import contentNavigation from '../../blocks/content-navigation/content-navigation';
-import starsRating from '../../blocks/stars-rating/stars-rating';
+import { initAllDatepickers } from '../../blocks/datepicker/datepicker-init';
+import { initAllDropdowns } from '../../blocks/dropdown/dropdown-init';
+import { initAllLists } from '../../blocks/list/list-init';
+import { initAllContentNavigations } from '../../blocks/content-navigation/content-navigation-init';
+import { initAllStarRatings } from '../../blocks/stars-rating/stars-rating-init';
 
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
 require('inputmask');
 
-const rooms = [
-  ['спал', 'ьня', 'ьни', 'ен'],
-  ['кроват', 'ь', 'и', 'ей'],
-  ['ванн', 'ая', 'ые', 'ых'],
-];
-const guests = ['гост', 'ь', 'я', 'ей'];
-
-dropdownFunctionality({
-  inputClass: '.js-input__field',
-  dropdownClass: '.js-dropdown__control',
-  inputResultTemplate: { type: 'oneByOne', values: rooms },
-  defaultTemplate: 'Конфигурация номера',
-});
-
-dropdownFunctionality({
-  inputClass: '.js-input__field-2',
-  dropdownClass: '.js-dropdown__control-2',
-  inputResultTemplate: { type: 'sum', values: guests },
-  defaultTemplate: 'Сколько гостей',
-});
-
-dropdownFunctionality({
-  inputClass: '.js-input__field-3',
-  dropdownClass: '.js-dropdown__control-3',
-  inputResultTemplate: { type: 'sum', values: guests },
-  defaultTemplate: 'Сколько гостей',
-});
-
-dropdownFunctionality({
-  inputClass: '.js-input__field-4',
-  dropdownClass: '.js-dropdown__control-4',
-  inputResultTemplate: { type: 'sum', values: guests },
-  defaultTemplate: 'Сколько гостей',
-});
-
-dropdownFunctionality({
-  inputClass: '.js-input__field-5',
-  dropdownClass: '.js-dropdown__control-5',
-  inputResultTemplate: { type: 'oneByOne', values: rooms },
-  defaultTemplate: 'Конфигурация номера',
-});
-
-listFunctionality({
-  titleClass: '.js-list__title',
-  listClass: '.js-list__container',
-});
-
-listFunctionality({
-  titleClass: '.js-list__title-2',
-  listClass: '.js-list__container-2',
-});
-
-datepickerFunctionality({
-  targetClass: '.js-datepicker-2',
-  inputFromClass: '.js-input__field_from-2',
-  inputToClass: '.js-input__field_to-2',
-  defaultSettings: {
-    pickedYear: new Date(2019, 7, 8).getFullYear(),
-    pickedMonth: new Date(2019, 7, 8).getMonth(),
-    currentDay: new Date(2019, 7, 8),
-    to: new Date(2019, 7, 19),
-  },
-});
-
-datepickerFunctionality({
-  targetClass: '.js-datepicker-3',
-  inputTotalClass: '.js-input__field_total-3',
-  defaultSettings: {
-    pickedYear: new Date(2019, 7, 8).getFullYear(),
-    pickedMonth: new Date(2019, 7, 8).getMonth(),
-    currentDay: new Date(2019, 7, 8),
-    from: new Date(2019, 7, 19),
-    to: new Date(2019, 7, 23),
-  },
-  size: 'small',
-});
-
-const $sliderBody = $('.js-slider__body');
+initAllLists();
+initAllContentNavigations();
+initAllStarRatings();
+initAllDropdowns();
+initAllDatepickers();
 
 $(document).ready(() => {
   function addPadding(outputStr) {
@@ -97,6 +24,8 @@ $(document).ready(() => {
 
     return value;
   }
+
+  const $sliderBody = $('.js-slider__body');
 
   $sliderBody.slider({
     range: true,
@@ -114,19 +43,7 @@ $(document).ready(() => {
   $('.js-slider__output').val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);
 });
 
-contentNavigation({
-  navigationClass: '.js-content-navigation',
-});
-
 Inputmask({
   mask: '99.99.9999',
   placeholder: 'ДД.ММ.ГГГГ',
 }).mask(document.querySelectorAll('.input__field_type_date'));
-
-starsRating({
-  containerClass: '.js-stars-rating',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-2',
-});

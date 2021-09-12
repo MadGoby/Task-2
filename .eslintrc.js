@@ -3,6 +3,9 @@ module.exports = {
   "plugins": ["fsd", "prettier"],
   "rules": {
     "linebreak-style": ["error", "windows"],
+    "import/prefer-default-export": "off",
+    "no-param-reassign": [2, { "props": false }],
+    "no-new": 0,
     "fsd/hof-name-prefix": "error",
     "fsd/no-heavy-constructor": "error",
     "fsd/jq-cache-dom-elements": "error",

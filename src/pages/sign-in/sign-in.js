@@ -1,9 +1,6 @@
 import './sign-in.scss';
-import headerNavigation from '../../blocks/header/header';
+import { initAllHeaders } from '../../blocks/header/header-init';
+
+initAllHeaders();
 
 require('../../img/room-background.jpg');
-
-headerNavigation({
-  buttonClass: '.js-header-navigation-button',
-  navigationClass: '.js-header-navigation',
-});

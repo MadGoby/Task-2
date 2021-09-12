@@ -17,7 +17,12 @@ mixin dropdown(settings)
   -     {text: "For Change", dataTarget: "forChange2", output: "0", minusTransparent: false, plusTransparent: false},
   -     {text: "For Change", dataTarget: "forChange3", output: "0", minusTransparent: false, plusTransparent: false}
   -   ],
-  -   clearHidden = true
+  -   clearHidden = true,
+  -   main: {
+  -     jsClass: mainJsClass = false,
+  -     dataType: mainDataType = false,
+  -     outputType: mainOutputType = false
+  -   }
   - } = settings
   - if (controlZIndex) controlZIndex = `dropdown__control_z-index_${controlZIndex}`
   - if (lists) {
@@ -27,7 +32,7 @@ mixin dropdown(settings)
   -     if(list.output > "0") clearHidden = false
   -   })
   - }
-  div.dropdown
+  div(class="dropdown" class=mainJsClass, data-template=mainDataType, data-output=mainOutputType)
     div.dropdown__input
       +input(inputSettings)
     div(class="dropdown__control" class=controlJs, class=controlZIndex)&attributes(controlAttr)
@@ -47,25 +52,14 @@ mixin dropdown(settings)
                 button(class="dropdown__button" type="button" class="dropdown__button_type_plus" data-target=list.dataTarget data-action="plus")="+"
       .dropdown__submit-buttons
         .dropdown__clear-button
-          if clearHidden == true
-            +button({
-              type: "text",
-              text: "очистить",
-              attr: {
-                "type": "button",
-                "data-target": "clear",
-                "hidden": "hidden"
-              }
-            })
-          else 
-            +button({
-              type: "text",
-              text: "очистить",
-              attr: {
-                "type": "button",
-                "data-target": "clear"
-              }
-            })
+          +button({
+            type: "text",
+            text: "очистить",
+            attr: {
+              "type": "button",
+              "data-target": "clear"
+            }
+          })
         .dropdown__submit-button
           +button({
             type: "text",

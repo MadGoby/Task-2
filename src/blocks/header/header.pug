@@ -10,9 +10,10 @@ mixin header(settings)
   -     buttonJsClass = "js-for-change",
   -     navigationJsClass = "js-for-change"
   -   },
-  -   authorized = false
+  -   authorized = false,
+  -   mainJsClass = false
   - } = settings
-  .header
+  div(class="header" class=mainJsClass)
     .header__logo
       +logo({
         src: "img/logo-color.svg"

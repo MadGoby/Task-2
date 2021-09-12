@@ -1,65 +1,26 @@
 import './search-room.scss';
-import dropdownFunctionality from '../../blocks/dropdown/dropdown';
-import listFunctionality from '../../blocks/list/list';
-import swiperSlider from '../../blocks/room-card/room-card';
-import contentNavigation from '../../blocks/content-navigation/content-navigation';
-import datepickerFunctionality from '../../blocks/datepicker/datepicker';
-import starsRating from '../../blocks/stars-rating/stars-rating';
-import headerNavigation from '../../blocks/header/header';
+import { initAllDropdowns } from '../../blocks/dropdown/dropdown-init';
+import { initAllDatepickers } from '../../blocks/datepicker/datepicker-init';
+import { initAllLists } from '../../blocks/list/list-init';
+import { initAllContentNavigations } from '../../blocks/content-navigation/content-navigation-init';
+import { initAllStarRatings } from '../../blocks/stars-rating/stars-rating-init';
+import { initAllRoomCards } from '../../blocks/room-card/room-card-init';
+import { initAllHeaders } from '../../blocks/header/header-init';
 
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
-require('../../img/980.jpg');
-require('../../img/856.jpg');
-require('../../img/740.jpg');
-require('../../img/982.jpg');
-require('../../img/678.jpg');
-require('../../img/450.jpg');
-require('../../img/350.jpg');
-require('../../img/666.jpg');
-require('../../img/444.jpg');
-require('../../img/352.jpg');
-require('../../img/room-slider.jpg');
 
-const rooms = [
-  ['спал', 'ьня', 'ьни', 'ен'],
-  ['кроват', 'ь', 'и', 'ей'],
-  ['ванн', 'ая', 'ые', 'ых'],
-];
-const guestsWithBaby = [
-  ['гост', 'ь', 'я', 'ей'],
-  ['младен', 'ец', 'ца', 'ев'],
-];
-
-headerNavigation({
-  buttonClass: '.js-header-navigation-button',
-  navigationClass: '.js-header-navigation',
-});
-
-dropdownFunctionality({
-  inputClass: '.js-input__field',
-  dropdownClass: '.js-dropdown__control',
-  inputResultTemplate: { type: 'oneByOne', values: rooms },
-  defaultTemplate: 'Конфигурация номера',
-});
-
-dropdownFunctionality({
-  inputClass: '.js-input__field-2',
-  dropdownClass: '.js-dropdown__control-2',
-  inputResultTemplate: { type: 'twoByOne', values: guestsWithBaby },
-  defaultTemplate: 'Сколько гостей',
-});
-
-listFunctionality({
-  titleClass: '.js-list__title',
-  listClass: '.js-list__container',
-});
-
-const $sliderBody = $('.js-slider__body');
+initAllDatepickers();
+initAllDropdowns();
+initAllLists();
+initAllContentNavigations();
+initAllStarRatings();
+initAllRoomCards();
+initAllHeaders();
 
 $(document).ready(() => {
-  function addPadding(outputString) {
-    let value = outputString;
+  function addPadding(outputStr) {
+    let value = outputStr;
 
     if (value.length > 3) {
       value = `${value.slice(0, value.length - 3)} ${value.slice(value.length - 3)}`;
@@ -67,6 +28,8 @@ $(document).ready(() => {
 
     return value;
   }
+
+  const $sliderBody = $('.js-slider__body');
 
   $sliderBody.slider({
     range: true,
@@ -138,117 +101,4 @@ function sidebarDropdown(settings) {
 sidebarDropdown({
   titleClass: '.js-search-room__sidebar-title',
   sidebarClass: '.js-search-room__sidebar',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-2',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-3',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-4',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-5',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-6',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-7',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-8',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-9',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-10',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-11',
-});
-
-swiperSlider({
-  roomCardClass: '.js-room-card-12',
-});
-
-contentNavigation({
-  navigationClass: '.js-content-navigation',
-});
-
-datepickerFunctionality({
-  targetClass: '.js-datepicker',
-  inputTotalClass: '.js-input__field_total',
-  defaultSettings: {
-    pickedYear: new Date(2019, 7, 8).getFullYear(),
-    pickedMonth: new Date(2019, 7, 8).getMonth(),
-    currentDay: new Date(2019, 7, 8),
-    from: new Date(2019, 7, 19),
-    to: new Date(2019, 7, 23),
-  },
-  size: 'small',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-2',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-3',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-4',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-5',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-6',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-7',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-8',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-9',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-10',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-11',
-});
-
-starsRating({
-  containerClass: '.js-stars-rating-12',
 });

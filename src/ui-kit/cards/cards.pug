@@ -21,23 +21,18 @@ include ../../blocks/dropdown/dropdown.pug
           period: {
             from: {
               title: "прибытие",
-              value: "ДД.ММ.ГГГГ",
-              jsClass: "js-input__field_from-4"
+              value: "ДД.ММ.ГГГГ"
             },
             to: {
               title: "выезд",
-              value: "ДД.ММ.ГГГГ",
-              jsClass: "js-input__field_to-4"
+              value: "ДД.ММ.ГГГГ"
             },
-            jsDatepicker: "js-datepicker-4"
           },
           guests: {
             title: { text: "гости" },
             input: {
               value: "Сколько гостей",
-              jsClass: "js-input__field-6"
             },
-            control: { jsClass: "js-dropdown__control-6" },
             lists: [
               {text: "взрослые", dataTarget: "adult", output: "0"},
               {text: "дети", dataTarget: "child", output: "0"},
@@ -62,22 +57,20 @@ include ../../blocks/dropdown/dropdown.pug
             from: {
               title: "прибытие",
               value: "ДД.ММ.ГГГГ",
-              jsClass: "js-input__field_from-5"
             },
             to: {
               title: "выезд",
               value: "ДД.ММ.ГГГГ",
-              jsClass: "js-input__field_to-5"
             },
-            jsDatepicker: "js-datepicker-5"
+            datepicker: {
+              jsClass: "js-datepicker"
+            },
           },
           guests: {
             title: { text: "гости" },
             input: {
               value: "Сколько гостей",
-              jsClass: "js-input__field-7"
             },
-            control: { jsClass: "js-dropdown__control-7" },
             lists: [
               {text: "взрослые", dataTarget: "adult", output: "0"},
               {text: "дети", dataTarget: "child", output: "0"},
@@ -115,8 +108,15 @@ include ../../blocks/dropdown/dropdown.pug
     .cards__column
       .cards__datepicker
         +datepicker({
-          jsClass: "js-datepicker",
-          margin: "without-margin"
+          input: false,
+          main: {
+            jsClass: "js-datepicker",
+            dataYear: "2019",
+            dataMonth: "7",
+            dataCurrentDay: "2019, 8, 9",
+            dataFrom: "2019, 8, 19",
+            dataTo: "2019, 8, 23",
+          }
         })
       .cards__room
         +room-card({
@@ -149,7 +149,7 @@ include ../../blocks/dropdown/dropdown.pug
         })
       .cards__room
         +room-card({
-          jsClass: "js-room-card-2",
+          jsClass: "js-room-card",
           images: [
             {
               src: "img/840.jpg",

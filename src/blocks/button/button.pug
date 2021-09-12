@@ -1,7 +1,7 @@
 mixin button(settings)
   - let {
   -   attr: buttonAttr = {type: "button"},
-  -   type: buttonType = "type_regular",
+  -   type: buttonType = "regular",
   -   text: buttonText= "For Change",
   -   jsClass: buttonJs = false,
   -   paginationClass: buttonPagination = false,
@@ -10,7 +10,7 @@ mixin button(settings)
   - } = settings
   - let borderHeight = false
   - if(buttonHover) {
-  -   buttonType === "type_border" ? buttonHover="button__border-mimic_transparent" : buttonHover=`button__control_${buttonHover}`
+  -   buttonType === "border" ? buttonHover="button__border-mimic_transparent" : buttonHover=`button__control_${buttonHover}`
   - }
   - if(buttonType) buttonType = `button__control_type_${buttonType}`
   - if(buttonHeight) {

@@ -25,8 +25,7 @@ mixin room-card(settings)
   -     type: roomType = false
   -   },
   -   starsRating: { 
-  -     rating: starsCounter = "5",
-  -     jsClass: starsJs = ""
+  -     rating: starsCounter = "5"
   -   },
   -   reviewsCounter: { value: counterValue = "000"} 
   - } = settings
@@ -52,6 +51,6 @@ mixin room-card(settings)
         })
       .room-card__rating
         .room-card__stars
-          +stars-rating({rating: starsCounter, jsClass: starsJs})
+          +stars-rating({rating: starsCounter})
         .room-card__counter
           +reviews-counter({value: counterValue})
