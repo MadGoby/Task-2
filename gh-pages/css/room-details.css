@@ -578,8 +578,7 @@
     .input__field_type_dropdown {
       cursor: pointer;
       position: relative;
-      vertical-align: top;
-      user-select: none; }
+      vertical-align: top; }
       .input__field_type_dropdown:hover {
         border-color: rgba(31, 32, 65, 0.5); }
     .input__field_type_date:hover, .input__field_type_date:focus {
@@ -1249,16 +1248,41 @@
       opacity: 0.5; }
 
 .datepicker {
-  background: #ffffff;
-  border: 1px solid rgba(31, 32, 65, 0.25);
-  box-sizing: border-box;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  border-radius: 4px;
-  padding: 19px 18px 19px 19px;
   width: 320px;
-  position: absolute;
-  z-index: 5;
-  margin-top: 6px; }
+  box-sizing: border-box; }
+  .datepicker__from, .datepicker__to {
+    display: inline-block; }
+    @media screen and (max-width: 380px) {
+      .datepicker__from, .datepicker__to {
+        display: block; } }
+  .datepicker__from {
+    display: inline-block; }
+  .datepicker__to {
+    display: inline-block;
+    float: right; }
+    @media screen and (max-width: 380px) {
+      .datepicker__to {
+        float: none;
+        margin-top: 10px; } }
+  .datepicker__inputs {
+    margin-bottom: 6px; }
+  .datepicker__calendar-wrapper {
+    background: #ffffff;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    border-radius: 4px;
+    padding: 19px 18px 19px 19px;
+    width: 320px;
+    position: absolute;
+    z-index: 5; }
+    .datepicker__calendar-wrapper_size_small {
+      width: 266px;
+      padding: 9px 10px 10px 9px; }
+    @media screen and (max-width: 380px) {
+      .datepicker__calendar-wrapper {
+        width: 266px;
+        padding: 9px 10px 10px 9px; } }
   .datepicker__scroll-button {
     background-image: url(../img/arrow-forward.svg);
     background-repeat: no-repeat;
@@ -1365,14 +1389,12 @@
     float: right;
     vertical-align: top; }
   .datepicker_size_small {
-    width: 266px;
-    padding: 9px 10px 10px 9px; }
+    width: 266px; }
   .datepicker_without-margin {
     margin-top: 0; }
   @media screen and (max-width: 380px) {
     .datepicker {
-      width: 266px;
-      padding: 9px 10px 10px 9px; } }
+      width: 266px; } }
 
 .dropdown {
   font-family: Montserrat, Arial, sans-serif;

@@ -86,15 +86,27 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./blocks/header/header-init.js":
+/*!**************************************!*\
+  !*** ./blocks/header/header-init.js ***!
+  \**************************************/
+/*! exports provided: initAllHeaders */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllHeaders\", function() { return initAllHeaders; });\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header */ \"./blocks/header/header.js\");\n\r\n\r\nfunction initAllHeaders() {\r\n  [...document.querySelectorAll('.js-header')].forEach((item) => {\r\n    new _header__WEBPACK_IMPORTED_MODULE_0__[\"HeaderNavigation\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/header/header-init.js?");
+
+/***/ }),
+
 /***/ "./blocks/header/header.js":
 /*!*********************************!*\
   !*** ./blocks/header/header.js ***!
   \*********************************/
-/*! exports provided: default */
+/*! exports provided: HeaderNavigation */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return headerNavigation; });\nfunction headerNavigation(settings) {\r\n  const { buttonClass, navigationClass } = settings;\r\n\r\n  function getHtmlElements() {\r\n    const button = document.querySelector(buttonClass);\r\n    const navigation = document.querySelector(navigationClass);\r\n    return { button, navigation };\r\n  }\r\n\r\n  const resultElements = getHtmlElements();\r\n  const { button, navigation } = resultElements;\r\n\r\n  function hambToArrow(state) {\r\n    const sign = button.querySelector('.header__hamburger');\r\n\r\n    if (state === 'block') {\r\n      sign.classList.add('header__hamburger_expanded');\r\n    } else {\r\n      sign.classList.remove('header__hamburger_expanded');\r\n    }\r\n  }\r\n\r\n  function discloseNavigation() {\r\n    const styles = getComputedStyle(navigation);\r\n\r\n    if (styles.display === 'none') {\r\n      navigation.style.display = 'block';\r\n      hambToArrow(styles.display);\r\n    } else {\r\n      navigation.style.display = 'none';\r\n      hambToArrow(styles.display);\r\n    }\r\n  }\r\n\r\n  function changeSidebarDisplay(userWidth) {\r\n    if (userWidth > 350 && navigation.style.display === 'none') {\r\n      navigation.style.display = 'block';\r\n    } else if (userWidth <= 350) {\r\n      navigation.style.display = 'none';\r\n    }\r\n  }\r\n\r\n  function convertPassesVariable(event) {\r\n    const userWidth = +event.target.innerWidth;\r\n    changeSidebarDisplay(userWidth);\r\n  }\r\n\r\n  function bindEventListeners() {\r\n    button.addEventListener('click', discloseNavigation);\r\n    document.body.onresize = convertPassesVariable;\r\n  }\r\n\r\n  bindEventListeners();\r\n}\r\n\n\n//# sourceURL=webpack:///./blocks/header/header.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"HeaderNavigation\", function() { return HeaderNavigation; });\nclass HeaderNavigation {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    this.getHtmlElements();\r\n    this.bindObjectLink();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.button = this.container.querySelector('.js-header__navigation-button');\r\n    this.navigation = this.container.querySelector('.js-header__navigation');\r\n  }\r\n\r\n  turnsHamburgerIntoCross(state) {\r\n    const sign = this.button.querySelector('.header__hamburger');\r\n\r\n    if (state === 'block') {\r\n      sign.classList.add('header__hamburger_expanded');\r\n    } else {\r\n      sign.classList.remove('header__hamburger_expanded');\r\n    }\r\n  }\r\n\r\n  discloseNavigation() {\r\n    const styles = getComputedStyle(this.navigation);\r\n\r\n    if (styles.display === 'none') {\r\n      this.navigation.style.display = 'block';\r\n      this.turnsHamburgerIntoCross(styles.display);\r\n    } else {\r\n      this.navigation.style.display = 'none';\r\n      this.turnsHamburgerIntoCross(styles.display);\r\n    }\r\n  }\r\n\r\n  changeSidebarDisplay(userWidth) {\r\n    if (userWidth > 350 && this.navigation.style.display === 'none') {\r\n      this.navigation.style.display = 'block';\r\n    } else if (userWidth <= 350) {\r\n      this.navigation.style.display = 'none';\r\n    }\r\n  }\r\n\r\n  convertPassesVariable(event) {\r\n    const userWidth = +event.target.innerWidth;\r\n    this.changeSidebarDisplay(userWidth);\r\n  }\r\n\r\n  bindObjectLink() {\r\n    this.discloseNavigation = this.discloseNavigation.bind(this);\r\n    this.convertPassesVariable = this.convertPassesVariable.bind(this);\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.button.addEventListener('click', this.discloseNavigation);\r\n    document.body.onresize = this.convertPassesVariable;\r\n  }\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/header/header.js?");
 
 /***/ }),
 
@@ -118,7 +130,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sign_in_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sign-in.scss */ \"./pages/sign-in/sign-in.scss\");\n/* harmony import */ var _sign_in_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sign_in_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_header_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../blocks/header/header */ \"./blocks/header/header.js\");\n\r\n\r\n\r\n__webpack_require__(/*! ../../img/room-background.jpg */ \"./img/room-background.jpg\");\r\n\r\nObject(_blocks_header_header__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({\r\n  buttonClass: '.js-header-navigation-button',\r\n  navigationClass: '.js-header-navigation',\r\n});\n\n//# sourceURL=webpack:///./pages/sign-in/sign-in.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sign_in_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sign-in.scss */ \"./pages/sign-in/sign-in.scss\");\n/* harmony import */ var _sign_in_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sign_in_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_header_header_init__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../blocks/header/header-init */ \"./blocks/header/header-init.js\");\n\r\n\r\n\r\nObject(_blocks_header_header_init__WEBPACK_IMPORTED_MODULE_1__[\"initAllHeaders\"])();\r\n\r\n__webpack_require__(/*! ../../img/room-background.jpg */ \"./img/room-background.jpg\");\n\n//# sourceURL=webpack:///./pages/sign-in/sign-in.js?");
 
 /***/ }),
 

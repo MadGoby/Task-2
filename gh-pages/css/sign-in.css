@@ -577,8 +577,7 @@
     .input__field_type_dropdown {
       cursor: pointer;
       position: relative;
-      vertical-align: top;
-      user-select: none; }
+      vertical-align: top; }
       .input__field_type_dropdown:hover {
         border-color: rgba(31, 32, 65, 0.5); }
     .input__field_type_date:hover, .input__field_type_date:focus {
