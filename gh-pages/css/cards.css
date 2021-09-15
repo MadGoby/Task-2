@@ -31,11 +31,10 @@
 .search-room {
   padding: 39px 29px 29px;
   background-color: white;
-  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   max-width: 380px;
-  box-sizing: border-box;
   text-align: initial; }
   .search-room__title {
     margin-bottom: 22px; }
@@ -53,11 +52,10 @@
 .registration {
   padding: 39px 29px 31px 29px;
   background-color: white;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   max-width: 380px;
-  box-sizing: border-box;
   text-align: initial; }
   .registration__title {
     margin-bottom: 21px; }
@@ -101,11 +99,10 @@
 .final-booking {
   padding: 39px 29px 30px 29px;
   background-color: white;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   max-width: 380px;
-  box-sizing: border-box;
   display: inline-block;
   text-align: initial; }
   .final-booking__room-information {
@@ -134,7 +131,6 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    box-sizing: border-box;
     color: rgba(31, 32, 65, 0.25);
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 50%;
@@ -158,8 +154,7 @@
     display: inline-block;
     width: 80px;
     vertical-align: top;
-    text-align: right;
-    box-sizing: border-box; }
+    text-align: right; }
     @media screen and (max-width: 380px) {
       .final-booking__service-price {
         width: 85px; } }
@@ -175,8 +170,7 @@
         display: inline-block;
         border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
         margin: 0 4px;
-        width: 67%;
-        box-sizing: border-box; }
+        width: 67%; }
         @media screen and (max-width: 380px) {
           .final-booking__service-price_text_bold::before {
             width: 58%; } }
@@ -190,9 +184,8 @@
     line-height: 24px;
     color: rgba(31, 32, 65, 0.75);
     list-style: none;
-    margin: 0;
-    padding: 0 0 0 1px;
-    margin-bottom: 19px; }
+    margin: 0 0 19px 0;
+    padding: 0 0 0 1px; }
   .final-booking__from, .final-booking__to {
     display: inline-block; }
   .final-booking__to {
@@ -209,11 +202,10 @@
 .login {
   padding: 39px 29px 33px 29px;
   background-color: white;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  max-width: 380px;
-  box-sizing: border-box; }
+  max-width: 380px; }
   .login__title {
     margin-bottom: 21px; }
   .login__inputs {
@@ -262,7 +254,6 @@
       .button__control_type_regular:hover {
         opacity: 0.5; }
     .button__control_type_border {
-      box-sizing: border-box;
       width: calc(100% - 4px);
       padding: 12px 16px 13px;
       background-color: white;
@@ -286,7 +277,6 @@
         padding: 13px 0 14px;
         height: 100%;
         width: 44px;
-        box-sizing: border-box;
         position: absolute;
         right: 0;
         top: 0; }
@@ -319,7 +309,6 @@
         content: url(../img/arrow-forward-white.svg);
         height: 40px;
         width: 40px;
-        box-sizing: border-box;
         display: inline-block;
         padding: 11px 0;
         vertical-align: top; }
@@ -354,8 +343,7 @@
       opacity: 0.5; }
 
 .datepicker {
-  width: 320px;
-  box-sizing: border-box; }
+  width: 320px; }
   .datepicker__from, .datepicker__to {
     display: inline-block; }
     @media screen and (max-width: 380px) {
@@ -375,8 +363,7 @@
   .datepicker__calendar-wrapper {
     background: #ffffff;
     border: 1px solid rgba(31, 32, 65, 0.25);
-    box-sizing: border-box;
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
     border-radius: 4px;
     padding: 19px 18px 19px 19px;
     width: 320px;
@@ -393,11 +380,11 @@
     background-image: url(../img/arrow-forward.svg);
     background-repeat: no-repeat;
     background-position: center;
-    border: 0px;
+    border: 0;
     width: 24px;
     height: 24px;
     background-color: white;
-    padding: 0px;
+    padding: 0;
     cursor: pointer;
     display: inline-block;
     vertical-align: top;
@@ -407,8 +394,7 @@
   .datepicker__selected-month {
     display: inline-block;
     min-width: 230px;
-    margin: 0px;
-    margin-left: 1px;
+    margin: 0 0 0 1px;
     text-align: center;
     font-family: Montserrat, Arial, sans-serif;
     font-size: 19px;
@@ -431,8 +417,7 @@
   .datepicker__calendar-cell {
     width: 39.88px;
     height: 40px;
-    box-sizing: border-box;
-    padding: 0px;
+    padding: 0;
     display: inline-block;
     line-height: 40px;
     text-align: center;
@@ -559,7 +544,7 @@
   font-weight: 400;
   line-height: 18px;
   color: rgba(31, 32, 65, 0.5);
-  margin: 0px; }
+  margin: 0; }
   .reviews-counter__value {
     color: inherit;
     font-weight: 700;
@@ -577,11 +562,10 @@
   .dropdown__button {
     min-width: 30px;
     min-height: 30px;
-    box-sizing: border-box;
     border-radius: 50%;
     background: none;
     border: 1px solid rgba(31, 32, 65, 0.25);
-    padding: 0px;
+    padding: 0;
     font-size: 18px;
     color: rgba(31, 32, 65, 0.5);
     outline: none;
@@ -600,7 +584,6 @@
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     background-color: white;
-    box-sizing: border-box;
     position: absolute;
     z-index: 4;
     width: 100%; }
@@ -629,7 +612,6 @@
     text-align: center;
     vertical-align: top;
     padding-top: 6px;
-    box-sizing: border-box;
     user-select: none;
     cursor: default; }
   .dropdown__text {
@@ -639,9 +621,8 @@
 
 .room-card {
   background: white;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
   width: 270px;
-  box-sizing: border-box;
   border-radius: 4px; }
   .room-card__image-wrapper {
     position: relative;
@@ -661,7 +642,6 @@
   .room-card__image-position {
     cursor: pointer;
     display: inline-block;
-    box-sizing: border-box;
     width: 8px;
     height: 8px;
     border: 1px solid white;
@@ -679,7 +659,7 @@
     outline: none;
     height: 100%;
     width: 44px;
-    padding: 0px;
+    padding: 0;
     display: none;
     cursor: pointer;
     position: absolute;
@@ -688,13 +668,12 @@
       content: url(../img/scroll-arrow.svg);
       display: block;
       height: 44px;
-      padding: 16px 0;
-      box-sizing: border-box; }
+      padding: 16px 0; }
     .room-card__image-button_side_left {
       border-top-left-radius: 4px;
-      left: 0px; }
+      left: 0; }
     .room-card__image-button_side_rigth {
-      right: 0px;
+      right: 0;
       transform: rotate(180deg);
       border-bottom-left-radius: 4px; }
   .room-card__room-information {
@@ -771,7 +750,6 @@
     height: 44px;
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 4px;
-    box-sizing: border-box;
     padding: 11px 14px 12px;
     outline: none;
     font-family: Montserrat, Arial, sans-serif;
@@ -782,25 +760,22 @@
     .input__field::placeholder {
       color: rgba(31, 32, 65, 0.25); }
     .input__field_expanded {
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
       border: 1px solid rgba(31, 32, 65, 0.5); }
     .input__field_border_dark {
       border-color: rgba(31, 32, 65, 0.5); }
     .input__field_length_long {
-      width: 320px;
-      box-sizing: border-box; }
+      width: 320px; }
       @media screen and (max-width: 380px) {
         .input__field_length_long {
           width: 266px; } }
     .input__field_length_average {
-      width: 266px;
-      box-sizing: border-box; }
+      width: 266px; }
     .input__field_length_adaptive {
       width: 100%; }
     .input__field_length_short {
       width: 150px;
-      box-sizing: border-box;
       display: inline-block;
       padding: 10px 14px 13px; }
       @media screen and (max-width: 380px) {
@@ -846,7 +821,6 @@
     width: 42px;
     height: 42px;
     text-align: center;
-    box-sizing: border-box;
     background-color: white;
     border: none;
     outline: none;
@@ -866,21 +840,18 @@
       background-position-x: 16px;
       background-position-y: 18px;
       position: absolute;
-      right: 0px;
+      right: 0;
       top: 1px;
       width: 44px;
       height: 42px;
-      text-align: center;
-      box-sizing: border-box; }
+      text-align: center; }
     .input__wrapper_length_long {
-      width: 320px;
-      box-sizing: border-box; }
+      width: 320px; }
       @media screen and (max-width: 380px) {
         .input__wrapper_length_long {
           width: 266px; } }
     .input__wrapper_length_average {
-      width: 266px;
-      box-sizing: border-box; }
+      width: 266px; }
     .input__wrapper_length_adaptive {
       width: 100%; }
   .input__title-text {
@@ -911,7 +882,6 @@
     display: inline-block;
     cursor: pointer;
     border: 1px solid rgba(31, 32, 65, 0.25);
-    box-sizing: border-box;
     vertical-align: top; }
     .toggle__mimic_type_checkbox {
       width: 20px;
@@ -975,8 +945,7 @@
     display: block;
     font-size: 12px;
     line-height: 14px;
-    padding: 0px;
-    padding-top: 5px;
+    padding: 5px 0 0 0;
     color: rgba(31, 32, 65, 0.5); }
   .toggle__text-wrapper {
     display: inline-block; }
@@ -1026,6 +995,14 @@
   .stars-rating__star_color_purple {
     background-image: url(../img/star.jpg); }
 
+html {
+  box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
 .body {
   margin: 0; }
 
@@ -1033,7 +1010,6 @@
   width: 1440px;
   padding: 140px 140px 130px;
   position: relative;
-  box-sizing: border-box;
   margin: auto;
   background-color: #e5e5e5; }
   .cards__column {

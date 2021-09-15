@@ -179,6 +179,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./img/facebook.svg":
+/*!**************************!*\
+  !*** ./img/facebook.svg ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/facebook.svg\");\n\n//# sourceURL=webpack:///./img/facebook.svg?");
+
+/***/ }),
+
+/***/ "./img/instagram.svg":
+/*!***************************!*\
+  !*** ./img/instagram.svg ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/instagram.svg\");\n\n//# sourceURL=webpack:///./img/instagram.svg?");
+
+/***/ }),
+
 /***/ "./img/landing-main.jpg":
 /*!******************************!*\
   !*** ./img/landing-main.jpg ***!
@@ -191,6 +215,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 
 /***/ }),
 
+/***/ "./img/logo-color.svg":
+/*!****************************!*\
+  !*** ./img/logo-color.svg ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/logo-color.svg\");\n\n//# sourceURL=webpack:///./img/logo-color.svg?");
+
+/***/ }),
+
+/***/ "./img/twitter.svg":
+/*!*************************!*\
+  !*** ./img/twitter.svg ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/twitter.svg\");\n\n//# sourceURL=webpack:///./img/twitter.svg?");
+
+/***/ }),
+
 /***/ "./pages/landing-page/landing-page.js":
 /*!********************************************!*\
   !*** ./pages/landing-page/landing-page.js ***!
@@ -199,7 +247,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _landing_page_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./landing-page.scss */ \"./pages/landing-page/landing-page.scss\");\n/* harmony import */ var _landing_page_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_landing_page_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_dropdown_dropdown_init__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../blocks/dropdown/dropdown-init */ \"./blocks/dropdown/dropdown-init.js\");\n/* harmony import */ var _blocks_datepicker_datepicker_init__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../blocks/datepicker/datepicker-init */ \"./blocks/datepicker/datepicker-init.js\");\n/* harmony import */ var _blocks_header_header_init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../blocks/header/header-init */ \"./blocks/header/header-init.js\");\n\r\n\r\n\r\n\r\n\r\n__webpack_require__(/*! ../../img/landing-main.jpg */ \"./img/landing-main.jpg\");\r\n\r\nObject(_blocks_header_header_init__WEBPACK_IMPORTED_MODULE_3__[\"initAllHeaders\"])();\r\nObject(_blocks_dropdown_dropdown_init__WEBPACK_IMPORTED_MODULE_1__[\"initAllDropdowns\"])();\r\nObject(_blocks_datepicker_datepicker_init__WEBPACK_IMPORTED_MODULE_2__[\"initAllDatepickers\"])();\r\n\n\n//# sourceURL=webpack:///./pages/landing-page/landing-page.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _landing_page_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./landing-page.scss */ \"./pages/landing-page/landing-page.scss\");\n/* harmony import */ var _landing_page_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_landing_page_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_dropdown_dropdown_init__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../blocks/dropdown/dropdown-init */ \"./blocks/dropdown/dropdown-init.js\");\n/* harmony import */ var _blocks_datepicker_datepicker_init__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../blocks/datepicker/datepicker-init */ \"./blocks/datepicker/datepicker-init.js\");\n/* harmony import */ var _blocks_header_header_init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../blocks/header/header-init */ \"./blocks/header/header-init.js\");\n\r\n\r\n\r\n\r\n\r\n__webpack_require__(/*! ../../img/logo-color.svg */ \"./img/logo-color.svg\");\r\n__webpack_require__(/*! ../../img/landing-main.jpg */ \"./img/landing-main.jpg\");\r\n__webpack_require__(/*! ../../img/instagram.svg */ \"./img/instagram.svg\");\r\n__webpack_require__(/*! ../../img/facebook.svg */ \"./img/facebook.svg\");\r\n__webpack_require__(/*! ../../img/twitter.svg */ \"./img/twitter.svg\");\r\n\r\nObject(_blocks_header_header_init__WEBPACK_IMPORTED_MODULE_3__[\"initAllHeaders\"])();\r\nObject(_blocks_dropdown_dropdown_init__WEBPACK_IMPORTED_MODULE_1__[\"initAllDropdowns\"])();\r\nObject(_blocks_datepicker_datepicker_init__WEBPACK_IMPORTED_MODULE_2__[\"initAllDatepickers\"])();\r\n\n\n//# sourceURL=webpack:///./pages/landing-page/landing-page.js?");
 
 /***/ }),
 

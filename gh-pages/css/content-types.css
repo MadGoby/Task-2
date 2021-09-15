@@ -58,7 +58,7 @@
   .color-description__text {
     display: inline-block;
     line-height: 28px;
-    padding: 7px 0px;
+    padding: 7px 0;
     vertical-align: top;
     margin-left: 40px; }
   .color-description__name {
@@ -106,7 +106,7 @@
   vertical-align: top;
   font-weight: 400;
   display: inline-block;
-  margin: 0px;
+  margin: 0;
   min-width: 40px;
   text-align: right; }
   .text-sample__teg_type_h1 {
@@ -137,6 +137,14 @@
 .text-sample:last-child .text-sample__description {
   max-width: 301px; }
 
+html {
+  box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
 .body {
   margin: 0; }
 
@@ -144,7 +152,6 @@
   width: 1440px;
   padding: 145px 158px 145px 149px;
   position: relative;
-  box-sizing: border-box;
   margin: auto; }
   .content-types__colors, .content-types__text {
     display: inline-block; }

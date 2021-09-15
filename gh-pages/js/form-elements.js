@@ -155,6 +155,42 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./img/house.svg":
+/*!***********************!*\
+  !*** ./img/house.svg ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/house.svg\");\n\n//# sourceURL=webpack:///./img/house.svg?");
+
+/***/ }),
+
+/***/ "./img/logo.svg":
+/*!**********************!*\
+  !*** ./img/logo.svg ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/logo.svg\");\n\n//# sourceURL=webpack:///./img/logo.svg?");
+
+/***/ }),
+
+/***/ "./img/user.jpg":
+/*!**********************!*\
+  !*** ./img/user.jpg ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/user.jpg\");\n\n//# sourceURL=webpack:///./img/user.jpg?");
+
+/***/ }),
+
 /***/ "./pages/form-elements/form-elements.js":
 /*!**********************************************!*\
   !*** ./pages/form-elements/form-elements.js ***!
@@ -163,7 +199,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _form_elements_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form-elements.scss */ \"./pages/form-elements/form-elements.scss\");\n/* harmony import */ var _form_elements_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_form_elements_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_datepicker_datepicker_init__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../blocks/datepicker/datepicker-init */ \"./blocks/datepicker/datepicker-init.js\");\n/* harmony import */ var _blocks_dropdown_dropdown_init__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../blocks/dropdown/dropdown-init */ \"./blocks/dropdown/dropdown-init.js\");\n/* harmony import */ var _blocks_list_list_init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../blocks/list/list-init */ \"./blocks/list/list-init.js\");\n/* harmony import */ var _blocks_content_navigation_content_navigation_init__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../blocks/content-navigation/content-navigation-init */ \"./blocks/content-navigation/content-navigation-init.js\");\n/* harmony import */ var _blocks_stars_rating_stars_rating_init__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../blocks/stars-rating/stars-rating-init */ \"./blocks/stars-rating/stars-rating-init.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n__webpack_require__(/*! webpack-jquery-ui */ \"../node_modules/webpack-jquery-ui/index.js\");\r\n__webpack_require__(/*! webpack-jquery-ui/css */ \"../node_modules/webpack-jquery-ui/css.js\");\r\n__webpack_require__(/*! inputmask */ \"../node_modules/inputmask/dist/inputmask.js\");\r\n\r\nObject(_blocks_list_list_init__WEBPACK_IMPORTED_MODULE_3__[\"initAllLists\"])();\r\nObject(_blocks_content_navigation_content_navigation_init__WEBPACK_IMPORTED_MODULE_4__[\"initAllContentNavigations\"])();\r\nObject(_blocks_stars_rating_stars_rating_init__WEBPACK_IMPORTED_MODULE_5__[\"initAllStarRatings\"])();\r\nObject(_blocks_dropdown_dropdown_init__WEBPACK_IMPORTED_MODULE_2__[\"initAllDropdowns\"])();\r\nObject(_blocks_datepicker_datepicker_init__WEBPACK_IMPORTED_MODULE_1__[\"initAllDatepickers\"])();\r\n\r\n$(document).ready(() => {\r\n  function addPadding(outputStr) {\r\n    let value = outputStr;\r\n\r\n    if (value.length > 3) {\r\n      value = `${value.slice(0, value.length - 3)} ${value.slice(value.length - 3)}`;\r\n    }\r\n\r\n    return value;\r\n  }\r\n\r\n  const $sliderBody = $('.js-slider__body');\r\n\r\n  $sliderBody.slider({\r\n    range: true,\r\n    min: 0,\r\n    max: 15000,\r\n    values: [5000, 10000],\r\n    slide(event, ui) {\r\n      $('.js-slider__output').val(`${addPadding(String(ui.values[0]))}₽ - ${addPadding(String(ui.values[1]))}₽`);\r\n    },\r\n  });\r\n\r\n  const from = String($sliderBody.slider('values', 0));\r\n  const to = String($sliderBody.slider('values', 1));\r\n\r\n  $('.js-slider__output').val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);\r\n});\r\n\r\nInputmask({\r\n  mask: '99.99.9999',\r\n  placeholder: 'ДД.ММ.ГГГГ',\r\n}).mask(document.querySelectorAll('.input__field_type_date'));\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./pages/form-elements/form-elements.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _form_elements_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form-elements.scss */ \"./pages/form-elements/form-elements.scss\");\n/* harmony import */ var _form_elements_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_form_elements_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_datepicker_datepicker_init__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../blocks/datepicker/datepicker-init */ \"./blocks/datepicker/datepicker-init.js\");\n/* harmony import */ var _blocks_dropdown_dropdown_init__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../blocks/dropdown/dropdown-init */ \"./blocks/dropdown/dropdown-init.js\");\n/* harmony import */ var _blocks_list_list_init__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../blocks/list/list-init */ \"./blocks/list/list-init.js\");\n/* harmony import */ var _blocks_content_navigation_content_navigation_init__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../blocks/content-navigation/content-navigation-init */ \"./blocks/content-navigation/content-navigation-init.js\");\n/* harmony import */ var _blocks_stars_rating_stars_rating_init__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../blocks/stars-rating/stars-rating-init */ \"./blocks/stars-rating/stars-rating-init.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n__webpack_require__(/*! webpack-jquery-ui */ \"../node_modules/webpack-jquery-ui/index.js\");\r\n__webpack_require__(/*! webpack-jquery-ui/css */ \"../node_modules/webpack-jquery-ui/css.js\");\r\n__webpack_require__(/*! inputmask */ \"../node_modules/inputmask/dist/inputmask.js\");\r\n__webpack_require__(/*! ../../img/logo.svg */ \"./img/logo.svg\");\r\n__webpack_require__(/*! ../../img/house.svg */ \"./img/house.svg\");\r\n__webpack_require__(/*! ../../img/user.jpg */ \"./img/user.jpg\");\r\n\r\nObject(_blocks_list_list_init__WEBPACK_IMPORTED_MODULE_3__[\"initAllLists\"])();\r\nObject(_blocks_content_navigation_content_navigation_init__WEBPACK_IMPORTED_MODULE_4__[\"initAllContentNavigations\"])();\r\nObject(_blocks_stars_rating_stars_rating_init__WEBPACK_IMPORTED_MODULE_5__[\"initAllStarRatings\"])();\r\nObject(_blocks_dropdown_dropdown_init__WEBPACK_IMPORTED_MODULE_2__[\"initAllDropdowns\"])();\r\nObject(_blocks_datepicker_datepicker_init__WEBPACK_IMPORTED_MODULE_1__[\"initAllDatepickers\"])();\r\n\r\n$(document).ready(() => {\r\n  function addPadding(outputStr) {\r\n    let value = outputStr;\r\n\r\n    if (value.length > 3) {\r\n      value = `${value.slice(0, value.length - 3)} ${value.slice(value.length - 3)}`;\r\n    }\r\n\r\n    return value;\r\n  }\r\n\r\n  const $sliderBody = $('.js-slider__body');\r\n\r\n  $sliderBody.slider({\r\n    range: true,\r\n    min: 0,\r\n    max: 15000,\r\n    values: [5000, 10000],\r\n    slide(event, ui) {\r\n      $('.js-slider__output').val(`${addPadding(String(ui.values[0]))}₽ - ${addPadding(String(ui.values[1]))}₽`);\r\n    },\r\n  });\r\n\r\n  const from = String($sliderBody.slider('values', 0));\r\n  const to = String($sliderBody.slider('values', 1));\r\n\r\n  $('.js-slider__output').val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);\r\n});\r\n\r\nInputmask({\r\n  mask: '99.99.9999',\r\n  placeholder: 'ДД.ММ.ГГГГ',\r\n}).mask(document.querySelectorAll('.input__field_type_date'));\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./pages/form-elements/form-elements.js?");
 
 /***/ }),
 
