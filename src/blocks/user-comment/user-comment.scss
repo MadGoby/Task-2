@@ -4,8 +4,7 @@
   &__avatar {
     width: 48px;
     height: 48px;
-    box-sizing: border-box;
-    box-shadow: 0px 10px 20px 0px $dark10;
+    box-shadow: 0 10px 20px 0 $dark10;
     border-radius: 100%;
     border: 2px solid white;
     display: inline-block;
@@ -20,7 +19,7 @@
 
   &__name,
   &__age {
-    margin: 0px;
+    margin: 0;
   }
 
   &__name {
@@ -36,7 +35,7 @@
   &__main {
     margin: 6px 0 0 4px;
   }
-  
+
   &__text {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     display: inline-block;

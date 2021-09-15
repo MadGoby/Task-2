@@ -13,6 +13,16 @@
 @import '../../blocks/login/login.scss';
 @import '../../blocks/title/title.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html,
 body {
   margin: 0;
@@ -55,8 +65,7 @@ body {
 }
 
 .login {
-  margin: auto;
-  margin-top: 172px;
+  margin: 172px auto 0;
 
   @media screen and (max-width: 550px) {
     margin-top: 81px;

@@ -1,8 +1,7 @@
 .room-card {
   background: white;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
   width: 270px;
-  box-sizing: border-box;
   border-radius: 4px;
 
   &__image-wrapper {
@@ -29,7 +28,6 @@
   &__image-position {
     cursor: pointer;
     display: inline-block;
-    box-sizing: border-box;
     width: 8px;
     height: 8px;
     border: 1px solid white;
@@ -52,16 +50,16 @@
 
   &__image-button {
     background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0) 99.99%,
-      rgba(255, 255, 255, 0) 100%
+                    90deg,
+                    rgba(0, 0, 0, 0.5) 0%,
+                    rgba(0, 0, 0, 0) 99.99%,
+                    rgba(255, 255, 255, 0) 100%
     );
     border: none;
     outline: none;
     height: 100%;
     width: 44px;
-    padding: 0px;
+    padding: 0;
     display: none;
     cursor: pointer;
     position: absolute;
@@ -72,16 +70,15 @@
       display: block;
       height: 44px;
       padding: 16px 0;
-      box-sizing: border-box;
     }
 
     &_side_left {
       border-top-left-radius: 4px;
-      left: 0px;
+      left: 0;
     }
 
     &_side_rigth {
-      right: 0px;
+      right: 0;
       transform: rotate(180deg);
       border-bottom-left-radius: 4px;
     }

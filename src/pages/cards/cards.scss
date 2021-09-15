@@ -15,6 +15,16 @@
 @import '../../blocks/toggle/toggle.scss';
 @import '../../blocks/stars-rating/stars-rating.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 .body {
   margin: 0;
 }
@@ -23,7 +33,6 @@
   width: 1440px;
   padding: 140px 140px 130px;
   position: relative;
-  box-sizing: border-box;
   margin: auto;
   background-color: #e5e5e5;
 

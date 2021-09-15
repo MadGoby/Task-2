@@ -28,11 +28,12 @@
       @include text_type($mont, 14px, 400, 24px, $dark75);
     }
   }
+
   &__teg {
     vertical-align: top;
     font-weight: 400;
     display: inline-block;
-    margin: 0px;
+    margin: 0;
     min-width: 40px;
     text-align: right;
 
@@ -52,6 +53,7 @@
       @include text_type($mont, 14px, 400, 24px, $dark25);
     }
   }
+
   &:last-child .text-sample__description {
     max-width: 301px;
   }

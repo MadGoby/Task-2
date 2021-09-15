@@ -9,6 +9,12 @@ require('../../img/room-photo-small2.jpg');
 require('../../img/diagram.svg');
 require('../../img/user2.jpg');
 require('../../img/flame.svg');
+require('../../img/smile.svg');
+require('../../img/house.svg');
+require('../../img/logo-color.svg');
+require('../../img/instagram.svg');
+require('../../img/facebook.svg');
+require('../../img/twitter.svg');
 
 initAllDatepickers();
 initAllDropdowns();

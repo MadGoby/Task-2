@@ -7,7 +7,6 @@
     height: 44px;
     border: 1px solid $dark25;
     border-radius: 4px;
-    box-sizing: border-box;
     padding: 11px 14px 12px;
     outline: none;
     @include text_type($mont, 14px, 400, 18px, $dark75);
@@ -17,8 +16,8 @@
     }
 
     &_expanded {
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
       border: 1px solid $dark50;
     }
 
@@ -28,7 +27,6 @@
 
     &_length_long {
       width: 320px;
-      box-sizing: border-box;
 
       @media screen and (max-width: 380px) {
         width: 266px;
@@ -37,7 +35,6 @@
 
     &_length_average {
       width: 266px;
-      box-sizing: border-box;
     }
 
     &_length_adaptive {
@@ -46,7 +43,6 @@
 
     &_length_short {
       width: 150px;
-      box-sizing: border-box;
       display: inline-block;
       padding: 10px 14px 13px;
 
@@ -106,7 +102,7 @@
     display: inline-block;
     margin: 0;
   }
-  
+
   &__submit-button {
     background-image: url('../../img/arrow-forward.svg');
     content: '';
@@ -119,7 +115,6 @@
     width: 42px;
     height: 42px;
     text-align: center;
-    box-sizing: border-box;
     background-color: white;
     border: none;
     outline: none;
@@ -145,27 +140,24 @@
         background-position-x: 16px;
         background-position-y: 18px;
         position: absolute;
-        right: 0px;
+        right: 0;
         top: 1px;
         width: 44px;
         height: 42px;
         text-align: center;
-        box-sizing: border-box;
       }
     }
 
     &_length_long {
       width: 320px;
-      box-sizing: border-box;
-  
+
       @media screen and (max-width: 380px) {
         width: 266px;
       }
     }
-  
+
     &_length_average {
       width: 266px;
-      box-sizing: border-box;
     }
 
     &_length_adaptive {

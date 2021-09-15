@@ -16,7 +16,7 @@
       font-weight: 700;
       color: $dark75;
     }
-    
+
     &_expanded {
       display: block;
     }
@@ -33,7 +33,7 @@
   &__link-wrapper {
     display: inline-block;
     position: relative;
-    
+
     &:not(:last-child) {
       margin-right: 20.5px;
     }
@@ -60,13 +60,13 @@
   &__expanded-container {
     display: none;
     position: absolute;
-    right: 0px;
-    left: 0px;
+    right: 0;
+    left: 0;
     top: 40px;
     z-index: 3;
     background-color: white;
     padding: 0 4px 4px;
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
     text-align: center;
   }
 }

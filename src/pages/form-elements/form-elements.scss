@@ -15,15 +15,24 @@
 @import '../../blocks/stars-rating/stars-rating.scss';
 @import '../../blocks/social-media-link/social-media-link.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 .body {
   margin: 0;
 }
 
 .form-elements {
   width: 1440px;
-  padding: 140px 0px 130px 140px;
+  padding: 140px 0 130px 140px;
   position: relative;
-  box-sizing: border-box;
   margin: auto;
 
   &__input-types,

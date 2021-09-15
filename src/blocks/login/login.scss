@@ -3,11 +3,10 @@
 .login {
   padding: 39px 29px 33px 29px;
   background-color: white;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   max-width: 380px;
-  box-sizing: border-box;
 
   &__title {
     margin-bottom: 21px;

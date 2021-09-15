@@ -4,6 +4,16 @@
 @import '../../blocks/color-description/color-description.scss';
 @import '../../blocks/text-sample/text-sample.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 .body {
   margin: 0;
 }
@@ -12,7 +22,6 @@
   width: 1440px;
   padding: 145px 158px 145px 149px;
   position: relative;
-  box-sizing: border-box;
   margin: auto;
 
   &__colors,

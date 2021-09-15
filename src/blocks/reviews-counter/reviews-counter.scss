@@ -2,11 +2,11 @@
 
 .reviews-counter {
   @include text_type($mont, 14px, 400, 18px, $dark50);
-  margin: 0px;
+  margin: 0;
 
   &__value {
     color: inherit;
     font-weight: 700;
     font-style: normal;
-  } 
+  }
 }

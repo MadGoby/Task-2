@@ -3,7 +3,6 @@
 .slider {
   &__body {
     height: 6px;
-    box-sizing: border-box;
     border-radius: 3px;
     border: 1px solid $dark25;
   }
@@ -37,6 +36,7 @@
 }
 
 .ui-slider .ui-slider-handle {
+  box-sizing: initial;
   outline: none;
   top: -6px;
   width: 12px;
@@ -45,7 +45,9 @@
   border: 2px solid white;
   background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
 }
+
 .ui-slider .ui-slider-range {
+  box-sizing: initial;
   height: 6px;
   top: -1px;
   background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);

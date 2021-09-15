@@ -9,6 +9,16 @@
 @import '../../blocks/copyright/copyright.scss';
 @import '../../blocks/social-media-link/social-media-link.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 .body {
   margin: 0;
 }
@@ -17,14 +27,13 @@
   width: 1440px;
   padding: 140px 0;
   position: relative;
-  box-sizing: border-box;
   margin: auto;
   background-color: #e5e5e5;
 
   &__header {
     margin-bottom: 40px;
   }
-  
+
   &__footer_size_large {
     margin-bottom: 40px;
   }

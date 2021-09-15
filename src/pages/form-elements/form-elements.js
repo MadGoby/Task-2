@@ -8,6 +8,9 @@ import { initAllStarRatings } from '../../blocks/stars-rating/stars-rating-init'
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
 require('inputmask');
+require('../../img/logo.svg');
+require('../../img/house.svg');
+require('../../img/user.jpg');
 
 initAllLists();
 initAllContentNavigations();

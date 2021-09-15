@@ -1,8 +1,12 @@
 import './registration.scss';
 import { initAllHeaders } from '../../blocks/header/header-init';
 
-require('../../img/room-background.jpg');
 require('inputmask');
+require('../../img/room-background.jpg');
+require('../../img/logo-color.svg');
+require('../../img/instagram.svg');
+require('../../img/facebook.svg');
+require('../../img/twitter.svg');
 
 Inputmask({
   mask: '99.99.9999',

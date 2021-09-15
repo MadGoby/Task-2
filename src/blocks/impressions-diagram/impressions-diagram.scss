@@ -4,11 +4,9 @@
   &__description {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     display: inline-block;
-    margin: 0 0 0 30px;
+    margin: 27px 0 0 30px;
     padding: 0;
-    box-sizing: border-box;
     vertical-align: top;
-    margin-top: 27px;
 
     @media screen and (max-width: 380px) {
       margin: 0 0 0 15px;

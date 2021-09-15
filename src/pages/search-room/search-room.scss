@@ -20,6 +20,16 @@
 @import '../../blocks/datepicker/datepicker.scss';
 @import '../../blocks/stars-rating/stars-rating.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html,
 body {
   margin: 0;
@@ -38,7 +48,6 @@ body {
   &__sidebar {
     max-width: 266px;
     text-align: initial;
-    box-sizing: border-box;
     vertical-align: top;
     float: left;
 
@@ -81,7 +90,7 @@ body {
     }
 
     @media screen and (max-width: 680px) {
-      padding-left: 0px;
+      padding-left: 0;
     }
   }
 

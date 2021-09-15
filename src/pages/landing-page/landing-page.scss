@@ -14,6 +14,16 @@
 @import '../../blocks/datepicker/datepicker.scss';
 @import '../../blocks/title/title.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html,
 body {
   margin: 0;
@@ -30,13 +40,11 @@ body {
   min-height: 100%;
 
   &__main {
-    background: url('../../img/landing-main.jpg');
     flex: 1 0 auto;
     background-position-y: -70px;
-    background-repeat: no-repeat;
+    background: url('../../img/landing-main.jpg') no-repeat;
     background-size: cover;
     padding: 70px 140px;
-    box-sizing: border-box;
     min-height: 830px;
     position: relative;
 

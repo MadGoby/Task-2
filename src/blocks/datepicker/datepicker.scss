@@ -3,7 +3,6 @@
 
 .datepicker {
   width: 320px;
-  box-sizing: border-box;
 
   &__from,
   &__to {
@@ -35,8 +34,7 @@
   &__calendar-wrapper {
     background: #ffffff;
     border: 1px solid rgba(31, 32, 65, 0.25);
-    box-sizing: border-box;
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
     border-radius: 4px;
     padding: 19px 18px 19px 19px;
     width: 320px;
@@ -58,11 +56,11 @@
     background-image: url('../../img/arrow-forward.svg');
     background-repeat: no-repeat;
     background-position: center;
-    border: 0px;
+    border: 0;
     width: 24px;
     height: 24px;
     background-color: white;
-    padding: 0px;
+    padding: 0;
     cursor: pointer;
     display: inline-block;
     vertical-align: top;
@@ -76,8 +74,7 @@
   &__selected-month {
     display: inline-block;
     min-width: 230px;
-    margin: 0px;
-    margin-left: 1px;
+    margin: 0 0 0 1px;
     text-align: center;
     @include text_type($mont, 19px, 700, 24px, $dark100);
 
@@ -89,7 +86,7 @@
       min-width: 196px;
     }
   }
-  
+
   &__calendar {
     margin: 30px 0 19px 1px;
     border-collapse: collapse;
@@ -99,8 +96,7 @@
   &__calendar-cell {
     width: 39.88px;
     height: 40px;
-    box-sizing: border-box;
-    padding: 0px;
+    padding: 0;
     display: inline-block;
     line-height: 40px;
     text-align: center;
@@ -205,7 +201,7 @@
   &_size_small {
     width: 266px;
   }
-  
+
   &_without-margin {
     margin-top: 0;
   }

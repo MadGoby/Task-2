@@ -28,7 +28,6 @@
     display: inline-block;
     cursor: pointer;
     border: 1px solid $dark25;
-    box-sizing: border-box;
     vertical-align: top;
 
     &_type_checkbox {
@@ -94,6 +93,7 @@
     margin: 0;
     line-height: 18px;
     max-width: 230px;
+
     &_length_short {
       max-width: 192px;
     }
@@ -109,8 +109,7 @@
     display: block;
     font-size: 12px;
     line-height: 14px;
-    padding: 0px;
-    padding-top: 5px;
+    padding: 5px 0 0 0;
     color: $dark50;
   }
 
@@ -147,7 +146,7 @@
     &_type_radio ~ .toggle__text-wrapper .toggle__text {
       color: $dark50
     }
-    
+
     &_type_radio:checked ~ .toggle__text-wrapper .toggle__text {
       color: $dark75
     }

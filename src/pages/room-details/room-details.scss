@@ -20,6 +20,16 @@
 @import '../../blocks/dropdown/dropdown.scss';
 @import '../../overall/mixins.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html,
 body {
   margin: 0;
@@ -120,7 +130,6 @@ body {
     vertical-align: top;
     margin-right: 101px;
     text-align: initial;
-    box-sizing: border-box;
 
     @media screen and (max-width: 380px) {
       margin-right: 0;
@@ -132,7 +141,6 @@ body {
   &__cancellation {
     display: inline-block;
     max-width: 341px;
-    box-sizing: border-box;
     margin-top: 30px;
     vertical-align: top;
     text-align: initial;

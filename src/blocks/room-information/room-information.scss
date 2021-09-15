@@ -34,7 +34,7 @@
     font-size: 12px;
     vertical-align: bottom
   }
-  
+
   &__price {
     @include text_type($mont, 14px, 700, 28px, $dark50);
     font-style: normal;
