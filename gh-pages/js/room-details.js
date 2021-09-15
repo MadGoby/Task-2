@@ -148,7 +148,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./pages/room-details/room-details.js","landing-page~room-details~search-room~ui-kit"]);
+/******/ 	deferredModules.push(["./pages/room-details/room-details.js","cards~form-elements~landing-page~room-details~search-room"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })

@@ -1,25 +1,25 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'Quicksand';
-  src: url(../fonts/Quicksand-Regular.woff2), url(../fonts/Quicksand-Regular.woff), url(../fonts/Quicksand-Regular.ttf), url(../img/Quicksand-Regular.svg);
+  src: url(../fonts/Quicksand-Regular.woff2), url(../fonts/Quicksand-Regular.woff);
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Quicksand';
-  src: url(../fonts/Quicksand-Bold.woff2), url(../fonts/Quicksand-Bold.woff), url(../fonts/Quicksand-Bold.ttf), url(../img/Quicksand-Bold.svg);
+  src: url(../fonts/Quicksand-Bold.woff2), url(../fonts/Quicksand-Bold.woff);
   font-weight: 700;
   font-style: normal; }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url(../fonts/Montserrat-Regular.woff2), url(../fonts/Montserrat-Regular.woff), url(../fonts/Montserrat-Regular.ttf), url(../img/Montserrat-Regular.svg);
+  src: url(../fonts/Montserrat-Regular.woff2), url(../fonts/Montserrat-Regular.woff);
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url(../fonts/Montserrat-Bold.woff2), url(../fonts/Montserrat-Bold.woff), url(../fonts/Montserrat-Bold.ttf), url(../img/Montserrat-Bold.svg);
+  src: url(../fonts/Montserrat-Bold.woff2), url(../fonts/Montserrat-Bold.woff);
   font-weight: 700;
   font-style: normal; }
 

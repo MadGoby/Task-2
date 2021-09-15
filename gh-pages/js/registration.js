@@ -148,7 +148,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./pages/registration/registration.js","vendors~registration~ui-kit"]);
+/******/ 	deferredModules.push(["./pages/registration/registration.js","vendors~form-elements~registration"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
