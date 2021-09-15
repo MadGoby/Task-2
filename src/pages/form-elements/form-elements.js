@@ -1,3 +1,4 @@
+import './form-elements.scss';
 import { initAllDatepickers } from '../../blocks/datepicker/datepicker-init';
 import { initAllDropdowns } from '../../blocks/dropdown/dropdown-init';
 import { initAllLists } from '../../blocks/list/list-init';

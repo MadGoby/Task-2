@@ -1,69 +1,55 @@
 include ../button/button.pug
 
 mixin datepicker(settings)
-  - let {
+  - const {
   -   input: {
-  -     from: inputFrom = false,
-  -     to: inputTo = false,
-  -     total: inputTotal = false
+  -     from = false,
+  -     to = false,
+  -     total = false
   -   },
   -   main: {
-  -     jsClass: mainJsClass = "js-for-change",
-  -     dataYear: mainDataYear = false,
-  -     dataMonth: mainDataMonth = false,
-  -     dataCurrentDay: mainDataCurrentDay = false,
-  -     dataFrom: mainDataFrom = false,
-  -     dataTo: mainDataTo = false,
+  -     jsClass = "js-for-change",
+  -     dataYear = false,
+  -     dataMonth = false,
+  -     dataCurrentDay = false,
+  -     dataFrom = false,
+  -     dataTo = false,
   -   },
   -   attr = false,
-  -   size = false
   - } = settings
+  - let {size = false} = settings
   - let wrapperSize = false
   - if(size) {
   -   wrapperSize = `datepicker__calendar-wrapper_size_${size}`
   -   size = `datepicker_size_${size}`
-  - } 
-  div(class="datepicker" class=size, class=mainJsClass, data-year=mainDataYear, data-month=mainDataMonth, data-day=mainDataCurrentDay, data-from=mainDataFrom, data-to=mainDataTo)
-    if inputTotal || (inputFrom && inputTo) 
+  - }
+  - let days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+  div(class=["datepicker", size, jsClass] data-year=dataYear, data-month=dataMonth, data-day=dataCurrentDay, data-from=dataFrom, data-to=dataTo)
+    if total || (from && to) 
       .datepicker__inputs 
-        if inputTotal
-          +input(inputTotal)
-        else if inputFrom && inputTo 
+        if total
+          +input(total)
+        else if from && to 
           .datepicker__from
-            +input(inputFrom)
+            +input(from)
           .datepicker__to
-            +input(inputTo)
-    div(class="datepicker__calendar-wrapper" class=wrapperSize)&attributes(attr)
-      button(class="datepicker__scroll-button datepicker__scroll-button_arrow_back js-datepicker__scroll-button_arrow_back" type="button")
+            +input(to)
+    div(class=["datepicker__calendar-wrapper", wrapperSize])&attributes(attr)
+      button(class=["datepicker__scroll-button", "datepicker__scroll-button_arrow_back", "js-datepicker__scroll-button_arrow_back"] type="button")
       if settings.size == "small"
-        p(class="datepicker__selected-month datepicker__selected-month_size_small js-datepicker__selected-month")
+        p(class=["datepicker__selected-month", "datepicker__selected-month_size_small", "js-datepicker__selected-month"])
       else 
-        p(class="datepicker__selected-month js-datepicker__selected-month")
-      button(class="datepicker__scroll-button datepicker__scroll-button_arrow_forward js-datepicker__scroll-button_arrow_forward" type="button")
-      table(class="datepicker__calendar js-datepicker__calendar")
+        p(class=["datepicker__selected-month", "js-datepicker__selected-month"])
+      button(class=["datepicker__scroll-button", "datepicker__scroll-button_arrow_forward", "js-datepicker__scroll-button_arrow_forward"] type="button")
+      table(class=["datepicker__calendar", "js-datepicker__calendar"])
         tr(class="datepicker__calendar-line")
-          if settings.size == "small"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Пн"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Вт"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Ср"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Чт"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Пт"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Сб"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold datepicker__calendar-cell_size_small")= "Вс"
-          else
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Пн"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Вт"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Ср"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Чт"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Пт"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Сб"
-            th(class="datepicker__calendar-cell datepicker__calendar-cell_font_bold")= "Вс"
-        tr(class="datepicker__calendar-line js-datepicker__calendar-line")
-        tr(class="datepicker__calendar-line js-datepicker__calendar-line")
-        tr(class="datepicker__calendar-line js-datepicker__calendar-line")
-        tr(class="datepicker__calendar-line js-datepicker__calendar-line")
-        tr(class="datepicker__calendar-line js-datepicker__calendar-line")
-        tr(class="datepicker__calendar-line js-datepicker__calendar-line")
+            each day in days
+              - let dayType = false
+              - if (settings.size == "small") dayType = "datepicker__calendar-cell_size_small"
+              th(class=["datepicker__calendar-cell", "datepicker__calendar-cell_font_bold", dayType])= day
+        - var i=0;
+        while (i++ < 6)
+          tr(class=["datepicker__calendar-line", "js-datepicker__calendar-line"])
       .datepicker__confirmation-buttons
         .datepicker__clear-button
           +button({

@@ -1,14 +1,14 @@
 mixin login(settings)
-  - let {
+  - const {
   -   action = "./for-change",
-  -   title: { text: titleText = "For change" },
-  -   confirm: { text: confirmText = "For change" },
+  -   title = "For change",
+  -   confirm = "For change" ,
   -   loginLink = "./for-change"
   - } = settings
   form(action=action).login
     .login__title
       +title({
-        text: titleText,
+        text: title,
         type: "size_large"
       })
     .login__inputs
@@ -39,7 +39,7 @@ mixin login(settings)
     .login__confirm-button
       +button({
         type: "confirm",
-        text: confirmText,
+        text: confirm,
         attr: {"type": "submit"}
       })
     .login__registration

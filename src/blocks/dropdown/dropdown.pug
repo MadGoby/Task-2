@@ -1,5 +1,5 @@
 mixin dropdown(settings)
-  - let {
+  - const {
   -   inputSettings = {
   -     length: "average",
   -     type: "regular",
@@ -8,23 +8,23 @@ mixin dropdown(settings)
   -     jsClass: "js-for-change"  
   -   },
   -   control: {
-  -     jsClass: controlJs = "js-for-change",
-  -     attr: controlAttr = false,
-  -     z: controlZIndex = false,
+  -     attr = false
   -   },
+  -   main: {
+  -     dataType = false,
+  -     outputType = false
+  -   }
+  - } = settings
+  - let {
+  -   control: { z = false },
+  -   clearHidden = true,
   -   lists = [
   -     {text: "For Change", dataTarget: "forChange1", output: "0", minusTransparent: false, plusTransparent: false},
   -     {text: "For Change", dataTarget: "forChange2", output: "0", minusTransparent: false, plusTransparent: false},
   -     {text: "For Change", dataTarget: "forChange3", output: "0", minusTransparent: false, plusTransparent: false}
-  -   ],
-  -   clearHidden = true,
-  -   main: {
-  -     jsClass: mainJsClass = false,
-  -     dataType: mainDataType = false,
-  -     outputType: mainOutputType = false
-  -   }
+  -   ]
   - } = settings
-  - if (controlZIndex) controlZIndex = `dropdown__control_z-index_${controlZIndex}`
+  - if (z) z = `dropdown__control_z-index_${z}`
   - if (lists) {
   -   lists.forEach(function(list) {
   -     if(list.output == "0") list.minusTransparent = true
@@ -32,24 +32,24 @@ mixin dropdown(settings)
   -     if(list.output > "0") clearHidden = false
   -   })
   - }
-  div(class="dropdown" class=mainJsClass, data-template=mainDataType, data-output=mainOutputType)
+  div(class=["dropdown", "js-dropdown"] data-template=dataType, data-output=outputType)
     div.dropdown__input
       +input(inputSettings)
-    div(class="dropdown__control" class=controlJs, class=controlZIndex)&attributes(controlAttr)
+    div(class=["dropdown__control", "js-dropdown__control", z])&attributes(attr)
       ul.dropdown__list
         each list in lists
           li.dropdown__list-element
             span.dropdown__text=list.text
             .dropdown__calc
               if list.minusTransparent 
-                button(class="dropdown__button dropdown__button_transparent" type="button" class="dropdown__button_type_minus" data-target=list.dataTarget data-action="minus")="-"
+                button(class=["dropdown__button dropdown__button_transparent", "dropdown__button_type_minus"] type="button"  data-target=list.dataTarget data-action="minus")="-"
               else
-                button(class="dropdown__button" type="button" class="dropdown__button_type_minus" data-target=list.dataTarget data-action="minus")="-"
+                button(class=["dropdown__button", "dropdown__button_type_minus"] type="button" data-target=list.dataTarget data-action="minus")="-"
               output(class="dropdown__output" data-target=list.dataTarget)=list.output
               if list.plusTransparent
-                button(class="dropdown__button dropdown__button_transparent" type="button" class="dropdown__button_type_plus" data-target=list.dataTarget data-action="plus")="+"
+                button(class=["dropdown__button dropdown__button_transparent", "dropdown__button_type_plus"] type="button"  data-target=list.dataTarget data-action="plus")="+"
               else
-                button(class="dropdown__button" type="button" class="dropdown__button_type_plus" data-target=list.dataTarget data-action="plus")="+"
+                button(class=["dropdown__button", "dropdown__button_type_plus"] type="button" data-target=list.dataTarget data-action="plus")="+"
       .dropdown__submit-buttons
         .dropdown__clear-button
           +button({

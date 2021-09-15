@@ -1,29 +1,35 @@
 mixin toggle(settings)
-  - let {
+  - const {
   -   controller: {
-  -     type: controllerType = "checkbox",
-  -     attr: controllerAttr = { type: "checkbox" }
+  -     attr = { type: "checkbox" }
   -   },
-  -   mimicType = false,
   -   text: {
-  -     text: textContent = "For change",
-  -     richText: richText = false,
-  -     length: textLength = false
+  -     text = "For change",
+  -     richText = false,
   -   }
   - } = settings
-  - if (controllerType) {
-  -   mimicType = `toggle__mimic_type_${controllerType}`
-  -   controllerType = `toggle__controller_type_${controllerType}`
+  - let {
+  -   controller: {
+  -     type = "checkbox",
+  -   },
+  -   text: {
+  -     length = false
+  -   }
+  - } = settings
+  - let mimicType = false
+  - if (type) {
+  -   mimicType = `toggle__mimic_type_${type}`
+  -   type = `toggle__controller_type_${type}`
   - }
-  - if (textLength) textLength = `toggle__text_length_${textLength}`
+  - if (length) length = `toggle__text_length_${length}`
   .toggle
     label(class="toggle__wrapper")
-      input(class = "toggle__controller" class=controllerType)&attributes(controllerAttr)
-      span(class="toggle__mimic" class=mimicType)
+      input(class=["toggle__controller", type])&attributes(attr)
+      span(class=["toggle__mimic", mimicType])
         if mimicType === "toggle__mimic_type_like"
-          p(class="toggle__text" class=textLength)= textContent
+          p(class=["toggle__text", length])= text
       if mimicType !== "toggle__mimic_type_like"
         .toggle__text-wrapper
           if richText
             p(class="toggle__text-title")= richText
-          p(class="toggle__text", class=textLength)= textContent
+          p(class=["toggle__text", length])= text

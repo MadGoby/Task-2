@@ -1,3 +1,6 @@
+@import '../../overall/variables.scss';
+@import '../../fonts/fonts.scss';
+@import '../../blocks/logo/logo.scss';
 @import '../../blocks/search-room/search-room.scss';
 @import '../../blocks/registration/registration.scss';
 @import '../../blocks/final-booking/final-booking.scss';
@@ -7,6 +10,14 @@
 @import '../../blocks/reviews-counter/reviews-counter.scss';
 @import '../../blocks/dropdown/dropdown.scss';
 @import '../../blocks/room-card/room-card.scss';
+@import '../../blocks/title/title.scss';
+@import '../../blocks/input/input.scss';
+@import '../../blocks/toggle/toggle.scss';
+@import '../../blocks/stars-rating/stars-rating.scss';
+
+.body {
+  margin: 0;
+}
 
 .cards {
   width: 1440px;

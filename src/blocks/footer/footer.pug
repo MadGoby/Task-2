@@ -1,82 +1,66 @@
 include ../social-media-link/social-media-link.pug
 
 mixin footer(settings)
-  - let {
-  -   footer: {
-  -     size: footerSize = false
-  -   },
+  - const {
   -   description: {
   -     text: descriptionText = false
   -   },
   -   lists = [
   -     [
   -       {"text": "For change"}, 
-  -       {"text": "For change"},
-  -       {"text": "For change"}
   -     ],
   -     [
   -       {"text": "For change"}, 
-  -       {"text": "For change"},
-  -       {"text": "For change"}
   -     ],
   -     [
   -       {"text": "For change"}, 
-  -       {"text": "For change"},
-  -       {"text": "For change"}
   -     ]
   -   ],
   -   links = [
   -     {
   -       "name": "For change",
   -       "iconSrc": "img/for-change.svg"
-  -     },
-  -     {
-  -       "name": "For change",
-  -       "iconSrc": "img/for-change.svg"
-  -     },
-  -     {
-  -       "name": "For change",
-  -       "iconSrc": "img/for-change.svg"
   -     }
   -   ],
   -   subscribe: {
-  -     title: subscribeTitle = "For change",
+  -     title = "For change",
   -     text: subscribeText = "For change",
-  -     action: subscribeAction = "./for-change"
+  -     action = "./for-change"
   -   },
   -   copyright: { text: copyrightText = "For change" }
   - } = settings
+  - let { footer: { size = false } } = settings
   - let wrapperSize = false
-  - if(footerSize) {
-  -   wrapperSize = `footer__wrapper_size_${footerSize}`
-  -   footerSize = `footer_size_${footerSize}`
+  - if(size) {
+  -   wrapperSize = `footer__wrapper_size_${size}`
+  -   size = `footer_size_${size}`
   - }
-  div(class="footer" class=footerSize)
-    div(class="footer__wrapper" class=wrapperSize)
+  div(class=["footer", size])
+    div(class=["footer__wrapper", wrapperSize])
       div(class="footer__description")
         +logo({
           src: "img/logo-color.svg"
         })
         if descriptionText
           p(class="footer__logo-description")=descriptionText
-      if footerSize !== "footer_size_small"
+      if size !== "footer_size_small"
         .footer__navigation-wrapper
           each list in lists
             .footer__navigation
               each link in list
                 - let {
                 -   text: linkText,
-                -   href: linkHref = "./for-change",
+                -   href = "./for-change",
                 -   title: linkTitle = false
                 - } = link
                 if linkTitle 
                   span(class="footer__link-title")= linkTitle
                 else 
-                  a(class="footer__navigation-link" href=linkHref)= linkText
+                  a(class="footer__navigation-link" href=href)= linkText
         .footer__subscribe
-          p.footer__title=subscribeTitle
+          p.footer__title=title
           p.footer__subscribe-text=subscribeText 
-          form(class="footer__subscribe-form" action=subscribeAction)
+          form(class="footer__subscribe-form" action=action)
             +input({
               title: false,
               input: {
@@ -89,7 +73,7 @@ mixin footer(settings)
               }
             })
       else
-        div(class="footer__social-media footer__social-media_size_small")
+        div(class=["footer__social-media", "footer__social-media_size_small"])
           p(class="footer__small-copyright")= copyrightText
           +social-media-link({
             socialLinks: links

@@ -1,36 +1,39 @@
 mixin button(settings)
+  - const {
+  -   attr = {type: "button"},
+  -   text = "For Change",
+  -   jsClass = false,
+  - } = settings
   - let {
-  -   attr: buttonAttr = {type: "button"},
-  -   type: buttonType = "regular",
-  -   text: buttonText= "For Change",
-  -   jsClass: buttonJs = false,
-  -   paginationClass: buttonPagination = false,
-  -   height: buttonHeight = false,
-  -   hover: buttonHover = false,
+  -   type = "regular",
+  -   modifierClass = false,
+  -   height = false,
+  -   hover = false,
   - } = settings
   - let borderHeight = false
-  - if(buttonHover) {
-  -   buttonType === "border" ? buttonHover="button__border-mimic_transparent" : buttonHover=`button__control_${buttonHover}`
+  - if(hover) {
+  -   type === "border" ? hover="button__border-mimic_transparent" : hover=`button__control_${hover}`
   - }
-  - if(buttonType) buttonType = `button__control_type_${buttonType}`
-  - if(buttonHeight) {
-  -   borderHeight = `button__border-mimic_size_${buttonHeight}`
-  -   buttonType === "button__control_type_border" ? buttonHeight = `button__control_border_${buttonHeight}` : buttonHeight = `button__control_size_${buttonHeight}`
+  - if(type) type = `button__control_type_${type}`
+  - if(modifierClass) modifierClass = `button__control_${modifierClass}`
+  - if(height) {
+  -   borderHeight = `button__border-mimic_size_${height}`
+  -   type === "button__control_type_border" ? height = `button__control_border_${height}` : height = `button__control_size_${height}`
   - }
-  if buttonType == "button__control_shape_circle"
-    div(class="button button_shape_circle")
-      button(class="button__control" class=buttonJs, class=buttonType, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
-  else if buttonType == "button__control_type_confirm"
-    div(class="button button_type_confirm")
-      if buttonType == "button__control_type_border"
+  if type == "button__control_shape_circle"
+    div(class=["button", "button_shape_circle"])
+      button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
+  else if type == "button__control_type_confirm"
+    div(class=["button", "button_type_confirm"])
+      if type == "button__control_type_border"
         div.button__border-mimic
-          button(class="button__control"  class=buttonJs, class=buttonType, class=buttonPagination, class=buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
+          button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
       else
-        button(class="button__control" class=buttonJs, class=buttonType, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
+        button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
   else
     div(class="button")
-      if buttonType == "button__control_type_border"
-        div(class="button__border-mimic", class=buttonHover, class=borderHeight)
-          button(class="button__control"  class=buttonJs, class=buttonType, class=buttonPagination, class=buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
+      if type == "button__control_type_border"
+        div(class=["button__border-mimic", hover, borderHeight])
+          button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
       else
-        button(class="button__control" class=buttonJs, class=buttonType, class=buttonHover, class=buttonPagination, class= buttonHeight, value=buttonText)&attributes(buttonAttr)= buttonText
+        button(class=["button__control", jsClass, type, hover, modifierClass, height] value=text)&attributes(attr)= text

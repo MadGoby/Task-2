@@ -44,7 +44,7 @@ include ../../overall/page-head.pug
               text: "Фильтры для поиска",
               type: "closed",
               jsClass: "js-search-room__sidebar-title",
-              for: "sidebar"
+              targetClass: "sidebar"
             })
           aside.search-room__sidebar.js-search-room__sidebar
             .search-room__date-filter
@@ -95,7 +95,6 @@ include ../../overall/page-head.pug
                   }
                 },
                 control: {
-                  jsClass: "js-dropdown__control",
                   attr: {"hidden": "hidden"}
                 },
                 lists: [
@@ -104,17 +103,16 @@ include ../../overall/page-head.pug
                   {text: "младенцы", dataTarget: "baby", output: "1"}
                 ],
                 main: {
-                  jsClass: "js-dropdown",
                   dataType: "guestsWithBaby",
                   outputType: "twoByOne"
                 }
               })
             .search-room__slider
               +slider({
-                title: { text: "диапазон цены" },
-                output: { jsClass: "js-slider__output" },
-                container: { jsClass: "js-slider__body" },
-                description: { text: "Стоимость за сутки пребывания в номере" }
+                title: "диапазон цены",
+                outputJs: "js-slider__output",
+                containerJs: "js-slider__body",
+                description: "Стоимость за сутки пребывания в номере"
               })
             .search-room__additional-features
               .search-room__features-title
@@ -214,7 +212,6 @@ include ../../overall/page-head.pug
                   }
                 },
                 control: {
-                  jsClass: "js-dropdown__control",
                   attr: {"hidden": "hidden"}
                 },
                 lists: [
@@ -223,7 +220,6 @@ include ../../overall/page-head.pug
                   {text: "ванные комнаты", dataTarget: "bathroom", output: "0"}
                 ],
                 main: {
-                  jsClass: "js-dropdown",
                   dataType: "rooms",
                   outputType: "oneByOne"
                 }
@@ -333,7 +329,7 @@ include ../../overall/page-head.pug
             +content-navigation({
               title: false,
               jsClass: "js-content-navigation",
-              counter: {text: "1 – 12 из 100+ вариантов аренды"}
+              counter: "1 – 12 из 100+ вариантов аренды"
             })
       footer.search-room__footer
         +footer({

@@ -1,20 +1,20 @@
 mixin positive-feature(settings)
-  - let {
-  -   border = false,
+  - const {
   -   img: {
-  -     attr: imgAttr = {
+  -     attr = {
   -       alt: "For Change",
   -       src: "img/forChange.jpg"
   -     } 
   -   },
   -   text: {
-  -     title: titleText = "For change",
-  -     description: descriptionText = "Description for change"
+  -     title = "For change",
+  -     description = "Description for change"
   -   }
   - } = settings
+  - let { border = false } = settings
   - if(border) border=`positive-feature_${border}`
-  div(class="positive-feature" class=border)
-    img(class="positive-feature__img")&attributes(imgAttr)
+  div(class=["positive-feature", border])
+    img(class="positive-feature__img")&attributes(attr)
     .positive-feature__text-wrapper
-      p.positive-feature__title=titleText
-      p.positive-feature__description=descriptionText
+      p.positive-feature__title=title
+      p.positive-feature__description=description

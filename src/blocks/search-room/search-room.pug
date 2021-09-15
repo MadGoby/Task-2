@@ -1,5 +1,5 @@
 mixin search-room(settings)
-  - let {
+  - const {
   -   action = "./for-change",
   -   title: {
   -     text: titleText = "For change"
@@ -89,12 +89,10 @@ mixin search-room(settings)
           }
         },
         control: {
-          jsClass: "js-dropdown__control",
           attr: {"hidden": "hidden"}
         },
         lists: lists,
         main: {
-          jsClass: "js-dropdown",
           dataType: "guests",
           outputType: "sum"
         }

@@ -1,16 +1,16 @@
 mixin user-comment(settings)
-  - let {
+  - const {
   -   title: {
   -     imgAttr = {
   -       alt: "For Change",
   -       src: "img/forChange.jpg"
   -     },
-  -     name: titleName = "Name",
-  -     age: titleAge = "Age"
+  -     name = "Name",
+  -     age = "Age"
   -   },
   -   main: {
   -     toggle: {
-  -       checked: toggleChecked = false,
+  -       checked = false,
   -       text: toggleText = "0"
   -     },
   -     text: mainText = "Text for change"
@@ -20,8 +20,8 @@ mixin user-comment(settings)
     .user-comment__title
       img(class="user-comment__avatar")&attributes(imgAttr)
       .user-comment__info
-        p.user-comment__name=titleName
-        p.user-comment__age=titleAge
+        p.user-comment__name=name
+        p.user-comment__age=age
     .user-comment__main
       .user-comment__like
         +toggle({
@@ -30,7 +30,7 @@ mixin user-comment(settings)
             attr: {
               "type": "checkbox",
               "hidden": "hidden",
-              "checked": toggleChecked
+              "checked": checked
             }
           },
           text: {

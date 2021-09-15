@@ -1,13 +1,15 @@
 mixin title(settings)
-  - let {
+  - const {
   -   text = "For change",
   -   teg = "p",
-  -   type = false,
   -   jsClass = false,
-  -   length = false,
-  -   for: targetClass = false
+  - } = settings
+  - let {
+  -   type = false,
+  -   targetClass = false,
+  -   length = false
   - } = settings
   - if (type) type = `title_${type}`
   - if (targetClass) targetClass = `title_for-${targetClass}`
   - if (length) length = `title_length_${length}`
-  #{teg}(class="title", class=type,  class=targetClass, class=jsClass, class=length)=text
+  #{teg}(class=["title", type, targetClass, jsClass, length])=text

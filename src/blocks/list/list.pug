@@ -1,14 +1,12 @@
 mixin list(settings)
-  - let {
+  - const {
   -   title: {
-  -     text: titleText = "For Change",
-  -     type: titleType = false,
-  -     bullet: titleBullet = false,
-  -     margin: titleMargin = false,
-  -     teg: titleTeg = "p"
+  -     text = "For Change",
+  -     type = false,
+  -     teg = "p"
   -   },
   -   container: {
-  -     attr: containerAttr = false
+  -     attr = false
   -   },
   -   listType = false,
   -   listCheckbox = [
@@ -41,27 +39,33 @@ mixin list(settings)
   -   ],
   -   textList = false,
   -   js: {
-  -     main: jsMain = false,
-  -     title: jsTitle = false,
-  -     list: jsList = false
+  -     main = false,
+  -     title = false,
+  -     list = false
   -   }
   - } = settings
-  - if(titleBullet) titleBullet = "list__title_with-bullet"
-  - if(titleMargin) titleMargin = "list__title_with-margin"
-  div(class="list" class=jsMain)
-    div(class="list__title", class=titleMargin, class=titleBullet)
+  - let {
+  -   title: {
+  -     bullet = false,
+  -     margin = false,
+  -   }
+  - } = settings
+  - if(bullet) bullet = "list__title_with-bullet"
+  - if(margin) margin = "list__title_with-margin"
+  div(class=["list", main])
+    div(class=["list__title", margin, bullet])
       +title({
-        text: titleText,
-        type: titleType,
-        jsClass: jsTitle,
-        teg: titleTeg
+        text: text,
+        type: type,
+        jsClass: title,
+        teg: teg
       })
-    ul(class="list__container" class=jsList)&attributes(containerAttr)
+    ul(class=["list__container", list])&attributes(attr)
       if textList 
         each val in textList
-          li(class="list__item list__item_with-bullet")
+          li(class=["list__item", "list__item_with-bullet"])
             p(class="list__text")=val
       else
         each val in listCheckbox
-          li(class="list__item" class=val.listType)
+          li(class="list__item")
             +toggle(val)

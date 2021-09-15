@@ -1,5 +1,5 @@
 mixin navigation(settings)
-  - let {
+  - const {
   -   links = [
   -     {"text": "For change", "type": "text_bold"},
   -     {"text": "For change"},
@@ -9,27 +9,27 @@ mixin navigation(settings)
   - } = settings
   nav.navigation
     each link in links
-      - let {
-      -   href: linkHref = "./for-change",
-      -   text: linkText = "For change",
-      -   type: linkType= "",
-      -   jsClass: linkJs = false,
+      - const {
+      -   href = "./for-change",
+      -   text = "For change",
+      -   jsClass = false,
       -   expandedLinks = [
       -     {text: "For change", href: "./for-change"},
       -     {text: "For change", href: "./for-change"},
       -     {text: "For change", href: "./for-change"},
       -   ]
       - } = link
-      - if(linkType) linkType=` navigation__link_${linkType}`
+      - let { type= "" } = link
+      - if(type) type=`navigation__link_${type}`
       .navigation__link-wrapper
         if link.type === "expanded" && expandedLinks
-          span(class="navigation__link-title", class=linkJs)= linkText
+          span(class=["navigation__link-title", jsClass])= text
           .navigation__expanded-container
             each expandedLink in expandedLinks
-              - let {
-              -   href: expandedLinkHref,
-              -   text: expandedLinkText,
+              - const {
+              -   href: expandedHref,
+              -   text: expandedText,
               - } = expandedLink
-              a(class="navigation__link navigation__link_expanded",  href=expandedLinkHref)= expandedLinkText
+              a(class=["navigation__link", "navigation__link_expanded"]  href=expandedHref)= expandedText
         else
-          a(class="navigation__link",  href=linkHref, class=linkType)= linkText
+          a(class=["navigation__link", type] href=href)= text

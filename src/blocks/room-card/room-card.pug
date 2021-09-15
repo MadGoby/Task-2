@@ -1,5 +1,5 @@
 mixin room-card(settings)
-  - let {
+  - const {
   -   jsClass = "",
   -   images = [
   -     {
@@ -20,37 +20,37 @@ mixin room-card(settings)
   -     }
   -   ],
   -   roomInformation: {
-  -     number: roomNumber = "000",
-  -     price: roomPrice = "000",
-  -     type: roomType = false
+  -     number = "000",
+  -     price = "000",
+  -     type = false
   -   },
   -   starsRating: { 
-  -     rating: starsCounter = "5"
+  -     rating = "5"
   -   },
-  -   reviewsCounter: { value: counterValue = "000"} 
+  -   reviewsCounter: { value = "000"} 
   - } = settings
   div(class="room-card" class=jsClass)
     div.room-card__image-wrapper
       each image in images
         - let {img="", src=""} = image
         img(class="room-card__image" src=src, alt=alt)
-      button(type="button" class="room-card__image-button room-card__image-button_side_left")
-      button(type="button" class="room-card__image-button room-card__image-button_side_rigth")
+      button(type="button" class=["room-card__image-button", "room-card__image-button_side_left"])
+      button(type="button" class=["room-card__image-button", "room-card__image-button_side_rigth"])
       .room-card__image-position-wrapper
-        span.room-card__image-position.room-card__image-position_selected
+        span(class=["room-card__image-position", "room-card__image-position_selected"])
         span.room-card__image-position
         span.room-card__image-position
         span.room-card__image-position
     .room-card__room-information
       .room-card__price
         +room-information({
-          number: roomNumber,
-          price: roomPrice,
-          type: roomType,
+          number: number,
+          price: price,
+          type: type,
           size: "small"
         })
       .room-card__rating
         .room-card__stars
-          +stars-rating({rating: starsCounter})
+          +stars-rating({rating: rating})
         .room-card__counter
-          +reviews-counter({value: counterValue})
+          +reviews-counter({value: value})

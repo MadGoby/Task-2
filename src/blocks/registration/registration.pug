@@ -1,15 +1,13 @@
 mixin registration(settings)
-  - let {
+  - const {
   -   action = "./for-change",
-  -   title: {
-  -     text: titleText = "For change"
-  -   },
+  -   title = "For change",
   -   loginLink = "./for-change"
   - } = settings
   form(action=action).registration
     .registration__title
       +title({
-        text: titleText,
+        text: title,
         type: "size_large"
       })
     .registration__personal-data

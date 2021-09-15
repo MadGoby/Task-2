@@ -1,5 +1,5 @@
 mixin impressions-diagram(settings)
-  - let {
+  - const {
   -   text = "000 голосов",
   -   lines = [
   -     {text: "For change 1", type: "color_yellow"},
@@ -18,4 +18,4 @@ mixin impressions-diagram(settings)
         -   type: lineType
         - } = line
         - if (lineType) lineType = `impressions-diagram__description-line_${lineType}`
-        li(class="impressions-diagram__description-line" class=lineType)=lineText
+        li(class=["impressions-diagram__description-line", lineType])=lineText

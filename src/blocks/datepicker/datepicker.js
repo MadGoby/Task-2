@@ -34,7 +34,6 @@ class Datepicker {
     this.bindObjectLink();
     this.bindEventListeners();
     this.bindCalendarCellsListener();
-    console.log(this);
   }
 
   getHtmlElements() {

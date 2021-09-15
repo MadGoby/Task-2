@@ -1,10 +1,10 @@
 mixin final-booking(settings)
-  - let {
+  - const {
   -   action = "./for-change",
   -   roomInformation: {
-  -     number: roomNumber = "000",
-  -     price: roomPrice = "000",
-  -     type: roomType = false
+  -     number = "000",
+  -     price = "000",
+  -     type = false
   -   },
   -   period: {
   -     from: {
@@ -52,9 +52,9 @@ mixin final-booking(settings)
   form(class="final-booking" action=action)
     .final-booking__room-information
       +room-information({
-        number: roomNumber,
-        price: roomPrice,
-        type: roomType
+        number: number,
+        price: price,
+        type: type
       })
     .final-booking__period
       +datepicker({
@@ -110,12 +110,10 @@ mixin final-booking(settings)
           }
         },
         control: {
-          jsClass: "js-dropdown__control",
           attr: {"hidden": "hidden"}
         },
         lists: guestsLists,
         main: {
-          jsClass: "js-dropdown",
           dataType: "guests",
           outputType: "sum"
         }
@@ -123,10 +121,10 @@ mixin final-booking(settings)
     ul.final-booking__service-list
       each list in serviceList
         if list.type == "total"
-          li(class="final-booking__service-total final-booking__service_text_bold")
-            div(class="final-booking__service-wrapper final-booking__service-wrapper_text_bold")
-              span(class="final-booking__service-title final-booking__service-title_text_bold")=list.title
-            span(class="final-booking__service-price final-booking__service-price_text_bold")=list.price
+          li(class=["final-booking__service-total", "final-booking__service_text_bold"])
+            div(class=["final-booking__service-wrapper", "final-booking__service-wrapper_text_bold"])
+              span(class=["final-booking__service-title", "final-booking__service-title_text_bold"])=list.title
+            span(class=["final-booking__service-price", "final-booking__service-price_text_bold"])=list.price
         else 
           li(class="final-booking__service")
             .final-booking__service-wrapper

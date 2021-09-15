@@ -1,74 +1,62 @@
 mixin content-navigation(settings)
-  - let {
-  -   title: {
-  -     text: contentNavigationTitle = false
+  - const {
+  -   title = false,
+  -   jsClass = "js-for-change",
+  -   counter = "For Change"
+  - } = settings
+  - const buttons = [
+  -   {
+  -     type: "purpose_previous",
+  -     modifierClass: "arrow_back"
   -   },
-  -   jsClass: contentNavigationJs = "js-for-change",
-  -   counter: {
-  -     text: contentNavigationCounter = "For Change"
-  -   }
-  - } = settings 
-  div(class="content-navigation" class=contentNavigationJs)
-    if contentNavigationTitle 
+  -   {
+  -     type: "active",
+  -     text: "1",
+  -     modifierClass: "color_purple"
+  -   },
+  -   {
+  -     type: "decorative",
+  -     text: "...",
+  -   },
+  -   {
+  -     text: "2",
+  -   },
+  -   {
+  -     text: "3",
+  -   },
+  -   {
+  -     text: "4",
+  -   },
+  -   {
+  -     type: "decorative",
+  -     text: "...",
+  -   },
+  -   {
+  -     text: "15",
+  -   },
+  -   {
+  -     type: "purpose_next",
+  -     modifierClass: "arrow_forward"
+  -   },
+  - ]
+  div(class=["content-navigation", jsClass])
+    if title 
       .content-navigation__title
-        +title({text: contentNavigationTitle})
+        +title({text: title})
     ul.content-navigation__buttons
-      li(class="content-navigation__button content-navigation__button_purpose_previous")
-        +button({
-          type: "pagination",
-          text: "",
-          attr: {"type": "button"},
-          paginationClass: "button__control_arrow_back"
-        })
-      li(class="content-navigation__button content-navigation__button_active" )
-        +button({
-          type: "pagination",
-          text: "1",
-          attr: {"type": "button"},
-          paginationClass: "button__control_color_purple"
-        })
-      li(class="content-navigation__button content-navigation__decorative-button")
-        +button({
-          type: "pagination",
-          text: "...",
-          attr: {"type": "button"}
-        })
-      li(class="content-navigation__button")
-        +button({
-          type: "pagination",
-          text: "2",
-          attr: {"type": "button"}
-        })
-      li(class="content-navigation__button")
-        +button({
-          type: "pagination",
-          text: "3",
-          attr: {"type": "button"}
-        })
-      li(class="content-navigation__button")
-        +button({
-          type: "pagination",
-          text: "4",
-          attr: {"type": "button"}
-        })
-      li(class="content-navigation__button content-navigation__decorative-button")
-        +button({
-          type: "pagination",
-          text: "...",
-          attr: {"type": "button"}
-        })
-      li(class="content-navigation__button")
-        +button({
-          type: "pagination",
-          text: "15",
-          attr: {"type": "button"}
-        })
-      li(class="content-navigation__button content-navigation__button_purpose_next")
-        +button({
-          type: "pagination",
-          text: "",
-          attr: {"type": "button"},
-          paginationClass: "button__control_arrow_forward"
-        })
-    if contentNavigationCounter
-      p.content-navigation__counter=contentNavigationCounter
+      each button in buttons
+        - let {
+        -   type = false,
+        -   text = "",
+        -   modifierClass = false
+        - } = button
+        - if (type) type=`content-navigation__button_${type}`
+        li(class=["content-navigation__button", type])
+          +button({
+            type: "pagination",
+            text: text,
+            attr: {"type": "button"},
+            modifierClass: modifierClass
+          })
+    if counter
+      p.content-navigation__counter=counter

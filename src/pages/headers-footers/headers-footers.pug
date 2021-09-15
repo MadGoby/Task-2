@@ -1,0 +1,114 @@
+include ../../overall/page-head.pug
+include ../../blocks/logo/logo.pug
+include ../../blocks/header/header.pug
+include ../../blocks/button/button.pug
+include ../../blocks/input/input.pug
+include ../../blocks/navigation/navigation.pug
+include ../../blocks/footer/footer.pug
+include ../../blocks/copyright/copyright.pug
+
++page-head({title: "Headers-Footers", desc: "Headers and Footers from UI-Kit"})
+  body.body
+    .headers-footers
+      +logo({
+        src: "img/logo.svg",
+        position: "in-corner"
+      })
+      .headers-footers__content
+        .headers-footers__header
+          +header({
+            navigation: { 
+              links: [
+                {"text": "О нас", "type": "text_bold"},
+                {"text": "Услуги", "type": "expanded"},
+                {"text": "Вакансии"},
+                {"text": "Новости"},
+                {"text": "Соглашения", "type": "expanded"},
+              ]
+            }
+          })
+        .headers-footers__header
+          +header({
+            navigation: { 
+              links: [
+                {"text": "О нас", "type": "text_bold"},
+                {"text": "Услуги", "type": "expanded"},
+                {"text": "Вакансии"},
+                {"text": "Новости"},
+                {"text": "Соглашения", "type": "expanded"},
+              ]
+            },
+            authorized: "Юлий Цезарь"
+          })
+        .headers-footers__footer_size_large
+          +footer({
+            description: {
+              text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+            },
+            lists: [
+              [
+                {"title": "навигация"}, 
+                {"text": "О нас"},
+                {"text": "Новости"},
+                {"text": "Служба поддержки"},
+                {"text": "Услуги"}
+              ],
+              [
+                {"title": "о нас"},
+                {"text": "О сервисе"},
+                {"text": "Наша команда"},
+                {"text": "Вакансии"},
+                {"text": "Инвесторы"}
+              ],
+              [
+                {"title": "Служба поддержки"}, 
+                {"text": "Соглашения"},
+                {"text": "Сообщества"},
+                {"text": "Связь с нами"}
+              ]
+            ],
+            subscribe: {
+              title: "Подписка",
+              text: "Получайте специальные предложения и новости сервиса"
+            },
+            footer: false,
+            copyright: false
+          })
+          +copyright({
+            text: "Copyright © 2018 Toxin отель. Все права защищены.",
+            links: [
+              {
+                "name": "twitter",
+                "iconSrc": "img/twitter.svg"
+              },
+              {
+                "name": "facebook",
+                "iconSrc": "img/facebook.svg"
+              },
+              {
+                "name": "instagram",
+                "iconSrc": "img/instagram.svg"
+              }
+            ]
+          })
+        .headers-footers__footer_small
+          +footer({
+            footer: { size: "small" },
+            copyright: { text: "Copyright © 2018 Toxin отель. Все права защищены." },
+            links: [
+              {
+                "name": "twitter",
+                "iconSrc": "img/twitter.svg"
+              },
+              {
+                "name": "facebook",
+                "iconSrc": "img/facebook.svg"
+              },
+              {
+                "name": "instagram",
+                "iconSrc": "img/instagram.svg"
+              }
+            ],
+            description: false,
+            subscribe: false
+          })
