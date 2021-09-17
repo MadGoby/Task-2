@@ -148,12 +148,84 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./pages/form-elements/form-elements.js","vendors~form-elements~search-room","vendors~form-elements~registration","cards~form-elements~landing-page~room-details~search-room","form-elements~search-room"]);
+/******/ 	deferredModules.push(["./pages/form-elements/form-elements.js","vendors~cards~form-elements~registration","vendors~form-elements~search-room","cards~form-elements~landing-page~room-details~search-room"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./blocks/content-navigation/ContentNavigation.js":
+/*!********************************************************!*\
+  !*** ./blocks/content-navigation/ContentNavigation.js ***!
+  \********************************************************/
+/*! exports provided: ContentNavigation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ContentNavigation\", function() { return ContentNavigation; });\nclass ContentNavigation {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.initializes();\r\n  }\r\n\r\n  initializes() {\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n    this.controlNavigationDisplay();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.buttons = [...this.container.querySelectorAll('.content-navigation__button')];\r\n    this.counter = this.container.querySelector('.content-navigation__counter');\r\n    this.buttons.forEach((button) => {\r\n      if (button.classList.contains('content-navigation__button_active')) this.currentButton = button;\r\n    });\r\n  }\r\n\r\n  controlNavigationDisplay() {\r\n    this.buttons.forEach((elem) => {\r\n      elem.style.display = 'inline-block';\r\n    });\r\n\r\n    const hidesNavigationButtons = (buttonIndex) => {\r\n      buttonIndex.forEach((index) => {\r\n        this.buttons[index].style.display = 'none';\r\n      });\r\n    };\r\n\r\n    const currentPageNumber = this.currentButton.querySelector('.button__control').textContent;\r\n\r\n    switch (currentPageNumber) {\r\n      case '1':\r\n        hidesNavigationButtons([0, 2, 5]);\r\n        break;\r\n      case '2':\r\n        hidesNavigationButtons([5, 2]);\r\n        break;\r\n      case '3':\r\n        hidesNavigationButtons([2]);\r\n        break;\r\n      case '13':\r\n        hidesNavigationButtons([6]);\r\n        break;\r\n      case '14':\r\n        hidesNavigationButtons([6, 3]);\r\n        break;\r\n      case '15':\r\n        hidesNavigationButtons([6, 8, 3]);\r\n        break;\r\n      default:\r\n        break;\r\n    }\r\n  }\r\n\r\n  editsCounterValues() {\r\n    const counterTo = this.currentButton.querySelector('.button__control').textContent * 12;\r\n    this.counter.textContent = `${counterTo - 11} – ${counterTo} из 100+ вариантов аренды`;\r\n  };\r\n\r\n  // eslint-disable-next-line class-methods-use-this\r\n  controlCurrentPageClass(selectedButton) {\r\n    const currentButton = selectedButton.querySelector('.button__control');\r\n    currentButton.classList.toggle('button__control_color_purple');\r\n  }\r\n\r\n  controlButtonsNumbers(index, targetNumber, parent) {\r\n    switch (true) {\r\n      case index === 5 && targetNumber <= 13:\r\n        this.controlCurrentPageClass(this.buttons[index - 1]);\r\n        this.currentButton = this.buttons[index - 1];\r\n        this.buttons[index - 1].querySelector('.button__control').textContent = targetNumber;\r\n        this.buttons[index - 2].querySelector('.button__control').textContent = String(targetNumber - 1);\r\n        this.buttons[index].querySelector('.button__control').textContent = targetNumber + 1;\r\n        break;\r\n      case index === 3 && targetNumber >= 3:\r\n        this.controlCurrentPageClass(this.buttons[index + 1]);\r\n        this.currentButton = this.buttons[index + 1];\r\n        this.buttons[index + 1].querySelector('.button__control').textContent = targetNumber;\r\n        this.buttons[index + 2].querySelector('.button__control').textContent = targetNumber + 1;\r\n        this.buttons[index].querySelector('.button__control').textContent = String(targetNumber - 1);\r\n        break;\r\n      case index === 7:\r\n        this.controlCurrentPageClass(parent);\r\n        this.currentButton = parent;\r\n        this.buttons[index - 2].querySelector('.button__control').textContent = String(targetNumber - 1);\r\n        this.buttons[index - 3].querySelector('.button__control').textContent = String(targetNumber - 2);\r\n        this.buttons[index - 4].querySelector('.button__control').textContent = String(targetNumber - 3);\r\n        break;\r\n      case index === 1:\r\n        this.controlCurrentPageClass(parent);\r\n        this.currentButton = parent;\r\n        this.buttons[index + 2].querySelector('.button__control').textContent = targetNumber + 1;\r\n        this.buttons[index + 3].querySelector('.button__control').textContent = targetNumber + 2;\r\n        this.buttons[index + 4].querySelector('.button__control').textContent = targetNumber + 3;\r\n        break;\r\n      default:\r\n        this.controlCurrentPageClass(this.buttons[index]);\r\n        this.currentButton = parent;\r\n        break;\r\n    }\r\n  };\r\n\r\n  controlPreviousButtonClick() {\r\n    const currentButtonText = Number(this.currentButton.querySelector('.button__control').textContent);\r\n    const targetNumber = currentButtonText - 1;\r\n    let index;\r\n\r\n    switch (true) {\r\n      case currentButtonText === 15:\r\n        index = 5;\r\n        break;\r\n      case currentButtonText >= 3:\r\n        index = 3;\r\n        break;\r\n      case currentButtonText === 2:\r\n        index = 1;\r\n        break;\r\n      default:\r\n        break;\r\n    }\r\n\r\n    return { index, targetNumber };\r\n  };\r\n\r\n  controlNextButtonClick() {\r\n    const currentButtonText = Number(this.currentButton.querySelector('.button__control').textContent);\r\n    const targetNumber = currentButtonText + 1;\r\n    let index;\r\n\r\n    switch (true) {\r\n      case currentButtonText === 1:\r\n        index = 3;\r\n        break;\r\n      case currentButtonText <= 13:\r\n        index = 5;\r\n        break;\r\n      case currentButtonText === 14:\r\n        index = 7;\r\n        break;\r\n      default:\r\n        break;\r\n    }\r\n\r\n    return { index, targetNumber };\r\n  };\r\n\r\n  controlNavigationButtonClick(event) {\r\n    let parent = false;\r\n\r\n    function getParent(button) {\r\n      if (button.parentNode.classList.contains('content-navigation__button')) {\r\n        parent = button.parentNode;\r\n      } else {\r\n        getParent(button.parentNode);\r\n      }\r\n    }\r\n\r\n    getParent(event.target);\r\n    if (parent.classList.contains('content-navigation__button_decorative')) return;\r\n    this.controlCurrentPageClass(this.currentButton);\r\n\r\n    let targetButtonData = {\r\n      index: this.buttons.indexOf(parent),\r\n      targetNumber: Number(event.target.textContent),\r\n    };\r\n\r\n    if (parent.classList.contains('content-navigation__button_purpose_previous')) {\r\n      targetButtonData = this.controlPreviousButtonClick();\r\n      parent = this.buttons[targetButtonData.index];\r\n    } else if (parent.classList.contains('content-navigation__button_purpose_next')) {\r\n      targetButtonData = this.controlNextButtonClick();\r\n      parent = this.buttons[targetButtonData.index];\r\n    }\r\n\r\n    this.controlButtonsNumbers(targetButtonData.index, targetButtonData.targetNumber, parent);\r\n    this.controlNavigationDisplay();\r\n    this.editsCounterValues();\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.buttons.forEach((button) => {\r\n      button.addEventListener('click', this.controlNavigationButtonClick);\r\n    });\r\n  };\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/content-navigation/ContentNavigation.js?");
+
+/***/ }),
+
+/***/ "./blocks/content-navigation/content-navigation-init.js":
+/*!**************************************************************!*\
+  !*** ./blocks/content-navigation/content-navigation-init.js ***!
+  \**************************************************************/
+/*! exports provided: initAllContentNavigations */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllContentNavigations\", function() { return initAllContentNavigations; });\n/* harmony import */ var _ContentNavigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContentNavigation */ \"./blocks/content-navigation/ContentNavigation.js\");\n\r\n\r\nfunction initAllContentNavigations() {\r\n  [...document.querySelectorAll('.js-content-navigation')].forEach((item) => {\r\n    new _ContentNavigation__WEBPACK_IMPORTED_MODULE_0__[\"ContentNavigation\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/content-navigation/content-navigation-init.js?");
+
+/***/ }),
+
+/***/ "./blocks/list/List.js":
+/*!*****************************!*\
+  !*** ./blocks/list/List.js ***!
+  \*****************************/
+/*! exports provided: ListDropdown */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ListDropdown\", function() { return ListDropdown; });\nclass ListDropdown {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.list = this.container.querySelector('.js-list__container');\r\n    this.title = this.container.querySelector('.js-title');\r\n  }\r\n\r\n  changeListDisplay() {\r\n    if (this.list.hasAttribute('hidden')) {\r\n      this.list.removeAttribute('hidden');\r\n      this.title.classList.remove('title_closed');\r\n      this.title.classList.add('title_expanded');\r\n    } else {\r\n      this.list.setAttribute('hidden', 'hidden');\r\n      this.title.classList.remove('title_expanded');\r\n      this.title.classList.add('title_closed');\r\n    }\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.title.addEventListener('click', this.changeListDisplay);\r\n  }\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/list/List.js?");
+
+/***/ }),
+
+/***/ "./blocks/list/list-init.js":
+/*!**********************************!*\
+  !*** ./blocks/list/list-init.js ***!
+  \**********************************/
+/*! exports provided: initAllLists */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllLists\", function() { return initAllLists; });\n/* harmony import */ var _List__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./List */ \"./blocks/list/List.js\");\n\r\n\r\nfunction initAllLists() {\r\n  [...document.querySelectorAll('.js-list')].forEach((item) => {\r\n    new _List__WEBPACK_IMPORTED_MODULE_0__[\"ListDropdown\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/list/list-init.js?");
+
+/***/ }),
+
+/***/ "./blocks/stars-rating/StarsRating.js":
+/*!********************************************!*\
+  !*** ./blocks/stars-rating/StarsRating.js ***!
+  \********************************************/
+/*! exports provided: StarsRating */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"StarsRating\", function() { return StarsRating; });\nclass StarsRating {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.stars = [...this.container.querySelectorAll('.stars-rating__star')];\r\n  }\r\n\r\n  cleanActiveClass() {\r\n    this.stars.forEach((star) => star.classList.remove('stars-rating__star_color_purple'));\r\n  }\r\n\r\n  addActiveClass(star) {\r\n    const index = this.stars.indexOf(star);\r\n\r\n    for (let i = 0; i <= index; i += 1) {\r\n      this.stars[i].classList.add('stars-rating__star_color_purple');\r\n    }\r\n  }\r\n\r\n  controlStarClick(event) {\r\n    const eStar = event.target;\r\n\r\n    this.cleanActiveClass();\r\n    this.addActiveClass(eStar);\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.stars.forEach((star) => star.addEventListener('click', this.controlStarClick));\r\n  }\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/stars-rating/StarsRating.js?");
+
+/***/ }),
+
+/***/ "./blocks/stars-rating/stars-rating-init.js":
+/*!**************************************************!*\
+  !*** ./blocks/stars-rating/stars-rating-init.js ***!
+  \**************************************************/
+/*! exports provided: initAllStarRatings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllStarRatings\", function() { return initAllStarRatings; });\n/* harmony import */ var _StarsRating__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StarsRating */ \"./blocks/stars-rating/StarsRating.js\");\n\r\n\r\nfunction initAllStarRatings() {\r\n  [...document.querySelectorAll('.js-stars-rating')].forEach((item) => {\r\n    new _StarsRating__WEBPACK_IMPORTED_MODULE_0__[\"StarsRating\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/stars-rating/stars-rating-init.js?");
+
+/***/ }),
 
 /***/ "./img/house.svg":
 /*!***********************!*\

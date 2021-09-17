@@ -1,2 +1,11 @@
-.vscode
 node_modules/
+
+.idea/
+
+.vscode/
+
+*.log/
+
+/gh-pages
+
+/dist

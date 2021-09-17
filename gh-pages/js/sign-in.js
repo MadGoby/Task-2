@@ -86,6 +86,30 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "../node_modules/auto-bind/index.js":
+/*!******************************************!*\
+  !*** ../node_modules/auto-bind/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\n// Gets all non-builtin properties up the prototype chain\nconst getAllProperties = object => {\n\tconst properties = new Set();\n\n\tdo {\n\t\tfor (const key of Reflect.ownKeys(object)) {\n\t\t\tproperties.add([object, key]);\n\t\t}\n\t} while ((object = Reflect.getPrototypeOf(object)) && object !== Object.prototype);\n\n\treturn properties;\n};\n\nmodule.exports = (self, {include, exclude} = {}) => {\n\tconst filter = key => {\n\t\tconst match = pattern => typeof pattern === 'string' ? key === pattern : pattern.test(key);\n\n\t\tif (include) {\n\t\t\treturn include.some(match);\n\t\t}\n\n\t\tif (exclude) {\n\t\t\treturn !exclude.some(match);\n\t\t}\n\n\t\treturn true;\n\t};\n\n\tfor (const [object, key] of getAllProperties(self.constructor.prototype)) {\n\t\tif (key === 'constructor' || !filter(key)) {\n\t\t\tcontinue;\n\t\t}\n\n\t\tconst descriptor = Reflect.getOwnPropertyDescriptor(object, key);\n\t\tif (descriptor && typeof descriptor.value === 'function') {\n\t\t\tself[key] = self[key].bind(self);\n\t\t}\n\t}\n\n\treturn self;\n};\n\n\n//# sourceURL=webpack:///../node_modules/auto-bind/index.js?");
+
+/***/ }),
+
+/***/ "./blocks/header/Header.js":
+/*!*********************************!*\
+  !*** ./blocks/header/Header.js ***!
+  \*********************************/
+/*! exports provided: HeaderNavigation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"HeaderNavigation\", function() { return HeaderNavigation; });\nclass HeaderNavigation {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.button = this.container.querySelector('.js-header__navigation-button');\r\n    this.navigation = this.container.querySelector('.js-header__navigation');\r\n  }\r\n\r\n  controlNavigationDisplay() {\r\n    const styles = getComputedStyle(this.navigation);\r\n\r\n    if (styles.display === 'none') {\r\n      this.navigation.style.display = 'block';\r\n      this.button.querySelector('.header__hamburger').classList.add('header__hamburger_expanded');\r\n    } else {\r\n      this.navigation.style.display = 'none';\r\n      this.button.querySelector('.header__hamburger').classList.remove('header__hamburger_expanded');\r\n    }\r\n  }\r\n\r\n  controlDisplayOnResize(userWidth) {\r\n    if (userWidth > 350 && this.navigation.style.display === 'none') {\r\n      this.navigation.style.display = 'block';\r\n    } else if (userWidth <= 350) {\r\n      this.navigation.style.display = 'none';\r\n    }\r\n  }\r\n\r\n  convertPassesVariable(event) {\r\n    const userWidth = +event.target.innerWidth;\r\n    this.controlDisplayOnResize(userWidth);\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.button.addEventListener('click', this.controlNavigationDisplay);\r\n    document.body.onresize = this.convertPassesVariable;\r\n  }\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/header/Header.js?");
+
+/***/ }),
+
 /***/ "./blocks/header/header-init.js":
 /*!**************************************!*\
   !*** ./blocks/header/header-init.js ***!
@@ -94,19 +118,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllHeaders\", function() { return initAllHeaders; });\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header */ \"./blocks/header/header.js\");\n\r\n\r\nfunction initAllHeaders() {\r\n  [...document.querySelectorAll('.js-header')].forEach((item) => {\r\n    new _header__WEBPACK_IMPORTED_MODULE_0__[\"HeaderNavigation\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/header/header-init.js?");
-
-/***/ }),
-
-/***/ "./blocks/header/header.js":
-/*!*********************************!*\
-  !*** ./blocks/header/header.js ***!
-  \*********************************/
-/*! exports provided: HeaderNavigation */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"HeaderNavigation\", function() { return HeaderNavigation; });\nclass HeaderNavigation {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    this.getHtmlElements();\r\n    this.bindObjectLink();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.button = this.container.querySelector('.js-header__navigation-button');\r\n    this.navigation = this.container.querySelector('.js-header__navigation');\r\n  }\r\n\r\n  turnsHamburgerIntoCross(state) {\r\n    const sign = this.button.querySelector('.header__hamburger');\r\n\r\n    if (state === 'block') {\r\n      sign.classList.add('header__hamburger_expanded');\r\n    } else {\r\n      sign.classList.remove('header__hamburger_expanded');\r\n    }\r\n  }\r\n\r\n  discloseNavigation() {\r\n    const styles = getComputedStyle(this.navigation);\r\n\r\n    if (styles.display === 'none') {\r\n      this.navigation.style.display = 'block';\r\n      this.turnsHamburgerIntoCross(styles.display);\r\n    } else {\r\n      this.navigation.style.display = 'none';\r\n      this.turnsHamburgerIntoCross(styles.display);\r\n    }\r\n  }\r\n\r\n  changeSidebarDisplay(userWidth) {\r\n    if (userWidth > 350 && this.navigation.style.display === 'none') {\r\n      this.navigation.style.display = 'block';\r\n    } else if (userWidth <= 350) {\r\n      this.navigation.style.display = 'none';\r\n    }\r\n  }\r\n\r\n  convertPassesVariable(event) {\r\n    const userWidth = +event.target.innerWidth;\r\n    this.changeSidebarDisplay(userWidth);\r\n  }\r\n\r\n  bindObjectLink() {\r\n    this.discloseNavigation = this.discloseNavigation.bind(this);\r\n    this.convertPassesVariable = this.convertPassesVariable.bind(this);\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.button.addEventListener('click', this.discloseNavigation);\r\n    document.body.onresize = this.convertPassesVariable;\r\n  }\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/header/header.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllHeaders\", function() { return initAllHeaders; });\n/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ \"./blocks/header/Header.js\");\n\r\n\r\nfunction initAllHeaders() {\r\n  [...document.querySelectorAll('.js-header')].forEach((item) => {\r\n    new _Header__WEBPACK_IMPORTED_MODULE_0__[\"HeaderNavigation\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/header/header-init.js?");
 
 /***/ }),
 
