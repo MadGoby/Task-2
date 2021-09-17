@@ -77,7 +77,19 @@ include ../../blocks/stars-rating/stars-rating.pug
                 outputType: "sum"
               }
             })
-          .form-elements__masked-input  
+          .form-elements__masked-input
+            +input({
+              title: { text: "masked text field" },
+              input: {
+                attr: {
+                  type: "text",
+                  placeholder: "ДД.ММ.ГГГГ"
+                },
+                length: "long",
+                type: "date"
+              }
+            })
+          .form-elements__date-dropdowns
             +datepicker({
               input: {
                 from: {

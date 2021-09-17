@@ -1,4 +1,4 @@
-import { RoomCardSlider } from './room-card';
+import { RoomCardSlider } from './RoomCard';
 
 function initAllRoomCards() {
   [...document.querySelectorAll('.js-room-card')].forEach((item) => {

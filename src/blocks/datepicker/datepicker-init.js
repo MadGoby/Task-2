@@ -1,4 +1,4 @@
-import { Datepicker } from './datepicker';
+import { Datepicker } from './Datepicker';
 
 function initAllDatepickers() {
   [...document.querySelectorAll('.js-datepicker')].forEach((container) => {

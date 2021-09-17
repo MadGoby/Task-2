@@ -1,4 +1,4 @@
-import { Dropdown } from './dropdown';
+import { Dropdown } from './Dropdown';
 
 function initAllDropdowns() {
   [...document.querySelectorAll('.js-dropdown')].forEach((container) => {

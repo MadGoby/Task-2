@@ -19,6 +19,7 @@ module.exports = {
       "jquery": true
   },
   "globals": {
-      "Inputmask": "readonly"
+      "Inputmask": "readonly",
+      "autoBind": "readonly"
   }
 }

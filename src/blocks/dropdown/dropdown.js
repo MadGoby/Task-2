@@ -3,9 +3,13 @@ class Dropdown {
     this.container = settings.container;
     this.templates = settings.templates;
 
+    autoBind(this);
+    this.initializes();
+  }
+
+  initializes() {
     this.getHtmlElements();
     this.checkClearButtonVisibility();
-    this.bindObjectLink();
     this.bindEventListeners();
   }
 
@@ -13,10 +17,10 @@ class Dropdown {
     this.input = this.container.querySelector('.js-input__field');
     this.dropdown = this.container.querySelector('.js-dropdown__control');
     this.plusButtons = [...this.container.querySelectorAll('.dropdown__button')].filter(
-      (button) => button.getAttribute('data-action') === 'plus'
+      (button) => button.getAttribute('data-action') === 'plus',
     );
     this.minusButtons = [...this.container.querySelectorAll('.dropdown__button')].filter(
-      (button) => button.getAttribute('data-action') === 'minus'
+      (button) => button.getAttribute('data-action') === 'minus',
     );
     this.outputs = [...this.container.querySelectorAll('.dropdown__output')];
     this.clearButton = this.container.querySelector('.dropdown__clear-button');
@@ -35,12 +39,12 @@ class Dropdown {
     }
   }
 
-  inputClicked() {
+  controlDropdownDisplay() {
     this.dropdown.toggleAttribute('hidden');
     this.input.classList.toggle('input__field_expanded');
   }
 
-  wordEndCheck(value, template, line) {
+  definesWordEnd(value, template, line) {
     function isEqualToZero(num) {
       return num % 10 === 0;
     }
@@ -51,14 +55,19 @@ class Dropdown {
 
     let index;
 
-    if (value > 4 && value < 21) {
-      index = 3;
-    } else if (value === 1 || isEqualToZero(value - 1)) {
-      index = 1;
-    } else if (fromOneToFour()) {
-      index = 2;
-    } else {
-      index = 3;
+    switch (true) {
+      case value > 4 && value < 21:
+        index = 3;
+        break;
+      case value === 1 || isEqualToZero(value - 1):
+        index = 1;
+        break;
+      case fromOneToFour():
+        index = 2;
+        break;
+      default:
+        index = 3;
+        break;
     }
 
     if (this.container.getAttribute('data-output') === 'sum') {
@@ -67,7 +76,7 @@ class Dropdown {
     return this.templates[template][line][index];
   }
 
-  setDefaultIfZero() {
+  setDefault() {
     const outputValue =
       Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const template = this.container.getAttribute('data-template');
@@ -80,10 +89,54 @@ class Dropdown {
     const template = this.container.getAttribute('data-template');
     let output;
     if (outputValue > 0) {
-      output = `${outputValue} ${this.templates[template][0]}${this.wordEndCheck(outputValue, template)}`;
+      output = `${outputValue} ${this.templates[template][0]}${this.definesWordEnd(outputValue, template)}`;
     } else {
       output = `${this.templates[`${template}Default`]}`;
     }
+    return output;
+  }
+
+  calculateTwoByOne(setting) {
+    const { valuesSum, values, template } = setting;
+    let output = '';
+
+    this.outputs.forEach((value, index) => {
+      const isNeedEtc = (valueTextContent) => valuesSum - valueTextContent === 0 || Number(values[0]) === 0;
+      const addPunctuationMarks = (valueTextContent) => {
+        switch (true) {
+          case isNeedEtc(valueTextContent):
+            output += '...';
+            break;
+          case index !== 2:
+            output += ', ';
+            break;
+          default:
+            break;
+        }
+      };
+
+      const addDefinitionToNumber = () => {
+        if (index === 0) {
+          const valueText = Number(value.textContent) + Number(values[1]);
+          output += `${valueText} ${this.templates[template][index][0]}${this.definesWordEnd(
+            valueText,
+            template,
+            index,
+          )}`;
+          addPunctuationMarks(valueText);
+        } else if (index === 2) {
+          output += `${value.textContent} ${this.templates[template][1][0]}${this.definesWordEnd(
+            +value.textContent,
+            template,
+            1,
+          )}`;
+          addPunctuationMarks(false);
+        }
+      };
+
+      if (index === 0 && +values[0] + +values[1] > 0) addDefinitionToNumber();
+      if (index === 2 && +value.textContent > 0) addDefinitionToNumber();
+    });
     return output;
   }
 
@@ -92,38 +145,54 @@ class Dropdown {
       Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const values = this.outputs.map((value) => value.textContent);
     const template = this.container.getAttribute('data-template');
-    let output = '';
-    if (valuesSum > 0) {
-      this.outputs.forEach((value, index) => {
-        const iteration = () => {
-          if (index === 0) {
-            const valueText = Number(value.textContent) + Number(values[1]);
-            output += `${valueText} ${this.templates[template][index][0]}${this.wordEndCheck(
-              valueText,
-              template,
-              index
-            )}`;
-            if (valuesSum - valueText === 0) {
-              output += '...';
-            } else {
-              output += ', ';
-            }
-          } else if (index === 2) {
-            output += `${value.textContent} ${this.templates[template][1][0]}${this.wordEndCheck(
-              +value.textContent,
-              template,
-              1
-            )}`;
-            if (Number(values[0]) === 0) output += '...';
-          }
-        };
+    let output;
 
-        if (index === 0 && +values[0] + +values[1] > 0) iteration();
-        if (index === 2 && +value.textContent > 0) iteration();
-      });
+    if (valuesSum > 0) {
+      output = this.calculateTwoByOne({ valuesSum, values, template });
     } else {
       output = `${this.templates[`${template}Default`]}`;
     }
+
+    return output;
+  }
+
+  calculateOneByOne(settings) {
+    const { valuesSum, values, template } = settings;
+    let output = '';
+
+    this.outputs.forEach((value, index) => {
+      const isFirstsOnlyOne = () => index === 0 && (valuesSum - values[0] === 0);
+      const isSecondOnlyOne = () => index === 1 && (Number(values[0]) === 0 && Number(values[2]) === 0);
+      const isThirdWheel = () => index === 1 && Number(values[0]) !== 0;
+      const isNeedEtc = () => isSecondOnlyOne() || isFirstsOnlyOne() || index === 2;
+
+      const addPunctuationMarks = () => {
+        switch (true) {
+          case isNeedEtc() || isThirdWheel():
+            output += '...';
+            break;
+          default:
+            output += ', ';
+            break;
+        }
+      };
+
+      const addDefinitionToNumber = () => {
+        const valueText = value.innerText;
+        output += `${valueText} ${this.templates[template][index][0]}${this.definesWordEnd(
+          +valueText,
+          template,
+          index,
+        )}`;
+        addPunctuationMarks();
+      };
+
+      const isLastNotThird = () => index === 2 && (+values[0] === 0 || +values[1] === 0);
+
+      if (isLastNotThird() && value.textContent > 0) {
+        addDefinitionToNumber();
+      } else if (index !== 2 && value.textContent > 0) addDefinitionToNumber();
+    });
     return output;
   }
 
@@ -132,40 +201,14 @@ class Dropdown {
       Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const values = this.outputs.map((value) => value.textContent);
     const template = this.container.getAttribute('data-template');
-    let output = '';
+    let output;
+
     if (valuesSum > 0) {
-      this.outputs.forEach((value, index) => {
-        const iteration = () => {
-          const valueText = value.innerText;
-          output += `${valueText} ${this.templates[template][index][0]}${this.wordEndCheck(
-            +valueText,
-            template,
-            index
-          )}`;
-          if (index === 0) {
-            if (valuesSum - values[0] === 0) {
-              output += '...';
-            } else {
-              output += ', ';
-            }
-          } else if (index === 1) {
-            if (Number(values[0]) === 0 && Number(values[2]) !== 0) {
-              output += ', ';
-            } else {
-              output += '...';
-            }
-          } else if (index === 2) output += '...';
-        };
-
-        const isLastNotThird = () => index === 2 && (+values[0] === 0 || +values[1] === 0);
-
-        if (isLastNotThird() && value.textContent > 0) {
-          iteration();
-        } else if (index !== 2 && value.textContent > 0) iteration();
-      });
+      output = this.calculateOneByOne({ valuesSum, values, template });
     } else {
       output = `${this.templates[`${template}Default`]}`;
     }
+
     return output;
   }
 
@@ -182,7 +225,7 @@ class Dropdown {
     this.input.value = inputText;
   }
 
-  plusButtonClicked(event) {
+  controlPlusButtonClick(event) {
     const buttonIndex = this.plusButtons.indexOf(event.target);
     const outputTarget = this.outputs[buttonIndex];
     if (outputTarget.innerText < 10) {
@@ -195,7 +238,7 @@ class Dropdown {
     this.refreshInput();
   }
 
-  minusButtonClicked(event) {
+  controlMinusButtonClick(event) {
     const buttonIndex = this.minusButtons.indexOf(event.target);
     const outputTarget = this.outputs[buttonIndex];
     if (outputTarget.innerText > 0) {
@@ -208,7 +251,7 @@ class Dropdown {
     this.refreshInput();
   }
 
-  clearButtonClicked() {
+  controlClearButtonClick() {
     this.outputs.forEach((output) => {
       output.textContent = 0;
     });
@@ -218,30 +261,16 @@ class Dropdown {
     this.plusButtons.forEach((button) => {
       button.classList.remove('dropdown__button_transparent');
     });
-    this.setDefaultIfZero();
+    this.setDefault();
     this.checkClearButtonVisibility();
   }
 
-  bindObjectLink() {
-    this.checkClearButtonVisibility = this.checkClearButtonVisibility.bind(this);
-    this.inputClicked = this.inputClicked.bind(this);
-    this.plusButtonClicked = this.plusButtonClicked.bind(this);
-    this.minusButtonClicked = this.minusButtonClicked.bind(this);
-    this.clearButtonClicked = this.clearButtonClicked.bind(this);
-    this.refreshInput = this.refreshInput.bind(this);
-    this.prepareOutputSum = this.prepareOutputSum.bind(this);
-    this.wordEndCheck = this.wordEndCheck.bind(this);
-    this.setDefaultIfZero = this.setDefaultIfZero.bind(this);
-    this.prepareOneByOne = this.prepareOneByOne.bind(this);
-    this.prepareTwoByOne = this.prepareTwoByOne.bind(this);
-  }
-
   bindEventListeners() {
-    this.input.addEventListener('click', this.inputClicked);
-    this.clearButton.addEventListener('click', this.clearButtonClicked);
-    this.submitButton.addEventListener('click', this.inputClicked);
-    this.plusButtons.forEach((button) => button.addEventListener('click', this.plusButtonClicked));
-    this.minusButtons.forEach((button) => button.addEventListener('click', this.minusButtonClicked));
+    this.input.addEventListener('click', this.controlDropdownDisplay);
+    this.clearButton.addEventListener('click', this.controlClearButtonClick);
+    this.submitButton.addEventListener('click', this.controlDropdownDisplay);
+    this.plusButtons.forEach((button) => button.addEventListener('click', this.controlPlusButtonClick));
+    this.minusButtons.forEach((button) => button.addEventListener('click', this.controlMinusButtonClick));
   }
 }
 

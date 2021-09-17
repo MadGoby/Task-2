@@ -85,11 +85,13 @@ module.exports = {
       filename: 'css/[name].css',
     }),
     new webpack.ProvidePlugin({
+      autoBind: 'auto-bind',
       $: "jquery",
       jQuery: "jquery",
       "window.jQuery": "jquery'",
-      "window.$": "jquery"
-    })
+      "window.$": "jquery",
+      "window.autoBind": 'auto-bind',
+    }),
   ],
   module: {
     rules: [

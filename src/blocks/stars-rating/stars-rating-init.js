@@ -1,4 +1,4 @@
-import { StarsRating } from './stars-rating';
+import { StarsRating } from './StarsRating';
 
 function initAllStarRatings() {
   [...document.querySelectorAll('.js-stars-rating')].forEach((item) => {

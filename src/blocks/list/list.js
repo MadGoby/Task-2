@@ -2,8 +2,8 @@ class ListDropdown {
   constructor(target) {
     this.container = target;
 
+    autoBind(this);
     this.getHtmlElements();
-    this.bindObjectLink();
     this.bindEventListeners();
   }
 
@@ -22,10 +22,6 @@ class ListDropdown {
       this.title.classList.remove('title_expanded');
       this.title.classList.add('title_closed');
     }
-  }
-
-  bindObjectLink() {
-    this.changeListDisplay = this.changeListDisplay.bind(this);
   }
 
   bindEventListeners() {

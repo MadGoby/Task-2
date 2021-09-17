@@ -1,9 +1,11 @@
 node_modules/
 
-/gh-pages
-
-/dist
+.idea/
 
 .vscode/
 
 *.log/
+
+/gh-pages
+
+/dist

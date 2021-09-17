@@ -2,8 +2,8 @@ class RoomCardSlider {
   constructor(target) {
     this.container = target;
 
+    autoBind(this);
     this.getHtmlElements();
-    this.bindObjectLink();
     this.bindEventListeners();
   }
 
@@ -18,7 +18,7 @@ class RoomCardSlider {
   }
 
   animateSlide(settings) {
-    const { leftImage, rigthImage, duration } = settings;
+    const { leftImage, rightImage, duration } = settings;
     let { index } = settings;
 
     if (index < 0) index = 3;
@@ -29,7 +29,7 @@ class RoomCardSlider {
       easing: 'ease-in-out',
     });
 
-    this.currentImage.animate(rigthImage, {
+    this.currentImage.animate(rightImage, {
       duration,
       easing: 'ease-in-out',
     });
@@ -45,14 +45,14 @@ class RoomCardSlider {
     if (target === 'previous') {
       this.animateSlide({
         leftImage: [{ left: '0px' }, { left: `${this.container.offsetWidth}px` }],
-        rigthImage: [{ left: `${0 - this.container.offsetWidth}px` }, { left: '0px' }],
+        rightImage: [{ left: `${0 - this.container.offsetWidth}px` }, { left: '0px' }],
         duration: animationDuration,
         index: this.images.indexOf(this.currentImage, 0) + 1,
       });
     } else {
       this.animateSlide({
         leftImage: [{ left: '0px' }, { left: `${0 - this.container.offsetWidth}px` }],
-        rigthImage: [{ left: `${this.container.offsetWidth}px` }, { left: '0px' }],
+        rightImage: [{ left: `${this.container.offsetWidth}px` }, { left: '0px' }],
         duration: animationDuration,
         index: this.images.indexOf(this.currentImage, 0) - 1,
       });
@@ -67,8 +67,11 @@ class RoomCardSlider {
       index += 1;
     }
 
-    if (index < 0) index = 3;
-    if (index > 3) index = 0;
+    if (index < 0) {
+      index = 3;
+    } else if (index > 3) {
+      index = 0;
+    }
 
     this.currentImage = this.images[index];
 
@@ -77,7 +80,7 @@ class RoomCardSlider {
     this.currentImagePosition.classList.toggle('room-card__image-position_selected');
   }
 
-  imageButtonClicked(event) {
+  controlImageButtonClick(event) {
     const button = event.target;
 
     this.changeImage(button);
@@ -120,7 +123,7 @@ class RoomCardSlider {
     }
   }
 
-  imagePositionClicked(event) {
+  controlImagePositionClick(event) {
     const posIndex = this.imagePositions.indexOf(event.target);
     let action;
 
@@ -135,17 +138,11 @@ class RoomCardSlider {
     }
   }
 
-  bindObjectLink() {
-    this.imageButtonClicked = this.imageButtonClicked.bind(this);
-    this.imagePositionClicked = this.imagePositionClicked.bind(this);
-    this.controlMultipleAnimations = this.controlMultipleAnimations.bind(this);
-  }
-
   bindEventListeners() {
-    this.previousButton.addEventListener('click', this.imageButtonClicked);
-    this.nextButton.addEventListener('click', this.imageButtonClicked);
+    this.previousButton.addEventListener('click', this.controlImageButtonClick);
+    this.nextButton.addEventListener('click', this.controlImageButtonClick);
     this.imagePositions.forEach((elem) => {
-      elem.addEventListener('click', this.imagePositionClicked);
+      elem.addEventListener('click', this.controlImagePositionClick);
     });
   }
 }

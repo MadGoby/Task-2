@@ -2,8 +2,8 @@ class StarsRating {
   constructor(target) {
     this.container = target;
 
+    autoBind(this);
     this.getHtmlElements();
-    this.bindObjectLink();
     this.bindEventListeners();
   }
 
@@ -23,19 +23,15 @@ class StarsRating {
     }
   }
 
-  starClicked(event) {
+  controlStarClick(event) {
     const eStar = event.target;
 
     this.cleanActiveClass();
     this.addActiveClass(eStar);
   }
 
-  bindObjectLink() {
-    this.starClicked = this.starClicked.bind(this);
-  }
-
   bindEventListeners() {
-    this.stars.forEach((star) => star.addEventListener('click', this.starClicked));
+    this.stars.forEach((star) => star.addEventListener('click', this.controlStarClick));
   }
 }
 
