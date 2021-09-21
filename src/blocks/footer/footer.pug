@@ -48,7 +48,7 @@ mixin footer(settings)
           each list in lists
             .footer__navigation
               each link in list
-                - let {
+                - const {
                 -   text: linkText,
                 -   href = "./for-change",
                 -   title: linkTitle = false

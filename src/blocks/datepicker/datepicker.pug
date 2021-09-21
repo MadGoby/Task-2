@@ -17,13 +17,13 @@ mixin datepicker(settings)
   -   },
   -   attr = false,
   - } = settings
+  - const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
   - let {size = false} = settings
   - let wrapperSize = false
   - if(size) {
   -   wrapperSize = `datepicker__calendar-wrapper_size_${size}`
   -   size = `datepicker_size_${size}`
   - }
-  - let days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
   div(class=["datepicker", size, jsClass] data-year=dataYear, data-month=dataMonth, data-day=dataCurrentDay, data-from=dataFrom, data-to=dataTo)
     if total || (from && to) 
       .datepicker__inputs 
@@ -47,7 +47,7 @@ mixin datepicker(settings)
               - let dayType = false
               - if (settings.size == "small") dayType = "datepicker__calendar-cell_size_small"
               th(class=["datepicker__calendar-cell", "datepicker__calendar-cell_font_bold", dayType])= day
-        - var i=0;
+        - let i = 0;
         while (i++ < 6)
           tr(class=["datepicker__calendar-line", "js-datepicker__calendar-line"])
       .datepicker__confirmation-buttons

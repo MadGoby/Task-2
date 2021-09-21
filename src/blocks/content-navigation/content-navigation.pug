@@ -40,16 +40,16 @@ mixin content-navigation(settings)
   -   },
   - ]
   div(class=["content-navigation", jsClass])
-    if title 
+    if title
       .content-navigation__title
         +title({text: title})
     ul.content-navigation__buttons
       each button in buttons
-        - let {
-        -   type = false,
+        - const {
         -   text = "",
         -   modifierClass = false
         - } = button
+        - let { type = false } = button
         - if (type) type=`content-navigation__button_${type}`
         li(class=["content-navigation__button", type])
           +button({

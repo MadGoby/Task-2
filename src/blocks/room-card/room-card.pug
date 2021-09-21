@@ -32,7 +32,10 @@ mixin room-card(settings)
   div(class="room-card" class=jsClass)
     div.room-card__image-wrapper
       each image in images
-        - let {img="", src=""} = image
+        - const {
+        -   img="",
+        -   src=""
+        - } = image
         img(class="room-card__image" src=src, alt=alt)
       button(type="button" class=["room-card__image-button", "room-card__image-button_side_left"])
       button(type="button" class=["room-card__image-button", "room-card__image-button_side_rigth"])

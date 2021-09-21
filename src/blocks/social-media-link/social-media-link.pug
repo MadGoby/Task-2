@@ -1,5 +1,5 @@
 mixin social-media-link(settings)
-  - let { socialLinks= [{},{},{}] } = settings
+  - const { socialLinks= [{},{},{}] } = settings
   each socialLink in socialLinks
     - const {
     -   link = "./for-change",

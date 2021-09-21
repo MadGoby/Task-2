@@ -12,10 +12,8 @@ mixin impressions-diagram(settings)
     .impressions-diagram__reviews-wrapper
       p.impressions-diagram__reviews-counter=text
     ul.impressions-diagram__description
-      each line in lines 
-        - let {
-        -   text: lineText,
-        -   type: lineType
-        - } = line
+      each line in lines
+        - const { text: lineText } = line
+        - let { type: lineType } = line
         - if (lineType) lineType = `impressions-diagram__description-line_${lineType}`
         li(class=["impressions-diagram__description-line", lineType])=lineText
