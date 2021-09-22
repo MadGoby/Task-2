@@ -1101,6 +1101,11 @@
     vertical-align: 24px;
     font-size: 19px;
     display: none; }
+    @media screen and (max-width: 680px) {
+      .title_for-sidebar {
+        display: block;
+        text-align: left;
+        margin-bottom: 20px; } }
 
 .button {
   display: inline-block; }

@@ -1099,6 +1099,11 @@
     vertical-align: 24px;
     font-size: 19px;
     display: none; }
+    @media screen and (max-width: 680px) {
+      .title_for-sidebar {
+        display: block;
+        text-align: left;
+        margin-bottom: 20px; } }
 
 .content-navigation {
   display: inline-block; }
@@ -1385,6 +1390,32 @@
   .stars-rating__star_color_purple {
     background-image: url(../img/star.jpg); }
 
+.sidebar {
+  max-width: 266px;
+  text-align: initial;
+  vertical-align: top;
+  float: left; }
+  .sidebar__rooms-title {
+    margin-bottom: 22px; }
+  .sidebar__date-filter {
+    margin-bottom: 20px; }
+  .sidebar__availability {
+    margin-bottom: 28px; }
+  .sidebar__slider {
+    margin-bottom: 29px; }
+  .sidebar__guests {
+    margin-bottom: 27px; }
+  .sidebar__additional-features {
+    margin-bottom: 30px; }
+  .sidebar__features-title {
+    margin-bottom: 17px; }
+  .sidebar__room-amenities {
+    margin-bottom: 29px; }
+  @media screen and (max-width: 680px) {
+    .sidebar {
+      float: none;
+      display: inline-block; } }
+
 html {
   box-sizing: border-box; }
 
@@ -1406,15 +1437,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%; }
-  .search-room__sidebar {
-    max-width: 266px;
-    text-align: initial;
-    vertical-align: top;
-    float: left; }
-    @media screen and (max-width: 680px) {
-      .search-room__sidebar {
-        float: none;
-        display: inline-block; } }
   @media screen and (max-width: 680px) {
     .search-room__sidebar-wrapper {
       text-align: center;
@@ -1474,10 +1496,4 @@ body {
 .room-card {
   display: inline-block;
   margin: 0 12px 20px 0; }
-
-@media screen and (max-width: 680px) {
-  .title_for-sidebar {
-    display: block;
-    text-align: left;
-    margin-bottom: 20px; } }
 
