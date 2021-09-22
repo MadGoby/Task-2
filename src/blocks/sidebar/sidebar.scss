@@ -1,0 +1,43 @@
+.sidebar {
+  max-width: 266px;
+  text-align: initial;
+  vertical-align: top;
+  float: left;
+
+  &__rooms-title {
+    margin-bottom: 22px;
+  }
+
+  &__date-filter {
+    margin-bottom: 20px;
+  }
+
+  &__availability {
+    margin-bottom: 28px;
+  }
+
+  &__slider {
+    margin-bottom: 29px;
+  }
+
+  &__guests {
+    margin-bottom: 27px;
+  }
+
+  &__additional-features {
+    margin-bottom: 30px;
+  }
+
+  &__features-title {
+    margin-bottom: 17px;
+  }
+
+  &__room-amenities {
+    margin-bottom: 29px;
+  }
+
+  @media screen and (max-width: 680px) {
+    float: none;
+    display: inline-block;
+  }
+}

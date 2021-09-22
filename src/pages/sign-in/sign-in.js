@@ -1,5 +1,5 @@
 import './sign-in.scss';
-import { initAllHeaders } from '../../blocks/header/header-init';
+import { initAllHeaders } from '../../blocks/header/headerInit';
 
 initAllHeaders();
 

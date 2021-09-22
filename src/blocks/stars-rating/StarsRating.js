@@ -23,15 +23,13 @@ class StarsRating {
     }
   }
 
-  controlStarClick(event) {
-    const eStar = event.target;
-
+  handleStarClick(event) {
     this.cleanActiveClass();
-    this.addActiveClass(eStar);
+    this.addActiveClass(event.target);
   }
 
   bindEventListeners() {
-    this.stars.forEach((star) => star.addEventListener('click', this.controlStarClick));
+    this.stars.forEach((star) => star.addEventListener('click', this.handleStarClick));
   }
 }
 

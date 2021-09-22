@@ -12,7 +12,7 @@ class HeaderNavigation {
     this.navigation = this.container.querySelector('.js-header__navigation');
   }
 
-  controlNavigationDisplay() {
+  handleNavigationButtonClick() {
     const styles = getComputedStyle(this.navigation);
 
     if (styles.display === 'none') {
@@ -25,21 +25,23 @@ class HeaderNavigation {
   }
 
   controlDisplayOnResize(userWidth) {
-    if (userWidth > 350 && this.navigation.style.display === 'none') {
+    const isNeedToBeDisplayed = userWidth > 350 && this.navigation.style.display === 'none';
+
+    if (isNeedToBeDisplayed) {
       this.navigation.style.display = 'block';
     } else if (userWidth <= 350) {
       this.navigation.style.display = 'none';
     }
   }
 
-  convertPassesVariable(event) {
+  handleMainWrapperOnResize(event) {
     const userWidth = +event.target.innerWidth;
     this.controlDisplayOnResize(userWidth);
   }
 
   bindEventListeners() {
-    this.button.addEventListener('click', this.controlNavigationDisplay);
-    document.body.onresize = this.convertPassesVariable;
+    this.button.addEventListener('click', this.handleNavigationButtonClick);
+    document.body.onresize = this.handleMainWrapperOnResize;
   }
 }
 

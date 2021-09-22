@@ -1,6 +1,6 @@
-import { initAllDatepickers } from '../../blocks/datepicker/datepicker-init';
-import { initAllDropdowns } from '../../blocks/dropdown/dropdown-init';
-import { initAllHeaders } from '../../blocks/header/header-init';
+import { initAllDatepickers } from '../../blocks/datepicker/datepickerInit';
+import { initAllDropdowns } from '../../blocks/dropdown/dropdownInit';
+import { initAllHeaders } from '../../blocks/header/headerInit';
 import './room-details.scss';
 
 require('../../img/room-photo-big.jpg');

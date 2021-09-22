@@ -32,9 +32,12 @@ class Dropdown {
       return number > 0;
     }
 
-    if (this.outputs.some((output) => isPositive(output.textContent))) {
+    const isNeedToDisplay = this.outputs.some((output) => isPositive(output.textContent));
+    const isNeedToHide = this.clearButton.hasAttribute('hidden') === false;
+
+    if (isNeedToDisplay) {
       this.clearButton.style.display = 'inline-block';
-    } else if (!this.clearButton.hasAttribute('hidden')) {
+    } else if (isNeedToHide) {
       this.clearButton.style.display = 'none';
     }
   }
@@ -45,24 +48,28 @@ class Dropdown {
   }
 
   definesWordEnd(value, template, line) {
-    function isEqualToZero(num) {
+    function checkIsEqualToZero(num) {
       return num % 10 === 0;
     }
 
-    function fromOneToFour() {
-      return isEqualToZero(value - 2) || isEqualToZero(value - 3) || isEqualToZero(value - 4);
+    function checksComplianceFromOneToFour() {
+      return checkIsEqualToZero(value - 2) ||
+        checkIsEqualToZero(value - 3) ||
+        checkIsEqualToZero(value - 4);
     }
 
     let index;
+    const isMinimumValue = value === 1 || checkIsEqualToZero(value - 1);
+    const isInMiddleRange = value > 4 && value < 21;
 
     switch (true) {
-      case value > 4 && value < 21:
+      case isInMiddleRange:
         index = 3;
         break;
-      case value === 1 || isEqualToZero(value - 1):
+      case isMinimumValue:
         index = 1;
         break;
-      case fromOneToFour():
+      case checksComplianceFromOneToFour():
         index = 2;
         break;
       default:
@@ -101,10 +108,10 @@ class Dropdown {
     let output = '';
 
     this.outputs.forEach((value, index) => {
-      const isNeedEtc = (valueTextContent) => valuesSum - valueTextContent === 0 || Number(values[0]) === 0;
+      const checkIsNeedEtc = (valueTextContent) => valuesSum - valueTextContent === 0 || Number(values[0]) === 0;
       const addPunctuationMarks = (valueTextContent) => {
         switch (true) {
-          case isNeedEtc(valueTextContent):
+          case checkIsNeedEtc(valueTextContent):
             output += '...';
             break;
           case index !== 2:
@@ -134,8 +141,11 @@ class Dropdown {
         }
       };
 
-      if (index === 0 && +values[0] + +values[1] > 0) addDefinitionToNumber();
-      if (index === 2 && +value.textContent > 0) addDefinitionToNumber();
+      const areFirstDefinitionNeeded = index === 0 && +values[0] + +values[1] > 0;
+      const areLastDefinitionNeeded = index === 2 && +value.textContent > 0;
+
+      if (areFirstDefinitionNeeded) addDefinitionToNumber();
+      if (areLastDefinitionNeeded) addDefinitionToNumber();
     });
     return output;
   }
@@ -161,14 +171,14 @@ class Dropdown {
     let output = '';
 
     this.outputs.forEach((value, index) => {
-      const isFirstsOnlyOne = () => index === 0 && (valuesSum - values[0] === 0);
-      const isSecondOnlyOne = () => index === 1 && (Number(values[0]) === 0 && Number(values[2]) === 0);
-      const isThirdWheel = () => index === 1 && Number(values[0]) !== 0;
-      const isNeedEtc = () => isSecondOnlyOne() || isFirstsOnlyOne() || index === 2;
+      const isFirstsOnlyOne = index === 0 && (valuesSum - values[0] === 0);
+      const isSecondOnlyOne = index === 1 && (Number(values[0]) === 0 && Number(values[2]) === 0);
+      const isThirdWheel = index === 1 && Number(values[0]) !== 0;
+      const isNeedEtc = isSecondOnlyOne || isFirstsOnlyOne || index === 2;
 
       const addPunctuationMarks = () => {
         switch (true) {
-          case isNeedEtc() || isThirdWheel():
+          case isNeedEtc || isThirdWheel:
             output += '...';
             break;
           default:
@@ -187,11 +197,13 @@ class Dropdown {
         addPunctuationMarks();
       };
 
-      const isLastNotThird = () => index === 2 && (+values[0] === 0 || +values[1] === 0);
+      const isLastNotThird = index === 2 && (+values[0] === 0 || +values[1] === 0);
+      const isThirdRequired = isLastNotThird && value.textContent > 0;
+      const isValueNotZero = index !== 2 && value.textContent > 0;
 
-      if (isLastNotThird() && value.textContent > 0) {
+      if (isThirdRequired) {
         addDefinitionToNumber();
-      } else if (index !== 2 && value.textContent > 0) addDefinitionToNumber();
+      } else if (isValueNotZero) addDefinitionToNumber();
     });
     return output;
   }
@@ -225,33 +237,41 @@ class Dropdown {
     this.input.value = inputText;
   }
 
-  controlPlusButtonClick(event) {
+  handlePlusButtonClick(event) {
     const buttonIndex = this.plusButtons.indexOf(event.target);
     const outputTarget = this.outputs[buttonIndex];
-    if (outputTarget.innerText < 10) {
+
+    const refreshListLine = () => {
       if (outputTarget.innerText === '0')
         this.minusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
       outputTarget.innerText = Number(outputTarget.innerText) + 1;
       if (outputTarget.innerText === '10') event.target.classList.add('dropdown__button_transparent');
-    }
+    };
+
+    if (outputTarget.innerText < 10) refreshListLine();
+
     this.checkClearButtonVisibility();
     this.refreshInput();
   }
 
-  controlMinusButtonClick(event) {
+  handleMinusButtonClick(event) {
     const buttonIndex = this.minusButtons.indexOf(event.target);
     const outputTarget = this.outputs[buttonIndex];
-    if (outputTarget.innerText > 0) {
+
+    const refreshListLine = () => {
       if (outputTarget.innerText === '10')
         this.plusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
       outputTarget.innerText = Number(outputTarget.innerText) - 1;
       if (outputTarget.innerText === '0') event.target.classList.add('dropdown__button_transparent');
-    }
+    };
+
+    if (outputTarget.innerText > 0) refreshListLine();
+
     this.checkClearButtonVisibility();
     this.refreshInput();
   }
 
-  controlClearButtonClick() {
+  handleClearButtonClick() {
     this.outputs.forEach((output) => {
       output.textContent = 0;
     });
@@ -265,12 +285,20 @@ class Dropdown {
     this.checkClearButtonVisibility();
   }
 
+  handleInputClick() {
+    this.controlDropdownDisplay();
+  }
+
+  handleSubmitButtonClick() {
+    this.controlDropdownDisplay();
+  }
+
   bindEventListeners() {
-    this.input.addEventListener('click', this.controlDropdownDisplay);
-    this.clearButton.addEventListener('click', this.controlClearButtonClick);
-    this.submitButton.addEventListener('click', this.controlDropdownDisplay);
-    this.plusButtons.forEach((button) => button.addEventListener('click', this.controlPlusButtonClick));
-    this.minusButtons.forEach((button) => button.addEventListener('click', this.controlMinusButtonClick));
+    this.input.addEventListener('click', this.handleInputClick);
+    this.clearButton.addEventListener('click', this.handleClearButtonClick);
+    this.submitButton.addEventListener('click', this.handleSubmitButtonClick);
+    this.plusButtons.forEach((button) => button.addEventListener('click', this.handlePlusButtonClick));
+    this.minusButtons.forEach((button) => button.addEventListener('click', this.handleMinusButtonClick));
   }
 }
 

@@ -1,8 +1,9 @@
 import './cards.scss';
-import { initAllRoomCards } from '../../blocks/room-card/room-card-init';
-import { initAllDatepickers } from '../../blocks/datepicker/datepicker-init';
-import { initAllDropdowns } from '../../blocks/dropdown/dropdown-init';
-import { initAllStarRatings } from '../../blocks/stars-rating/stars-rating-init';
+import { initAllRoomCards } from '../../blocks/room-card/roomCardInit';
+import { initAllDatepickers } from '../../blocks/datepicker/datepickerInit';
+import { initAllDropdowns } from '../../blocks/dropdown/dropdownInit';
+import { initAllStarRatings } from '../../blocks/stars-rating/starsRatingInit';
+import { initAllInputsMasks } from '../../blocks/input/inputMask';
 
 require('inputmask');
 require('../../img/logo.svg');
@@ -14,8 +15,4 @@ initAllRoomCards();
 initAllDatepickers();
 initAllDropdowns();
 initAllStarRatings();
-
-Inputmask({
-  mask: '99.99.9999',
-  placeholder: 'ДД.ММ.ГГГГ',
-}).mask(document.querySelectorAll('.input__field_type_date'));
+initAllInputsMasks();

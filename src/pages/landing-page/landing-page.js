@@ -1,7 +1,7 @@
 import './landing-page.scss';
-import { initAllDropdowns } from '../../blocks/dropdown/dropdown-init';
-import { initAllDatepickers } from '../../blocks/datepicker/datepicker-init';
-import { initAllHeaders } from '../../blocks/header/header-init';
+import { initAllDropdowns } from '../../blocks/dropdown/dropdownInit';
+import { initAllDatepickers } from '../../blocks/datepicker/datepickerInit';
+import { initAllHeaders } from '../../blocks/header/headerInit';
 
 require('../../img/logo-color.svg');
 require('../../img/landing-main.jpg');

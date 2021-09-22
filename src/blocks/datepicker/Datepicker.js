@@ -11,7 +11,10 @@ class Datepicker {
   initializes() {
     this.setDefaultParameters();
     this.getHtmlElements();
-    const calendarDays = this.makesCalendarByDate({ year: this.settings.pickedYear, month: this.settings.pickedMonth });
+    const calendarDays = this.makesCalendarByDate({
+      year: this.settings.pickedYear,
+      month: this.settings.pickedMonth,
+    });
     this.refreshCalendar(calendarDays);
     this.refreshSelectedMonth(this.settings.pickedMonth, this.settings.pickedYear);
     this.bindEventListeners();
@@ -55,8 +58,7 @@ class Datepicker {
     this.currentValueTarget = 'from';
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  isMatchByDay(day, targetDate) {
+  static checkIsMatchByDay(day, targetDate) {
     return (
       day.getFullYear() === targetDate.getFullYear() &&
       day.getMonth() === targetDate.getMonth() &&
@@ -64,31 +66,36 @@ class Datepicker {
     );
   }
 
-  isCurrentDate(targetDate) {
-    return this.isMatchByDay(this.settings.currentDay, targetDate);
+  checkIsCurrentDate(targetDate) {
+    return Datepicker.checkIsMatchByDay(this.settings.currentDay, targetDate);
   }
 
-  isFromDate(targetDate) {
-    return this.settings.from && this.isMatchByDay(this.settings.from, targetDate);
+  checkIsFromDate(targetDate) {
+    return this.settings.from && Datepicker.checkIsMatchByDay(this.settings.from, targetDate);
   }
 
-  isToDate(targetDate) {
-    return this.settings.to && this.isMatchByDay(this.settings.to, targetDate);
+  checkIsToDate(targetDate) {
+    return this.settings.to && Datepicker.checkIsMatchByDay(this.settings.to, targetDate);
   }
 
-  inSelectedRange(targetDate) {
+  checkAreInSelectedRange(targetDate) {
     return targetDate >= this.settings.from && targetDate <= this.settings.to;
   }
 
   highlightsSelectedRange(cell, targetDate) {
+    const isStartOfRange = this.checkAreInSelectedRange(targetDate) &&
+      Datepicker.checkIsMatchByDay(this.settings.from, targetDate);
+    const isEndOfRange = this.checkAreInSelectedRange(targetDate) &&
+      Datepicker.checkIsMatchByDay(this.settings.to, targetDate);
+
     switch (true) {
-      case this.inSelectedRange(targetDate) && this.isMatchByDay(this.settings.from, targetDate):
+      case isStartOfRange:
         cell.classList.add('datepicker__calendar-cell_right-half_shaded');
         break;
-      case this.inSelectedRange(targetDate) && this.isMatchByDay(this.settings.to, targetDate):
+      case isEndOfRange:
         cell.classList.add('datepicker__calendar-cell_left-half_shaded');
         break;
-      case this.inSelectedRange(targetDate):
+      case this.checkAreInSelectedRange(targetDate):
         cell.classList.add('datepicker__calendar-cell_shaded');
         break;
       default:
@@ -110,10 +117,12 @@ class Datepicker {
       calendarCell.setAttribute('data-month', 'previous');
     }
 
-    if (this.isCurrentDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_green');
-    if (this.isFromDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_purple');
-    if (this.isToDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_purple');
-    if (this.settings.from && this.settings.to) calendarCell = this.highlightsSelectedRange(calendarCell, date);
+    const isRangeExist = this.settings.from && this.settings.to;
+
+    if (this.checkIsCurrentDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_green');
+    if (this.checkIsFromDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_purple');
+    if (this.checkIsToDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_purple');
+    if (isRangeExist) calendarCell = this.highlightsSelectedRange(calendarCell, date);
 
     calendarCell.innerText = date.getDate();
     return calendarCell;
@@ -161,13 +170,13 @@ class Datepicker {
   makesCalendarByDate(data) {
     const { year, month } = data;
     let calendarDays = [];
-    const isNeedPreviousMonth = () => new Date(year, month).getDay() !== 1;
-    const isNeedNextMonth = () => new Date(year, month + 1, 0).getDay() !== 0;
+    const checkIsNeedPreviousMonth = () => new Date(year, month).getDay() !== 1;
+    const checkIsNeedNextMonth = () => new Date(year, month + 1, 0).getDay() !== 0;
 
 
-    if (isNeedPreviousMonth()) calendarDays = calendarDays.concat(this.getPreviousMonthDays(year, month));
+    if (checkIsNeedPreviousMonth()) calendarDays = calendarDays.concat(this.getPreviousMonthDays(year, month));
     calendarDays = calendarDays.concat(this.getCurrentMonthDays(year, month));
-    if (isNeedNextMonth()) calendarDays = calendarDays.concat(this.getNextMonthDays(year, month));
+    if (checkIsNeedNextMonth()) calendarDays = calendarDays.concat(this.getNextMonthDays(year, month));
 
     return calendarDays;
   }
@@ -211,8 +220,8 @@ class Datepicker {
 
   passedValueToTo(settings) {
     const { pickedDate, value, date } = settings;
-    const isToLessThenFrom = () => this.settings.from && pickedDate <= this.settings.from;
-    if (isToLessThenFrom()) return false;
+    const checkIsToLessThenFrom = () => this.settings.from && pickedDate <= this.settings.from;
+    if (checkIsToLessThenFrom()) return false;
 
     this.currentInputTarget.setAttribute('value', value);
     this.settings.to = new Date(date.year, date.month - 1, Number(date.day));
@@ -223,18 +232,22 @@ class Datepicker {
 
   passedValueToTotal(settings) {
     const { pickedDate, date } = settings;
-    const isFromLessCurrentDay = () => this.currentValueTarget === 'from' && pickedDate <= this.settings.currentDay;
-    const isToLessThenFrom = () => this.currentValueTarget === 'to' &&
-      this.settings.from && pickedDate <= this.settings.from;
 
-    if (isFromLessCurrentDay() || isToLessThenFrom()) return false;
+    const checkIsFromLessCurrentDay = () => this.currentValueTarget === 'from' && pickedDate <= this.settings.currentDay;
+    const checkIsToLessThenFrom = () => this.currentValueTarget === 'to' &&
+      this.settings.from &&
+      pickedDate <= this.settings.from;
+    const isValidationPassed = checkIsFromLessCurrentDay() || checkIsToLessThenFrom();
+    if (isValidationPassed) return false;
 
-    if (this.currentValueTarget === 'from') {
+    const refreshFrom = () => {
       this.settings.from = new Date(date.year, date.month - 1, Number(date.day));
       this.currentValueTarget = 'to';
-      if (pickedDate > this.settings.to) {
-        this.settings.to = undefined;
-      }
+      if (pickedDate > this.settings.to) this.settings.to = undefined;
+    };
+
+    if (this.currentValueTarget === 'from') {
+      refreshFrom();
     } else {
       this.settings.to = new Date(date.year, date.month - 1, Number(date.day));
       this.currentValueTarget = 'from';
@@ -259,7 +272,8 @@ class Datepicker {
 
   checkDateForValidity(value, date) {
     const pickedDate = new Date(date.year, date.month - 1, date.day);
-
+    const isCurrentTotal = this.currentInputTarget === this.inputTotal;
+    const isNeedTotalRefresh = (result) => isCurrentTotal && result;
     let result;
 
     switch (true) {
@@ -271,7 +285,8 @@ class Datepicker {
         break;
       default:
         result = this.passedValueToTotal({ pickedDate, value, date });
-        if (this.currentInputTarget === this.inputTotal && result) this.updateTotalInput();
+        if (isNeedTotalRefresh(result)) this.updateTotalInput();
+        break;
     }
 
     return result;
@@ -293,26 +308,25 @@ class Datepicker {
     return result;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  bringToTwoDigits(settings) {
+  static bringToTwoDigits(settings) {
     let { value } = settings;
     if (value < 10) value = `0${value}`;
     return value;
   }
 
   bindCalendarCellsListener() {
-    const calendarCells = [...this.calendar.querySelectorAll('td')];
+    const calendarCells = [...this.calendar.querySelectorAll('.datepicker__calendar-cell')];
 
     calendarCells.forEach((cell) => {
-      cell.addEventListener('click', this.controlCellClick);
+      cell.addEventListener('click', this.handleCalendarCellClick);
     });
   }
 
-  controlCellClick(event) {
+  handleCalendarCellClick(event) {
     const { target } = event;
     const date = {
-      day: this.bringToTwoDigits({ value: Number(target.innerText) }),
-      month: this.bringToTwoDigits({ value: Number(this.definesCellMonth(target)) }),
+      day: Datepicker.bringToTwoDigits({ value: Number(target.innerText) }),
+      month: Datepicker.bringToTwoDigits({ value: Number(this.definesCellMonth(target)) }),
       year: this.settings.pickedYear,
     };
     const value = `${date.day}.${date.month}.${date.year}`;
@@ -340,17 +354,17 @@ class Datepicker {
     this.bindCalendarCellsListener();
   }
 
-  controlNextButtonClick() {
+  handleScrollButtonNextClick() {
     const newDate = new Date(this.settings.pickedYear, Number(this.settings.pickedMonth) + 1);
     this.refreshDatepicker(newDate);
   }
 
-  controlPreviousButtonClick() {
+  handleScrollButtonBackClick() {
     const newDate = new Date(this.settings.pickedYear, Number(this.settings.pickedMonth) - 1);
     this.refreshDatepicker(newDate);
   }
 
-  areInputsExists() {
+  checkAreInputsExists() {
     return this.inputTotal || this.inputFrom || this.inputTo;
   }
 
@@ -364,24 +378,24 @@ class Datepicker {
     }
   }
 
-  controlClearButtonClick() {
+  handleClearButtonClick() {
     if (this.settings.from) this.settings.from = undefined;
     if (this.settings.to) this.settings.to = undefined;
 
-    if (this.areInputsExists()) this.resetsInputsToDefault();
+    if (this.checkAreInputsExists()) this.resetsInputsToDefault();
 
     this.currentValueTarget = 'from';
     this.refreshDatepicker(new Date(this.settings.pickedYear, this.settings.pickedMonth));
   }
 
-  controlApplyButtonClick() {
-    if (this.areInputsExists()) this.calendarWrapper.setAttribute('hidden', 'hidden');
+  handleApplyButtonClick() {
+    if (this.checkAreInputsExists()) this.calendarWrapper.setAttribute('hidden', 'hidden');
     if (this.inputFrom) this.inputFrom.classList.remove('input__field_active');
     if (this.inputTo) this.inputTo.classList.remove('input__field_active');
     if (this.inputTotal) this.inputTotal.classList.remove('input__field_active');
   }
 
-  controlInputClick() {
+  handleInputClick() {
     if (this.calendarWrapper.hasAttribute('hidden')) {
       if (this.inputFrom) this.inputFrom.classList.add('input__field_active');
       if (this.inputTo) this.inputTo.classList.add('input__field_active');
@@ -396,13 +410,13 @@ class Datepicker {
   }
 
   bindEventListeners() {
-    this.buttonPrevious.addEventListener('click', this.controlPreviousButtonClick);
-    this.buttonNext.addEventListener('click', this.controlNextButtonClick);
-    this.clearButton.addEventListener('click', this.controlClearButtonClick);
-    this.applyButton.addEventListener('click', this.controlApplyButtonClick);
-    if (this.inputFrom) this.inputFrom.addEventListener('click', this.controlInputClick);
-    if (this.inputTo) this.inputTo.addEventListener('click', this.controlInputClick);
-    if (this.inputTotal) this.inputTotal.addEventListener('click', this.controlInputClick);
+    this.buttonPrevious.addEventListener('click', this.handleScrollButtonBackClick);
+    this.buttonNext.addEventListener('click', this.handleScrollButtonNextClick);
+    this.clearButton.addEventListener('click', this.handleClearButtonClick);
+    this.applyButton.addEventListener('click', this.handleApplyButtonClick);
+    if (this.inputFrom) this.inputFrom.addEventListener('click', this.handleInputClick);
+    if (this.inputTo) this.inputTo.addEventListener('click', this.handleInputClick);
+    if (this.inputTotal) this.inputTotal.addEventListener('click', this.handleInputClick);
   }
 }
 

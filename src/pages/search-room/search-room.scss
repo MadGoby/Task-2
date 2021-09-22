@@ -19,6 +19,7 @@
 @import '../../blocks/content-navigation/content-navigation.scss';
 @import '../../blocks/datepicker/datepicker.scss';
 @import '../../blocks/stars-rating/stars-rating.scss';
+@import '../../blocks/sidebar/sidebar.scss';
 
 html {
   box-sizing: border-box;
@@ -44,18 +45,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-
-  &__sidebar {
-    max-width: 266px;
-    text-align: initial;
-    vertical-align: top;
-    float: left;
-
-    @media screen and (max-width: 680px) {
-      float: none;
-      display: inline-block;
-    }
-  }
 
   &__sidebar-wrapper {
     @media screen and (max-width: 680px) {
@@ -151,14 +140,4 @@ body {
 .room-card {
   display: inline-block;
   margin: 0 12px 20px 0;
-}
-
-.title {
-  &_for-sidebar {
-    @media screen and (max-width: 680px) {
-      display: block;
-      text-align: left;
-      margin-bottom: 20px;
-    }
-  }
 }

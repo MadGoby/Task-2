@@ -12,7 +12,7 @@ class ListDropdown {
     this.title = this.container.querySelector('.js-title');
   }
 
-  changeListDisplay() {
+  handleTitleClick() {
     if (this.list.hasAttribute('hidden')) {
       this.list.removeAttribute('hidden');
       this.title.classList.remove('title_closed');
@@ -25,7 +25,7 @@ class ListDropdown {
   }
 
   bindEventListeners() {
-    this.title.addEventListener('click', this.changeListDisplay);
+    this.title.addEventListener('click', this.handleTitleClick);
   }
 }
 

@@ -40,7 +40,9 @@ class RoomCardSlider {
 
   controlAnimateDirection(target, duration) {
     let animationDuration = 500;
-    if (duration && typeof duration === 'number') animationDuration = duration;
+    const isDurationSetCorrectly = duration && typeof duration === 'number';
+
+    if (isDurationSetCorrectly) animationDuration = duration;
 
     if (target === 'previous') {
       this.animateSlide({
@@ -80,7 +82,7 @@ class RoomCardSlider {
     this.currentImagePosition.classList.toggle('room-card__image-position_selected');
   }
 
-  controlImageButtonClick(event) {
+  handleImageButtonClick(event) {
     const button = event.target;
 
     this.changeImage(button);
@@ -123,7 +125,7 @@ class RoomCardSlider {
     }
   }
 
-  controlImagePositionClick(event) {
+  handleImagePositionClick(event) {
     const posIndex = this.imagePositions.indexOf(event.target);
     let action;
 
@@ -133,16 +135,14 @@ class RoomCardSlider {
       action = 'previous';
     }
 
-    if (action) {
-      this.controlMultipleAnimations(true, action, posIndex);
-    }
+    if (action) this.controlMultipleAnimations(true, action, posIndex);
   }
 
   bindEventListeners() {
-    this.previousButton.addEventListener('click', this.controlImageButtonClick);
-    this.nextButton.addEventListener('click', this.controlImageButtonClick);
+    this.previousButton.addEventListener('click', this.handleImageButtonClick);
+    this.nextButton.addEventListener('click', this.handleImageButtonClick);
     this.imagePositions.forEach((elem) => {
-      elem.addEventListener('click', this.controlImagePositionClick);
+      elem.addEventListener('click', this.handleImagePositionClick);
     });
   }
 }
