@@ -1,6 +1,66 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/ 		var executeModules = data[2];
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
+/******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		return result;
+/******/ 	}
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"sign-in": 0
+/******/ 	};
+/******/
+/******/ 	var deferredModules = [];
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -79,48 +139,21 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./pages/sign-in/sign-in.js");
+/******/
+/******/ 	// add entry module to deferred list
+/******/ 	deferredModules.push(["./pages/sign-in/sign-in.js","vendors~cards~content-types~form-elements~headers-footers~landing-page~registration~room-details~sea~ccac4104","cards~content-types~form-elements~headers-footers~landing-page~registration~room-details~search-room~sign-in"]);
+/******/ 	// run deferred modules when ready
+/******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "../node_modules/auto-bind/index.js":
-/*!******************************************!*\
-  !*** ../node_modules/auto-bind/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\n// Gets all non-builtin properties up the prototype chain\nconst getAllProperties = object => {\n\tconst properties = new Set();\n\n\tdo {\n\t\tfor (const key of Reflect.ownKeys(object)) {\n\t\t\tproperties.add([object, key]);\n\t\t}\n\t} while ((object = Reflect.getPrototypeOf(object)) && object !== Object.prototype);\n\n\treturn properties;\n};\n\nmodule.exports = (self, {include, exclude} = {}) => {\n\tconst filter = key => {\n\t\tconst match = pattern => typeof pattern === 'string' ? key === pattern : pattern.test(key);\n\n\t\tif (include) {\n\t\t\treturn include.some(match);\n\t\t}\n\n\t\tif (exclude) {\n\t\t\treturn !exclude.some(match);\n\t\t}\n\n\t\treturn true;\n\t};\n\n\tfor (const [object, key] of getAllProperties(self.constructor.prototype)) {\n\t\tif (key === 'constructor' || !filter(key)) {\n\t\t\tcontinue;\n\t\t}\n\n\t\tconst descriptor = Reflect.getOwnPropertyDescriptor(object, key);\n\t\tif (descriptor && typeof descriptor.value === 'function') {\n\t\t\tself[key] = self[key].bind(self);\n\t\t}\n\t}\n\n\treturn self;\n};\n\n\n//# sourceURL=webpack:///../node_modules/auto-bind/index.js?");
-
-/***/ }),
-
-/***/ "./blocks/header/Header.js":
-/*!*********************************!*\
-  !*** ./blocks/header/Header.js ***!
-  \*********************************/
-/*! exports provided: HeaderNavigation */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"HeaderNavigation\", function() { return HeaderNavigation; });\nclass HeaderNavigation {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.button = this.container.querySelector('.js-header__navigation-button');\r\n    this.navigation = this.container.querySelector('.js-header__navigation');\r\n  }\r\n\r\n  handleNavigationButtonClick() {\r\n    const styles = getComputedStyle(this.navigation);\r\n\r\n    if (styles.display === 'none') {\r\n      this.navigation.style.display = 'block';\r\n      this.button.querySelector('.header__hamburger').classList.add('header__hamburger_expanded');\r\n    } else {\r\n      this.navigation.style.display = 'none';\r\n      this.button.querySelector('.header__hamburger').classList.remove('header__hamburger_expanded');\r\n    }\r\n  }\r\n\r\n  controlDisplayOnResize(userWidth) {\r\n    const isNeedToBeDisplayed = userWidth > 350 && this.navigation.style.display === 'none';\r\n\r\n    if (isNeedToBeDisplayed) {\r\n      this.navigation.style.display = 'block';\r\n    } else if (userWidth <= 350) {\r\n      this.navigation.style.display = 'none';\r\n    }\r\n  }\r\n\r\n  handleMainWrapperOnResize(event) {\r\n    const userWidth = +event.target.innerWidth;\r\n    this.controlDisplayOnResize(userWidth);\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.button.addEventListener('click', this.handleNavigationButtonClick);\r\n    document.body.onresize = this.handleMainWrapperOnResize;\r\n  }\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/header/Header.js?");
-
-/***/ }),
-
-/***/ "./blocks/header/headerInit.js":
-/*!*************************************!*\
-  !*** ./blocks/header/headerInit.js ***!
-  \*************************************/
-/*! exports provided: initAllHeaders */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllHeaders\", function() { return initAllHeaders; });\n/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ \"./blocks/header/Header.js\");\n\r\n\r\nfunction initAllHeaders() {\r\n  [...document.querySelectorAll('.js-header')].forEach((item) => {\r\n    new _Header__WEBPACK_IMPORTED_MODULE_0__[\"HeaderNavigation\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/header/headerInit.js?");
-
-/***/ }),
 
 /***/ "./img/facebook.svg":
 /*!**************************!*\
@@ -190,7 +223,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sign_in_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sign-in.scss */ \"./pages/sign-in/sign-in.scss\");\n/* harmony import */ var _sign_in_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sign_in_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_header_headerInit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../blocks/header/headerInit */ \"./blocks/header/headerInit.js\");\n\r\n\r\n\r\nObject(_blocks_header_headerInit__WEBPACK_IMPORTED_MODULE_1__[\"initAllHeaders\"])();\r\n\r\n__webpack_require__(/*! ../../img/room-background.jpg */ \"./img/room-background.jpg\");\r\n__webpack_require__(/*! ../../img/logo-color.svg */ \"./img/logo-color.svg\");\r\n__webpack_require__(/*! ../../img/instagram.svg */ \"./img/instagram.svg\");\r\n__webpack_require__(/*! ../../img/facebook.svg */ \"./img/facebook.svg\");\r\n__webpack_require__(/*! ../../img/twitter.svg */ \"./img/twitter.svg\");\n\n//# sourceURL=webpack:///./pages/sign-in/sign-in.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tools_importContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../tools/importContext */ \"./tools/importContext.js\");\n/* harmony import */ var _sign_in_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sign-in.scss */ \"./pages/sign-in/sign-in.scss\");\n/* harmony import */ var _sign_in_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sign_in_scss__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nObject(_tools_importContext__WEBPACK_IMPORTED_MODULE_0__[\"importContext\"])();\r\n\r\n__webpack_require__(/*! ../../img/room-background.jpg */ \"./img/room-background.jpg\");\r\n__webpack_require__(/*! ../../img/logo-color.svg */ \"./img/logo-color.svg\");\r\n__webpack_require__(/*! ../../img/instagram.svg */ \"./img/instagram.svg\");\r\n__webpack_require__(/*! ../../img/facebook.svg */ \"./img/facebook.svg\");\r\n__webpack_require__(/*! ../../img/twitter.svg */ \"./img/twitter.svg\");\n\n//# sourceURL=webpack:///./pages/sign-in/sign-in.js?");
 
 /***/ }),
 

@@ -148,132 +148,12 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./pages/form-elements/form-elements.js","vendors~cards~form-elements~registration","vendors~form-elements~search-room","cards~form-elements~landing-page~room-details~search-room"]);
+/******/ 	deferredModules.push(["./pages/form-elements/form-elements.js","vendors~cards~content-types~form-elements~headers-footers~landing-page~registration~room-details~sea~ccac4104","cards~content-types~form-elements~headers-footers~landing-page~registration~room-details~search-room~sign-in"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./blocks/content-navigation/ContentNavigation.js":
-/*!********************************************************!*\
-  !*** ./blocks/content-navigation/ContentNavigation.js ***!
-  \********************************************************/
-/*! exports provided: ContentNavigation */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ContentNavigation\", function() { return ContentNavigation; });\nclass ContentNavigation {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.initializes();\r\n  }\r\n\r\n  initializes() {\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n    this.controlNavigationDisplay();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.buttons = [...this.container.querySelectorAll('.content-navigation__button')];\r\n    this.counter = this.container.querySelector('.content-navigation__counter');\r\n    this.buttons.forEach((button) => {\r\n      if (button.classList.contains('content-navigation__button_active')) this.currentButton = button;\r\n    });\r\n  }\r\n\r\n  controlNavigationDisplay() {\r\n    this.buttons.forEach((elem) => {\r\n      elem.style.display = 'inline-block';\r\n    });\r\n\r\n    const hidesNavigationButtons = (buttonIndex) => {\r\n      buttonIndex.forEach((index) => {\r\n        this.buttons[index].style.display = 'none';\r\n      });\r\n    };\r\n\r\n    const currentPageNumber = this.currentButton.querySelector('.button__control').textContent;\r\n\r\n    switch (currentPageNumber) {\r\n      case '1':\r\n        hidesNavigationButtons([0, 2, 5]);\r\n        break;\r\n      case '2':\r\n        hidesNavigationButtons([5, 2]);\r\n        break;\r\n      case '3':\r\n        hidesNavigationButtons([2]);\r\n        break;\r\n      case '13':\r\n        hidesNavigationButtons([6]);\r\n        break;\r\n      case '14':\r\n        hidesNavigationButtons([6, 3]);\r\n        break;\r\n      case '15':\r\n        hidesNavigationButtons([6, 8, 3]);\r\n        break;\r\n      default:\r\n        break;\r\n    }\r\n  }\r\n\r\n  editsCounterValues() {\r\n    const counterTo = this.currentButton.querySelector('.button__control').textContent * 12;\r\n    this.counter.textContent = `${counterTo - 11} – ${counterTo} из 100+ вариантов аренды`;\r\n  };\r\n\r\n\r\n  static controlCurrentPageClass(selectedButton) {\r\n    const currentButton = selectedButton.querySelector('.button__control');\r\n    currentButton.classList.toggle('button__control_color_purple');\r\n  }\r\n\r\n  controlButtonsNumbers(index, targetNumber, parent) {\r\n    const checkIsNegativeShiftNeeded = () => index === 5 && targetNumber <= 13;\r\n    const checkIsPositiveShiftNeeded = () => index === 3 && targetNumber >= 3;\r\n\r\n    switch (true) {\r\n      case checkIsNegativeShiftNeeded():\r\n        ContentNavigation.controlCurrentPageClass(this.buttons[index - 1]);\r\n        this.currentButton = this.buttons[index - 1];\r\n        this.buttons[index - 1].querySelector('.button__control').textContent = targetNumber;\r\n        this.buttons[index - 2].querySelector('.button__control').textContent = String(targetNumber - 1);\r\n        this.buttons[index].querySelector('.button__control').textContent = targetNumber + 1;\r\n        break;\r\n      case checkIsPositiveShiftNeeded():\r\n        ContentNavigation.controlCurrentPageClass(this.buttons[index + 1]);\r\n        this.currentButton = this.buttons[index + 1];\r\n        this.buttons[index + 1].querySelector('.button__control').textContent = targetNumber;\r\n        this.buttons[index + 2].querySelector('.button__control').textContent = targetNumber + 1;\r\n        this.buttons[index].querySelector('.button__control').textContent = String(targetNumber - 1);\r\n        break;\r\n      case index === 7:\r\n        ContentNavigation.controlCurrentPageClass(parent);\r\n        this.currentButton = parent;\r\n        this.buttons[index - 2].querySelector('.button__control').textContent = String(targetNumber - 1);\r\n        this.buttons[index - 3].querySelector('.button__control').textContent = String(targetNumber - 2);\r\n        this.buttons[index - 4].querySelector('.button__control').textContent = String(targetNumber - 3);\r\n        break;\r\n      case index === 1:\r\n        ContentNavigation.controlCurrentPageClass(parent);\r\n        this.currentButton = parent;\r\n        this.buttons[index + 2].querySelector('.button__control').textContent = targetNumber + 1;\r\n        this.buttons[index + 3].querySelector('.button__control').textContent = targetNumber + 2;\r\n        this.buttons[index + 4].querySelector('.button__control').textContent = targetNumber + 3;\r\n        break;\r\n      default:\r\n        ContentNavigation.controlCurrentPageClass(this.buttons[index]);\r\n        this.currentButton = parent;\r\n        break;\r\n    }\r\n  };\r\n\r\n  prepareDataAfterPrevious() {\r\n    const currentButtonText = Number(this.currentButton.querySelector('.button__control').textContent);\r\n    const targetNumber = currentButtonText - 1;\r\n    let index;\r\n\r\n    switch (true) {\r\n      case currentButtonText === 15:\r\n        index = 5;\r\n        break;\r\n      case currentButtonText >= 3:\r\n        index = 3;\r\n        break;\r\n      case currentButtonText === 2:\r\n        index = 1;\r\n        break;\r\n      default:\r\n        break;\r\n    }\r\n\r\n    return { index, targetNumber };\r\n  };\r\n\r\n  prepareDataAfterNext() {\r\n    const currentButtonText = Number(this.currentButton.querySelector('.button__control').textContent);\r\n    const targetNumber = currentButtonText + 1;\r\n    let index;\r\n\r\n    switch (true) {\r\n      case currentButtonText === 1:\r\n        index = 3;\r\n        break;\r\n      case currentButtonText <= 13:\r\n        index = 5;\r\n        break;\r\n      case currentButtonText === 14:\r\n        index = 7;\r\n        break;\r\n      default:\r\n        break;\r\n    }\r\n\r\n    return { index, targetNumber };\r\n  };\r\n\r\n  handleButtonClick(event) {\r\n    let parent = false;\r\n\r\n    function getParent(button) {\r\n      if (button.parentNode.classList.contains('content-navigation__button')) {\r\n        parent = button.parentNode;\r\n      } else {\r\n        getParent(button.parentNode);\r\n      }\r\n    }\r\n\r\n    getParent(event.target);\r\n    if (parent.classList.contains('content-navigation__button_decorative')) return;\r\n    ContentNavigation.controlCurrentPageClass(this.currentButton);\r\n\r\n    let targetButtonData = {\r\n      index: this.buttons.indexOf(parent),\r\n      targetNumber: Number(event.target.textContent),\r\n    };\r\n\r\n    if (parent.classList.contains('content-navigation__button_purpose_previous')) {\r\n      targetButtonData = this.prepareDataAfterPrevious();\r\n      parent = this.buttons[targetButtonData.index];\r\n    } else if (parent.classList.contains('content-navigation__button_purpose_next')) {\r\n      targetButtonData = this.prepareDataAfterNext();\r\n      parent = this.buttons[targetButtonData.index];\r\n    }\r\n\r\n    this.controlButtonsNumbers(targetButtonData.index, targetButtonData.targetNumber, parent);\r\n    this.controlNavigationDisplay();\r\n    this.editsCounterValues();\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.buttons.forEach((button) => {\r\n      button.addEventListener('click', this.handleButtonClick);\r\n    });\r\n  };\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/content-navigation/ContentNavigation.js?");
-
-/***/ }),
-
-/***/ "./blocks/content-navigation/contentNavigationInit.js":
-/*!************************************************************!*\
-  !*** ./blocks/content-navigation/contentNavigationInit.js ***!
-  \************************************************************/
-/*! exports provided: initAllContentNavigations */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllContentNavigations\", function() { return initAllContentNavigations; });\n/* harmony import */ var _ContentNavigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContentNavigation */ \"./blocks/content-navigation/ContentNavigation.js\");\n\r\n\r\nfunction initAllContentNavigations() {\r\n  [...document.querySelectorAll('.js-content-navigation')].forEach((item) => {\r\n    new _ContentNavigation__WEBPACK_IMPORTED_MODULE_0__[\"ContentNavigation\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/content-navigation/contentNavigationInit.js?");
-
-/***/ }),
-
-/***/ "./blocks/input/inputMask.js":
-/*!***********************************!*\
-  !*** ./blocks/input/inputMask.js ***!
-  \***********************************/
-/*! exports provided: initAllInputsMasks */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllInputsMasks\", function() { return initAllInputsMasks; });\nfunction initAllInputsMasks() {\r\n  Inputmask({\r\n    mask: '99.99.9999',\r\n    placeholder: 'ДД.ММ.ГГГГ',\r\n  }).mask(document.querySelectorAll('.input__field_type_date'));\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/input/inputMask.js?");
-
-/***/ }),
-
-/***/ "./blocks/list/List.js":
-/*!*****************************!*\
-  !*** ./blocks/list/List.js ***!
-  \*****************************/
-/*! exports provided: ListDropdown */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ListDropdown\", function() { return ListDropdown; });\nclass ListDropdown {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.list = this.container.querySelector('.js-list__container');\r\n    this.title = this.container.querySelector('.js-title');\r\n  }\r\n\r\n  handleTitleClick() {\r\n    if (this.list.hasAttribute('hidden')) {\r\n      this.list.removeAttribute('hidden');\r\n      this.title.classList.remove('title_closed');\r\n      this.title.classList.add('title_expanded');\r\n    } else {\r\n      this.list.setAttribute('hidden', 'hidden');\r\n      this.title.classList.remove('title_expanded');\r\n      this.title.classList.add('title_closed');\r\n    }\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.title.addEventListener('click', this.handleTitleClick);\r\n  }\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/list/List.js?");
-
-/***/ }),
-
-/***/ "./blocks/list/listInit.js":
-/*!*********************************!*\
-  !*** ./blocks/list/listInit.js ***!
-  \*********************************/
-/*! exports provided: initAllLists */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllLists\", function() { return initAllLists; });\n/* harmony import */ var _List__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./List */ \"./blocks/list/List.js\");\n\r\n\r\nfunction initAllLists() {\r\n  [...document.querySelectorAll('.js-list')].forEach((item) => {\r\n    new _List__WEBPACK_IMPORTED_MODULE_0__[\"ListDropdown\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/list/listInit.js?");
-
-/***/ }),
-
-/***/ "./blocks/slider/sliderInit.js":
-/*!*************************************!*\
-  !*** ./blocks/slider/sliderInit.js ***!
-  \*************************************/
-/*! exports provided: initAllSliders */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllSliders\", function() { return initAllSliders; });\nfunction initAllSliders() {\r\n  function addPadding(outputStr) {\r\n    let value = outputStr;\r\n\r\n    if (value.length > 3) {\r\n      value = `${value.slice(0, value.length - 3)} ${value.slice(value.length - 3)}`;\r\n    }\r\n\r\n    return value;\r\n  }\r\n\r\n  const $sliderBody = $('.js-slider__body');\r\n  const $sliderOutput = $('.js-slider__output');\r\n\r\n  $sliderBody.slider({\r\n    range: true,\r\n    min: 0,\r\n    max: 15000,\r\n    values: [5000, 10000],\r\n    slide(event, ui) {\r\n      $sliderOutput.val(`${addPadding(String(ui.values[0]))}₽ - ${addPadding(String(ui.values[1]))}₽`);\r\n    },\r\n  });\r\n\r\n  const from = String($sliderBody.slider('values', 0));\r\n  const to = String($sliderBody.slider('values', 1));\r\n\r\n  $sliderOutput.val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);\r\n}\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./blocks/slider/sliderInit.js?");
-
-/***/ }),
-
-/***/ "./blocks/stars-rating/StarsRating.js":
-/*!********************************************!*\
-  !*** ./blocks/stars-rating/StarsRating.js ***!
-  \********************************************/
-/*! exports provided: StarsRating */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"StarsRating\", function() { return StarsRating; });\nclass StarsRating {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.stars = [...this.container.querySelectorAll('.stars-rating__star')];\r\n  }\r\n\r\n  cleanActiveClass() {\r\n    this.stars.forEach((star) => star.classList.remove('stars-rating__star_color_purple'));\r\n  }\r\n\r\n  addActiveClass(star) {\r\n    const index = this.stars.indexOf(star);\r\n\r\n    for (let i = 0; i <= index; i += 1) {\r\n      this.stars[i].classList.add('stars-rating__star_color_purple');\r\n    }\r\n  }\r\n\r\n  handleStarClick(event) {\r\n    this.cleanActiveClass();\r\n    this.addActiveClass(event.target);\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.stars.forEach((star) => star.addEventListener('click', this.handleStarClick));\r\n  }\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/stars-rating/StarsRating.js?");
-
-/***/ }),
-
-/***/ "./blocks/stars-rating/starsRatingInit.js":
-/*!************************************************!*\
-  !*** ./blocks/stars-rating/starsRatingInit.js ***!
-  \************************************************/
-/*! exports provided: initAllStarRatings */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllStarRatings\", function() { return initAllStarRatings; });\n/* harmony import */ var _StarsRating__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StarsRating */ \"./blocks/stars-rating/StarsRating.js\");\n\r\n\r\nfunction initAllStarRatings() {\r\n  [...document.querySelectorAll('.js-stars-rating')].forEach((item) => {\r\n    new _StarsRating__WEBPACK_IMPORTED_MODULE_0__[\"StarsRating\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/stars-rating/starsRatingInit.js?");
-
-/***/ }),
-
-/***/ "./img/house.svg":
-/*!***********************!*\
-  !*** ./img/house.svg ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/house.svg\");\n\n//# sourceURL=webpack:///./img/house.svg?");
-
-/***/ }),
-
-/***/ "./img/logo.svg":
-/*!**********************!*\
-  !*** ./img/logo.svg ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/logo.svg\");\n\n//# sourceURL=webpack:///./img/logo.svg?");
-
-/***/ }),
 
 /***/ "./img/user.jpg":
 /*!**********************!*\
@@ -295,7 +175,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _form_elements_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form-elements.scss */ \"./pages/form-elements/form-elements.scss\");\n/* harmony import */ var _form_elements_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_form_elements_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_datepicker_datepickerInit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../blocks/datepicker/datepickerInit */ \"./blocks/datepicker/datepickerInit.js\");\n/* harmony import */ var _blocks_dropdown_dropdownInit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../blocks/dropdown/dropdownInit */ \"./blocks/dropdown/dropdownInit.js\");\n/* harmony import */ var _blocks_list_listInit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../blocks/list/listInit */ \"./blocks/list/listInit.js\");\n/* harmony import */ var _blocks_content_navigation_contentNavigationInit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../blocks/content-navigation/contentNavigationInit */ \"./blocks/content-navigation/contentNavigationInit.js\");\n/* harmony import */ var _blocks_stars_rating_starsRatingInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../blocks/stars-rating/starsRatingInit */ \"./blocks/stars-rating/starsRatingInit.js\");\n/* harmony import */ var _blocks_slider_sliderInit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../blocks/slider/sliderInit */ \"./blocks/slider/sliderInit.js\");\n/* harmony import */ var _blocks_input_inputMask__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../blocks/input/inputMask */ \"./blocks/input/inputMask.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n__webpack_require__(/*! webpack-jquery-ui */ \"../node_modules/webpack-jquery-ui/index.js\");\r\n__webpack_require__(/*! webpack-jquery-ui/css */ \"../node_modules/webpack-jquery-ui/css.js\");\r\n__webpack_require__(/*! inputmask */ \"../node_modules/inputmask/dist/inputmask.js\");\r\n__webpack_require__(/*! ../../img/logo.svg */ \"./img/logo.svg\");\r\n__webpack_require__(/*! ../../img/house.svg */ \"./img/house.svg\");\r\n__webpack_require__(/*! ../../img/user.jpg */ \"./img/user.jpg\");\r\n\r\nObject(_blocks_list_listInit__WEBPACK_IMPORTED_MODULE_3__[\"initAllLists\"])();\r\nObject(_blocks_content_navigation_contentNavigationInit__WEBPACK_IMPORTED_MODULE_4__[\"initAllContentNavigations\"])();\r\nObject(_blocks_stars_rating_starsRatingInit__WEBPACK_IMPORTED_MODULE_5__[\"initAllStarRatings\"])();\r\nObject(_blocks_dropdown_dropdownInit__WEBPACK_IMPORTED_MODULE_2__[\"initAllDropdowns\"])();\r\nObject(_blocks_datepicker_datepickerInit__WEBPACK_IMPORTED_MODULE_1__[\"initAllDatepickers\"])();\r\nObject(_blocks_slider_sliderInit__WEBPACK_IMPORTED_MODULE_6__[\"initAllSliders\"])();\r\nObject(_blocks_input_inputMask__WEBPACK_IMPORTED_MODULE_7__[\"initAllInputsMasks\"])();\r\n\n\n//# sourceURL=webpack:///./pages/form-elements/form-elements.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tools_importContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../tools/importContext */ \"./tools/importContext.js\");\n/* harmony import */ var _form_elements_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form-elements.scss */ \"./pages/form-elements/form-elements.scss\");\n/* harmony import */ var _form_elements_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_form_elements_scss__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nObject(_tools_importContext__WEBPACK_IMPORTED_MODULE_0__[\"importContext\"])();\r\n\r\n__webpack_require__(/*! ../../img/user.jpg */ \"./img/user.jpg\");\n\n//# sourceURL=webpack:///./pages/form-elements/form-elements.js?");
 
 /***/ }),
 

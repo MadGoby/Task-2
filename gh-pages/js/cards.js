@@ -148,72 +148,12 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./pages/cards/cards.js","vendors~cards~form-elements~registration","cards~form-elements~landing-page~room-details~search-room"]);
+/******/ 	deferredModules.push(["./pages/cards/cards.js","vendors~cards~content-types~form-elements~headers-footers~landing-page~registration~room-details~sea~ccac4104","cards~content-types~form-elements~headers-footers~landing-page~registration~room-details~search-room~sign-in"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./blocks/input/inputMask.js":
-/*!***********************************!*\
-  !*** ./blocks/input/inputMask.js ***!
-  \***********************************/
-/*! exports provided: initAllInputsMasks */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllInputsMasks\", function() { return initAllInputsMasks; });\nfunction initAllInputsMasks() {\r\n  Inputmask({\r\n    mask: '99.99.9999',\r\n    placeholder: 'ДД.ММ.ГГГГ',\r\n  }).mask(document.querySelectorAll('.input__field_type_date'));\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/input/inputMask.js?");
-
-/***/ }),
-
-/***/ "./blocks/room-card/RoomCard.js":
-/*!**************************************!*\
-  !*** ./blocks/room-card/RoomCard.js ***!
-  \**************************************/
-/*! exports provided: RoomCardSlider */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RoomCardSlider\", function() { return RoomCardSlider; });\nclass RoomCardSlider {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.images = [...this.container.querySelectorAll('.room-card__image')];\r\n    this.previousButton = this.container.querySelector('.room-card__image-button_side_left');\r\n    this.nextButton = this.container.querySelector('.room-card__image-button_side_rigth');\r\n    this.imagePositions = [...this.container.querySelectorAll('.room-card__image-position')];\r\n    [this.currentImage] = this.images;\r\n    [this.currentImagePosition] = this.imagePositions;\r\n    this.currentImage.style.left = '0px';\r\n  }\r\n\r\n  animateSlide(settings) {\r\n    const { leftImage, rightImage, duration } = settings;\r\n    let { index } = settings;\r\n\r\n    if (index < 0) index = 3;\r\n    if (index > 3) index = 0;\r\n\r\n    this.images[index].animate(leftImage, {\r\n      duration,\r\n      easing: 'ease-in-out',\r\n    });\r\n\r\n    this.currentImage.animate(rightImage, {\r\n      duration,\r\n      easing: 'ease-in-out',\r\n    });\r\n\r\n    this.currentImage.style.left = '0px';\r\n    this.images[index].style.left = `${this.container.offsetWidth + 5}px`;\r\n  }\r\n\r\n  controlAnimateDirection(target, duration) {\r\n    let animationDuration = 500;\r\n    const isDurationSetCorrectly = duration && typeof duration === 'number';\r\n\r\n    if (isDurationSetCorrectly) animationDuration = duration;\r\n\r\n    if (target === 'previous') {\r\n      this.animateSlide({\r\n        leftImage: [{ left: '0px' }, { left: `${this.container.offsetWidth}px` }],\r\n        rightImage: [{ left: `${0 - this.container.offsetWidth}px` }, { left: '0px' }],\r\n        duration: animationDuration,\r\n        index: this.images.indexOf(this.currentImage, 0) + 1,\r\n      });\r\n    } else {\r\n      this.animateSlide({\r\n        leftImage: [{ left: '0px' }, { left: `${0 - this.container.offsetWidth}px` }],\r\n        rightImage: [{ left: `${this.container.offsetWidth}px` }, { left: '0px' }],\r\n        duration: animationDuration,\r\n        index: this.images.indexOf(this.currentImage, 0) - 1,\r\n      });\r\n    }\r\n  }\r\n\r\n  changeImage(button) {\r\n    let index = this.images.indexOf(this.currentImage, 0);\r\n    if (button.classList.contains('room-card__image-button_side_left')) {\r\n      index -= 1;\r\n    } else {\r\n      index += 1;\r\n    }\r\n\r\n    if (index < 0) {\r\n      index = 3;\r\n    } else if (index > 3) {\r\n      index = 0;\r\n    }\r\n\r\n    this.currentImage = this.images[index];\r\n\r\n    this.currentImagePosition.classList.toggle('room-card__image-position_selected');\r\n    this.currentImagePosition = this.imagePositions[index];\r\n    this.currentImagePosition.classList.toggle('room-card__image-position_selected');\r\n  }\r\n\r\n  handleImageButtonClick(event) {\r\n    const button = event.target;\r\n\r\n    this.changeImage(button);\r\n\r\n    if (button.classList.contains('room-card__image-button_side_left')) {\r\n      this.controlAnimateDirection('previous');\r\n    } else {\r\n      this.controlAnimateDirection('next');\r\n    }\r\n  }\r\n\r\n  controlMultipleAnimations(first, action, posIndex) {\r\n    let iteration = () => {\r\n      let i;\r\n\r\n      if (action === 'next') {\r\n        i = this.images.indexOf(this.currentImage) + 1;\r\n      } else {\r\n        i = this.images.indexOf(this.currentImage) - 1;\r\n      }\r\n\r\n      this.currentImage = this.images[i];\r\n      this.currentImagePosition.classList.toggle('room-card__image-position_selected');\r\n      this.currentImagePosition = this.imagePositions[i];\r\n      this.currentImagePosition.classList.toggle('room-card__image-position_selected');\r\n\r\n      this.controlAnimateDirection(action, 300);\r\n\r\n      if (this.currentImage !== this.images[posIndex]) {\r\n        this.controlMultipleAnimations(false, action, posIndex);\r\n      }\r\n    };\r\n\r\n    iteration = iteration.bind(this);\r\n\r\n    if (first) {\r\n      iteration();\r\n    } else {\r\n      setTimeout(() => iteration(), 300);\r\n    }\r\n  }\r\n\r\n  handleImagePositionClick(event) {\r\n    const posIndex = this.imagePositions.indexOf(event.target);\r\n    let action;\r\n\r\n    if (posIndex > this.images.indexOf(this.currentImage)) {\r\n      action = 'next';\r\n    } else if (posIndex < this.images.indexOf(this.currentImage)) {\r\n      action = 'previous';\r\n    }\r\n\r\n    if (action) this.controlMultipleAnimations(true, action, posIndex);\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.previousButton.addEventListener('click', this.handleImageButtonClick);\r\n    this.nextButton.addEventListener('click', this.handleImageButtonClick);\r\n    this.imagePositions.forEach((elem) => {\r\n      elem.addEventListener('click', this.handleImagePositionClick);\r\n    });\r\n  }\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/room-card/RoomCard.js?");
-
-/***/ }),
-
-/***/ "./blocks/room-card/roomCardInit.js":
-/*!******************************************!*\
-  !*** ./blocks/room-card/roomCardInit.js ***!
-  \******************************************/
-/*! exports provided: initAllRoomCards */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllRoomCards\", function() { return initAllRoomCards; });\n/* harmony import */ var _RoomCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RoomCard */ \"./blocks/room-card/RoomCard.js\");\n\r\n\r\nfunction initAllRoomCards() {\r\n  [...document.querySelectorAll('.js-room-card')].forEach((item) => {\r\n    new _RoomCard__WEBPACK_IMPORTED_MODULE_0__[\"RoomCardSlider\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/room-card/roomCardInit.js?");
-
-/***/ }),
-
-/***/ "./blocks/stars-rating/StarsRating.js":
-/*!********************************************!*\
-  !*** ./blocks/stars-rating/StarsRating.js ***!
-  \********************************************/
-/*! exports provided: StarsRating */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"StarsRating\", function() { return StarsRating; });\nclass StarsRating {\r\n  constructor(target) {\r\n    this.container = target;\r\n\r\n    autoBind(this);\r\n    this.getHtmlElements();\r\n    this.bindEventListeners();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.stars = [...this.container.querySelectorAll('.stars-rating__star')];\r\n  }\r\n\r\n  cleanActiveClass() {\r\n    this.stars.forEach((star) => star.classList.remove('stars-rating__star_color_purple'));\r\n  }\r\n\r\n  addActiveClass(star) {\r\n    const index = this.stars.indexOf(star);\r\n\r\n    for (let i = 0; i <= index; i += 1) {\r\n      this.stars[i].classList.add('stars-rating__star_color_purple');\r\n    }\r\n  }\r\n\r\n  handleStarClick(event) {\r\n    this.cleanActiveClass();\r\n    this.addActiveClass(event.target);\r\n  }\r\n\r\n  bindEventListeners() {\r\n    this.stars.forEach((star) => star.addEventListener('click', this.handleStarClick));\r\n  }\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/stars-rating/StarsRating.js?");
-
-/***/ }),
-
-/***/ "./blocks/stars-rating/starsRatingInit.js":
-/*!************************************************!*\
-  !*** ./blocks/stars-rating/starsRatingInit.js ***!
-  \************************************************/
-/*! exports provided: initAllStarRatings */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initAllStarRatings\", function() { return initAllStarRatings; });\n/* harmony import */ var _StarsRating__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StarsRating */ \"./blocks/stars-rating/StarsRating.js\");\n\r\n\r\nfunction initAllStarRatings() {\r\n  [...document.querySelectorAll('.js-stars-rating')].forEach((item) => {\r\n    new _StarsRating__WEBPACK_IMPORTED_MODULE_0__[\"StarsRating\"](item);\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./blocks/stars-rating/starsRatingInit.js?");
-
-/***/ }),
 
 /***/ "./img/840.jpg":
 /*!*********************!*\
@@ -271,7 +211,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _cards_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cards.scss */ \"./pages/cards/cards.scss\");\n/* harmony import */ var _cards_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cards_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _blocks_room_card_roomCardInit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../blocks/room-card/roomCardInit */ \"./blocks/room-card/roomCardInit.js\");\n/* harmony import */ var _blocks_datepicker_datepickerInit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../blocks/datepicker/datepickerInit */ \"./blocks/datepicker/datepickerInit.js\");\n/* harmony import */ var _blocks_dropdown_dropdownInit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../blocks/dropdown/dropdownInit */ \"./blocks/dropdown/dropdownInit.js\");\n/* harmony import */ var _blocks_stars_rating_starsRatingInit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../blocks/stars-rating/starsRatingInit */ \"./blocks/stars-rating/starsRatingInit.js\");\n/* harmony import */ var _blocks_input_inputMask__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../blocks/input/inputMask */ \"./blocks/input/inputMask.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n__webpack_require__(/*! inputmask */ \"../node_modules/inputmask/dist/inputmask.js\");\r\n__webpack_require__(/*! ../../img/logo.svg */ \"./img/logo.svg\");\r\n__webpack_require__(/*! ../../img/888.jpg */ \"./img/888.jpg\");\r\n__webpack_require__(/*! ../../img/840.jpg */ \"./img/840.jpg\");\r\n__webpack_require__(/*! ../../img/room-slider.jpg */ \"./img/room-slider.jpg\");\r\n\r\nObject(_blocks_room_card_roomCardInit__WEBPACK_IMPORTED_MODULE_1__[\"initAllRoomCards\"])();\r\nObject(_blocks_datepicker_datepickerInit__WEBPACK_IMPORTED_MODULE_2__[\"initAllDatepickers\"])();\r\nObject(_blocks_dropdown_dropdownInit__WEBPACK_IMPORTED_MODULE_3__[\"initAllDropdowns\"])();\r\nObject(_blocks_stars_rating_starsRatingInit__WEBPACK_IMPORTED_MODULE_4__[\"initAllStarRatings\"])();\r\nObject(_blocks_input_inputMask__WEBPACK_IMPORTED_MODULE_5__[\"initAllInputsMasks\"])();\n\n//# sourceURL=webpack:///./pages/cards/cards.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tools_importContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../tools/importContext */ \"./tools/importContext.js\");\n/* harmony import */ var _cards_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cards.scss */ \"./pages/cards/cards.scss\");\n/* harmony import */ var _cards_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cards_scss__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nObject(_tools_importContext__WEBPACK_IMPORTED_MODULE_0__[\"importContext\"])();\r\n\r\n__webpack_require__(/*! ../../img/logo.svg */ \"./img/logo.svg\");\r\n__webpack_require__(/*! ../../img/888.jpg */ \"./img/888.jpg\");\r\n__webpack_require__(/*! ../../img/840.jpg */ \"./img/840.jpg\");\r\n__webpack_require__(/*! ../../img/room-slider.jpg */ \"./img/room-slider.jpg\");\n\n//# sourceURL=webpack:///./pages/cards/cards.js?");
 
 /***/ }),
 
