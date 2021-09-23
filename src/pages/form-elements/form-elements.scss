@@ -1,34 +1,3 @@
-@import '../../overall/variables.scss';
-@import '../../fonts/fonts.scss';
-@import '../../blocks/logo/logo.scss';
-@import '../../blocks/input/input.scss';
-@import '../../blocks/toggle/toggle.scss';
-@import '../../blocks/slider/slider.scss';
-@import '../../blocks/button/button.scss';
-@import '../../blocks/dropdown/dropdown.scss';
-@import '../../blocks/datepicker/datepicker.scss';
-@import '../../blocks/list/list.scss';
-@import '../../blocks/positive-feature/positive-feature.scss';
-@import '../../blocks/user-comment/user-comment.scss';
-@import '../../blocks/title/title.scss';
-@import '../../blocks/content-navigation/content-navigation.scss';
-@import '../../blocks/stars-rating/stars-rating.scss';
-@import '../../blocks/social-media-link/social-media-link.scss';
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-.body {
-  margin: 0;
-}
-
 .form-elements {
   width: 1440px;
   padding: 140px 0 130px 140px;

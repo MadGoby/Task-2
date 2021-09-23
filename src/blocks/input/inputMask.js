@@ -1,3 +1,5 @@
+require('inputmask');
+
 function initAllInputsMasks() {
   Inputmask({
     mask: '99.99.9999',
@@ -5,4 +7,4 @@ function initAllInputsMasks() {
   }).mask(document.querySelectorAll('.input__field_type_date'));
 }
 
-export { initAllInputsMasks };
+document.addEventListener("DOMContentLoaded", initAllInputsMasks);

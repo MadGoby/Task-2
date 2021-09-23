@@ -1,41 +1,5 @@
-@import '../../overall/variables.scss';
-@import '../../fonts/fonts.scss';
-@import '../../blocks/header/header.scss';
-@import '../../blocks/logo/logo.scss';
-@import '../../blocks/navigation/navigation.scss';
-@import '../../blocks/button/button.scss';
-@import '../../blocks/footer/footer.scss';
-@import '../../blocks/social-media-link/social-media-link.scss';
-@import '../../blocks/copyright/copyright.scss';
-@import '../../blocks/input/input.scss';
-@import '../../blocks/final-booking/final-booking.scss';
-@import '../../blocks/room-information/room-information.scss';
-@import '../../blocks/positive-feature/positive-feature.scss';
-@import '../../blocks/impressions-diagram/impressions-diagram.scss';
-@import '../../blocks/user-comment/user-comment.scss';
-@import '../../blocks/toggle/toggle.scss';
-@import '../../blocks/list/list.scss';
-@import '../../blocks/title/title.scss';
-@import '../../blocks/datepicker/datepicker.scss';
-@import '../../blocks/dropdown/dropdown.scss';
-@import '../../overall/mixins.scss';
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-html,
-body {
-  margin: 0;
-  height: 100%;
-  min-width: 320px;
-}
+@import '../../common/mixins.scss';
+@import '../../common/variables.scss';
 
 .room-details {
   margin: 0;

@@ -1,7 +1,7 @@
-import { initAllDatepickers } from '../../blocks/datepicker/datepickerInit';
-import { initAllDropdowns } from '../../blocks/dropdown/dropdownInit';
-import { initAllHeaders } from '../../blocks/header/headerInit';
+import { importContext } from '../../tools/importContext';
 import './room-details.scss';
+
+importContext();
 
 require('../../img/room-photo-big.jpg');
 require('../../img/room-photo-small1.jpg');
@@ -15,7 +15,3 @@ require('../../img/logo-color.svg');
 require('../../img/instagram.svg');
 require('../../img/facebook.svg');
 require('../../img/twitter.svg');
-
-initAllDatepickers();
-initAllDropdowns();
-initAllHeaders();

@@ -1,7 +1,7 @@
+import { importContext } from '../../tools/importContext';
 import './sign-in.scss';
-import { initAllHeaders } from '../../blocks/header/headerInit';
 
-initAllHeaders();
+importContext();
 
 require('../../img/room-background.jpg');
 require('../../img/logo-color.svg');

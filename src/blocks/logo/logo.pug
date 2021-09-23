@@ -1,5 +1,5 @@
 mixin logo(settings)
-  - const { src = false } = settings
+  - const { src = "./for-change" } = settings
   - let { position = false } = settings
   - if(position) position = `logo_position_${position}`
   img(class=["logo", position] alt="logo" src=src)

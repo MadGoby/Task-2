@@ -1,4 +1,7 @@
-function initAllSliders() {
+require('webpack-jquery-ui');
+require('webpack-jquery-ui/css');
+
+function initialize() {
   function addPadding(outputStr) {
     let value = outputStr;
 
@@ -28,4 +31,4 @@ function initAllSliders() {
   $sliderOutput.val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);
 }
 
-export { initAllSliders };
+document.addEventListener("DOMContentLoaded", initialize);

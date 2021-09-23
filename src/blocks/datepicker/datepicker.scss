@@ -1,5 +1,6 @@
 @import '../button/button.scss';
-@import '../../overall/mixins.scss';
+@import '../../common/mixins.scss';
+@import '../../common/variables';
 
 .datepicker {
   width: 320px;

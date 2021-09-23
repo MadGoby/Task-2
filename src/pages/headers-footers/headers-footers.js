@@ -1,4 +1,7 @@
+import { importContext } from '../../tools/importContext';
 import './headers-footers.scss';
+
+importContext();
 
 require('../../img/logo.svg');
 require('../../img/logo-color.svg');

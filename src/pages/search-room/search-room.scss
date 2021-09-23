@@ -1,44 +1,6 @@
-@import '../../overall/variables.scss';
-@import '../../fonts/fonts.scss';
-@import '../../blocks/header/header.scss';
-@import '../../blocks/logo/logo.scss';
-@import '../../blocks/navigation/navigation.scss';
-@import '../../blocks/button/button.scss';
-@import '../../blocks/footer/footer.scss';
-@import '../../blocks/social-media-link/social-media-link.scss';
-@import '../../blocks/copyright/copyright.scss';
-@import '../../blocks/input/input.scss';
-@import '../../blocks/slider/slider.scss';
-@import '../../blocks/toggle/toggle.scss';
-@import '../../blocks/list/list.scss';
-@import '../../blocks/dropdown/dropdown.scss';
-@import '../../blocks/room-card/room-card.scss';
-@import '../../blocks/room-information/room-information.scss';
-@import '../../blocks/reviews-counter/reviews-counter.scss';
-@import '../../blocks/title/title.scss';
-@import '../../blocks/content-navigation/content-navigation.scss';
-@import '../../blocks/datepicker/datepicker.scss';
-@import '../../blocks/stars-rating/stars-rating.scss';
-@import '../../blocks/sidebar/sidebar.scss';
+@import "../../common/variables.scss";
 
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-html,
-body {
-  margin: 0;
-  height: 100%;
-  min-width: 320px;
-}
-
-.search-room {
+.search-room-page {
   margin: 0;
   background: #f4f4f6;
   min-width: 320px;

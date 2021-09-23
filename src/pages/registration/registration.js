@@ -1,13 +1,10 @@
+import { importContext } from '../../tools/importContext';
 import './registration.scss';
-import { initAllHeaders } from '../../blocks/header/headerInit';
-import { initAllInputsMasks } from '../../blocks/input/inputMask';
 
-require('inputmask');
+importContext();
+
 require('../../img/room-background.jpg');
 require('../../img/logo-color.svg');
 require('../../img/instagram.svg');
 require('../../img/facebook.svg');
 require('../../img/twitter.svg');
-
-initAllHeaders();
-initAllInputsMasks();

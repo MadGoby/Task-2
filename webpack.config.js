@@ -39,22 +39,22 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: './pages/content-types/content-types.pug',
       filename: 'content-types.html',
-      excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details', 'form-elements', 'headers-footers', 'cards'], 
+      excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details', 'form-elements', 'headers-footers', 'cards'],
     }),
     new HTMLWebpackPlugin({
       template: './pages/form-elements/form-elements.pug',
       filename: 'form-elements.html',
-      excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details', 'content-types', 'headers-footers', 'cards'], 
+      excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details', 'content-types', 'headers-footers', 'cards'],
     }),
     new HTMLWebpackPlugin({
       template: './pages/cards/cards.pug',
       filename: 'cards.html',
-      excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details', 'content-types', 'headers-footers', "form-elements"], 
+      excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details', 'content-types', 'headers-footers', "form-elements"],
     }),
     new HTMLWebpackPlugin({
       template: './pages/headers-footers/headers-footers.pug',
       filename: 'headers-footers.html',
-      excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details', 'content-types', 'form-elements', 'cards'], 
+      excludeChunks: ['landing-page', 'search-room', 'registration', 'sign-in', 'room-details', 'content-types', 'form-elements', 'cards'],
     }),
     new HTMLWebpackPlugin({
       template: './pages/landing-page/landing-page.pug',
@@ -64,7 +64,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: './pages/search-room/search-room.pug',
       filename: 'search-room.html',
-      excludeChunks: ['content-types', 'landing-page', 'registration', 'sign-in', 'room-details', 'form-elements', 'headers-footers', 'cards'], 
+      excludeChunks: ['content-types', 'landing-page', 'registration', 'sign-in', 'room-details', 'form-elements', 'headers-footers', 'cards'],
     }),
     new HTMLWebpackPlugin({
       template: './pages/room-details/room-details.pug',

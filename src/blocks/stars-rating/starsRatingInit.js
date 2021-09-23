@@ -1,9 +1,9 @@
 import { StarsRating } from './StarsRating';
 
-function initAllStarRatings() {
+function initialize() {
   [...document.querySelectorAll('.js-stars-rating')].forEach((item) => {
     new StarsRating(item);
   });
 }
 
-export { initAllStarRatings };
+document.addEventListener("DOMContentLoaded", initialize);

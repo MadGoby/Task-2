@@ -21,5 +21,5 @@ module.exports = {
   "globals": {
       "Inputmask": "readonly",
       "autoBind": "readonly"
-  }
+  },
 }

@@ -1,6 +1,6 @@
 import { Dropdown } from './Dropdown';
 
-function initAllDropdowns() {
+function initialize() {
   [...document.querySelectorAll('.js-dropdown')].forEach((container) => {
     const templates = {
       rooms: [
@@ -21,4 +21,4 @@ function initAllDropdowns() {
   });
 }
 
-export { initAllDropdowns };
+document.addEventListener("DOMContentLoaded", initialize);

@@ -1,9 +1,9 @@
 import { ContentNavigation } from './ContentNavigation';
 
-function initAllContentNavigations() {
+function initialize() {
   [...document.querySelectorAll('.js-content-navigation')].forEach((item) => {
     new ContentNavigation(item);
   });
 }
 
-export { initAllContentNavigations };
+document.addEventListener("DOMContentLoaded", initialize);

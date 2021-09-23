@@ -1,9 +1,9 @@
 import { ListDropdown } from './List';
 
-function initAllLists() {
+function initialize() {
   [...document.querySelectorAll('.js-list')].forEach((item) => {
     new ListDropdown(item);
   });
 }
 
-export { initAllLists };
+document.addEventListener("DOMContentLoaded", initialize);

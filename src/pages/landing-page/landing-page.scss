@@ -1,35 +1,5 @@
-@import '../../overall/variables.scss';
-@import '../../overall/mixins.scss';
-@import '../../fonts/fonts.scss';
-@import '../../blocks/header/header.scss';
-@import '../../blocks/logo/logo.scss';
-@import '../../blocks/navigation/navigation.scss';
-@import '../../blocks/button/button.scss';
-@import '../../blocks/footer/footer.scss';
-@import '../../blocks/social-media-link/social-media-link.scss';
-@import '../../blocks/copyright/copyright.scss';
-@import '../../blocks/input/input.scss';
-@import '../../blocks/search-room/search-room.scss';
-@import '../../blocks/dropdown/dropdown.scss';
-@import '../../blocks/datepicker/datepicker.scss';
-@import '../../blocks/title/title.scss';
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-html,
-body {
-  margin: 0;
-  min-width: 320px;
-  height: 100%;
-}
+@import '../../common/variables.scss';
+@import '../../common/mixins.scss';
 
 .landing-page {
   margin: 0;

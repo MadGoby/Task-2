@@ -1,9 +1,9 @@
 import { Sidebar } from './Sidebar';
 
-function initAllSidebars() {
+function initialize() {
   [...document.querySelectorAll('.js-sidebar')].forEach((item) => {
     new Sidebar(item);
   });
 }
 
-export { initAllSidebars };
+document.addEventListener("DOMContentLoaded", initialize);

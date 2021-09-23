@@ -1,3 +1,6 @@
+@import '../../common/mixins';
+@import '../../common/variables';
+
 .footer {
   @include text_type($mont, 14px, 400, 24px, $dark75);
   width: 100%;
