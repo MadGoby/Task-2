@@ -1,0 +1,17 @@
+mixin page-header(settings)
+  - const { headerClass="for-change"} = settings
+    header(class=headerClass)
+      +header({
+        navigation: {
+          links: [
+            {"text": "О нас"},
+            {"text": "Услуги", "type": "expanded"},
+            {"text": "Вакансии"},
+            {"text": "Новости"},
+            {"text": "Соглашения", "type": "expanded"}
+          ],
+          buttonJsClass: "js-header__navigation-button",
+          navigationJsClass: "js-header__navigation"
+        },
+        mainJsClass: "js-header"
+      })

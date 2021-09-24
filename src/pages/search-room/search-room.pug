@@ -19,25 +19,13 @@ include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/stars-rating/stars-rating.pug
 include ../../blocks/sidebar/sidebar.pug
 include ../../common/page-head.pug
+include ../../common/page-header.pug
+include ../../common/page-footer.pug
 
 +page-head({title: "Search Room", description: "Search page of the hotel room website."})
   body
     .search-room-page
-      header.search-room-page__header
-        +header({
-          navigation: { 
-            links: [
-              {"text": "О нас"},
-              {"text": "Услуги", "type": "expanded"},
-              {"text": "Вакансии"},
-              {"text": "Новости"},
-              {"text": "Соглашения", "type": "expanded"}
-            ],
-            buttonJsClass: "js-header__navigation-button",
-            navigationJsClass: "js-header__navigation"
-          },
-          mainJsClass: "js-header"
-        })
+      +page-header({headerClass: "search-room-page__header"})
       main.search-room-page__main
         .search-room-page__sidebar-wrapper
           +sidebar()
@@ -56,54 +44,4 @@ include ../../common/page-head.pug
               jsClass: "js-content-navigation",
               counter: "1 – 12 из 100+ вариантов аренды"
             })
-      footer.search-room-page__footer
-        +footer({
-          description: {
-            text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-          },
-          lists: [
-            [
-              {"title": "навигация"}, 
-              {"text": "О нас"},
-              {"text": "Новости"},
-              {"text": "Служба поддержки"},
-              {"text": "Услуги"}
-            ],
-            [
-              {"title": "о нас"},
-              {"text": "О сервисе"},
-              {"text": "Наша команда"},
-              {"text": "Вакансии"},
-              {"text": "Инвесторы"}
-            ],
-            [
-              {"title": "Служба поддержки"}, 
-              {"text": "Соглашения"},
-              {"text": "Сообщества"},
-              {"text": "Связь с нами"}
-            ]
-          ],
-          subscribe: {
-            title: "Подписка",
-            text: "Получайте специальные предложения и новости сервиса"
-          },
-          footer: false,
-          copyright: false
-        })
-        +copyright({
-          text: "Copyright © 2018 Toxin отель. Все права защищены.",
-          links: [
-            {
-              "name": "twitter",
-              "iconSrc": "img/twitter.svg"
-            },
-            {
-              "name": "facebook",
-              "iconSrc": "img/facebook.svg"
-            },
-            {
-              "name": "instagram",
-              "iconSrc": "img/instagram.svg"
-            }
-          ]
-        })
+      +page-footer({footerClass: "search-room-page__footer"})

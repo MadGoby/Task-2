@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MadGoby/Task2#readme",
   "devDependencies": {
+    "apply-loader": "^2.0.0",
     "auto-bind": "^4.0.0",
     "auto-import-pkg-loader": "^0.1.1",
     "clean-webpack-plugin": "^3.0.0",

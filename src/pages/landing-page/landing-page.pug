@@ -11,106 +11,42 @@ include ../../blocks/dropdown/dropdown.pug
 include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/title/title.pug
 include ../../common/page-head.pug
+include ../../common/page-header.pug
+include ../../common/page-footer.pug
 
 +page-head({title: "Landing Page", description: "Landing page of the hotel room website."})
   body
-    .landing-page
-      header.landing-page__header
-        +header({
-          navigation: { 
-            links: [
-              {"text": "О нас"},
-              {"text": "Услуги", "type": "expanded"},
-              {"text": "Вакансии"},
-              {"text": "Новости"},
-              {"text": "Соглашения", "type": "expanded"}
-            ],
-            buttonJsClass: "js-header__navigation-button",
-            navigationJsClass: "js-header__navigation"
+    +page-header({headerClass: "landing-page__header"})
+    main.landing-page__main
+      +search-room({
+        title: {text: "Найдём номера под ваши пожелания"},
+        period: {
+          from: {
+            title: "прибытие",
+            value: "ДД.ММ.ГГГГ",
+            jsClass: "js-input__field_from"
           },
-          mainJsClass: "js-header"
-        })
-      main.landing-page__main
-        +search-room({
-          title: {text: "Найдём номера под ваши пожелания"},
-          period: {
-            from: {
-              title: "прибытие",
-              value: "ДД.ММ.ГГГГ",
-              jsClass: "js-input__field_from"
-            },
-            to: {
-              title: "выезд",
-              value: "ДД.ММ.ГГГГ",
-              jsClass: "js-input__field_to"
-            },
-            jsDatepicker: "js-datepicker"
+          to: {
+            title: "выезд",
+            value: "ДД.ММ.ГГГГ",
+            jsClass: "js-input__field_to"
           },
-          guests: {
-            title: { text: "гости" },
-            input: {
-              value: "Сколько гостей",
-              jsClass: "js-input__field"
-            },
-            control: { jsClass: "js-dropdown__control" },
-            lists: [
-              {text: "взрослые", dataTarget: "adult", output: "0"},
-              {text: "дети", dataTarget: "child", output: "0"},
-              {text: "младенцы", dataTarget: "baby", output: "0"}
-            ]
+          jsDatepicker: "js-datepicker"
+        },
+        guests: {
+          title: { text: "гости" },
+          input: {
+            value: "Сколько гостей",
+            jsClass: "js-input__field"
           },
-          confirm: {text: "подобрать номер"}
-        })
-        p(class="landing-page__main-text")="Лучшие номера для вашей работы, отдыха и просто вдохновения"
-      footer.landing-page__footer
-        +footer({
-          description: {
-            text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-          },
+          control: { jsClass: "js-dropdown__control" },
           lists: [
-            [
-              {"title": "навигация"}, 
-              {"text": "О нас"},
-              {"text": "Новости"},
-              {"text": "Служба поддержки"},
-              {"text": "Услуги"}
-            ],
-            [
-              {"title": "о нас"},
-              {"text": "О сервисе"},
-              {"text": "Наша команда"},
-              {"text": "Вакансии"},
-              {"text": "Инвесторы"}
-            ],
-            [
-              {"title": "Служба поддержки"}, 
-              {"text": "Соглашения"},
-              {"text": "Сообщества"},
-              {"text": "Связь с нами"}
-            ]
-          ],
-          subscribe: {
-            title: "Подписка",
-            text: "Получайте специальные предложения и новости сервиса"
-          },
-          footer: false,
-          copyright: false
-        })
-        +copyright({
-          text: "Copyright © 2018 Toxin отель. Все права защищены.",
-          links: [
-            {
-              "name": "twitter",
-              "iconSrc": "img/twitter.svg",
-              "position": "center"
-            },
-            {
-              "name": "facebook",
-              "iconSrc": "img/facebook.svg"
-            },
-            {
-              "name": "instagram",
-              "iconSrc": "img/instagram.svg"
-            }
+            {text: "взрослые", dataTarget: "adult", output: "0"},
+            {text: "дети", dataTarget: "child", output: "0"},
+            {text: "младенцы", dataTarget: "baby", output: "0"}
           ]
-        })
+        },
+        confirm: {text: "подобрать номер"}
+      })
+      p(class="landing-page__main-text")="Лучшие номера для вашей работы, отдыха и просто вдохновения"
+    +page-footer({headerClass: "landing-page__footer"})

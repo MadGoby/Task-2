@@ -1,0 +1,54 @@
+mixin page-footer(settings)
+  - const {footerClass} = settings
+    footer(class=footerClass)
+      +footer({
+        description: {
+          text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+        },
+        lists: [
+          [
+            {"title": "навигация"}, 
+            {"text": "О нас"},
+            {"text": "Новости"},
+            {"text": "Служба поддержки"},
+            {"text": "Услуги"}
+          ],
+          [
+            {"title": "о нас"},
+            {"text": "О сервисе"},
+            {"text": "Наша команда"},
+            {"text": "Вакансии"},
+            {"text": "Инвесторы"}
+          ],
+          [
+            {"title": "Служба поддержки"}, 
+            {"text": "Соглашения"},
+            {"text": "Сообщества"},
+            {"text": "Связь с нами"}
+          ]
+        ],
+        subscribe: {
+          title: "Подписка",
+          text: "Получайте специальные предложения и новости сервиса"
+        },
+        footer: false,
+        copyright: false
+      })
+      +copyright({
+        text: "Copyright © 2018 Toxin отель. Все права защищены.",
+        links: [
+          {
+            "name": "twitter",
+            "iconSrc": "img/twitter.svg",
+            "position": "center"
+          },
+          {
+            "name": "facebook",
+            "iconSrc": "img/facebook.svg"
+          },
+          {
+            "name": "instagram",
+            "iconSrc": "img/instagram.svg"
+          }
+        ]
+      })

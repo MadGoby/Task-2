@@ -10,78 +10,16 @@ include ../../blocks/button/button.pug
 include ../../blocks/toggle/toggle.pug
 include ../../blocks/title/title.pug
 include ../../common/page-head.pug
+include ../../common/page-header.pug
+include ../../common/page-footer.pug
 
 +page-head({title: "Sign In", description: "Sing In page of the hotel room website."})
   body
     .sign-in
-      header.sign-in__header
-        +header({
-          navigation: { 
-            links: [
-              {"text": "О нас"},
-              {"text": "Услуги", "type": "expanded"},
-              {"text": "Вакансии"},
-              {"text": "Новости"},
-              {"text": "Соглашения", "type": "expanded"}
-            ],
-            buttonJsClass: "js-header__navigation-button",
-            navigationJsClass: "js-header__navigation"
-          },
-          mainJsClass: "js-header"
-        })
+      +page-header({headerClass: "sign-in__header"})
       main.sign-in__main
         +login({
           title: "Войти",
           confirm: "войти"
         })
-      footer.sign-in__footer
-        +footer({
-          description: {
-            text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-          },
-          lists: [
-            [
-              {"title": "навигация"}, 
-              {"text": "О нас"},
-              {"text": "Новости"},
-              {"text": "Служба поддержки"},
-              {"text": "Услуги"}
-            ],
-            [
-              {"title": "о нас"},
-              {"text": "О сервисе"},
-              {"text": "Наша команда"},
-              {"text": "Вакансии"},
-              {"text": "Инвесторы"}
-            ],
-            [
-              {"title": "Служба поддержки"}, 
-              {"text": "Соглашения"},
-              {"text": "Сообщества"},
-              {"text": "Связь с нами"}
-            ]
-          ],
-          subscribe: {
-            title: "Подписка",
-            text: "Получайте специальные предложения и новости сервиса"
-          },
-          footer: false,
-          copyright: false
-        })
-        +copyright({
-          text: "Copyright © 2018 Toxin отель. Все права защищены.",
-          links: [
-            {
-              "name": "twitter",
-              "iconSrc": "img/twitter.svg"
-            },
-            {
-              "name": "facebook",
-              "iconSrc": "img/facebook.svg"
-            },
-            {
-              "name": "instagram",
-              "iconSrc": "img/instagram.svg"
-            }
-          ]
-        })
+      +page-footer({footerClass: "sign-in__footer"})
