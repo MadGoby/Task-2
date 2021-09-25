@@ -13,13 +13,17 @@
     background-color: #ffffff;
     padding: 30px 126px 72px 140px;
     min-height: 930px;
-    flex: 1 0 auto; }
+    flex: 1 0 auto;
+    text-align: center; }
     @media screen and (max-width: 900px) {
       .search-room-page__main {
         padding: 40px 40px; } }
     @media screen and (max-width: 350px) {
       .search-room-page__main {
         padding: 40px 20px; } }
+  .search-room-page__content {
+    display: inline-block;
+    text-align: initial; }
   .search-room-page__rooms {
     text-align: initial;
     vertical-align: top;
