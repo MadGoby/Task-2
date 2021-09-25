@@ -27,9 +27,9 @@ mixin toggle(settings)
       input(class=["toggle__controller", type])&attributes(attr)
       span(class=["toggle__mimic", mimicType])
         if mimicType === "toggle__mimic_type_like"
-          p(class=["toggle__text", length])= text
+          span(class=["toggle__text", length])= text
       if mimicType !== "toggle__mimic_type_like"
-        .toggle__text-wrapper
+        span.toggle__text-wrapper
           if richText
-            p(class="toggle__text-title")= richText
-          p(class=["toggle__text", length])= text
+            span(class="toggle__text-title")= richText
+          span(class=["toggle__text", length])= text

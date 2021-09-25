@@ -27,21 +27,22 @@ include ../../common/page-footer.pug
     .search-room-page
       +page-header({headerClass: "search-room-page__header"})
       main.search-room-page__main
-        .search-room-page__sidebar-wrapper
-          +sidebar()
-        article.search-room-page__rooms
-          .search-room-page__rooms-title
-            +title({
-              text: "Номера, которые мы для вас подобрали",
-              type: "size_large",
-              teg: "h1"
-            })
-          .search-room-page__rooms-wrapper
-            include ../search-room-cards/search-room-cards.pug
-          .search-room-page__rooms-navigation
-            +content-navigation({
-              title: false,
-              jsClass: "js-content-navigation",
-              counter: "1 – 12 из 100+ вариантов аренды"
-            })
+        .search-room-page__content
+          .search-room-page__sidebar-wrapper
+            +sidebar()
+          article.search-room-page__rooms
+            .search-room-page__rooms-title
+              +title({
+                text: "Номера, которые мы для вас подобрали",
+                type: "size_large",
+                teg: "h1"
+              })
+            .search-room-page__rooms-wrapper
+              include ../search-room-cards/search-room-cards.pug
+            .search-room-page__rooms-navigation
+              +content-navigation({
+                title: false,
+                jsClass: "js-content-navigation",
+                counter: "1 – 12 из 100+ вариантов аренды"
+              })
       +page-footer({footerClass: "search-room-page__footer"})

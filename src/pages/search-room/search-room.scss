@@ -20,6 +20,7 @@
     padding: 30px 126px 72px 140px;
     min-height: 930px;
     flex: 1 0 auto;
+    text-align: center;
 
     @media screen and (max-width: 900px) {
       padding: 40px 40px;
@@ -28,6 +29,11 @@
     @media screen and (max-width: 350px) {
       padding: 40px 20px;
     }
+  }
+
+  &__content {
+    display: inline-block;
+    text-align: initial;
   }
 
   &__rooms {
