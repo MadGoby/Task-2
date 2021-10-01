@@ -43,7 +43,13 @@ mixin footer(settings)
         })
         if descriptionText
           p(class="footer__logo-description")=descriptionText
-      if size !== "footer_size_small"
+      if size === "footer_size_small"
+        div(class=["footer__social-media", "footer__social-media_size_small"])
+          p(class="footer__small-copyright")= copyrightText
+          +social-media-link({
+            socialLinks: links
+          })
+      else
         .footer__navigation-wrapper
           each list in lists
             .footer__navigation
@@ -51,15 +57,14 @@ mixin footer(settings)
                 - const {
                 -   text: linkText,
                 -   href = "./for-change",
-                -   title: linkTitle = false
+                -   teg = "a",
                 - } = link
-                if linkTitle 
-                  span(class="footer__link-title")= linkTitle
-                else 
-                  a(class="footer__navigation-link" href=href)= linkText
+                - let { linkType = "navigation-link" } = link
+                - linkType = `footer__${linkType}`
+                #{teg}(class=linkType href=href)= linkText
         .footer__subscribe
           p.footer__title=title
-          p.footer__subscribe-text=subscribeText 
+          p.footer__subscribe-text=subscribeText
           form(class="footer__subscribe-form" action=action)
             +input({
               title: false,
@@ -72,9 +77,3 @@ mixin footer(settings)
                 type: "submit"
               }
             })
-      else
-        div(class=["footer__social-media", "footer__social-media_size_small"])
-          p(class="footer__small-copyright")= copyrightText
-          +social-media-link({
-            socialLinks: links
-          })

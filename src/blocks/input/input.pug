@@ -27,23 +27,32 @@ mixin input(settings)
   -   wrapperLength = `input__wrapper_length_${length}`
   -   length = `input__field_length_${length}`
   - }
-  - if (inputType === "dropdown" || inputType === "submit") wrapperType = inputType
+  - const isDropdownOrSubmit = inputType === "dropdown" || inputType === "submit"
+  - if (isDropdownOrSubmit) wrapperType = inputType
   - if (inputType) inputType = `input__field_type_${inputType}`
   - if (inputState) inputState = `input__field_${inputState}`
   - if (border) border = `input__field_border_${border}`
   .input
-    if text
+    if titleState
       .input__title
         div(class="input__title-text" class=titleType)
           +title({
             text: text
           })
-        if titleState
-          p.input__state=titleState
-    if wrapperType === "dropdown" || wrapperType === "submit"
-      label(class=["input__wrapper", `input__wrapper_type_${wrapperType}`, wrapperLength])
-        input(class=["input__field", length, inputType, inputState, jsClass])&attributes(attr)
-        if wrapperType === "submit"
+        p.input__state=titleState
+    else if text
+      .input__title
+        div(class="input__title-text" class=titleType)
+          +title({
+            text: text
+          })
+    case wrapperType
+      when "dropdown"
+        label(class=["input__wrapper", `input__wrapper_type_${wrapperType}`, wrapperLength])
+          input(class=["input__field", length, inputType, inputState, jsClass])&attributes(attr)
+      when "submit"
+        label(class=["input__wrapper", `input__wrapper_type_${wrapperType}`, wrapperLength])
+          input(class=["input__field", length, inputType, inputState, jsClass])&attributes(attr)
           button(class="input__submit-button" type="submit")
-    else
-      input(class=["input__field", length, inputType, border, inputState, jsClass])&attributes(attr)
+      default
+        input(class=["input__field", length, inputType, border, inputState, jsClass])&attributes(attr)

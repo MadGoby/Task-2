@@ -1,4 +1,4 @@
-include ../../common/page-head.pug
+include ../../blocks/page-head/page-head
 include ../../blocks/logo/logo.pug
 include ../../blocks/header/header.pug
 include ../../blocks/button/button.pug
@@ -47,21 +47,33 @@ include ../../blocks/copyright/copyright.pug
             },
             lists: [
               [
-                {"title": "навигация"}, 
+                {
+                  "text": "навигация",
+                  "teg": "span",
+                  "linkType": "link-title"
+                },
                 {"text": "О нас"},
                 {"text": "Новости"},
                 {"text": "Служба поддержки"},
                 {"text": "Услуги"}
               ],
               [
-                {"title": "о нас"},
+                {
+                  "text": "о нас",
+                  "teg": "span",
+                  "linkType": "link-title"
+                },
                 {"text": "О сервисе"},
                 {"text": "Наша команда"},
                 {"text": "Вакансии"},
                 {"text": "Инвесторы"}
               ],
               [
-                {"title": "Служба поддержки"}, 
+                {
+                  "text": "Служба поддержки",
+                  "teg": "span",
+                  "linkType": "link-title"
+                },
                 {"text": "Соглашения"},
                 {"text": "Сообщества"},
                 {"text": "Связь с нами"}

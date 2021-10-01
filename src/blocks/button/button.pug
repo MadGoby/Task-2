@@ -1,6 +1,6 @@
 mixin button(settings)
   - const {
-  -   attr = {type: "button"},
+  -   attr = { type: "button" },
   -   text = "For Change",
   -   jsClass = false,
   - } = settings
@@ -11,29 +11,31 @@ mixin button(settings)
   -   hover = false,
   - } = settings
   - let borderHeight = false
-  - if(hover) {
-  -   type === "border" ? hover="button__border-mimic_transparent" : hover=`button__control_${hover}`
+  - const isHoverBorder = hover && type === "border"
+  - const isBorderHeight = height && type === "button__control_type_border"
+  - if (isHoverBorder) {
+  -   hover = "button__border-mimic_transparent"
+  - } else if (hover) {
+  -   hover=`button__control_${hover}`
   - }
-  - if(type) type = `button__control_type_${type}`
-  - if(modifierClass) modifierClass = `button__control_${modifierClass}`
-  - if(height) {
+  - if (type) type = `button__control_type_${type}`
+  - if (modifierClass) modifierClass = `button__control_${modifierClass}`
+  - if (height) {
   -   borderHeight = `button__border-mimic_size_${height}`
-  -   type === "button__control_type_border" ? height = `button__control_border_${height}` : height = `button__control_size_${height}`
+  -   height = `button__control_size_${height}`
   - }
-  if type == "button__control_shape_circle"
-    div(class=["button", "button_shape_circle"])
-      button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
-  else if type == "button__control_type_confirm"
-    div(class=["button", "button_type_confirm"])
-      if type == "button__control_type_border"
-        div.button__border-mimic
-          button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
-      else
+  - if (isBorderHeight) height=`button__control_border_${height}`
+  case type
+    when "button__control_shape_circle"
+      div(class=["button", "button_shape_circle"])
         button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
-  else
-    div(class="button")
-      if type == "button__control_type_border"
+    when "button__control_type_confirm"
+      div(class=["button", "button_type_confirm"])
+        button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
+    when "button__control_type_border"
+      div(class="button")
         div(class=["button__border-mimic", hover, borderHeight])
           button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
-      else
+    default
+      div(class="button")
         button(class=["button__control", jsClass, type, hover, modifierClass, height] value=text)&attributes(attr)= text

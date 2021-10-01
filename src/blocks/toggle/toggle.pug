@@ -22,14 +22,18 @@ mixin toggle(settings)
   -   type = `toggle__controller_type_${type}`
   - }
   - if (length) length = `toggle__text_length_${length}`
+  - const isNotLikeWithRich = mimicType !== "toggle__mimic_type_like" && richText
+  - const isNotLike = mimicType !== "toggle__mimic_type_like"
   .toggle
     label(class="toggle__wrapper")
       input(class=["toggle__controller", type])&attributes(attr)
       span(class=["toggle__mimic", mimicType])
         if mimicType === "toggle__mimic_type_like"
           span(class=["toggle__text", length])= text
-      if mimicType !== "toggle__mimic_type_like"
+      if isNotLikeWithRich
         span.toggle__text-wrapper
-          if richText
-            span(class="toggle__text-title")= richText
+          span(class="toggle__text-title")= richText
+          span(class=["toggle__text", length])= text
+      else if isNotLike
+        span.toggle__text-wrapper
           span(class=["toggle__text", length])= text

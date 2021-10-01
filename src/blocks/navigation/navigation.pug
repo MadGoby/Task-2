@@ -20,9 +20,10 @@ mixin navigation(settings)
       -   ]
       - } = link
       - let { type= "" } = link
-      - if(type) type=`navigation__link_${type}`
+      - if( type ) type=`navigation__link_${type}`
+      - const isExpanded = link.type === "expanded" && expandedLinks
       .navigation__link-wrapper
-        if link.type === "expanded" && expandedLinks
+        if isExpanded
           span(class=["navigation__link-title", jsClass])= text
           .navigation__expanded-container
             each expandedLink in expandedLinks
@@ -30,6 +31,6 @@ mixin navigation(settings)
               -   href: expandedHref,
               -   text: expandedText,
               - } = expandedLink
-              a(class=["navigation__link", "navigation__link_expanded"]  href=expandedHref)= expandedText
+              a(class=["navigation__link", "navigation__link_expanded"] href=expandedHref)= expandedText
         else
           a(class=["navigation__link", type] href=href)= text

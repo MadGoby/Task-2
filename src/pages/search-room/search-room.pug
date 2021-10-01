@@ -18,9 +18,10 @@ include ../../blocks/content-navigation/content-navigation.pug
 include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/stars-rating/stars-rating.pug
 include ../../blocks/sidebar/sidebar.pug
-include ../../common/page-head.pug
-include ../../common/page-header.pug
-include ../../common/page-footer.pug
+include ../../blocks/room-list/room-list.pug
+include ../../blocks/page-head/page-head
+include ../../blocks/page-header/page-header
+include ../../blocks/page-footer/page-footer
 
 +page-head({title: "Search Room", description: "Search page of the hotel room website."})
   body
@@ -38,7 +39,7 @@ include ../../common/page-footer.pug
                 teg: "h1"
               })
             .search-room-page__rooms-wrapper
-              include ../search-room-cards/search-room-cards.pug
+              +room-list()
             .search-room-page__rooms-navigation
               +content-navigation({
                 title: false,
