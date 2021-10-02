@@ -16,19 +16,9 @@ npm install
 - Автоматическая сборка после внесения изменений: `npm run watch`
 - Сборка с дев-сервером: `npm run start`
 
-## Ссылки на Github pages
+## Ссылка на Github pages
 
-### UI-Kit
-1. [Content Types](https://madgoby.github.io/Task-2/gh-pages/content-types.html)
-2. [Form Elements](https://madgoby.github.io/Task-2/gh-pages/form-elements.html)
-3. [Cards](https://madgoby.github.io/Task-2/gh-pages/cards.html)
-4. [Headers Footers](https://madgoby.github.io/Task-2/gh-pages/headers-footers.html)
-### Pages
-1. [Sing In](https://madgoby.github.io/Task-2/gh-pages/sign-in.html)
-2. [Search Room](https://madgoby.github.io/Task-2/gh-pages/search-room.html)
-3. [Room Details](https://madgoby.github.io/Task-2/gh-pages/room-details.html)
-4. [Registration](https://madgoby.github.io/Task-2/gh-pages/registration.html)
-6. [Landing Page](https://madgoby.github.io/Task-2/gh-pages/landing-page.html)
+- [Link](https://madgoby.github.io/Task-2/gh-pages/index.html)
 
 ## Глобальные библиотеки
 

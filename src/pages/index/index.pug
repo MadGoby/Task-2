@@ -1,0 +1,41 @@
+include ../../blocks/page-head/page-head.pug
+
++page-head({
+  title: "GH-Pages",
+  description: "Navigation page of the hotel room website."
+})
+  body.body
+    main.main-wrapper
+      .gh-pages
+        h1.gh-pages__title="GitHub Pages"
+        - const kit = {
+        -   title: "UI-KIT",
+        -   list: [
+        -     { path: "content-types",text: "Content Types"},
+        -     { path: "form-elements", text: "Form Elements"},
+        -     { path: "cards", text: "Cards"},
+        -     { path: "headers-footers", text: "Headers & Footers"},
+        -   ]
+        - }
+        - const pages = {
+        -   title: "Pages",
+        -   list: [
+        -     { path: "sign-in", text: "Sign In" },
+        -     { path: "registration", text: "Registration"},
+        -     { path: "landing-page", text: "Landing Page"},
+        -     { path: "search-room", text: "Search Room"},
+        -     { path: "room-details", text: "Room Details"},
+        -   ]
+        - }
+        .gh-pages__list-wrapper
+          h2.gh-pages__title.gh-pages__title_size_small= kit.title
+          ul.gh-pages__links-list
+            each link in kit.list
+              li.gh-pages__link-wrapper
+                a(class="gh-pages__link" href=`./pages/${link.path}.html`)= link.text
+        .gh-pages__list-wrapper
+          h2.gh-pages__title.gh-pages__title_size_small= pages.title
+          ul.gh-pages__links-list
+            each link in pages.list
+              li.gh-pages__link-wrapper
+                a(class="gh-pages__link" href=`./pages/${link.path}.html`)= link.text
