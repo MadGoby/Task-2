@@ -7,9 +7,9 @@
   min-height: 100%; }
   .landing-page__main {
     flex: 1 0 auto;
-    background-position-y: -70px;
     background: url(../img/landing-main.jpg) no-repeat;
     background-size: cover;
+    background-position-y: -70px;
     padding: 70px 140px;
     min-height: 830px;
     position: relative; }

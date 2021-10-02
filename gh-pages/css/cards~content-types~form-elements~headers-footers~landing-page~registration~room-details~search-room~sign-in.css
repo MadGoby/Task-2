@@ -690,7 +690,7 @@ body {
   box-shadow: 0 1px 0 rgba(31, 32, 65, 0.1);
   text-align: center; }
   .footer__navigation-wrapper {
-    margin: 4px 51px 0 40px;
+    margin: 4px 52px 0 40px;
     display: inline-block;
     vertical-align: top;
     text-align: initial; }
@@ -740,7 +740,7 @@ body {
     .footer__navigation:first-child {
       margin-right: 58px; }
     .footer__navigation:last-child {
-      margin-left: 93px; }
+      margin-left: 92px; }
     @media screen and (max-width: 625px) {
       .footer__navigation {
         display: block; }

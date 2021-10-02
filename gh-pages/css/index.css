@@ -1,0 +1,54 @@
+.body {
+  background-color: rgba(31, 32, 65, 0.5); }
+
+.gh-pages {
+  margin: 70px auto 0;
+  background-color: white;
+  width: 380px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 30px 25px;
+  text-align: center; }
+  .gh-pages__list-wrapper:not(:last-child) {
+    margin-bottom: 35px; }
+  .gh-pages__title {
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 32px;
+    color: #1f2041;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+    margin: 0 0 35px; }
+    .gh-pages__title_size_small {
+      font-size: 24px;
+      line-height: 24px;
+      width: 70%;
+      margin: 0 auto 10px;
+      padding-bottom: 10px;
+      border-bottom: 2px dotted rgba(31, 32, 65, 0.25); }
+  .gh-pages__link {
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #bc9cff;
+    text-align: center;
+    text-decoration-line: none;
+    user-select: none; }
+    .gh-pages__link:hover {
+      color: rgba(31, 32, 65, 0.75); }
+  .gh-pages__links-list {
+    margin: 0;
+    padding: 0; }
+  .gh-pages__link-wrapper {
+    list-style: none;
+    width: 70%;
+    margin: auto; }
+    .gh-pages__link-wrapper:not(:last-child) {
+      border-bottom: 1px solid rgba(31, 32, 65, 0.25);
+      margin-bottom: 10px;
+      padding-bottom: 10px; }
+
