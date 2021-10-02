@@ -18,7 +18,7 @@ npm install
 
 ## Ссылка на Github pages
 
-- [Link](https://madgoby.github.io/Task-2/gh-pages/index.html)
+- [Страница навигации](https://madgoby.github.io/Task-2/gh-pages/index.html)
 
 ## Глобальные библиотеки
 
