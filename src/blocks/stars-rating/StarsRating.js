@@ -4,7 +4,7 @@ class StarsRating {
 
     autoBind(this);
     this.getHtmlElements();
-    this.bindEventListeners();
+    this.stars.forEach((star) => this.bindEventListeners(star));
   }
 
   getHtmlElements() {
@@ -28,8 +28,8 @@ class StarsRating {
     this.addActiveClass(event.target);
   }
 
-  bindEventListeners() {
-    this.stars.forEach((star) => star.addEventListener('click', this.handleStarClick));
+  bindEventListeners(star) {
+    star.addEventListener('click', this.handleStarClick);
   }
 }
 

@@ -8,11 +8,11 @@ class HeaderNavigation {
   }
 
   getHtmlElements() {
-    this.navigation = this.container.querySelector('.js-header__navigation-wrapper')
+    this.navigation = this.container.querySelector('.js-header__navigation-wrapper');
     this.button = this.container.querySelector('.js-header__navigation-button');
   }
 
-  handleNavigationButtonClick() {
+  handleButtonClick() {
     const styles = getComputedStyle(this.navigation);
 
     if (styles.display === 'none') {
@@ -36,17 +36,15 @@ class HeaderNavigation {
     }
   }
 
-  handleMainWrapperOnResize(event) {
-    const userWidth = +event.target.innerWidth;
+  handleDOMResize(event) {
+    const userWidth = Number(event.target.innerWidth);
     this.controlDisplayOnResize(userWidth);
   }
 
   handelDOMClick(event) {
-    const checkIsClickInNavigation = (element) =>  {
-      return element === this.navigation || element === this.button
-    };
-    const result = Boolean(event.path.find( element => checkIsClickInNavigation(element) ));
-    if (result === false) this.handleNavigationButtonClick();
+    const checkIsClickInNavigation = (element) => element === this.navigation || element === this.button;
+    const result = Boolean(event.path.find(element => checkIsClickInNavigation(element)));
+    if (result === false) this.handleButtonClick();
   }
 
   bindDomEventListener() {
@@ -58,8 +56,8 @@ class HeaderNavigation {
   }
 
   bindEventListeners() {
-    this.button.addEventListener('click', this.handleNavigationButtonClick);
-    document.body.onresize = this.handleMainWrapperOnResize;
+    this.button.addEventListener('click', this.handleButtonClick);
+    document.body.onresize = this.handleDOMResize;
   }
 }
 

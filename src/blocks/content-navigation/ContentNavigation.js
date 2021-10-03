@@ -8,7 +8,7 @@ class ContentNavigation {
 
   initializes() {
     this.getHtmlElements();
-    this.bindEventListeners();
+    this.buttons.forEach((button) => this.bindEventListeners(button));
     this.controlNavigationDisplay();
   }
 
@@ -185,10 +185,8 @@ class ContentNavigation {
     this.editsCounterValues();
   }
 
-  bindEventListeners() {
-    this.buttons.forEach((button) => {
-      button.addEventListener('click', this.handleButtonClick);
-    });
+  bindEventListeners(button) {
+    button.addEventListener('click', this.handleButtonClick);
   };
 }
 

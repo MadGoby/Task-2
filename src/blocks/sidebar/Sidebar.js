@@ -49,12 +49,12 @@ class Sidebar {
     }
   }
 
-  handleMainWrapperOnResize(event) {
+  handleDOMResize(event) {
     this.changeDisplayOnresize(Number(event.target.innerWidth));
   }
 
   handelDOMClick(event) {
-    const result = Boolean(event.path.find( element => element === this.container ));
+    const result = Boolean(event.path.find(element => element === this.container));
     if (result === false) this.handleTitleClick();
   }
 
@@ -68,7 +68,7 @@ class Sidebar {
 
   bindEventListeners() {
     this.title.addEventListener('click', this.handleTitleClick);
-    document.body.onresize = this.handleMainWrapperOnResize;
+    document.body.onresize = this.handleDOMResize;
   }
 }
 

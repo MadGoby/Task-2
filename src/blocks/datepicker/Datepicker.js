@@ -148,7 +148,7 @@ class Datepicker {
     const isRangeExist = this.settings.from && this.settings.to;
     const isOnlyForm = this.settings.from && !this.settings.to;
 
-    if (this.checkIsLessThenCurrent(date)) calendarCell.classList.add('datepicker__calendar-cell_shading_red')
+    if (this.checkIsLessThenCurrent(date)) calendarCell.classList.add('datepicker__calendar-cell_shading_red');
     if (this.checkIsCurrentDate(date)) {
       calendarCell.classList.add('datepicker__calendar-cell_color_green');
       calendarCell.classList.add('datepicker__calendar-cell_left-half_red');
@@ -388,12 +388,12 @@ class Datepicker {
     this.bindCalendarCellsListener();
   }
 
-  handleScrollButtonNextClick() {
+  handleButtonNextClick() {
     const newDate = new Date(this.settings.pickedYear, Number(this.settings.pickedMonth) + 1);
     this.refreshDatepicker(newDate);
   }
 
-  handleScrollButtonBackClick() {
+  handleButtonPreviousClick() {
     const newDate = new Date(this.settings.pickedYear, Number(this.settings.pickedMonth) - 1);
     this.refreshDatepicker(newDate);
   }
@@ -431,22 +431,28 @@ class Datepicker {
 
   handleInputClick() {
     if (this.calendarWrapper.hasAttribute('hidden')) {
-      if (this.inputFrom) this.inputFrom.classList.add('input__field_active');
-      if (this.inputTo) this.inputTo.classList.add('input__field_active');
-      if (this.inputTotal) this.inputTotal.classList.add('input__field_active');
       this.calendarWrapper.removeAttribute('hidden', 'hidden');
       this.bindDomEventListener();
     } else {
-      if (this.inputFrom) this.inputFrom.classList.remove('input__field_active');
-      if (this.inputTo) this.inputTo.classList.remove('input__field_active');
-      if (this.inputTotal) this.inputTotal.classList.remove('input__field_active');
       this.calendarWrapper.setAttribute('hidden', 'hidden');
       this.removeDomEventListener();
     }
   }
 
+  handleInputFromClick() {
+    this.handleInputClick();
+  }
+
+  handleInputToClick() {
+    this.handleInputClick();
+  }
+
+  handleInputTotalClick() {
+    this.handleInputClick();
+  }
+
   handelDOMClick(event) {
-    const result = Boolean(event.path.find( element => element === this.container ));
+    const result = Boolean(event.path.find(element => element === this.container));
     if (result === false) this.handleInputClick();
   }
 
@@ -459,13 +465,13 @@ class Datepicker {
   }
 
   bindEventListeners() {
-    this.buttonPrevious.addEventListener('click', this.handleScrollButtonBackClick);
-    this.buttonNext.addEventListener('click', this.handleScrollButtonNextClick);
+    this.buttonPrevious.addEventListener('click', this.handleButtonPreviousClick);
+    this.buttonNext.addEventListener('click', this.handleButtonNextClick);
     this.clearButton.addEventListener('click', this.handleClearButtonClick);
     this.applyButton.addEventListener('click', this.handleApplyButtonClick);
-    if (this.inputFrom) this.inputFrom.addEventListener('click', this.handleInputClick);
-    if (this.inputTo) this.inputTo.addEventListener('click', this.handleInputClick);
-    if (this.inputTotal) this.inputTotal.addEventListener('click', this.handleInputClick);
+    if (this.inputFrom) this.inputFrom.addEventListener('click', this.handleInputFromClick);
+    if (this.inputTo) this.inputTo.addEventListener('click', this.handleInputToClick);
+    if (this.inputTotal) this.inputTotal.addEventListener('click', this.handleInputTotalClick);
   }
 }
 

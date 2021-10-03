@@ -131,15 +131,15 @@ class Dropdown {
           addPunctuationMarks(valueText);
         } else if (index === 2) {
           output += `${value.textContent} ${this.templates[template][1][0]}${this.definesWordEnd(
-            +value.textContent,
+            Number(value.textContent),
             template,
             1,
           )}`;
         }
       };
 
-      const areFirstDefinitionNeeded = index === 0 && +values[0] + +values[1] > 0;
-      const areLastDefinitionNeeded = index === 2 && +value.textContent > 0;
+      const areFirstDefinitionNeeded = index === 0 && Number(values[0]) + Number(values[1]) > 0;
+      const areLastDefinitionNeeded = index === 2 && Number(value.textContent) > 0;
 
       if (areFirstDefinitionNeeded) addDefinitionToNumber();
       if (areLastDefinitionNeeded) addDefinitionToNumber();
@@ -179,7 +179,7 @@ class Dropdown {
       const addDefinitionToNumber = () => {
         const valueText = value.innerText;
         output += `${valueText} ${this.templates[template][index][0]}${this.definesWordEnd(
-          +valueText,
+          Number(valueText),
           template,
           index,
         )}`;
@@ -279,7 +279,7 @@ class Dropdown {
   }
 
   handelDOMClick(event) {
-    const result = Boolean(event.path.find( element => element === this.container ));
+    const result = Boolean(event.path.find(element => element === this.container));
     if (result === false) this.controlDropdownDisplay();
   }
 
@@ -295,8 +295,8 @@ class Dropdown {
     this.input.addEventListener('click', this.handleInputClick);
     this.clearButton.addEventListener('click', this.handleClearButtonClick);
     this.submitButton.addEventListener('click', this.handleSubmitButtonClick);
-    this.plusButtons.forEach((button) => button.addEventListener('click', this.handlePlusButtonClick));
-    this.minusButtons.forEach((button) => button.addEventListener('click', this.handleMinusButtonClick));
+    this.plusButtons.forEach((plusButton) => plusButton.addEventListener('click', this.handlePlusButtonClick));
+    this.minusButtons.forEach((minusButton) => minusButton.addEventListener('click', this.handleMinusButtonClick));
   }
 }
 
