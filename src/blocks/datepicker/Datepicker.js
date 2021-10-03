@@ -427,6 +427,7 @@ class Datepicker {
     if (this.inputFrom) this.inputFrom.classList.remove('input__field_active');
     if (this.inputTo) this.inputTo.classList.remove('input__field_active');
     if (this.inputTotal) this.inputTotal.classList.remove('input__field_active');
+    this.removeDomEventListener();
   }
 
   handleInputClick() {
