@@ -1577,13 +1577,13 @@ body {
   display: inline-block;
   width: 19px;
   height: 19px;
-  background-image: url(../img/star-border.jpg); }
+  background-image: url(../img/star-border.svg); }
   .stars-rating__star:hover {
     transform: scale(1.2); }
   .stars-rating__star:not(:last-of-type) {
     margin-right: 5px; }
   .stars-rating__star_color_purple {
-    background-image: url(../img/star.jpg); }
+    background-image: url(../img/star.svg); }
 
 .text-sample:not(:last-child) {
   margin-bottom: 50px; }
@@ -1769,6 +1769,8 @@ body {
         left: 0;
         height: 18px;
         width: 18px; }
+  .toggle:hover .toggle__mimic {
+    box-shadow: 0 0 4px 1px #bc9cff; }
   .toggle__text {
     cursor: pointer;
     user-select: none;
