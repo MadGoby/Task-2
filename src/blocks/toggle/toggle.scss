@@ -87,6 +87,10 @@
     }
   }
 
+  &:hover &__mimic {
+    box-shadow: 0 0 4px 1px $purple;
+  }
+
   &__text {
     cursor: pointer;
     user-select: none;

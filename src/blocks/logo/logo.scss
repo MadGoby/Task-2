@@ -1,5 +1,7 @@
-.logo_position_in-corner {
-  position: absolute;
-  top: 30px;
-  left: 30px;
+.logo {
+  &_position_in-corner {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
 }

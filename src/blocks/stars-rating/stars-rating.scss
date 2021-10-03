@@ -4,7 +4,7 @@
     display: inline-block;
     width: 19px;
     height: 19px;
-    background-image: url('../../img/star-border.jpg');
+    background-image: url('../../img/star-border.svg');
 
     &:hover {
       transform: scale(1.2);
@@ -15,7 +15,7 @@
     }
 
     &_color_purple {
-      background-image: url('../../img/star.jpg');
+      background-image: url('../../img/star.svg');
     }
   }
 }
