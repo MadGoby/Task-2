@@ -24,7 +24,11 @@ class Datepicker {
   setDefaultParameters() {
     this.settings.pickedYear = this.templates.pickedYear ? Number(this.templates.pickedYear) : new Date().getFullYear();
     this.settings.pickedMonth = this.templates.pickedMonth ? Number(this.templates.pickedMonth) : new Date().getMonth();
-    this.settings.currentDay = this.templates.currentDay ? this.templates.currentDay : new Date();
+    if (this.templates.currentDay) {
+      this.settings.currentDay = this.templates.currentDay;
+    } else {
+      this.settings.currentDay = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    }
     this.settings.from = this.templates.dataFrom ? this.templates.dataFrom : false;
     this.settings.to = this.templates.dataTo ? this.templates.dataTo : false;
   }
@@ -148,7 +152,9 @@ class Datepicker {
     const isRangeExist = this.settings.from && this.settings.to;
     const isOnlyForm = this.settings.from && !this.settings.to;
 
-    if (this.checkIsLessThenCurrent(date)) calendarCell.classList.add('datepicker__calendar-cell_shading_red');
+    if (this.checkIsLessThenCurrent(date)) {
+      calendarCell.classList.add('datepicker__calendar-cell_shading_red');
+    }
     if (this.checkIsCurrentDate(date)) {
       calendarCell.classList.add('datepicker__calendar-cell_color_green');
       calendarCell.classList.add('datepicker__calendar-cell_left-half_red');
