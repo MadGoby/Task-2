@@ -22,10 +22,12 @@ class Sidebar {
       this.sidebar.style.display = 'inline-block';
       this.title.classList.remove('title_closed');
       this.title.classList.add('title_expanded');
+      this.bindDomEventListener();
     } else {
       this.sidebar.style.display = 'none';
       this.title.classList.remove('title_expanded');
       this.title.classList.add('title_closed');
+      this.removeDomEventListener();
     }
   }
 
@@ -49,6 +51,19 @@ class Sidebar {
 
   handleMainWrapperOnResize(event) {
     this.changeDisplayOnresize(Number(event.target.innerWidth));
+  }
+
+  handelDOMClick(event) {
+    const result = Boolean(event.path.find( element => element === this.container ));
+    if (result === false) this.handleTitleClick();
+  }
+
+  bindDomEventListener() {
+    document.addEventListener('click', this.handelDOMClick);
+  }
+
+  removeDomEventListener() {
+    document.removeEventListener('click', this.handelDOMClick);
   }
 
   bindEventListeners() {

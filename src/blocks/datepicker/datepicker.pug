@@ -36,7 +36,7 @@ mixin datepicker(settings)
             +input(to)
     div(class=["datepicker__calendar-wrapper", wrapperSize])&attributes(attr)
       button(class=["datepicker__scroll-button", "datepicker__scroll-button_arrow_back", "js-datepicker__scroll-button_arrow_back"] type="button")
-      if settings.size == "small"
+      if settings.size === "small"
         p(class=["datepicker__selected-month", "datepicker__selected-month_size_small", "js-datepicker__selected-month"])
       else 
         p(class=["datepicker__selected-month", "js-datepicker__selected-month"])
@@ -45,7 +45,7 @@ mixin datepicker(settings)
         tr(class="datepicker__calendar-line")
             each day in days
               - let dayType = false
-              - if (settings.size == "small") dayType = "datepicker__calendar-cell_size_small"
+              - if (settings.size === "small") dayType = "datepicker__calendar-cell_size_small"
               th(class=["datepicker__calendar-cell", "datepicker__calendar-cell_font_bold", dayType])= day
         - let i = 0;
         while (i++ < 6)

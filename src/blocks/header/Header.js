@@ -8,8 +8,8 @@ class HeaderNavigation {
   }
 
   getHtmlElements() {
+    this.navigation = this.container.querySelector('.js-header__navigation-wrapper')
     this.button = this.container.querySelector('.js-header__navigation-button');
-    this.navigation = this.container.querySelector('.js-header__navigation');
   }
 
   handleNavigationButtonClick() {
@@ -18,9 +18,11 @@ class HeaderNavigation {
     if (styles.display === 'none') {
       this.navigation.style.display = 'block';
       this.button.querySelector('.header__hamburger').classList.add('header__hamburger_expanded');
+      this.bindDomEventListener();
     } else {
       this.navigation.style.display = 'none';
       this.button.querySelector('.header__hamburger').classList.remove('header__hamburger_expanded');
+      this.removeDomEventListener();
     }
   }
 
@@ -37,6 +39,22 @@ class HeaderNavigation {
   handleMainWrapperOnResize(event) {
     const userWidth = +event.target.innerWidth;
     this.controlDisplayOnResize(userWidth);
+  }
+
+  handelDOMClick(event) {
+    const checkIsClickInNavigation = (element) =>  {
+      return element === this.navigation || element === this.button
+    };
+    const result = Boolean(event.path.find( element => checkIsClickInNavigation(element) ));
+    if (result === false) this.handleNavigationButtonClick();
+  }
+
+  bindDomEventListener() {
+    document.addEventListener('click', this.handelDOMClick);
+  }
+
+  removeDomEventListener() {
+    document.removeEventListener('click', this.handelDOMClick);
   }
 
   bindEventListeners() {

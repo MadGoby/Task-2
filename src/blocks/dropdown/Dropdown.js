@@ -11,6 +11,7 @@ class Dropdown {
     this.getHtmlElements();
     this.checkClearButtonVisibility();
     this.bindEventListeners();
+    this.refreshInput();
   }
 
   getHtmlElements() {
@@ -45,6 +46,12 @@ class Dropdown {
   controlDropdownDisplay() {
     this.dropdown.toggleAttribute('hidden');
     this.input.classList.toggle('input__field_expanded');
+
+    if (this.dropdown.hasAttribute('hidden')) {
+      this.removeDomEventListener();
+    } else {
+      this.bindDomEventListener();
+    }
   }
 
   definesWordEnd(value, template, line) {
@@ -108,18 +115,9 @@ class Dropdown {
     let output = '';
 
     this.outputs.forEach((value, index) => {
-      const checkIsNeedEtc = (valueTextContent) => valuesSum - valueTextContent === 0 || Number(values[0]) === 0;
-      const addPunctuationMarks = (valueTextContent) => {
-        switch (true) {
-          case checkIsNeedEtc(valueTextContent):
-            output += '...';
-            break;
-          case index !== 2:
-            output += ', ';
-            break;
-          default:
-            break;
-        }
+      const isNeedComma = index === 0 && valuesSum - values[0] - values[1] !== 0;
+      const addPunctuationMarks = () => {
+        if (isNeedComma) output += ', ';
       };
 
       const addDefinitionToNumber = () => {
@@ -137,7 +135,6 @@ class Dropdown {
             template,
             1,
           )}`;
-          addPunctuationMarks(false);
         }
       };
 
@@ -167,24 +164,16 @@ class Dropdown {
   }
 
   calculateOneByOne(settings) {
-    const { valuesSum, values, template } = settings;
+    const { values, template } = settings;
     let output = '';
 
     this.outputs.forEach((value, index) => {
-      const isFirstsOnlyOne = index === 0 && (valuesSum - values[0] === 0);
-      const isSecondOnlyOne = index === 1 && (Number(values[0]) === 0 && Number(values[2]) === 0);
-      const isThirdWheel = index === 1 && Number(values[0]) !== 0;
-      const isNeedEtc = isSecondOnlyOne || isFirstsOnlyOne || index === 2;
+      const isFirstNotOnlyOne = index === 0 && (Number(values[1]) !== 0 || Number(values[2]) !== 0);
+      const isSecondNotOnlyOne = index === 1 && (Number(values[2]) !== 0);
+      const isNeedComma = isFirstNotOnlyOne || isSecondNotOnlyOne;
 
       const addPunctuationMarks = () => {
-        switch (true) {
-          case isNeedEtc || isThirdWheel:
-            output += '...';
-            break;
-          default:
-            output += ', ';
-            break;
-        }
+        if (isNeedComma) output += ', ';
       };
 
       const addDefinitionToNumber = () => {
@@ -197,13 +186,9 @@ class Dropdown {
         addPunctuationMarks();
       };
 
-      const isLastNotThird = index === 2 && (+values[0] === 0 || +values[1] === 0);
-      const isThirdRequired = isLastNotThird && value.textContent > 0;
-      const isValueNotZero = index !== 2 && value.textContent > 0;
+      const isValueNotZero = value.textContent > 0;
 
-      if (isThirdRequired) {
-        addDefinitionToNumber();
-      } else if (isValueNotZero) addDefinitionToNumber();
+      if (isValueNotZero) addDefinitionToNumber();
     });
     return output;
   }
@@ -291,6 +276,19 @@ class Dropdown {
 
   handleSubmitButtonClick() {
     this.controlDropdownDisplay();
+  }
+
+  handelDOMClick(event) {
+    const result = Boolean(event.path.find( element => element === this.container ));
+    if (result === false) this.controlDropdownDisplay();
+  }
+
+  bindDomEventListener() {
+    document.addEventListener('click', this.handelDOMClick);
+  }
+
+  removeDomEventListener() {
+    document.removeEventListener('click', this.handelDOMClick);
   }
 
   bindEventListeners() {

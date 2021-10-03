@@ -8,20 +8,18 @@ mixin header(settings)
   -       {"text": "For change"}
   -     ],
   -     buttonJsClass = "js-for-change",
-  -     navigationJsClass = "js-for-change"
   -   },
-  -   authorized = false,
-  -   mainJsClass = false
+  -   authorized = false
   - } = settings
-  div(class=["header", mainJsClass])
+  div(class="header")
     .header__logo
       +logo({
         src: "../img/logo-color.svg"
       })
-    .header__navigation
+    div(class=["header__navigation", "js-header__navigation"])
       button(class=["header__navigation-button", buttonJsClass])
         span.header__hamburger
-      div(class=["header__navigation-wrapper", navigationJsClass])
+      div(class=["header__navigation-wrapper", "js-header__navigation-wrapper"])
         +navigation({
           links: links
         })

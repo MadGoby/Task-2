@@ -68,6 +68,8 @@
       cursor: pointer;
       position: relative;
       vertical-align: top;
+      text-overflow: ellipsis;
+      padding: 11px 44px 12px 14px;
 
       &:hover {
         border-color: $dark50;

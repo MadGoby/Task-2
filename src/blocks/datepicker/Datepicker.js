@@ -82,6 +82,34 @@ class Datepicker {
     return targetDate >= this.settings.from && targetDate <= this.settings.to;
   }
 
+  checkAreInUnavailableRange(targetDate) {
+    return targetDate >= this.settings.currentDay && targetDate <= this.settings.from;
+  }
+
+  checkIsLessThenCurrent(targetDate) {
+    return targetDate < this.settings.currentDay;
+  }
+
+  highlightsUnavailableDates(cell, targetDate) {
+    const isCurrent = Datepicker.checkIsMatchByDay(this.settings.currentDay, targetDate);
+    const isFrom = Datepicker.checkIsMatchByDay(this.settings.from, targetDate);
+
+    switch (true) {
+      case isCurrent:
+        cell.classList.add('datepicker__calendar-cell_right-half_red');
+        break;
+      case isFrom:
+        cell.classList.add('datepicker__calendar-cell_left-half_red');
+        break;
+      case this.checkAreInUnavailableRange(targetDate):
+        cell.classList.add('datepicker__calendar-cell_shading_red');
+        break;
+      default:
+        break;
+    }
+    return cell;
+  }
+
   highlightsSelectedRange(cell, targetDate) {
     const isStartOfRange = this.checkAreInSelectedRange(targetDate) &&
       Datepicker.checkIsMatchByDay(this.settings.from, targetDate);
@@ -90,13 +118,13 @@ class Datepicker {
 
     switch (true) {
       case isStartOfRange:
-        cell.classList.add('datepicker__calendar-cell_right-half_shaded');
+        cell.classList.add('datepicker__calendar-cell_right-half_purple');
         break;
       case isEndOfRange:
-        cell.classList.add('datepicker__calendar-cell_left-half_shaded');
+        cell.classList.add('datepicker__calendar-cell_left-half_purple');
         break;
       case this.checkAreInSelectedRange(targetDate):
-        cell.classList.add('datepicker__calendar-cell_shaded');
+        cell.classList.add('datepicker__calendar-cell_shading_purple');
         break;
       default:
         break;
@@ -118,10 +146,16 @@ class Datepicker {
     }
 
     const isRangeExist = this.settings.from && this.settings.to;
+    const isOnlyForm = this.settings.from && !this.settings.to;
 
-    if (this.checkIsCurrentDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_green');
+    if (this.checkIsLessThenCurrent(date)) calendarCell.classList.add('datepicker__calendar-cell_shading_red')
+    if (this.checkIsCurrentDate(date)) {
+      calendarCell.classList.add('datepicker__calendar-cell_color_green');
+      calendarCell.classList.add('datepicker__calendar-cell_left-half_red');
+    }
     if (this.checkIsFromDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_purple');
     if (this.checkIsToDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_purple');
+    if (isOnlyForm) calendarCell = this.highlightsUnavailableDates(calendarCell, date);
     if (isRangeExist) calendarCell = this.highlightsSelectedRange(calendarCell, date);
 
     calendarCell.innerText = date.getDate();
@@ -401,12 +435,27 @@ class Datepicker {
       if (this.inputTo) this.inputTo.classList.add('input__field_active');
       if (this.inputTotal) this.inputTotal.classList.add('input__field_active');
       this.calendarWrapper.removeAttribute('hidden', 'hidden');
+      this.bindDomEventListener();
     } else {
       if (this.inputFrom) this.inputFrom.classList.remove('input__field_active');
       if (this.inputTo) this.inputTo.classList.remove('input__field_active');
       if (this.inputTotal) this.inputTotal.classList.remove('input__field_active');
       this.calendarWrapper.setAttribute('hidden', 'hidden');
+      this.removeDomEventListener();
     }
+  }
+
+  handelDOMClick(event) {
+    const result = Boolean(event.path.find( element => element === this.container ));
+    if (result === false) this.handleInputClick();
+  }
+
+  bindDomEventListener() {
+    document.addEventListener('click', this.handelDOMClick);
+  }
+
+  removeDomEventListener() {
+    document.removeEventListener('click', this.handelDOMClick);
   }
 
   bindEventListeners() {
