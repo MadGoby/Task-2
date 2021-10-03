@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~cards~content-types~form-elements~headers-footers~landing-page~registration~room-details~sea~ccac4104"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~cards~content-types~form-elements~headers-footers~index~landing-page~registration~room-detai~65a30fc9"],{
 
 /***/ "../node_modules/auto-bind/index.js":
 /*!******************************************!*\
