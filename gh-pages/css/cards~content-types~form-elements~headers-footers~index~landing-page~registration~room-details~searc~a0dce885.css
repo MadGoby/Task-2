@@ -460,39 +460,35 @@ body {
       background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%); }
     .datepicker__calendar-cell_color_green {
       background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%); }
-    .datepicker__calendar-cell_shading_red, .datepicker__calendar-cell_shading_purple, .datepicker__calendar-cell_left-half_red, .datepicker__calendar-cell_left-half_purple {
+    .datepicker__calendar-cell_shading_purple, .datepicker__calendar-cell_left-half_purple {
       position: relative; }
-      .datepicker__calendar-cell_shading_red::before, .datepicker__calendar-cell_shading_purple::before, .datepicker__calendar-cell_left-half_red::before, .datepicker__calendar-cell_left-half_purple::before {
+      .datepicker__calendar-cell_shading_purple::before, .datepicker__calendar-cell_left-half_purple::before {
         content: '';
         display: inline-block;
         background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
         opacity: 0.25;
         position: absolute;
         z-index: -1; }
-    .datepicker__calendar-cell_right-half_purple, .datepicker__calendar-cell_right-half_red {
+    .datepicker__calendar-cell_right-half_purple {
       position: relative; }
-      .datepicker__calendar-cell_right-half_purple::after, .datepicker__calendar-cell_right-half_red::after {
+      .datepicker__calendar-cell_right-half_purple::after {
         content: '';
         display: inline-block;
         background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
         opacity: 0.25;
         position: absolute;
         z-index: -1; }
-    .datepicker__calendar-cell_shading_red::before, .datepicker__calendar-cell_left-half_red::before {
-      background: linear-gradient(180deg, rgba(255, 82, 224, 0.7) 0%, rgba(255, 73, 73, 0.7) 100%); }
-    .datepicker__calendar-cell_right-half_red::after {
-      background: linear-gradient(180deg, rgba(255, 82, 224, 0.7) 0%, rgba(255, 73, 73, 0.7) 100%); }
-    .datepicker__calendar-cell_right-half_purple::after, .datepicker__calendar-cell_right-half_red::after {
+    .datepicker__calendar-cell_right-half_purple::after {
       left: 20px;
       right: 0;
       top: 0;
       bottom: 0; }
-    .datepicker__calendar-cell_left-half_purple::before, .datepicker__calendar-cell_left-half_red::before {
+    .datepicker__calendar-cell_left-half_purple::before {
       left: 0;
       right: 20px;
       top: 0;
       bottom: 0; }
-    .datepicker__calendar-cell_shading_red::before, .datepicker__calendar-cell_shading_purple::before {
+    .datepicker__calendar-cell_shading_purple::before {
       left: 0;
       right: 0;
       top: 0;
