@@ -95,22 +95,7 @@ class Datepicker {
   }
 
   highlightsUnavailableDates(cell, targetDate) {
-    const isCurrent = Datepicker.checkIsMatchByDay(this.settings.currentDay, targetDate);
-    const isFrom = Datepicker.checkIsMatchByDay(this.settings.from, targetDate);
-
-    switch (true) {
-      case isCurrent:
-        cell.classList.add('datepicker__calendar-cell_right-half_red');
-        break;
-      case isFrom:
-        cell.classList.add('datepicker__calendar-cell_left-half_red');
-        break;
-      case this.checkAreInUnavailableRange(targetDate):
-        cell.classList.add('datepicker__calendar-cell_shading_red');
-        break;
-      default:
-        break;
-    }
+    if (this.checkAreInUnavailableRange(targetDate)) cell.classList.add('datepicker__calendar-cell_transparent');
     return cell;
   }
 
@@ -153,7 +138,7 @@ class Datepicker {
     const isOnlyForm = this.settings.from && !this.settings.to;
 
     if (this.checkIsLessThenCurrent(date)) {
-      calendarCell.classList.add('datepicker__calendar-cell_shading_red');
+      calendarCell.classList.add('datepicker__calendar-cell_transparent');
     }
     if (this.checkIsCurrentDate(date)) {
       calendarCell.classList.add('datepicker__calendar-cell_color_green');

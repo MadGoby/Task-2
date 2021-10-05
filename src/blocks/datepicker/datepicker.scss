@@ -135,9 +135,7 @@
       background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
     }
 
-    &_shading_red,
     &_shading_purple,
-    &_left-half_red,
     &_left-half_purple {
       position: relative;
 
@@ -151,8 +149,7 @@
       }
     }
 
-    &_right-half_purple,
-    &_right-half_red {
+    &_right-half_purple {
       position: relative;
 
       &::after {
@@ -165,21 +162,7 @@
       }
     }
 
-    &_shading_red,
-    &_left-half_red {
-      &::before {
-        background: linear-gradient(180deg, rgba(255, 82, 224, 0.7) 0%, rgba(255, 73, 73, 0.7) 100%);
-      }
-    }
-
-    &_right-half_red {
-      &::after {
-        background: linear-gradient(180deg, rgba(255, 82, 224, 0.7) 0%, rgba(255, 73, 73, 0.7) 100%);
-      }
-    }
-
-    &_right-half_purple,
-    &_right-half_red {
+    &_right-half_purple{
       &::after {
         left: 20px;
         right: 0;
@@ -188,8 +171,7 @@
       }
     }
 
-    &_left-half_purple,
-    &_left-half_red {
+    &_left-half_purple {
       &::before {
         left: 0;
         right: 20px;
@@ -198,7 +180,6 @@
       }
     }
 
-    &_shading_red,
     &_shading_purple {
       &::before {
         left: 0;
