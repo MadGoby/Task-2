@@ -12,7 +12,7 @@ mixin button(settings)
   - } = settings
   - let borderHeight = false
   - const isHoverBorder = hover && type === "border"
-  - const isBorderHeight = height && type === "button__control_type_border"
+  - const isBorderHeight = height && type === "border"
   - if (isHoverBorder) {
   -   hover = "button__border-mimic_transparent"
   - } else if (hover) {
@@ -20,11 +20,12 @@ mixin button(settings)
   - }
   - if (type) type = `button__control_type_${type}`
   - if (modifierClass) modifierClass = `button__control_${modifierClass}`
-  - if (height) {
+  - if (isBorderHeight) {
   -   borderHeight = `button__border-mimic_size_${height}`
+  -   height = `button__control_border_${height}`
+  - } else if (height) {
   -   height = `button__control_size_${height}`
   - }
-  - if (isBorderHeight) height=`button__control_border_${height}`
   case type
     when "button__control_shape_circle"
       div(class=["button", "button_shape_circle"])
