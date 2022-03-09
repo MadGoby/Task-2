@@ -27,4 +27,4 @@ function initialize() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", initialize);
+document.addEventListener('DOMContentLoaded', initialize);

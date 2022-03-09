@@ -8,4 +8,4 @@ function importContext() {
   importAll((require.context('./../favicons', true, /.png$/)));
 }
 
-export { importContext }
+export { importContext };

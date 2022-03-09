@@ -54,7 +54,7 @@ class Sidebar {
   }
 
   handelDOMClick(event) {
-    const result = Boolean(event.path.find(element => element === this.container));
+    const result = Boolean(event.path.find((element) => element === this.container));
     if (result === false) this.handleTitleClick();
   }
 

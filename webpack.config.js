@@ -27,9 +27,11 @@ module.exports = {
     },
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist/index.html'),
+    static: {
+      directory: path.join(__dirname, 'dist/index.html'),
+    },
     compress: true,
-    port: 9000
+    port: 9000,
   },
   optimization: {
     splitChunks: {

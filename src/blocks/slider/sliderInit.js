@@ -31,4 +31,4 @@ function initialize() {
   $sliderOutput.val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);
 }
 
-document.addEventListener("DOMContentLoaded", initialize);
+document.addEventListener('DOMContentLoaded', initialize);

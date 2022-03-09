@@ -10,7 +10,7 @@ class RoomCardSlider {
   getHtmlElements() {
     this.images = [...this.container.querySelectorAll('.room-card__image')];
     this.previousButton = this.container.querySelector('.room-card__image-button_side_left');
-    this.nextButton = this.container.querySelector('.room-card__image-button_side_rigth');
+    this.nextButton = this.container.querySelector('.room-card__image-button_side_right');
     this.imagePositions = [...this.container.querySelectorAll('.room-card__image-position')];
     [this.currentImage] = this.images;
     [this.currentImagePosition] = this.imagePositions;
@@ -145,7 +145,6 @@ class RoomCardSlider {
   handleNextButtonClick(event) {
     this.controlImageButtonClick(event);
   }
-
 
   bindEventListeners() {
     this.previousButton.addEventListener('click', this.handlePreviousButtonClick);

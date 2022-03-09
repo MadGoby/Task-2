@@ -60,9 +60,9 @@ class Dropdown {
     }
 
     function checksComplianceFromOneToFour() {
-      return checkIsEqualToZero(value - 2) ||
-        checkIsEqualToZero(value - 3) ||
-        checkIsEqualToZero(value - 4);
+      return checkIsEqualToZero(value - 2)
+        || checkIsEqualToZero(value - 3)
+        || checkIsEqualToZero(value - 4);
     }
 
     let index;
@@ -91,15 +91,15 @@ class Dropdown {
   }
 
   setDefault() {
-    const outputValue =
-      Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
+    const outputValue = Number(this.outputs[0].textContent)
+      + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const template = this.container.getAttribute('data-template');
     if (outputValue === 0) this.input.value = `${this.templates[`${template}Default`]}`;
   }
 
   prepareOutputSum() {
-    const outputValue =
-      Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
+    const outputValue = Number(this.outputs[0].textContent)
+      + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const template = this.container.getAttribute('data-template');
     let output;
     if (outputValue > 0) {
@@ -148,8 +148,8 @@ class Dropdown {
   }
 
   prepareTwoByOne() {
-    const valuesSum =
-      Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
+    const valuesSum = Number(this.outputs[0].textContent)
+      + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const values = this.outputs.map((value) => value.textContent);
     const template = this.container.getAttribute('data-template');
     let output;
@@ -194,8 +194,8 @@ class Dropdown {
   }
 
   prepareOneByOne() {
-    const valuesSum =
-      Number(this.outputs[0].textContent) + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
+    const valuesSum = Number(this.outputs[0].textContent)
+      + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const values = this.outputs.map((value) => value.textContent);
     const template = this.container.getAttribute('data-template');
     let output;
@@ -227,8 +227,7 @@ class Dropdown {
     const outputTarget = this.outputs[buttonIndex];
 
     const refreshListLine = () => {
-      if (outputTarget.innerText === '0')
-        this.minusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
+      if (outputTarget.innerText === '0') this.minusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
       outputTarget.innerText = Number(outputTarget.innerText) + 1;
       if (outputTarget.innerText === '10') event.target.classList.add('dropdown__button_transparent');
     };
@@ -244,8 +243,7 @@ class Dropdown {
     const outputTarget = this.outputs[buttonIndex];
 
     const refreshListLine = () => {
-      if (outputTarget.innerText === '10')
-        this.plusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
+      if (outputTarget.innerText === '10') this.plusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
       outputTarget.innerText = Number(outputTarget.innerText) - 1;
       if (outputTarget.innerText === '0') event.target.classList.add('dropdown__button_transparent');
     };
@@ -279,7 +277,7 @@ class Dropdown {
   }
 
   handelDOMClick(event) {
-    const result = Boolean(event.path.find(element => element === this.container));
+    const result = Boolean(event.path.find((element) => element === this.container));
     if (result === false) this.controlDropdownDisplay();
   }
 

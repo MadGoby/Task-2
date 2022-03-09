@@ -22,12 +22,16 @@ class Datepicker {
   }
 
   setDefaultParameters() {
-    this.settings.pickedYear = this.templates.pickedYear ? Number(this.templates.pickedYear) : new Date().getFullYear();
-    this.settings.pickedMonth = this.templates.pickedMonth ? Number(this.templates.pickedMonth) : new Date().getMonth();
+    this.settings.pickedYear = this.templates.pickedYear
+      ? Number(this.templates.pickedYear) : new Date().getFullYear();
+    this.settings.pickedMonth = this.templates.pickedMonth
+      ? Number(this.templates.pickedMonth) : new Date().getMonth();
     if (this.templates.currentDay) {
       this.settings.currentDay = this.templates.currentDay;
     } else {
-      this.settings.currentDay = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+      this.settings.currentDay = new Date(
+        new Date().getFullYear(), new Date().getMonth(), new Date().getDate(),
+      );
     }
     this.settings.from = this.templates.dataFrom ? this.templates.dataFrom : false;
     this.settings.to = this.templates.dataTo ? this.templates.dataTo : false;
@@ -64,9 +68,9 @@ class Datepicker {
 
   static checkIsMatchByDay(day, targetDate) {
     return (
-      day.getFullYear() === targetDate.getFullYear() &&
-      day.getMonth() === targetDate.getMonth() &&
-      day.getDate() === targetDate.getDate()
+      day.getFullYear() === targetDate.getFullYear()
+      && day.getMonth() === targetDate.getMonth()
+      && day.getDate() === targetDate.getDate()
     );
   }
 
@@ -100,10 +104,10 @@ class Datepicker {
   }
 
   highlightsSelectedRange(cell, targetDate) {
-    const isStartOfRange = this.checkAreInSelectedRange(targetDate) &&
-      Datepicker.checkIsMatchByDay(this.settings.from, targetDate);
-    const isEndOfRange = this.checkAreInSelectedRange(targetDate) &&
-      Datepicker.checkIsMatchByDay(this.settings.to, targetDate);
+    const isStartOfRange = this.checkAreInSelectedRange(targetDate)
+      && Datepicker.checkIsMatchByDay(this.settings.from, targetDate);
+    const isEndOfRange = this.checkAreInSelectedRange(targetDate)
+      && Datepicker.checkIsMatchByDay(this.settings.to, targetDate);
 
     switch (true) {
       case isStartOfRange:
@@ -151,7 +155,7 @@ class Datepicker {
 
     calendarCell.innerText = date.getDate();
     return calendarCell;
-  };
+  }
 
   getPreviousMonthDays(year, month) {
     const days = [];
@@ -163,7 +167,7 @@ class Datepicker {
     }
 
     return days;
-  };
+  }
 
   getCurrentMonthDays(year, month) {
     const days = [];
@@ -175,7 +179,7 @@ class Datepicker {
     }
 
     return days;
-  };
+  }
 
   getNextMonthDays(year, month) {
     const days = [];
@@ -190,7 +194,7 @@ class Datepicker {
     }
 
     return days;
-  };
+  }
 
   makesCalendarByDate(data) {
     const { year, month } = data;
@@ -198,10 +202,13 @@ class Datepicker {
     const checkIsNeedPreviousMonth = () => new Date(year, month).getDay() !== 1;
     const checkIsNeedNextMonth = () => new Date(year, month + 1, 0).getDay() !== 0;
 
-
-    if (checkIsNeedPreviousMonth()) calendarDays = calendarDays.concat(this.getPreviousMonthDays(year, month));
+    if (checkIsNeedPreviousMonth()) {
+      calendarDays = calendarDays.concat(this.getPreviousMonthDays(year, month));
+    }
     calendarDays = calendarDays.concat(this.getCurrentMonthDays(year, month));
-    if (checkIsNeedNextMonth()) calendarDays = calendarDays.concat(this.getNextMonthDays(year, month));
+    if (checkIsNeedNextMonth()) {
+      calendarDays = calendarDays.concat(this.getNextMonthDays(year, month));
+    }
 
     return calendarDays;
   }
@@ -259,9 +266,9 @@ class Datepicker {
     const { pickedDate, date } = settings;
 
     const checkIsFromLessCurrentDay = () => this.currentValueTarget === 'from' && pickedDate <= this.settings.currentDay;
-    const checkIsToLessThenFrom = () => this.currentValueTarget === 'to' &&
-      this.settings.from &&
-      pickedDate <= this.settings.from;
+    const checkIsToLessThenFrom = () => this.currentValueTarget === 'to'
+      && this.settings.from
+      && pickedDate <= this.settings.from;
     const isValidationPassed = checkIsFromLessCurrentDay() || checkIsToLessThenFrom();
     if (isValidationPassed) return false;
 
@@ -358,10 +365,16 @@ class Datepicker {
     const result = this.checkDateForValidity(value, date);
 
     if (result) {
-      this.settings.pickedYear = new Date(this.settings.pickedYear, this.settings.pickedMonth).getFullYear();
-      this.settings.pickedMonth = new Date(this.settings.pickedYear, this.settings.pickedMonth).getMonth();
+      this.settings.pickedYear = new Date(
+        this.settings.pickedYear, this.settings.pickedMonth,
+      ).getFullYear();
+      this.settings.pickedMonth = new Date(
+        this.settings.pickedYear, this.settings.pickedMonth,
+      ).getMonth();
       this.clearCalendar();
-      const days = this.makesCalendarByDate({ year: this.settings.pickedYear, month: this.settings.pickedMonth });
+      const days = this.makesCalendarByDate(
+        { year: this.settings.pickedYear, month: this.settings.pickedMonth },
+      );
       this.refreshCalendar(days);
       this.refreshSelectedMonth(this.settings.pickedMonth, this.settings.pickedYear);
     }
@@ -373,7 +386,9 @@ class Datepicker {
     this.settings.pickedYear = date.getFullYear();
     this.settings.pickedMonth = date.getMonth();
     this.clearCalendar();
-    const days = this.makesCalendarByDate({ year: this.settings.pickedYear, month: this.settings.pickedMonth });
+    const days = this.makesCalendarByDate({
+      year: this.settings.pickedYear, month: this.settings.pickedMonth,
+    });
     this.refreshCalendar(days);
     this.refreshSelectedMonth(this.settings.pickedMonth, this.settings.pickedYear);
     this.bindCalendarCellsListener();
@@ -444,7 +459,7 @@ class Datepicker {
   }
 
   handelDOMClick(event) {
-    const result = Boolean(event.path.find(element => element === this.container));
+    const result = Boolean(event.path.find((element) => element === this.container));
     if (result === false) this.handleInputClick();
   }
 

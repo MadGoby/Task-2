@@ -1,4 +1,4 @@
 import { importContext } from '../../tools/importContext';
-import "./index.scss";
+import './index.scss';
 
 importContext();

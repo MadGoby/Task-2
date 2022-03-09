@@ -42,8 +42,9 @@ class HeaderNavigation {
   }
 
   handelDOMClick(event) {
-    const checkIsClickInNavigation = (element) => element === this.navigation || element === this.button;
-    const result = Boolean(event.path.find(element => checkIsClickInNavigation(element)));
+    const checkIsClickInNavigation = (element) => element === this.navigation
+      || element === this.button;
+    const result = Boolean(event.path.find((element) => checkIsClickInNavigation(element)));
     if (result === false) this.handleButtonClick();
   }
 

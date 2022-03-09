@@ -60,8 +60,7 @@ class ContentNavigation {
   editsCounterValues() {
     const counterTo = this.currentButton.querySelector('.button__control').textContent * 12;
     this.counter.textContent = `${counterTo - 11} – ${counterTo} из 100+ вариантов аренды`;
-  };
-
+  }
 
   static controlCurrentPageClass(selectedButton) {
     const currentButton = selectedButton.querySelector('.button__control');
@@ -106,7 +105,7 @@ class ContentNavigation {
         this.currentButton = parent;
         break;
     }
-  };
+  }
 
   prepareDataAfterPrevious() {
     const currentButtonText = Number(this.currentButton.querySelector('.button__control').textContent);
@@ -128,7 +127,7 @@ class ContentNavigation {
     }
 
     return { index, targetNumber };
-  };
+  }
 
   prepareDataAfterNext() {
     const currentButtonText = Number(this.currentButton.querySelector('.button__control').textContent);
@@ -150,7 +149,7 @@ class ContentNavigation {
     }
 
     return { index, targetNumber };
-  };
+  }
 
   handleButtonClick(event) {
     let parent = false;
@@ -187,7 +186,7 @@ class ContentNavigation {
 
   bindEventListeners(button) {
     button.addEventListener('click', this.handleButtonClick);
-  };
+  }
 }
 
 export { ContentNavigation };
