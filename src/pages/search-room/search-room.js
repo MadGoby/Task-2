@@ -3,6 +3,15 @@ import './search-room.scss';
 
 importContext();
 
+require('../../blocks/header/headerInit');
+require('../../blocks/datepicker/datepickerInit');
+require('../../blocks/dropdown/dropdownInit');
+require('../../blocks/stars-rating/starsRatingInit');
+require('../../blocks/list/listInit');
+require('../../blocks/slider/sliderInit');
+require('../../blocks/content-navigation/contentNavigationInit');
+require('../../blocks/room-card/roomCardInit');
+
 require('../../img/980.jpg');
 require('../../img/856.jpg');
 require('../../img/740.jpg');

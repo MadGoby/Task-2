@@ -3,6 +3,8 @@ import './headers-footers.scss';
 
 importContext();
 
+require('../../blocks/header/headerInit');
+
 require('../../img/logo.svg');
 require('../../img/logo-color.svg');
 require('../../img/instagram.svg');

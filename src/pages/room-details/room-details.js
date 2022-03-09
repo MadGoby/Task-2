@@ -3,6 +3,10 @@ import './room-details.scss';
 
 importContext();
 
+require('../../blocks/header/headerInit');
+require('../../blocks/datepicker/datepickerInit');
+require('../../blocks/dropdown/dropdownInit');
+
 require('../../img/room-photo-big.jpg');
 require('../../img/room-photo-small1.jpg');
 require('../../img/room-photo-small2.jpg');
