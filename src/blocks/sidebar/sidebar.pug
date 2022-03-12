@@ -10,7 +10,8 @@ mixin sidebar()
     aside.sidebar__wrapper.js-sidebar__wrapper
       .sidebar__date-filter
         +datepicker({
-          input: {
+          inputType: 'total',
+          inputSettings: {
             total: {
               title: { text: "даты пребывания в отеле" },
               input: {
@@ -34,10 +35,8 @@ mixin sidebar()
             dataFrom: "2019, 8, 19",
             dataTo: "2019, 8, 23",
           },
-          attr: {
-            "hidden": "hidden"
-          },
-          size: "small"
+          isCalendarClosed: true,
+          sizeClass: "small"
         })
       .sidebar__guests
         +dropdown({
@@ -55,9 +54,7 @@ mixin sidebar()
               jsClass: "js-input__field"
             }
           },
-          control: {
-            attr: { "hidden": "hidden" }
-          },
+          isClosed: true,
           lists: [
             { text: "взрослые", dataTarget: "adult", output: "2" },
             { text: "дети", dataTarget: "child", output: "1" },
@@ -121,10 +118,7 @@ mixin sidebar()
         })
       .sidebar__availability
         +list({
-          title: {
-            text: "доступность",
-          },
-          js: false,
+          title: { text: "доступность" },
           listCheckbox: [
             {
               controller: {
@@ -154,7 +148,6 @@ mixin sidebar()
               }
             },
           ],
-          container: false
         })
       .sidebar__room-amenities
         +dropdown({
@@ -172,9 +165,7 @@ mixin sidebar()
               jsClass: "js-input__field"
             }
           },
-          control: {
-            attr: { "hidden": "hidden" }
-          },
+          isClosed: true,
           lists: [
             { text: "спальни", dataTarget: "bedroom", output: "2" },
             { text: "кровати", dataTarget: "bed", output: "2" },
@@ -189,15 +180,6 @@ mixin sidebar()
         +list({
           title: {
             text: "дополнительные удобства",
-            type: "closed",
-          },
-          container: {
-            attr: { "hidden": "hidden" }
-          },
-          js: {
-            main: "js-list",
-            title: "js-title",
-            list: "js-list__container"
           },
           listCheckbox: [
             {

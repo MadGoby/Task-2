@@ -35,7 +35,8 @@ mixin search-room(settings)
       })
     .search-room__period
       +datepicker({
-        input: {
+        inputType: 'double',
+        inputSettings: {
           from: {
             title: {text: fromTitle},
             input: {
@@ -65,12 +66,7 @@ mixin search-room(settings)
             }
           }
         },
-        main: {
-          jsClass: "js-datepicker"
-        },
-        attr: {
-          "hidden": "hidden"
-        }
+        isCalendarClosed: true
       })
     .search-room__guests
       +dropdown({
@@ -88,9 +84,7 @@ mixin search-room(settings)
             jsClass: "js-input__field"
           }
         },
-        control: {
-          attr: {"hidden": "hidden"}
-        },
+        isClosed: true,
         lists: lists,
         main: {
           dataType: "guests",
@@ -101,5 +95,5 @@ mixin search-room(settings)
       +button({
         type: "confirm",
         text: confirmText,
-        attr: {"type": "submit"}
+        attrType: "submit",
       })

@@ -9,7 +9,7 @@ class ListDropdown {
 
   getHtmlElements() {
     this.list = this.container.querySelector('.js-list__container');
-    this.title = this.container.querySelector('.js-title');
+    this.title = this.container.querySelector('.js-list__title');
   }
 
   handleTitleClick() {

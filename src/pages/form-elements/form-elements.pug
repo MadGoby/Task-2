@@ -24,7 +24,7 @@ include ../../blocks/stars-rating/stars-rating.pug
         .form-elements__input-types
           .form-elements__text-input
             +input({
-              title: {text: "text field", type: "with-state", state: "default"},
+              title: { text: "text field", type: "with-state", state: "default" },
               input: {
                 attr: {
                   "type": "email",
@@ -36,7 +36,7 @@ include ../../blocks/stars-rating/stars-rating.pug
             })
           .form-elements__text-input
             +input({
-              title: {text: "text field", type: "with-state", state: "hover / focus"},
+              title: { text: "text field", type: "with-state", state: "hover / focus" },
               input: {
                 attr: {
                   "type": "text",
@@ -45,7 +45,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                 },
                 length: "long",
                 type: "regular",
-                border: "dark"
+                borderType: "dark"
               }
             })
           .form-elements__dropdown
@@ -64,9 +64,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                   jsClass: "js-input__field"
                 }
               },
-              control: {
-                attr: {"hidden": "hidden"}
-              },
+              isClosed: true,
               lists: [
                 {text: "взрослые", dataTarget: "adult", output: "0"},
                 {text: "дети", dataTarget: "child", output: "0"},
@@ -91,7 +89,8 @@ include ../../blocks/stars-rating/stars-rating.pug
             })
           .form-elements__date-dropdowns
             +datepicker({
-              input: {
+              inputType: 'double',
+              inputSettings: {
                 from: {
                   title: {text: "date Dropdown"},
                   input: {
@@ -128,13 +127,12 @@ include ../../blocks/stars-rating/stars-rating.pug
                 dataCurrentDay: "2019, 8, 9",
                 dataTo: "2019, 8, 19",
               },
-              attr: {
-                "hidden": "hidden"
-              }
+              isCalendarClosed: true,
             })
           .form-elements__filter-dropdown
             +datepicker({
-              input: {
+              inputType: 'total',
+              inputSettings: {
                 total: {
                   title: {text: "filter date dropdown"},
                   input: {
@@ -158,15 +156,13 @@ include ../../blocks/stars-rating/stars-rating.pug
                 dataFrom: "2019, 8, 19",
                 dataTo: "2019, 8, 23",
               },
-              attr: {
-                "hidden": "hidden"
-              },
-              size: "small"
+              isCalendarClosed: true,
+              sizeClass: "small"
             })
           .form-elements__subscription-input
             form(action="./for-change").form-elements__subscription-form
               +input({
-                title: {text: "subscription text field"},
+                title: { text: "subscription text field" },
                 input: {
                   attr: {
                     type: "email",
@@ -345,54 +341,46 @@ include ../../blocks/stars-rating/stars-rating.pug
                 +button({
                   type: "regular",
                   text: "click me",
-                  attr: {"type": "button"}
                 })
               .form-elements__button-wrapp
                 +button({
                   type: "regular",
                   text: "click me",
-                  attr: {"type": "button"},
-                  hover: "transparent",
+                  transparentClass: "transparent",
                 })
             .form-elements__border-buttons
               .form-elements__button-wrapp
                 +button({
                   type: "border",
                   text: "click me",
-                  attr: {"type": "button"}
                 })
               .form-elements__button-wrapp
                 +button({
                   type: "border",
                   text: "click me",
-                  attr: {"type": "button"},
-                  hover: "transparent",
+                  transparentClass: "transparent",
                 })
             .form-elements__text-buttons
               .form-elements__button-wrapp
                 +button({
                   type: "text",
                   text: "click me",
-                  attr: {"type": "button"}
                 })
               .form-elements__button-wrapp
                 +button({
                   type: "text",
                   text: "click me",
-                  attr: {"type": "button"},
                   hover: "color_black",
                 })
             .form-elements__big-button
               +button({
                 type: "confirm",
                 text: "перейти к оплате",
-                attr: {"type": "button"}
               })
           .form-elements__pagination
             +content-navigation({
-              title: "pagination",
-              jsClass: "js-content-navigation",
-              counter: "1 - 12 из 100+ вариантов аренды"
+              titleText: "pagination",
+              counterText: "1 - 12 из 100+ вариантов аренды"
             })
         .form-elements__dropdown-types
           .form-elements__fittings-dropdown
@@ -412,10 +400,8 @@ include ../../blocks/stars-rating/stars-rating.pug
                     jsClass: "js-input__field"
                   }
                 },
-                control: {
-                  z: "6",
-                  attr: {"hidden": "hidden"}
-                },
+                zIndexClass: "6",
+                isClosed: true,
                 lists: [
                   {text: "спальни", dataTarget: "bedroom", output: "2"},
                   {text: "кровати", dataTarget: "bed", output: "2"},
@@ -443,7 +429,6 @@ include ../../blocks/stars-rating/stars-rating.pug
                     jsClass: "js-input__field"
                   }
                 },
-                control: false,
                 lists: [
                   {text: "спальни", dataTarget: "bedroom", output: "2"},
                   {text: "кровати", dataTarget: "bed", output: "2"},
@@ -471,7 +456,6 @@ include ../../blocks/stars-rating/stars-rating.pug
                   jsClass: "js-input__field"
                 }
               },
-              control: false,
               lists: [
                 {text: "взрослые", dataTarget: "adult", output: "0"},
                 {text: "дети", dataTarget: "child", output: "0"},
@@ -499,7 +483,6 @@ include ../../blocks/stars-rating/stars-rating.pug
                   jsClass: "js-input__field"
                 }
               },
-              control: false,
               lists: [
                 {text: "взрослые", dataTarget: "adult", output: "2"},
                 {text: "дети", dataTarget: "child", output: "1"},
@@ -516,15 +499,9 @@ include ../../blocks/stars-rating/stars-rating.pug
               +list({
                 title: {
                   text: "expandable checkbox list",
-                  type: "closed",
                 },
                 container: {
                   attr: {"hidden": "hidden"}
-                },
-                js: {
-                  main: "js-list",
-                  title: "js-title",
-                  list: "js-list__container"
                 },
                 listCheckbox: [
                   {
@@ -608,14 +585,8 @@ include ../../blocks/stars-rating/stars-rating.pug
               +list({
                 title: {
                   text: "expandable checkbox list",
-                  type: "expanded",
                 },
                 container: {
-                },
-                js: {
-                  main: "js-list",
-                  title: "js-title",
-                  list: "js-list__container"
                 },
                 listCheckbox: [
                   {
@@ -700,7 +671,6 @@ include ../../blocks/stars-rating/stars-rating.pug
               title: {
                 text: "rich Checkbox Buttons",
               },
-              js: false,
               listCheckbox: [
                 {
                   controller: {
@@ -736,10 +706,8 @@ include ../../blocks/stars-rating/stars-rating.pug
             +list({
               title: {
                 text: "bullet list",
-                bullet: true,
               },
               container: false,
-              js: false,
               textList: [
                 "Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"
               ]

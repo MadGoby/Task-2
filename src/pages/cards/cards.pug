@@ -70,15 +70,10 @@ include ../../blocks/stars-rating/stars-rating.pug
                   title: "выезд",
                   value: "ДД.ММ.ГГГГ",
                 },
-                datepicker: {
-                  jsClass: "js-datepicker"
-                },
               },
               guests: {
                 title: { text: "гости" },
-                input: {
-                  value: "Сколько гостей",
-                },
+                inputValue: "Сколько гостей",
                 lists: [
                   {text: "взрослые", dataTarget: "adult", output: "0"},
                   {text: "дети", dataTarget: "child", output: "0"},
@@ -93,12 +88,12 @@ include ../../blocks/stars-rating/stars-rating.pug
                 {
                   title: "Сбор за услуги: скидка 2 179₽",
                   price: "0₽",
-                  modifier: "with-sign"
+                  isSign: true
                 },
                 {
                   title: "Сбор за дополнительные услуги",
                   price: "300₽",
-                  modifier: "with-sign"
+                  isSign: true
                 },
                 {
                   title: "Итого",
@@ -106,7 +101,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                   type: "total"
                 }
               ],
-              confirm: { text: "забронировать"}
+              confirmButtonText: "забронировать"
             })
           .cards__login
             +login({
@@ -116,7 +111,6 @@ include ../../blocks/stars-rating/stars-rating.pug
         .cards__column
           .cards__datepicker
             +datepicker({
-              input: false,
               main: {
                 jsClass: "js-datepicker",
                 dataYear: "2019",

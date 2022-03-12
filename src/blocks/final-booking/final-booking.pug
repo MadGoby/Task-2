@@ -15,13 +15,11 @@ mixin final-booking(settings)
   -       title: toTitle = "For change",
   -       value: toValue = "ДД.ММ.ГГГГ",
   -     },
-  -     datepicker = false,
+  -     datepicker = {},
   -   },
   -   guests: {
   -     title: { text: guestsTitle = "For change" },
-  -     input: {
-  -       value: guestsInputValue = "For Change",
-  -     },
+  -     inputValue: guestsInputValue = "For Change",
   -     lists: guestsLists = [
   -       {text: "For change 1", dataTarget: "for-change-1", output: "0"},
   -       {text: "For change 2", dataTarget: "for-change-2", output: "0"},
@@ -32,13 +30,13 @@ mixin final-booking(settings)
   -     {
   -       title: "For change 1",
   -       price: "111",
-  -       sign: false,
+  -       isSign: false,
   -       type: ""
   -     },
   -     {
   -       title: "For change 2",
   -       price: "222",
-  -       sign: true,
+  -       isSign: true,
   -       type: ""
   -     },
   -     {
@@ -47,7 +45,7 @@ mixin final-booking(settings)
   -       type: "total"
   -     }
   -   ],
-  -   confirm: { text: confirmText = "For Change" }
+  -   confirmButtonText = "For Change"
   - } = settings
   form(class="final-booking" action=action)
     .final-booking__room-information
@@ -58,7 +56,8 @@ mixin final-booking(settings)
       })
     .final-booking__period
       +datepicker({
-        input: {
+        inputType: 'double',
+        inputSettings: {
           from: {
             title: {text: fromTitle},
             input: {
@@ -89,9 +88,7 @@ mixin final-booking(settings)
           }
         },
         main: datepicker,
-        attr: {
-          "hidden": "hidden"
-        }
+        isCalendarClosed: true
       })
     .final-booking__guests
       +dropdown({
@@ -109,9 +106,7 @@ mixin final-booking(settings)
             jsClass: "js-input__field"
           }
         },
-        control: {
-          attr: {"hidden": "hidden"}
-        },
+        isClosed: true,
         lists: guestsLists,
         main: {
           dataType: "guests",
@@ -120,7 +115,11 @@ mixin final-booking(settings)
       })
     ul.final-booking__service-list
       each list in serviceList
-        if list.type == "total"
+        - const {
+        -   type: listType = 'regular',
+        -   isSign: isListSign = false,
+        - } = list
+        if listType == "total"
           li(class=["final-booking__service-total", "final-booking__service_text_bold"])
             div(class=["final-booking__service-wrapper", "final-booking__service-wrapper_text_bold"])
               span(class=["final-booking__service-title", "final-booking__service-title_text_bold"])=list.title
@@ -129,12 +128,12 @@ mixin final-booking(settings)
           li(class="final-booking__service")
             .final-booking__service-wrapper
               span(class="final-booking__service-title")=list.title
-              if list.sign === true
+              if isListSign === true
                 span.final-booking__service-sign="i"
             span.final-booking__service-price=list.price
     .final-booking__confirm-button
       +button({
         type: "confirm",
-        text: confirmText,
-        attr: {"type": "submit"}
+        text: confirmButtonText,
+        attrType: "submit",
       })

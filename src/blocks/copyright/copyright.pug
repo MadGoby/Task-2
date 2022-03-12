@@ -1,7 +1,7 @@
 mixin copyright(settings)
   - const {
   -   text = "For change",
-  -   links = [
+  -   linksSettings = [
   -     {
   -       "name": "For change",
   -       "iconSrc": "img/for-change.svg"
@@ -20,5 +20,5 @@ mixin copyright(settings)
     p.copyright__text= text
     .copyright__social-media
       +social-media-link({
-        socialLinks: links
+        socialLinks: linksSettings,
       })

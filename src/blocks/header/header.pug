@@ -1,15 +1,12 @@
 mixin header(settings)
   - const {
-  -   navigation: { 
-  -     links = [
-  -       {"text": "For change"},
-  -       {"text": "For change"},
-  -       {"text": "For change"},
-  -       {"text": "For change"}
-  -     ],
-  -     buttonJsClass = "js-for-change",
-  -   },
-  -   authorized = false
+  -   navigationLinks = [
+  -     { "text": "For change" },
+  -     { "text": "For change" },
+  -     { "text": "For change" },
+  -     { "text": "For change" }
+  -   ],
+  -   authorizedUserName = ""
   - } = settings
   div(class="header")
     .header__logo
@@ -17,27 +14,27 @@ mixin header(settings)
         src: "../img/logo-color.svg"
       })
     div(class=["header__navigation", "js-header__navigation"])
-      button(class=["header__navigation-button", buttonJsClass])
+      button(class="header__navigation-button js-header__navigation-button")
         span.header__hamburger
       div(class=["header__navigation-wrapper", "js-header__navigation-wrapper"])
         +navigation({
-          links: links
+          links: navigationLinks
         })
-    if authorized
-      p.header__authorized= authorized
+    if authorizedUserName
+      p.header__authorized= authorizedUserName
     else
       .header__buttons
         .header__login-button
           +button({
             type: "border",
             text: "войти",
-            attr: {"type": "button"},
-            height: "small"
+            attrType: "button",
+            sizeClass: "small",
           })
         .header__registration-button
           +button({
             type: "regular",
             text: "зарегистрироваться",
-            attr: {"type": "button"},
-            height: "small"
+            attrType: "button",
+            sizeClass: "small",
           })

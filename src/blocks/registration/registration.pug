@@ -69,7 +69,7 @@ mixin registration(settings)
           })
     .registration__birthday
       +input({
-        title: {text: "дата рождения"},
+        title: { text: "дата рождения" },
         input: {
           attr: {
             type: "text",
@@ -123,7 +123,7 @@ mixin registration(settings)
       +button({
         type: "confirm",
         text: "зарегистрироваться",
-        attr: {"type": "submit"}
+        attrType: "submit",
       })
     .registration__login
       p.registration__text="Уже есть аккаунт на Toxin"
@@ -131,5 +131,4 @@ mixin registration(settings)
         +button({
           type: "border",
           text: "Войти",
-          attr: {"type": "button"}
         })

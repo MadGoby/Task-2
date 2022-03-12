@@ -2,19 +2,11 @@ include ../social-media-link/social-media-link.pug
 
 mixin footer(settings)
   - const {
-  -   description: {
-  -     text: descriptionText = false
-  -   },
+  -   descriptionText = "",
   -   lists = [
-  -     [
-  -       {"text": "For change"}, 
-  -     ],
-  -     [
-  -       {"text": "For change"}, 
-  -     ],
-  -     [
-  -       {"text": "For change"}, 
-  -     ]
+  -     [ {"text": "For change"}, ],
+  -     [ {"text": "For change"}, ],
+  -     [ {"text": "For change"}, ]
   -   ],
   -   links = [
   -     {
@@ -22,28 +14,29 @@ mixin footer(settings)
   -       "iconSrc": "img/for-change.svg"
   -     }
   -   ],
-  -   subscribe: {
-  -     title = "For change",
+  -   subscribe = {
+  -     title: subscribeTitle = "For change",
   -     text: subscribeText = "For change",
-  -     action = "./for-change"
+  -     action: subscribeAction = "./for-change",
   -   },
-  -   copyright: { text: copyrightText = "For change" }
+  -   copyrightText = "For change"
   - } = settings
-  - let { footer: { size = false } } = settings
-  - let wrapperSize = false
-  - if(size) {
-  -   wrapperSize = `footer__wrapper_size_${size}`
-  -   size = `footer_size_${size}`
+  - let { footerSize = "" } = settings
+  - let footerSizeClass = ""
+  - let wrapperSizeClass = ""
+  - if (footerSize) {
+  -   wrapperSizeClass = `footer__wrapper_size_${footerSize}`
+  -   footerSizeClass = `footer_size_${footerSize}`
   - }
-  div(class=["footer", size])
-    div(class=["footer__wrapper", wrapperSize])
+  div(class=["footer", footerSizeClass])
+    div(class=["footer__wrapper", wrapperSizeClass])
       div(class="footer__description")
         +logo({
           src: "../img/logo-color.svg"
         })
         if descriptionText
           p(class="footer__logo-description")=descriptionText
-      if size === "footer_size_small"
+      if footerSize === "small"
         div(class=["footer__social-media", "footer__social-media_size_small"])
           p(class="footer__small-copyright")= copyrightText
           +social-media-link({
@@ -63,11 +56,11 @@ mixin footer(settings)
                 - linkType = `footer__${linkType}`
                 #{teg}(class=linkType href=href)= linkText
         .footer__subscribe
-          p.footer__title=title
+          p.footer__title= subscribeTitle
           p.footer__subscribe-text=subscribeText
-          form(class="footer__subscribe-form" action=action)
+          form(class="footer__subscribe-form" action= subscribeAction)
             +input({
-              title: false,
+              title: {},
               input: {
                 attr: {
                   type: "email",

@@ -59,9 +59,7 @@ include ../../blocks/page-footer/page-footer
                 },
                 guests: {
                   title: { text: "гости" },
-                  input: {
-                    value: "3 гостя",
-                  },
+                  inputValue: "3 гостя",
                   lists: [
                     {text: "взрослые", dataTarget: "adult", output: "2"},
                     {text: "дети", dataTarget: "child", output: "1"},
@@ -76,12 +74,12 @@ include ../../blocks/page-footer/page-footer
                   {
                     title: "Сбор за услуги: скидка 2 179₽",
                     price: "0₽",
-                    sign: true
+                    isSign: true
                   },
                   {
                     title: "Сбор за дополнительные услуги",
                     price: "300₽",
-                    sign: true
+                    isSign: true
                   },
                   {
                     title: "Итого",
@@ -89,7 +87,7 @@ include ../../blocks/page-footer/page-footer
                     type: "total"
                   }
                 ],
-                confirm: { text: "забронировать"}
+                confirmButtonText: "забронировать"
               })
             .room-details__content-wrapper
               .room-details__positive-features
@@ -144,8 +142,8 @@ include ../../blocks/page-footer/page-footer
                     teg: "h2"
                   })
                 +impressions-diagram({
-                  text: "",
-                  lines: [
+                  voteCount: "",
+                  clarifyingDescription: [
                     {text: "Великолепно", type: "color_yellow"},
                     {text: "Хорошо", type: "color_green"},
                     {text: "Удовлетворительно", type: "color_purple"},
@@ -201,7 +199,6 @@ include ../../blocks/page-footer/page-footer
                 +list({
                   title: {
                     text: "Правила",
-                    type: "size_regular",
                     bullet: true,
                     margin: true,
                     teg: "h2"
@@ -210,7 +207,6 @@ include ../../blocks/page-footer/page-footer
                     "Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"
                   ],
                   container: false,
-                  js: false,
                 })
               .room-details__cancellation
                 .cancellation

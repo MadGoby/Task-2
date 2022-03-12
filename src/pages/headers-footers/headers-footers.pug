@@ -17,34 +17,28 @@ include ../../blocks/copyright/copyright.pug
       .headers-footers__content
         .headers-footers__header
           +header({
-            navigation: { 
-              links: [
-                {"text": "О нас", "type": "text_bold"},
-                {"text": "Услуги", "type": "expanded"},
-                {"text": "Вакансии"},
-                {"text": "Новости"},
-                {"text": "Соглашения", "type": "expanded"},
-              ]
-            }
+            navigationLinks: [
+              {"text": "О нас", "type": "text_bold"},
+              {"text": "Услуги", "type": "expanded"},
+              {"text": "Вакансии"},
+              {"text": "Новости"},
+              {"text": "Соглашения", "type": "expanded"},
+            ]
           })
         .headers-footers__header
           +header({
-            navigation: { 
-              links: [
-                {"text": "О нас", "type": "text_bold"},
-                {"text": "Услуги", "type": "expanded"},
-                {"text": "Вакансии"},
-                {"text": "Новости"},
-                {"text": "Соглашения", "type": "expanded"},
-              ]
-            },
-            authorized: "Юлий Цезарь"
+            navigationLinks: [
+              {"text": "О нас", "type": "text_bold"},
+              {"text": "Услуги", "type": "expanded"},
+              {"text": "Вакансии"},
+              {"text": "Новости"},
+              {"text": "Соглашения", "type": "expanded"},
+            ],
+            authorizedUserName: "Юлий Цезарь"
           })
         .headers-footers__footer_size_large
           +footer({
-            description: {
-              text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-            },
+            descriptionText: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
             lists: [
               [
                 {
@@ -82,13 +76,11 @@ include ../../blocks/copyright/copyright.pug
             subscribe: {
               title: "Подписка",
               text: "Получайте специальные предложения и новости сервиса"
-            },
-            footer: false,
-            copyright: false
+            }
           })
           +copyright({
             text: "Copyright © 2018 Toxin отель. Все права защищены.",
-            links: [
+            linksSettings: [
               {
                 "name": "twitter",
                 "iconSrc": "../img/twitter.svg"
@@ -105,8 +97,8 @@ include ../../blocks/copyright/copyright.pug
           })
         .headers-footers__footer_small
           +footer({
-            footer: { size: "small" },
-            copyright: { text: "Copyright © 2018 Toxin отель. Все права защищены." },
+            footerSize: "small",
+            copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
             links: [
               {
                 "name": "twitter",
@@ -121,6 +113,4 @@ include ../../blocks/copyright/copyright.pug
                 "iconSrc": "../img/instagram.svg"
               }
             ],
-            description: false,
-            subscribe: false
           })

@@ -2,9 +2,7 @@ mixin page-footer(settings)
   - const { footerClass = "" } = settings
     footer(class=footerClass)
       +footer({
-        description: {
-          text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-        },
+        descriptionText: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
         lists: [
           [
             {
@@ -42,13 +40,11 @@ mixin page-footer(settings)
         subscribe: {
           title: "Подписка",
           text: "Получайте специальные предложения и новости сервиса"
-        },
-        footer: false,
-        copyright: false
+        }
       })
       +copyright({
         text: "Copyright © 2018 Toxin отель. Все права защищены.",
-        links: [
+        linksSettings: [
           {
             "name": "twitter",
             "iconSrc": "../img/twitter.svg",

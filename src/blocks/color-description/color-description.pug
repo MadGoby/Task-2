@@ -4,11 +4,11 @@ mixin color-description(settings)
   -   index = "for-Change"
   - } = settings
   - let {
-  -   color = "for-change" 
+  -   colorClass = "for-change"
   - } = settings
-  - if(color) color = `color-description__sample_color_${color}`
+  - if(colorClass) colorClass = `color-description__sample_color_${colorClass}`
   .color-description
-    div(class=["color-description__sample", color])
+    div(class=["color-description__sample", colorClass])
     .color-description__text
       p.color-description__name= name
       p.color-description__index= index

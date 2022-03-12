@@ -1,50 +1,50 @@
 mixin input(settings)
-  - const { 
+  - const {
   -   title: {
-  -     text = false,
-  -     state: titleState = false
+  -     text: titleText = "",
+  -     type: titleType = "",
+  -     state: titleState = ""
   -   },
   -   input: {
-  -     attr = { placeholder: "For-change" },
-  -     jsClass = false,
+  -     attr = {
+  -       placeholder: "For-change",
+  -       type: "text"
+  -     },
+  -     jsClass = "",
   -   }
   - } = settings
-  - let { 
-  -   title: {
-  -     type: titleType = false,
-  -   },
+  - let {
   -   input: {
-  -     length = "long",
   -     type: inputType = "regular",
   -     state: inputState = false,
-  -     border = false
+  -     length = "long",
+  -     borderType = ""
   -   }
   - } = settings
-  - let wrapperType = false
-  - let wrapperLength = false
-  - if (titleType) titleType = `input__title-text_${titleType}`
+  - const titleTypeClass = titleType ? `input__title-text_${titleType}` : ""
+  - let wrapperLength = ""
   - if (length) {
   -   wrapperLength = `input__wrapper_length_${length}`
   -   length = `input__field_length_${length}`
   - }
-  - const isDropdownOrSubmit = inputType === "dropdown" || inputType === "submit"
-  - if (isDropdownOrSubmit) wrapperType = inputType
+  - const isNeedWrapper = inputType === "dropdown" || inputType === "submit"
+  - const wrapperType = isNeedWrapper ? inputType : "none"
   - if (inputType) inputType = `input__field_type_${inputType}`
   - if (inputState) inputState = `input__field_${inputState}`
-  - if (border) border = `input__field_border_${border}`
+  - if (borderType) borderType = `input__field_border_${borderType}`
   .input
     if titleState
       .input__title
-        div(class="input__title-text" class=titleType)
+        div(class="input__title-text" class=titleTypeClass)
           +title({
-            text: text
+            text: titleText
           })
-        p.input__state=titleState
-    else if text
+        p.input__state= titleState
+    else if titleText
       .input__title
-        div(class="input__title-text" class=titleType)
+        div(class="input__title-text" class=titleTypeClass)
           +title({
-            text: text
+            text: titleText
           })
     case wrapperType
       when "dropdown"
@@ -55,4 +55,4 @@ mixin input(settings)
           input(class=["input__field", length, inputType, inputState, jsClass])&attributes(attr)
           button(class="input__submit-button" type="submit")
       default
-        input(class=["input__field", length, inputType, border, inputState, jsClass])&attributes(attr)
+        input(class=["input__field", length, inputType, borderType, inputState, jsClass])&attributes(attr)

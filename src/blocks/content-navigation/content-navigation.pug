@@ -1,18 +1,17 @@
 mixin content-navigation(settings)
   - const {
-  -   title = false,
-  -   jsClass = "js-for-change",
-  -   counter = "For Change"
+  -   titleText = "",
+  -   counterText = "",
   - } = settings
-  - const buttons = [
+  - const buttonsSettings = [
   -   {
   -     type: "purpose_previous",
-  -     modifierClass: "arrow_back"
+  -     navigationClass: "arrow_back"
   -   },
   -   {
   -     type: "active",
   -     text: "1",
-  -     modifierClass: "color_purple"
+  -     navigationClass: "color_purple"
   -   },
   -   {
   -     type: "decorative",
@@ -36,27 +35,26 @@ mixin content-navigation(settings)
   -   },
   -   {
   -     type: "purpose_next",
-  -     modifierClass: "arrow_forward"
+  -     navigationClass: "arrow_forward"
   -   },
   - ]
-  div(class=["content-navigation", jsClass])
-    if title
+  div(class="content-navigation js-content-navigation")
+    if titleText
       .content-navigation__title
-        +title({text: title})
+        +title({text: titleText})
     ul.content-navigation__buttons
-      each button in buttons
+      each button in buttonsSettings
         - const {
         -   text = "",
-        -   modifierClass = false
+        -   navigationClass = false
         - } = button
-        - let { type = false } = button
+        - let { type = "" } = button
         - if (type) type=`content-navigation__button_${type}`
         li(class=["content-navigation__button", type])
           +button({
             type: "pagination",
             text: text,
-            attr: {"type": "button"},
-            modifierClass: modifierClass
+            navigationClass: navigationClass,
           })
-    if counter
-      p.content-navigation__counter=counter
+    if counterText
+      p.content-navigation__counter=counterText

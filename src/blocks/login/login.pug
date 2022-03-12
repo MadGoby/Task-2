@@ -40,7 +40,7 @@ mixin login(settings)
       +button({
         type: "confirm",
         text: confirm,
-        attr: {"type": "submit"}
+        attrType: "submit",
       })
     .login__registration
       p.login__text="Нет аккаунта на Toxin?"
@@ -48,5 +48,4 @@ mixin login(settings)
         +button({
           type: "border",
           text: "создать",
-          attr: {"type": "button"}
         })

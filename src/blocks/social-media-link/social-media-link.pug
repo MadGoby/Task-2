@@ -1,5 +1,18 @@
 mixin social-media-link(settings)
-  - const { socialLinks= [{},{},{}] } = settings
+  - const { socialLinks = [
+  -   {
+  -     "name": "For change",
+  -     "iconSrc": "img/for-change.svg"
+  -   },
+  -   {
+  -     "name": "For change",
+  -     "iconSrc": "img/for-change.svg"
+  -   },
+  -   {
+  -     "name": "For change",
+  -     "iconSrc": "img/for-change.svg"
+  -   }
+  - ]} = settings
   each socialLink in socialLinks
     - const {
     -   link = "./for-change",
@@ -8,7 +21,7 @@ mixin social-media-link(settings)
     - } = socialLink
     - let {
     -   name = "for-change",
-    -   position = false
+    -   position = ""
     - } = socialLink
     - if(name) name = `social-media-link_to-${name}`
     - if(position) position = `social-media-link__icon_position_${position}`

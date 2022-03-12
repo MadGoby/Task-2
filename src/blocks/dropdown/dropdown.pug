@@ -3,33 +3,30 @@ mixin dropdown(settings)
   -   inputSettings = {
   -     length: "average",
   -     type: "regular",
-  -     attr: {placeholder: "For-change"},
+  -     attr: { placeholder: "For-change" },
   -     state: "",
   -     jsClass: "js-for-change"  
   -   },
-  -   control: {
-  -     attr = false
-  -   },
+  -   isClosed = false,
   -   main: {
-  -     dataType = false,
-  -     outputType = false
+  -     dataType = "for-change",
+  -     outputType = "sum"
   -   }
   - } = settings
   - let {
-  -   control: { z = false },
-  -   clearHidden = true,
+  -   zIndexClass = "",
   -   lists = [
-  -     {text: "For Change", dataTarget: "forChange1", output: "0", minusTransparent: false, plusTransparent: false},
-  -     {text: "For Change", dataTarget: "forChange2", output: "0", minusTransparent: false, plusTransparent: false},
-  -     {text: "For Change", dataTarget: "forChange3", output: "0", minusTransparent: false, plusTransparent: false}
+  -     { text: "For Change", dataTarget: "forChange1", output: "0", isMinusTransparent: false, isPlusTransparent: false },
+  -     { text: "For Change", dataTarget: "forChange2", output: "0", isMinusTransparent: false, isPlusTransparent: false },
+  -     { text: "For Change", dataTarget: "forChange3", output: "0", isMinusTransparent: false, isPlusTransparent: false },
   -   ]
   - } = settings
-  - if (z) z = `dropdown__control_z-index_${z}`
+  - const attr = isClosed ? { "hidden": "hidden" } : {}
+  - if (zIndexClass) zIndexClass = `dropdown__control_z-index_${zIndexClass}`
   - if (lists) {
-  -   lists.forEach(function(list) {
-  -     if(list.output == "0") list.minusTransparent = true
-  -     if(list.output == "10") list.plusTransparent = true
-  -     if(list.output > "0") clearHidden = false
+  -   lists.forEach((list) => {
+  -     if(list.output == "0") list.isMinusTransparent = true
+  -     if(list.output == "10") list.isPlusTransparent = true
   -   })
   - }
   div(class=["dropdown", "js-dropdown"] data-template=dataType, data-output=outputType)
@@ -38,34 +35,24 @@ mixin dropdown(settings)
     div(class=["dropdown__control", "js-dropdown__control", z])&attributes(attr)
       ul.dropdown__list
         each list in lists
+          - const minusTransparentClass = list.isMinusTransparent ? "dropdown__button_transparent" : ""
+          - const plusTransparentClass = list.isPlusTransparent ? "dropdown__button_transparent" : ""
           li.dropdown__list-element
             span.dropdown__text=list.text
             .dropdown__calc
-              if list.minusTransparent 
-                button(class=["dropdown__button dropdown__button_transparent", "dropdown__button_type_minus"] type="button"  data-target=list.dataTarget data-action="minus")="-"
-              else
-                button(class=["dropdown__button", "dropdown__button_type_minus"] type="button" data-target=list.dataTarget data-action="minus")="-"
+              button(class=["dropdown__button", "dropdown__button_type_minus", minusTransparentClass] type="button"  data-target=list.dataTarget data-action="minus")="-"
               output(class="dropdown__output" data-target=list.dataTarget)=list.output
-              if list.plusTransparent
-                button(class=["dropdown__button dropdown__button_transparent", "dropdown__button_type_plus"] type="button"  data-target=list.dataTarget data-action="plus")="+"
-              else
-                button(class=["dropdown__button", "dropdown__button_type_plus"] type="button" data-target=list.dataTarget data-action="plus")="+"
+              button(class=["dropdown__button", "dropdown__button_type_plus" , plusTransparentClass] type="button"  data-target=list.dataTarget data-action="plus")="+"
       .dropdown__submit-buttons
         .dropdown__clear-button
           +button({
             type: "text",
             text: "очистить",
-            attr: {
-              "type": "button",
-              "data-target": "clear"
-            }
+            attrType: "button",
           })
         .dropdown__submit-button
           +button({
             type: "text",
             text: "применить",
-            attr: {
-              "type": "button",
-              "data-target": "submit",
-            }
+            attrType: "button",
           })

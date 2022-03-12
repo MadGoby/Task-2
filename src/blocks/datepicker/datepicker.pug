@@ -1,72 +1,62 @@
 include ../button/button.pug
 
 mixin datepicker(settings)
-  - const {
-  -   input: {
-  -     from = false,
-  -     to = false,
-  -     total = false
-  -   },
-  -   main: {
-  -     jsClass = "js-for-change",
-  -     dataYear = false,
-  -     dataMonth = false,
-  -     dataCurrentDay = false,
-  -     dataFrom = false,
-  -     dataTo = false,
-  -   },
-  -   attr = false,
-  - } = settings
   - const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
-  - let { size = false } = settings
-  - let wrapperSize = false
+  - const {
+  -   inputType = "",
+  -   inputSettings = {},
+  -   main = {
+  -     dataYear: "",
+  -     dataMonth: "",
+  -     dataCurrentDay: "",
+  -     dataFrom: "",
+  -     dataTo: "",
+  -   },
+  -   isCalendarClosed =  false,
+  - } = settings
+  - let { sizeClass = "" } = settings
+  - const size = sizeClass
+  - let calendarSizeClass = ""
+  - let monthSizeClass = ""
+  - const attr = isCalendarClosed ? { "hidden": "hidden" } : {}
   - if(size) {
-  -   wrapperSize = `datepicker__calendar-wrapper_size_${size}`
-  -   size = `datepicker_size_${size}`
+  -   calendarSizeClass = `datepicker__calendar-wrapper_size_${size}`
+  -   monthSizeClass = `datepicker__selected-month_size_${size}`
+  -   sizeClass = `datepicker_size_${size}`
   - }
-  div(class=["datepicker", size, jsClass] data-year=dataYear, data-month=dataMonth, data-day=dataCurrentDay, data-from=dataFrom, data-to=dataTo)
-    if total || (from && to) 
-      .datepicker__inputs 
-        if total
-          +input(total)
-        else if from && to 
-          .datepicker__from
-            +input(from)
-          .datepicker__to
-            +input(to)
-    div(class=["datepicker__calendar-wrapper", wrapperSize])&attributes(attr)
+  div(class=["datepicker js-datepicker", sizeClass] data-year=dataYear, data-month=dataMonth, data-day=dataCurrentDay, data-from=dataFrom, data-to=dataTo)
+    .datepicker__inputs
+      if inputType === "total"
+          +input(inputSettings.total)
+      else if inputType === "double"
+        .datepicker__from
+          +input(inputSettings.from)
+        .datepicker__to
+          +input(inputSettings.to)
+    div(class=["datepicker__calendar-wrapper", calendarSizeClass])&attributes(attr)
       button(class=["datepicker__scroll-button", "datepicker__scroll-button_arrow_back", "js-datepicker__scroll-button_arrow_back"] type="button")
-      if settings.size === "small"
-        p(class=["datepicker__selected-month", "datepicker__selected-month_size_small", "js-datepicker__selected-month"])
-      else 
-        p(class=["datepicker__selected-month", "js-datepicker__selected-month"])
+      p(class=["datepicker__selected-month", "js-datepicker__selected-month", monthSizeClass])
       button(class=["datepicker__scroll-button", "datepicker__scroll-button_arrow_forward", "js-datepicker__scroll-button_arrow_forward"] type="button")
       table(class=["datepicker__calendar", "js-datepicker__calendar"])
         tr(class="datepicker__calendar-line")
-            each day in days
-              - let dayType = false
-              - if (settings.size === "small") dayType = "datepicker__calendar-cell_size_small"
-              th(class=["datepicker__calendar-cell", "datepicker__calendar-cell_font_bold", dayType])= day
+          each day in days
+            - let cellSize = ""
+            - if (size === "small") cellSize = "datepicker__calendar-cell_size_small"
+            th(class=["datepicker__calendar-cell", "datepicker__calendar-cell_font_bold", cellSize])= day
         - let i = 0;
         while (i++ < 6)
           tr(class=["datepicker__calendar-line", "js-datepicker__calendar-line"])
       .datepicker__confirmation-buttons
-        .datepicker__clear-button
+        .datepicker__clear-button.js-datepicker__clear-button
           +button({
             type: "text",
             text: "очистить",
-            attr: {
-              "type": "button",
-              "class": "js-datepicker__clear-button"
-            }
+            attrType: "button",
           })
-        .datepicker__apply-button
+        .datepicker__apply-button.js-datepicker__apply-button
           +button({
             type: "text",
             text: "применить",
-            attr: {
-              "type": "button",
-              "class": "js-datepicker__apply-button"
-            }
+            attrType: "button",
           })
       

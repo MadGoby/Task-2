@@ -1,42 +1,37 @@
 mixin button(settings)
   - const {
-  -   attr = { type: "button" },
+  -   attrType = "button",
   -   text = "For Change",
-  -   jsClass = false,
   - } = settings
   - let {
   -   type = "regular",
-  -   modifierClass = false,
-  -   height = false,
-  -   hover = false,
+  -   navigationClass = "",
+  -   sizeClass = "",
+  -   transparentClass = "",
   - } = settings
-  - let borderHeight = false
-  - const isHoverBorder = hover && type === "border"
-  - const isBorderHeight = height && type === "border"
-  - if (isHoverBorder) {
-  -   hover = "button__border-mimic_transparent"
-  - } else if (hover) {
-  -   hover=`button__control_${hover}`
-  - }
+  - let borderSize = ""
+  - const buttonType = type
+  - const confirmWrapperClass = type === 'confirm' ? "button_type_confirm " : ""
+  - const isTransparentBorder = transparentClass && type === "border"
+  - const isBorderSize = sizeClass && type === "border"
+  - if (isTransparentBorder) {
+  -   transparentClass = "button__border-mimic_transparent"
+  - } else if (transparentClass) {
+  -   transparentClass=`button__control_${transparentClass}`
+  - };
+  - if (isBorderSize) {
+  -   borderSize = `button__border-mimic_size_${sizeClass}`
+  -   sizeClass = `button__control_border_${sizeClass}`
+  - } else if (sizeClass) {
+  -   sizeClass = `button__control_size_${sizeClass}`
+  - };
   - if (type) type = `button__control_type_${type}`
-  - if (modifierClass) modifierClass = `button__control_${modifierClass}`
-  - if (isBorderHeight) {
-  -   borderHeight = `button__border-mimic_size_${height}`
-  -   height = `button__control_border_${height}`
-  - } else if (height) {
-  -   height = `button__control_size_${height}`
-  - }
-  case type
-    when "button__control_shape_circle"
-      div(class=["button", "button_shape_circle"])
-        button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
-    when "button__control_type_confirm"
-      div(class=["button", "button_type_confirm"])
-        button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
-    when "button__control_type_border"
+  - if (navigationClass) navigationClass = `button__control_${navigationClass}`
+  case buttonType
+    when "border"
       div(class="button")
-        div(class=["button__border-mimic", hover, borderHeight])
-          button(class=["button__control", jsClass, type, modifierClass, height] value=text)&attributes(attr)= text
+        div(class=["button__border-mimic", transparentClass, borderSize])
+          button(class=["button__control", type, navigationClass, sizeClass] value=text type=attrType)= text
     default
-      div(class="button")
-        button(class=["button__control", jsClass, type, hover, modifierClass, height] value=text)&attributes(attr)= text
+      div(class=["button", confirmWrapperClass])
+        button(class=["button__control", type, transparentClass, navigationClass, sizeClass] value=text type=attrType)= text
