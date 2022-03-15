@@ -3,114 +3,91 @@ mixin room-list(settings)
    -   {
    -     number: "888",
    -     price: "9 990",
-   -     luxury: "with-postfix",
+   -     type: "luxury",
    -     rating: "5",
    -     reviewsCounter: "145"
    -   },
    -   {
    -     number: "840",
    -     price: "9 900",
-   -     luxury: false,
    -     rating: "4",
    -     reviewsCounter: "65"
    -   },
    -   {
    -     number: "980",
    -     price: "8 500",
-   -     luxury: "with-postfix",
+   -     type: "luxury",
    -     rating: "3",
    -     reviewsCounter: "35"
    -   },
    -   {
    -     number: "856",
    -     price: "7 300",
-   -     luxury: false,
    -     rating: "5",
    -     reviewsCounter: "19"
    -   },
    -   {
    -     number: "740",
    -     price: "6 000",
-   -     luxury: false,
    -     rating: "4",
    -     reviewsCounter: "44"
    -   },
    -   {
    -     number: "982",
    -     price: "5 800",
-   -     luxury: false,
    -     rating: "3",
    -     reviewsCounter: "56"
    -   },
    -   {
    -     number: "678",
    -     price: "5 500",
-   -     luxury: false,
    -     rating: "5",
    -     reviewsCounter: "45"
    -   },
    -   {
    -     number: "450",
    -     price: "5 300",
-   -     luxury: false,
    -     rating: "4",
    -     reviewsCounter: "39"
    -   },
    -   {
    -     number: "350",
    -     price: "5 000",
-   -     luxury: false,
    -     rating: "3",
    -     reviewsCounter: "77"
    -   },
    -   {
    -     number: "666",
    -     price: "5 000",
-   -     luxury: false,
    -     rating: "5",
    -     reviewsCounter: "25"
    -   },
    -   {
    -     number: "444",
    -     price: "5 000",
-   -     luxury: false,
    -     rating: "3",
    -     reviewsCounter: "15"
    -   },
    -   {
    -     number: "352",
    -     price: "5 000",
-   -     luxury: false,
    -     rating: "3",
    -     reviewsCounter: "55"
    -   },
    - ]
    each card in cards
      +room-card({
-       jsClass: "js-room-card",
-       images: [
-         {
-           src: `../img/${card.number}.jpg`,
-           alt: "Photo of the room"
-         },
-         {
-           src: "../img/room-slider.jpg",
-           alt: "Photo of the room"
-         },
-         {
-           src: `../img/${card.number}.jpg`,
-           alt: "Photo of the room"
-         },
-         {
-           src: "../img/room-slider.jpg",
-           alt: "Photo of the room"
-         }
+       imagesSources: [
+         `../img/${card.number}.jpg`,
+         "../img/room-slider.jpg",
+         `../img/${card.number}.jpg`,
+         "../img/room-slider.jpg",
        ],
        roomInformation: {
          number: card.number,
          price: card.price,
-         type: card.luxury
+         type: card.type
        },
-       starsRating: { rating: card.rating, jsClass: "js-stars-rating" },
-       reviewsCounter: { value: card.reviewsCounter }
+       starsRating: card.rating,
+       reviewsCounter: card.reviewsCounter,
      })

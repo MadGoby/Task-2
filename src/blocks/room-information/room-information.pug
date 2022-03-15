@@ -2,15 +2,11 @@ mixin room-information(settings)
   - const {
   -   number = "000",
   -   price = "0000",
+  -   type = "",
   - } = settings
-  - let {
-  -   size = false,
-  -   type = false
-  - } = settings
-  - if (type) type = `room-information__number_${type}`
-  - if (size) size = `room-information__number_size_${size}`
+  - const typeClass = type ? `room-information__number_type_${type}` : ""
   div.room-information
-    span(class=["room-information__number", type, size])=number
+    span(class=["room-information__number", typeClass, sizeClass])=number
     span.room-information__price-wrapper
       em.room-information__price=`${price}₽ ` 
       =" в сутки"

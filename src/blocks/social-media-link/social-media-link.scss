@@ -6,13 +6,9 @@
 
   &__icon {
     vertical-align: top;
-
-    &_position_center {
-      padding-top: 1px;
-    }
   }
 
-  &_to-facebook {
-    margin: 0 20px 0 21px;
+  &:not( :last-child ) {
+    margin-right: 20px;
   }
 }

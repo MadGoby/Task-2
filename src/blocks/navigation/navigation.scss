@@ -18,8 +18,22 @@
       color: $dark75;
     }
 
-    &_expanded {
-      display: block;
+    &_type_expandable {
+      cursor: pointer;
+
+      &::after {
+        content: url('../../img/dropdown-nav.svg');
+        display: inline-block;
+        width: 24px;
+        height: 17px;
+        line-height: 100%;
+        text-align: center;
+        margin-left: 1px;
+      }
+
+      &:hover {
+        color: $dark75;
+      }
     }
 
     @media screen and (max-width: 650px) {
@@ -38,36 +52,5 @@
     &:not(:last-child) {
       margin-right: 20.5px;
     }
-  }
-
-  &__link-title {
-    cursor: pointer;
-
-    &::after {
-      content: url('../../img/dropdown-nav.svg');
-      display: inline-block;
-      width: 24px;
-      height: 17px;
-      line-height: 100%;
-      text-align: center;
-      margin-left: 1px;
-    }
-
-    &:hover {
-      color: $dark75;
-    }
-  }
-
-  &__expanded-container {
-    display: none;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 40px;
-    z-index: 3;
-    background-color: white;
-    padding: 0 4px 4px;
-    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
-    text-align: center;
   }
 }

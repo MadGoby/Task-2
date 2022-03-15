@@ -24,44 +24,4 @@
     width: 50%;
     display: inline-block;
   }
-
-  &_closed,
-  &_expanded {
-    width: 100%;
-    cursor: pointer;
-
-    &:after {
-      content: '';
-      width: 44px;
-      height: 15px;
-      display: inline-block;
-      background-image: url('../../img/input-dropdown.svg');
-      background-repeat: no-repeat;
-      vertical-align: top;
-      background-position-y: 3px;
-      background-position-x: 16px;
-      float: right;
-      cursor: pointer;
-    }
-  }
-
-  &_expanded {
-    &::after {
-      transform: rotate(180deg);
-    }
-  }
-
-  &_for-sidebar {
-    max-width: 280px;
-    text-transform: none;
-    vertical-align: 24px;
-    font-size: 19px;
-    display: none;
-
-    @media screen and (max-width: 680px) {
-      display: block;
-      text-align: left;
-      margin-bottom: 20px;
-    }
-  }
 }

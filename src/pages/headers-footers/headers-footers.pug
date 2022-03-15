@@ -11,7 +11,7 @@ include ../../blocks/copyright/copyright.pug
   body.body
     .headers-footers
       +logo({
-        src: "../img/logo.svg",
+        imgSrc: "../img/logo.svg",
         position: "in-corner"
       })
       .headers-footers__content
@@ -19,20 +19,20 @@ include ../../blocks/copyright/copyright.pug
           +header({
             navigationLinks: [
               {"text": "О нас", "type": "text_bold"},
-              {"text": "Услуги", "type": "expanded"},
+              {"text": "Услуги", "type": "type_expandable"},
               {"text": "Вакансии"},
               {"text": "Новости"},
-              {"text": "Соглашения", "type": "expanded"},
+              {"text": "Соглашения", "type": "type_expandable"},
             ]
           })
         .headers-footers__header
           +header({
             navigationLinks: [
               {"text": "О нас", "type": "text_bold"},
-              {"text": "Услуги", "type": "expanded"},
+              {"text": "Услуги", "type": "type_expandable"},
               {"text": "Вакансии"},
               {"text": "Новости"},
-              {"text": "Соглашения", "type": "expanded"},
+              {"text": "Соглашения", "type": "type_expandable"},
             ],
             authorizedUserName: "Юлий Цезарь"
           })
@@ -82,16 +82,13 @@ include ../../blocks/copyright/copyright.pug
             text: "Copyright © 2018 Toxin отель. Все права защищены.",
             linksSettings: [
               {
-                "name": "twitter",
-                "iconSrc": "../img/twitter.svg"
+                iconSrc: "../img/twitter.svg"
               },
               {
-                "name": "facebook",
-                "iconSrc": "../img/facebook.svg"
+                iconSrc: "../img/facebook.svg",
               },
               {
-                "name": "instagram",
-                "iconSrc": "../img/instagram.svg"
+                iconSrc: "../img/instagram.svg"
               }
             ]
           })
@@ -113,4 +110,5 @@ include ../../blocks/copyright/copyright.pug
                 "iconSrc": "../img/instagram.svg"
               }
             ],
+            subscribe: {}
           })

@@ -1,47 +1,51 @@
 mixin list(settings)
-   - const {
-   -   title: {
-   -     text = "For Change",
-   -     teg = "p"
-   -   },
-   -   isExpandable = false,
-   -   opennessState = "",
-   -   listType = "",
-   -   itemList = [
-   -     "For change 1",
-   -     "For change 2",
-   -   ],
-   - } = settings
-   - let {
-   -   title: {
-   -     isBullet = false,
-   -     isWithMargin = false,
-   -   }
-   - } = settings
-   - const bulletClass = isBullet ? "list__title_with-bullet" : ""
-   - const marginClass = isWithMargin ? "list__title_with-margin" : ""
-   - let jsListClass = ""
-   - let jsTitleClass = ""
-   - let jsContainerClass = ""
-   - const attrs = opennessState === "expanded" ? { "hidden": "hidden" } : {}
-   - if (isExpandable) {
-   -   jsListClass = "js-list"
-   -   jsTitleClass = "js-list__title"
-   -   jsContainerClass = "js-list__container"
-   - }
-   div(class=["list js-list", jsListClass])
-     div(class=["list__title", jsTitleClass, marginClass, bulletClass])
-       +title({
-         text: text,
-         type: opennessState,
-         teg: teg
-       })
-     ul(class=["list__container", jsContainerClass])&attributes(attrs)
-       if textList
-         each val in textList
-           li(class=["list__item", "list__item_with-bullet"])
-             p(class="list__text")=val
-       else
-         each val in listCheckbox
-           li(class="list__item")
-             +toggle(val)
+  - const {
+  -   title: {
+  -     text = "For Change",
+  -     teg = "p"
+  -   },
+  -   isExpandable = false,
+  -   opennessState = "",
+  -   listType = "",
+  -   itemList = [{
+  -     controller: {
+  -       type: "checkbox",
+  -       attr: { "type": "checkbox", "hidden": "hidden" },
+  -     },
+  -     text: { text: "For change", },
+  -   }],
+  - } = settings
+  - let {
+  -   title: {
+  -     isBullet = false,
+  -     isWithMargin = false,
+  -   }
+  - } = settings
+  - const bulletClass = isBullet ? "list__title_with-bullet" : ""
+  - const marginClass = isWithMargin ? "list__title_with-margin" : ""
+  - let jsListClass = ""
+  - let jsTitleClass = ""
+  - let jsContainerClass = ""
+  - const attrs = opennessState === "closed" ? { "hidden": "hidden" } : {}
+  - const titleExpandedClass = opennessState ? `list__title_${opennessState}` : ""
+  - if (isExpandable) {
+  -   jsListClass = "js-list"
+  -   jsTitleClass = "js-list__title"
+  -   jsContainerClass = "js-list__container"
+  - }
+  div(class=["list", jsListClass])
+    div(class=["list__title", jsTitleClass, marginClass, bulletClass, titleExpandedClass])
+      +title({
+        text: text,
+        teg: teg
+      })
+    ul(class=["list__container", jsContainerClass])&attributes(attrs)
+      case listType
+        when "toggles"
+          each value in itemList
+            li(class="list__item")
+              +toggle(value)
+        default
+          each text in itemList
+            li(class=["list__item", "list__item_with-bullet"])
+              p(class="list__text")= text

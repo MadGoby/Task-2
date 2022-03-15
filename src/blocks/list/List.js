@@ -15,13 +15,13 @@ class ListDropdown {
   handleTitleClick() {
     if (this.list.hasAttribute('hidden')) {
       this.list.removeAttribute('hidden');
-      this.title.classList.remove('title_closed');
-      this.title.classList.add('title_expanded');
+      this.title.classList.remove('list__title_closed');
+      this.title.classList.add('list__title_expanded');
       this.bindDomEventListener();
     } else {
       this.list.setAttribute('hidden', 'hidden');
-      this.title.classList.remove('title_expanded');
-      this.title.classList.add('title_closed');
+      this.title.classList.remove('list__title_expanded');
+      this.title.classList.add('list__title_closed');
       this.removeDomEventListener();
     }
   }

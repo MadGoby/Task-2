@@ -1,16 +1,14 @@
 mixin page-header(settings)
   - const {
   -   headerClass = "",
-  -   boldLink = false
   - } = settings
   - const links = [
-  -   { "text": "О нас" },
-  -   { "text": "Услуги", "type": "expanded" },
+  -   { "text": "О нас"},
+  -   { "text": "Услуги", "type": "type_expandable" },
   -   { "text": "Вакансии" },
   -   { "text": "Новости" },
-  -   { "text": "Соглашения", "type": "expanded" }
+  -   { "text": "Соглашения", "type": "type_expandable" }
   - ]
-  - if (boldLink) links[Number(boldLink - 1)].type = "text_bold"
   header(class=headerClass)
     +header({
       navigationLinks: links,

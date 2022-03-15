@@ -1,42 +1,21 @@
 mixin room-card(settings)
   - const {
-  -   jsClass = "",
-  -   images = [
-  -     {
-  -       src: "img/for-change.jpg",
-  -       alt: "Alt for change"
-  -     },
-  -     {
-  -       src: "img/for-change.jpg",
-  -       alt: "Alt for change"
-  -     },
-  -     {
-  -       src: "img/for-change.jpg",
-  -       alt: "Alt for change"
-  -     },
-  -     {
-  -       src: "img/for-change.jpg",
-  -       alt: "Alt for change"
-  -     }
+  -   imagesSources = [
+  -     "img/for-change.jpg",
+  -     "img/for-change.jpg",
   -   ],
   -   roomInformation: {
   -     number = "000",
   -     price = "000",
-  -     type = false
+  -     type = ""
   -   },
-  -   starsRating: { 
-  -     rating = "5"
-  -   },
-  -   reviewsCounter: { value = "000"} 
+  -   starsRating = "5",
+  -   reviewsCounter = "0",
   - } = settings
-  div(class="room-card" class=jsClass)
+  div(class="room-card" class="js-room-card")
     div.room-card__image-wrapper
-      each image in images
-        - const {
-        -   alt="",
-        -   src=""
-        - } = image
-        img(class="room-card__image" src=src, alt=alt)
+      each src in imagesSources
+        img(class="room-card__image" src=src, alt="Photo of the room")
       button(type="button" class=["room-card__image-button", "room-card__image-button_side_left"])
       button(type="button" class=["room-card__image-button", "room-card__image-button_side_right"])
       .room-card__image-position-wrapper
@@ -50,10 +29,9 @@ mixin room-card(settings)
           number: number,
           price: price,
           type: type,
-          size: "small"
         })
       .room-card__rating
         .room-card__stars
-          +stars-rating({rating: rating})
+          +stars-rating({rating: starsRating})
         .room-card__counter
-          +reviews-counter({value: value})
+          +reviews-counter({value: reviewsCounter})

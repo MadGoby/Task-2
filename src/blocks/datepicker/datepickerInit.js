@@ -1,6 +1,6 @@
 import { Datepicker } from './Datepicker';
 
-function initialize() {
+function datepickerInitialize() {
   [...document.querySelectorAll('.js-datepicker')].forEach((container) => {
     const settings = {
       monthRu: [
@@ -27,4 +27,4 @@ function initialize() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', initialize);
+export { datepickerInitialize };

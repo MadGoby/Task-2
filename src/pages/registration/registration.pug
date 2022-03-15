@@ -17,10 +17,8 @@ include ../../blocks/page-footer/page-footer
 +page-head({title: "Registration Page", description: "Registration page of the hotel room website."})
   body
     .registration-page
-      +page-header({headerClass: "registration-page__header", boldLink: 1})
+      +page-header({headerClass: "registration-page__header"})
       main.registration-page__main 
         .registration-page__form
-          +registration({
-            title: "Регистрация аккаунта"
-          })
+          +registration({})
       +page-footer({footerClass: "registration-page__footer"})

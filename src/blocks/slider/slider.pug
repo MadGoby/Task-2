@@ -1,15 +1,13 @@
 mixin slider(settings)
   - const {
   -   title = "For change",
-  -   outputJs = "js-for-change",
-  -   containerJs = "js-for-change",
-  -   description = false
+  -   description = ""
   - } = settings
   div(class="slider")
     .slider__title
       .slider__title-text
         +title({text: title})
-      output(class=["slider__output", outputJs])
-    div(class=["slider__body", containerJs])
+      output(class="slider__output js-slider__output")
+    div(class="slider__body js-slider__body")
     if description
       p.slider__description=description

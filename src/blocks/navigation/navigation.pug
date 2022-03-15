@@ -1,10 +1,10 @@
 mixin navigation(settings)
   - const {
   -   links = [
-  -     {"text": "For change", "type": "text_bold"},
-  -     {"text": "For change"},
-  -     {"text": "For change"},
-  -     {"text": "For change"}
+  -     { "text": "For change", "type": "text_bold" },
+  -     { "text": "For change" },
+  -     { "text": "For change" },
+  -     { "text": "For change" }
   -   ]
   - } = settings
   nav.navigation
@@ -12,25 +12,8 @@ mixin navigation(settings)
       - const {
       -   href = "./for-change",
       -   text = "For change",
-      -   jsClass = false,
-      -   expandedLinks = [
-      -     {text: "For change", href: "./for-change"},
-      -     {text: "For change", href: "./for-change"},
-      -     {text: "For change", href: "./for-change"},
-      -   ]
+      -   type = "",
       - } = link
-      - let { type= "" } = link
-      - if( type ) type=`navigation__link_${type}`
-      - const isExpanded = link.type === "expanded" && expandedLinks
+      - const typeClass = type ? `navigation__link_${type}` : ""
       .navigation__link-wrapper
-        if isExpanded
-          span(class=["navigation__link-title", jsClass])= text
-          .navigation__expanded-container
-            each expandedLink in expandedLinks
-              - const {
-              -   href: expandedHref,
-              -   text: expandedText,
-              - } = expandedLink
-              a(class=["navigation__link", "navigation__link_expanded"] href=expandedHref)= expandedText
-        else
-          a(class=["navigation__link", type] href=href)= text
+          a(class=["navigation__link", typeClass] href=href)= text

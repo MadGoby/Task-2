@@ -1,29 +1,24 @@
 mixin social-media-link(settings)
-  - const { socialLinks = [
-  -   {
-  -     "name": "For change",
-  -     "iconSrc": "img/for-change.svg"
-  -   },
-  -   {
-  -     "name": "For change",
-  -     "iconSrc": "img/for-change.svg"
-  -   },
-  -   {
-  -     "name": "For change",
-  -     "iconSrc": "img/for-change.svg"
-  -   }
-  - ]} = settings
-  each socialLink in socialLinks
+  - const {
+  -   socialLinks = [
+  -     {
+  -       "link": "./for-change",
+  -       "iconSrc": "img/for-change.svg"
+  -     },
+  -     {
+  -       "link": "./for-change",
+  -       "iconSrc": "img/for-change.svg"
+  -     },
+  -     {
+  -       "link": "./for-change",
+  -       "iconSrc": "img/for-change.svg"
+  -     }
+  -   ]
+  - } = settings
+  each linkSettings in socialLinks
     - const {
     -   link = "./for-change",
     -   iconSrc = "./for-change",
-    -   imgAlt = "Social link icon"
-    - } = socialLink
-    - let {
-    -   name = "for-change",
-    -   position = ""
-    - } = socialLink
-    - if(name) name = `social-media-link_to-${name}`
-    - if(position) position = `social-media-link__icon_position_${position}`
-    a(class=["social-media-link", name] href=link target="_blank" rel="noopener noreferrer")
-      img(class=["social-media-link__icon", position, ], alt=imgAlt, src=iconSrc)
+    - } = linkSettings
+    a(class="social-media-link" href=link target="_blank" rel="noopener noreferrer")
+      img(class="social-media-link__icon", alt="Social link icon", src=iconSrc)

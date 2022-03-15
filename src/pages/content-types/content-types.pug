@@ -7,7 +7,7 @@ include ../../blocks/text-sample/text-sample.pug
   body.body
     .content-types
       +logo({
-        src: "../img/logo.svg",
+        imgSrc: "../img/logo.svg",
         position: "in-corner"
       })
       .content-types__wrapper
@@ -49,18 +49,22 @@ include ../../blocks/text-sample/text-sample.pug
           })
         .content-types__text
           +text-sample({
-            teg: {type: "h1", text: "H1"},
-            description: {type: "h1", text: "This one is the sub-section or widget title"}
+            type: "h1",
+            tegName: "H1",
+            description: "This one is the sub-section or widget title"
           })
           +text-sample({
-            teg: {type: "h2", text: "H2"},
-            description: {type: "h2", text: "Next one is the item name inside widgets"}
+            type: "h2",
+            tegName: "H2",
+            description: "Next one is the item name inside widgets",
           })
           +text-sample({
-            teg: {type: "h3", text: "H3"},
-            description: {type: "h3", text: "This is a label or CTA text"}
+            type: "h3",
+            tegName: "H3",
+            description: "This is a label or CTA text"
           })
           +text-sample({
-            teg: {type: "regular", text: "Body"},
-            description: {type: "regular", text: "This is the body text which is used for most of the design, like paragraphs, lists, etc."}
+            type: "regular",
+            tegName: "Body",
+            description: "This is the body text which is used for most of the design, like paragraphs, lists, etc."
           })

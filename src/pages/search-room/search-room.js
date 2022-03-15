@@ -1,16 +1,32 @@
 import { importContext } from '../../tools/importContext';
+import { datepickerInitialize } from '../../blocks/datepicker/datepickerInit';
+import { dropdownInitialize } from '../../blocks/dropdown/dropdownInit';
+import { initAllInputsMasks } from '../../blocks/input/inputMask';
+import { starsRatingInitialize } from '../../blocks/stars-rating/starsRatingInit';
+import { ListDropdownInitialize } from '../../blocks/list/listInit';
+import { sliderInitialize } from '../../blocks/slider/sliderInit';
+import { ContentNavigationInitialize } from '../../blocks/content-navigation/contentNavigationInit';
+import { roomCardInitialize } from '../../blocks/room-card/roomCardInit';
+import { headerNavigationInitialize } from '../../blocks/header/headerInit';
+import { sidebarInitialize } from '../../blocks/sidebar/sidebarInit';
 import './search-room.scss';
 
 importContext();
 
-require('../../blocks/header/headerInit');
-require('../../blocks/datepicker/datepickerInit');
-require('../../blocks/dropdown/dropdownInit');
-require('../../blocks/stars-rating/starsRatingInit');
-require('../../blocks/list/listInit');
-require('../../blocks/slider/sliderInit');
-require('../../blocks/content-navigation/contentNavigationInit');
-require('../../blocks/room-card/roomCardInit');
+function handleDocumentLoad() {
+  datepickerInitialize();
+  dropdownInitialize();
+  initAllInputsMasks();
+  starsRatingInitialize();
+  ListDropdownInitialize();
+  sliderInitialize();
+  ContentNavigationInitialize();
+  roomCardInitialize();
+  headerNavigationInitialize();
+  sidebarInitialize();
+}
+
+document.addEventListener('DOMContentLoaded', handleDocumentLoad);
 
 require('../../img/980.jpg');
 require('../../img/856.jpg');

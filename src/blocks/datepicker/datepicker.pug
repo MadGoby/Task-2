@@ -5,17 +5,17 @@ mixin datepicker(settings)
   - const {
   -   inputType = "",
   -   inputSettings = {},
-  -   main = {
-  -     dataYear: "",
-  -     dataMonth: "",
-  -     dataCurrentDay: "",
-  -     dataFrom: "",
-  -     dataTo: "",
+  -   main: {
+  -     dataYear = "",
+  -     dataMonth = "",
+  -     dataCurrentDay = "",
+  -     dataFrom = "",
+  -     dataTo = "",
   -   },
   -   isCalendarClosed =  false,
+  -   size = ""
   - } = settings
-  - let { sizeClass = "" } = settings
-  - const size = sizeClass
+  - let sizeClass = ""
   - let calendarSizeClass = ""
   - let monthSizeClass = ""
   - const attr = isCalendarClosed ? { "hidden": "hidden" } : {}
@@ -24,11 +24,12 @@ mixin datepicker(settings)
   -   monthSizeClass = `datepicker__selected-month_size_${size}`
   -   sizeClass = `datepicker_size_${size}`
   - }
-  div(class=["datepicker js-datepicker", sizeClass] data-year=dataYear, data-month=dataMonth, data-day=dataCurrentDay, data-from=dataFrom, data-to=dataTo)
-    .datepicker__inputs
-      if inputType === "total"
-          +input(inputSettings.total)
-      else if inputType === "double"
+  div(class=["datepicker js-datepicker", sizeClass], data-year=dataYear, data-month=dataMonth, data-day=dataCurrentDay, data-from=dataFrom, data-to=dataTo)
+    if inputType === "total"
+      .datepicker__inputs
+        +input(inputSettings.total)
+    else if inputType === "double"
+      .datepicker__inputs
         .datepicker__from
           +input(inputSettings.from)
         .datepicker__to

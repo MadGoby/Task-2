@@ -1,11 +1,10 @@
 mixin sidebar()
   .sidebar.js-sidebar
-    .sidebar__title
+    .sidebar__title.js-sidebar__title.sidebar__title_closed
       +title({
         text: "Фильтры для поиска",
-        type: "closed",
-        jsClass: "js-sidebar__title",
-        targetClass: "sidebar"
+        fontSize: "regular",
+        teg: "h2"
       })
     aside.sidebar__wrapper.js-sidebar__wrapper
       .sidebar__date-filter
@@ -28,7 +27,6 @@ mixin sidebar()
             }
           },
           main: {
-            jsClass: "js-datepicker",
             dataYear: "2019",
             dataMonth: "7",
             dataCurrentDay: "2019, 8, 9",
@@ -36,7 +34,7 @@ mixin sidebar()
             dataTo: "2019, 8, 23",
           },
           isCalendarClosed: true,
-          sizeClass: "small"
+          size: "small"
         })
       .sidebar__guests
         +dropdown({
@@ -68,8 +66,6 @@ mixin sidebar()
       .sidebar__slider
         +slider({
           title: "диапазон цены",
-          outputJs: "js-slider__output",
-          containerJs: "js-slider__body",
           description: "Стоимость за сутки пребывания в номере"
         })
       .sidebar__additional-features
@@ -78,38 +74,32 @@ mixin sidebar()
             text: "правила дома"
           })
         +toggle({
-          controller: {
-            type: "checkbox",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden"
-            }
+          type: "checkbox",
+          attrs: {
+            "type": "checkbox",
+            "hidden": "hidden"
           },
           text: {
             text: "Можно курить"
           }
         })
         +toggle({
-          controller: {
-            type: "checkbox",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden",
-              "checked": "checked"
-            }
+          type: "checkbox",
+          attrs: {
+            "type": "checkbox",
+            "hidden": "hidden",
+            "checked": "checked"
           },
           text: {
             text: "Можно с питомцами"
           }
         })
         +toggle({
-          controller: {
-            type: "checkbox",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden",
-              "checked": "checked"
-            }
+          type: "checkbox",
+          attrs: {
+            "type": "checkbox",
+            "hidden": "hidden",
+            "checked": "checked"
           },
           text: {
             text: "Можно пригласить гостей (до 10 человек)",
@@ -119,32 +109,29 @@ mixin sidebar()
       .sidebar__availability
         +list({
           title: { text: "доступность" },
-          listCheckbox: [
+          listType: "toggles",
+          itemList: [
             {
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                },
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden"
               },
               text: {
+                title: "Широкий коридор",
                 text: "Ширина коридоров в номере не менее 91 см.",
-                richText: "Широкий коридор",
-                length: "short"
+                isShort: true
               }
             },
             {
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                },
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden"
               },
               text: {
+                title: "Помощник для инвалидов",
                 text: "На 1 этаже вас встретит специалист  и проводит до номера.",
-                richText: "Помощник для инвалидов",
               }
             },
           ],
@@ -181,77 +168,68 @@ mixin sidebar()
           title: {
             text: "дополнительные удобства",
           },
-          listCheckbox: [
+          isExpandable: true,
+          opennessState: "expanded",
+          listType: "toggles",
+          itemList: [
             {
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                },
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden"
               },
               text: {
                 text: "Завтрак",
               }
             },
             {
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                },
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
               },
               text: {
                 text: "Письменный стол",
               }
             },
             {
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                },
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
               },
               text: {
                 text: "Стул для кормления",
               }
             },
             {
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                },
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
               },
               text: {
                 text: "Кроватка",
               }
             },
             {
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                },
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden"
               },
               text: {
                 text: "Телевизор",
               }
             },
             {
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                },
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden",
               },
               text: {
                 text: "Шампунь",

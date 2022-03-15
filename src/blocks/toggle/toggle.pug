@@ -1,39 +1,28 @@
 mixin toggle(settings)
   - const {
-  -   controller: {
-  -     attr = { type: "checkbox" }
-  -   },
+  -   type = "checkbox",
+  -   attrs = { type: "checkbox", hidden: "hidden" },
   -   text: {
+  -     title = "",
   -     text = "For change",
-  -     richText = false,
+  -     isShort = false
   -   }
   - } = settings
-  - let {
-  -   controller: {
-  -     type = "checkbox",
-  -   },
-  -   text: {
-  -     length = false
-  -   }
-  - } = settings
-  - let mimicType = false
-  - if (type) {
-  -   mimicType = `toggle__mimic_type_${type}`
-  -   type = `toggle__controller_type_${type}`
-  - }
-  - if (length) length = `toggle__text_length_${length}`
-  - const isNotLikeWithRich = mimicType !== "toggle__mimic_type_like" && richText
-  - const isNotLike = mimicType !== "toggle__mimic_type_like"
+  - const mimicTypeClass = `toggle__mimic_type_${type}`
+  - const typeClass = `toggle__controller_type_${type}`
+  - const lengthClass = length ? "toggle__text_length_length_short" : ""
+  - const isTextWithTitle = mimicTypeClass !== "toggle__mimic_type_like" && title
+  - const isText = mimicTypeClass !== "toggle__mimic_type_like"
   .toggle
     label(class="toggle__wrapper")
-      input(class=["toggle__controller", type])&attributes(attr)
-      span(class=["toggle__mimic", mimicType])
-        if mimicType === "toggle__mimic_type_like"
-          span(class=["toggle__text", length])= text
-      if isNotLikeWithRich
+      input(class=["toggle__controller", typeClass])&attributes(attrs)
+      span(class=["toggle__mimic", mimicTypeClass])
+        if type === "like"
+          span(class=["toggle__text", lengthClass])= text
+      if isTextWithTitle
         span.toggle__text-wrapper
-          span(class="toggle__text-title")= richText
-          span(class=["toggle__text", length])= text
-      else if isNotLike
+          span(class="toggle__text-title")= title
+          span(class=["toggle__text", lengthClass])= text
+      else if isText
         span.toggle__text-wrapper
-          span(class=["toggle__text", length])= text
+          span(class=["toggle__text", lengthClass])= text

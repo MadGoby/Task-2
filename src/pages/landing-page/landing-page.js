@@ -1,11 +1,18 @@
 import { importContext } from '../../tools/importContext';
+import { headerNavigationInitialize } from '../../blocks/header/headerInit';
+import { datepickerInitialize } from '../../blocks/datepicker/datepickerInit';
+import { dropdownInitialize } from '../../blocks/dropdown/dropdownInit';
 import './landing-page.scss';
 
 importContext();
 
-require('../../blocks/header/headerInit');
-require('../../blocks/datepicker/datepickerInit');
-require('../../blocks/dropdown/dropdownInit');
+function handleDocumentLoad() {
+  headerNavigationInitialize();
+  datepickerInitialize();
+  dropdownInitialize();
+}
+
+document.addEventListener('DOMContentLoaded', handleDocumentLoad);
 
 require('../../img/logo-color.svg');
 require('../../img/landing-main.jpg');

@@ -9,6 +9,7 @@ class Sidebar {
   getHtmlElements() {
     this.title = this.container.querySelector('.js-sidebar__title');
     this.sidebar = this.container.querySelector('.js-sidebar__wrapper');
+    console.log(this.container, this.title, this.sidebar);
   }
 
   prepareSidebar() {
@@ -20,20 +21,21 @@ class Sidebar {
   handleTitleClick() {
     if (this.sidebar.style.display === 'none') {
       this.sidebar.style.display = 'inline-block';
-      this.title.classList.remove('title_closed');
-      this.title.classList.add('title_expanded');
+      this.title.classList.remove('sidebar__title_closed');
+      this.title.classList.add('sidebar__title_expanded');
       this.bindDomEventListener();
     } else {
       this.sidebar.style.display = 'none';
-      this.title.classList.remove('title_expanded');
-      this.title.classList.add('title_closed');
+      this.title.classList.remove('sidebar__title_expanded');
+      this.title.classList.add('sidebar__title_closed');
       this.removeDomEventListener();
     }
   }
 
   removeExpandedClass() {
-    this.title.classList.remove('title_expanded');
-    this.title.classList.add('title_closed');
+    const isTitleExpanded = this.title.classList.contains('sidebar__title_expanded');
+    if (isTitleExpanded) this.title.classList.remove('sidebar__title_expanded');
+    this.title.classList.add('sidebar__title_closed');
   }
 
   changeDisplayOnresize(userWidth) {
@@ -43,7 +45,7 @@ class Sidebar {
 
     if (checkNeedDisplay()) {
       this.sidebar.style.display = 'inline-block';
-      if (this.title.classList.contains('title_expanded')) this.removeExpandedClass();
+      this.removeExpandedClass();
     } else if (userWidth < 697) {
       this.sidebar.style.display = 'none';
     }

@@ -7,4 +7,4 @@ function initAllInputsMasks() {
   }).mask(document.querySelectorAll('.input__field_type_date'));
 }
 
-document.addEventListener('DOMContentLoaded', initAllInputsMasks);
+export { initAllInputsMasks };

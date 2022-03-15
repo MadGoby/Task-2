@@ -1,9 +1,9 @@
 import { RoomCardSlider } from './RoomCard';
 
-function initialize() {
+function roomCardInitialize() {
   [...document.querySelectorAll('.js-room-card')].forEach((item) => {
     new RoomCardSlider(item);
   });
 }
 
-document.addEventListener('DOMContentLoaded', initialize);
+export { roomCardInitialize };

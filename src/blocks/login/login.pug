@@ -1,15 +1,13 @@
 mixin login(settings)
   - const {
   -   action = "./for-change",
-  -   title = "For change",
-  -   confirm = "For change" ,
   -   loginLink = "./for-change"
   - } = settings
   form(action=action).login
     .login__title
       +title({
-        text: title,
-        type: "size_large"
+        text: "Войти",
+        fontSize: "large"
       })
     .login__inputs
       .login__email-input
@@ -39,7 +37,7 @@ mixin login(settings)
     .login__confirm-button
       +button({
         type: "confirm",
-        text: confirm,
+        text: "войти",
         attrType: "submit",
       })
     .login__registration

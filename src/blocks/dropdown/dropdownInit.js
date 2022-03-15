@@ -16,10 +16,10 @@ const templates = {
   roomsDefault: 'Конфигурация номера',
 };
 
-function initialize() {
+function dropdownInitialize() {
   [...document.querySelectorAll('.js-dropdown')].forEach((container) => {
     new Dropdown({ container, templates });
   });
 }
 
-document.addEventListener('DOMContentLoaded', initialize);
+export { dropdownInitialize };

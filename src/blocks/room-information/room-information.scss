@@ -17,7 +17,7 @@
       @include text_type($mont, 19px, 700, 24px, $dark100);
     }
 
-    &_with-postfix:after {
+    &_type_luxury:after {
       @include text_type($mont, 15px, 700, 28px, $purple);
       content: 'люкс';
       margin-left: 8px;

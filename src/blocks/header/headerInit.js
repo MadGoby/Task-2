@@ -1,9 +1,9 @@
 import { HeaderNavigation } from './Header';
 
-function initialize() {
+function headerNavigationInitialize() {
   [...document.querySelectorAll('.js-header__navigation')].forEach((item) => {
     new HeaderNavigation(item);
   });
 }
 
-document.addEventListener('DOMContentLoaded', initialize);
+export { headerNavigationInitialize };

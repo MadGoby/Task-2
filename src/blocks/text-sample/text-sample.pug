@@ -1,22 +1,11 @@
 mixin text-sample(settings)
   - const {
-  -   teg: {
-  -     text: tegText = "for-change"
-  -   },
-  -   description: {
-  -     text: descriptionText = "for-change",
-  -   }
+  -   tegName = "for-change",
+  -   description = "for-change",
+  -   type = "regular",
   - } = settings
-  - let {
-  -   teg: {
-  -     type: tegType = "regular"
-  -   },
-  -   description: {
-  -     type: descriptionType = "regular"
-  -   }
-  - } = settings
-  - if(tegType) tegType = `text-sample__teg_type_${tegType}`
-  - if(descriptionType) descriptionType = `text-sample__description_type_${descriptionType}`
+  - const typeClass = `text-sample__teg_type_${type}`
+  - const descriptionClass = `text-sample__description_type_${type}`
   .text-sample
-    p(class=["text-sample__teg", tegType])=tegText
-    p(class=["text-sample__description", descriptionType])=descriptionText
+    p(class=["text-sample__teg", typeClass])=tegName
+    p(class=["text-sample__description", descriptionClass])=description

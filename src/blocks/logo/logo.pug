@@ -1,7 +1,7 @@
 mixin logo(settings)
-  - const { src = "./for-change" } = settings
-  - let { position = false } = settings
-  - if( position ) position = `logo_position_${position}`
+  - const { imgSrc = "./for-change" } = settings
+  - let { position = "" } = settings
+  - const positionClass = position ? `logo_position_${position}` : ""
   div.logo
     a(class="logo__link-wrapper" href="./landing-page.html")
-      img(class=["logo__image", position] alt="logo" src=src)
+      img(class=["logo__image", positionClass] alt="logo" src=imgSrc)

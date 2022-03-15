@@ -14,7 +14,7 @@ mixin footer(settings)
   -       "iconSrc": "img/for-change.svg"
   -     }
   -   ],
-  -   subscribe = {
+  -   subscribe: {
   -     title: subscribeTitle = "For change",
   -     text: subscribeText = "For change",
   -     action: subscribeAction = "./for-change",
@@ -32,7 +32,7 @@ mixin footer(settings)
     div(class=["footer__wrapper", wrapperSizeClass])
       div(class="footer__description")
         +logo({
-          src: "../img/logo-color.svg"
+          imgSrc: "../img/logo-color.svg"
         })
         if descriptionText
           p(class="footer__logo-description")=descriptionText

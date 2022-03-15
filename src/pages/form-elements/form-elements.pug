@@ -17,7 +17,7 @@ include ../../blocks/stars-rating/stars-rating.pug
   body.body
     .form-elements
       +logo({
-        src: "../img/logo.svg",
+        imgSrc: "../img/logo.svg",
         position: "in-corner"
       })
       .form-elements__content
@@ -157,7 +157,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                 dataTo: "2019, 8, 23",
               },
               isCalendarClosed: true,
-              sizeClass: "small"
+              size: "small"
             })
           .form-elements__subscription-input
             form(action="./for-change").form-elements__subscription-form
@@ -179,38 +179,32 @@ include ../../blocks/stars-rating/stars-rating.pug
                 text: "Checkbox Buttons"
               })
             +toggle({
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden"
-                }
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden"
               },
               text: {
                 text: "Можно курить"
               }
             })
             +toggle({
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                }
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
               },
               text: {
                 text: "Можно с питомцами"
               }
             })
             +toggle({
-              controller: {
-                type: "checkbox",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                }
+              type: "checkbox",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "checked": "checked"
               },
               text: {
                 text: "Можно пригласить гостей (до 10 человек)",
@@ -224,15 +218,13 @@ include ../../blocks/stars-rating/stars-rating.pug
               })
             .form-elements__radio
               +toggle({
-                controller: {
-                  type: "radio",
-                  attr: {
-                    "type": "radio",
-                    "hidden": "hidden",
-                    "name": "gender",
-                    "value": "male",
-                    "checked": "checked"
-                  }
+                type: "radio",
+                attrs: {
+                  "type": "radio",
+                  "hidden": "hidden",
+                  "name": "gender",
+                  "value": "male",
+                  "checked": "checked"
                 },
                 text: {
                   text: "Мужчина"
@@ -240,14 +232,12 @@ include ../../blocks/stars-rating/stars-rating.pug
               })
             .form-elements__radio
               +toggle({
-                controller: {
-                  type: "radio",
-                  attr: {
-                    "type": "radio",
-                    "hidden": "hidden",
-                    "name": "gender",
-                    "value": "female"
-                  }
+                type: "radio",
+                attrs: {
+                  "type": "radio",
+                  "hidden": "hidden",
+                  "name": "gender",
+                  "value": "female"
                 },
                 text: {
                   text: "Женщина"
@@ -259,26 +249,22 @@ include ../../blocks/stars-rating/stars-rating.pug
                 text: "Toggle"
               })
             +toggle({
-              controller: {
-                type: "toggle",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "value": "female",
-                  "checked": "checked"
-                }
+              type: "toggle",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden",
+                "value": "female",
+                "checked": "checked"
               },
               text: {
                 text: "Получать спецпредложения"
               }
             })
             +toggle({
-              controller: {
-                type: "toggle",
-                attr: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                }
+              type: "toggle",
+              attrs: {
+                "type": "checkbox",
+                "hidden": "hidden",
               },
               text: {
                 text: "Получать спецпредложения"
@@ -291,12 +277,10 @@ include ../../blocks/stars-rating/stars-rating.pug
               })
             .form-elements__like
               +toggle({
-                controller: {
-                  type: "like",
-                  attr: {
-                    "type": "checkbox",
-                    "hidden": "hidden",
-                  }
+                type: "like",
+                attrs: {
+                  "type": "checkbox",
+                  "hidden": "hidden",
                 },
                 text: {
                   text: "2"
@@ -304,13 +288,11 @@ include ../../blocks/stars-rating/stars-rating.pug
               })
             .form-elements__like
               +toggle({
-                controller: {
-                  type: "like",
-                  attr: {
-                    "type": "checkbox",
-                    "hidden": "hidden",
-                    "checked": "checked"
-                  }
+                type: "like",
+                attrs: {
+                  "type": "checkbox",
+                  "hidden": "hidden",
+                  "checked": "checked"
                 },
                 text: {
                   text: "12"
@@ -329,9 +311,6 @@ include ../../blocks/stars-rating/stars-rating.pug
           .form-elements__slider
             +slider({
               title: "range slider",
-              outputJs: "js-slider__output" ,
-              containerJs: "js-slider__body",
-              description: false
             })
           .form-elements__buttons
             .form-elements__buttons-title
@@ -500,80 +479,68 @@ include ../../blocks/stars-rating/stars-rating.pug
                 title: {
                   text: "expandable checkbox list",
                 },
-                container: {
-                  attr: {"hidden": "hidden"}
-                },
-                listCheckbox: [
+                isExpandable: true,
+                opennessState: "closed",
+                listType: "toggles",
+                itemList: [
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
                     },
                     text: {
                       text: "Завтрак",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden",
-                        "checked": "checked"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
                     },
                     text: {
                       text: "Письменный стол",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden",
-                        "checked": "checked"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
                     },
                     text: {
                       text: "Стул для кормления",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden",
-                        "checked": "checked"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
                     },
                     text: {
                       text: "Кроватка",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
                     },
                     text: {
                       text: "Телевизор",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden",
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
                     },
                     text: {
                       text: "Шампунь",
@@ -586,79 +553,68 @@ include ../../blocks/stars-rating/stars-rating.pug
                 title: {
                   text: "expandable checkbox list",
                 },
-                container: {
-                },
-                listCheckbox: [
+                isExpandable: true,
+                opennessState: "expanded",
+                listType: "toggles",
+                itemList: [
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
                     },
                     text: {
                       text: "Завтрак",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden",
-                        "checked": "checked"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
                     },
                     text: {
                       text: "Письменный стол",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden",
-                        "checked": "checked"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
                     },
                     text: {
                       text: "Стул для кормления",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden",
-                        "checked": "checked"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
+                      "checked": "checked"
                     },
                     text: {
                       text: "Кроватка",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden"
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden"
                     },
                     text: {
                       text: "Телевизор",
                     }
                   },
                   {
-                    controller: {
-                      type: "checkbox",
-                      attr: {
-                        "type": "checkbox",
-                        "hidden": "hidden",
-                      },
+                    type: "checkbox",
+                    attrs: {
+                      "type": "checkbox",
+                      "hidden": "hidden",
                     },
                     text: {
                       text: "Шампунь",
@@ -671,32 +627,29 @@ include ../../blocks/stars-rating/stars-rating.pug
               title: {
                 text: "rich Checkbox Buttons",
               },
-              listCheckbox: [
+              listType: "toggles",
+              itemList: [
                 {
-                  controller: {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
-                    },
+                  type: "checkbox",
+                  attrs: {
+                    "type": "checkbox",
+                    "hidden": "hidden"
                   },
                   text: {
+                    title: "Широкий коридор",
                     text: "Ширина коридоров в номере не менее 91 см.",
-                    richText: "Широкий коридор",
-                    length: "short"
+                    isShort: true,
                   }
                 },
                 {
-                  controller: {
-                    type: "checkbox",
-                    attr: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
-                    },
+                  type: "checkbox",
+                  attrs: {
+                    "type": "checkbox",
+                    "hidden": "hidden"
                   },
                   text: {
+                    title: "Помощник для инвалидов",
                     text: "На 1 этаже вас встретит специалист  и проводит до номера.",
-                    richText: "Помощник для инвалидов",
                   }
                 },
               ],
@@ -707,54 +660,41 @@ include ../../blocks/stars-rating/stars-rating.pug
               title: {
                 text: "bullet list",
               },
-              container: false,
-              textList: [
+              listType: "text",
+              itemList: [
                 "Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"
               ]
             })
         .form-elements__additions
           .form-elements__positive-features
             +positive-feature({
-              border: "with-border",
-              img: {
-                attr: {
-                  "alt": "Abstract image of a modern house",
-                  "src": "../img/house.svg"
-                }
+              imgAttrs: {
+                "alt": "Abstract image of a modern house",
+                "src": "../img/smile.svg"
               },
-              text: {
-                title: "Комфорт",
-                description: "Шумопоглощающие стены"
-              }
+              title: "Комфорт",
+              description: "Шумопоглощающие стены",
+              isWithBorder: true,
             })
             +positive-feature({
-              border: "with-border",
-              img: {
-                attr: {
-                  "alt": "Abstract image of a modern house",
-                  "src": "../img/house.svg"
-                }
+              imgAttrs: {
+                "alt": "Abstract image of a modern house",
+                "src": "../img/house.svg"
               },
-              text: {
-                title: "Удобство",
-                description: "Окно в каждой из спален"
-              }
+              title: "Удобство",
+              description: "Окно в каждой из спален",
+              isWithBorder: true,
             })
           .form-elements__user-comment
             +user-comment({
               title: {
-                imgAttr: {
-                  "alt": "Profile picture",
-                  "src": "../img/user.jpg"
-                },
-                name: "Мурад Сарафанов",
-                age: "5 дней назад"
+                imgSrc: "../img/user.jpg",
+                userName: "Мурад Сарафанов",
+                userAge: "5 дней назад"
               },
               main: {
-                toggle: {
-                  checked: true,
-                  text: "12"
-                },
-                text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+                isLiked: true,
+                likeCounter: "12",
+                commentText: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
               }
             })

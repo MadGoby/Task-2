@@ -1,7 +1,7 @@
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
 
-function initialize() {
+function sliderInitialize() {
   function addPadding(outputStr) {
     let value = outputStr;
 
@@ -31,4 +31,4 @@ function initialize() {
   $sliderOutput.val(`${addPadding(from)}₽ - ${addPadding(to)}₽`);
 }
 
-document.addEventListener('DOMContentLoaded', initialize);
+export { sliderInitialize };

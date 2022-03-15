@@ -1,40 +1,33 @@
 mixin user-comment(settings)
   - const {
   -   title: {
-  -     imgAttr = {
-  -       alt: "For Change",
-  -       src: "img/forChange.jpg"
-  -     },
-  -     name = "Name",
-  -     age = "Age"
+  -     imgSrc = "img/forChange.jpg",
+  -     userName = "Name",
+  -     userAge = "Age"
   -   },
   -   main: {
-  -     toggle: {
-  -       checked = false,
-  -       text: toggleText = "0"
-  -     },
-  -     text: mainText = "Text for change"
+  -     isLiked = false,
+  -     likeCounter = "0",
+  -     commentText = "Text for change"
   -   }
   - } = settings
   .user-comment
     .user-comment__title
-      img(class="user-comment__avatar")&attributes(imgAttr)
+      img(class="user-comment__avatar", alt="Profile picture", src=imgSrc)
       .user-comment__info
-        p.user-comment__name=name
-        p.user-comment__age=age
+        p.user-comment__name=userName
+        p.user-comment__age=userAge
     .user-comment__main
       .user-comment__like
         +toggle({
-          controller: {
-            type: "like",
-            attr: {
-              "type": "checkbox",
-              "hidden": "hidden",
-              "checked": checked
-            }
+          type: "like",
+          attrs: {
+            "type": "checkbox",
+            "hidden": "hidden",
+            "checked": isLiked
           },
           text: {
-            text: toggleText
+            text: likeCounter
           }
         })
-      p.user-comment__text=mainText
+      p.user-comment__text=commentText

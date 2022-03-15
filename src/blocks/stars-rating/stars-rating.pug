@@ -1,7 +1,5 @@
 mixin stars-rating(settings)
-  - const {
-  -   rating = 0
-  - } = settings
+  - const { rating = 0 } = settings
   div(class=["stars-rating", "js-stars-rating"])
     - let starStep = 1
     while starStep <= 5

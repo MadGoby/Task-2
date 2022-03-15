@@ -1,14 +1,13 @@
 mixin registration(settings)
   - const {
   -   action = "./for-change",
-  -   title = "For change",
   -   loginLink = "./for-change"
   - } = settings
   form(action=action).registration
     .registration__title
       +title({
-        text: title,
-        type: "size_large"
+        text: "Регистрация аккаунта",
+        fontSize: "large"
       })
     .registration__personal-data
       .registration__name
@@ -38,15 +37,13 @@ mixin registration(settings)
       .registration__gender
         .registration__male
           +toggle({
-            controller: {
-              type: "radio",
-              attr: {
-                "type": "radio",
-                "hidden": "hidden",
-                "name": "gender",
-                "value": "male",
-                "checked": "checked"
-              }
+            type: "radio",
+            attrs: {
+              "type": "radio",
+              "hidden": "hidden",
+              "name": "gender",
+              "value": "male",
+              "checked": "checked"
             },
             text: {
               text: "Мужчина"
@@ -54,14 +51,12 @@ mixin registration(settings)
           })
         .registration__female
           +toggle({
-            controller: {
-              type: "radio",
-              attr: {
-                "type": "radio",
-                "hidden": "hidden",
-                "name": "gender",
-                "value": "female"
-              }
+            type: "radio",
+            attrs: {
+              "type": "radio",
+              "hidden": "hidden",
+              "name": "gender",
+              "value": "female"
             },
             text: {
               text: "Женщина"
@@ -107,13 +102,11 @@ mixin registration(settings)
           }
         })
       +toggle({
-        controller: {
-          type: "toggle",
-          attr: {
-            "type": "checkbox",
-            "hidden": "hidden",
-            "value": "female",
-          }
+        type: "toggle",
+        attrs: {
+          "type": "checkbox",
+          "hidden": "hidden",
+          "value": "female",
         },
         text: {
           text: "Получать спецпредложения"

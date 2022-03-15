@@ -37,7 +37,7 @@ include ../../blocks/page-footer/page-footer
                 roomInformation: {
                   number: "888",
                   price: "9 990",
-                  type: "with-postfix"
+                  type: "luxury"
                 },
                 period: {
                   from: {
@@ -49,7 +49,6 @@ include ../../blocks/page-footer/page-footer
                     value: "23.08.2019",
                   },
                   datepicker: {
-                    jsClass: "js-datepicker",
                     dataYear: "2019",
                     dataMonth: "7",
                     dataCurrentDay: "2019, 8, 9",
@@ -93,52 +92,40 @@ include ../../blocks/page-footer/page-footer
               .room-details__positive-features
                 +title({
                   text: "Сведения о номере",
-                  type: "size_regular",
+                  fontSize: "regular",
                   teg: "h2"
                 })
                 +positive-feature({
-                  border: "with-border",
-                  img: {
-                    attr: {
-                      "alt": "Feeling comfortable",
-                      "src": "../img/smile.svg"
-                    }
+                  imgAttrs: {
+                    "alt": "Feeling comfortable",
+                    "src": "../img/smile.svg"
                   },
-                  text: {
-                    title: "Комфорт",
-                    description: "Шумопоглощающие стены"
-                  }
+                  title: "Комфорт",
+                  description: "Шумопоглощающие стены",
+                  isWithBorder: true,
                 })
                 +positive-feature({
-                  border: "with-border",
-                  img: {
-                    attr: {
-                      "alt": "Abstract image of a modern house",
-                      "src": "../img/house.svg"
-                    }
+                  imgAttrs: {
+                    "alt": "Abstract image of a modern house",
+                    "src": "../img/house.svg"
                   },
-                  text: {
-                    title: "Удобство",
-                    description: "Окно в каждой из спален"
-                  }
+                  title: "Удобство",
+                  description: "Окно в каждой из спален",
+                  isWithBorder: true,
                 })
                 +positive-feature({
-                  img: {
-                    attr: {
-                      "alt": "cozy flame",
-                      "src": "../img/flame.svg"
-                    }
+                  imgAttrs: {
+                    "alt": "cozy flame",
+                    "src": "../img/flame.svg"
                   },
-                  text: {
-                    title: "Уют",
-                    description: "Номер оснащён камином"
-                  }
+                  title: "Уют",
+                  description: "Номер оснащён камином",
                 })
               .room-details__impressions
                 .room-details__impression-title
                   +title({
                     text: "Впечатления от номера",
-                    type: "size_regular",
+                    fontSize: "regular",
                     teg: "h2"
                   })
                 +impressions-diagram({
@@ -154,7 +141,7 @@ include ../../blocks/page-footer/page-footer
                 .room-details__comments-title
                   +title({
                     text: "Отзывы посетителей номера",
-                    type: "size_regular",
+                    fontSize: "regular",
                     length: "half",
                     teg: "h2"
                   })
@@ -162,58 +149,48 @@ include ../../blocks/page-footer/page-footer
                 .room-details__comment
                   +user-comment({
                     title: {
-                      imgAttr: {
-                        "alt": "Profile picture",
-                        "src": "../img/user.jpg"
-                      },
-                      name: "Мурад Сарафанов",
-                      age: "5 дней назад"
+                      imgSrc: "../img/user.jpg",
+                      userName: "Мурад Сарафанов",
+                      userAge: "5 дней назад"
                     },
                     main: {
-                      toggle: {
-                        checked: true,
-                        text: "12"
-                      },
-                      text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+                      isLiked: true,
+                      likeCounter: "12",
+                      commentText: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
                     }
                   })
                 .room-details__comment
                   +user-comment({
                     title: {
-                      imgAttr: {
-                        "alt": "Profile picture",
-                        "src": "../img/user2.jpg"
-                      },
-                      name: "Патрисия Стёклышкова",
-                      age: "Неделю назад"
+                      imgSrc: "../img/user2.jpg",
+                      userName: "Патрисия Стёклышкова",
+                      userAge: "Неделю назад"
                     },
                     main: {
-                      toggle: {
-                        checked: false,
-                        text: "2"
-                      },
-                      text: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент."
+                      isLiked: false,
+                      likeCounter: "2",
+                      commentText: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент."
                     }
                   })
               .room-details__rules
                 +list({
                   title: {
                     text: "Правила",
-                    bullet: true,
-                    margin: true,
+                    isBullet: true,
+                    isWithMargin: true,
                     teg: "h2"
                   },
-                  textList: [
+                  listType: "text",
+                  itemList: [
                     "Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"
                   ],
-                  container: false,
                 })
               .room-details__cancellation
                 .cancellation
                   .cancellation__title
                     +title({
                       text: "Отмена",
-                      type: "size_regular",
+                      fontSize: "regular",
                       teg: "h2"
                     })
                   p.cancellation__text="Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."

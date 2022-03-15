@@ -1,11 +1,20 @@
 import { importContext } from '../../tools/importContext';
+import { headerNavigationInitialize } from '../../blocks/header/headerInit';
+import { initAllInputsMasks } from '../../blocks/input/inputMask';
+import { datepickerInitialize } from '../../blocks/datepicker/datepickerInit';
+import { dropdownInitialize } from '../../blocks/dropdown/dropdownInit';
 import './room-details.scss';
 
 importContext();
 
-require('../../blocks/header/headerInit');
-require('../../blocks/datepicker/datepickerInit');
-require('../../blocks/dropdown/dropdownInit');
+function handleDocumentLoad() {
+  headerNavigationInitialize();
+  initAllInputsMasks();
+  datepickerInitialize();
+  dropdownInitialize();
+}
+
+document.addEventListener('DOMContentLoaded', handleDocumentLoad);
 
 require('../../img/room-photo-big.jpg');
 require('../../img/room-photo-small1.jpg');
