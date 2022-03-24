@@ -2,7 +2,9 @@ mixin list(settings)
   - const {
   -   title: {
   -     text = "For Change",
-  -     teg = "p"
+  -     teg = "p",
+  -     isBullet = false,
+  -     isWithMargin = false,
   -   },
   -   isExpandable = false,
   -   opennessState = "",
@@ -15,24 +17,13 @@ mixin list(settings)
   -     text: { text: "For change", },
   -   }],
   - } = settings
-  - let {
-  -   title: {
-  -     isBullet = false,
-  -     isWithMargin = false,
-  -   }
-  - } = settings
   - const bulletClass = isBullet ? "list__title_with-bullet" : ""
   - const marginClass = isWithMargin ? "list__title_with-margin" : ""
-  - let jsListClass = ""
-  - let jsTitleClass = ""
-  - let jsContainerClass = ""
+  - const jsListClass = isExpandable ? "js-list" : ""
+  - const jsTitleClass = isExpandable ? "js-list__title" : ""
+  - const jsContainerClass = isExpandable ? "js-list__container" : ""
   - const attrs = opennessState === "closed" ? { "hidden": "hidden" } : {}
   - const titleExpandedClass = opennessState ? `list__title_${opennessState}` : ""
-  - if (isExpandable) {
-  -   jsListClass = "js-list"
-  -   jsTitleClass = "js-list__title"
-  -   jsContainerClass = "js-list__container"
-  - }
   div(class=["list", jsListClass])
     div(class=["list__title", jsTitleClass, marginClass, bulletClass, titleExpandedClass])
       +title({
@@ -43,9 +34,9 @@ mixin list(settings)
       case listType
         when "toggles"
           each value in itemList
-            li(class="list__item")
+            li.list__item
               +toggle(value)
         default
           each text in itemList
-            li(class=["list__item", "list__item_with-bullet"])
-              p(class="list__text")= text
+            li.list__item.list__item_with-bullet
+              p.list__text=text

@@ -25,24 +25,25 @@ include ../../blocks/page-footer/page-footer
 
 +page-head({title: "Search Room", description: "Search page of the hotel room website."})
   body
-    .search-room-page
-      +page-header({headerClass: "search-room-page__header"})
+    div.search-room-page
+      header.search-room-page__header.js-search-room-page__header
+        +page-header()
       main.search-room-page__main
-        .search-room-page__content
-          .search-room-page__sidebar-wrapper
+        div.search-room-page__content
+          div.search-room-page__sidebar-wrapper.js-search-room-page__sidebar-wrapper
             +sidebar()
           article.search-room-page__rooms
-            .search-room-page__rooms-title
+            div.search-room-page__rooms-title
               +title({
                 text: "Номера, которые мы для вас подобрали",
                 fontSize: "large",
                 teg: "h1"
               })
-            .search-room-page__rooms-wrapper
+            div.search-room-page__rooms-wrapper
               +room-list()
-            .search-room-page__rooms-navigation
+            div.search-room-page__rooms-navigation.js-search-room-page__rooms-navigation
               +content-navigation({
-                titleText: false,
-                counterText: "1 – 12 из 100+ вариантов аренды"
+                counter: "1 – 12 из 100+ вариантов аренды"
               })
-      +page-footer({footerClass: "search-room-page__footer"})
+      footer.search-room-page__footer
+        +page-footer()

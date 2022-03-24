@@ -8,33 +8,31 @@ mixin header(settings)
   -   ],
   -   authorizedUserName = ""
   - } = settings
-  div(class="header")
-    .header__logo
+  div.header
+    div.header__logo
       +logo({
-        imgSrc: "../img/logo-color.svg"
+        imgSrc: "logo-color.svg"
       })
-    div(class=["header__navigation", "js-header__navigation"])
-      button(class="header__navigation-button js-header__navigation-button")
+    div.header__navigation.js-header__navigation
+      button.header__navigation-button.js-header__navigation-button
         span.header__hamburger
-      div(class=["header__navigation-wrapper", "js-header__navigation-wrapper"])
+      div.header__navigation-wrapper.js-header__navigation-wrapper
         +navigation({
           links: navigationLinks
         })
     if authorizedUserName
       p.header__authorized= authorizedUserName
     else
-      .header__buttons
-        .header__login-button
+      div.header__buttons
+        div.header__login-button
           +button({
             type: "border",
             text: "войти",
-            attrType: "button",
-            sizeClass: "small",
+            isSmall: "small",
           })
-        .header__registration-button
+        div.header__registration-button
           +button({
             type: "regular",
             text: "зарегистрироваться",
-            attrType: "button",
-            sizeClass: "small",
+            isSmall: "small",
           })

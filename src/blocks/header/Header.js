@@ -1,6 +1,6 @@
 class HeaderNavigation {
   constructor(target) {
-    this.container = target;
+    this.containerClass = target;
 
     autoBind(this);
     this.getHtmlElements();
@@ -8,6 +8,7 @@ class HeaderNavigation {
   }
 
   getHtmlElements() {
+    this.container = document.querySelector(`.${this.containerClass}`);
     this.navigation = this.container.querySelector('.js-header__navigation-wrapper');
     this.button = this.container.querySelector('.js-header__navigation-button');
   }

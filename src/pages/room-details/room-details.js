@@ -1,30 +1,33 @@
+import { HeaderNavigation } from '@blocks/header/Header';
+import { Datepicker } from '@blocks/datepicker/Datepicker';
+import { Dropdown } from '@blocks/dropdown/Dropdown';
+
 import { importContext } from '../../tools/importContext';
-import { headerNavigationInitialize } from '../../blocks/header/headerInit';
-import { initAllInputsMasks } from '../../blocks/input/inputMask';
-import { datepickerInitialize } from '../../blocks/datepicker/datepickerInit';
-import { dropdownInitialize } from '../../blocks/dropdown/dropdownInit';
 import './room-details.scss';
 
 importContext();
 
 function handleDocumentLoad() {
-  headerNavigationInitialize();
-  initAllInputsMasks();
-  datepickerInitialize();
-  dropdownInitialize();
+  new HeaderNavigation('js-room-details__header');
+  new Datepicker({
+    target: 'js-room-details__final-booking',
+    templates: {
+      pickedYear: '2019',
+      pickedMonth: '7',
+      currentDay: '2019, 8, 9',
+      dataFrom: '2019, 8, 19',
+      dataTo: '2019, 8, 23',
+    },
+  });
+  new Dropdown({
+    target: 'js-room-details__final-booking',
+    dataSettings: {
+      dataType: {
+        name: 'guests',
+      },
+      outputType: 'sum',
+    },
+  });
 }
 
 document.addEventListener('DOMContentLoaded', handleDocumentLoad);
-
-require('../../img/room-photo-big.jpg');
-require('../../img/room-photo-small1.jpg');
-require('../../img/room-photo-small2.jpg');
-require('../../img/diagram.svg');
-require('../../img/user2.jpg');
-require('../../img/flame.svg');
-require('../../img/smile.svg');
-require('../../img/house.svg');
-require('../../img/logo-color.svg');
-require('../../img/instagram.svg');
-require('../../img/facebook.svg');
-require('../../img/twitter.svg');

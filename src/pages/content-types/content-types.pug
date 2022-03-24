@@ -3,51 +3,51 @@ include ../../blocks/logo/logo.pug
 include ../../blocks/color-description/color-description.pug
 include ../../blocks/text-sample/text-sample.pug
 
-+page-head({title: "Content-Types", desc: "Content types from UI-Kit"})
++page-head({title: "Content-Types", description: "Content types from UI-Kit"})
   body.body
-    .content-types
+    div.content-types
       +logo({
-        imgSrc: "../img/logo.svg",
-        position: "in-corner"
+        imgSrc: "logo.svg",
+        isInCorner: true
       })
-      .content-types__wrapper
-        .content-types__colors
+      div.content-types__wrapper
+        div.content-types__colors
           +color-description({
-            colorClass: "dark-100",
+            color: "dark-100",
             name: "Dark Shade 100%",
             index: "#1F2041"
           })
           +color-description({
-            colorClass: "dark-75",
+            color: "dark-75",
             name: "Dark Shade 75%", 
             index: "#1F2041"
           })
           +color-description({
-            colorClass: "dark-50",
+            color: "dark-50",
             name: "Dark Shade 50%",
             index: "#1F2041"
           })
           +color-description({
-            colorClass: "dark-25",
+            color: "dark-25",
             name: "Dark Shade 25%",
             index: "#1F2041"
           })
           +color-description({
-            colorClass: "dark-5",
+            color: "dark-5",
             name: "Dark Shade 5%",
             index: "#1F2041"
           })
           +color-description({
-            colorClass: "purple",
+            color: "purple",
             name: "Purple",
             index: "#BC9CFF"
           })
           +color-description({
-            colorClass: "green",
+            color: "green",
             name: "Green",
             index: "#6FCF97"
           })
-        .content-types__text
+        div.content-types__text
           +text-sample({
             type: "h1",
             tegName: "H1",

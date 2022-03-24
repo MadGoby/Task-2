@@ -1,10 +1,10 @@
 mixin navigation(settings)
   - const {
   -   links = [
-  -     { "text": "For change", "type": "text_bold" },
-  -     { "text": "For change" },
-  -     { "text": "For change" },
-  -     { "text": "For change" }
+  -     { text: "For change", isBold: true },
+  -     { text: "For change" },
+  -     { text: "For change" },
+  -     { text: "For change" }
   -   ]
   - } = settings
   nav.navigation
@@ -12,8 +12,10 @@ mixin navigation(settings)
       - const {
       -   href = "./for-change",
       -   text = "For change",
-      -   type = "",
+      -   isBold = false,
+      -   isExpandable = false,
       - } = link
-      - const typeClass = type ? `navigation__link_${type}` : ""
-      .navigation__link-wrapper
-          a(class=["navigation__link", typeClass] href=href)= text
+      - const boldClass = isBold ? "navigation__link_text_bold" : ""
+      - const expandableClass = isExpandable ? "navigation__link_type_expandable" : ""
+      div.navigation__link-wrapper
+        a(class=["navigation__link", boldClass, expandableClass] href=href)= text

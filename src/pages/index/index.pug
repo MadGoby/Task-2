@@ -6,7 +6,7 @@ include ../../blocks/page-head/page-head.pug
 })
   body.body
     main.main-wrapper
-      .gh-pages
+      div.gh-pages
         h1.gh-pages__title="GitHub Pages"
         - const kit = {
         -   title: "UI-KIT",
@@ -27,15 +27,15 @@ include ../../blocks/page-head/page-head.pug
         -     { path: "room-details", text: "Room Details"},
         -   ]
         - }
-        .gh-pages__list-wrapper
+        div.gh-pages__list-wrapper
           h2.gh-pages__title.gh-pages__title_size_small= kit.title
           ul.gh-pages__links-list
             each link in kit.list
               li.gh-pages__link-wrapper
-                a(class="gh-pages__link" href=`./pages/${link.path}.html`)= link.text
-        .gh-pages__list-wrapper
+                a(href=`./pages/${link.path}.html`).gh-pages__link= link.text
+        div.gh-pages__list-wrapper
           h2.gh-pages__title.gh-pages__title_size_small= pages.title
           ul.gh-pages__links-list
             each link in pages.list
               li.gh-pages__link-wrapper
-                a(class="gh-pages__link" href=`./pages/${link.path}.html`)= link.text
+                a(href=`./pages/${link.path}.html`).gh-pages__link= link.text

@@ -1,15 +1,15 @@
 class Sidebar {
   constructor(target) {
-    this.container = target;
+    this.containerClass = target;
 
     autoBind(this);
     this.prepareSidebar();
   }
 
   getHtmlElements() {
+    this.container = document.querySelector(`.${this.containerClass}`);
     this.title = this.container.querySelector('.js-sidebar__title');
     this.sidebar = this.container.querySelector('.js-sidebar__wrapper');
-    console.log(this.container, this.title, this.sidebar);
   }
 
   prepareSidebar() {

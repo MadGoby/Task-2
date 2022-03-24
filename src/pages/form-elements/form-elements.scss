@@ -157,6 +157,8 @@
 
   &__closed-dropdown {
     margin-bottom: 20px;
+    z-index: 7;
+    position: relative;
   }
 
   &__guests-dropdown {

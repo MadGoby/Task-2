@@ -1,17 +1,17 @@
 mixin content-navigation(settings)
   - const {
-  -   titleText = "",
-  -   counterText = "",
+  -   title = "",
+  -   counter = "",
   - } = settings
   - const buttonsSettings = [
   -   {
   -     type: "purpose_previous",
-  -     navigationClass: "arrow_back"
+  -     navigationModifier: "arrow_back"
   -   },
   -   {
   -     type: "active",
   -     text: "1",
-  -     navigationClass: "color_purple"
+  -     navigationModifier: "color_purple"
   -   },
   -   {
   -     type: "decorative",
@@ -35,26 +35,26 @@ mixin content-navigation(settings)
   -   },
   -   {
   -     type: "purpose_next",
-  -     navigationClass: "arrow_forward"
+  -     navigationModifier: "arrow_forward"
   -   },
   - ]
-  div(class="content-navigation js-content-navigation")
-    if titleText
-      .content-navigation__title
-        +title({text: titleText})
+  div.content-navigation.js-content-navigation
+    if title
+      div.content-navigation__title
+        +title({text: title})
     ul.content-navigation__buttons
       each button in buttonsSettings
         - const {
         -   text = "",
-        -   navigationClass = false
+        -   navigationModifier = "",
+        -   type = ""
         - } = button
-        - let { type = "" } = button
-        - if (type) type=`content-navigation__button_${type}`
-        li(class=["content-navigation__button", type])
+        - const typeClass = type ? `content-navigation__button_${type}` : ""
+        li(class=["content-navigation__button", typeClass])
           +button({
             type: "pagination",
             text: text,
-            navigationClass: navigationClass,
+            navigationModifier: navigationModifier,
           })
-    if counterText
-      p.content-navigation__counter=counterText
+    if counter
+      p.content-navigation__counter=counter

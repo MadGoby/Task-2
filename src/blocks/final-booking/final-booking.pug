@@ -15,7 +15,6 @@ mixin final-booking(settings)
   -       title: toTitle = "For change",
   -       value: toValue = "ДД.ММ.ГГГГ",
   -     },
-  -     datepicker = {}
   -   },
   -   guests: {
   -     title: { text: guestsTitle = "For change" },
@@ -48,13 +47,13 @@ mixin final-booking(settings)
   -   confirmButtonText = "For Change"
   - } = settings
   form(class="final-booking" action=action)
-    .final-booking__room-information
+    div.final-booking__room-information
       +room-information({
         number: number,
         price: price,
         type: type
       })
-    .final-booking__period
+    div.final-booking__period
       +datepicker({
         inputType: 'double',
         inputSettings: {
@@ -69,7 +68,6 @@ mixin final-booking(settings)
               },
               length: "short",
               type: "dropdown",
-              jsClass: "js-input__field_from"
             }
           },
           to: {
@@ -83,14 +81,12 @@ mixin final-booking(settings)
               },
               length: "short",
               type: "dropdown",
-              jsClass: "js-input__field_to"
             }
           }
         },
-        main: datepicker,
         isCalendarClosed: true
       })
-    .final-booking__guests
+    div.final-booking__guests
       +dropdown({
         inputSettings: {
           title: { text: guestsTitle },
@@ -102,8 +98,7 @@ mixin final-booking(settings)
               readonly: "readonly",
             },
             length: "long",
-            type: "dropdown",
-            jsClass: "js-input__field"
+            type: "dropdown"
           }
         },
         isClosed: true,
@@ -120,20 +115,20 @@ mixin final-booking(settings)
         -   isSign: isListSign = false,
         - } = list
         if listType == "total"
-          li(class=["final-booking__service-total", "final-booking__service_text_bold"])
-            div(class=["final-booking__service-wrapper", "final-booking__service-wrapper_text_bold"])
-              span(class=["final-booking__service-title", "final-booking__service-title_text_bold"])=list.title
-            span(class=["final-booking__service-price", "final-booking__service-price_text_bold"])=list.price
+          li.final-booking__service-total.final-booking__service_text_bold
+            div.final-booking__service-wrapper.final-booking__service-wrapper_text_bold
+              span.final-booking__service-title.final-booking__service-title_text_bold=list.title
+            span.final-booking__service-price.final-booking__service-price_text_bold=list.price
         else 
-          li(class="final-booking__service")
-            .final-booking__service-wrapper
-              span(class="final-booking__service-title")=list.title
-              if isListSign === true
+          li.final-booking__service
+            div.final-booking__service-wrapper
+              span.final-booking__service-title=list.title
+              if isListSign
                 span.final-booking__service-sign="i"
             span.final-booking__service-price=list.price
-    .final-booking__confirm-button
+    div.final-booking__confirm-button
       +button({
         type: "confirm",
         text: confirmButtonText,
-        attrType: "submit",
+        isConfirmAttr: true,
       })

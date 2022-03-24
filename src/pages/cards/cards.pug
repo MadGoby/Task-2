@@ -16,19 +16,19 @@ include ../../blocks/stars-rating/stars-rating.pug
 
 +page-head({title: "Cards", desc: "Cards from UI-Kit"})
   body.body
-    .cards
+    div.cards
       +logo({
-        imgSrc: "../img/logo.svg",
-        position: "in-corner"
+        imgSrc: "logo.svg",
+        isInCorner: true
       })
-      .cards__content
-        .cards__column
-          .cards__search-room
+      div.cards__content
+        div.cards__column
+          div.cards__search-room.js-cards__search-room
             +search-room({})
-          .cards__registration
+          div.cards__registration
             +registration({})
-        .cards__column
-          .cards__final-booking
+        div.cards__column
+          div.cards__final-booking.js-cards__final-booking
             +final-booking({
               roomInformation: {
                 number: "888",
@@ -77,26 +77,18 @@ include ../../blocks/stars-rating/stars-rating.pug
               ],
               confirmButtonText: "забронировать"
             })
-          .cards__login
+          div.cards__login
             +login({})
-        .cards__column
-          .cards__datepicker
-            +datepicker({
-              main: {
-                dataYear: "2019",
-                dataMonth: "7",
-                dataCurrentDay: "2019, 8, 9",
-                dataFrom: "2019, 8, 19",
-                dataTo: "2019, 8, 23",
-              }
-            })
-          .cards__room
+        div.cards__column
+          div.cards__datepicker.js-cards__datepicker
+            +datepicker({})
+          div.cards__room.cards__room_number_888.js-cards__room_number_888
             +room-card({
               imagesSources: [
-                "../img/888.jpg",
-                "../img/room-slider.jpg",
-                "../img/888.jpg",
-                "../img/room-slider.jpg"
+                "888.jpg",
+                "room-slider.jpg",
+                "888.jpg",
+                "room-slider.jpg"
               ],
               roomInformation: {
                 number: "888",
@@ -106,13 +98,13 @@ include ../../blocks/stars-rating/stars-rating.pug
               starsRating: "5",
               reviewsCounter: "145"
             })
-          .cards__room
+          div.cards__room.cards__room_number_848.js-cards__room_number_848
             +room-card({
               imagesSources: [
-                "../img/840.jpg",
-                "../img/room-slider.jpg",
-                "../img/840.jpg",
-                "../img/room-slider.jpg",
+                "840.jpg",
+                "room-slider.jpg",
+                "840.jpg",
+                "room-slider.jpg",
               ],
               roomInformation: {
                 number: "840",

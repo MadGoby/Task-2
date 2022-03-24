@@ -32,7 +32,8 @@ const webpackConfig = {
   },
   resolve: {
     alias: {
-      images: path.resolve(__dirname, './src/img'),
+      '@images': path.resolve(__dirname, './src/img'),
+      '@blocks': path.resolve(__dirname, './src/blocks'),
     },
   },
   devServer: {

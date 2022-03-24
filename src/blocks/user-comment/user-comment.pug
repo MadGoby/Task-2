@@ -1,7 +1,7 @@
 mixin user-comment(settings)
   - const {
   -   title: {
-  -     imgSrc = "img/forChange.jpg",
+  -     imgSrc = "for-change",
   -     userName = "Name",
   -     userAge = "Age"
   -   },
@@ -11,14 +11,14 @@ mixin user-comment(settings)
   -     commentText = "Text for change"
   -   }
   - } = settings
-  .user-comment
-    .user-comment__title
-      img(class="user-comment__avatar", alt="Profile picture", src=imgSrc)
-      .user-comment__info
+  div.user-comment
+    div.user-comment__title
+      img(alt="Profile picture", src=require(`@images/${imgSrc}`).default).user-comment__avatar
+      div.user-comment__info
         p.user-comment__name=userName
         p.user-comment__age=userAge
-    .user-comment__main
-      .user-comment__like
+    div.user-comment__main
+      div.user-comment__like
         +toggle({
           type: "like",
           attrs: {

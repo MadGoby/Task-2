@@ -6,53 +6,44 @@ mixin input(settings)
   -     state: titleState = ""
   -   },
   -   input: {
+  -     type: inputType = "regular",
+  -     length = "long",
+  -     isDarkBorder = false,
   -     attr = {
   -       placeholder: "For-change",
   -       type: "text"
-  -     },
-  -     jsClass = "",
-  -   }
-  - } = settings
-  - let {
-  -   input: {
-  -     type: inputType = "regular",
-  -     state: inputState = false,
-  -     length = "long",
-  -     borderType = ""
+  -     }
   -   }
   - } = settings
   - const titleTypeClass = titleType ? `input__title-text_${titleType}` : ""
-  - let wrapperLength = ""
-  - if (length) {
-  -   wrapperLength = `input__wrapper_length_${length}`
-  -   length = `input__field_length_${length}`
-  - }
+  - const wrapperLengthClass = length ? `input__wrapper_length_${length}` : ""
+  - const lengthClass = length ? `input__field_length_${length}` : ""
   - const isNeedWrapper = inputType === "dropdown" || inputType === "submit"
-  - const wrapperType = isNeedWrapper ? inputType : "none"
-  - if (inputType) inputType = `input__field_type_${inputType}`
-  - if (inputState) inputState = `input__field_${inputState}`
-  - if (borderType) borderType = `input__field_border_${borderType}`
-  .input
+  - const wrapperType = isNeedWrapper ? inputType : "regular"
+  - const wrapperTypeClass = isNeedWrapper ? `input__wrapper_type_${wrapperType}` : ""
+  - const inputTypeClass = inputType ? `input__field_type_${inputType}` : ""
+  - const borderClass = isDarkBorder ? "input__field_border_dark" : ""
+  div.input
     if titleState
-      .input__title
-        div(class="input__title-text" class=titleTypeClass)
+      div.input__title
+        div(class=["input__title-text", titleTypeClass])
           +title({
             text: titleText
           })
         p.input__state= titleState
     else if titleText
-      .input__title
-        div(class="input__title-text" class=titleTypeClass)
+      div.input__title
+        div(class=["input__title-text", titleTypeClass])
           +title({
             text: titleText
           })
     case wrapperType
       when "dropdown"
-        label(class=["input__wrapper", `input__wrapper_type_${wrapperType}`, wrapperLength])
-          input(class=["input__field", length, inputType, inputState, jsClass])&attributes(attr)
+        label(class=["input__wrapper", wrapperTypeClass, wrapperLengthClass])
+          input(class=["input__field", lengthClass, inputTypeClass])&attributes(attr)
       when "submit"
-        label(class=["input__wrapper", `input__wrapper_type_${wrapperType}`, wrapperLength])
-          input(class=["input__field", length, inputType, inputState, jsClass])&attributes(attr)
+        label(class=["input__wrapper", wrapperTypeClass, wrapperLengthClass])
+          input(class=["input__field", lengthClass, inputTypeClass])&attributes(attr)
           button(class="input__submit-button" type="submit")
       default
-        input(class=["input__field", length, inputType, borderType, inputState, jsClass])&attributes(attr)
+        input(class=["input__field", lengthClass, inputTypeClass, borderClass])&attributes(attr)

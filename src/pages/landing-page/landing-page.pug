@@ -16,37 +16,35 @@ include ../../blocks/page-footer/page-footer
 
 +page-head({title: "Landing Page", description: "Landing page of the hotel room website."})
   body
-    +page-header({headerClass: "landing-page__header"})
+    header.landing-page__header.js-landing-page__header
+      +page-header()
     main.landing-page__main
-      +search-room({
-        title: {text: "Найдём номера под ваши пожелания"},
-        period: {
-          from: {
-            title: "прибытие",
-            value: "ДД.ММ.ГГГГ",
-            jsClass: "js-input__field_from"
+      div.landing-page__search-room.js-landing-page__search-room
+        +search-room({
+          title: {text: "Найдём номера под ваши пожелания"},
+          period: {
+            from: {
+              title: "прибытие",
+              value: "ДД.ММ.ГГГГ",
+            },
+            to: {
+              title: "выезд",
+              value: "ДД.ММ.ГГГГ",
+            },
           },
-          to: {
-            title: "выезд",
-            value: "ДД.ММ.ГГГГ",
-            jsClass: "js-input__field_to"
+          guests: {
+            title: { text: "гости" },
+            input: {
+              value: "Сколько гостей",
+            },
+            lists: [
+              {text: "взрослые", dataTarget: "adult", output: "0"},
+              {text: "дети", dataTarget: "child", output: "0"},
+              {text: "младенцы", dataTarget: "baby", output: "0"}
+            ]
           },
-          jsDatepicker: "js-datepicker"
-        },
-        guests: {
-          title: { text: "гости" },
-          input: {
-            value: "Сколько гостей",
-            jsClass: "js-input__field"
-          },
-          control: { jsClass: "js-dropdown__control" },
-          lists: [
-            {text: "взрослые", dataTarget: "adult", output: "0"},
-            {text: "дети", dataTarget: "child", output: "0"},
-            {text: "младенцы", dataTarget: "baby", output: "0"}
-          ]
-        },
-        confirm: {text: "подобрать номер"}
-      })
-      p(class="landing-page__main-text")="Лучшие номера для вашей работы, отдыха и просто вдохновения"
-    +page-footer({headerClass: "landing-page__footer"})
+          confirm: {text: "подобрать номер"}
+        })
+      p.landing-page__main-text="Лучшие номера для вашей работы, отдыха и просто вдохновения"
+    footer.landing-page__footer
+      +page-footer()

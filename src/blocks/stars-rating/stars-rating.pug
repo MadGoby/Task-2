@@ -1,10 +1,10 @@
 mixin stars-rating(settings)
   - const { rating = 0 } = settings
-  div(class=["stars-rating", "js-stars-rating"])
+  div.stars-rating.js-stars-rating
     - let starStep = 1
     while starStep <= 5
       if starStep <= rating
-        span(class=["stars-rating__star", "stars-rating__star_color_purple"])
+        span.stars-rating__star.stars-rating__star_color_purple
       else
-        span(class="stars-rating__star")
+        span.stars-rating__star
       - starStep++

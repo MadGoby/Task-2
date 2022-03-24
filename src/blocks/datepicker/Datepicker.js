@@ -1,14 +1,17 @@
+import { datepickerData } from './datepickerData';
+
 class Datepicker {
-  constructor(target, templates) {
-    this.container = target;
-    this.templates = templates;
-    this.settings = { monthRu: templates.monthRu };
+  constructor(settings) {
+    this.containerClass = settings.target ? settings.target : 'js-for-change';
+    this.templates = settings.templates ? settings.templates : {};
+    this.settings = { monthRu: datepickerData.monthRu };
 
     autoBind(this);
     this.initializes();
   }
 
   initializes() {
+    this.container = document.querySelector(`.${this.containerClass}`);
     this.setDefaultParameters();
     this.getHtmlElements();
     const calendarDays = this.makesCalendarByDate({
@@ -27,21 +30,25 @@ class Datepicker {
     this.settings.pickedMonth = this.templates.pickedMonth
       ? Number(this.templates.pickedMonth) : new Date().getMonth();
     if (this.templates.currentDay) {
-      this.settings.currentDay = this.templates.currentDay;
+      this.settings.currentDay = new Date(this.templates.currentDay);
     } else {
       this.settings.currentDay = new Date(
         new Date().getFullYear(), new Date().getMonth(), new Date().getDate(),
       );
     }
-    this.settings.from = this.templates.dataFrom ? this.templates.dataFrom : false;
-    this.settings.to = this.templates.dataTo ? this.templates.dataTo : false;
+    if (this.templates.dataFrom) this.settings.from = new Date(this.templates.dataFrom);
+    if (this.templates.dataTo) this.settings.to = new Date(this.templates.dataTo);
   }
 
   getHtmlElements() {
+    this.datepickerWrapper = this.container.querySelector('.js-datepicker');
     this.calendarWrapper = this.container.querySelector('.datepicker__calendar-wrapper');
-    this.inputFrom = this.container.querySelector('.js-input__field_from');
-    this.inputTo = this.container.querySelector('.js-input__field_to');
-    this.inputTotal = this.container.querySelector('.js-input__field_total');
+    const fromWrapper = this.container.querySelector('.js-datepicker__from');
+    const toWrapper = this.container.querySelector('.js-datepicker__to');
+    const totalWrapper = this.container.querySelector('.js-datepicker__total');
+    if (fromWrapper) this.inputFrom = fromWrapper.firstChild.lastChild.firstChild;
+    if (toWrapper) this.inputTo = toWrapper.firstChild.lastChild.firstChild;
+    if (totalWrapper) this.inputTotal = totalWrapper.firstChild.lastChild.firstChild;
     this.buttonPrevious = this.container.querySelector('.js-datepicker__scroll-button_arrow_back');
     this.buttonNext = this.container.querySelector('.js-datepicker__scroll-button_arrow_forward');
     this.selectedMonth = this.container.querySelector('.js-datepicker__selected-month');
@@ -356,6 +363,8 @@ class Datepicker {
 
   handleCalendarCellClick(event) {
     const { target } = event;
+    if (target.classList.contains('datepicker__calendar-cell_value_week-day')) return;
+
     const date = {
       day: Datepicker.bringToTwoDigits({ value: Number(target.innerText) }),
       month: Datepicker.bringToTwoDigits({ value: Number(this.definesCellMonth(target)) }),
@@ -438,7 +447,7 @@ class Datepicker {
 
   handleInputClick() {
     if (this.calendarWrapper.hasAttribute('hidden')) {
-      this.calendarWrapper.removeAttribute('hidden', 'hidden');
+      this.calendarWrapper.removeAttribute('hidden');
       this.bindDomEventListener();
     } else {
       this.calendarWrapper.setAttribute('hidden', 'hidden');
@@ -459,7 +468,7 @@ class Datepicker {
   }
 
   handelDOMClick(event) {
-    const result = Boolean(event.path.find((element) => element === this.container));
+    const result = Boolean(event.path.find((element) => element === this.datepickerWrapper));
     if (result === false) this.handleInputClick();
   }
 

@@ -6,6 +6,6 @@ mixin text-sample(settings)
   - } = settings
   - const typeClass = `text-sample__teg_type_${type}`
   - const descriptionClass = `text-sample__description_type_${type}`
-  .text-sample
+  div.text-sample
     p(class=["text-sample__teg", typeClass])=tegName
     p(class=["text-sample__description", descriptionClass])=description

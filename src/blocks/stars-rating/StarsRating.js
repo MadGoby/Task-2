@@ -1,6 +1,10 @@
 class StarsRating {
   constructor(target) {
-    this.container = target;
+    if (typeof target === 'string') {
+      this.containerClass = target;
+    } else {
+      this.container = target;
+    }
 
     autoBind(this);
     this.getHtmlElements();
@@ -8,6 +12,7 @@ class StarsRating {
   }
 
   getHtmlElements() {
+    if (this.containerClass) this.container = document.querySelector(`.${this.containerClass}`);
     this.stars = [...this.container.querySelectorAll('.stars-rating__star')];
   }
 

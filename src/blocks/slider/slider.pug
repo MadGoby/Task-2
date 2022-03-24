@@ -3,11 +3,11 @@ mixin slider(settings)
   -   title = "For change",
   -   description = ""
   - } = settings
-  div(class="slider")
-    .slider__title
-      .slider__title-text
+  div.slider
+    div.slider__title
+      div.slider__title-text
         +title({text: title})
-      output(class="slider__output js-slider__output")
-    div(class="slider__body js-slider__body")
+      output.slider__output.js-slider__output
+    div.slider__body.js-slider__body
     if description
       p.slider__description=description

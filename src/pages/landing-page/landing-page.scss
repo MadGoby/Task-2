@@ -37,6 +37,10 @@
     }
   }
 
+  &__search-room {
+    display: inline-block;
+  }
+
   &__main-text {
     @include text_type($mont, 14px, 400, 24px, $dark75);
     text-align: right;

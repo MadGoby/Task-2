@@ -10,19 +10,19 @@ mixin toggle(settings)
   - } = settings
   - const mimicTypeClass = `toggle__mimic_type_${type}`
   - const typeClass = `toggle__controller_type_${type}`
-  - const lengthClass = length ? "toggle__text_length_length_short" : ""
+  - const lengthClass = isShort ? "toggle__text_length_length_short" : ""
   - const isTextWithTitle = mimicTypeClass !== "toggle__mimic_type_like" && title
   - const isText = mimicTypeClass !== "toggle__mimic_type_like"
-  .toggle
-    label(class="toggle__wrapper")
+  div.toggle
+    label.toggle__wrapper
       input(class=["toggle__controller", typeClass])&attributes(attrs)
       span(class=["toggle__mimic", mimicTypeClass])
         if type === "like"
-          span(class=["toggle__text", lengthClass])= text
+          span(class=["toggle__text", lengthClass])=text
       if isTextWithTitle
         span.toggle__text-wrapper
-          span(class="toggle__text-title")= title
-          span(class=["toggle__text", lengthClass])= text
+          span.toggle__text-title=title
+          span(class=["toggle__text", lengthClass])=text
       else if isText
         span.toggle__text-wrapper
-          span(class=["toggle__text", lengthClass])= text
+          span(class=["toggle__text", lengthClass])=text

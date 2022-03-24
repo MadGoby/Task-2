@@ -118,10 +118,6 @@
       transform: rotateY(180deg);
     }
 
-    &_border_small {
-      padding: 7px 18px 8px;
-    }
-
     &_size_small {
       padding: 9px 21px 10px 19px;
     }
@@ -135,7 +131,7 @@
     background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
     border-radius: 22px;
     display: inline-block;
-    min-width: 99px;
+    min-width: 87px;
 
     &:hover {
       background: linear-gradient(180deg, #deceff 0%, #c5d2fc 100%);
@@ -144,10 +140,10 @@
     &_transparent {
       background: linear-gradient(180deg, #deceff 0%, #c5d2fc 100%);
     }
+  }
 
-    &_size_small {
-      min-width: 87px;
-    }
+  &__border-mimic > &__control_size_small {
+    padding: 7px 18px 8px;
   }
 
   &_type_confirm {
@@ -158,4 +154,9 @@
       opacity: 0.5;
     }
   }
+}
+
+.button__control_type_text.button__control_transparent {
+  color: $dark50;
+  opacity: 1;
 }

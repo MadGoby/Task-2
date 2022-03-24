@@ -1,13 +1,13 @@
 mixin sidebar()
-  .sidebar.js-sidebar
-    .sidebar__title.js-sidebar__title.sidebar__title_closed
+  div.sidebar.js-sidebar
+    div.sidebar__title.js-sidebar__title.sidebar__title_closed
       +title({
         text: "Фильтры для поиска",
         fontSize: "regular",
         teg: "h2"
       })
     aside.sidebar__wrapper.js-sidebar__wrapper
-      .sidebar__date-filter
+      div.sidebar__date-filter.js-sidebar__date-filter
         +datepicker({
           inputType: 'total',
           inputSettings: {
@@ -22,21 +22,13 @@ mixin sidebar()
                 },
                 length: "average",
                 type: "dropdown",
-                jsClass: "js-input__field_total"
               }
             }
           },
-          main: {
-            dataYear: "2019",
-            dataMonth: "7",
-            dataCurrentDay: "2019, 8, 9",
-            dataFrom: "2019, 8, 19",
-            dataTo: "2019, 8, 23",
-          },
           isCalendarClosed: true,
-          size: "small"
+          isSmall: true,
         })
-      .sidebar__guests
+      div.sidebar__guests.js-sidebar__guests
         +dropdown({
           inputSettings: {
             title: { text: "Гости" },
@@ -49,7 +41,6 @@ mixin sidebar()
               },
               length: "average",
               type: "dropdown",
-              jsClass: "js-input__field"
             }
           },
           isClosed: true,
@@ -63,13 +54,13 @@ mixin sidebar()
             outputType: "twoByOne"
           }
         })
-      .sidebar__slider
+      div.sidebar__slider.js-sidebar__slider
         +slider({
           title: "диапазон цены",
           description: "Стоимость за сутки пребывания в номере"
         })
-      .sidebar__additional-features
-        .sidebar__features-title
+      div.sidebar__additional-features
+        div.sidebar__features-title
           +title({
             text: "правила дома"
           })
@@ -106,7 +97,7 @@ mixin sidebar()
             length: "short"
           }
         })
-      .sidebar__availability
+      div.sidebar__availability
         +list({
           title: { text: "доступность" },
           listType: "toggles",
@@ -136,7 +127,7 @@ mixin sidebar()
             },
           ],
         })
-      .sidebar__room-amenities
+      div.sidebar__room-amenities.js-sidebar__room-amenities
         +dropdown({
           inputSettings: {
             title: { text: "удобства номера" },
@@ -149,7 +140,6 @@ mixin sidebar()
               },
               length: "average",
               type: "dropdown",
-              jsClass: "js-input__field"
             }
           },
           isClosed: true,
@@ -163,7 +153,7 @@ mixin sidebar()
             outputType: "oneByOne"
           }
         })
-      .sidebar__additional-amenities
+      div.sidebar__additional-amenities.js-sidebar__additional-amenities
         +list({
           title: {
             text: "дополнительные удобства",

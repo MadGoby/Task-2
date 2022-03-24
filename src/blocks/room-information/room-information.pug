@@ -6,7 +6,7 @@ mixin room-information(settings)
   - } = settings
   - const typeClass = type ? `room-information__number_type_${type}` : ""
   div.room-information
-    span(class=["room-information__number", typeClass, sizeClass])=number
+    span(class=["room-information__number", typeClass])=number
     span.room-information__price-wrapper
       em.room-information__price=`${price}₽ ` 
       =" в сутки"

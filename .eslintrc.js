@@ -10,6 +10,7 @@ module.exports = {
   rules: {
     'linebreak-style': ['error', 'windows'],
     'import/prefer-default-export': 'off',
+    'import/no-unresolved': 'off',
     'no-param-reassign': [2, { props: false }],
     'no-new': 0,
     'fsd/hof-name-prefix': 'error',

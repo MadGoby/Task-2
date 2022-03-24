@@ -1,8 +1,8 @@
 mixin room-card(settings)
   - const {
   -   imagesSources = [
-  -     "img/for-change.jpg",
-  -     "img/for-change.jpg",
+  -     "for-change.jpg",
+  -     "for-change2.jpg",
   -   ],
   -   roomInformation: {
   -     number = "000",
@@ -12,26 +12,26 @@ mixin room-card(settings)
   -   starsRating = "5",
   -   reviewsCounter = "0",
   - } = settings
-  div(class="room-card" class="js-room-card")
+  div.room-card.js-room-card
     div.room-card__image-wrapper
       each src in imagesSources
-        img(class="room-card__image" src=src, alt="Photo of the room")
-      button(type="button" class=["room-card__image-button", "room-card__image-button_side_left"])
-      button(type="button" class=["room-card__image-button", "room-card__image-button_side_right"])
-      .room-card__image-position-wrapper
-        span(class=["room-card__image-position", "room-card__image-position_selected"])
+        img(src=require(`@images/${src}`).default, alt="Photo of the room").room-card__image
+      button(type="button").room-card__image-button.room-card__image-button_side_left
+      button(type="button").room-card__image-button.room-card__image-button_side_right
+      div.room-card__image-position-wrapper
+        span.room-card__image-position.room-card__image-position_selected
         span.room-card__image-position
         span.room-card__image-position
         span.room-card__image-position
-    .room-card__room-information
-      .room-card__price
+    div.room-card__room-information
+      div.room-card__price
         +room-information({
           number: number,
           price: price,
           type: type,
         })
-      .room-card__rating
-        .room-card__stars
+      div.room-card__rating
+        div.room-card__stars
           +stars-rating({rating: starsRating})
-        .room-card__counter
+        div.room-card__counter
           +reviews-counter({value: reviewsCounter})

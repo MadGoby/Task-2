@@ -4,13 +4,13 @@ mixin login(settings)
   -   loginLink = "./for-change"
   - } = settings
   form(action=action).login
-    .login__title
+    div.login__title
       +title({
         text: "Войти",
         fontSize: "large"
       })
-    .login__inputs
-      .login__email-input
+    div.login__inputs
+      div.login__email-input
         +input({
           title: {},
           input: {
@@ -22,7 +22,7 @@ mixin login(settings)
             type: "regular"
           }
         })
-      .login__password-input
+      div.login__password-input
         +input({
           title: {},
           input: {
@@ -34,15 +34,15 @@ mixin login(settings)
             type: "regular"
           }
         })
-    .login__confirm-button
+    div.login__confirm-button
       +button({
         type: "confirm",
         text: "войти",
-        attrType: "submit",
+        isConfirmAttr: true,
       })
-    .login__registration
+    div.login__registration
       p.login__text="Нет аккаунта на Toxin?"
-      a(class="login__link" href=loginLink)
+      a(href=loginLink).login__link
         +button({
           type: "border",
           text: "создать",

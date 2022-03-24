@@ -1,14 +1,12 @@
 mixin color-description(settings)
   - const {
   -   name = "for-change",
-  -   index = "for-Change"
+  -   index = "for-Change",
+  -   color = "for-change",
   - } = settings
-  - let {
-  -   colorClass = "for-change"
-  - } = settings
-  - if(colorClass) colorClass = `color-description__sample_color_${colorClass}`
-  .color-description
+  - const colorClass = color ? `color-description__sample_color_${color}` : ""
+  div.color-description
     div(class=["color-description__sample", colorClass])
-    .color-description__text
+    div.color-description__text
       p.color-description__name= name
       p.color-description__index= index

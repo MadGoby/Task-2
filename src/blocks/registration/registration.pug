@@ -4,13 +4,13 @@ mixin registration(settings)
   -   loginLink = "./for-change"
   - } = settings
   form(action=action).registration
-    .registration__title
+    div.registration__title
       +title({
         text: "Регистрация аккаунта",
         fontSize: "large"
       })
-    .registration__personal-data
-      .registration__name
+    div.registration__personal-data
+      div.registration__name
         +input({
           title: {},
           input: {
@@ -22,7 +22,7 @@ mixin registration(settings)
             type: "regular"
           }
         })
-      .registration__surname
+      div.registration__surname
         +input({
           title: {},
           input: {
@@ -34,8 +34,8 @@ mixin registration(settings)
             type: "regular"
           }
         })
-      .registration__gender
-        .registration__male
+      div.registration__gender
+        div.registration__male
           +toggle({
             type: "radio",
             attrs: {
@@ -49,7 +49,7 @@ mixin registration(settings)
               text: "Мужчина"
             }
           })
-        .registration__female
+        div.registration__female
           +toggle({
             type: "radio",
             attrs: {
@@ -62,7 +62,7 @@ mixin registration(settings)
               text: "Женщина"
             }
           })
-    .registration__birthday
+    div.registration__birthday
       +input({
         title: { text: "дата рождения" },
         input: {
@@ -74,10 +74,10 @@ mixin registration(settings)
           type: "date"
         }
       })
-    .registration__login-data
-      .registration__login-title
+    div.registration__login-data
+      div.registration__login-title
         +title({text: "данные для входа в сервис"})
-      .registration__email
+      div.registration__email
         +input({
           title: {},
           input: {
@@ -89,7 +89,7 @@ mixin registration(settings)
             type: "regular"
           }
         })
-      .registration__pass
+      div.registration__pass
         +input({
           title: {},
           input: {
@@ -112,15 +112,15 @@ mixin registration(settings)
           text: "Получать спецпредложения"
         }
       })
-    .registration__confirm-button
+    div.registration__confirm-button
       +button({
         type: "confirm",
         text: "зарегистрироваться",
-        attrType: "submit",
+        isConfirmAttr: true,
       })
-    .registration__login
+    div.registration__login
       p.registration__text="Уже есть аккаунт на Toxin"
-      a(class="registration__link" href=loginLink)
+      a(href=loginLink).registration__link
         +button({
           type: "border",
           text: "Войти",

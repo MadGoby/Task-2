@@ -1,6 +1,6 @@
 class ListDropdown {
   constructor(target) {
-    this.container = target;
+    this.containerClass = target;
 
     autoBind(this);
     this.getHtmlElements();
@@ -8,6 +8,7 @@ class ListDropdown {
   }
 
   getHtmlElements() {
+    this.container = document.querySelector(`.${this.containerClass}`);
     this.list = this.container.querySelector('.js-list__container');
     this.title = this.container.querySelector('.js-list__title');
   }

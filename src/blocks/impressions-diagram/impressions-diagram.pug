@@ -1,19 +1,21 @@
 mixin impressions-diagram(settings)
   - const {
   -   voteCount = "000 голосов",
-  -   clarifyingDescription = [
-  -     { text: "For change 1", type: "color_yellow" },
-  -     { text: "For change 2", type: "color_green" },
-  -     { text: "For change 3", type: "color_purple" },
-  -     { text: "For change 4", type: "color_black" }
+  -   colorDescription = [
+  -     { text: "For change 1", color: "yellow" },
+  -     { text: "For change 2", color: "green" },
+  -     { text: "For change 3", color: "purple" },
+  -     { text: "For change 4", color: "black" }
   -   ]
   - } = settings
-  .impressions-diagram
-    .impressions-diagram__reviews-wrapper
+  div.impressions-diagram
+    div.impressions-diagram__reviews-wrapper
       p.impressions-diagram__reviews-counter=voteCount
     ul.impressions-diagram__description
-      each description in clarifyingDescription
-        - const { text: descriptionText } = description
-        - let { type: descriptionType } = description
-        - if (descriptionType) descriptionType = `impressions-diagram__description-line_${descriptionType}`
-        li(class=["impressions-diagram__description-line", descriptionType])=descriptionText
+      each description in colorDescription
+        - const {
+        -   text = "For change",
+        -   color = "black"
+        -  } = description
+        - const colorClass = color ? `impressions-diagram__description-line_color_${color}` : ""
+        li(class=["impressions-diagram__description-line", colorClass])=text

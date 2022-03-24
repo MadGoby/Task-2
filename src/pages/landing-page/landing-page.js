@@ -1,21 +1,26 @@
+import { HeaderNavigation } from '@blocks/header/Header';
+import { Datepicker } from '@blocks/datepicker/Datepicker';
+import { Dropdown } from '@blocks/dropdown/Dropdown';
+
 import { importContext } from '../../tools/importContext';
-import { headerNavigationInitialize } from '../../blocks/header/headerInit';
-import { datepickerInitialize } from '../../blocks/datepicker/datepickerInit';
-import { dropdownInitialize } from '../../blocks/dropdown/dropdownInit';
 import './landing-page.scss';
 
 importContext();
 
 function handleDocumentLoad() {
-  headerNavigationInitialize();
-  datepickerInitialize();
-  dropdownInitialize();
+  new HeaderNavigation('js-landing-page__header');
+  new Datepicker({
+    target: 'js-landing-page__search-room',
+  });
+  new Dropdown({
+    target: 'js-landing-page__search-room',
+    dataSettings: {
+      dataType: {
+        name: 'guests',
+      },
+      outputType: 'sum',
+    },
+  });
 }
 
 document.addEventListener('DOMContentLoaded', handleDocumentLoad);
-
-require('../../img/logo-color.svg');
-require('../../img/landing-main.jpg');
-require('../../img/instagram.svg');
-require('../../img/facebook.svg');
-require('../../img/twitter.svg');

@@ -7,36 +7,36 @@ include ../../blocks/navigation/navigation.pug
 include ../../blocks/footer/footer.pug
 include ../../blocks/copyright/copyright.pug
 
-+page-head({title: "Headers-Footers", desc: "Headers and Footers from UI-Kit"})
++page-head({title: "Headers-Footers", description: "Headers and Footers from UI-Kit"})
   body.body
-    .headers-footers
+    div.headers-footers
       +logo({
-        imgSrc: "../img/logo.svg",
-        position: "in-corner"
+        imgSrc: "logo.svg",
+        isInCorner: true
       })
-      .headers-footers__content
-        .headers-footers__header
+      div.headers-footers__content
+        div.headers-footers__header
           +header({
             navigationLinks: [
-              {"text": "О нас", "type": "text_bold"},
-              {"text": "Услуги", "type": "type_expandable"},
-              {"text": "Вакансии"},
-              {"text": "Новости"},
-              {"text": "Соглашения", "type": "type_expandable"},
+              {text: "О нас", isBold: true},
+              {text: "Услуги", isExpandable: true},
+              {text: "Вакансии"},
+              {text: "Новости"},
+              {text: "Соглашения", isExpandable: true},
             ]
           })
-        .headers-footers__header
+        div.headers-footers__header
           +header({
             navigationLinks: [
-              {"text": "О нас", "type": "text_bold"},
-              {"text": "Услуги", "type": "type_expandable"},
-              {"text": "Вакансии"},
-              {"text": "Новости"},
-              {"text": "Соглашения", "type": "type_expandable"},
+              { text: "О нас", isBold: true },
+              { text: "Услуги", isExpandable: true },
+              { text: "Вакансии" },
+              { text: "Новости" },
+              { text: "Соглашения", isExpandable: true },
             ],
             authorizedUserName: "Юлий Цезарь"
           })
-        .headers-footers__footer_size_large
+        div.headers-footers__footer_size_large
           +footer({
             descriptionText: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
             lists: [
@@ -44,7 +44,7 @@ include ../../blocks/copyright/copyright.pug
                 {
                   "text": "навигация",
                   "teg": "span",
-                  "linkType": "link-title"
+                  isTitle: true
                 },
                 {"text": "О нас"},
                 {"text": "Новости"},
@@ -55,7 +55,7 @@ include ../../blocks/copyright/copyright.pug
                 {
                   "text": "о нас",
                   "teg": "span",
-                  "linkType": "link-title"
+                  isTitle: true
                 },
                 {"text": "О сервисе"},
                 {"text": "Наша команда"},
@@ -66,7 +66,7 @@ include ../../blocks/copyright/copyright.pug
                 {
                   "text": "Служба поддержки",
                   "teg": "span",
-                  "linkType": "link-title"
+                  isTitle: true
                 },
                 {"text": "Соглашения"},
                 {"text": "Сообщества"},
@@ -82,32 +82,32 @@ include ../../blocks/copyright/copyright.pug
             text: "Copyright © 2018 Toxin отель. Все права защищены.",
             linksSettings: [
               {
-                iconSrc: "../img/twitter.svg"
+                iconSrc: "twitter.svg"
               },
               {
-                iconSrc: "../img/facebook.svg",
+                iconSrc: "facebook.svg",
               },
               {
-                iconSrc: "../img/instagram.svg"
+                iconSrc: "instagram.svg"
               }
             ]
           })
-        .headers-footers__footer_small
+        div.headers-footers__footer_small
           +footer({
-            footerSize: "small",
+            isSmall: true,
             copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
             links: [
               {
                 "name": "twitter",
-                "iconSrc": "../img/twitter.svg"
+                "iconSrc": "twitter.svg"
               },
               {
                 "name": "facebook",
-                "iconSrc": "../img/facebook.svg"
+                "iconSrc": "facebook.svg"
               },
               {
                 "name": "instagram",
-                "iconSrc": "../img/instagram.svg"
+                "iconSrc": "instagram.svg"
               }
             ],
             subscribe: {}

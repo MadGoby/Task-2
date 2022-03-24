@@ -1,7 +1,13 @@
+import { dropdownData } from '@blocks/dropdown/dropdownData';
+
 class Dropdown {
   constructor(settings) {
-    this.container = settings.container;
-    this.templates = settings.templates;
+    this.containerClass = settings.target;
+    this.templates = dropdownData;
+    if (settings.dataSettings.dataType.customValue) {
+      this.templates.custom = settings.dataSettings.dataType.customValue;
+    }
+    this.dataSettings = settings.dataSettings;
 
     autoBind(this);
     this.initializes();
@@ -9,13 +15,16 @@ class Dropdown {
 
   initializes() {
     this.getHtmlElements();
+    this.addInputExpandedClass();
     this.checkClearButtonVisibility();
     this.bindEventListeners();
     this.refreshInput();
   }
 
   getHtmlElements() {
-    this.input = this.container.querySelector('.js-input__field');
+    this.container = document.querySelector(`.${this.containerClass}`);
+    this.input = this.container.querySelector('.js-dropdown__input').firstChild.lastChild.firstChild;
+    this.dropdownWrapper = this.container.querySelector('.js-dropdown');
     this.dropdown = this.container.querySelector('.js-dropdown__control');
     this.plusButtons = [...this.container.querySelectorAll('.dropdown__button')].filter(
       (button) => button.getAttribute('data-action') === 'plus',
@@ -26,6 +35,10 @@ class Dropdown {
     this.outputs = [...this.container.querySelectorAll('.dropdown__output')];
     this.clearButton = this.container.querySelector('.dropdown__clear-button');
     this.submitButton = this.container.querySelector('.dropdown__submit-button');
+  }
+
+  addInputExpandedClass() {
+    if (!this.dropdown.hasAttribute('hidden')) this.input.classList.add('input__field_expanded');
   }
 
   checkClearButtonVisibility() {
@@ -84,28 +97,29 @@ class Dropdown {
         break;
     }
 
-    if (this.container.getAttribute('data-output') === 'sum') {
-      return this.templates[template][index];
+    if (this.dataSettings.outputType === 'sum') {
+      return this.templates[template].templates[index];
     }
-    return this.templates[template][line][index];
+
+    return this.templates[template].templates[line][index];
   }
 
   setDefault() {
     const outputValue = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
-    const template = this.container.getAttribute('data-template');
-    if (outputValue === 0) this.input.value = `${this.templates[`${template}Default`]}`;
+    const template = this.templates[this.dataSettings.dataType.name].default;
+    if (outputValue === 0) this.input.value = template;
   }
 
   prepareOutputSum() {
     const outputValue = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
-    const template = this.container.getAttribute('data-template');
+    const template = this.dataSettings.dataType.name;
     let output;
     if (outputValue > 0) {
-      output = `${outputValue} ${this.templates[template][0]}${this.definesWordEnd(outputValue, template)}`;
+      output = `${outputValue} ${this.templates[template].templates[0]}${this.definesWordEnd(outputValue, template)}`;
     } else {
-      output = `${this.templates[`${template}Default`]}`;
+      output = `${this.templates[template].default}`;
     }
     return output;
   }
@@ -123,14 +137,14 @@ class Dropdown {
       const addDefinitionToNumber = () => {
         if (index === 0) {
           const valueText = Number(value.textContent) + Number(values[1]);
-          output += `${valueText} ${this.templates[template][index][0]}${this.definesWordEnd(
+          output += `${valueText} ${this.templates[template].templates[index][0]}${this.definesWordEnd(
             valueText,
             template,
             index,
           )}`;
           addPunctuationMarks(valueText);
         } else if (index === 2) {
-          output += `${value.textContent} ${this.templates[template][1][0]}${this.definesWordEnd(
+          output += `${value.textContent} ${this.templates[template].templates[1][0]}${this.definesWordEnd(
             Number(value.textContent),
             template,
             1,
@@ -151,7 +165,7 @@ class Dropdown {
     const valuesSum = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const values = this.outputs.map((value) => value.textContent);
-    const template = this.container.getAttribute('data-template');
+    const template = this.dataSettings.dataType.name;
     let output;
 
     if (valuesSum > 0) {
@@ -178,7 +192,7 @@ class Dropdown {
 
       const addDefinitionToNumber = () => {
         const valueText = value.innerText;
-        output += `${valueText} ${this.templates[template][index][0]}${this.definesWordEnd(
+        output += `${valueText} ${this.templates[template].templates[index][0]}${this.definesWordEnd(
           Number(valueText),
           template,
           index,
@@ -197,7 +211,7 @@ class Dropdown {
     const valuesSum = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const values = this.outputs.map((value) => value.textContent);
-    const template = this.container.getAttribute('data-template');
+    const template = this.dataSettings.dataType.name;
     let output;
 
     if (valuesSum > 0) {
@@ -211,7 +225,8 @@ class Dropdown {
 
   refreshInput() {
     let inputText;
-    const template = this.container.getAttribute('data-output');
+    const template = this.dataSettings.outputType;
+
     if (template === 'oneByOne') {
       inputText = this.prepareOneByOne();
     } else if (template === 'twoByOne') {
@@ -219,6 +234,7 @@ class Dropdown {
     } else {
       inputText = this.prepareOutputSum();
     }
+
     this.input.value = inputText;
   }
 
@@ -277,7 +293,7 @@ class Dropdown {
   }
 
   handelDOMClick(event) {
-    const result = Boolean(event.path.find((element) => element === this.container));
+    const result = Boolean(event.path.find((element) => element === this.dropdownWrapper));
     if (result === false) this.controlDropdownDisplay();
   }
 

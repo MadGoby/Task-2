@@ -5,59 +5,45 @@ mixin datepicker(settings)
   - const {
   -   inputType = "",
   -   inputSettings = {},
-  -   main: {
-  -     dataYear = "",
-  -     dataMonth = "",
-  -     dataCurrentDay = "",
-  -     dataFrom = "",
-  -     dataTo = "",
-  -   },
   -   isCalendarClosed =  false,
-  -   size = ""
+  -   isSmall = false,
   - } = settings
-  - let sizeClass = ""
-  - let calendarSizeClass = ""
-  - let monthSizeClass = ""
+  - const sizeClass = isSmall ? "datepicker_size_small" : ""
+  - const calendarSizeClass = isSmall ? "datepicker__calendar-wrapper_size_small" : ""
+  - const monthSizeClass = isSmall ? "datepicker__selected-month_size_small" : ""
   - const attr = isCalendarClosed ? { "hidden": "hidden" } : {}
-  - if(size) {
-  -   calendarSizeClass = `datepicker__calendar-wrapper_size_${size}`
-  -   monthSizeClass = `datepicker__selected-month_size_${size}`
-  -   sizeClass = `datepicker_size_${size}`
-  - }
-  div(class=["datepicker js-datepicker", sizeClass], data-year=dataYear, data-month=dataMonth, data-day=dataCurrentDay, data-from=dataFrom, data-to=dataTo)
+  div(class=["datepicker", "js-datepicker", sizeClass])
     if inputType === "total"
-      .datepicker__inputs
-        +input(inputSettings.total)
+      div.datepicker__inputs
+        div.datepicker__total.js-datepicker__total
+          +input(inputSettings.total)
     else if inputType === "double"
-      .datepicker__inputs
-        .datepicker__from
+      div.datepicker__inputs
+        div.datepicker__from.js-datepicker__from
           +input(inputSettings.from)
-        .datepicker__to
+        div.datepicker__to.js-datepicker__to
           +input(inputSettings.to)
     div(class=["datepicker__calendar-wrapper", calendarSizeClass])&attributes(attr)
-      button(class=["datepicker__scroll-button", "datepicker__scroll-button_arrow_back", "js-datepicker__scroll-button_arrow_back"] type="button")
+      button(type="button").datepicker__scroll-button.datepicker__scroll-button_arrow_back.js-datepicker__scroll-button_arrow_back
       p(class=["datepicker__selected-month", "js-datepicker__selected-month", monthSizeClass])
-      button(class=["datepicker__scroll-button", "datepicker__scroll-button_arrow_forward", "js-datepicker__scroll-button_arrow_forward"] type="button")
-      table(class=["datepicker__calendar", "js-datepicker__calendar"])
-        tr(class="datepicker__calendar-line")
+      button(type="button").datepicker__scroll-button.datepicker__scroll-button_arrow_forward.js-datepicker__scroll-button_arrow_forward
+      table.datepicker__calendar.js-datepicker__calendar
+        tr.datepicker__calendar-line
           each day in days
-            - let cellSize = ""
-            - if (size === "small") cellSize = "datepicker__calendar-cell_size_small"
-            th(class=["datepicker__calendar-cell", "datepicker__calendar-cell_font_bold", cellSize])= day
+            - const cellSize = isSmall ? "datepicker__calendar-cell_size_small" : ""
+            th(class=["datepicker__calendar-cell", "datepicker__calendar-cell_font_bold", "datepicker__calendar-cell_value_week-day", cellSize])= day
         - let i = 0;
         while (i++ < 6)
-          tr(class=["datepicker__calendar-line", "js-datepicker__calendar-line"])
-      .datepicker__confirmation-buttons
-        .datepicker__clear-button.js-datepicker__clear-button
+          tr.datepicker__calendar-line.js-datepicker__calendar-line
+      div.datepicker__confirmation-buttons
+        div.datepicker__clear-button.js-datepicker__clear-button
           +button({
             type: "text",
             text: "очистить",
-            attrType: "button",
           })
-        .datepicker__apply-button.js-datepicker__apply-button
+        div.datepicker__apply-button.js-datepicker__apply-button
           +button({
             type: "text",
             text: "применить",
-            attrType: "button",
           })
       

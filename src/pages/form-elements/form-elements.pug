@@ -13,16 +13,16 @@ include ../../blocks/content-navigation/content-navigation.pug
 include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/stars-rating/stars-rating.pug
 
-+page-head({title: "Form-Elements", desc: "Form Elements from UI-Kit"})
++page-head({title: "Form-Elements", description: "Form Elements from UI-Kit"})
   body.body
-    .form-elements
+    div.form-elements
       +logo({
-        imgSrc: "../img/logo.svg",
-        position: "in-corner"
+        imgSrc: "logo.svg",
+        isInCorner: true
       })
-      .form-elements__content
-        .form-elements__input-types
-          .form-elements__text-input
+      div.form-elements__content
+        div.form-elements__input-types
+          div.form-elements__text-input
             +input({
               title: { text: "text field", type: "with-state", state: "default" },
               input: {
@@ -34,7 +34,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                 type: "regular"
               }
             })
-          .form-elements__text-input
+          div.form-elements__text-input
             +input({
               title: { text: "text field", type: "with-state", state: "hover / focus" },
               input: {
@@ -45,10 +45,10 @@ include ../../blocks/stars-rating/stars-rating.pug
                 },
                 length: "long",
                 type: "regular",
-                borderType: "dark"
+                isDarkBorder: true
               }
             })
-          .form-elements__dropdown
+          div.form-elements__dropdown.js-form-elements__dropdown
             +dropdown({
               inputSettings: {
                 title: {text: "dropdown"},
@@ -61,7 +61,6 @@ include ../../blocks/stars-rating/stars-rating.pug
                   },
                   length: "long",
                   type: "dropdown",
-                  jsClass: "js-input__field"
                 }
               },
               isClosed: true,
@@ -70,12 +69,8 @@ include ../../blocks/stars-rating/stars-rating.pug
                 {text: "дети", dataTarget: "child", output: "0"},
                 {text: "младенцы", dataTarget: "baby", output: "0"}
               ],
-              main: {
-                dataType: "guests",
-                outputType: "sum"
-              }
             })
-          .form-elements__masked-input
+          div.form-elements__masked-input.js-form-elements__masked-input
             +input({
               title: { text: "masked text field" },
               input: {
@@ -87,7 +82,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                 type: "date"
               }
             })
-          .form-elements__date-dropdowns
+          div.form-elements__date-dropdowns.js-form-elements__date-dropdowns
             +datepicker({
               inputType: 'double',
               inputSettings: {
@@ -102,7 +97,6 @@ include ../../blocks/stars-rating/stars-rating.pug
                     },
                     length: "short",
                     type: "dropdown",
-                    jsClass: "js-input__field_from"
                   }
                 },
                 to: {
@@ -116,20 +110,12 @@ include ../../blocks/stars-rating/stars-rating.pug
                     },
                     length: "short",
                     type: "dropdown",
-                    jsClass: "js-input__field_to"
                   }
                 }
               },
-              main: {
-                jsClass: "js-datepicker",
-                dataYear: "2019",
-                dataMonth: "7",
-                dataCurrentDay: "2019, 8, 9",
-                dataTo: "2019, 8, 19",
-              },
               isCalendarClosed: true,
             })
-          .form-elements__filter-dropdown
+          div.form-elements__filter-dropdown.js-form-elements__filter-dropdown
             +datepicker({
               inputType: 'total',
               inputSettings: {
@@ -144,22 +130,13 @@ include ../../blocks/stars-rating/stars-rating.pug
                     },
                     length: "average",
                     type: "dropdown",
-                    jsClass: "js-input__field_total"
                   }
                 }
-              },
-              main: {
-                jsClass: "js-datepicker",
-                dataYear: "2019",
-                dataMonth: "7",
-                dataCurrentDay: "2019, 8, 9",
-                dataFrom: "2019, 8, 19",
-                dataTo: "2019, 8, 23",
               },
               isCalendarClosed: true,
               size: "small"
             })
-          .form-elements__subscription-input
+          div.form-elements__subscription-input
             form(action="./for-change").form-elements__subscription-form
               +input({
                 title: { text: "subscription text field" },
@@ -172,9 +149,9 @@ include ../../blocks/stars-rating/stars-rating.pug
                   type: "submit"
                 }
               })
-        .form-elements__toggle-types
-          .form-elements__checkboxes
-            .form-elements__checkboxes-title
+        div.form-elements__toggle-types
+          div.form-elements__checkboxes
+            div.form-elements__checkboxes-title
               +title({
                 text: "Checkbox Buttons"
               })
@@ -211,12 +188,12 @@ include ../../blocks/stars-rating/stars-rating.pug
                 length: "short"
               }
             })
-          .form-elements__radios
-            .form-elements__radios-title
+          div.form-elements__radios
+            div.form-elements__radios-title
               +title({
                 text: "Radio Buttons"
               })
-            .form-elements__radio
+            div.form-elements__radio
               +toggle({
                 type: "radio",
                 attrs: {
@@ -230,7 +207,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                   text: "Мужчина"
                 }
               })
-            .form-elements__radio
+            div.form-elements__radio
               +toggle({
                 type: "radio",
                 attrs: {
@@ -243,8 +220,8 @@ include ../../blocks/stars-rating/stars-rating.pug
                   text: "Женщина"
                 }
               })
-          .form-elements__toggles
-            .form-elements__toggles-title
+          div.form-elements__toggles
+            div.form-elements__toggles-title
               +title({
                 text: "Toggle"
               })
@@ -270,12 +247,12 @@ include ../../blocks/stars-rating/stars-rating.pug
                 text: "Получать спецпредложения"
               }
             })
-          .form-elements__likes
-            .form-elements__likes-title
+          div.form-elements__likes
+            div.form-elements__likes-title
               +title({
                 text: "like button"
               })
-            .form-elements__like
+            div.form-elements__like
               +toggle({
                 type: "like",
                 attrs: {
@@ -286,7 +263,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                   text: "2"
                 }
               })
-            .form-elements__like
+            div.form-elements__like
               +toggle({
                 type: "like",
                 attrs: {
@@ -298,72 +275,72 @@ include ../../blocks/stars-rating/stars-rating.pug
                   text: "12"
                 }
               })
-          .form-elements__ratings
-            .form-elements__rating-title
+          div.form-elements__ratings
+            div.form-elements__rating-title
               +title({
                 text: "rate button"
               })
-            .form-elements__rating
-              +stars-rating({rating: "4", jsClass: "js-stars-rating"})
-            .form-elements__rating
-              +stars-rating({rating: "5", jsClass: "js-stars-rating"})
-        .form-elements__button-types
-          .form-elements__slider
+            div.form-elements__rating.js-form-elements__rating_number_1
+              +stars-rating({rating: "4"})
+            div.form-elements__rating.js-form-elements__rating_number_2
+              +stars-rating({rating: "5"})
+        div.form-elements__button-types
+          div.form-elements__slider.js-form-elements__slider
             +slider({
               title: "range slider",
             })
-          .form-elements__buttons
-            .form-elements__buttons-title
+          div.form-elements__buttons
+            div.form-elements__buttons-title
               +title({text: "buttons"})
-            .form-elements__simple-buttons
-              .form-elements__button-wrapp
+            div.form-elements__simple-buttons
+              div.form-elements__button-wrapp
                 +button({
                   type: "regular",
                   text: "click me",
                 })
-              .form-elements__button-wrapp
+              div.form-elements__button-wrapp
                 +button({
                   type: "regular",
                   text: "click me",
-                  transparentClass: "transparent",
+                  isTransparent: true,
                 })
-            .form-elements__border-buttons
-              .form-elements__button-wrapp
+            div.form-elements__border-buttons
+              div.form-elements__button-wrapp
                 +button({
                   type: "border",
                   text: "click me",
                 })
-              .form-elements__button-wrapp
+              div.form-elements__button-wrapp
                 +button({
                   type: "border",
                   text: "click me",
-                  transparentClass: "transparent",
+                  isTransparent: true,
                 })
-            .form-elements__text-buttons
-              .form-elements__button-wrapp
+            div.form-elements__text-buttons
+              div.form-elements__button-wrapp
                 +button({
                   type: "text",
                   text: "click me",
                 })
-              .form-elements__button-wrapp
+              div.form-elements__button-wrapp
                 +button({
                   type: "text",
                   text: "click me",
-                  hover: "color_black",
+                  isTransparent: true,
                 })
-            .form-elements__big-button
+            div.form-elements__big-button
               +button({
                 type: "confirm",
                 text: "перейти к оплате",
               })
-          .form-elements__pagination
+          div.form-elements__pagination.js-form-elements__pagination
             +content-navigation({
-              titleText: "pagination",
-              counterText: "1 - 12 из 100+ вариантов аренды"
+              title: "pagination",
+              counter: "1 - 12 из 100+ вариантов аренды"
             })
-        .form-elements__dropdown-types
-          .form-elements__fittings-dropdown
-            .form-elements__closed-dropdown
+        div.form-elements__dropdown-types
+          div.form-elements__fittings-dropdown
+            div.form-elements__closed-dropdown.js-form-elements__closed-dropdown
               +dropdown({
                 inputSettings: {
                   title: {text: "dropdown", type: "with-state", state: "default"},
@@ -376,10 +353,8 @@ include ../../blocks/stars-rating/stars-rating.pug
                     },
                     length: "average",
                     type: "dropdown",
-                    jsClass: "js-input__field"
                   }
                 },
-                zIndexClass: "6",
                 isClosed: true,
                 lists: [
                   {text: "спальни", dataTarget: "bedroom", output: "2"},
@@ -391,7 +366,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                   outputType: "oneByOne"
                 }
               })
-            .form-elements__expanded-dropdown
+            div.form-elements__expanded-dropdown.js-form-elements__expanded-dropdown
               +dropdown({
                 inputSettings: {
                   title: {text: "dropdown", type: "with-state", state: "expanded"},
@@ -401,11 +376,9 @@ include ../../blocks/stars-rating/stars-rating.pug
                       placeholder: "Text",
                       value: "2 спальни, 2 кровати...",
                       readonly: "readonly",
-                      class: "input__field_expanded"
                     },
                     length: "average",
                     type: "dropdown",
-                    jsClass: "js-input__field"
                   }
                 },
                 lists: [
@@ -418,7 +391,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                   outputType: "oneByOne"
                 }
               })
-          .form-elements__guests-dropdown
+          div.form-elements__guests-dropdown.js-form-elements__guests-dropdown_counter_0
             +dropdown({
               inputSettings: {
                 title: {text: "dropdown"},
@@ -428,11 +401,9 @@ include ../../blocks/stars-rating/stars-rating.pug
                     placeholder: "Text",
                     value: "Сколько гостей",
                     readonly: "readonly",
-                    class: "input__field_expanded"
                   },
                   length: "long",
                   type: "dropdown",
-                  jsClass: "js-input__field"
                 }
               },
               lists: [
@@ -445,7 +416,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                 outputType: "sum"
               }
             })
-          .form-elements__guests-dropdown
+          div.form-elements__guests-dropdown.js-form-elements__guests-dropdown_counter_3
             +dropdown({
               inputSettings: {
                 title: {text: "dropdown"},
@@ -455,11 +426,9 @@ include ../../blocks/stars-rating/stars-rating.pug
                     placeholder: "Text",
                     value: "3 гостя",
                     readonly: "readonly",
-                    class: "input__field_expanded"
                   },
                   length: "long",
                   type: "dropdown",
-                  jsClass: "js-input__field"
                 }
               },
               lists: [
@@ -472,9 +441,9 @@ include ../../blocks/stars-rating/stars-rating.pug
                 outputType: "sum"
               }
             })
-        .form-elements__list-types
-          .form-elements__expandable-lists
-            .form-elements__closed-list
+        div.form-elements__list-types
+          div.form-elements__expandable-lists
+            div.form-elements__closed-list.js-form-elements__closed-list
               +list({
                 title: {
                   text: "expandable checkbox list",
@@ -548,7 +517,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                   },
                 ]
               })
-            .form-elements__expanded-list
+            div.form-elements__expanded-list.js-form-elements__expanded-list
               +list({
                 title: {
                   text: "expandable checkbox list",
@@ -622,7 +591,7 @@ include ../../blocks/stars-rating/stars-rating.pug
                   },
                 ]
               })
-          .form-elements__rich-list
+          div.form-elements__rich-list
             +list({
               title: {
                 text: "rich Checkbox Buttons",
@@ -655,7 +624,7 @@ include ../../blocks/stars-rating/stars-rating.pug
               ],
               container: false,
             })
-          .form-elements__bullet-list
+          div.form-elements__bullet-list
             +list({
               title: {
                 text: "bullet list",
@@ -665,12 +634,12 @@ include ../../blocks/stars-rating/stars-rating.pug
                 "Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"
               ]
             })
-        .form-elements__additions
-          .form-elements__positive-features
+        div.form-elements__additions
+          div.form-elements__positive-features
             +positive-feature({
               imgAttrs: {
-                "alt": "Abstract image of a modern house",
-                "src": "../img/smile.svg"
+                alt: "Abstract image of a modern house",
+                src: "smile.svg"
               },
               title: "Комфорт",
               description: "Шумопоглощающие стены",
@@ -678,17 +647,17 @@ include ../../blocks/stars-rating/stars-rating.pug
             })
             +positive-feature({
               imgAttrs: {
-                "alt": "Abstract image of a modern house",
-                "src": "../img/house.svg"
+                alt: "Abstract image of a modern house",
+                src: "house.svg"
               },
               title: "Удобство",
               description: "Окно в каждой из спален",
               isWithBorder: true,
             })
-          .form-elements__user-comment
+          div.form-elements__user-comment
             +user-comment({
               title: {
-                imgSrc: "../img/user.jpg",
+                imgSrc: "user.jpg",
                 userName: "Мурад Сарафанов",
                 userAge: "5 дней назад"
               },

@@ -3,22 +3,22 @@ mixin social-media-link(settings)
   -   socialLinks = [
   -     {
   -       "link": "./for-change",
-  -       "iconSrc": "img/for-change.svg"
+  -       "iconSrc": "for-change.svg"
   -     },
   -     {
   -       "link": "./for-change",
-  -       "iconSrc": "img/for-change.svg"
+  -       "iconSrc": "for-change.svg"
   -     },
   -     {
   -       "link": "./for-change",
-  -       "iconSrc": "img/for-change.svg"
+  -       "iconSrc": "for-change.svg"
   -     }
   -   ]
   - } = settings
   each linkSettings in socialLinks
     - const {
     -   link = "./for-change",
-    -   iconSrc = "./for-change",
+    -   iconSrc = "for-change",
     - } = linkSettings
-    a(class="social-media-link" href=link target="_blank" rel="noopener noreferrer")
-      img(class="social-media-link__icon", alt="Social link icon", src=iconSrc)
+    a(href=link target="_blank" rel="noopener noreferrer").social-media-link
+      img(alt="Social link icon", src=require(`@images/${iconSrc}`).default).social-media-link__icon

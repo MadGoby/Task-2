@@ -16,7 +16,9 @@ include ../../blocks/page-footer/page-footer
 +page-head({title: "Sign In", description: "Sing In page of the hotel room website."})
   body
     .sign-in
-      +page-header({headerClass: "sign-in__header"})
+      header.sign-in__header.js-sign-in__header
+        +page-header()
       main.sign-in__main
         +login({})
-      +page-footer({footerClass: "sign-in__footer"})
+      footer.sign-in__footer
+        +page-footer()

@@ -78,10 +78,10 @@ mixin room-list(settings)
    each card in cards
      +room-card({
        imagesSources: [
-         `../img/${card.number}.jpg`,
-         "../img/room-slider.jpg",
-         `../img/${card.number}.jpg`,
-         "../img/room-slider.jpg",
+         `${card.number}.jpg`,
+         "room-slider.jpg",
+         `${card.number}.jpg`,
+         "room-slider.jpg",
        ],
        roomInformation: {
          number: card.number,

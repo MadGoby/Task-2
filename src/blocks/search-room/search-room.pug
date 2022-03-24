@@ -8,12 +8,12 @@ mixin search-room(settings)
   -   ],
   - } = settings
   form(action=action).search-room
-    .search-room__title
+    div.search-room__title
       +title({
         text: "Найдём номера под ваши пожелания",
         fontSize: "large"
       })
-    .search-room__period
+    div.search-room__period
       +datepicker({
         inputType: 'double',
         inputSettings: {
@@ -28,7 +28,6 @@ mixin search-room(settings)
               },
               length: "short",
               type: "dropdown",
-              jsClass: "js-input__field_from"
             }
           },
           to: {
@@ -42,14 +41,12 @@ mixin search-room(settings)
               },
               length: "short",
               type: "dropdown",
-              jsClass: "js-input__field_to"
             }
           }
         },
         isCalendarClosed: true,
-        main: {},
       })
-    .search-room__guests
+    div.search-room__guests
       +dropdown({
         inputSettings: {
           title: {text: "гости"},
@@ -57,24 +54,19 @@ mixin search-room(settings)
             attr: {
               type: "text",
               placeholder: "Text",
-              value: "guestsInputValue",
+              value: "Сколько гостей",
               readonly: "readonly",
             },
             length: "long",
             type: "dropdown",
-            jsClass: "js-input__field"
           }
         },
         isClosed: true,
         lists: dropdownList,
-        main: {
-          dataType: "guests",
-          outputType: "sum"
-        }
       })
-    .search-room__confirm-button
+    div.search-room__confirm-button
       +button({
         type: "confirm",
         text: "подобрать номер",
-        attrType: "submit",
+        isConfirmAttr: true,
       })

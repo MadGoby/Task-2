@@ -1,7 +1,9 @@
 mixin logo(settings)
-  - const { imgSrc = "./for-change" } = settings
-  - let { position = "" } = settings
-  - const positionClass = position ? `logo_position_${position}` : ""
+  - const {
+  -   imgSrc = "./for-change",
+  -   isInCorner = false,
+  - } = settings
+  - const positionClass = isInCorner ? "logo_position_in-corner" : ""
   div.logo
-    a(class="logo__link-wrapper" href="./landing-page.html")
-      img(class=["logo__image", positionClass] alt="logo" src=imgSrc)
+    a(href="./landing-page.html").logo__link-wrapper
+      img(class=["logo__image", positionClass] alt="logo" src=require(`@images/${imgSrc}`).default)
