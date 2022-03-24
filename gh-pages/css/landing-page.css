@@ -27,6 +27,8 @@
     @media screen and (min-height: 1355px) {
       .landing-page__main {
         background-position: center; } }
+  .landing-page__search-room {
+    display: inline-block; }
   .landing-page__main-text {
     font-family: Montserrat, Arial, sans-serif;
     font-size: 14px;

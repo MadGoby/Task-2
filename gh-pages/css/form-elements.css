@@ -80,7 +80,9 @@
     display: inline-block;
     margin-right: 181px; }
   .form-elements__closed-dropdown {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    z-index: 7;
+    position: relative; }
   .form-elements__guests-dropdown {
     display: inline-block;
     vertical-align: top; }

@@ -148,24 +148,12 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./pages/content-types/content-types.js","vendors~cards~content-types~form-elements~headers-footers~index~landing-page~registration~room-detai~65a30fc9","cards~content-types~form-elements~headers-footers~index~landing-page~registration~room-details~searc~a0dce885"]);
+/******/ 	deferredModules.push(["./pages/content-types/content-types.js","cards~content-types~form-elements~headers-footers~index~landing-page~registration~room-details~searc~a0dce885"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./img/logo.svg":
-/*!**********************!*\
-  !*** ./img/logo.svg ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/logo.svg\");\n\n//# sourceURL=webpack:///./img/logo.svg?");
-
-/***/ }),
 
 /***/ "./pages/content-types/content-types.js":
 /*!**********************************************!*\
@@ -175,7 +163,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tools_importContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../tools/importContext */ \"./tools/importContext.js\");\n/* harmony import */ var _content_types_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./content-types.scss */ \"./pages/content-types/content-types.scss\");\n/* harmony import */ var _content_types_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_content_types_scss__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nObject(_tools_importContext__WEBPACK_IMPORTED_MODULE_0__[\"importContext\"])();\r\n\r\n__webpack_require__(/*! ../../img/logo.svg */ \"./img/logo.svg\");\n\n//# sourceURL=webpack:///./pages/content-types/content-types.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tools_importContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../tools/importContext */ \"./tools/importContext.js\");\n/* harmony import */ var _content_types_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./content-types.scss */ \"./pages/content-types/content-types.scss\");\n/* harmony import */ var _content_types_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_content_types_scss__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nObject(_tools_importContext__WEBPACK_IMPORTED_MODULE_0__[\"importContext\"])();\r\n\n\n//# sourceURL=webpack:///./pages/content-types/content-types.js?");
 
 /***/ }),
 
