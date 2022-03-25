@@ -5,6 +5,7 @@ class ListDropdown {
     autoBind(this);
     this.getHtmlElements();
     this.bindEventListeners();
+    if (!this.list.hasAttribute('hidden')) this.bindDomEventListener();
   }
 
   getHtmlElements() {

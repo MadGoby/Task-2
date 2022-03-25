@@ -22,6 +22,14 @@ class Datepicker {
     this.refreshSelectedMonth(this.settings.pickedMonth, this.settings.pickedYear);
     this.bindEventListeners();
     this.bindCalendarCellsListener();
+    this.closesOpenCalendar();
+  }
+
+  closesOpenCalendar() {
+    const isNotHidden = !this.calendarWrapper.hasAttribute('hidden');
+    const areInputsExists = (this.inputFrom && this.inputTo) || this.inputTotal;
+    const isNeedToBindListener = isNotHidden && areInputsExists;
+    if (isNeedToBindListener) this.bindDomEventListener();
   }
 
   setDefaultParameters() {
@@ -445,7 +453,7 @@ class Datepicker {
     this.removeDomEventListener();
   }
 
-  handleInputClick() {
+  handleCalendarDisplay() {
     if (this.calendarWrapper.hasAttribute('hidden')) {
       this.calendarWrapper.removeAttribute('hidden');
       this.bindDomEventListener();
@@ -456,20 +464,20 @@ class Datepicker {
   }
 
   handleInputFromClick() {
-    this.handleInputClick();
+    this.handleCalendarDisplay();
   }
 
   handleInputToClick() {
-    this.handleInputClick();
+    this.handleCalendarDisplay();
   }
 
   handleInputTotalClick() {
-    this.handleInputClick();
+    this.handleCalendarDisplay();
   }
 
   handelDOMClick(event) {
     const result = Boolean(event.path.find((element) => element === this.datepickerWrapper));
-    if (result === false) this.handleInputClick();
+    if (result === false) this.handleCalendarDisplay();
   }
 
   bindDomEventListener() {

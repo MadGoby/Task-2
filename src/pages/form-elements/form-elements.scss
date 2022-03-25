@@ -29,6 +29,7 @@
 
   &__date-dropdowns {
     margin-bottom: 40px;
+    z-index: 4;
   }
 
   &__date-from {
@@ -42,6 +43,8 @@
 
   &__filter-dropdown {
     margin-bottom: 40px;
+    position: relative;
+    z-index: 3;
   }
 
   &__toggle-types {
@@ -157,7 +160,7 @@
 
   &__closed-dropdown {
     margin-bottom: 20px;
-    z-index: 7;
+    z-index: 2;
     position: relative;
   }
 

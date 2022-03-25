@@ -19,6 +19,7 @@ class Dropdown {
     this.checkClearButtonVisibility();
     this.bindEventListeners();
     this.refreshInput();
+    if (!this.dropdown.hasAttribute('hidden')) this.bindDomEventListener();
   }
 
   getHtmlElements() {

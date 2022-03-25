@@ -23,6 +23,8 @@ mixin input(settings)
   - const wrapperTypeClass = isNeedWrapper ? `input__wrapper_type_${wrapperType}` : ""
   - const inputTypeClass = inputType ? `input__field_type_${inputType}` : ""
   - const borderClass = isDarkBorder ? "input__field_border_dark" : ""
+  - const isNeedJs = type === 'date' || type === 'dropdown'
+  - const inputJsClass = isNeedJs ? 'js-input__field' : ''
   div.input
     if titleState
       div.input__title
@@ -40,10 +42,10 @@ mixin input(settings)
     case wrapperType
       when "dropdown"
         label(class=["input__wrapper", wrapperTypeClass, wrapperLengthClass])
-          input(class=["input__field", lengthClass, inputTypeClass])&attributes(attr)
+          input(class=["input__field", lengthClass, inputTypeClass, inputJsClass])&attributes(attr)
       when "submit"
         label(class=["input__wrapper", wrapperTypeClass, wrapperLengthClass])
-          input(class=["input__field", lengthClass, inputTypeClass])&attributes(attr)
+          input(class=["input__field", lengthClass, inputTypeClass, inputJsClass])&attributes(attr)
           button(class="input__submit-button" type="submit")
       default
-        input(class=["input__field", lengthClass, inputTypeClass, borderClass])&attributes(attr)
+        input(class=["input__field", lengthClass, inputTypeClass, borderClass, inputJsClass])&attributes(attr)
