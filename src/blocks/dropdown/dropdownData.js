@@ -20,10 +20,4 @@ const dropdownData = {
   },
 };
 
-// function dropdownInitialize() {
-//   [...document.querySelectorAll('.js-dropdown')].forEach((container) => {
-//     new Dropdown({ container, templates });
-//   });
-// }
-
 export { dropdownData };

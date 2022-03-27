@@ -24,18 +24,18 @@ class Dropdown {
 
   getHtmlElements() {
     this.container = document.querySelector(`.${this.containerClass}`);
-    this.input = this.container.querySelector('.js-dropdown__input').firstChild.lastChild.firstChild;
     this.dropdownWrapper = this.container.querySelector('.js-dropdown');
-    this.dropdown = this.container.querySelector('.js-dropdown__control');
-    this.plusButtons = [...this.container.querySelectorAll('.dropdown__button')].filter(
+    this.input = this.dropdownWrapper.querySelector('.js-input__field');
+    this.dropdown = this.dropdownWrapper.querySelector('.js-dropdown__control');
+    this.plusButtons = [...this.dropdownWrapper.querySelectorAll('.dropdown__button')].filter(
       (button) => button.getAttribute('data-action') === 'plus',
     );
-    this.minusButtons = [...this.container.querySelectorAll('.dropdown__button')].filter(
+    this.minusButtons = [...this.dropdownWrapper.querySelectorAll('.dropdown__button')].filter(
       (button) => button.getAttribute('data-action') === 'minus',
     );
-    this.outputs = [...this.container.querySelectorAll('.dropdown__output')];
-    this.clearButton = this.container.querySelector('.dropdown__clear-button');
-    this.submitButton = this.container.querySelector('.dropdown__submit-button');
+    this.outputs = [...this.dropdownWrapper.querySelectorAll('.dropdown__output')];
+    this.clearButton = this.dropdownWrapper.querySelector('.dropdown__clear-button');
+    this.submitButton = this.dropdownWrapper.querySelector('.dropdown__submit-button');
   }
 
   addInputExpandedClass() {

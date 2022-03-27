@@ -4,11 +4,10 @@ import { StarsRating } from '@blocks/stars-rating/StarsRating';
 import { Slider } from '@blocks/slider/Slider';
 import { ContentNavigation } from '@blocks/content-navigation/ContentNavigation';
 import { ListDropdown } from '@blocks/list/List';
+import { InputMask } from '@blocks/input/InputMask';
 
 import { importContext } from '../../tools/importContext';
 import './form-elements.scss';
-
-require('inputmask');
 
 importContext();
 
@@ -92,8 +91,6 @@ const starsRatingElements = [
   'js-form-elements__rating_number_2',
 ];
 
-const inputMask = document.querySelector('.js-form-elements__masked-input').firstChild.lastChild;
-
 function handleDocumentLoad() {
   datepickersData.forEach((settings) => new Datepicker(settings));
   dropdownData.forEach((settings) => new Dropdown(settings));
@@ -109,10 +106,13 @@ function handleDocumentLoad() {
       values: [5000, 10000],
     },
   });
-  Inputmask({
-    mask: '99.99.9999',
-    placeholder: 'ДД.ММ.ГГГГ',
-  }).mask(inputMask);
+  new InputMask({
+    target: 'js-form-elements__masked-input',
+    parameters: {
+      mask: '99.99.9999',
+      placeholder: 'ДД.ММ.ГГГГ',
+    },
+  });
 }
 
 document.addEventListener('DOMContentLoaded', handleDocumentLoad);

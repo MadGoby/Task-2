@@ -2,6 +2,7 @@ import { Datepicker } from '@blocks/datepicker/Datepicker';
 import { Dropdown } from '@blocks/dropdown/Dropdown';
 import { RoomCardSlider } from '@blocks/room-card/RoomCard';
 import { StarsRating } from '@blocks/stars-rating/StarsRating';
+import { InputMask } from '@blocks/input/InputMask';
 
 import { importContext } from '../../tools/importContext';
 import './cards.scss';
@@ -55,6 +56,13 @@ function handleDocumentLoad() {
   cardsData.forEach((target) => {
     new RoomCardSlider(target);
     new StarsRating(target);
+  });
+  new InputMask({
+    target: 'js-cards__registration',
+    parameters: {
+      mask: '99.99.9999',
+      placeholder: 'ДД.ММ.ГГГГ',
+    },
   });
 }
 

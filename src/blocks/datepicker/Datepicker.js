@@ -50,20 +50,20 @@ class Datepicker {
 
   getHtmlElements() {
     this.datepickerWrapper = this.container.querySelector('.js-datepicker');
-    this.calendarWrapper = this.container.querySelector('.datepicker__calendar-wrapper');
-    const fromWrapper = this.container.querySelector('.js-datepicker__from');
-    const toWrapper = this.container.querySelector('.js-datepicker__to');
-    const totalWrapper = this.container.querySelector('.js-datepicker__total');
-    if (fromWrapper) this.inputFrom = fromWrapper.firstChild.lastChild.firstChild;
-    if (toWrapper) this.inputTo = toWrapper.firstChild.lastChild.firstChild;
-    if (totalWrapper) this.inputTotal = totalWrapper.firstChild.lastChild.firstChild;
-    this.buttonPrevious = this.container.querySelector('.js-datepicker__scroll-button_arrow_back');
-    this.buttonNext = this.container.querySelector('.js-datepicker__scroll-button_arrow_forward');
-    this.selectedMonth = this.container.querySelector('.js-datepicker__selected-month');
-    this.calendar = this.container.querySelector('.js-datepicker__calendar');
-    this.lines = [...this.container.querySelectorAll('.js-datepicker__calendar-line')];
-    this.clearButton = this.container.querySelector('.js-datepicker__clear-button');
-    this.applyButton = this.container.querySelector('.js-datepicker__apply-button');
+    this.calendarWrapper = this.datepickerWrapper.querySelector('.datepicker__calendar-wrapper');
+    const fromWrapper = this.datepickerWrapper.querySelector('.js-datepicker__from');
+    const toWrapper = this.datepickerWrapper.querySelector('.js-datepicker__to');
+    const totalWrapper = this.datepickerWrapper.querySelector('.js-datepicker__total');
+    if (fromWrapper) this.inputFrom = fromWrapper.querySelector('.js-input__field');
+    if (toWrapper) this.inputTo = toWrapper.querySelector('.js-input__field');
+    if (totalWrapper) this.inputTotal = totalWrapper.querySelector('.js-input__field');
+    this.buttonPrevious = this.datepickerWrapper.querySelector('.js-datepicker__scroll-button_arrow_back');
+    this.buttonNext = this.datepickerWrapper.querySelector('.js-datepicker__scroll-button_arrow_forward');
+    this.selectedMonth = this.datepickerWrapper.querySelector('.js-datepicker__selected-month');
+    this.calendar = this.datepickerWrapper.querySelector('.js-datepicker__calendar');
+    this.lines = [...this.datepickerWrapper.querySelectorAll('.js-datepicker__calendar-line')];
+    this.clearButton = this.datepickerWrapper.querySelector('.js-datepicker__clear-button');
+    this.applyButton = this.datepickerWrapper.querySelector('.js-datepicker__apply-button');
 
     if (this.inputTotal) {
       this.currentInputTarget = this.inputTotal;
