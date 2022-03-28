@@ -15,7 +15,7 @@ include ../../blocks/copyright/copyright.pug
         isInCorner: true
       })
       div.headers-footers__content
-        div.headers-footers__header
+        div.headers-footers__header.js-headers-footers__header
           +header({
             navigationLinks: [
               {text: "О нас", isBold: true},
@@ -25,7 +25,7 @@ include ../../blocks/copyright/copyright.pug
               {text: "Соглашения", isExpandable: true},
             ]
           })
-        div.headers-footers__header
+        div.headers-footers__header.headers-footers__header_authorized.js-headers-footers__header_authorized
           +header({
             navigationLinks: [
               { text: "О нас", isBold: true },

@@ -1,5 +1,6 @@
 import { InputMask } from '@blocks/input/InputMask';
-import { HeaderNavigation } from '@blocks/header/Header';
+import { HeaderBurger } from '@blocks/header/Header';
+import { Navigation } from '@blocks/navigation/Navigation';
 
 import { importContext } from '../../tools/importContext';
 import './registration.scss';
@@ -7,7 +8,8 @@ import './registration.scss';
 importContext();
 
 function handleDocumentLoad() {
-  new HeaderNavigation('js-registration-page__header');
+  new HeaderBurger('js-registration-page__header');
+  new Navigation('js-registration-page__header');
   new InputMask({
     target: 'js-registration-page__form',
     parameters: {

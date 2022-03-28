@@ -5,7 +5,8 @@
   @include text_type($mont, 14px, 400, 17px, $dark50);
   line-height: 40px;
 
-  &__link {
+  &__link,
+  &__expanded-link {
     color: $dark50;
     text-decoration: none;
 
@@ -18,24 +19,6 @@
       color: $dark75;
     }
 
-    &_type_expandable {
-      cursor: pointer;
-
-      &::after {
-        content: url('../../img/dropdown-nav.svg');
-        display: inline-block;
-        width: 24px;
-        height: 17px;
-        line-height: 100%;
-        text-align: center;
-        margin-left: 1px;
-      }
-
-      &:hover {
-        color: $dark75;
-      }
-    }
-
     @media screen and (max-width: 650px) {
       &:not(:last-child) {
         margin-right: 0;
@@ -43,6 +26,42 @@
 
       margin: 0 0 0 20px;
     }
+  }
+
+  &__expandable-title {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+
+    &::after {
+      content: url('../../img/dropdown-nav.svg');
+      display: inline-block;
+      width: 24px;
+      height: 17px;
+      line-height: 100%;
+      text-align: center;
+      margin-left: 1px;
+    }
+
+    &:hover {
+      color: $dark75;
+    }
+  }
+
+  &__expandable-wrapper {
+    width: 100%;
+    min-width: 120px;
+    position: absolute;
+    top: 40px;
+    background-color: white;
+    border: 1px solid $dark10;
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  &__expanded-link {
+    display: block;
+    text-align: center;
   }
 
   &__link-wrapper {

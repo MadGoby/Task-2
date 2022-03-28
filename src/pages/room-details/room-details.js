@@ -1,6 +1,7 @@
-import { HeaderNavigation } from '@blocks/header/Header';
+import { HeaderBurger } from '@blocks/header/Header';
 import { Datepicker } from '@blocks/datepicker/Datepicker';
 import { Dropdown } from '@blocks/dropdown/Dropdown';
+import { Navigation } from '@blocks/navigation/Navigation';
 
 import { importContext } from '../../tools/importContext';
 import './room-details.scss';
@@ -8,7 +9,8 @@ import './room-details.scss';
 importContext();
 
 function handleDocumentLoad() {
-  new HeaderNavigation('js-room-details__header');
+  new HeaderBurger('js-room-details__header');
+  new Navigation('js-room-details__header');
   new Datepicker({
     target: 'js-room-details__final-booking',
     templates: {

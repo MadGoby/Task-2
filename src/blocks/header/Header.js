@@ -1,4 +1,4 @@
-class HeaderNavigation {
+class HeaderBurger {
   constructor(target) {
     this.containerClass = target;
 
@@ -63,4 +63,4 @@ class HeaderNavigation {
   }
 }
 
-export { HeaderNavigation };
+export { HeaderBurger };

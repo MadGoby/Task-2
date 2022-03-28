@@ -14,8 +14,25 @@ mixin navigation(settings)
       -   text = "For change",
       -   isBold = false,
       -   isExpandable = false,
+      -   expandableLinks = [
+      -     { text: "For change" },
+      -     { text: "For change" },
+      -     { text: "For change" },
+      -   ],
       - } = link
       - const boldClass = isBold ? "navigation__link_text_bold" : ""
-      - const expandableClass = isExpandable ? "navigation__link_type_expandable" : ""
-      div.navigation__link-wrapper
-        a(class=["navigation__link", boldClass, expandableClass] href=href)= text
+      - const jsLinkClass = isExpandable ? "js-navigation__expandable-title" : ""
+      case isExpandable
+        when true
+          div.navigation__link-wrapper.js-navigation__link-wrapper
+            span(class=["navigation__expandable-title", jsLinkClass, boldClass] href=href)= text
+            div("hidden"="hidden").navigation__expandable-wrapper.js-navigation__expandable-wrapper
+              each link in expandableLinks
+                - const {
+                -   text,
+                -   href = './for-change',
+                - } = link
+                a(class=["navigation__expanded-link"] href=href)= text
+        default
+          div.navigation__link-wrapper
+            a(class=["navigation__link", boldClass] href=href)= text

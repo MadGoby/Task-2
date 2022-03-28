@@ -1,4 +1,4 @@
-import { HeaderNavigation } from '@blocks/header/Header';
+import { HeaderBurger } from '@blocks/header/Header';
 import { Sidebar } from '@blocks/sidebar/Sidebar';
 import { Datepicker } from '@blocks/datepicker/Datepicker';
 import { Dropdown } from '@blocks/dropdown/Dropdown';
@@ -6,6 +6,7 @@ import { Slider } from '@blocks/slider/Slider';
 import { ListDropdown } from '@blocks/list/List';
 import { ContentNavigation } from '@blocks/content-navigation/ContentNavigation';
 import { RoomCardSlider } from '@blocks/room-card/RoomCard';
+import { Navigation } from '@blocks/navigation/Navigation';
 import { StarsRating } from '@blocks/stars-rating/StarsRating';
 
 import { importContext } from '../../tools/importContext';
@@ -36,7 +37,8 @@ const dropdownData = [
 
 function handleDocumentLoad() {
   dropdownData.forEach((settings) => new Dropdown(settings));
-  new HeaderNavigation('js-search-room-page__header');
+  new HeaderBurger('js-search-room-page__header');
+  new Navigation('js-search-room-page__header');
   new Sidebar('js-search-room-page__sidebar-wrapper');
   new Datepicker({
     target: 'js-sidebar__date-filter',
