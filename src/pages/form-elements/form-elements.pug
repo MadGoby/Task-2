@@ -1,18 +1,21 @@
-include ../../blocks/page-head/page-head.pug
-include ../../blocks/logo/logo.pug
-include ../../blocks/input/input.pug
-include ../../blocks/toggle/toggle.pug
-include ../../blocks/slider/slider.pug
-include ../../blocks/button/button.pug
-include ../../blocks/dropdown/dropdown.pug
-include ../../blocks/list/list.pug
-include ../../blocks/positive-feature/positive-feature.pug
-include ../../blocks/title/title.pug
-include ../../blocks/user-comment/user-comment.pug
-include ../../blocks/content-navigation/content-navigation.pug
-include ../../blocks/datepicker/datepicker.pug
-include ../../blocks/stars-rating/stars-rating.pug
-include ../../blocks/like-button/like-button.pug
+include ../../blocks/page-head/page-head
+include ../../blocks/logo/logo
+include ../../blocks/input/input
+include ../../blocks/toggle/toggle
+include ../../blocks/slider/slider
+include ../../blocks/button/button
+include ../../blocks/dropdown/dropdown
+include ../../blocks/list/list
+include ../../blocks/positive-feature/positive-feature
+include ../../blocks/title/title
+include ../../blocks/user-comment/user-comment
+include ../../blocks/content-navigation/content-navigation
+include ../../blocks/datepicker/datepicker
+include ../../blocks/stars-rating/stars-rating
+include ../../blocks/like-button/like-button
+include ../../blocks/radio-button/radio-button
+include ../../blocks/checkbox-button/checkbox-button
+
 
 +page-head({title: "Form-Elements", description: "Form Elements from UI-Kit"})
   body.body
@@ -156,38 +159,17 @@ include ../../blocks/like-button/like-button.pug
               +title({
                 text: "Checkbox Buttons"
               })
-            +toggle({
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              },
-              text: {
-                text: "Можно курить"
-              }
+            +checkbox-button({
+              text: "Можно курить",
             })
-            +toggle({
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden",
-                "checked": "checked"
-              },
-              text: {
-                text: "Можно с питомцами"
-              }
+            +checkbox-button({
+              text: "Можно с питомцами",
+              isChecked: true,
             })
-            +toggle({
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden",
-                "checked": "checked"
-              },
-              text: {
-                text: "Можно пригласить гостей (до 10 человек)",
-                length: "short"
-              }
+            +checkbox-button({
+              text: "Можно пригласить гостей (до 10 человек)",
+              isChecked: true,
+              isShort: true,
             })
           div.form-elements__radios
             div.form-elements__radios-title
@@ -195,31 +177,17 @@ include ../../blocks/like-button/like-button.pug
                 text: "Radio Buttons"
               })
             div.form-elements__radio
-              +toggle({
-                type: "radio",
-                attrs: {
-                  "type": "radio",
-                  "hidden": "hidden",
-                  "name": "gender",
-                  "value": "male",
-                  "checked": "checked"
-                },
-                text: {
-                  text: "Мужчина"
-                }
+              +radio-button({
+                text: "Мужчина",
+                name: "gender",
+                value: "male",
+                isChecked: true,
               })
             div.form-elements__radio
-              +toggle({
-                type: "radio",
-                attrs: {
-                  "type": "radio",
-                  "hidden": "hidden",
-                  "name": "gender",
-                  "value": "female"
-                },
-                text: {
-                  text: "Женщина"
-                }
+              +radio-button({
+                text: "Женщина",
+                name: "gender",
+                value: "female",
               })
           div.form-elements__toggles
             div.form-elements__toggles-title
@@ -227,26 +195,11 @@ include ../../blocks/like-button/like-button.pug
                 text: "Toggle"
               })
             +toggle({
-              type: "toggle",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden",
-                "value": "female",
-                "checked": "checked"
-              },
-              text: {
-                text: "Получать спецпредложения"
-              }
+              text: "Получать спецпредложения",
+              isChecked: true,
             })
             +toggle({
-              type: "toggle",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden",
-              },
-              text: {
-                text: "Получать спецпредложения"
-              }
+              text: "Получать спецпредложения",
             })
           div.form-elements__likes
             div.form-elements__likes-title
@@ -441,67 +394,25 @@ include ../../blocks/like-button/like-button.pug
                 listType: "toggles",
                 itemList: [
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
-                    },
-                    text: {
-                      text: "Завтрак",
-                    }
+                    text: "Завтрак",
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                      "checked": "checked"
-                    },
-                    text: {
-                      text: "Письменный стол",
-                    }
+                    text: "Письменный стол",
+                    isChecked: true,
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                      "checked": "checked"
-                    },
-                    text: {
-                      text: "Стул для кормления",
-                    }
+                    text: "Стул для кормления",
+                    isChecked: true,
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                      "checked": "checked"
-                    },
-                    text: {
-                      text: "Кроватка",
-                    }
+                    text: "Кроватка",
+                    isChecked: true,
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
-                    },
-                    text: {
-                      text: "Телевизор",
-                    }
+                    text: "Телевизор",
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                    },
-                    text: {
-                      text: "Шампунь",
-                    }
+                    text: "Шампунь",
                   },
                 ]
               })
@@ -515,67 +426,25 @@ include ../../blocks/like-button/like-button.pug
                 listType: "toggles",
                 itemList: [
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
-                    },
-                    text: {
-                      text: "Завтрак",
-                    }
+                    text: "Завтрак",
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                      "checked": "checked"
-                    },
-                    text: {
-                      text: "Письменный стол",
-                    }
+                    text: "Письменный стол",
+                    isChecked: true,
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                      "checked": "checked"
-                    },
-                    text: {
-                      text: "Стул для кормления",
-                    }
+                    text: "Стул для кормления",
+                    isChecked: true,
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                      "checked": "checked"
-                    },
-                    text: {
-                      text: "Кроватка",
-                    }
+                    text: "Кроватка",
+                    isChecked: true,
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden"
-                    },
-                    text: {
-                      text: "Телевизор",
-                    }
+                    text: "Телевизор",
                   },
                   {
-                    type: "checkbox",
-                    attrs: {
-                      "type": "checkbox",
-                      "hidden": "hidden",
-                    },
-                    text: {
-                      text: "Шампунь",
-                    }
+                    text: "Шампунь",
                   },
                 ]
               })
@@ -587,27 +456,13 @@ include ../../blocks/like-button/like-button.pug
               listType: "toggles",
               itemList: [
                 {
-                  type: "checkbox",
-                  attrs: {
-                    "type": "checkbox",
-                    "hidden": "hidden"
-                  },
-                  text: {
-                    title: "Широкий коридор",
-                    text: "Ширина коридоров в номере не менее 91 см.",
-                    isShort: true,
-                  }
+                  title: "Широкий коридор",
+                  text: "Ширина коридоров в номере не менее 91 см.",
+                  isShort: true,
                 },
                 {
-                  type: "checkbox",
-                  attrs: {
-                    "type": "checkbox",
-                    "hidden": "hidden"
-                  },
-                  text: {
-                    title: "Помощник для инвалидов",
-                    text: "На 1 этаже вас встретит специалист  и проводит до номера.",
-                  }
+                  title: "Помощник для инвалидов",
+                  text: "На 1 этаже вас встретит специалист  и проводит до номера.",
                 },
               ],
               container: false,

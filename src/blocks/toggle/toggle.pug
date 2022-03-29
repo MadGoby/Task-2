@@ -1,28 +1,11 @@
 mixin toggle(settings)
   - const {
-  -   type = "checkbox",
-  -   attrs = { type: "checkbox", hidden: "hidden" },
-  -   text: {
-  -     title = "",
-  -     text = "For change",
-  -     isShort = false
-  -   }
+  -   text = "For change",
+  -   isChecked = false,
   - } = settings
-  - const mimicTypeClass = `toggle__mimic_type_${type}`
-  - const typeClass = `toggle__controller_type_${type}`
-  - const lengthClass = isShort ? "toggle__text_length_length_short" : ""
-  - const isTextWithTitle = mimicTypeClass !== "toggle__mimic_type_like" && title
-  - const isText = mimicTypeClass !== "toggle__mimic_type_like"
-  div.toggle
-    label.toggle__wrapper
-      input(class=["toggle__controller", typeClass])&attributes(attrs)
-      span(class=["toggle__mimic", mimicTypeClass])
-        if type === "like"
-          span(class=["toggle__text", lengthClass])=text
-      if isTextWithTitle
-        span.toggle__text-wrapper
-          span.toggle__text-title=title
-          span(class=["toggle__text", lengthClass])=text
-      else if isText
-        span.toggle__text-wrapper
-          span(class=["toggle__text", lengthClass])=text
+  - const checkedAttr = isChecked ? { "checked": "checked" } : {}
+  label.toggle
+    input(type="checkbox", hidden).toggle__controller&attributes(checkedAttr)
+    span.toggle__border
+    span.toggle__text-wrapper
+      span.toggle__text=text

@@ -3,9 +3,8 @@ mixin like-button(settings)
   -   counter = '0',
   -   isChecked = false
   - } = settings
-  - const attrs = isChecked ? {"checked": "checked"} : ""
-  div.like-button.js-like-button
-    label.like-button__wrapper
-      input("hidden"="hidden", type="checkbox").like-button__controller.js-like-button__controller&attributes(attrs)
-      span.like-button__border
-        span.like-button__counter.js-like-button__counter=counter
+  - const checkedAttr = isChecked ? {"checked": "checked"} : ""
+  label.like-button.js-like-button
+    input("hidden"="hidden", type="checkbox").like-button__controller.js-like-button__controller&attributes(checkedAttr)
+    span.like-button__border
+      span.like-button__counter.js-like-button__counter=counter

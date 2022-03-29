@@ -1,0 +1,16 @@
+mixin checkbox-button(settings)
+  - const {
+  -   title = "",
+  -   text = 'For change',
+  -   isChecked = false,
+  -   isShort = false,
+  - } = settings
+  - const checkedAttr = isChecked ? { "checked": "checked" } : ""
+  - const textLengthClass = isShort ? "checkbox-button__text_length_short" : ""
+  label.checkbox-button
+    input.checkbox-button__controller(type="checkbox", hidden)&attributes(checkedAttr)
+    span.checkbox-button__border
+    span.checkbox-button__text-wrapper
+      if title
+        span.checkbox-button__title=title
+      span(class=["checkbox-button__text", textLengthClass])=text

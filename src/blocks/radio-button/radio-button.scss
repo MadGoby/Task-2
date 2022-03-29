@@ -1,0 +1,43 @@
+@import '../../common/mixins.scss';
+@import '../../common/variables';
+
+.radio-button {
+  @include text_type($mont, 14px, 400, 20px, $dark50);
+  cursor: pointer;
+
+  &__border {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid $dark25;
+    vertical-align: top;
+    border-radius: 50%;
+  }
+
+  &__text-wrapper {
+    padding-left: 10px;
+  }
+
+  &__controller:checked + .radio-button__border {
+    padding: 3px;
+    border-color: $purple;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
+      border-radius: 50%;
+    }
+  }
+
+  &__controller:checked ~ .radio-button__text-wrapper .radio-button__text {
+    color: $dark75;
+  }
+
+  &:hover &__border {
+    box-shadow: 0 0 4px 1px $purple;
+  }
+}

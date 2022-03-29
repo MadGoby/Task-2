@@ -1,0 +1,65 @@
+@import '../../common/mixins.scss';
+@import '../../common/variables';
+
+.checkbox-button {
+  @include text_type($mont, 14px, 400, 20px, $dark50);
+  display: block;
+  min-height: 20px;
+
+  &__border {
+    user-select: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid $dark25;
+    vertical-align: top;
+  }
+
+  &__text-wrapper {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  &__title {
+    font-weight: 700;
+    color: $dark75;
+    display: block;
+  }
+
+  &__text {
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    max-width: 230px;
+
+    &_length {
+      &_short {
+        max-width: 200px;
+      }
+    }
+  }
+
+  &__title ~ &__text {
+    display: block;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 5px 0 0 0;
+    color: $dark50;
+  }
+
+  &__controller:checked + .checkbox-button__border {
+    content: url('../../img/check-arrow.jpg');
+    padding: 3px 4px 5px;
+    border-color: $purple;
+  }
+
+  &:hover &__border {
+    box-shadow: 0 0 4px 1px $purple;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 10px;
+  }
+}

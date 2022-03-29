@@ -36,31 +36,17 @@ mixin registration(settings)
         })
       div.registration__gender
         div.registration__male
-          +toggle({
-            type: "radio",
-            attrs: {
-              "type": "radio",
-              "hidden": "hidden",
-              "name": "gender",
-              "value": "male",
-              "checked": "checked"
-            },
-            text: {
-              text: "Мужчина"
-            }
+          +radio-button({
+            text: "Мужчина",
+            name: "gender",
+            value: "male",
+            isChecked: true,
           })
         div.registration__female
-          +toggle({
-            type: "radio",
-            attrs: {
-              "type": "radio",
-              "hidden": "hidden",
-              "name": "gender",
-              "value": "female"
-            },
-            text: {
-              text: "Женщина"
-            }
+          +radio-button({
+            text: "Женщина",
+            name: "gender",
+            value: "female",
           })
     div.registration__birthday
       +input({
@@ -102,15 +88,7 @@ mixin registration(settings)
           }
         })
       +toggle({
-        type: "toggle",
-        attrs: {
-          "type": "checkbox",
-          "hidden": "hidden",
-          "value": "female",
-        },
-        text: {
-          text: "Получать спецпредложения"
-        }
+        text: "Получать спецпредложения",
       })
     div.registration__confirm-button
       +button({

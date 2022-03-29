@@ -2,179 +2,54 @@
 @import '../../common/variables';
 
 .toggle {
-  display: block;
-  min-height: 20px;
   @include text_type($mont, 14px, 400, 20px, $dark75);
+  display: block;
 
-  &:not(:last-of-type) {
-    margin-bottom: 10px;
-  }
-
-  &__wrapper {
-    display: inline-block;
-    min-height: 20px;
-    position: relative;
-
-    &:not(:last-of-type) {
-      margin-right: 20px;
-    }
-  }
-
-  &__text-wrapper {
-    margin-left: 10px;
-  }
-
-  &__mimic {
+  &__border {
     height: 20px;
+    width: 40px;
+    border-radius: 10px;
     display: inline-block;
     cursor: pointer;
     border: 1px solid $dark25;
-    vertical-align: top;
+    padding: 3px;
 
-    &_type_checkbox {
-      width: 20px;
-      border-radius: 4px;
-    }
-
-    &_type_radio {
-      width: 20px;
+    &::before {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+      background: $dark25;
       border-radius: 50%;
-    }
-
-    &_type_toggle {
-      width: 40px;
-      border-radius: 10px;
-      padding: 3px;
-
-      &::before {
-        content: '';
-        display: block;
-        width: 12px;
-        height: 12px;
-        background: $dark25;
-        border-radius: 50%;
-      }
-    }
-
-    &_type_like {
-      min-width: 40px;
-      border-radius: 10px;
-      padding: 0 5px 0 16px;
-      position: relative;
-
-      & .toggle__text {
-        min-width: 15px;
-        text-align: center;
-        font-size: 10px;
-        line-height: 18px;
-        color: $dark25;
-        vertical-align: top;
-        margin: 0;
-      }
-
-      &::before {
-        content: '';
-        background-image: url('../../img/favorite-border.svg');
-        background-repeat: no-repeat;
-        background-position-y: center;
-        background-position-x: center;
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        height: 18px;
-        width: 18px;
-      }
     }
   }
 
-  &:hover &__mimic {
+  &:hover &__border {
     box-shadow: 0 0 4px 1px $purple;
+  }
+
+  &__text-wrapper {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top;
   }
 
   &__text {
     cursor: pointer;
     user-select: none;
     display: inline-block;
-    margin: 0;
-    line-height: 18px;
-    max-width: 230px;
+  }
 
-    &_length_short {
-      max-width: 192px;
+  &__controller:checked + .toggle__border {
+    border-color: $purple;
+
+    &::before {
+      float: right;
+      background: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
     }
   }
 
-  &__text-title {
-    @include text_type($mont, 14px, 700, 18px, $dark75);
-    display: block;
-    margin: 1px 0 0;
-  }
-
-  &__text-title ~ &__text {
-    display: block;
-    font-size: 12px;
-    line-height: 14px;
-    padding: 5px 0 0 0;
-    color: $dark50;
-  }
-
-  &__text-wrapper {
-    display: inline-block;
-  }
-
-  &__title {
-    margin: 0 0 17px;
-    line-height: 15px;
-  }
-
-  &__controller {
-    &_type_checkbox:checked + .toggle__mimic_type_checkbox {
-      content: url('../../img/check-arrow.jpg');
-      padding: 3px 4px 5px;
-      border-color: $purple;
-    }
-
-    &_type_radio:checked + .toggle__mimic_type_radio {
-      padding: 3px;
-      border-color: $purple;
-
-      &::before {
-        content: '';
-        display: block;
-        width: 12px;
-        height: 12px;
-        background: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
-        border-radius: 50%;
-      }
-    }
-
-    &_type_radio ~ .toggle__text-wrapper .toggle__text {
-      color: $dark50
-    }
-
-    &_type_radio:checked ~ .toggle__text-wrapper .toggle__text {
-      color: $dark75
-    }
-
-    &_type_toggle:checked + .toggle__mimic_type_toggle {
-      border-color: $purple;
-
-      &::before {
-        float: right;
-        background: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
-      }
-    }
-
-    &_type_like:checked + .toggle__mimic_type_like {
-      border-color: $purple;
-
-      &::before {
-        background-image: url('../../img/favorite.svg');
-      }
-
-      & .toggle__text {
-        color: $purple;
-      }
-    }
+  &:not(:last-of-type) {
+    margin-bottom: 10px;
   }
 }

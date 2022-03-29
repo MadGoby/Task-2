@@ -10,11 +10,8 @@ mixin list(settings)
   -   opennessState = "",
   -   listType = "",
   -   itemList = [{
-  -     controller: {
-  -       type: "checkbox",
-  -       attr: { "type": "checkbox", "hidden": "hidden" },
-  -     },
-  -     text: { text: "For change", },
+  -     text: "for change",
+  -     isChecked: false,
   -   }],
   - } = settings
   - const bulletClass = isBullet ? "list__title_with-bullet" : ""
@@ -33,9 +30,9 @@ mixin list(settings)
     ul(class=["list__container", jsContainerClass])&attributes(attrs)
       case listType
         when "toggles"
-          each value in itemList
+          each toggle in itemList
             li.list__item
-              +toggle(value)
+              +checkbox-button(toggle)
         default
           each text in itemList
             li.list__item.list__item_with-bullet

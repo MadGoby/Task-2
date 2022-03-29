@@ -64,38 +64,17 @@ mixin sidebar()
           +title({
             text: "правила дома"
           })
-        +toggle({
-          type: "checkbox",
-          attrs: {
-            "type": "checkbox",
-            "hidden": "hidden"
-          },
-          text: {
-            text: "Можно курить"
-          }
+        +checkbox-button({
+          text: "Можно курить",
         })
-        +toggle({
-          type: "checkbox",
-          attrs: {
-            "type": "checkbox",
-            "hidden": "hidden",
-            "checked": "checked"
-          },
-          text: {
-            text: "Можно с питомцами"
-          }
+        +checkbox-button({
+          text: "Можно с питомцами",
+          isChecked: true,
         })
-        +toggle({
-          type: "checkbox",
-          attrs: {
-            "type": "checkbox",
-            "hidden": "hidden",
-            "checked": "checked"
-          },
-          text: {
-            text: "Можно пригласить гостей (до 10 человек)",
-            length: "short"
-          }
+        +checkbox-button({
+          text: "Можно пригласить гостей (до 10 человек)",
+          isChecked: true,
+          isShort: true,
         })
       div.sidebar__availability
         +list({
@@ -103,27 +82,12 @@ mixin sidebar()
           listType: "toggles",
           itemList: [
             {
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              },
-              text: {
-                title: "Широкий коридор",
-                text: "Ширина коридоров в номере не менее 91 см.",
-                isShort: true
-              }
+              title: "Широкий коридор",
+              text: "Ширина коридоров в номере не менее 91 см.",
             },
             {
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              },
-              text: {
-                title: "Помощник для инвалидов",
-                text: "На 1 этаже вас встретит специалист  и проводит до номера.",
-              }
+              title: "Помощник для инвалидов",
+              text: "На 1 этаже вас встретит специалист  и проводит до номера.",
             },
           ],
         })
@@ -163,67 +127,25 @@ mixin sidebar()
           listType: "toggles",
           itemList: [
             {
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              },
-              text: {
-                text: "Завтрак",
-              }
+              text: "Завтрак",
             },
             {
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden",
-                "checked": "checked"
-              },
-              text: {
-                text: "Письменный стол",
-              }
+              text: "Письменный стол",
+              isChecked: true,
             },
             {
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden",
-                "checked": "checked"
-              },
-              text: {
-                text: "Стул для кормления",
-              }
+              text: "Стул для кормления",
+              isChecked: true,
             },
             {
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden",
-                "checked": "checked"
-              },
-              text: {
-                text: "Кроватка",
-              }
+              text: "Кроватка",
+              isChecked: true,
             },
             {
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden"
-              },
-              text: {
-                text: "Телевизор",
-              }
+              text: "Телевизор",
             },
             {
-              type: "checkbox",
-              attrs: {
-                "type": "checkbox",
-                "hidden": "hidden",
-              },
-              text: {
-                text: "Шампунь",
-              }
+              text: "Шампунь",
             },
           ]
         })
