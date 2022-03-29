@@ -15,6 +15,7 @@ include ../../blocks/stars-rating/stars-rating
 include ../../blocks/like-button/like-button
 include ../../blocks/radio-button/radio-button
 include ../../blocks/checkbox-button/checkbox-button
+include ../../blocks/text-button/text-button
 
 
 +page-head({title: "Form-Elements", description: "Form Elements from UI-Kit"})
@@ -259,15 +260,13 @@ include ../../blocks/checkbox-button/checkbox-button
                 })
             div.form-elements__text-buttons
               div.form-elements__button-wrapp
-                +button({
-                  type: "text",
+                +text-button({
                   text: "click me",
                 })
               div.form-elements__button-wrapp
-                +button({
-                  type: "text",
+                +text-button({
                   text: "click me",
-                  isTransparent: true,
+                  isDark: true,
                 })
             div.form-elements__big-button
               +button({

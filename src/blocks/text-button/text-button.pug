@@ -1,0 +1,7 @@
+mixin text-button(settings)
+  - const {
+  -   text = "for change",
+  -   isDark = false,
+  - } = settings
+  - darkClass = isDark ? "text-button_color_dark" : ""
+  button(class=["text-button", darkClass])=text

@@ -36,12 +36,10 @@ mixin dropdown(settings)
               button(class=["dropdown__button", "dropdown__button_type_plus" , plusTransparentClass] type="button"  data-target=list.dataTarget data-action="plus")="+"
       div.dropdown__submit-buttons
         div.dropdown__clear-button
-          +button({
-            type: "text",
+          +text-button({
             text: "очистить",
           })
         div.dropdown__submit-button
-          +button({
-            type: "text",
+          +text-button({
             text: "применить",
           })
