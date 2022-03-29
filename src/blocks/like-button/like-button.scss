@@ -51,9 +51,9 @@
     &::before {
       background-image: url('../../img/favorite.svg');
     }
+  }
 
-    & .like-button__counter {
-      color: $purple;
-    }
+  &__controller:checked + &__border &__counter {
+    color: $purple;
   }
 }

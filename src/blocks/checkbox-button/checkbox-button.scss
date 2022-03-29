@@ -49,7 +49,7 @@
     color: $dark50;
   }
 
-  &__controller:checked + .checkbox-button__border {
+  &__controller:checked + &__border {
     content: url('../../img/check-arrow.jpg');
     padding: 3px 4px 5px;
     border-color: $purple;

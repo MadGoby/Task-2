@@ -5,9 +5,9 @@ mixin button(settings)
   -   isSmall = false,
   -   isTransparent = false,
   - } = settings
-  - const isTransparentBorder = isTransparent && type === "border"
-  - const isTransparentBody = isTransparent && type !== "border"
-  - const transparentBorderClass = isTransparentBorder ? "button__border-mimic_transparent" : ""
+  - const isTransparentBorder = isTransparent && isBorder
+  - const isTransparentBody = isTransparent && !isBorder
+  - const transparentBorderClass = isTransparentBorder ? "button__border_transparent" : ""
   - const transparentClass = isTransparentBody ? "button__control_transparent" : ""
   - const sizeClass = isSmall ? "button__control_size_small" : ""
   - const borderClass = isBorder ? "button__control_type_border" : ""
@@ -15,7 +15,7 @@ mixin button(settings)
     when true
       div.button
         div(class=["button__border", transparentBorderClass])
-          button(class=["button__control", typeClass, sizeClass] value=text)= text
+          button(class=["button__control", borderClass, typeClass, sizeClass] value=text)= text
     default
       div.button
         button(class=["button__control", typeClass, transparentClass, sizeClass] value=text)= text

@@ -5,13 +5,9 @@ mixin content-navigation(settings)
   - } = settings
   - const buttonsSettings = [
   -   {
-  -     type: "purpose_previous",
-  -     navigationModifier: "arrow_back"
-  -   },
-  -   {
   -     type: "active",
   -     text: "1",
-  -     navigationModifier: "color_purple"
+  -     color: "purple",
   -   },
   -   {
   -     type: "decorative",
@@ -33,28 +29,22 @@ mixin content-navigation(settings)
   -   {
   -     text: "15",
   -   },
-  -   {
-  -     type: "purpose_next",
-  -     navigationModifier: "arrow_forward"
-  -   },
   - ]
   div.content-navigation.js-content-navigation
     if title
       div.content-navigation__title
         +title({text: title})
-    ul.content-navigation__buttons
+    div.content-navigation__buttons
+      button.content-navigation__button.js-content-navigation__button.content-navigation__button_purpose_previous.content-navigation__button_arrow_back
       each button in buttonsSettings
         - const {
         -   text = "",
-        -   navigationModifier = "",
-        -   type = ""
+        -   type = "",
+        -   color = ""
         - } = button
         - const typeClass = type ? `content-navigation__button_${type}` : ""
-        li(class=["content-navigation__button", typeClass])
-          +button({
-            type: "pagination",
-            text: text,
-            navigationModifier: navigationModifier,
-          })
+        - const colorClass = color ? `content-navigation__button_color_${color}` : ""
+        button(class=["content-navigation__button", "js-content-navigation__button", typeClass, colorClass])=text
+      button.content-navigation__button.js-content-navigation__button.content-navigation__button_purpose_next.content-navigation__button_arrow_forward
     if counter
-      p.content-navigation__counter=counter
+      p.content-navigation__counter.js-content-navigation__counter=counter

@@ -26,13 +26,12 @@ mixin header(settings)
       div.header__buttons
         div.header__login-button
           +button({
-            type: "border",
             text: "войти",
-            isSmall: "small",
+            isBorder: true,
+            isSmall: true,
           })
         div.header__registration-button
           +button({
-            type: "regular",
             text: "зарегистрироваться",
-            isSmall: "small",
+            isSmall: true,
           })

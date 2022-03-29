@@ -42,6 +42,6 @@ mixin login(settings)
       p.login__text="Нет аккаунта на Toxin?"
       a(href=loginLink).login__link
         +button({
-          type: "border",
           text: "создать",
+          isBorder: true,
         })

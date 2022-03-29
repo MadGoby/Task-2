@@ -14,8 +14,8 @@ class ContentNavigation {
 
   getHtmlElements() {
     this.container = document.querySelector(`.${this.containerClass}`);
-    this.buttons = [...this.container.querySelectorAll('.content-navigation__button')];
-    this.counter = this.container.querySelector('.content-navigation__counter');
+    this.buttons = [...this.container.querySelectorAll('.js-content-navigation__button')];
+    this.counter = this.container.querySelector('.js-content-navigation__counter');
     this.buttons.forEach((button) => {
       if (button.classList.contains('content-navigation__button_active')) this.currentButton = button;
     });
@@ -32,7 +32,7 @@ class ContentNavigation {
       });
     };
 
-    const currentPageNumber = this.currentButton.querySelector('.button__control').textContent;
+    const currentPageNumber = this.currentButton.textContent;
 
     switch (currentPageNumber) {
       case '1':
@@ -59,13 +59,12 @@ class ContentNavigation {
   }
 
   editsCounterValues() {
-    const counterTo = this.currentButton.querySelector('.button__control').textContent * 12;
+    const counterTo = this.currentButton.textContent * 12;
     this.counter.textContent = `${counterTo - 11} – ${counterTo} из 100+ вариантов аренды`;
   }
 
   static controlCurrentPageClass(selectedButton) {
-    const currentButton = selectedButton.querySelector('.button__control');
-    currentButton.classList.toggle('button__control_color_purple');
+    selectedButton.classList.toggle('content-navigation__button_color_purple');
   }
 
   controlButtonsNumbers(index, targetNumber, parent) {
@@ -76,30 +75,30 @@ class ContentNavigation {
       case checkIsNegativeShiftNeeded():
         ContentNavigation.controlCurrentPageClass(this.buttons[index - 1]);
         this.currentButton = this.buttons[index - 1];
-        this.buttons[index - 1].querySelector('.button__control').textContent = targetNumber;
-        this.buttons[index - 2].querySelector('.button__control').textContent = String(targetNumber - 1);
-        this.buttons[index].querySelector('.button__control').textContent = targetNumber + 1;
+        this.buttons[index - 1].textContent = targetNumber;
+        this.buttons[index - 2].textContent = String(targetNumber - 1);
+        this.buttons[index].textContent = targetNumber + 1;
         break;
       case checkIsPositiveShiftNeeded():
         ContentNavigation.controlCurrentPageClass(this.buttons[index + 1]);
         this.currentButton = this.buttons[index + 1];
-        this.buttons[index + 1].querySelector('.button__control').textContent = targetNumber;
-        this.buttons[index + 2].querySelector('.button__control').textContent = targetNumber + 1;
-        this.buttons[index].querySelector('.button__control').textContent = String(targetNumber - 1);
+        this.buttons[index + 1].textContent = targetNumber;
+        this.buttons[index + 2].textContent = targetNumber + 1;
+        this.buttons[index].textContent = String(targetNumber - 1);
         break;
       case index === 7:
         ContentNavigation.controlCurrentPageClass(parent);
         this.currentButton = parent;
-        this.buttons[index - 2].querySelector('.button__control').textContent = String(targetNumber - 1);
-        this.buttons[index - 3].querySelector('.button__control').textContent = String(targetNumber - 2);
-        this.buttons[index - 4].querySelector('.button__control').textContent = String(targetNumber - 3);
+        this.buttons[index - 2].textContent = String(targetNumber - 1);
+        this.buttons[index - 3].textContent = String(targetNumber - 2);
+        this.buttons[index - 4].textContent = String(targetNumber - 3);
         break;
       case index === 1:
         ContentNavigation.controlCurrentPageClass(parent);
         this.currentButton = parent;
-        this.buttons[index + 2].querySelector('.button__control').textContent = targetNumber + 1;
-        this.buttons[index + 3].querySelector('.button__control').textContent = targetNumber + 2;
-        this.buttons[index + 4].querySelector('.button__control').textContent = targetNumber + 3;
+        this.buttons[index + 2].textContent = targetNumber + 1;
+        this.buttons[index + 3].textContent = targetNumber + 2;
+        this.buttons[index + 4].textContent = targetNumber + 3;
         break;
       default:
         ContentNavigation.controlCurrentPageClass(this.buttons[index]);
@@ -109,7 +108,7 @@ class ContentNavigation {
   }
 
   prepareDataAfterPrevious() {
-    const currentButtonText = Number(this.currentButton.querySelector('.button__control').textContent);
+    const currentButtonText = Number(this.currentButton.textContent);
     const targetNumber = currentButtonText - 1;
     let index;
 
@@ -131,7 +130,7 @@ class ContentNavigation {
   }
 
   prepareDataAfterNext() {
-    const currentButtonText = Number(this.currentButton.querySelector('.button__control').textContent);
+    const currentButtonText = Number(this.currentButton.textContent);
     const targetNumber = currentButtonText + 1;
     let index;
 
@@ -153,34 +152,25 @@ class ContentNavigation {
   }
 
   handleButtonClick(event) {
-    let parent = false;
+    let { target } = event;
+    if (target.classList.contains('content-navigation__button_decorative')) return;
 
-    function getParent(button) {
-      if (button.parentNode.classList.contains('content-navigation__button')) {
-        parent = button.parentNode;
-      } else {
-        getParent(button.parentNode);
-      }
-    }
-
-    getParent(event.target);
-    if (parent.classList.contains('content-navigation__button_decorative')) return;
     ContentNavigation.controlCurrentPageClass(this.currentButton);
 
     let targetButtonData = {
-      index: this.buttons.indexOf(parent),
+      index: this.buttons.indexOf(target),
       targetNumber: Number(event.target.textContent),
     };
 
-    if (parent.classList.contains('content-navigation__button_purpose_previous')) {
+    if (target.classList.contains('content-navigation__button_purpose_previous')) {
       targetButtonData = this.prepareDataAfterPrevious();
-      parent = this.buttons[targetButtonData.index];
-    } else if (parent.classList.contains('content-navigation__button_purpose_next')) {
+      target = this.buttons[targetButtonData.index];
+    } else if (target.classList.contains('content-navigation__button_purpose_next')) {
       targetButtonData = this.prepareDataAfterNext();
-      parent = this.buttons[targetButtonData.index];
+      target = this.buttons[targetButtonData.index];
     }
 
-    this.controlButtonsNumbers(targetButtonData.index, targetButtonData.targetNumber, parent);
+    this.controlButtonsNumbers(targetButtonData.index, targetButtonData.targetNumber, target);
     this.controlNavigationDisplay();
     this.editsCounterValues();
   }

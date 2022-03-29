@@ -19,7 +19,7 @@
     padding-left: 10px;
   }
 
-  &__controller:checked + .radio-button__border {
+  &__controller:checked + &__border {
     padding: 3px;
     border-color: $purple;
 
@@ -33,7 +33,7 @@
     }
   }
 
-  &__controller:checked ~ .radio-button__text-wrapper .radio-button__text {
+  &__controller:checked ~ &__text-wrapper &__text {
     color: $dark75;
   }
 

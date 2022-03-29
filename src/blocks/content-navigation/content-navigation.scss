@@ -3,9 +3,67 @@
 
 .content-navigation {
   display: inline-block;
-  &__decorative-button,
+
   &__button {
+    @include text_type($mont, 12px, 400, 15px, $dark50);
     display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    color: $dark50;
+    vertical-align: top;
+    border-radius: 50%;
+    padding: 0;
+    font-weight: 400;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    @media screen and (max-width: 400px) {
+      width: 30px;
+      height: 30px;
+    }
+
+    &_color {
+      &_black {
+        color: $dark50;
+      }
+
+      &_purple {
+        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+        color: white;
+        font-weight: 700;
+      }
+    }
+
+    &_arrow {
+      &_back,
+      &_forward {
+        background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+
+        &:after {
+          content: url('../../img/arrow-forward-white.svg');
+          height: 40px;
+          width: 40px;
+          display: inline-block;
+          padding: 11px 0;
+          vertical-align: top;
+
+          @media screen and (max-width: 400px) {
+            width: 30px;
+            height: 30px;
+            padding: 6px 0;
+          }
+        }
+      }
+
+      &_back {
+        transform: rotateY(180deg);
+      }
+
+    }
   }
 
   &__buttons {

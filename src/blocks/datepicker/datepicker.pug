@@ -37,13 +37,11 @@ mixin datepicker(settings)
           tr.datepicker__calendar-line.js-datepicker__calendar-line
       div.datepicker__confirmation-buttons
         div.datepicker__clear-button.js-datepicker__clear-button
-          +button({
-            type: "text",
+          +text-button({
             text: "очистить",
           })
         div.datepicker__apply-button.js-datepicker__apply-button
-          +button({
-            type: "text",
+          +text-button({
             text: "применить",
           })
       
