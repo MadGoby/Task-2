@@ -1,26 +1,21 @@
 mixin button(settings)
   - const {
   -   text = "For Change",
-  -   type = "regular",
-  -   navigationModifier = "",
-  -   isConfirmAttr = false,
+  -   isBorder = false,
   -   isSmall = false,
   -   isTransparent = false,
   - } = settings
   - const isTransparentBorder = isTransparent && type === "border"
   - const isTransparentBody = isTransparent && type !== "border"
-  - const attrType = isConfirmAttr ? "confirm" : "button"
-  - const confirmWrapperClass = type === 'confirm' ? "button_type_confirm " : ""
   - const transparentBorderClass = isTransparentBorder ? "button__border-mimic_transparent" : ""
   - const transparentClass = isTransparentBody ? "button__control_transparent" : ""
   - const sizeClass = isSmall ? "button__control_size_small" : ""
-  - const typeClass = `button__control_type_${type}`
-  - const navigationClass = navigationModifier ? `button__control_${navigationModifier}` : ""
-  case type
-    when "border"
+  - const borderClass = isBorder ? "button__control_type_border" : ""
+  case isBorder
+    when true
       div.button
-        div(class=["button__border-mimic", transparentBorderClass])
-          button(class=["button__control", typeClass, navigationClass, sizeClass] value=text type=attrType)= text
+        div(class=["button__border", transparentBorderClass])
+          button(class=["button__control", typeClass, sizeClass] value=text)= text
     default
-      div(class=["button", confirmWrapperClass])
-        button(class=["button__control", typeClass, transparentClass, navigationClass, sizeClass] value=text type=attrType)= text
+      div.button
+        button(class=["button__control", typeClass, transparentClass, sizeClass] value=text)= text

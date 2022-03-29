@@ -65,8 +65,6 @@ mixin search-room(settings)
         lists: dropdownList,
       })
     div.search-room__confirm-button
-      +button({
-        type: "confirm",
+      +confirm-button({
         text: "подобрать номер",
-        isConfirmAttr: true,
       })

@@ -35,10 +35,8 @@ mixin login(settings)
           }
         })
     div.login__confirm-button
-      +button({
-        type: "confirm",
+      +confirm-button({
         text: "войти",
-        isConfirmAttr: true,
       })
     div.login__registration
       p.login__text="Нет аккаунта на Toxin?"

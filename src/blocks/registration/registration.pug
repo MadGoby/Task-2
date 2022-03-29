@@ -91,10 +91,8 @@ mixin registration(settings)
         text: "Получать спецпредложения",
       })
     div.registration__confirm-button
-      +button({
-        type: "confirm",
+      +confirm-button({
         text: "зарегистрироваться",
-        isConfirmAttr: true,
       })
     div.registration__login
       p.registration__text="Уже есть аккаунт на Toxin"

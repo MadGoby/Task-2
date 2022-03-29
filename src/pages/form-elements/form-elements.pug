@@ -16,7 +16,7 @@ include ../../blocks/like-button/like-button
 include ../../blocks/radio-button/radio-button
 include ../../blocks/checkbox-button/checkbox-button
 include ../../blocks/text-button/text-button
-
+include ../../blocks/confirm-button/confirm-button
 
 +page-head({title: "Form-Elements", description: "Form Elements from UI-Kit"})
   body.body
@@ -237,25 +237,23 @@ include ../../blocks/text-button/text-button
             div.form-elements__simple-buttons
               div.form-elements__button-wrapp
                 +button({
-                  type: "regular",
                   text: "click me",
                 })
               div.form-elements__button-wrapp
                 +button({
-                  type: "regular",
                   text: "click me",
                   isTransparent: true,
                 })
             div.form-elements__border-buttons
               div.form-elements__button-wrapp
                 +button({
-                  type: "border",
                   text: "click me",
+                  isBorder: true,
                 })
               div.form-elements__button-wrapp
                 +button({
-                  type: "border",
                   text: "click me",
+                  isBorder: true,
                   isTransparent: true,
                 })
             div.form-elements__text-buttons
@@ -269,8 +267,7 @@ include ../../blocks/text-button/text-button
                   isDark: true,
                 })
             div.form-elements__big-button
-              +button({
-                type: "confirm",
+              +confirm-button({
                 text: "перейти к оплате",
               })
           div.form-elements__pagination.js-form-elements__pagination

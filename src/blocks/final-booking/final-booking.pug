@@ -127,8 +127,6 @@ mixin final-booking(settings)
                 span.final-booking__service-sign="i"
             span.final-booking__service-price=list.price
     div.final-booking__confirm-button
-      +button({
-        type: "confirm",
+      +confirm-button({
         text: confirmButtonText,
-        isConfirmAttr: true,
       })
