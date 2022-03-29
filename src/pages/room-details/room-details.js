@@ -5,8 +5,14 @@ import { Navigation } from '@blocks/navigation/Navigation';
 
 import { importContext } from '../../tools/importContext';
 import './room-details.scss';
+import { LikeButton } from '@blocks/like-button/LikeButton';
 
 importContext();
+
+const likeButtonElements = [
+  'room-details__comment_number_1',
+  'room-details__comment_number_2',
+];
 
 function handleDocumentLoad() {
   new HeaderBurger('js-room-details__header');
@@ -30,6 +36,7 @@ function handleDocumentLoad() {
       outputType: 'sum',
     },
   });
+  likeButtonElements.forEach((target) => new LikeButton(target));
 }
 
 document.addEventListener('DOMContentLoaded', handleDocumentLoad);

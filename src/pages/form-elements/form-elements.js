@@ -5,6 +5,7 @@ import { Slider } from '@blocks/slider/Slider';
 import { ContentNavigation } from '@blocks/content-navigation/ContentNavigation';
 import { ListDropdown } from '@blocks/list/List';
 import { InputMask } from '@blocks/input/InputMask';
+import { LikeButton } from '@blocks/like-button/LikeButton';
 
 import { importContext } from '../../tools/importContext';
 import './form-elements.scss';
@@ -91,6 +92,12 @@ const starsRatingElements = [
   'js-form-elements__rating_number_2',
 ];
 
+const likeButtonsElements = [
+  'js-form-elements__like_unchecked',
+  'js-form-elements__like_checked',
+  'js-form-elements__user-comment',
+];
+
 function handleDocumentLoad() {
   datepickersData.forEach((settings) => new Datepicker(settings));
   dropdownData.forEach((settings) => new Dropdown(settings));
@@ -113,6 +120,7 @@ function handleDocumentLoad() {
       placeholder: 'ДД.ММ.ГГГГ',
     },
   });
+  likeButtonsElements.forEach((target) => new LikeButton(target));
 }
 
 document.addEventListener('DOMContentLoaded', handleDocumentLoad);

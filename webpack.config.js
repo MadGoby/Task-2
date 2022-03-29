@@ -73,7 +73,9 @@ const webpackConfig = {
       },
       {
         test: /\.pug$/,
-        use: ['pug-loader'],
+        use: {
+          loader: 'pug-loader',
+        },
       },
       {
         test: /\.(gif|png|jpg|jpeg|svg)?$/,

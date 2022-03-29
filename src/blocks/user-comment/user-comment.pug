@@ -19,15 +19,8 @@ mixin user-comment(settings)
         p.user-comment__age=userAge
     div.user-comment__main
       div.user-comment__like
-        +toggle({
-          type: "like",
-          attrs: {
-            "type": "checkbox",
-            "hidden": "hidden",
-            "checked": isLiked
-          },
-          text: {
-            text: likeCounter
-          }
+        +like-button({
+          counter: likeCounter,
+          isChecked: isLiked,
         })
       p.user-comment__text=commentText

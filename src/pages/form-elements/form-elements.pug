@@ -1,4 +1,4 @@
-include ../../blocks/page-head/page-head
+include ../../blocks/page-head/page-head.pug
 include ../../blocks/logo/logo.pug
 include ../../blocks/input/input.pug
 include ../../blocks/toggle/toggle.pug
@@ -12,6 +12,7 @@ include ../../blocks/user-comment/user-comment.pug
 include ../../blocks/content-navigation/content-navigation.pug
 include ../../blocks/datepicker/datepicker.pug
 include ../../blocks/stars-rating/stars-rating.pug
+include ../../blocks/like-button/like-button.pug
 
 +page-head({title: "Form-Elements", description: "Form Elements from UI-Kit"})
   body.body
@@ -252,28 +253,15 @@ include ../../blocks/stars-rating/stars-rating.pug
               +title({
                 text: "like button"
               })
-            div.form-elements__like
-              +toggle({
-                type: "like",
-                attrs: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                },
-                text: {
-                  text: "2"
-                }
+            div.form-elements__like.form-elements__like_unchecked.js-form-elements__like_unchecked
+              +like-button({
+                counter: "2",
+                isChecked: false,
               })
-            div.form-elements__like
-              +toggle({
-                type: "like",
-                attrs: {
-                  "type": "checkbox",
-                  "hidden": "hidden",
-                  "checked": "checked"
-                },
-                text: {
-                  text: "12"
-                }
+            div.form-elements__like.form-elements__like_checked.js-form-elements__like_checked
+              +like-button({
+                counter: "12",
+                isChecked: true,
               })
           div.form-elements__ratings
             div.form-elements__rating-title
@@ -654,7 +642,7 @@ include ../../blocks/stars-rating/stars-rating.pug
               description: "Окно в каждой из спален",
               isWithBorder: true,
             })
-          div.form-elements__user-comment
+          div.form-elements__user-comment.js-form-elements__user-comment
             +user-comment({
               title: {
                 imgSrc: "user.jpg",

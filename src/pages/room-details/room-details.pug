@@ -19,6 +19,7 @@ include ../../blocks/dropdown/dropdown.pug
 include ../../blocks/page-head/page-head
 include ../../blocks/page-header/page-header
 include ../../blocks/page-footer/page-footer
+include ../../blocks/like-button/like-button
 
 +page-head({title: "Room Details", description: "Room Details page of the hotel room website."})
   body
@@ -147,7 +148,7 @@ include ../../blocks/page-footer/page-footer
                     teg: "h2"
                   })
                   span.room-details__comments-counter="2 отзыва"
-                div.room-details__comment
+                div.room-details__comment.room-details__comment_number_1.js-room-details__comment_number_1
                   +user-comment({
                     title: {
                       imgSrc: "user.jpg",
@@ -160,7 +161,7 @@ include ../../blocks/page-footer/page-footer
                       commentText: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
                     }
                   })
-                div.room-details__comment
+                div.room-details__comment.room-details__comment_number_2.js-room-details__comment_number_2
                   +user-comment({
                     title: {
                       imgSrc: "user2.jpg",

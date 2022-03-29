@@ -1,0 +1,59 @@
+@import '../../common/mixins.scss';
+@import '../../common/variables';
+
+.like-button {
+  @include text_type($mont, 10px, 400, 18px, $dark25);
+  display: block;
+  min-height: 20px;
+
+  &__border {
+    min-height: 20px;
+    border: 1px solid $dark25;
+    min-width: 40px;
+    border-radius: 10px;
+    padding: 0 5px 0 16px;
+    position: relative;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: top;
+
+    &:before {
+      content: '';
+      background-image: url('../../img/favorite-border.svg');
+      background-repeat: no-repeat;
+      background-position-y: center;
+      background-position-x: center;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  &__counter {
+    min-width: 15px;
+    max-width: 230px;
+    text-align: center;
+    margin: 0;
+    display: inline-block;
+    user-select: none;
+  }
+
+  &:hover &__border {
+    box-shadow: 0 0 4px 1px $purple;
+  }
+
+  &__controller:checked + &__border {
+    border-color: $purple;
+
+    &::before {
+      background-image: url('../../img/favorite.svg');
+    }
+
+    & .like-button__counter {
+      color: $purple;
+    }
+  }
+}
