@@ -27,15 +27,15 @@ class Dropdown {
     this.dropdownWrapper = this.container.querySelector('.js-dropdown');
     this.input = this.dropdownWrapper.querySelector('.js-dropdown-input__field');
     this.dropdown = this.dropdownWrapper.querySelector('.js-dropdown__control');
-    this.plusButtons = [...this.dropdownWrapper.querySelectorAll('.dropdown__button')].filter(
+    this.plusButtons = [...this.dropdownWrapper.querySelectorAll('.js-dropdown__button')].filter(
       (button) => button.getAttribute('data-action') === 'plus',
     );
-    this.minusButtons = [...this.dropdownWrapper.querySelectorAll('.dropdown__button')].filter(
+    this.minusButtons = [...this.dropdownWrapper.querySelectorAll('.js-dropdown__button')].filter(
       (button) => button.getAttribute('data-action') === 'minus',
     );
-    this.outputs = [...this.dropdownWrapper.querySelectorAll('.dropdown__output')];
-    this.clearButton = this.dropdownWrapper.querySelector('.dropdown__clear-button');
-    this.submitButton = this.dropdownWrapper.querySelector('.dropdown__submit-button');
+    this.outputs = [...this.dropdownWrapper.querySelectorAll('.js-dropdown__output')];
+    this.clearButton = this.dropdownWrapper.querySelector('.js-dropdown__clear-button');
+    this.submitButton = this.dropdownWrapper.querySelector('.js-dropdown__submit-button');
   }
 
   addInputExpandedClass() {

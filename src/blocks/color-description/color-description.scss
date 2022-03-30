@@ -5,42 +5,40 @@
   @include text_type($mont, 19px, 400, 28px, $dark100);
   max-height: 70px;
 
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
-
   &__sample {
     height: 70px;
     width: 70px;
     border-radius: 6px;
     display: inline-block;
 
-    &_color_dark-100 {
-      background-color: $dark100;
-    }
+    &_color {
+      &_dark-100 {
+        background-color: $dark100;
+      }
 
-    &_color_dark-75 {
-      background-color: $dark75;
-    }
+      &_dark-75 {
+        background-color: $dark75;
+      }
 
-    &_color_dark-50 {
-      background-color: $dark50;
-    }
+      &_dark-50 {
+        background-color: $dark50;
+      }
 
-    &_color_dark-25 {
-      background-color: $dark25;
-    }
+      &_dark-25 {
+        background-color: $dark25;
+      }
 
-    &_color_dark-5 {
-      background-color: $dark5;
-    }
+      &_dark-5 {
+        background-color: $dark5;
+      }
 
-    &_color_purple {
-      background-color: $purple;
-    }
+      &_purple {
+        background-color: $purple;
+      }
 
-    &_color_green {
-      background-color: $green;
+      &_green {
+        background-color: $green;
+      }
     }
   }
 
@@ -60,5 +58,9 @@
   &__index {
     margin: 0;
     font-weight: 400;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
   }
 }

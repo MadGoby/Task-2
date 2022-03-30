@@ -14,9 +14,11 @@
       color: $dark75;
     }
 
-    &_text_bold {
-      font-weight: 700;
-      color: $dark75;
+    &_text {
+      &_bold {
+        font-weight: 700;
+        color: $dark75;
+      }
     }
 
     @media screen and (max-width: 650px) {

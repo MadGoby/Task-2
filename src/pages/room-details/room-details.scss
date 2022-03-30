@@ -164,15 +164,19 @@
   height: 50%;
   vertical-align: top;
 
-  &_size_large {
-    width: 68.13%;
-    display: inline-block;
-    vertical-align: top;
+  &_size {
+    &_large {
+      width: 68.13%;
+      display: inline-block;
+      vertical-align: top;
+    }
   }
 
-  &_corner_top-right,
-  &_corner_bottom-right {
-    width: 100%;
+  &_corner {
+    &_top-right,
+    &_bottom-right {
+      width: 100%;
+    }
   }
 }
 

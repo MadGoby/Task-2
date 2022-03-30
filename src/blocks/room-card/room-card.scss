@@ -74,15 +74,17 @@
       padding: 16px 0;
     }
 
-    &_side_left {
-      border-top-left-radius: 4px;
-      left: 0;
-    }
+    &_side {
+      &_left {
+        border-top-left-radius: 4px;
+        left: 0;
+      }
 
-    &_side_right {
-      right: 0;
-      transform: rotate(180deg);
-      border-bottom-left-radius: 4px;
+      &_right {
+        right: 0;
+        transform: rotate(180deg);
+        border-bottom-left-radius: 4px;
+      }
     }
   }
 

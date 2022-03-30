@@ -15,10 +15,6 @@
     user-select: none;
     border: none;
 
-    &:hover {
-      opacity: 0.5;
-    }
-
     &_transparent {
       opacity: 0.5;
     }
@@ -27,17 +23,23 @@
       padding: 9px 21px 10px 19px;
     }
 
-    &_type_border {
-      width: calc(100% - 4px);
-      padding: 12px 16px 13px;
-      background: white;
-      color: $purple;
-      margin: 2px;
-      border-radius: 22px;
+    &_type {
+      &_border {
+        width: calc(100% - 4px);
+        padding: 12px 16px 13px;
+        background: white;
+        color: $purple;
+        margin: 2px;
+        border-radius: 22px;
 
-      &:hover {
-        opacity: 1;
+        &:hover {
+          opacity: 1;
+        }
       }
+    }
+
+    &:hover {
+      opacity: 0.5;
     }
   }
 

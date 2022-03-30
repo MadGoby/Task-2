@@ -28,8 +28,10 @@
       margin-bottom: 10px;
     }
 
-    &_text_bold {
-      margin-top: 30px;
+    &_text {
+      &_bold {
+        margin-top: 30px;
+      }
     }
   }
 
@@ -38,9 +40,11 @@
     width: 239px;
     position: relative;
 
-    &_text_bold {
-      display: inline-block;
-      max-width: 60px;
+    &_text {
+      &_bold {
+        display: inline-block;
+        max-width: 60px;
+      }
     }
 
     @media screen and (max-width: 380px) {
@@ -68,11 +72,13 @@
     max-width: 214px;
     line-height: 18px;
 
-    &_text_bold {
-      font-weight: 700;
-      font-size: 19px;
-      color: $dark100;
-      width: 18%;
+    &_text {
+      &_bold {
+        font-weight: 700;
+        font-size: 19px;
+        color: $dark100;
+        width: 18%;
+      }
     }
 
     @media screen and (max-width: 380px) {
@@ -90,28 +96,30 @@
       width: 85px;
     }
 
-    &_text_bold {
-      display: inline-block;
-      font-size: 19px;
-      font-weight: 700;
-      color: $dark100;
-      width: 81%;
-      vertical-align: top;
-
-      &::before {
-        content: '';
+    &_text {
+      &_bold {
         display: inline-block;
-        border-bottom: 1px dotted $dark25;
-        margin: 0 4px;
-        width: 67%;
+        font-size: 19px;
+        font-weight: 700;
+        color: $dark100;
+        width: 81%;
+        vertical-align: top;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          border-bottom: 1px dotted $dark25;
+          margin: 0 4px;
+          width: 67%;
+
+          @media screen and (max-width: 380px) {
+            width: 58%;
+          }
+        }
 
         @media screen and (max-width: 380px) {
-          width: 58%;
+          width: 77%;
         }
-      }
-
-      @media screen and (max-width: 380px) {
-        width: 77%;
       }
     }
   }

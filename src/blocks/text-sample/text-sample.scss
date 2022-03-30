@@ -12,21 +12,23 @@
     max-width: 369px;
     vertical-align: top;
 
-    &_type_h1 {
-      @include text_type($mont, 24px, 700, 29px, $dark100);
-    }
+    &_type {
+      &_h1 {
+        @include text_type($mont, 24px, 700, 29px, $dark100);
+      }
 
-    &_type_h2 {
-      @include text_type($mont, 19px, 700, 23px, $dark100);
-    }
+      &_h2 {
+        @include text_type($mont, 19px, 700, 23px, $dark100);
+      }
 
-    &_type_h3 {
-      @include text_type($mont, 12px, 700, 14px, $dark100);
-      text-transform: uppercase;
-    }
+      &_h3 {
+        @include text_type($mont, 12px, 700, 14px, $dark100);
+        text-transform: uppercase;
+      }
 
-    &_type_regular {
-      @include text_type($mont, 14px, 400, 24px, $dark75);
+      &_regular {
+        @include text_type($mont, 14px, 400, 24px, $dark75);
+      }
     }
   }
 
@@ -38,20 +40,22 @@
     min-width: 40px;
     text-align: right;
 
-    &_type_h1 {
-      @include text_type($mont, 24px, 400, 29px, $dark25);
-    }
+    &_type {
+      &_h1 {
+        @include text_type($mont, 24px, 400, 29px, $dark25);
+      }
 
-    &_type_h2 {
-      @include text_type($mont, 19px, 400, 23px, $dark25);
-    }
+      &_h2 {
+        @include text_type($mont, 19px, 400, 23px, $dark25);
+      }
 
-    &_type_h3 {
-      @include text_type($mont, 12px, 400, 14px, $dark25);
-    }
+      &_h3 {
+        @include text_type($mont, 12px, 400, 14px, $dark25);
+      }
 
-    &_type_regular {
-      @include text_type($mont, 14px, 400, 24px, $dark25);
+      &_regular {
+        @include text_type($mont, 14px, 400, 24px, $dark25);
+      }
     }
   }
 

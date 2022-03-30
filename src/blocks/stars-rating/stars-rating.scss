@@ -14,8 +14,10 @@
       margin-right: 5px;
     }
 
-    &_color_purple {
-      background-image: url('../../img/star.svg');
+    &_color {
+      &_purple {
+        background-image: url('../../img/star.svg');
+      }
     }
   }
 }

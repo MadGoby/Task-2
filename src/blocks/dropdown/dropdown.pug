@@ -30,15 +30,15 @@ mixin dropdown(settings)
           li.dropdown__list-element
             span.dropdown__text=list.text
             div.dropdown__calc
-              button(class=["dropdown__button", "dropdown__button_type_minus", minusTransparentClass] type="button"  data-target=list.dataTarget data-action="minus")="-"
-              output(data-target=list.dataTarget).dropdown__output=list.output
-              button(class=["dropdown__button", "dropdown__button_type_plus" , plusTransparentClass] type="button"  data-target=list.dataTarget data-action="plus")="+"
+              button(class=["dropdown__button", "js-dropdown__button", "dropdown__button_type_minus", minusTransparentClass] type="button"  data-target=list.dataTarget data-action="minus")="-"
+              output(data-target=list.dataTarget).dropdown__output.js-dropdown__output=list.output
+              button(class=["dropdown__button", "js-dropdown__button", "dropdown__button_type_plus" , plusTransparentClass] type="button"  data-target=list.dataTarget data-action="plus")="+"
       div.dropdown__submit-buttons
-        div.dropdown__clear-button
+        div.dropdown__clear-button.js-dropdown__clear-button
           +text-button({
             text: "очистить",
           })
-        div.dropdown__submit-button
+        div.dropdown__submit-button.js-dropdown__submit-button
           +text-button({
             text: "применить",
           })

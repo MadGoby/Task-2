@@ -26,13 +26,15 @@
     user-select: none;
     margin: 0 0 35px;
 
-    &_size_small {
-      font-size: 24px;
-      line-height: 24px;
-      width: 70%;
-      margin: 0 auto 10px;
-      padding-bottom: 10px;
-      border-bottom: 2px dotted $dark25;
+    &_size {
+      &_small {
+        font-size: 24px;
+        line-height: 24px;
+        width: 70%;
+        margin: 0 auto 10px;
+        padding-bottom: 10px;
+        border-bottom: 2px dotted $dark25;
+      }
     }
   }
 

@@ -9,7 +9,11 @@
     margin-bottom: 40px;
   }
 
-  &__footer_size_large {
-    margin-bottom: 40px;
+  &__footer {
+    &_size {
+      &_large {
+        margin-bottom: 40px;
+      }
+    }
   }
 }
