@@ -1,7 +1,7 @@
 @import '../../common/mixins.scss';
 @import '../../common/variables';
 
-.confirm-button {
+.submit-button {
   @include text_type($mont, 12px, 700, 15px, white);
   background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
   width: 100%;

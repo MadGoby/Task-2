@@ -44,7 +44,7 @@ mixin final-booking(settings)
   -       type: "total"
   -     }
   -   ],
-  -   confirmButtonText = "For Change"
+  -   submitButtonText = "For Change"
   - } = settings
   form(class="final-booking" action=action)
     div.final-booking__room-information
@@ -58,30 +58,18 @@ mixin final-booking(settings)
         inputType: 'double',
         inputSettings: {
           from: {
-            title: {text: fromTitle},
-            input: {
-              attr: {
-                type: "text",
-                placeholder: "ДД.ММ.ГГГГ",
-                value: fromValue,
-                readonly: "readonly"
-              },
-              length: "short",
-              type: "dropdown",
-            }
+            titleText: fromTitle,
+            attrs: {
+              value: fromValue,
+            },
+            length: "short",
           },
           to: {
-            title: {text: toTitle},
-            input: {
-              attr: {
-                type: "text",
-                placeholder: "ДД.ММ.ГГГГ",
-                value: toValue,
-                readonly: "readonly"
-              },
-              length: "short",
-              type: "dropdown",
-            }
+            titleText: toTitle,
+            attrs: {
+              value: toValue,
+            },
+            length: "short",
           }
         },
         isCalendarClosed: true
@@ -89,17 +77,8 @@ mixin final-booking(settings)
     div.final-booking__guests
       +dropdown({
         inputSettings: {
-          title: { text: guestsTitle },
-          input: {
-            attr: {
-              type: "text",
-              placeholder: "Text",
-              value: guestsInputValue,
-              readonly: "readonly",
-            },
-            length: "long",
-            type: "dropdown"
-          }
+          titleText: guestsTitle ,
+          length: "long"
         },
         isClosed: true,
         lists: guestsLists,
@@ -128,5 +107,5 @@ mixin final-booking(settings)
             span.final-booking__service-price=list.price
     div.final-booking__confirm-button
       +confirm-button({
-        text: confirmButtonText,
+        text: submitButtonText,
       })

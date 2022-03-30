@@ -12,17 +12,10 @@ mixin sidebar()
           inputType: 'total',
           inputSettings: {
             total: {
-              title: { text: "даты пребывания в отеле" },
-              input: {
-                attr: {
-                  type: "text",
-                  placeholder: "ДД.ММ.ГГГГ",
-                  value: "19 авг - 23 авг",
-                  readonly: "readonly"
-                },
-                length: "average",
-                type: "dropdown",
-              }
+              titleText: "даты пребывания в отеле" ,
+              attrs: {
+                value: "19 авг - 23 авг",
+              },
             }
           },
           isCalendarClosed: true,
@@ -31,17 +24,7 @@ mixin sidebar()
       div.sidebar__guests.js-sidebar__guests
         +dropdown({
           inputSettings: {
-            title: { text: "Гости" },
-            input: {
-              attr: {
-                type: "text",
-                placeholder: "Text",
-                value: "3 гостя, 1 младенец",
-                readonly: "readonly",
-              },
-              length: "average",
-              type: "dropdown",
-            }
+            titleText: "Гости",
           },
           isClosed: true,
           lists: [
@@ -94,17 +77,7 @@ mixin sidebar()
       div.sidebar__room-amenities.js-sidebar__room-amenities
         +dropdown({
           inputSettings: {
-            title: { text: "удобства номера" },
-            input: {
-              attr: {
-                type: "text",
-                placeholder: "Text",
-                value: "2 спальни, 2 кровати...",
-                readonly: "readonly"
-              },
-              length: "average",
-              type: "dropdown",
-            }
+            titleText: "удобства номера",
           },
           isClosed: true,
           lists: [

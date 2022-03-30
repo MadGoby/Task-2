@@ -1,10 +1,9 @@
 mixin dropdown(settings)
   - const {
   -   inputSettings = {
+  -     title: "",
   -     length: "average",
-  -     type: "regular",
-  -     attr: { placeholder: "For-change" },
-  -     state: "",
+  -     attrs: {},
   -   },
   -   isClosed = false,
   -   lists = [
@@ -22,7 +21,7 @@ mixin dropdown(settings)
   - }
   div.dropdown.js-dropdown
     div.dropdown__input.js-dropdown__input
-      +input(inputSettings)
+      +dropdown-input(inputSettings)
     div.dropdown__control.js-dropdown__control&attributes(attr)
       ul.dropdown__list
         each list in lists

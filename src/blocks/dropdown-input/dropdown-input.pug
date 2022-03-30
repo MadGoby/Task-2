@@ -1,0 +1,17 @@
+mixin dropdown-input(settings)
+  - const {
+  -   titleText = "",
+  -   titleState = "",
+  -   length = "",
+  -   attrs = {},
+  - } = settings
+  - const lengthClass = length ? `dropdown-input__field_length_${length}` : ""
+  div.dropdown-input
+    div.dropdown-input__title
+      if titleText
+        +title({
+          text: titleText,
+          state: titleState,
+        })
+    label.dropdown-input__wrapper
+      input(class=["dropdown-input__field", "js-dropdown-input__field", lengthClass, borderClass], readonly="readonly")&attributes(attrs)

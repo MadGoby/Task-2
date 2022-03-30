@@ -12,8 +12,8 @@ class Datepicker {
 
   initializes() {
     this.container = document.querySelector(`.${this.containerClass}`);
-    this.setDefaultParameters();
     this.getHtmlElements();
+    this.setDefaultParameters();
     const calendarDays = this.makesCalendarByDate({
       year: this.settings.pickedYear,
       month: this.settings.pickedMonth,
@@ -44,8 +44,12 @@ class Datepicker {
         new Date().getFullYear(), new Date().getMonth(), new Date().getDate(),
       );
     }
-    if (this.templates.dataFrom) this.settings.from = new Date(this.templates.dataFrom);
-    if (this.templates.dataTo) this.settings.to = new Date(this.templates.dataTo);
+    if (this.templates.dataFrom) {
+      this.settings.from = new Date(this.templates.dataFrom);
+    }
+    if (this.templates.dataTo) {
+      this.settings.to = new Date(this.templates.dataTo);
+    }
   }
 
   getHtmlElements() {
@@ -54,9 +58,9 @@ class Datepicker {
     const fromWrapper = this.datepickerWrapper.querySelector('.js-datepicker__from');
     const toWrapper = this.datepickerWrapper.querySelector('.js-datepicker__to');
     const totalWrapper = this.datepickerWrapper.querySelector('.js-datepicker__total');
-    if (fromWrapper) this.inputFrom = fromWrapper.querySelector('.js-input__field');
-    if (toWrapper) this.inputTo = toWrapper.querySelector('.js-input__field');
-    if (totalWrapper) this.inputTotal = totalWrapper.querySelector('.js-input__field');
+    if (fromWrapper) this.inputFrom = fromWrapper.querySelector('.js-dropdown-input__field');
+    if (toWrapper) this.inputTo = toWrapper.querySelector('.js-dropdown-input__field');
+    if (totalWrapper) this.inputTotal = totalWrapper.querySelector('.js-dropdown-input__field');
     this.buttonPrevious = this.datepickerWrapper.querySelector('.js-datepicker__scroll-button_arrow_back');
     this.buttonNext = this.datepickerWrapper.querySelector('.js-datepicker__scroll-button_arrow_forward');
     this.selectedMonth = this.datepickerWrapper.querySelector('.js-datepicker__selected-month');

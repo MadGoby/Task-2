@@ -16,6 +16,7 @@ include ../../blocks/stars-rating/stars-rating.pug
 include ../../blocks/radio-button/radio-button.pug
 include ../../blocks/text-button/text-button
 include ../../blocks/confirm-button/confirm-button
+include ../../blocks/dropdown-input/dropdown-input
   
 +page-head({title: "Cards", desc: "Cards from UI-Kit"})
   body.body
@@ -78,7 +79,7 @@ include ../../blocks/confirm-button/confirm-button
                   type: "total"
                 }
               ],
-              confirmButtonText: "забронировать"
+              submitButtonText: "забронировать"
             })
           div.cards__login
             +login({})

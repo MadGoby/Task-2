@@ -17,6 +17,7 @@ include ../../blocks/radio-button/radio-button
 include ../../blocks/checkbox-button/checkbox-button
 include ../../blocks/text-button/text-button
 include ../../blocks/confirm-button/confirm-button
+include ../../blocks/dropdown-input/dropdown-input
 
 +page-head({title: "Form-Elements", description: "Form Elements from UI-Kit"})
   body.body
@@ -56,17 +57,12 @@ include ../../blocks/confirm-button/confirm-button
           div.form-elements__dropdown.js-form-elements__dropdown
             +dropdown({
               inputSettings: {
-                title: {text: "dropdown"},
-                input: {
-                  attr: {
-                    type: "text",
-                    placeholder: "Text",
-                    value: "Сколько гостей",
-                    readonly: "readonly"
-                  },
-                  length: "long",
-                  type: "dropdown",
-                }
+                titleText: "dropdown",
+                attrs: {
+                  placeholder: "Text",
+                  value: "Сколько гостей",
+                },
+                length: "long",
               },
               isClosed: true,
               lists: [
@@ -92,30 +88,18 @@ include ../../blocks/confirm-button/confirm-button
               inputType: 'double',
               inputSettings: {
                 from: {
-                  title: {text: "date Dropdown"},
-                  input: {
-                    attr: {
-                      type: "text",
-                      placeholder: "ДД.ММ.ГГГГ",
-                      value: "ДД.ММ.ГГГГ",
-                      readonly: "readonly"
-                    },
-                    length: "short",
-                    type: "dropdown",
-                  }
+                  titleText: "date Dropdown",
+                  length: "short",
+                  attrs: {
+                    value: "ДД.ММ.ГГГГ"
+                  },
                 },
                 to: {
-                  title: {text: "date Dropdown"},
-                  input: {
-                    attr: {
-                      type: "text",
-                      placeholder: "ДД.ММ.ГГГГ",
-                      value: "19.08.2019",
-                      readonly: "readonly"
-                    },
-                    length: "short",
-                    type: "dropdown",
-                  }
+                  titleText: "date Dropdown",
+                  length: "short",
+                  attrs: {
+                    value: "19.08.2019"
+                  },
                 }
               },
               isCalendarClosed: true,
@@ -125,17 +109,10 @@ include ../../blocks/confirm-button/confirm-button
               inputType: 'total',
               inputSettings: {
                 total: {
-                  title: {text: "filter date dropdown"},
-                  input: {
-                    attr: {
-                      type: "text",
-                      placeholder: "ДД.ММ.ГГГГ",
-                      value: "19 авг - 23 авг",
-                      readonly: "readonly"
-                    },
-                    length: "average",
-                    type: "dropdown",
-                  }
+                  titleText: "filter date dropdown",
+                  attrs: {
+                    value: "19 авг - 23 авг",
+                  },
                 }
               },
               isCalendarClosed: true,
@@ -280,17 +257,8 @@ include ../../blocks/confirm-button/confirm-button
             div.form-elements__closed-dropdown.js-form-elements__closed-dropdown
               +dropdown({
                 inputSettings: {
-                  title: {text: "dropdown", type: "with-state", state: "default"},
-                  input: {
-                    attr: {
-                      type: "text",
-                      placeholder: "Text",
-                      value: "2 спальни, 2 кровати...",
-                      readonly: "readonly"
-                    },
-                    length: "average",
-                    type: "dropdown",
-                  }
+                  titleText: "dropdown",
+                  titleState: "default",
                 },
                 isClosed: true,
                 lists: [
@@ -306,17 +274,8 @@ include ../../blocks/confirm-button/confirm-button
             div.form-elements__expanded-dropdown.js-form-elements__expanded-dropdown
               +dropdown({
                 inputSettings: {
-                  title: {text: "dropdown", type: "with-state", state: "expanded"},
-                  input: {
-                    attr: {
-                      type: "text",
-                      placeholder: "Text",
-                      value: "2 спальни, 2 кровати...",
-                      readonly: "readonly",
-                    },
-                    length: "average",
-                    type: "dropdown",
-                  }
+                  titleText: "dropdown",
+                  titleState: "expanded" ,
                 },
                 lists: [
                   {text: "спальни", dataTarget: "bedroom", output: "2"},
@@ -331,17 +290,8 @@ include ../../blocks/confirm-button/confirm-button
           div.form-elements__guests-dropdown.js-form-elements__guests-dropdown_counter_0
             +dropdown({
               inputSettings: {
-                title: {text: "dropdown"},
-                input: {
-                  attr: {
-                    type: "text",
-                    placeholder: "Text",
-                    value: "Сколько гостей",
-                    readonly: "readonly",
-                  },
-                  length: "long",
-                  type: "dropdown",
-                }
+                titleText: "dropdown",
+                length: "long",
               },
               lists: [
                 {text: "взрослые", dataTarget: "adult", output: "0"},
@@ -356,17 +306,8 @@ include ../../blocks/confirm-button/confirm-button
           div.form-elements__guests-dropdown.js-form-elements__guests-dropdown_counter_3
             +dropdown({
               inputSettings: {
-                title: {text: "dropdown"},
-                input: {
-                  attr: {
-                    type: "text",
-                    placeholder: "Text",
-                    value: "3 гостя",
-                    readonly: "readonly",
-                  },
-                  length: "long",
-                  type: "dropdown",
-                }
+                titleText: "dropdown",
+                length: "long",
               },
               lists: [
                 {text: "взрослые", dataTarget: "adult", output: "2"},

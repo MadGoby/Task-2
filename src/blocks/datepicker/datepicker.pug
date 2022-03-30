@@ -16,13 +16,13 @@ mixin datepicker(settings)
     if inputType === "total"
       div.datepicker__inputs
         div.datepicker__total.js-datepicker__total
-          +input(inputSettings.total)
+          +dropdown-input(inputSettings.total)
     else if inputType === "double"
       div.datepicker__inputs
         div.datepicker__from.js-datepicker__from
-          +input(inputSettings.from)
+          +dropdown-input(inputSettings.from)
         div.datepicker__to.js-datepicker__to
-          +input(inputSettings.to)
+          +dropdown-input(inputSettings.to)
     div(class=["datepicker__calendar-wrapper", calendarSizeClass])&attributes(attr)
       button(type="button").datepicker__scroll-button.datepicker__scroll-button_arrow_back.js-datepicker__scroll-button_arrow_back
       p(class=["datepicker__selected-month", "js-datepicker__selected-month", monthSizeClass])

@@ -1,10 +1,14 @@
 mixin title(settings)
   - const {
   -   text = "For change",
+  -   state = "",
   -   teg = "p",
   -   fontSize = "",
-  -   length = ""
+  -   length = "",
   - } = settings
-  - const fontSizeClass = fontSize ? `title_size_${fontSize}` : ""
-  - const lengthClass = length ? `title_length_${length}` : ""
-  #{teg}(class=["title", fontSizeClass, lengthClass])=text
+  - const fontSizeClass = fontSize ? `title__text_size_${fontSize}` : ""
+  - const lengthClass = length ? `title__text_length_${length}` : ""
+  div.title
+    if state
+      span.title__state=state
+    #{teg}(class=["title__text", fontSizeClass, lengthClass])=text

@@ -25,7 +25,7 @@ class Dropdown {
   getHtmlElements() {
     this.container = document.querySelector(`.${this.containerClass}`);
     this.dropdownWrapper = this.container.querySelector('.js-dropdown');
-    this.input = this.dropdownWrapper.querySelector('.js-input__field');
+    this.input = this.dropdownWrapper.querySelector('.js-dropdown-input__field');
     this.dropdown = this.dropdownWrapper.querySelector('.js-dropdown__control');
     this.plusButtons = [...this.dropdownWrapper.querySelectorAll('.dropdown__button')].filter(
       (button) => button.getAttribute('data-action') === 'plus',
@@ -39,7 +39,7 @@ class Dropdown {
   }
 
   addInputExpandedClass() {
-    if (!this.dropdown.hasAttribute('hidden')) this.input.classList.add('input__field_expanded');
+    if (!this.dropdown.hasAttribute('hidden')) this.input.classList.add('dropdown-input__field_expanded');
   }
 
   checkClearButtonVisibility() {
@@ -59,7 +59,7 @@ class Dropdown {
 
   controlDropdownDisplay() {
     this.dropdown.toggleAttribute('hidden');
-    this.input.classList.toggle('input__field_expanded');
+    this.input.classList.toggle('dropdown-input__field_expanded');
 
     if (this.dropdown.hasAttribute('hidden')) {
       this.removeDomEventListener();

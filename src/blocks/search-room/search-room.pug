@@ -18,30 +18,18 @@ mixin search-room(settings)
         inputType: 'double',
         inputSettings: {
           from: {
-            title: {text: "прибытие"},
-            input: {
-              attr: {
-                type: "text",
-                placeholder: "ДД.ММ.ГГГГ",
-                value: "ДД.ММ.ГГГГ",
-                readonly: "readonly"
-              },
-              length: "short",
-              type: "dropdown",
-            }
+            titleText: "прибытие",
+            attrs: {
+              value: "ДД.ММ.ГГГГ",
+            },
+            length: "short",
           },
           to: {
-            title: {text: "выезд"},
-            input: {
-              attr: {
-                type: "text",
-                placeholder: "ДД.ММ.ГГГГ",
-                value: "ДД.ММ.ГГГГ",
-                readonly: "readonly"
-              },
-              length: "short",
-              type: "dropdown",
-            }
+            titleText: "выезд",
+            attrs: {
+              value: "ДД.ММ.ГГГГ",
+            },
+            length: "short",
           }
         },
         isCalendarClosed: true,
@@ -49,17 +37,8 @@ mixin search-room(settings)
     div.search-room__guests
       +dropdown({
         inputSettings: {
-          title: {text: "гости"},
-          input: {
-            attr: {
-              type: "text",
-              placeholder: "Text",
-              value: "Сколько гостей",
-              readonly: "readonly",
-            },
-            length: "long",
-            type: "dropdown",
-          }
+          titleText: "гости",
+          length: "long",
         },
         isClosed: true,
         lists: dropdownList,
