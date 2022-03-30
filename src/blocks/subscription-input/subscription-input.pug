@@ -1,0 +1,9 @@
+mixin subscription-input(settings)
+  - const { titleText = "" } = settings
+  .subscription-input
+    if titleText
+      .subscription-input__title
+        +title({ text: titleText })
+    label.subscription-input__wrapper
+      input(type="email" placeholder="Email" required).subscription-input__field
+      button(type="confirm").subscription-input__submit-button

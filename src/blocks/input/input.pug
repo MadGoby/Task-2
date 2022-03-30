@@ -1,51 +1,18 @@
 mixin input(settings)
   - const {
-  -   title: {
-  -     text: titleText = "",
-  -     type: titleType = "",
-  -     state: titleState = ""
-  -   },
-  -   input: {
-  -     type: inputType = "regular",
-  -     length = "long",
-  -     isDarkBorder = false,
-  -     attr = {
-  -       placeholder: "For-change",
-  -       type: "text"
-  -     }
-  -   }
+  -   titleText = "",
+  -   titleState = "",
+  -   attrs = {},
+  -   isDarkBorder = false,
+  -   isDateMask = false,
   - } = settings
-  - const titleTypeClass = titleType ? `input__title-text_${titleType}` : ""
-  - const wrapperLengthClass = length ? `input__wrapper_length_${length}` : ""
-  - const lengthClass = length ? `input__field_length_${length}` : ""
-  - const isNeedWrapper = inputType === "dropdown" || inputType === "submit"
-  - const wrapperType = isNeedWrapper ? inputType : "regular"
-  - const wrapperTypeClass = isNeedWrapper ? `input__wrapper_type_${wrapperType}` : ""
-  - const inputTypeClass = inputType ? `input__field_type_${inputType}` : ""
   - const borderClass = isDarkBorder ? "input__field_border_dark" : ""
-  - const isNeedJs = inputType === 'date' || inputType === 'dropdown'
-  - const inputJsClass = isNeedJs ? 'js-input__field' : ''
+  - const inputJsClass = isDateMask ? 'js-input__field' : ''
   div.input
-    if titleState
+    if titleText
       div.input__title
-        div(class=["input__title-text", titleTypeClass])
-          +title({
-            text: titleText
-          })
-        p.input__state= titleState
-    else if titleText
-      div.input__title
-        div(class=["input__title-text", titleTypeClass])
-          +title({
-            text: titleText
-          })
-    case wrapperType
-      when "dropdown"
-        label(class=["input__wrapper", wrapperTypeClass, wrapperLengthClass])
-          input(class=["input__field", lengthClass, inputTypeClass, inputJsClass])&attributes(attr)
-      when "submit"
-        label(class=["input__wrapper", wrapperTypeClass, wrapperLengthClass])
-          input(class=["input__field", lengthClass, inputTypeClass, inputJsClass])&attributes(attr)
-          button(class="input__submit-button" type="submit")
-      default
-        input(class=["input__field", lengthClass, inputTypeClass, borderClass, inputJsClass])&attributes(attr)
+        +title({
+          text: titleText,
+          state: titleState,
+        })
+    input(class=["input__field", borderClass, inputJsClass] type="text")&attributes(attrs)

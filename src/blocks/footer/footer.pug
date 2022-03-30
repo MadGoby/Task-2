@@ -55,14 +55,4 @@ mixin footer(settings)
           p.footer__title= subscribeTitle
           p.footer__subscribe-text=subscribeText
           form(action=subscribeAction).footer__subscribe-form
-            +input({
-              title: {},
-              input: {
-                attr: {
-                  type: "email",
-                  placeholder: "Email"
-                },
-                length: "adaptive",
-                type: "submit"
-              }
-            })
+            +subscription-input({})

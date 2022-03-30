@@ -12,27 +12,11 @@ mixin registration(settings)
     div.registration__personal-data
       div.registration__name
         +input({
-          title: {},
-          input: {
-            attr: {
-              "type": "text",
-              "placeholder": "Имя"
-            },
-            length: "long",
-            type: "regular"
-          }
+          attrs: { placeholder: "Имя", },
         })
       div.registration__surname
         +input({
-          title: {},
-          input: {
-            attr: {
-              "type": "text",
-              "placeholder": "Фамилия"
-            },
-            length: "long",
-            type: "regular"
-          }
+          attrs: { placeholder: "Фамилия", },
         })
       div.registration__gender
         div.registration__male
@@ -50,42 +34,28 @@ mixin registration(settings)
           })
     div.registration__birthday
       +input({
-        title: { text: "дата рождения" },
-        input: {
-          attr: {
-            type: "text",
-            placeholder: "ДД.ММ.ГГГГ"
-          },
-          length: "long",
-          type: "date"
-        }
+        titleText: "дата рождения" ,
+        isDateMask: true,
+        attrs: { placeholder: "ДД.ММ.ГГГГ", },
       })
     div.registration__login-data
       div.registration__login-title
         +title({text: "данные для входа в сервис"})
       div.registration__email
         +input({
-          title: {},
-          input: {
-            attr: {
-              "type": "email",
-              "placeholder": "Email"
-            },
-            length: "long",
-            type: "regular"
-          }
+          attrs: {
+            placeholder: "Email",
+            type: "email",
+            required: "required",
+          },
         })
       div.registration__pass
         +input({
-          title: {},
-          input: {
-            attr: {
-              "type": "password",
-              "placeholder": "Пароль"
-            },
-            length: "long",
-            type: "regular"
-          }
+          attrs: {
+            placeholder: "Пароль",
+            type: "password",
+            required: "required",
+          },
         })
       +toggle({
         text: "Получать спецпредложения",

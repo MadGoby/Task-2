@@ -12,27 +12,19 @@ mixin login(settings)
     div.login__inputs
       div.login__email-input
         +input({
-          title: {},
-          input: {
-            attr: {
-              "type": "email",
-              "placeholder": "Email"
-            },
-            length: "long",
-            type: "regular"
-          }
+          attrs: {
+            placeholder: "Email",
+            type: "email",
+            required: "required",
+          },
         })
       div.login__password-input
         +input({
-          title: {},
-          input: {
-            attr: {
-              "type": "password",
-              "placeholder": "Пароль"
-            },
-            length: "long",
-            type: "regular"
-          }
+          attrs: {
+            placeholder: "Пароль",
+            type: "password",
+            required: "required",
+          },
         })
     div.login__confirm-button
       +confirm-button({

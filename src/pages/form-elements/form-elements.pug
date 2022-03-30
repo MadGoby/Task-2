@@ -18,6 +18,7 @@ include ../../blocks/checkbox-button/checkbox-button
 include ../../blocks/text-button/text-button
 include ../../blocks/confirm-button/confirm-button
 include ../../blocks/dropdown-input/dropdown-input
+include ../../blocks/subscription-input/subscription-input
 
 +page-head({title: "Form-Elements", description: "Form Elements from UI-Kit"})
   body.body
@@ -30,29 +31,19 @@ include ../../blocks/dropdown-input/dropdown-input
         div.form-elements__input-types
           div.form-elements__text-input
             +input({
-              title: { text: "text field", type: "with-state", state: "default" },
-              input: {
-                attr: {
-                  "type": "email",
-                  "placeholder": "Email"
-                },
-                length: "long",
-                type: "regular"
-              }
+              titleText: "text field",
+              titleState: "default",
+              attrs: { placeholder: "Email" },
             })
           div.form-elements__text-input
             +input({
-              title: { text: "text field", type: "with-state", state: "hover / focus" },
-              input: {
-                attr: {
-                  "type": "text",
-                  "placeholder": "Text",
-                  "value": "This is pretty awesome"
-                },
-                length: "long",
-                type: "regular",
-                isDarkBorder: true
-              }
+              titleText: "text field",
+              titleState: "hover / focus",
+              isDarkBorder: true,
+              attrs: {
+                placeholder: "Text",
+                value: "This is pretty awesome",
+              },
             })
           div.form-elements__dropdown.js-form-elements__dropdown
             +dropdown({
@@ -73,15 +64,9 @@ include ../../blocks/dropdown-input/dropdown-input
             })
           div.form-elements__masked-input.js-form-elements__masked-input
             +input({
-              title: { text: "masked text field" },
-              input: {
-                attr: {
-                  type: "text",
-                  placeholder: "ДД.ММ.ГГГГ"
-                },
-                length: "long",
-                type: "date"
-              }
+              titleText: "masked text field",
+              isDateMask: true,
+              attrs: { placeholder: "ДД.ММ.ГГГГ", },
             })
           div.form-elements__date-dropdowns.js-form-elements__date-dropdowns
             +datepicker({
@@ -120,16 +105,8 @@ include ../../blocks/dropdown-input/dropdown-input
             })
           div.form-elements__subscription-input
             form(action="./for-change").form-elements__subscription-form
-              +input({
-                title: { text: "subscription text field" },
-                input: {
-                  attr: {
-                    type: "email",
-                    placeholder: "Email"
-                  },
-                  length: "average",
-                  type: "submit"
-                }
+              +subscription-input({
+                titleText: "subscription text field",
               })
         div.form-elements__toggle-types
           div.form-elements__checkboxes
