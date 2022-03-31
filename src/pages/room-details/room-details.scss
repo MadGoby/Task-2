@@ -137,10 +137,27 @@
   }
 
   &__comments-title {
+    display: inline-block;
+    width: 70%;
     margin-bottom: 20px;
 
-    @media screen and (max-width: 380px) {
-      padding: 0 5px;
+    @media screen and (max-width: 460px) {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
+
+  &__comments-counter {
+    line-height: 24px;
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    text-align: right;
+
+    @media screen and (max-width: 460px) {
+      float: right;
+      padding-right: 20px;
     }
   }
 

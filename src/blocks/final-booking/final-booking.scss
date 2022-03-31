@@ -47,7 +47,7 @@
       }
     }
 
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       width: 180px;
     }
   }
@@ -81,7 +81,7 @@
       }
     }
 
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       width: 86%;
     }
   }
@@ -92,7 +92,7 @@
     vertical-align: top;
     text-align: right;
 
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       width: 85px;
     }
 
@@ -112,12 +112,12 @@
           margin: 0 4px;
           width: 67%;
 
-          @media screen and (max-width: 380px) {
+          @media screen and (max-width: 420px) {
             width: 58%;
           }
         }
 
-        @media screen and (max-width: 380px) {
+        @media screen and (max-width: 420px) {
           width: 77%;
         }
       }
@@ -139,7 +139,7 @@
   &__to {
     float: right;
 
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       float: none;
       margin-top: 10px;
     }

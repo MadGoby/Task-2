@@ -25,7 +25,7 @@
       &_long {
         width: 320px;
 
-        @media screen and (max-width: 380px) {
+        @media screen and (max-width: 420px) {
           width: 266px;
         }
       }
@@ -35,7 +35,7 @@
         display: inline-block;
         padding: 10px 14px 13px;
 
-        @media screen and (max-width: 380px) {
+        @media screen and (max-width: 420px) {
           width: 266px;
         }
       }

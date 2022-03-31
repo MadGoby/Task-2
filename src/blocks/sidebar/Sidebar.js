@@ -39,14 +39,14 @@ class Sidebar {
   }
 
   changeDisplayOnresize(userWidth) {
-    const isLessThanLimit = userWidth > 697;
+    const isLessThanLimit = userWidth > 700;
     const notDisplayed = this.sidebar.style.display === 'none';
     const checkNeedDisplay = () => isLessThanLimit && notDisplayed;
 
     if (checkNeedDisplay()) {
       this.sidebar.style.display = 'inline-block';
       this.removeExpandedClass();
-    } else if (userWidth < 697) {
+    } else if (userWidth < 701) {
       this.sidebar.style.display = 'none';
     }
   }

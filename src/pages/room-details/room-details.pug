@@ -144,13 +144,13 @@ include ../../blocks/subscription-input/subscription-input
                   ]
                 })
               div.room-details__comments
-                div.room-details__comments-title
-                  +title({
-                    text: "Отзывы посетителей номера",
-                    fontSize: "regular",
-                    length: "half",
-                    teg: "h2"
-                  })
+                div.room-details__comments-title-wrapper
+                  span.room-details__comments-title
+                    +title({
+                      text: "Отзывы посетителей номера",
+                      fontSize: "regular",
+                      teg: "h2"
+                    })
                   span.room-details__comments-counter="2 отзыва"
                 div.room-details__comment.room-details__comment_number_1.js-room-details__comment_number_1
                   +user-comment({

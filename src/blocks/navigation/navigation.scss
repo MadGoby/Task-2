@@ -20,7 +20,9 @@
         color: $color-main-dark;
       }
     }
+  }
 
+  &__link {
     @media screen and (max-width: 650px) {
       &:not(:last-child) {
         margin-right: 0;
@@ -62,7 +64,8 @@
   }
 
   &__expanded-link {
-    display: block;
+    width: 100%;
+    display: inline-block;
     text-align: center;
   }
 
