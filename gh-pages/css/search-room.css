@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100%; }
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 700px) {
     .search-room-page__sidebar-wrapper {
       text-align: center;
       margin-bottom: 20px; } }
@@ -32,10 +32,10 @@
     @media screen and (max-width: 900px) {
       .search-room-page__rooms {
         padding-left: 300px; } }
-    @media screen and (max-width: 680px) {
+    @media screen and (max-width: 700px) {
       .search-room-page__rooms {
         padding-left: 0; } }
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 700px) {
     .search-room-page__rooms-wrapper {
       text-align: center; } }
   .search-room-page__rooms-title {

@@ -342,7 +342,7 @@ body {
   width: 320px; }
   .datepicker__from, .datepicker__to {
     display: inline-block; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .datepicker__from, .datepicker__to {
         display: block; } }
   .datepicker__from {
@@ -350,7 +350,7 @@ body {
   .datepicker__to {
     display: inline-block;
     float: right; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .datepicker__to {
         float: none;
         margin-top: 10px; } }
@@ -368,7 +368,7 @@ body {
     .datepicker__calendar-wrapper_size_small {
       width: 266px;
       padding: 9px 10px 10px 9px; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .datepicker__calendar-wrapper {
         width: 266px;
         padding: 9px 10px 10px 9px; } }
@@ -399,7 +399,7 @@ body {
     color: #1f2041; }
     .datepicker__selected-month_size_small {
       min-width: 196px; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .datepicker__selected-month {
         min-width: 196px; } }
   .datepicker__calendar {
@@ -469,7 +469,7 @@ body {
       right: 0;
       top: 0;
       bottom: 0; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .datepicker__calendar-cell {
         width: 34px;
         height: 34px;
@@ -486,7 +486,7 @@ body {
     width: 266px; }
   .datepicker_without-margin {
     margin-top: 0; }
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 420px) {
     .datepicker {
       width: 266px; } }
 
@@ -512,14 +512,14 @@ body {
     padding: 11px 44px 12px 14px; }
     .dropdown-input__field_length_long {
       width: 320px; }
-      @media screen and (max-width: 380px) {
+      @media screen and (max-width: 420px) {
         .dropdown-input__field_length_long {
           width: 266px; } }
     .dropdown-input__field_length_short {
       width: 150px;
       display: inline-block;
       padding: 10px 14px 13px; }
-      @media screen and (max-width: 380px) {
+      @media screen and (max-width: 420px) {
         .dropdown-input__field_length_short {
           width: 266px; } }
     .dropdown-input__field_expanded {
@@ -639,7 +639,7 @@ body {
     .final-booking__service-wrapper_text_bold {
       display: inline-block;
       max-width: 60px; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .final-booking__service-wrapper {
         width: 180px; } }
   .final-booking__service-sign {
@@ -664,7 +664,7 @@ body {
       font-size: 19px;
       color: #1f2041;
       width: 18%; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .final-booking__service-title {
         width: 86%; } }
   .final-booking__service-price {
@@ -672,7 +672,7 @@ body {
     width: 80px;
     vertical-align: top;
     text-align: right; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .final-booking__service-price {
         width: 85px; } }
     .final-booking__service-price_text_bold {
@@ -688,10 +688,10 @@ body {
         border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
         margin: 0 4px;
         width: 67%; }
-        @media screen and (max-width: 380px) {
+        @media screen and (max-width: 420px) {
           .final-booking__service-price_text_bold::before {
             width: 58%; } }
-      @media screen and (max-width: 380px) {
+      @media screen and (max-width: 420px) {
         .final-booking__service-price_text_bold {
           width: 77%; } }
   .final-booking__service-list {
@@ -707,7 +707,7 @@ body {
     display: inline-block; }
   .final-booking__to {
     float: right; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .final-booking__to {
         float: none;
         margin-top: 10px; } }
@@ -1210,11 +1210,11 @@ body {
     .navigation__link_text_bold, .navigation__expanded-link_text_bold {
       font-weight: 700;
       color: rgba(31, 32, 65, 0.75); }
-    @media screen and (max-width: 650px) {
-      .navigation__link, .navigation__expanded-link {
-        margin: 0 0 0 20px; }
-        .navigation__link:not(:last-child), .navigation__expanded-link:not(:last-child) {
-          margin-right: 0; } }
+  @media screen and (max-width: 650px) {
+    .navigation__link {
+      margin: 0 0 0 20px; }
+      .navigation__link:not(:last-child) {
+        margin-right: 0; } }
   .navigation__expandable-title {
     cursor: pointer;
     display: block;
@@ -1239,7 +1239,8 @@ body {
     border-radius: 4px;
     z-index: 2; }
   .navigation__expanded-link {
-    display: block;
+    width: 100%;
+    display: inline-block;
     text-align: center; }
   .navigation__link-wrapper {
     display: inline-block;
@@ -1336,7 +1337,7 @@ body {
     display: inline-block;
     margin: 0;
     padding-left: 1px; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       .registration__text {
         max-width: 140px;
         line-height: 22px; } }
@@ -1547,7 +1548,7 @@ body {
         cursor: pointer; }
     .sidebar__title_expanded::after {
       transform: rotate(180deg); }
-    @media screen and (max-width: 680px) {
+    @media screen and (max-width: 700px) {
       .sidebar__title {
         display: block;
         text-align: left;
@@ -1568,7 +1569,7 @@ body {
     margin-bottom: 17px; }
   .sidebar__room-amenities {
     margin-bottom: 29px; }
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 700px) {
     .sidebar {
       float: none;
       display: inline-block; } }

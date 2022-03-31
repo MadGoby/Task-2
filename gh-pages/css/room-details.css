@@ -100,10 +100,24 @@
     margin-top: 13px;
     text-align: initial; }
   .room-details__comments-title {
+    display: inline-block;
+    width: 70%;
     margin-bottom: 20px; }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 460px) {
       .room-details__comments-title {
-        padding: 0 5px; } }
+        width: 100%;
+        display: block;
+        text-align: center; } }
+  .room-details__comments-counter {
+    line-height: 24px;
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    text-align: right; }
+    @media screen and (max-width: 460px) {
+      .room-details__comments-counter {
+        float: right;
+        padding-right: 20px; } }
   .room-details__comment:not(:last-of-type) {
     margin-bottom: 23px; }
   @media screen and (max-width: 380px) {
