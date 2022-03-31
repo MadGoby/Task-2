@@ -5,7 +5,7 @@
   padding: 20px 0 16px;
 
   &__description {
-    @include text_type($mont, 14px, 400, 24px, $dark75);
+    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
     margin: 0;
   }
 
@@ -17,7 +17,7 @@
   }
 
   &__text-wrapper {
-    @include text_type($mont, 14px, 700, 24px, $dark75);
+    @include text_type($main-font, 14px, 700, 24px, $color-main-dark);
     display: inline-block;
     vertical-align: top;
   }
@@ -28,6 +28,6 @@
   }
 
   &_with-border {
-    border-bottom: 1px solid $dark10;
+    border-bottom: 1px solid $color-secondary-light;
   }
 }

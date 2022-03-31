@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .checkbox-button {
-  @include text_type($mont, 14px, 400, 20px, $dark50);
+  @include text_type($main-font, 14px, 400, 20px, $color-main-light);
   display: block;
   min-height: 20px;
 
@@ -13,7 +13,7 @@
     border-radius: 4px;
     display: inline-block;
     cursor: pointer;
-    border: 1px solid $dark25;
+    border: 1px solid $color-main-lighter;
     vertical-align: top;
   }
 
@@ -24,7 +24,7 @@
 
   &__title {
     font-weight: 700;
-    color: $dark75;
+    color: $color-main-dark;
     display: block;
   }
 
@@ -46,17 +46,17 @@
     font-size: 12px;
     line-height: 14px;
     padding: 5px 0 0 0;
-    color: $dark50;
+    color: $color-main-light;
   }
 
   &__controller:checked + &__border {
     content: url('../../img/check-arrow.jpg');
     padding: 3px 4px 5px;
-    border-color: $purple;
+    border-color: $main-interactive-color;
   }
 
   &:hover &__border {
-    box-shadow: 0 0 4px 1px $purple;
+    box-shadow: 0 0 4px 1px $main-interactive-color;
   }
 
   &:not(:last-of-type) {

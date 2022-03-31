@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .toggle {
-  @include text_type($mont, 14px, 400, 20px, $dark75);
+  @include text_type($main-font, 14px, 400, 20px, $color-main-dark);
   display: block;
 
   &__border {
@@ -11,7 +11,7 @@
     border-radius: 10px;
     display: inline-block;
     cursor: pointer;
-    border: 1px solid $dark25;
+    border: 1px solid $color-main-lighter;
     padding: 3px;
     vertical-align: top;
 
@@ -20,13 +20,13 @@
       display: block;
       width: 12px;
       height: 12px;
-      background: $dark25;
+      background: $color-main-lighter;
       border-radius: 50%;
     }
   }
 
   &:hover &__border {
-    box-shadow: 0 0 4px 1px $purple;
+    box-shadow: 0 0 4px 1px $main-interactive-color;
   }
 
   &__text-wrapper {
@@ -42,11 +42,11 @@
   }
 
   &__controller:checked + .toggle__border {
-    border-color: $purple;
+    border-color: $main-interactive-color;
 
     &::before {
       float: right;
-      background: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
+      background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
     }
   }
 

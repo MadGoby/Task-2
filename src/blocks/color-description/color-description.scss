@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .color-description {
-  @include text_type($mont, 19px, 400, 28px, $dark100);
+  @include text_type($main-font, 19px, 400, 28px, $color-main-darker);
   max-height: 70px;
 
   &__sample {
@@ -13,31 +13,31 @@
 
     &_color {
       &_dark-100 {
-        background-color: $dark100;
+        background-color: $color-main-darker;
       }
 
       &_dark-75 {
-        background-color: $dark75;
+        background-color: $color-main-dark;
       }
 
       &_dark-50 {
-        background-color: $dark50;
+        background-color: $color-main-light;
       }
 
       &_dark-25 {
-        background-color: $dark25;
+        background-color: $color-main-lighter;
       }
 
       &_dark-5 {
-        background-color: $dark5;
+        background-color: $color-secondary-light;
       }
 
       &_purple {
-        background-color: $purple;
+        background-color: $main-interactive-color;
       }
 
       &_green {
-        background-color: $green;
+        background-color: $secondary-interactive-color;
       }
     }
   }

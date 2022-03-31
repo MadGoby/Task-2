@@ -5,12 +5,12 @@
   &__body {
     height: 6px;
     border-radius: 3px;
-    border: 1px solid $dark25;
+    border: 1px solid $color-main-lighter;
   }
 
   &__description {
     margin: 14px 0 0;
-    @include text_type($mont, 12px, 400, 14px, $dark50);
+    @include text_type($main-font, 12px, 400, 14px, $color-main-light);
   }
 
   &__output {
@@ -18,7 +18,7 @@
     line-height: 15px;
     width: 50%;
     font-weight: 400;
-    color: $dark50;
+    color: $color-main-light;
     text-align: right;
     font-size: 13px;
     letter-spacing: -0.5px;
@@ -27,7 +27,7 @@
   &__title {
     line-height: 15px;
     margin: 0 0 21px;
-    @include text_type($mont, 14px, 400, 20px, $dark75);
+    @include text_type($main-font, 14px, 400, 20px, $color-main-dark);
   }
 
   &__title-text {
@@ -44,12 +44,12 @@
   height: 12px;
   border-radius: 50%;
   border: 2px solid white;
-  background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+  background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
 }
 
 .ui-slider .ui-slider-range {
   box-sizing: initial;
   height: 6px;
   top: -1px;
-  background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+  background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
 }

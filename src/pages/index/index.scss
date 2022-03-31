@@ -2,7 +2,7 @@
 @import '../../common/mixins.scss';
 
 .body {
-  background-color: $dark50;
+  background-color: $color-main-light;
 }
 
 .gh-pages {
@@ -20,7 +20,7 @@
   }
 
   &__title {
-    @include text_type($mont, 30px, 700, 32px, $dark100);
+    @include text_type($main-font, 30px, 700, 32px, $color-main-darker);
     text-align: center;
     cursor: default;
     user-select: none;
@@ -33,19 +33,19 @@
         width: 70%;
         margin: 0 auto 10px;
         padding-bottom: 10px;
-        border-bottom: 2px dotted $dark25;
+        border-bottom: 2px dotted $color-main-lighter;
       }
     }
   }
 
   &__link {
-    @include text_type($mont, 16px, 700, 24px, $purple);
+    @include text_type($main-font, 16px, 700, 24px, $main-interactive-color);
     text-align: center;
     text-decoration-line: none;
     user-select: none;
 
     &:hover {
-      color: $dark75;
+      color: $color-main-dark;
     }
   }
 
@@ -60,7 +60,7 @@
     margin: auto;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $dark25;
+      border-bottom: 1px solid $color-main-lighter;
       margin-bottom: 10px;
       padding-bottom: 10px;
     }

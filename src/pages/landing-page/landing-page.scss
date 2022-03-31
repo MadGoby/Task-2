@@ -42,7 +42,7 @@
   }
 
   &__main-text {
-    @include text_type($mont, 14px, 400, 24px, $dark75);
+    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
     text-align: right;
     position: absolute;
     bottom: 7px;

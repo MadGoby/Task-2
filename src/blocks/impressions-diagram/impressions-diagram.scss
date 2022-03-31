@@ -3,7 +3,7 @@
 
 .impressions-diagram {
   &__description {
-    @include text_type($mont, 14px, 400, 24px, $dark75);
+    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
     display: inline-block;
     margin: 27px 0 0 30px;
     padding: 0;
@@ -32,11 +32,11 @@
       }
 
       &_green::before {
-        background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+        background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
       }
 
       &_purple:before {
-        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+        background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
       }
 
       &_black::before {

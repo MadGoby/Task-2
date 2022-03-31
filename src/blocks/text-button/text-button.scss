@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .text-button {
-  @include text_type($mont, 12px, 700, 15px, $purple);
+  @include text_type($main-font, 12px, 700, 15px, $main-interactive-color);
   background: none;
   display: inline-block;
   text-transform: uppercase;
@@ -14,11 +14,11 @@
 
   &_color {
     &_dark {
-      color: $dark50;
+      color: $color-main-light;
     }
   }
 
   &:hover {
-    color: $dark50;
+    color: $color-main-light;
   }
 }

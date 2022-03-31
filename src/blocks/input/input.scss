@@ -11,14 +11,14 @@
     width: 100%;
     max-width: 320px;
     height: 44px;
-    border: 1px solid $dark25;
+    border: 1px solid $color-main-lighter;
     border-radius: 4px;
     padding: 11px 14px 12px;
     outline: none;
-    @include text_type($mont, 14px, 400, 18px, $dark75);
+    @include text_type($main-font, 14px, 400, 18px, $color-main-dark);
 
     &::placeholder {
-      color: $dark25;
+      color: $color-main-lighter;
     }
 
     @media screen and (max-width: 380px) {
@@ -27,14 +27,14 @@
 
     &_border {
       &_dark {
-        border: 1px solid $dark50;
-        color: $dark75;
+        border: 1px solid $color-main-light;
+        color: $color-main-dark;
       }
     }
 
     &:hover,
     &:focus {
-      border-color: $dark50;
+      border-color: $color-main-light;
     }
   }
 }

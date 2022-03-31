@@ -3,7 +3,7 @@
 
 .title {
   &__text {
-    @include text_type($mont, 12px, 700, 15px, $dark100);
+    @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
     display: inline-block;
     text-transform: uppercase;
     margin: 0;
@@ -33,7 +33,7 @@
   }
 
   &__state {
-    @include text_type($mont, 12px, 400, 15px, $dark50);
+    @include text_type($main-font, 12px, 400, 15px, $color-main-light);
     display: inline-block;
     width: 40%;
     text-align: right;

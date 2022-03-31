@@ -124,7 +124,7 @@
   }
 
   &__comments-counter {
-    @include text_type($mont, 14px, 400, 19px, $dark50);
+    @include text_type($main-font, 14px, 400, 19px, $color-main-light);
     display: inline-block;
     vertical-align: bottom;
     text-align: right;
@@ -156,7 +156,7 @@
 
   &__footer {
     flex: 0 0 auto;
-    border-top: 1px solid $dark25;
+    border-top: 1px solid $color-main-lighter;
   }
 }
 
@@ -187,6 +187,6 @@
 
   &__text {
     margin: 0;
-    @include text_type($mont, 14px, 400, 24px, $dark75);
+    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
   }
 }

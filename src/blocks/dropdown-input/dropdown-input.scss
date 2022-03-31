@@ -9,10 +9,10 @@
   }
 
   &__field {
-    @include text_type($mont, 14px, 400, 18px, $dark75);
+    @include text_type($main-font, 14px, 400, 18px, $color-main-dark);
     width: 266px;
     height: 44px;
-    border: 1px solid $dark25;
+    border: 1px solid $color-main-lighter;
     border-radius: 4px;
     outline: none;
     cursor: pointer;
@@ -40,11 +40,11 @@
     &_expanded {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      border: 1px solid $dark50;
+      border: 1px solid $color-main-light;
     }
 
     &:hover {
-      border-color: $dark50;
+      border-color: $color-main-light;
     }
   }
 

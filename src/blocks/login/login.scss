@@ -30,7 +30,7 @@
   }
 
   &__text {
-    @include text_type($mont, 14px, 400, 42px, #000000);
+    @include text_type($main-font, 14px, 400, 42px, #000000);
     display: inline-block;
     margin: 0;
 

@@ -2,13 +2,13 @@
 @import '../../common/variables';
 
 .like-button {
-  @include text_type($mont, 10px, 400, 18px, $dark25);
+  @include text_type($main-font, 10px, 400, 18px, $color-main-lighter);
   display: block;
   min-height: 20px;
 
   &__border {
     min-height: 20px;
-    border: 1px solid $dark25;
+    border: 1px solid $color-main-lighter;
     min-width: 40px;
     border-radius: 10px;
     padding: 0 5px 0 16px;
@@ -42,11 +42,11 @@
   }
 
   &:hover &__border {
-    box-shadow: 0 0 4px 1px $purple;
+    box-shadow: 0 0 4px 1px $main-interactive-color;
   }
 
   &__controller:checked + &__border {
-    border-color: $purple;
+    border-color: $main-interactive-color;
 
     &::before {
       background-image: url('../../img/favorite.svg');
@@ -54,6 +54,6 @@
   }
 
   &__controller:checked + &__border &__counter {
-    color: $purple;
+    color: $main-interactive-color;
   }
 }

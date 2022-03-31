@@ -2,9 +2,9 @@
 @import '../../common/variables';
 
 .copyright {
-  @include text_type($mont, 14px, 400, 18px, $dark75);
+  @include text_type($main-font, 14px, 400, 18px, $color-main-dark);
   background: #ffffff;
-  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+  box-shadow: 0 10px 20px $color-secondary-light;
   padding: 24px 140px 24px 139px;
   margin-top: 1px;
   min-height: 70px;

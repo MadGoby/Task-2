@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .dropdown {
-  @include text_type($mont, 12px, 700, 15px, $dark100);
+  @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
   text-transform: uppercase;
   display: inline-block;
   position: relative;
@@ -12,10 +12,10 @@
     min-height: 30px;
     border-radius: 50%;
     background: none;
-    border: 1px solid $dark25;
+    border: 1px solid $color-main-lighter;
     padding: 0;
     font-size: 18px;
-    color: $dark50;
+    color: $color-main-light;
     outline: none;
     cursor: pointer;
 
@@ -24,7 +24,7 @@
     }
 
     &:hover {
-      border: 1px solid $dark50;
+      border: 1px solid $color-main-light;
     }
   }
 
@@ -34,7 +34,7 @@
   }
 
   &__control {
-    border: 1px solid $dark50;
+    border: 1px solid $color-main-light;
     border-top: none;
     padding: 7px 7px 12px 15px;
     border-bottom-left-radius: 4px;

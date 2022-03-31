@@ -2,7 +2,7 @@
 
 .room-card {
   background: white;
-  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+  box-shadow: 0 10px 20px $color-secondary-light;
   width: 270px;
   border-radius: 4px;
 
@@ -112,7 +112,7 @@
   }
 
   &__rating {
-    border-top: 1px solid rgba(31, 32, 65, 0.1);
+    border-top: 1px solid $color-secondary-light;
     padding: 10px 2px 0;
   }
 
