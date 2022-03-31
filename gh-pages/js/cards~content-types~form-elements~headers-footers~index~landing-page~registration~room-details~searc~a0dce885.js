@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var map = {\n\t\"./button/button.scss\": \"./blocks/button/button.scss\",\n\t\"./color-description/color-description.scss\": \"./blocks/color-description/color-description.scss\",\n\t\"./content-navigation/content-navigation.scss\": \"./blocks/content-navigation/content-navigation.scss\",\n\t\"./copyright/copyright.scss\": \"./blocks/copyright/copyright.scss\",\n\t\"./datepicker/datepicker.scss\": \"./blocks/datepicker/datepicker.scss\",\n\t\"./dropdown/dropdown.scss\": \"./blocks/dropdown/dropdown.scss\",\n\t\"./final-booking/final-booking.scss\": \"./blocks/final-booking/final-booking.scss\",\n\t\"./footer/footer.scss\": \"./blocks/footer/footer.scss\",\n\t\"./header/header.scss\": \"./blocks/header/header.scss\",\n\t\"./impressions-diagram/impressions-diagram.scss\": \"./blocks/impressions-diagram/impressions-diagram.scss\",\n\t\"./input/input.scss\": \"./blocks/input/input.scss\",\n\t\"./list/list.scss\": \"./blocks/list/list.scss\",\n\t\"./login/login.scss\": \"./blocks/login/login.scss\",\n\t\"./logo/logo.scss\": \"./blocks/logo/logo.scss\",\n\t\"./navigation/navigation.scss\": \"./blocks/navigation/navigation.scss\",\n\t\"./positive-feature/positive-feature.scss\": \"./blocks/positive-feature/positive-feature.scss\",\n\t\"./registration/registration.scss\": \"./blocks/registration/registration.scss\",\n\t\"./reviews-counter/reviews-counter.scss\": \"./blocks/reviews-counter/reviews-counter.scss\",\n\t\"./room-card/room-card.scss\": \"./blocks/room-card/room-card.scss\",\n\t\"./room-information/room-information.scss\": \"./blocks/room-information/room-information.scss\",\n\t\"./search-room/search-room.scss\": \"./blocks/search-room/search-room.scss\",\n\t\"./sidebar/sidebar.scss\": \"./blocks/sidebar/sidebar.scss\",\n\t\"./slider/slider.scss\": \"./blocks/slider/slider.scss\",\n\t\"./social-media-link/social-media-link.scss\": \"./blocks/social-media-link/social-media-link.scss\",\n\t\"./stars-rating/stars-rating.scss\": \"./blocks/stars-rating/stars-rating.scss\",\n\t\"./text-sample/text-sample.scss\": \"./blocks/text-sample/text-sample.scss\",\n\t\"./title/title.scss\": \"./blocks/title/title.scss\",\n\t\"./toggle/toggle.scss\": \"./blocks/toggle/toggle.scss\",\n\t\"./user-comment/user-comment.scss\": \"./blocks/user-comment/user-comment.scss\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./blocks sync recursive .scss$\";\n\n//# sourceURL=webpack:///./blocks_sync_.scss$?");
+eval("var map = {\n\t\"./button/button.scss\": \"./blocks/button/button.scss\",\n\t\"./checkbox-button/checkbox-button.scss\": \"./blocks/checkbox-button/checkbox-button.scss\",\n\t\"./color-description/color-description.scss\": \"./blocks/color-description/color-description.scss\",\n\t\"./confirm-button/confirm-button.scss\": \"./blocks/confirm-button/confirm-button.scss\",\n\t\"./content-navigation/content-navigation.scss\": \"./blocks/content-navigation/content-navigation.scss\",\n\t\"./copyright/copyright.scss\": \"./blocks/copyright/copyright.scss\",\n\t\"./datepicker/datepicker.scss\": \"./blocks/datepicker/datepicker.scss\",\n\t\"./dropdown-input/dropdown-input.scss\": \"./blocks/dropdown-input/dropdown-input.scss\",\n\t\"./dropdown/dropdown.scss\": \"./blocks/dropdown/dropdown.scss\",\n\t\"./final-booking/final-booking.scss\": \"./blocks/final-booking/final-booking.scss\",\n\t\"./footer/footer.scss\": \"./blocks/footer/footer.scss\",\n\t\"./header/header.scss\": \"./blocks/header/header.scss\",\n\t\"./impressions-diagram/impressions-diagram.scss\": \"./blocks/impressions-diagram/impressions-diagram.scss\",\n\t\"./input/input.scss\": \"./blocks/input/input.scss\",\n\t\"./like-button/like-button.scss\": \"./blocks/like-button/like-button.scss\",\n\t\"./list/list.scss\": \"./blocks/list/list.scss\",\n\t\"./login/login.scss\": \"./blocks/login/login.scss\",\n\t\"./logo/logo.scss\": \"./blocks/logo/logo.scss\",\n\t\"./navigation/navigation.scss\": \"./blocks/navigation/navigation.scss\",\n\t\"./positive-feature/positive-feature.scss\": \"./blocks/positive-feature/positive-feature.scss\",\n\t\"./radio-button/radio-button.scss\": \"./blocks/radio-button/radio-button.scss\",\n\t\"./registration/registration.scss\": \"./blocks/registration/registration.scss\",\n\t\"./reviews-counter/reviews-counter.scss\": \"./blocks/reviews-counter/reviews-counter.scss\",\n\t\"./room-card/room-card.scss\": \"./blocks/room-card/room-card.scss\",\n\t\"./room-information/room-information.scss\": \"./blocks/room-information/room-information.scss\",\n\t\"./search-room/search-room.scss\": \"./blocks/search-room/search-room.scss\",\n\t\"./sidebar/sidebar.scss\": \"./blocks/sidebar/sidebar.scss\",\n\t\"./slider/slider.scss\": \"./blocks/slider/slider.scss\",\n\t\"./social-media-link/social-media-link.scss\": \"./blocks/social-media-link/social-media-link.scss\",\n\t\"./stars-rating/stars-rating.scss\": \"./blocks/stars-rating/stars-rating.scss\",\n\t\"./subscription-input/subscription-input.scss\": \"./blocks/subscription-input/subscription-input.scss\",\n\t\"./text-button/text-button.scss\": \"./blocks/text-button/text-button.scss\",\n\t\"./text-sample/text-sample.scss\": \"./blocks/text-sample/text-sample.scss\",\n\t\"./title/title.scss\": \"./blocks/title/title.scss\",\n\t\"./toggle/toggle.scss\": \"./blocks/toggle/toggle.scss\",\n\t\"./user-comment/user-comment.scss\": \"./blocks/user-comment/user-comment.scss\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./blocks sync recursive .scss$\";\n\n//# sourceURL=webpack:///./blocks_sync_.scss$?");
 
 /***/ }),
 
@@ -22,6 +22,17 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./bloc
 
 /***/ }),
 
+/***/ "./blocks/checkbox-button/checkbox-button.scss":
+/*!*****************************************************!*\
+  !*** ./blocks/checkbox-button/checkbox-button.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/checkbox-button/checkbox-button.scss?");
+
+/***/ }),
+
 /***/ "./blocks/color-description/color-description.scss":
 /*!*********************************************************!*\
   !*** ./blocks/color-description/color-description.scss ***!
@@ -30,6 +41,17 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./bloc
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/color-description/color-description.scss?");
+
+/***/ }),
+
+/***/ "./blocks/confirm-button/confirm-button.scss":
+/*!***************************************************!*\
+  !*** ./blocks/confirm-button/confirm-button.scss ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/confirm-button/confirm-button.scss?");
 
 /***/ }),
 
@@ -63,6 +85,17 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./bloc
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/datepicker/datepicker.scss?");
+
+/***/ }),
+
+/***/ "./blocks/dropdown-input/dropdown-input.scss":
+/*!***************************************************!*\
+  !*** ./blocks/dropdown-input/dropdown-input.scss ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/dropdown-input/dropdown-input.scss?");
 
 /***/ }),
 
@@ -132,6 +165,17 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./bloc
 
 /***/ }),
 
+/***/ "./blocks/like-button/like-button.scss":
+/*!*********************************************!*\
+  !*** ./blocks/like-button/like-button.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/like-button/like-button.scss?");
+
+/***/ }),
+
 /***/ "./blocks/list/list.scss":
 /*!*******************************!*\
   !*** ./blocks/list/list.scss ***!
@@ -184,6 +228,17 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./bloc
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/positive-feature/positive-feature.scss?");
+
+/***/ }),
+
+/***/ "./blocks/radio-button/radio-button.scss":
+/*!***********************************************!*\
+  !*** ./blocks/radio-button/radio-button.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/radio-button/radio-button.scss?");
 
 /***/ }),
 
@@ -283,6 +338,28 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./bloc
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/stars-rating/stars-rating.scss?");
+
+/***/ }),
+
+/***/ "./blocks/subscription-input/subscription-input.scss":
+/*!***********************************************************!*\
+  !*** ./blocks/subscription-input/subscription-input.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/subscription-input/subscription-input.scss?");
+
+/***/ }),
+
+/***/ "./blocks/text-button/text-button.scss":
+/*!*********************************************!*\
+  !*** ./blocks/text-button/text-button.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./blocks/text-button/text-button.scss?");
 
 /***/ }),
 

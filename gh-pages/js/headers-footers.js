@@ -155,6 +155,30 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "../node_modules/auto-bind/index.js":
+/*!******************************************!*\
+  !*** ../node_modules/auto-bind/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\n// Gets all non-builtin properties up the prototype chain\nconst getAllProperties = object => {\n\tconst properties = new Set();\n\n\tdo {\n\t\tfor (const key of Reflect.ownKeys(object)) {\n\t\t\tproperties.add([object, key]);\n\t\t}\n\t} while ((object = Reflect.getPrototypeOf(object)) && object !== Object.prototype);\n\n\treturn properties;\n};\n\nmodule.exports = (self, {include, exclude} = {}) => {\n\tconst filter = key => {\n\t\tconst match = pattern => typeof pattern === 'string' ? key === pattern : pattern.test(key);\n\n\t\tif (include) {\n\t\t\treturn include.some(match);\n\t\t}\n\n\t\tif (exclude) {\n\t\t\treturn !exclude.some(match);\n\t\t}\n\n\t\treturn true;\n\t};\n\n\tfor (const [object, key] of getAllProperties(self.constructor.prototype)) {\n\t\tif (key === 'constructor' || !filter(key)) {\n\t\t\tcontinue;\n\t\t}\n\n\t\tconst descriptor = Reflect.getOwnPropertyDescriptor(object, key);\n\t\tif (descriptor && typeof descriptor.value === 'function') {\n\t\t\tself[key] = self[key].bind(self);\n\t\t}\n\t}\n\n\treturn self;\n};\n\n\n//# sourceURL=webpack:///../node_modules/auto-bind/index.js?");
+
+/***/ }),
+
+/***/ "./blocks/navigation/Navigation.js":
+/*!*****************************************!*\
+  !*** ./blocks/navigation/Navigation.js ***!
+  \*****************************************/
+/*! exports provided: Navigation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(autoBind) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Navigation\", function() { return Navigation; });\nclass Navigation {\r\n  constructor(target) {\r\n    this.containerClass = target;\r\n    this.expandablesLinksMap = [];\r\n\r\n    autoBind(this);\r\n    this.getHtmlElements();\r\n    this.bindDomEventListener();\r\n  }\r\n\r\n  getHtmlElements() {\r\n    this.container = document.querySelector(`.${this.containerClass}`);\r\n\r\n    [...this.container.querySelectorAll('.js-navigation__link-wrapper')].forEach((wrapper) => {\r\n      const linkTitle = wrapper.querySelector('.navigation__expandable-title');\r\n      const expandableWrapper = wrapper.querySelector('.js-navigation__expandable-wrapper');\r\n\r\n      this.expandablesLinksMap.push({ title: linkTitle, list: expandableWrapper });\r\n    });\r\n  }\r\n\r\n  centersExpandableLinks() {\r\n    this.expandablesLinksMap.forEach((expandableLinks) => {\r\n      const isNeedToBeCenters = expandableLinks.title.offsetWidth\r\n        < expandableLinks.list.offsetWidth;\r\n\r\n      if (isNeedToBeCenters) {\r\n        const offset = (expandableLinks.title.offsetWidth - expandableLinks.list.offsetWidth) / 2;\r\n        expandableLinks.list.style.left = `${offset}px`;\r\n      }\r\n    });\r\n  }\r\n\r\n  controlExpandableLinksDisplay(target, relatedTarget) {\r\n    this.expandablesLinksMap.forEach((expandableLinks) => {\r\n      if (target === expandableLinks.title && relatedTarget === expandableLinks.list) {\r\n        return;\r\n      }\r\n\r\n      if (expandableLinks.title === target) {\r\n        expandableLinks.list.toggleAttribute('hidden');\r\n        this.centersExpandableLinks();\r\n      }\r\n    });\r\n  }\r\n\r\n  handleTitleOver(event) {\r\n    const { target, relatedTarget } = event;\r\n    this.controlExpandableLinksDisplay(target, relatedTarget);\r\n  }\r\n\r\n  handleTitleOut(event) {\r\n    const { target, relatedTarget } = event;\r\n    this.controlExpandableLinksDisplay(target, relatedTarget);\r\n  }\r\n\r\n  handleListOut(event) {\r\n    const { target, relatedTarget } = event;\r\n    let isNeedToBeHidden = true;\r\n\r\n    this.expandablesLinksMap.forEach((expandableLinks) => {\r\n      const isNeedToBeDisplayed = relatedTarget.classList.contains('navigation__expanded-link')\r\n        || relatedTarget === expandableLinks.title;\r\n\r\n      if (isNeedToBeDisplayed) isNeedToBeHidden = false;\r\n    });\r\n\r\n    if (isNeedToBeHidden) target.toggleAttribute('hidden');\r\n  }\r\n\r\n  bindDomEventListener() {\r\n    this.expandablesLinksMap.forEach((expandableLinks) => {\r\n      expandableLinks.title.onmouseover = this.handleTitleOver;\r\n      expandableLinks.title.onmouseout = this.handleTitleOut;\r\n      expandableLinks.list.onmouseout = this.handleListOut;\r\n    });\r\n  }\r\n}\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! auto-bind */ \"../node_modules/auto-bind/index.js\")))\n\n//# sourceURL=webpack:///./blocks/navigation/Navigation.js?");
+
+/***/ }),
+
 /***/ "./pages/headers-footers/headers-footers.js":
 /*!**************************************************!*\
   !*** ./pages/headers-footers/headers-footers.js ***!
@@ -163,7 +187,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tools_importContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../tools/importContext */ \"./tools/importContext.js\");\n/* harmony import */ var _headers_footers_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./headers-footers.scss */ \"./pages/headers-footers/headers-footers.scss\");\n/* harmony import */ var _headers_footers_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_headers_footers_scss__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nObject(_tools_importContext__WEBPACK_IMPORTED_MODULE_0__[\"importContext\"])();\r\n\n\n//# sourceURL=webpack:///./pages/headers-footers/headers-footers.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _blocks_navigation_Navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @blocks/navigation/Navigation */ \"./blocks/navigation/Navigation.js\");\n/* harmony import */ var _tools_importContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../tools/importContext */ \"./tools/importContext.js\");\n/* harmony import */ var _headers_footers_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./headers-footers.scss */ \"./pages/headers-footers/headers-footers.scss\");\n/* harmony import */ var _headers_footers_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_headers_footers_scss__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\n\r\n\r\nconst headersNavigaton = [\r\n  'js-headers-footers__header',\r\n  'js-headers-footers__header_authorized',\r\n];\r\n\r\nfunction handleDocumentLoad() {\r\n  headersNavigaton.forEach((headerClass) => new _blocks_navigation_Navigation__WEBPACK_IMPORTED_MODULE_0__[\"Navigation\"](headerClass));\r\n}\r\n\r\ndocument.addEventListener('DOMContentLoaded', handleDocumentLoad);\r\n\r\nObject(_tools_importContext__WEBPACK_IMPORTED_MODULE_1__[\"importContext\"])();\r\n\n\n//# sourceURL=webpack:///./pages/headers-footers/headers-footers.js?");
 
 /***/ }),
 
