@@ -711,10 +711,10 @@ body {
       .final-booking__to {
         float: none;
         margin-top: 10px; } }
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 420px) {
     .final-booking {
-      max-width: 320px;
-      padding: 40px 26px 30px; } }
+      max-width: 300px;
+      padding: 20px 16px 20px; } }
 
 .footer {
   font-family: Montserrat, Arial, sans-serif;
@@ -1185,10 +1185,10 @@ body {
       .login__text {
         max-width: 140px;
         line-height: 22px; } }
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 420px) {
     .login {
-      max-width: 320px;
-      padding: 40px 26px 30px; } }
+      max-width: 300px;
+      padding: 20px 16px 20px; } }
 
 .logo_position_in-corner {
   position: absolute;
@@ -1348,11 +1348,11 @@ body {
     margin-bottom: 5px; }
   .registration__male {
     margin-right: 20px; }
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 420px) {
     .registration {
-      max-width: 320px;
+      max-width: 300px;
       margin: 20px 0;
-      padding: 40px 26px 30px; } }
+      padding: 20px 16px 20px; } }
 
 .reviews-counter {
   font-family: Montserrat, Arial, sans-serif;
@@ -1510,10 +1510,10 @@ body {
   .search-room__guests {
     margin-bottom: 31px;
     position: relative; }
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 420px) {
     .search-room {
-      max-width: 320px;
-      padding: 40px 26px 30px; } }
+      max-width: 300px;
+      padding: 20px 16px 20px; } }
 
 .sidebar {
   width: 266px;
