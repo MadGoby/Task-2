@@ -53,12 +53,25 @@
     }
   }
 
+  &__navigation-wrapper {
+    padding-top: 4px;
+    display: flex;
+    flex-grow: 2;
+    justify-content: end;
+    margin-right: 51px;
+  }
+
   &__navigation {
+    display: flex;
+    flex-direction: column;
+
+    &:nth-child(2) {
+      margin: 0 94px 0 57px;
+    }
   }
 
   &__link-title {
     @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
-    width: 100%;
     text-transform: uppercase;
     margin-bottom: 21px;
     cursor: default;
@@ -80,8 +93,9 @@
   }
 
   &__logo-description {
+    line-height: 24px;
     max-width: 260px;
-    margin: 10px 0 0;
+    margin: 18px 0 0;
   }
 
   &__subscribe-text {
@@ -89,9 +103,8 @@
   }
 
   &__subscribe {
-    display: inline-block;
     max-width: 260px;
-    margin-top: 4px;
+    padding-top: 4px;
 
     @media screen and (max-width: 768px) {
       display: none;
@@ -103,13 +116,10 @@
   }
 
   &__title {
+    @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
     max-width: 260px;
     margin: 0 0 18px 0;
-    font-weight: 700;
     text-transform: uppercase;
-    color: $color-main-darker;
-    font-size: 12px;
-    line-height: 15px;
   }
 
   &__social-media {
@@ -122,6 +132,9 @@
 
   &_size {
     &_small {
+      margin: 0 auto;
+      flex-direction: column;
+      align-items: center;
       padding: 120px 0;
       background: #ffffff;
       box-shadow: 0 10px 20px 0 $color-secondary-light;
@@ -133,12 +146,9 @@
     margin: 0 0 20px 0;
   }
 
-  @media screen and (max-width: 1460px) {
-    padding: 100px 30px;
-  }
-
-  @media screen and (max-width: 1260px) {
-    padding: 100px 30px;
+  &_size_small &__media-links {
+    display: flex;
+    justify-content: center;
   }
 
   @media screen and (max-width: 768px) {

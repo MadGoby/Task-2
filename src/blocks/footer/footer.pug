@@ -34,9 +34,10 @@ mixin footer(settings)
     if isSmall
       div.footer__social-media.footer__social-media_size_small
         p.footer__small-copyright= copyrightText
-        +social-media-link({
-          socialLinks: links
-        })
+        div.footer__media-links
+          +social-media-link({
+            socialLinks: links
+          })
     else
       div.footer__navigation-wrapper
         each list in lists
