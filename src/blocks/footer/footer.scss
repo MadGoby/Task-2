@@ -3,62 +3,37 @@
 
 .footer {
   @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+  display: flex;
   width: 100%;
   padding: 100px 140px;
   background: #ffffff;
   box-shadow: 0 1px 0 $color-secondary-light;
-  text-align: center;
 
   &__navigation-wrapper {
-    margin: 4px 52px 0 40px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: initial;
-
-    @media screen and (max-width: 1260px) {
-      display: block;
-      margin: 40px 0;
-    }
-
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
   }
 
-  &__wrapper {
-    display: inline-block;
-    text-align: initial;
-
-    &_size {
-      &_small {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    @media screen and (max-width: 1260px) {
-      text-align: center;
-    }
-  }
+  //&__wrapper {
+  //  display: inline-block;
+  //  text-align: initial;
+  //
+  //  &_size {
+  //    &_small {
+  //      width: 100%;
+  //      text-align: center;
+  //    }
+  //  }
+  //}
 
   &__description {
-    display: inline-block;
-
     &_size {
       &_small {
         width: 100%;
-        text-align: center;
       }
-    }
-
-    @media screen and (max-width: 768px) {
-      margin-bottom: 11px;
     }
   }
 
   &__text {
     @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
-    margin: 11px 0 0;
     max-width: 260px;
 
     &_size {
@@ -79,40 +54,14 @@
   }
 
   &__navigation {
-    display: inline-block;
-    vertical-align: top;
-
-    &:first-child {
-      margin-right: 58px;
-    }
-
-    &:last-child {
-      margin-left: 92px;
-    }
-
-    @media screen and (max-width: 625px) {
-      display: block;
-
-      &:first-child {
-        margin-right: 0;
-        margin-bottom: 40px;
-      }
-
-      &:last-child {
-        margin-left: 0;
-        margin-top: 40px;
-      }
-    }
   }
 
   &__link-title {
-    width: 100%;
     @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
+    width: 100%;
     text-transform: uppercase;
     margin-bottom: 21px;
-    display: inline-block;
     cursor: default;
-    vertical-align: top;
   }
 
   &__navigation-link {
@@ -141,9 +90,7 @@
 
   &__subscribe {
     display: inline-block;
-    vertical-align: top;
     max-width: 260px;
-    text-align: initial;
     margin-top: 4px;
 
     @media screen and (max-width: 768px) {
@@ -179,8 +126,6 @@
       background: #ffffff;
       box-shadow: 0 10px 20px 0 $color-secondary-light;
       max-width: 768px;
-      margin: auto;
-      text-align: center;
     }
   }
 

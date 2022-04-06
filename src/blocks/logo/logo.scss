@@ -1,4 +1,8 @@
 .logo {
+  &__link-wrapper {
+    display: flex;
+  }
+
   &_position {
     &_in-corner {
       position: absolute;

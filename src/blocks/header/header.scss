@@ -2,101 +2,67 @@
 @import '../../common/variables';
 
 .header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
   width: 100%;
   padding: 15px 140px;
   background: white;
   box-shadow: 0 10px 20px $color-secondary-light;
-  text-align: right;
-  position: relative;
+
 
   &__authorized {
     @include text_type($main-font, 14px, 400, 40px, $color-main-light);
-    display: inline-block;
+    display: flex;
     margin: 0;
+    align-items: center;
 
     &::before {
       content: '';
+      margin-right: 20px;
       width: 1px;
       height: 30px;
       line-height: 40px;
       background-color: $color-secondary-light;
       display: inline-block;
-      margin: 0 20px;
-      vertical-align: top;
-      padding: 5px 0;
     }
   }
 
   &__buttons {
-    display: inline-block;
-    text-align: initial;
-    margin-left: 20px;
-    margin-top: 3px;
-
-    @media screen and (max-width: 400px) {
-      text-align: center;
-      margin: 0;
-      width: 100%;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 20px;
   }
 
   &__login-button,
   &__registration-button {
-    display: inline-block;
-    height: 34px;
-
-    @media screen and (max-width: 400px) {
-      display: block;
-    }
+    display: flex;
+    align-items: center;
+    min-height: 40px;
   }
 
   &__login-button {
     margin-right: 20px;
 
-    @media screen and (max-width: 400px) {
-      margin-bottom: 10px;
-      margin-right: 0;
-    }
   }
 
   &__logo {
-    float: left;
-    vertical-align: top;
-
-    @media screen and (max-width: 650px) {
-      display: block;
-      text-align: center;
-      float: none;
-    }
+    margin: 0 auto;
 
     @media screen and (max-width: 350px) {
-      display: inline-block;
-      float: left;
+      position: absolute;
+      left: 30px;
     }
   }
 
   &__navigation {
-    display: inline-block;
-    line-height: 40px;
-    vertical-align: top;
-
-    @media screen and (max-width: 650px) {
-      max-width: 310px;
-      margin: 20px 0;
-      text-align: right;
-    }
-
-    @media screen and (max-width: 350px) {
-      display: block;
-      margin: 0 0 20px;
-    }
-  }
-
-  &__navigation-wrapper {
-    @media screen and (max-width: 350px) {
-      text-align: center;
-      display: none;
-    }
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: end;
+    flex-grow: 1;
+    padding-left: 20px;
   }
 
   &__navigation-button {
@@ -108,7 +74,16 @@
     cursor: pointer;
 
     @media screen and (max-width: 350px) {
-      display: inline-block;
+      min-height: 40px;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+  }
+
+  &__navigation-wrapper {
+    @media screen and (max-width: 350px) {
+      display: none;
     }
   }
 
@@ -128,7 +103,6 @@
     display: inline-block;
     position: relative;
     border-radius: 3px;
-    vertical-align: top;
 
     &::before,
     &::after {
@@ -143,13 +117,11 @@
     }
 
     &::after {
-      vertical-align: top;
       left: 0;
       top: 8px;
     }
 
     &::before {
-      vertical-align: bottom;
       left: 0;
       top: -8px;
     }
@@ -172,9 +144,5 @@
 
   @media screen and (max-width: 880px) {
     padding: 15px 30px;
-  }
-
-  @media screen and (max-width: 650px) {
-    text-align: center;
   }
 }

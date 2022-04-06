@@ -2,8 +2,10 @@
 @import '../../common/variables';
 
 .navigation {
-  @include text_type($main-font, 14px, 400, 17px, $color-main-light);
-  line-height: 40px;
+  @include text_type($main-font, 14px, 400, 40px, $color-main-light);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
 
   &__link,
   &__expanded-link {
@@ -19,16 +21,6 @@
         font-weight: 700;
         color: $color-main-dark;
       }
-    }
-  }
-
-  &__link {
-    @media screen and (max-width: 650px) {
-      &:not(:last-child) {
-        margin-right: 0;
-      }
-
-      margin: 0 0 0 20px;
     }
   }
 
@@ -70,11 +62,14 @@
   }
 
   &__link-wrapper {
-    display: inline-block;
     position: relative;
 
-    &:not(:last-child) {
-      margin-right: 20.5px;
+    &:not(:first-child) {
+      margin-left: 20px;
     }
+  }
+
+  @media screen and (max-width: 350px) {
+    justify-content: center;
   }
 }
