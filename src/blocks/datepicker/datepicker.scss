@@ -79,37 +79,39 @@
     }
   }
 
+  &__week-days {
+    display: flex;
+    justify-content: stretch;
+  }
+
+  &__week-day,
+  &__dates {
+    text-align: center;
+    line-height: 40px;
+    user-select: none;
+  }
+
+  &__week-day {
+    font-weight: 700;
+    color: $main-interactive-color;
+    flex-grow: 1;
+  }
+
+  &__dates {
+    display: grid;
+    grid-template: repeat(5, 1fr) / repeat(7 , 1fr);
+  }
+
   &__calendar {
-    margin: 30px 0 19px 1px;
+    margin: 30px 0 19px;
     border-collapse: collapse;
     @include text_type($main-font, 12px, 400, 15px, $color-main-light);
   }
 
-  &__calendar-cell {
-    width: 39.88px;
-    height: 40px;
-    padding: 0;
-    display: inline-block;
-    line-height: 40px;
-    text-align: center;
+
+  &__date {
     user-select: none;
     cursor: pointer;
-
-    &_size {
-      &_small {
-        width: 34px;
-        height: 34px;
-        line-height: 34px;
-      }
-    }
-
-    &_font {
-      &_bold {
-        color: $main-interactive-color;
-        font-weight: 700;
-        cursor: default;
-      }
-    }
 
     &_transparent {
       color: $color-main-lighter;
@@ -185,12 +187,6 @@
           bottom: 0;
         }
       }
-    }
-
-    @media screen and (max-width: 420px) {
-      width: 34px;
-      height: 34px;
-      line-height: 34px;
     }
   }
 

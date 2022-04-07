@@ -2,13 +2,15 @@
 @import '../../common/variables';
 
 .registration {
-  padding: 39px 29px 31px 29px;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  padding: 40px 29px 30px;
   background-color: white;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  max-width: 380px;
-  text-align: initial;
+  width: 380px;
 
   &__title {
     margin-bottom: 21px;
@@ -16,6 +18,9 @@
 
   &__personal-data {
     margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
   }
 
   &__birthday {
@@ -34,7 +39,6 @@
   &__surname,
   &__email,
   &__pass {
-    margin-bottom: 10px;
   }
 
   &__text {
@@ -67,8 +71,7 @@
   }
 
   @media screen and (max-width: 420px) {
-    max-width: 300px;
-    margin: 20px 0;
+    width: 300px;
     padding: 20px 16px 20px;
   }
 }

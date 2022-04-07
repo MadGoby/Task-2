@@ -9,6 +9,6 @@ mixin title(settings)
   - const fontSizeClass = fontSize ? `title__text_size_${fontSize}` : ""
   - const lengthClass = length ? `title__text_length_${length}` : ""
   div.title
+    #{teg}(class=["title__text", fontSizeClass, lengthClass])=text
     if state
       span.title__state=state
-    #{teg}(class=["title__text", fontSizeClass, lengthClass])=text

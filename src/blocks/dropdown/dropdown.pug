@@ -23,22 +23,24 @@ mixin dropdown(settings)
     div.dropdown__input.js-dropdown__input
       +dropdown-input(inputSettings)
     div.dropdown__control.js-dropdown__control&attributes(attr)
-      ul.dropdown__list
-        each list in lists
-          - const minusTransparentClass = list.isMinusTransparent ? "dropdown__button_transparent" : ""
-          - const plusTransparentClass = list.isPlusTransparent ? "dropdown__button_transparent" : ""
-          li.dropdown__list-element
-            span.dropdown__text=list.text
-            div.dropdown__calc
-              button(class=["dropdown__button", "js-dropdown__button", "dropdown__button_type_minus", minusTransparentClass] type="button"  data-target=list.dataTarget data-action="minus")="-"
-              output(data-target=list.dataTarget).dropdown__output.js-dropdown__output=list.output
-              button(class=["dropdown__button", "js-dropdown__button", "dropdown__button_type_plus" , plusTransparentClass] type="button"  data-target=list.dataTarget data-action="plus")="+"
-      div.dropdown__submit-buttons
-        div.dropdown__clear-button.js-dropdown__clear-button
-          +text-button({
-            text: "очистить",
-          })
-        div.dropdown__submit-button.js-dropdown__submit-button
-          +text-button({
-            text: "применить",
-          })
+      div.dropdown__control-wrapper
+        ul.dropdown__list
+          each list in lists
+            - const minusTransparentClass = list.isMinusTransparent ? "dropdown__button_transparent" : ""
+            - const plusTransparentClass = list.isPlusTransparent ? "dropdown__button_transparent" : ""
+            li.dropdown__list-element
+              span.dropdown__text=list.text
+              div.dropdown__calc
+                button(class=["dropdown__button", "js-dropdown__button", "dropdown__button_type_minus", minusTransparentClass] type="button"  data-target=list.dataTarget data-action="minus")="-"
+                output(data-target=list.dataTarget).dropdown__output.js-dropdown__output=list.output
+                button(class=["dropdown__button", "js-dropdown__button", "dropdown__button_type_plus" , plusTransparentClass] type="button"  data-target=list.dataTarget data-action="plus")="+"
+        div.dropdown__submit-buttons
+          div.dropdown__clear-button-wrapper
+            div.dropdown__clear-button.js-dropdown__clear-button
+              +text-button({
+                text: "очистить",
+              })
+          div.dropdown__submit-button.js-dropdown__submit-button
+            +text-button({
+              text: "применить",
+            })

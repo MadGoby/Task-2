@@ -28,11 +28,6 @@
     }
   }
 
-  &__calc {
-    display: inline-block;
-    float: right;
-  }
-
   &__control {
     border: 1px solid $color-main-light;
     border-top: none;
@@ -43,56 +38,50 @@
     position: absolute;
     z-index: 4;
     width: 100%;
+  }
 
-    &_z-index {
-      &_6 {
-        z-index: 6;
-      }
-    }
+  &__control-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 19px;
   }
 
   &__submit-buttons {
-    height: 15px;
-    margin-top: 19px;
+    display: flex;
+    justify-content: space-between;
   }
 
-  &__clear-button {
-    display: inline-block;
-  }
-
-  &__submit-button {
-    display: inline-block;
-    float: right;
+  &__clear-button-wrapper {
+    min-width: 70px;
+    min-height: 15px;
   }
 
   &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+    grid-area: list;
     margin: 0;
     padding: 0;
   }
 
   &__list-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     list-style-type: none;
     min-height: 30px;
-
-    &:not(:last-child) {
-      margin-bottom: 7px;
-    }
   }
 
   &__output {
-    min-width: 30px;
-    min-height: 30px;
-    display: inline-block;
+    padding: 0 16px;
     text-align: center;
-    vertical-align: top;
-    padding-top: 6px;
     user-select: none;
     cursor: default;
   }
 
-  &__text {
-    display: inline-block;
-    vertical-align: top;
-    padding-top: 6px;
+  &__calc {
+    display: flex;
+    align-items: center;
   }
 }

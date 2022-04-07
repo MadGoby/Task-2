@@ -7,13 +7,14 @@
   min-height: 100%;
 
   &__main {
+    display: flex;
+    justify-content: center;
     flex: 1 0 auto;
     background-image: url('../../img/room-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -70px;
-    min-height: 683px;
-    text-align: center;
+    padding: 19px 0;
 
     @media screen and (max-width: 1439px) {
       background-position: center;
@@ -21,20 +22,6 @@
 
     @media screen and (min-height: 1197px) {
       background-position: center;
-    }
-  }
-
-  &__form {
-    display: inline-block;
-    margin-top: 19px;
-    margin-left: 5px;
-
-    @media screen and (max-width: 350px) {
-      margin-left: 0;
-    }
-
-    @media screen and (max-width: 380px) {
-      margin: 19px 0;
     }
   }
 

@@ -65,7 +65,7 @@ class Datepicker {
     this.buttonNext = this.datepickerWrapper.querySelector('.js-datepicker__scroll-button_arrow_forward');
     this.selectedMonth = this.datepickerWrapper.querySelector('.js-datepicker__selected-month');
     this.calendar = this.datepickerWrapper.querySelector('.js-datepicker__calendar');
-    this.lines = [...this.datepickerWrapper.querySelectorAll('.js-datepicker__calendar-line')];
+    this.calendarDatesWrapper = this.datepickerWrapper.querySelector('.js-datepicker__dates');
     this.clearButton = this.datepickerWrapper.querySelector('.js-datepicker__clear-button');
     this.applyButton = this.datepickerWrapper.querySelector('.js-datepicker__apply-button');
 
@@ -118,7 +118,7 @@ class Datepicker {
   }
 
   highlightsUnavailableDates(cell, targetDate) {
-    if (this.checkAreInUnavailableRange(targetDate)) cell.classList.add('datepicker__calendar-cell_transparent');
+    if (this.checkAreInUnavailableRange(targetDate)) cell.classList.add('datepicker__date_transparent');
     return cell;
   }
 
@@ -130,13 +130,13 @@ class Datepicker {
 
     switch (true) {
       case isStartOfRange:
-        cell.classList.add('datepicker__calendar-cell_right-half_purple');
+        cell.classList.add('datepicker__date_right-half_purple');
         break;
       case isEndOfRange:
-        cell.classList.add('datepicker__calendar-cell_left-half_purple');
+        cell.classList.add('datepicker__date_left-half_purple');
         break;
       case this.checkAreInSelectedRange(targetDate):
-        cell.classList.add('datepicker__calendar-cell_shading_purple');
+        cell.classList.add('datepicker__date_shading_purple');
         break;
       default:
         break;
@@ -145,15 +145,15 @@ class Datepicker {
   }
 
   makeCalendarCell(date, targetMonth) {
-    let calendarCell = document.createElement('td');
-    calendarCell.classList.add('datepicker__calendar-cell');
-    if (this.size === 'small') calendarCell.classList.add('datepicker__calendar-cell_size_small');
+    let calendarCell = document.createElement('span');
+    calendarCell.classList.add('datepicker__date');
+    if (this.size === 'small') calendarCell.classList.add('datepicker__date_size_small');
 
     if (targetMonth === 'next') {
-      calendarCell.classList.add('datepicker__calendar-cell_transparent');
+      calendarCell.classList.add('datepicker__date_transparent');
       calendarCell.setAttribute('data-month', 'next');
     } else if (targetMonth === 'previous') {
-      calendarCell.classList.add('datepicker__calendar-cell_transparent');
+      calendarCell.classList.add('datepicker__date_transparent');
       calendarCell.setAttribute('data-month', 'previous');
     }
 
@@ -161,14 +161,14 @@ class Datepicker {
     const isOnlyForm = this.settings.from && !this.settings.to;
 
     if (this.checkIsLessThenCurrent(date)) {
-      calendarCell.classList.add('datepicker__calendar-cell_transparent');
+      calendarCell.classList.add('datepicker__date_transparent');
     }
     if (this.checkIsCurrentDate(date)) {
-      calendarCell.classList.add('datepicker__calendar-cell_color_green');
-      calendarCell.classList.add('datepicker__calendar-cell_left-half_red');
+      calendarCell.classList.add('datepicker__date_color_green');
+      calendarCell.classList.add('datepicker__date_left-half_red');
     }
-    if (this.checkIsFromDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_purple');
-    if (this.checkIsToDate(date)) calendarCell.classList.add('datepicker__calendar-cell_color_purple');
+    if (this.checkIsFromDate(date)) calendarCell.classList.add('datepicker__date_color_purple');
+    if (this.checkIsToDate(date)) calendarCell.classList.add('datepicker__date_color_purple');
     if (isOnlyForm) calendarCell = this.highlightsUnavailableDates(calendarCell, date);
     if (isRangeExist) calendarCell = this.highlightsSelectedRange(calendarCell, date);
 
@@ -233,20 +233,15 @@ class Datepicker {
   }
 
   refreshCalendar(days) {
-    let line = 0;
-    let i = 0;
-
-    days.forEach(() => {
-      this.lines[line].append(days[i]);
-      i += 1;
-      if (i % 7 === 0 && i !== 0) line += 1;
+    days.forEach((day) => {
+      this.calendarDatesWrapper.append(day);
     });
+    this.actualDays = days;
+    this.changeDaysLineHeight();
   }
 
   clearCalendar() {
-    this.lines.forEach((line) => {
-      line.innerHTML = '';
-    });
+    this.calendarDatesWrapper.innerHTML = '';
   }
 
   refreshSelectedMonth(month, year) {
@@ -366,7 +361,7 @@ class Datepicker {
   }
 
   bindCalendarCellsListener() {
-    const calendarCells = [...this.calendar.querySelectorAll('.datepicker__calendar-cell')];
+    const calendarCells = [...this.calendar.querySelectorAll('.datepicker__date')];
 
     calendarCells.forEach((cell) => {
       cell.addEventListener('click', this.handleCalendarCellClick);
@@ -375,7 +370,7 @@ class Datepicker {
 
   handleCalendarCellClick(event) {
     const { target } = event;
-    if (target.classList.contains('datepicker__calendar-cell_value_week-day')) return;
+    if (target.classList.contains('datepicker__date_value_week-day')) return;
 
     const date = {
       day: Datepicker.bringToTwoDigits({ value: Number(target.innerText) }),
@@ -461,6 +456,7 @@ class Datepicker {
     if (this.calendarWrapper.hasAttribute('hidden')) {
       this.calendarWrapper.removeAttribute('hidden');
       this.bindDomEventListener();
+      this.changeDaysLineHeight();
     } else {
       this.calendarWrapper.setAttribute('hidden', 'hidden');
       this.removeDomEventListener();
@@ -484,6 +480,16 @@ class Datepicker {
     if (result === false) this.handleCalendarDisplay();
   }
 
+  changeDaysLineHeight() {
+    this.actualDays.forEach((day) => {
+      day.style.lineHeight = `${day.offsetWidth}px`;
+    });
+  }
+
+  handleDOMResize() {
+    this.changeDaysLineHeight();
+  }
+
   bindDomEventListener() {
     document.addEventListener('click', this.handelDOMClick);
   }
@@ -500,6 +506,7 @@ class Datepicker {
     if (this.inputFrom) this.inputFrom.addEventListener('click', this.handleInputFromClick);
     if (this.inputTo) this.inputTo.addEventListener('click', this.handleInputToClick);
     if (this.inputTotal) this.inputTotal.addEventListener('click', this.handleInputTotalClick);
+    document.body.onresize = this.handleDOMResize;
   }
 }
 

@@ -29,10 +29,11 @@ mixin datepicker(settings)
         p(class=["datepicker__selected-month", "js-datepicker__selected-month", monthSizeClass])
         button(type="button").datepicker__scroll-button.datepicker__scroll-button_arrow_forward.js-datepicker__scroll-button_arrow_forward
       div.datepicker__calendar.js-datepicker__calendar
-        tr.datepicker__calendar-line
+        div.datepicker__week-days
           each day in days
             - const cellSize = isSmall ? "datepicker__calendar-cell_size_small" : ""
-            span(class=["datepicker__calendar-cell", "datepicker__calendar-cell_font_bold", "datepicker__calendar-cell_value_week-day", cellSize])= day
+            span(class=["datepicker__week-day", cellSize])= day
+        div.datepicker__dates.js-datepicker__dates
       div.datepicker__confirmation-buttons
         div.datepicker__clear-button.js-datepicker__clear-button
           +text-button({

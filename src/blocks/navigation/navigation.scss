@@ -27,17 +27,14 @@
 
   &__expandable-title {
     cursor: pointer;
-    display: block;
-    height: 100%;
+    display: flex;
+    column-gap: 1px;
 
     &::after {
       content: url('../../img/dropdown-nav.svg');
       display: inline-block;
       width: 24px;
-      height: 17px;
-      line-height: 100%;
       text-align: center;
-      margin-left: 1px;
     }
 
     &:hover {

@@ -4,19 +4,15 @@
 .radio-button {
   @include text_type($main-font, 14px, 400, 20px, $color-main-light);
   cursor: pointer;
+  display: flex;
+  column-gap: 10px;
 
   &__border {
     height: 20px;
     width: 20px;
-    display: inline-block;
     cursor: pointer;
     border: 1px solid $color-main-lighter;
-    vertical-align: top;
     border-radius: 50%;
-  }
-
-  &__text-wrapper {
-    padding-left: 10px;
   }
 
   &__controller:checked + &__border {

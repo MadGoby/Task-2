@@ -2,9 +2,11 @@
 @import '../../common/variables';
 
 .title {
+  display: flex;
+  justify-content: space-between;
+
   &__text {
     @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
-    display: flex;
     text-transform: uppercase;
     margin: 0;
     vertical-align: bottom;
@@ -23,25 +25,11 @@
         text-transform: none;
       }
     }
-
-    &_length {
-      &_half {
-        width: 50%;
-        display: inline-block;
-      }
-    }
   }
 
   &__state {
     @include text_type($main-font, 12px, 400, 15px, $color-main-light);
-    display: inline-block;
-    width: 40%;
     text-align: right;
-    float: right;
     text-transform: uppercase;
-  }
-
-  &__state + &__text {
-    width: 60%;
   }
 }
