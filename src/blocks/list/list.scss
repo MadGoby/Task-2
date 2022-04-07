@@ -2,7 +2,14 @@
 @import '../../common/variables';
 
 .list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+
   &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -10,10 +17,6 @@
 
   &__item {
     list-style: none;
-
-    &:not(:last-child) {
-      margin-bottom: 9.5px;
-    }
 
     &_with-bullet {
       &:before {
@@ -24,7 +27,6 @@
         background-color: $color-main-lighter;
         margin-right: 11px;
         border-radius: 100%;
-        vertical-align: top;
         margin-top: 7px;
       }
     }
@@ -35,17 +37,9 @@
     margin: 0;
     max-width: 240px;
     display: inline-block;
-    vertical-align: top;
   }
 
   &__title {
-    margin: 0 0 17px 0;
-    line-height: 15px;
-
-    &_with-bullet {
-      margin-bottom: 17px;
-    }
-
     &_with-margin {
       margin-left: 21px;
     }
@@ -66,10 +60,8 @@
         display: inline-block;
         background-image: url('../../img/input-dropdown.svg');
         background-repeat: no-repeat;
-        vertical-align: top;
         background-position-y: 3px;
         background-position-x: 16px;
-        float: right;
         cursor: pointer;
       }
     }

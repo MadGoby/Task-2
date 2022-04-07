@@ -7,7 +7,7 @@ mixin list(settings)
   -     isWithMargin = false,
   -   },
   -   isExpandable = false,
-  -   opennessState = "",
+  -   opennessState = "closed",
   -   listType = "",
   -   itemList = [{
   -     text: "for change",
@@ -18,22 +18,24 @@ mixin list(settings)
   - const marginClass = isWithMargin ? "list__title_with-margin" : ""
   - const jsListClass = isExpandable ? "js-list" : ""
   - const jsTitleClass = isExpandable ? "js-list__title" : ""
-  - const jsContainerClass = isExpandable ? "js-list__container" : ""
-  - const attrs = opennessState === "closed" ? { "hidden": "hidden" } : {}
-  - const titleExpandedClass = opennessState ? `list__title_${opennessState}` : ""
+  - const jsContainerWrapperClass = isExpandable ? "js-list__container-wrapper" : ""
+  - const isNeedToBeHide = opennessState === "closed" && isExpandable
+  - const attrs = isNeedToBeHide ? { "hidden": "hidden" } : {}
+  - const titleExpandedClass = isExpandable ? `list__title_${opennessState}` : ""
   div(class=["list", jsListClass])
     div(class=["list__title", jsTitleClass, marginClass, bulletClass, titleExpandedClass])
       +title({
         text: text,
         teg: teg
       })
-    ul(class=["list__container", jsContainerClass])&attributes(attrs)
-      case listType
-        when "toggles"
-          each toggle in itemList
-            li.list__item
-              +checkbox-button(toggle)
-        default
-          each text in itemList
-            li.list__item.list__item_with-bullet
-              p.list__text=text
+    div(class=["list__container-wrapper", jsContainerWrapperClass])&attributes(attrs)
+      ul.list__container
+        case listType
+          when "toggles"
+            each toggle in itemList
+              li.list__item
+                +checkbox-button(toggle)
+          default
+            each text in itemList
+              li.list__item.list__item_with-bullet
+                p.list__text=text

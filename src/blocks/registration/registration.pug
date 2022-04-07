@@ -41,25 +41,26 @@ mixin registration(settings)
     div.registration__login-data
       div.registration__login-title
         +title({text: "данные для входа в сервис"})
-      div.registration__email
-        +input({
-          attrs: {
-            placeholder: "Email",
-            type: "email",
-            required: "required",
-          },
+      div.registration__login-data-inputs
+        div.registration__email
+          +input({
+            attrs: {
+              placeholder: "Email",
+              type: "email",
+              required: "required",
+            },
+          })
+        div.registration__pass
+          +input({
+            attrs: {
+              placeholder: "Пароль",
+              type: "password",
+              required: "required",
+            },
+          })
+        +toggle({
+          text: "Получать спецпредложения",
         })
-      div.registration__pass
-        +input({
-          attrs: {
-            placeholder: "Пароль",
-            type: "password",
-            required: "required",
-          },
-        })
-      +toggle({
-        text: "Получать спецпредложения",
-      })
     div.registration__confirm-button
       +confirm-button({
         text: "зарегистрироваться",

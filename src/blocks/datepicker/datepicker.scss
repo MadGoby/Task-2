@@ -15,6 +15,13 @@
     }
   }
 
+  &__total,
+  &__from,
+  &__to {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__navigation {
     display: flex;
   }

@@ -10,18 +10,18 @@ class ListDropdown {
 
   getHtmlElements() {
     this.container = document.querySelector(`.${this.containerClass}`);
-    this.list = this.container.querySelector('.js-list__container');
+    this.list = this.container.querySelector('.js-list__container-wrapper');
     this.title = this.container.querySelector('.js-list__title');
   }
 
   handleTitleClick() {
     if (this.list.hasAttribute('hidden')) {
-      this.list.removeAttribute('hidden');
+      this.list.toggleAttribute('hidden');
       this.title.classList.remove('list__title_closed');
       this.title.classList.add('list__title_expanded');
       this.bindDomEventListener();
     } else {
-      this.list.setAttribute('hidden', 'hidden');
+      this.list.toggleAttribute('hidden');
       this.title.classList.remove('list__title_expanded');
       this.title.classList.add('list__title_closed');
       this.removeDomEventListener();

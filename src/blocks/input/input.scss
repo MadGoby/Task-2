@@ -2,10 +2,9 @@
 @import '../../common/variables';
 
 .input {
-  &__title {
-    line-height: 15px;
-    margin-bottom: 5px;
-  }
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
 
   &__field {
     width: 100%;

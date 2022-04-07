@@ -47,18 +47,19 @@ mixin sidebar()
           +title({
             text: "правила дома"
           })
-        +checkbox-button({
-          text: "Можно курить",
-        })
-        +checkbox-button({
-          text: "Можно с питомцами",
-          isChecked: true,
-        })
-        +checkbox-button({
-          text: "Можно пригласить гостей (до 10 человек)",
-          isChecked: true,
-          isShort: true,
-        })
+        div.sidebar__features-list
+          +checkbox-button({
+            text: "Можно курить",
+          })
+          +checkbox-button({
+            text: "Можно с питомцами",
+            isChecked: true,
+          })
+          +checkbox-button({
+            text: "Можно пригласить гостей (до 10 человек)",
+            isChecked: true,
+            isShort: true,
+          })
       div.sidebar__availability
         +list({
           title: { text: "доступность" },
@@ -96,7 +97,6 @@ mixin sidebar()
             text: "дополнительные удобства",
           },
           isExpandable: true,
-          opennessState: "expanded",
           listType: "toggles",
           itemList: [
             {

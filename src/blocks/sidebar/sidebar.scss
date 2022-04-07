@@ -1,8 +1,5 @@
 .sidebar {
   width: 266px;
-  text-align: initial;
-  vertical-align: top;
-  float: left;
 
   &__title {
     max-width: 280px;
@@ -53,11 +50,11 @@
   }
 
   &__date-filter {
-    margin-bottom: 20px;
+    margin-bottom: 21px;
   }
 
   &__availability {
-    margin-bottom: 28px;
+    margin-bottom: 26px;
   }
 
   &__slider {
@@ -69,11 +66,17 @@
   }
 
   &__additional-features {
+    display: flex;
+    flex-direction: column;
+    row-gap: 17px;
+    max-width: 230px;
     margin-bottom: 30px;
   }
 
-  &__features-title {
-    margin-bottom: 17px;
+  &__features-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
   }
 
   &__room-amenities {

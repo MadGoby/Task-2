@@ -14,25 +14,17 @@
   }
 
   &__output {
-    display: inline-block;
     line-height: 15px;
-    width: 50%;
     font-weight: 400;
     color: $color-main-light;
-    text-align: right;
-    font-size: 13px;
-    letter-spacing: -0.5px;
+    font-size: 12px;
   }
 
   &__title {
-    line-height: 15px;
-    margin: 0 0 21px;
-    @include text_type($main-font, 14px, 400, 20px, $color-main-dark);
-  }
-
-  &__title-text {
-    width: 50%;
-    display: inline-block;
+    @include text_type($main-font, 14px, 400, 15px, $color-main-dark);
+    display: flex;
+    margin-bottom: 23px;
+    justify-content: space-between;
   }
 }
 

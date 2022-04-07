@@ -16,58 +16,50 @@
     margin-bottom: 21px;
   }
 
-  &__personal-data {
-    margin-bottom: 24px;
+  &__gender {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &__personal-data,
+  &__login-data,
+  &__login-data-inputs {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+  }
+
+  &__personal-data,
+  &__login-data {
+    margin-bottom: 24px
+  }
+
+  &__login-data {
+    row-gap: 5px;
+  }
+
+  &__login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__birthday {
     margin-bottom: 20px;
   }
 
-  &__login-data {
-    margin-bottom: 24px;
-  }
-
   &__confirm-button {
     margin-bottom: 30px;
   }
 
-  &__name,
-  &__surname,
-  &__email,
-  &__pass {
-  }
-
   &__text {
-    @include text_type($main-font, 14px, 400, 42px, #000000);
-    display: inline-block;
+    @include text_type($main-font, 14px, 400, 18px, #000000);
     margin: 0;
-    padding-left: 1px;
 
     @media screen and (max-width: 420px) {
       max-width: 140px;
       line-height: 22px;
     }
-  }
-
-  &__link {
-    float: right;
-  }
-
-  &__male,
-  &__female {
-    display: inline-block;
-  }
-
-  &__login-title {
-    margin-bottom: 5px;
-  }
-
-  &__male {
-    margin-right: 20px;
   }
 
   @media screen and (max-width: 420px) {
