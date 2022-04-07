@@ -4,27 +4,20 @@
 .footer {
   @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
   display: flex;
+  justify-content: center;
+  align-content: space-between;
+  row-gap: 30px;
+  flex-wrap: wrap;
   width: 100%;
   padding: 100px 140px;
   background: #ffffff;
   box-shadow: 0 1px 0 $color-secondary-light;
 
-  &__navigation-wrapper {
-  }
-
-  //&__wrapper {
-  //  display: inline-block;
-  //  text-align: initial;
-  //
-  //  &_size {
-  //    &_small {
-  //      width: 100%;
-  //      text-align: center;
-  //    }
-  //  }
-  //}
-
   &__description {
+    display: flex;
+    flex-direction: column;
+    row-gap: 17px;
+
     &_size {
       &_small {
         width: 100%;
@@ -48,6 +41,8 @@
   }
 
   &__logo-description {
+    margin: 0;
+
     @media screen and (max-width: 768px) {
       display: none;
     }
@@ -57,35 +52,42 @@
     padding-top: 4px;
     display: flex;
     flex-grow: 2;
-    justify-content: end;
-    margin-right: 51px;
+    column-gap: 49.5px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 51px 0 40px;
+
+    @media screen and (max-width: 1439px) {
+      margin: 0 10px;
+    }
+
+    @media screen and (max-width: 850px) {
+      column-gap: 9px;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__navigation {
+    min-width: 150px;
     display: flex;
+    row-gap: 22px;
     flex-direction: column;
-
-    &:nth-child(2) {
-      margin: 0 94px 0 57px;
-    }
   }
 
   &__link-title {
     @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
     text-transform: uppercase;
-    margin-bottom: 21px;
     cursor: default;
   }
 
   &__navigation-link {
+    line-height: 16px;
     text-decoration: none;
     color: $color-main-light;
-    line-height: 18px;
     display: block;
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
 
     &:hover {
       color: $color-main-dark;
@@ -95,30 +97,28 @@
   &__logo-description {
     line-height: 24px;
     max-width: 260px;
-    margin: 18px 0 0;
   }
 
   &__subscribe-text {
-    margin: 18px 0 0;
+    margin: 0;
   }
 
   &__subscribe {
-    max-width: 260px;
     padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 21px;
+    max-width: 260px;
 
     @media screen and (max-width: 768px) {
       display: none;
     }
   }
 
-  &__subscribe-form {
-    margin-top: 23px;
-  }
-
   &__title {
-    @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
+    @include text_type($main-font, 12px, 700, 13px, $color-main-darker);
     max-width: 260px;
-    margin: 0 0 18px 0;
+    margin: 0;
     text-transform: uppercase;
   }
 
@@ -148,6 +148,10 @@
 
   &_size_small &__media-links {
     display: flex;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 1439px) {
     justify-content: center;
   }
 

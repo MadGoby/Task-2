@@ -2,6 +2,8 @@
 @import '../../common/variables';
 
 .login {
+  display: flex;
+  flex-direction: column;
   padding: 39px 29px 33px 29px;
   background-color: white;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
@@ -21,20 +23,20 @@
     margin-bottom: 10px;
   }
 
+  &__registration {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__confirm-button {
     margin-bottom: 30px;
   }
 
-  &__link {
-    float: right;
-  }
-
   &__text {
     @include text_type($main-font, 14px, 400, 42px, #000000);
-    display: inline-block;
     margin: 0;
 
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 420px) {
       max-width: 140px;
       line-height: 22px;
     }

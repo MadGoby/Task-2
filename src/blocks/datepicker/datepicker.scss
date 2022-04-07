@@ -5,31 +5,18 @@
 .datepicker {
   width: 320px;
 
-  &__from,
-  &__to {
-    display: inline-block;
-
-    @media screen and (max-width: 420px) {
-      display: block;
-    }
-  }
-
-  &__from {
-    display: inline-block;
-  }
-
-  &__to {
-    display: inline-block;
-    float: right;
-
-    @media screen and (max-width: 420px) {
-      float: none;
-      margin-top: 10px;
-    }
-  }
-
   &__inputs {
-    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    row-gap: 20px;
+
+    @media screen and (max-width: 420px) {
+      flex-direction: column;
+    }
+  }
+
+  &__navigation {
+    display: flex;
   }
 
   &__calendar-wrapper {
@@ -41,6 +28,7 @@
     width: 320px;
     position: absolute;
     z-index: 5;
+    margin-top: 5px;
 
     &_size {
       &_small {
@@ -65,8 +53,6 @@
     background-color: white;
     padding: 0;
     cursor: pointer;
-    display: inline-block;
-    vertical-align: top;
     outline: none;
 
     &_arrow {
@@ -77,11 +63,10 @@
   }
 
   &__selected-month {
-    display: inline-block;
-    min-width: 230px;
-    margin: 0 0 0 1px;
-    text-align: center;
     @include text_type($main-font, 19px, 700, 24px, $color-main-darker);
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 0 0 1px;
 
     &_size {
       &_small {
@@ -210,17 +195,14 @@
   }
 
   &__confirmation-buttons {
+    display: flex;
+    justify-content: space-between;
     line-height: 15px;
   }
 
-  &__clear-button {
-    display: inline-block;
-  }
-
+  &__clear-button,
   &__apply-button {
-    display: inline-block;
-    float: right;
-    vertical-align: top;
+    display: flex;
   }
 
   &_size {

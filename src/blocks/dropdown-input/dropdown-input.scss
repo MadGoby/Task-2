@@ -2,10 +2,12 @@
 @import '../../common/variables';
 
 .dropdown-input {
+  display: inline-flex;
+  flex-direction: column;
+  row-gap: 5px;
   position: relative;
 
   &__title {
-    margin-bottom: 5px;
   }
 
   &__field {

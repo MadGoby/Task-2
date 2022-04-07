@@ -4,7 +4,7 @@
 .title {
   &__text {
     @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
-    display: inline-block;
+    display: flex;
     text-transform: uppercase;
     margin: 0;
     vertical-align: bottom;

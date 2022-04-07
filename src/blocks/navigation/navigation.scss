@@ -5,6 +5,7 @@
   @include text_type($main-font, 14px, 400, 40px, $color-main-light);
   display: flex;
   flex-wrap: wrap;
+  column-gap: 20px;
   justify-content: right;
 
   &__link,
@@ -63,13 +64,9 @@
 
   &__link-wrapper {
     position: relative;
-
-    &:not(:first-child) {
-      margin-left: 20px;
-    }
   }
 
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 363px) {
     justify-content: center;
   }
 }

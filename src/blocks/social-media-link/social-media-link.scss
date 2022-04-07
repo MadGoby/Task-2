@@ -1,15 +1,15 @@
 .social-media-link {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
+  column-gap: 20px;
   height: 24px;
-  width: 24px;
-  line-height: 24px;
 
   &__icon {
     align-self: center;
   }
 
-  &:not( :last-child ) {
-    margin-right: 20px;
+  &__wrapper {
+    display: flex;
+    align-self: center;
   }
 }

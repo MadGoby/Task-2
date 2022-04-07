@@ -15,10 +15,11 @@ mixin social-media-link(settings)
   -     }
   -   ]
   - } = settings
-  each linkSettings in socialLinks
-    - const {
-    -   link = "./for-change",
-    -   iconSrc = "for-change",
-    - } = linkSettings
-    a(href=link target="_blank" rel="noopener noreferrer").social-media-link
-      img(alt="Social link icon", src=require(`@images/${iconSrc}`).default).social-media-link__icon
+  div.social-media-link
+    each linkSettings in socialLinks
+      - const {
+      -   link = "./for-change",
+      -   iconSrc = "for-change",
+      - } = linkSettings
+      a(href=link target="_blank" rel="noopener noreferrer").social-media-link__wrapper
+        img(alt="Social link icon", src=require(`@images/${iconSrc}`).default).social-media-link__icon

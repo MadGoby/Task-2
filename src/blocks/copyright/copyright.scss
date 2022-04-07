@@ -2,55 +2,29 @@
 @import '../../common/variables';
 
 .copyright {
-  @include text_type($main-font, 14px, 400, 18px, $color-main-dark);
+  @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+  display: flex;
+  row-gap: 24px;
+  justify-content: space-between;
+  align-content: center;
   background: #ffffff;
   box-shadow: 0 10px 20px $color-secondary-light;
-  padding: 24px 140px 24px 139px;
+  padding: 23px 140px 23px 139px;
   margin-top: 1px;
   min-height: 70px;
 
   &__text {
     margin: 0;
-    padding-top: 2px;
-    display: inline-block;
-
-    @media screen and (max-width: 820px) {
-      max-width: 230px;
-      line-height: 24px;
-    }
 
     @media screen and (max-width: 768px) {
-      display: inline;
+      text-align: center;
     }
-
-    @media screen and (max-width: 400px) {
-      display: inline-block;
-      max-width: 230px;
-    }
-  }
-
-  &__social-media {
-    display: inline-block;
-    float: right;
-
-    @media screen and (max-width: 820px) {
-      margin-top: 13px;
-    }
-
-    @media screen and (max-width: 768px) {
-      display: block;
-      float: none;
-      margin-top: 22px;
-    }
-  }
-
-  @media screen and (max-width: 820px) {
-    padding: 23px 30px;
   }
 
   @media screen and (max-width: 768px) {
+    padding: 24px 45px 120px;
+    flex-direction: column;
     margin-top: -1px;
-    padding: 0 0 120px;
-    text-align: center;
+    align-items: center;
   }
 }
