@@ -32,10 +32,10 @@ include ../../blocks/subscription-input/subscription-input
         +page-header()
       main.room-details__main
         div.room-details__photos
-          img(src=require("@images/room-photo-big.jpg").default, alt="Room photo").room-photo.room-photo_size_large
-          div.room-details__photos-wrapper
-            img(src=require("@images/room-photo-small1.jpg").default, alt="Room photo").room-photo.room-photo_corner_top-right
-            img(src=require("@images/room-photo-small2.jpg").default, alt="Room photo").room-photo.room-photo_corner_bottom-right
+          img(src=require("@images/room-photo-big.jpg").default, alt="Room photo").room-photo.room-photo_position_main
+          .room-details__sub-photos
+            img(src=require("@images/room-photo-small1.jpg").default, alt="Room photo").room-photo.room-photo_position_top
+            img(src=require("@images/room-photo-small2.jpg").default, alt="Room photo").room-photo.room-photo_position_bottom
         div.room-details__details
           div.room-details__details-wrapper.default
             div.room-details__final-booking.js-room-details__final-booking

@@ -14,8 +14,17 @@
     background-color: white;
   }
 
+  &__sub-photos {
+    display: flex;
+    width: 31.88%;
+    flex-direction: column;
+  }
+
   &__photos {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
   }
 
   &__details {
@@ -178,21 +187,21 @@
 }
 
 .room-photo {
-  height: 50%;
-  vertical-align: top;
-
-  &_size {
-    &_large {
-      width: 68.13%;
-      display: inline-block;
-      vertical-align: top;
+  &_position {
+    &_main {
+      width: 68.12%;
+      height: auto;
+      object-fit: cover;
     }
-  }
 
-  &_corner {
-    &_top-right,
-    &_bottom-right {
-      width: 100%;
+    &_top {
+      flex-grow: 1;
+      object-fit: cover;
+    }
+
+    &_bottom {
+      flex-grow: 1;
+      object-fit: cover;
     }
   }
 }
