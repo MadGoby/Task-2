@@ -2,24 +2,24 @@
 @import '../../common/variables';
 
 .positive-feature {
-  padding: 20px 0 16px;
+  display: flex;
+  column-gap: 10px;
+  padding: 0 0 20px;
 
   &__description {
     @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
     margin: 0;
   }
 
-  &__img {
+  &__img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 48px;
-    height: 48px;
-    padding: 4px;
-    margin-right: 10px;
   }
 
   &__text-wrapper {
     @include text_type($main-font, 14px, 700, 24px, $color-main-dark);
-    display: inline-block;
-    vertical-align: top;
   }
 
   &__title {
@@ -29,5 +29,13 @@
 
   &_with-border {
     border-bottom: 1px solid $color-secondary-light;
+
+    &:not(:first-child) {
+      padding: 20px 0;
+    }
+  }
+
+  &:last-child {
+    padding: 20px 0;
   }
 }

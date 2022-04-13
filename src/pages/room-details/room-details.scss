@@ -51,40 +51,35 @@
     }
   }
 
-  &__content-wrapper {
-
-  }
-
   &__final-booking {
     order: 2;
   }
 
-  &__positive-features {
-    display: inline-block;
-    vertical-align: top;
-    min-width: 280px;
-    margin-right: 81px;
-    text-align: initial;
-    padding-left: 1px;
+  &__content-wrapper {
+  }
 
-    @media screen and (max-width: 750px) {
-      margin: 0;
-    }
+  &__room-description {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__positive-features {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
   }
 
   &__impressions {
     text-align: initial;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 
     @media screen and (max-width: 750px) {
       display: block;
       max-width: 311px;
       margin: 30px auto 0;
     }
-  }
-
-  &__impression-title {
-    margin-bottom: 20px;
   }
 
   &__rules {
@@ -122,49 +117,23 @@
     height: 100%;
   }
 
+  &__comments {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__comments-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
   &__comments-counter {
     @include text_type($main-font, 14px, 400, 19px, $color-main-light);
-    display: inline-block;
-    vertical-align: bottom;
-    text-align: right;
-    width: 50%;
-  }
-
-  &__comments {
-    margin-top: 13px;
-    text-align: initial;
-  }
-
-  &__comments-title {
-    display: inline-block;
-    width: 70%;
-    margin-bottom: 20px;
-
-    @media screen and (max-width: 460px) {
-      width: 100%;
-      display: block;
-      text-align: center;
-    }
-  }
-
-  &__comments-counter {
-    line-height: 24px;
-    display: inline-block;
-    width: 30%;
-    vertical-align: top;
-    text-align: right;
-
-    @media screen and (max-width: 460px) {
-      float: right;
-      padding-right: 20px;
-    }
   }
 
   &__comment {
-    &:not(:last-of-type) {
-      margin-bottom: 23px;
-    }
-
     @media screen and (max-width: 380px) {
       padding: 0 5px;
     }

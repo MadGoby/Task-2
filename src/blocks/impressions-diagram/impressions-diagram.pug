@@ -10,7 +10,13 @@ mixin impressions-diagram(settings)
   - } = settings
   div.impressions-diagram
     div.impressions-diagram__reviews-wrapper
-      p.impressions-diagram__reviews-counter=voteCount
+      div.impressions-diagram__lines
+        span.impressions-diagram__line_color_yellow
+        span.impressions-diagram__line_color_green
+        span.impressions-diagram__line_color_purple
+      div.impressions-diagram__reviews-counter-wrapper
+        span.impressions-diagram__reviews-counter=voteCount
+        span.impressions-diagram__reviews-text='голосов'
     ul.impressions-diagram__description
       each description in colorDescription
         - const {

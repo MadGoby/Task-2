@@ -2,31 +2,128 @@
 @import '../../common/variables';
 
 .impressions-diagram {
-  &__description {
-    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
-    display: inline-block;
-    margin: 27px 0 0 30px;
-    padding: 0;
-    vertical-align: top;
+  @include text_type($main-font, 14px, 400, 15px, $color-main-dark);
+  display: flex;
+  column-gap: 30px;
 
-    @media screen and (max-width: 380px) {
-      margin: 0 0 0 15px;
+  &__lines {
+    position: absolute;
+    display:  grid;
+    row-gap: 2px;
+    column-gap: 2px;
+    width: 100%;
+    height: 100%;
+    grid-template-areas:
+      "yellowLine purpleLine"
+      "yellowLine greenLine";
+  }
+
+  &__line {
+    &_color {
+      &_yellow {
+        grid-area: yellowLine;
+        overflow: hidden;
+
+        &:before {
+          content: '';
+          display: block;
+          height: 100%;
+          width: 200%;
+          border-radius: 50%;
+          background: linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%);
+        }
+      }
+
+      &_purple {
+        grid-area: purpleLine;
+        overflow: hidden;
+        position: relative;
+
+        &:before {
+          content: '';
+          display: block;
+          height: 200%;
+          width: 200%;
+          border-radius: 50%;
+          background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+          position: absolute;
+          right: 0;
+        }
+      }
+
+      &_green {
+        grid-area: greenLine;
+        overflow: hidden;
+        position: relative;
+
+        &:before {
+          content: '';
+          display: block;
+          height: 200%;
+          width: 200%;
+          border-radius: 50%;
+          background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+      }
     }
+  }
+
+  &__reviews-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__reviews-counter-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+    border-radius: 50%;
+    background-color: white;
+  }
+
+  &__reviews-counter {
+    @include text_type($main-font, 24px, 700, 30px, $main-interactive-color);
+  }
+
+  &__reviews-text {
+    @include text_type($main-font, 12px, 700, 15px, $main-interactive-color);
+    text-transform: uppercase;
+  }
+
+  &__description {
+    display: flex;
+    align-self: end;
+    flex-direction: column;
+    row-gap: 10px;
+    margin: 0;
+    padding: 0;
   }
 
   &__description-line {
     list-style: none;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
 
     &::before {
       content: '';
+      display: inline-block;
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      display: inline-block;
-      margin-right: 5px;
     }
 
     &_color {
+
       &_yellow::before {
         background: linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%);
       }
@@ -46,9 +143,8 @@
   }
 
   &__reviews-wrapper {
-    background-image: url('../../img/diagram.svg');
+    position: relative;
     width: 120px;
     height: 120px;
-    display: inline-block;
   }
 }

@@ -10,7 +10,8 @@ mixin positive-feature(settings)
   - } = settings
   - const borderClass = isWithBorder ? "positive-feature_with-border" : ""
   div(class=["positive-feature", borderClass])
-    img(src=require(`@images/${src}`).default alt=alt).positive-feature__img
+    div.positive-feature__img-wrapper
+      img(src=require(`@images/${src}`).default alt=alt).positive-feature__img
     div.positive-feature__text-wrapper
       p.positive-feature__title=title
       p.positive-feature__description=description

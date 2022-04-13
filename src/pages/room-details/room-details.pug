@@ -94,54 +94,56 @@ include ../../blocks/subscription-input/subscription-input
               submitButtonText: "забронировать"
             })
           div.room-details__content-wrapper
-            div.room-details__positive-features
-              +title({
-                text: "Сведения о номере",
-                fontSize: "regular",
-                teg: "h2"
-              })
-              +positive-feature({
-                imgAttrs: {
-                  "alt": "Feeling comfortable",
-                  "src": "smile.svg"
-                },
-                title: "Комфорт",
-                description: "Шумопоглощающие стены",
-                isWithBorder: true,
-              })
-              +positive-feature({
-                imgAttrs: {
-                  "alt": "Abstract image of a modern house",
-                  "src": "house.svg"
-                },
-                title: "Удобство",
-                description: "Окно в каждой из спален",
-                isWithBorder: true,
-              })
-              +positive-feature({
-                imgAttrs: {
-                  "alt": "cozy flame",
-                  "src": "flame.svg"
-                },
-                title: "Уют",
-                description: "Номер оснащён камином",
-              })
-            div.room-details__impressions
-              div.room-details__impression-title
+            div.room-details__room-description
+              div.room-details__positive-features
                 +title({
-                  text: "Впечатления от номера",
+                  text: "Сведения о номере",
                   fontSize: "regular",
                   teg: "h2"
                 })
-              +impressions-diagram({
-                voteCount: "",
-                colorDescription: [
-                  {text: "Великолепно", color: "yellow"},
-                  {text: "Хорошо", color: "green"},
-                  {text: "Удовлетворительно", color: "purple"},
-                  {text: "Разочарован", color: "black"}
-                ]
-              })
+                div.room-details__positive-features-list
+                  +positive-feature({
+                    imgAttrs: {
+                      "alt": "Feeling comfortable",
+                      "src": "smile.svg"
+                    },
+                    title: "Комфорт",
+                    description: "Шумопоглощающие стены",
+                    isWithBorder: true,
+                  })
+                  +positive-feature({
+                    imgAttrs: {
+                      "alt": "Abstract image of a modern house",
+                      "src": "house.svg"
+                    },
+                    title: "Удобство",
+                    description: "Окно в каждой из спален",
+                    isWithBorder: true,
+                  })
+                  +positive-feature({
+                    imgAttrs: {
+                      "alt": "cozy flame",
+                      "src": "flame.svg"
+                    },
+                    title: "Уют",
+                    description: "Номер оснащён камином",
+                  })
+              div.room-details__impressions
+                div.room-details__impression-title
+                  +title({
+                    text: "Впечатления от номера",
+                    fontSize: "regular",
+                    teg: "h2"
+                  })
+                +impressions-diagram({
+                  voteCount: "260",
+                  colorDescription: [
+                    {text: "Великолепно", color: "yellow"},
+                    {text: "Хорошо", color: "green"},
+                    {text: "Удовлетворительно", color: "purple"},
+                    {text: "Разочарован", color: "black"}
+                  ]
+                })
             div.room-details__comments
               div.room-details__comments-title-wrapper
                 span.room-details__comments-title
