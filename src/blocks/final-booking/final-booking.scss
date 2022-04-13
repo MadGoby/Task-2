@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .final-booking {
-  padding: 39px 29px 30px 29px;
+  padding: 39px 30px 30px;
   background-color: white;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -24,111 +24,60 @@
   }
 
   &__service {
-    &:not(:last-child) {
-      margin-bottom: 10px;
-    }
+    display: flex;
+    justify-content: space-between;
+    column-gap: 5px;
+  }
 
-    &_text {
-      &_bold {
-        margin-top: 30px;
-      }
-    }
+  &__service-total {
+    display: flex;
+    column-gap: 4px;
+    margin-top: 20px;
   }
 
   &__service-wrapper {
-    display: inline-block;
-    width: 239px;
-    position: relative;
-
-    &_text {
-      &_bold {
-        display: inline-block;
-        max-width: 60px;
-      }
-    }
-
-    @media screen and (max-width: 420px) {
-      width: 180px;
-    }
+    display: flex;
+    column-gap: 5px;
+    justify-content: space-between;
+    flex-basis: 77.2%;
   }
 
   &__service-sign {
-    font-size: 12px;
-    font-weight: 700;
-    display: inline-block;
+    @include text_type($main-font, 12px, 700, 20px, $color-main-lighter);
     width: 20px;
     height: 20px;
-    color: $color-main-lighter;
     border: 1px solid $color-main-lighter;
     border-radius: 50%;
     text-align: center;
-    line-height: 20px;
-    vertical-align: top;
-    margin-left: 5px;
   }
 
-  &__service-title {
-    display: inline-block;
-    max-width: 214px;
-    line-height: 18px;
-
-    &_text {
-      &_bold {
-        font-weight: 700;
-        font-size: 19px;
-        color: $color-main-darker;
-        width: 18%;
-      }
-    }
-
-    @media screen and (max-width: 420px) {
-      width: 86%;
-    }
+  &__total-title {
+    font-weight: 700;
+    font-size: 19px;
+    color: $color-main-darker;
   }
 
-  &__service-price {
+  &__total-price {
     display: inline-block;
-    width: 80px;
-    vertical-align: top;
-    text-align: right;
+    font-size: 19px;
+    font-weight: 700;
+    color: $color-main-darker;
+  }
 
-    @media screen and (max-width: 420px) {
-      width: 85px;
-    }
-
-    &_text {
-      &_bold {
-        display: inline-block;
-        font-size: 19px;
-        font-weight: 700;
-        color: $color-main-darker;
-        width: 81%;
-        vertical-align: top;
-
-        &::before {
-          content: '';
-          display: inline-block;
-          border-bottom: 1px dotted $color-main-lighter;
-          margin: 0 4px;
-          width: 67%;
-
-          @media screen and (max-width: 420px) {
-            width: 58%;
-          }
-        }
-
-        @media screen and (max-width: 420px) {
-          width: 77%;
-        }
-      }
-    }
+  &__total-dots {
+    height: 19px;
+    flex-grow: 1;
+    border-bottom: 1px dotted $color-main-lighter;
   }
 
   &__service-list {
     @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
     list-style: none;
-    margin: 0 0 19px 0;
-    padding: 0 0 0 1px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 20px;
+    padding: 0;
+    row-gap: 10px;
   }
 
   &__from,
@@ -137,10 +86,7 @@
   }
 
   &__to {
-    float: right;
-
     @media screen and (max-width: 420px) {
-      float: none;
       margin-top: 10px;
     }
   }

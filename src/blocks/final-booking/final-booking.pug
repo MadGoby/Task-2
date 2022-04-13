@@ -95,9 +95,9 @@ mixin final-booking(settings)
         - } = list
         if listType == "total"
           li.final-booking__service-total.final-booking__service_text_bold
-            div.final-booking__service-wrapper.final-booking__service-wrapper_text_bold
-              span.final-booking__service-title.final-booking__service-title_text_bold=list.title
-            span.final-booking__service-price.final-booking__service-price_text_bold=list.price
+            span.final-booking__total-title=list.title
+            span.final-booking__total-dots
+            span.final-booking__total-price=list.price
         else 
           li.final-booking__service
             div.final-booking__service-wrapper

@@ -16,20 +16,27 @@
 
   &__sub-photos {
     display: flex;
-    width: 31.88%;
+    width: 31.9%;
     flex-direction: column;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      flex-direction: row;
+    }
   }
 
   &__photos {
     display: flex;
-    justify-content: center;
-    margin: 0;
-    width: 100%;
+
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+    }
   }
 
   &__details {
+    display: flex;
     padding: 70px 138px 73px 137px;
-    text-align: center;
+    justify-content: space-between;
 
     @media screen and (max-width: 1430px) {
       padding: 40px 35px;
@@ -44,29 +51,12 @@
     }
   }
 
-  &__details-wrapper {
-    text-align: initial;
-    display: inline-block;
-  }
-
   &__content-wrapper {
-    display: inline-block;
-    max-width: 711px;
 
-    @media screen and (max-width: 1220px) {
-      text-align: center;
-    }
   }
 
   &__final-booking {
-    float: right;
-    margin-left: 70px;
-
-    @media screen and (max-width: 1220px) {
-      float: none;
-      text-align: center;
-      margin: 0 0 35px 0;
-    }
+    order: 2;
   }
 
   &__positive-features {
@@ -189,19 +179,18 @@
 .room-photo {
   &_position {
     &_main {
-      width: 68.12%;
-      height: auto;
-      object-fit: cover;
+      width: 68.1%;
+
+      @media screen and (max-width: 800px) {
+        width: 100%;
+      }
     }
 
-    &_top {
-      flex-grow: 1;
-      object-fit: cover;
-    }
-
+    &_top,
     &_bottom {
-      flex-grow: 1;
-      object-fit: cover;
+      @media screen and (max-width: 800px) {
+        width: 50%;
+      }
     }
   }
 }
