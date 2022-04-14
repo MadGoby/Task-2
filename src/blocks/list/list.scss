@@ -19,15 +19,18 @@
     list-style: none;
 
     &_with-bullet {
+      display: flex;
+      align-items: baseline;
+      column-gap: 10px;
+
       &:before {
         content: '';
         display: inline-block;
         width: 10px;
         height: 10px;
         background-color: $color-main-lighter;
-        margin-right: 11px;
         border-radius: 100%;
-        margin-top: 7px;
+        min-width: 10px;
       }
     }
   }
@@ -35,7 +38,6 @@
   &__text {
     @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
     margin: 0;
-    max-width: 240px;
     display: inline-block;
   }
 

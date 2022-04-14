@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .final-booking {
-  padding: 39px 30px 30px;
+  padding: 39px 29px 30px;
   background-color: white;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -20,13 +20,18 @@
   }
 
   &__guests {
-    margin-bottom: 18px;
+    margin-bottom: 19px;
   }
 
   &__service {
     display: flex;
     justify-content: space-between;
     column-gap: 5px;
+  }
+
+  &__service-title {
+    flex-basis: 87.5%;
+    line-height: 18px;
   }
 
   &__service-total {
@@ -38,8 +43,11 @@
   &__service-wrapper {
     display: flex;
     column-gap: 5px;
-    justify-content: space-between;
     flex-basis: 77.2%;
+
+    @media screen and (max-width: 420px) {
+      flex-basis: 75%;
+    }
   }
 
   &__service-sign {

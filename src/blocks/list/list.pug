@@ -3,6 +3,7 @@ mixin list(settings)
   -   title: {
   -     text = "For Change",
   -     teg = "p",
+  -     fontSize = "",
   -     isBullet = false,
   -     isWithMargin = false,
   -   },
@@ -26,7 +27,8 @@ mixin list(settings)
     div(class=["list__title", jsTitleClass, marginClass, bulletClass, titleExpandedClass])
       +title({
         text: text,
-        teg: teg
+        teg: teg,
+        fontSize,
       })
     div(class=["list__container-wrapper", jsContainerWrapperClass])&attributes(attrs)
       ul.list__container

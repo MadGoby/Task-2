@@ -2,6 +2,10 @@
 @import '../../common/variables';
 
 .user-comment {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
   &__avatar {
     width: 48px;
     height: 48px;
@@ -9,14 +13,21 @@
     border-radius: 100%;
     border: 2px solid white;
     display: inline-block;
-    margin-right: 10px;
     user-select: none;
+  }
+
+  &__title {
+    display: flex;
+    column-gap: 9px;
+  }
+
+  &__main {
+    display: flex;
+    column-gap: 14px;
   }
 
   &__info {
     @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
-    display: inline-block;
-    vertical-align: top;
   }
 
   &__name,
@@ -29,19 +40,11 @@
   }
 
   &__like {
-    display: inline-block;
-    margin: 2px 14px 0 0;
-    vertical-align: top;
-  }
-
-  &__main {
-    margin: 6px 0 0 4px;
+    padding: 2px 0 0 3px;
   }
 
   &__text {
     @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
-    display: inline-block;
     margin: 0;
-    max-width: 653px;
   }
 }

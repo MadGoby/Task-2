@@ -35,38 +35,70 @@
 
   &__details {
     display: flex;
-    padding: 70px 138px 73px 137px;
+    padding: 70px 140px 73px 140px;
     justify-content: space-between;
+    column-gap: 15px;
+    row-gap: 30px;
 
     @media screen and (max-width: 1430px) {
       padding: 40px 35px;
     }
 
-    @media screen and (max-width: 500px) {
-      padding: 20px 10px;
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
     }
 
-    @media screen and (max-width: 380px) {
-      padding: 30px 0;
+    @media screen and (max-width: 500px) {
+      padding: 20px 10px;
     }
   }
 
   &__final-booking {
     order: 2;
+
+    @media screen and (max-width: 1000px) {
+      display: flex;
+      order: unset;
+      justify-content: center;
+    }
   }
 
   &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 33px;
   }
 
   &__room-description {
     display: flex;
+    width: 94.8%;
     justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    row-gap: 20px;
+
+    @media screen and (max-width: 1150px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 650px) {
+      justify-content: center;
+    }
+  }
+
+  &__comments {
+    max-width: 709px;
   }
 
   &__positive-features {
+    flex-basis: 41.7%;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+
+    @media screen and (max-width: 1150px) {
+      flex-basis: auto;
+    }
   }
 
   &__impressions {
@@ -74,59 +106,43 @@
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+  }
 
-    @media screen and (max-width: 750px) {
-      display: block;
-      max-width: 311px;
-      margin: 30px auto 0;
+  &__notations {
+    display: flex;
+    width: 99%;
+    justify-content: space-between;
+    column-gap: 30px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 650px) {
+      justify-content: center;
     }
   }
 
   &__rules {
-    margin-top: 33px;
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 101px;
-    text-align: initial;
-
-    @media screen and (max-width: 380px) {
-      margin-right: 0;
-      width: 100%;
-      padding: 0 5px;
-    }
+    max-width: 263px;
+    padding-top: 1px;
   }
 
   &__cancellation {
-    display: inline-block;
     max-width: 341px;
-    margin-top: 30px;
-    vertical-align: top;
-    text-align: initial;
-
-    @media screen and (max-width: 380px) {
-      width: 100%;
-      padding: 0 5px;
-    }
-  }
-
-  &__photos-wrapper {
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    max-width: 31.88%;
-    height: 100%;
   }
 
   &__comments {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
   }
 
   &__comments-title-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: 20px;
+    column-gap: 30px;
+    row-gap: 10px;
+    flex-wrap: wrap;
   }
 
   &__comments-counter {
@@ -134,6 +150,10 @@
   }
 
   &__comment {
+    &:not(:last-child) {
+      margin-bottom: 22px;
+    }
+
     @media screen and (max-width: 380px) {
       padding: 0 5px;
     }
@@ -165,9 +185,9 @@
 }
 
 .cancellation {
-  &__title {
-    margin: 3px 0 17px;
-  }
+  display: flex;
+  flex-direction: column;
+  row-gap: 17px;
 
   &__text {
     margin: 0;
