@@ -1,4 +1,4 @@
-class RoomCardSlider {
+class RoomCard {
   constructor(target) {
     if (typeof target === 'string') {
       this.containerClass = target;
@@ -160,4 +160,4 @@ class RoomCardSlider {
   }
 }
 
-export { RoomCardSlider };
+export { RoomCard };

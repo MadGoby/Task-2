@@ -1,4 +1,4 @@
-class HeaderBurger {
+class Header {
   constructor(target) {
     this.containerClass = target;
 
@@ -62,4 +62,4 @@ class HeaderBurger {
   }
 }
 
-export { HeaderBurger };
+export { Header };

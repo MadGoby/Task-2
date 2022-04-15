@@ -1,4 +1,4 @@
-import { HeaderBurger } from '@blocks/header/Header';
+import { Header } from '@blocks/header/Header';
 import { Datepicker } from '@blocks/datepicker/Datepicker';
 import { Dropdown } from '@blocks/dropdown/Dropdown';
 import { Navigation } from '@blocks/navigation/Navigation';
@@ -9,7 +9,7 @@ import './landing-page.scss';
 importContext();
 
 function handleDocumentLoad() {
-  new HeaderBurger('js-landing-page__header');
+  new Header('js-landing-page__header');
   new Navigation('js-landing-page__header');
   new Datepicker({
     target: 'js-landing-page__search-room',

@@ -1,11 +1,11 @@
-import { HeaderBurger } from '@blocks/header/Header';
+import { Header } from '@blocks/header/Header';
 import { Datepicker } from '@blocks/datepicker/Datepicker';
 import { Dropdown } from '@blocks/dropdown/Dropdown';
 import { Navigation } from '@blocks/navigation/Navigation';
+import { LikeButton } from '@blocks/like-button/LikeButton';
 
 import { importContext } from '../../tools/importContext';
 import './room-details.scss';
-import { LikeButton } from '@blocks/like-button/LikeButton';
 
 importContext();
 
@@ -15,7 +15,7 @@ const likeButtonElements = [
 ];
 
 function handleDocumentLoad() {
-  new HeaderBurger('js-room-details__header');
+  new Header('js-room-details__header');
   new Navigation('js-room-details__header');
   new Datepicker({
     target: 'js-room-details__final-booking',

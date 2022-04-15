@@ -1,4 +1,4 @@
-class ListDropdown {
+class List {
   constructor(target) {
     this.containerClass = target;
 
@@ -46,4 +46,4 @@ class ListDropdown {
   }
 }
 
-export { ListDropdown };
+export { List };

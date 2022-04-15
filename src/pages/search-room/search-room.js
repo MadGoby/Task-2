@@ -1,11 +1,11 @@
-import { HeaderBurger } from '@blocks/header/Header';
+import { Header } from '@blocks/header/Header';
 import { Sidebar } from '@blocks/sidebar/Sidebar';
 import { Datepicker } from '@blocks/datepicker/Datepicker';
 import { Dropdown } from '@blocks/dropdown/Dropdown';
 import { Slider } from '@blocks/slider/Slider';
-import { ListDropdown } from '@blocks/list/List';
+import { List } from '@blocks/list/List';
 import { ContentNavigation } from '@blocks/content-navigation/ContentNavigation';
-import { RoomCardSlider } from '@blocks/room-card/RoomCard';
+import { RoomCard } from '@blocks/room-card/RoomCard';
 import { Navigation } from '@blocks/navigation/Navigation';
 import { StarsRating } from '@blocks/stars-rating/StarsRating';
 
@@ -37,7 +37,7 @@ const dropdownData = [
 
 function handleDocumentLoad() {
   dropdownData.forEach((settings) => new Dropdown(settings));
-  new HeaderBurger('js-search-room-page__header');
+  new Header('js-search-room-page__header');
   new Navigation('js-search-room-page__header');
   new Sidebar('js-search-room-page__sidebar-wrapper');
   new Datepicker({
@@ -59,10 +59,10 @@ function handleDocumentLoad() {
       values: [5000, 10000],
     },
   });
-  new ListDropdown('js-sidebar__additional-amenities');
+  new List('js-sidebar__additional-amenities');
   new ContentNavigation('js-search-room-page__rooms-navigation');
   document.querySelectorAll('.js-room-card').forEach((element) => {
-    new RoomCardSlider(element);
+    new RoomCard(element);
     new StarsRating(element);
   });
 }

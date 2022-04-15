@@ -1,12 +1,12 @@
 import Inputmask from 'inputmask/lib/inputmask';
 
-class InputMask {
+class Input {
   constructor(settings) {
     this.containerClass = settings.target;
     this.parameters = settings.parameters;
 
     this.getHtmlElements();
-    this.initializeInputMask();
+    this.initializeInput();
   }
 
   getHtmlElements() {
@@ -14,9 +14,9 @@ class InputMask {
     this.input = this.container.querySelector('.js-input__field');
   }
 
-  initializeInputMask() {
+  initializeInput() {
     Inputmask(this.parameters).mask(this.input);
   }
 }
 
-export { InputMask };
+export { Input };

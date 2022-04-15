@@ -3,8 +3,8 @@ import { Datepicker } from '@blocks/datepicker/Datepicker';
 import { StarsRating } from '@blocks/stars-rating/StarsRating';
 import { Slider } from '@blocks/slider/Slider';
 import { ContentNavigation } from '@blocks/content-navigation/ContentNavigation';
-import { ListDropdown } from '@blocks/list/List';
-import { InputMask } from '@blocks/input/InputMask';
+import { List } from '@blocks/list/List';
+import { Input } from '@blocks/input/Input';
 import { LikeButton } from '@blocks/like-button/LikeButton';
 
 import { importContext } from '../../tools/importContext';
@@ -102,7 +102,7 @@ function handleDocumentLoad() {
   datepickersData.forEach((settings) => new Datepicker(settings));
   dropdownData.forEach((settings) => new Dropdown(settings));
   starsRatingElements.forEach((target) => new StarsRating(target));
-  listElements.forEach((target) => new ListDropdown(target));
+  listElements.forEach((target) => new List(target));
   new ContentNavigation('js-form-elements__pagination');
   new Slider({
     targetClass: 'js-form-elements__slider',
@@ -113,7 +113,7 @@ function handleDocumentLoad() {
       values: [5000, 10000],
     },
   });
-  new InputMask({
+  new Input({
     target: 'js-form-elements__masked-input',
     parameters: {
       mask: '99.99.9999',
