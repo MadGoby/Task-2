@@ -12,7 +12,7 @@
   max-width: 380px;
 
   &__title {
-    margin-bottom: 21px;
+    margin-bottom: 20px;
   }
 
   &__inputs {
@@ -29,7 +29,7 @@
   }
 
   &__confirm-button {
-    margin-bottom: 30px;
+    margin-bottom: 29px;
   }
 
   &__text {
@@ -40,6 +40,10 @@
       max-width: 140px;
       line-height: 22px;
     }
+  }
+
+  &__link {
+    width: 99px;
   }
 
   @media screen and (max-width: 420px) {

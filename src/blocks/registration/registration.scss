@@ -13,7 +13,7 @@
   width: 380px;
 
   &__title {
-    margin-bottom: 21px;
+    margin-bottom: 19px;
   }
 
   &__gender {
@@ -49,17 +49,23 @@
   }
 
   &__confirm-button {
-    margin-bottom: 30px;
+    margin-bottom: 29px;
   }
 
   &__text {
     @include text_type($main-font, 14px, 400, 18px, #000000);
     margin: 0;
+    padding-left: 1px;
 
     @media screen and (max-width: 420px) {
+      padding-left: 0;
       max-width: 140px;
       line-height: 22px;
     }
+  }
+
+  &__link {
+    width: 99px;
   }
 
   @media screen and (max-width: 420px) {
