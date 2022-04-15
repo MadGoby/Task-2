@@ -1,16 +1,27 @@
 .content-types {
   width: 1440px;
   padding: 145px 158px 145px 149px;
-  position: relative;
   margin: auto;
 
-  &__colors,
-  &__text {
-    display: inline-block;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__colors {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
   }
 
   &__text {
-    vertical-align: top;
-    float: right;
+    width: 440px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 51px;
   }
+}
+
+.text-sample:last-child {
+  max-width: 380px;
 }

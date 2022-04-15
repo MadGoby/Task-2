@@ -125,7 +125,9 @@
   &__social-media {
     &_size {
       &_small {
-        margin-top: 18px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
       }
     }
   }
@@ -134,7 +136,7 @@
     &_small {
       margin: 0 auto;
       flex-direction: column;
-      align-items: center;
+      align-content: center;
       padding: 120px 0;
       background: #ffffff;
       box-shadow: 0 10px 20px 0 $color-secondary-light;
@@ -143,12 +145,17 @@
   }
 
   &__small-copyright {
-    margin: 0 0 20px 0;
+    margin: 0;
   }
 
   &_size_small &__media-links {
     display: flex;
     justify-content: center;
+  }
+
+  &_size_small &__description {
+    width: 106px;
+    margin: 0 auto;
   }
 
   @media screen and (max-width: 1439px) {

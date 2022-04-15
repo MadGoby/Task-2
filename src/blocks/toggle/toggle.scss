@@ -2,22 +2,22 @@
 @import '../../common/variables';
 
 .toggle {
+  display: flex;
+  column-gap: 10px;
   @include text_type($main-font, 14px, 400, 20px, $color-main-dark);
-  display: block;
 
   &__border {
+    display: flex;
     height: 20px;
     width: 40px;
     border-radius: 10px;
-    display: inline-block;
     cursor: pointer;
     border: 1px solid $color-main-lighter;
     padding: 3px;
-    vertical-align: top;
 
     &::before {
       content: '';
-      display: block;
+      display: flex;
       width: 12px;
       height: 12px;
       background: $color-main-lighter;
@@ -30,27 +30,19 @@
   }
 
   &__text-wrapper {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: top;
   }
 
   &__text {
     cursor: pointer;
     user-select: none;
-    display: inline-block;
   }
 
   &__controller:checked + .toggle__border {
     border-color: $main-interactive-color;
+    justify-content: end;
 
     &::before {
-      float: right;
       background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
     }
-  }
-
-  &:not(:last-of-type) {
-    margin-bottom: 10px;
   }
 }

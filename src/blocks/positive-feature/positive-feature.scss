@@ -27,15 +27,15 @@
     font-weight: 700;
   }
 
+  &:last-child {
+    padding: 20px 0 0;
+  }
+
   &_with-border {
     border-bottom: 1px solid $color-secondary-light;
 
     &:not(:first-child) {
       padding: 20px 0;
     }
-  }
-
-  &:last-child {
-    padding: 20px 0 0;
   }
 }

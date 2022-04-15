@@ -7,6 +7,7 @@
   column-gap: 10px;
 
   &__border {
+    display: flex;
     user-select: none;
     height: 20px;
     width: 20px;

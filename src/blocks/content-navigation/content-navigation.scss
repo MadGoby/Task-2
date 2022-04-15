@@ -8,10 +8,7 @@
 
   &__buttons {
     display: flex;
-
-    @media screen and (max-width: 400px) {
-      justify-content: center;
-    }
+    justify-content: center;
   }
 
   &__button {

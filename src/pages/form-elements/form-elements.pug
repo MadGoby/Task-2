@@ -114,18 +114,19 @@ include ../../blocks/subscription-input/subscription-input
               +title({
                 text: "Checkbox Buttons"
               })
-            +checkbox-button({
-              text: "Можно курить",
-            })
-            +checkbox-button({
-              text: "Можно с питомцами",
-              isChecked: true,
-            })
-            +checkbox-button({
-              text: "Можно пригласить гостей (до 10 человек)",
-              isChecked: true,
-              isShort: true,
-            })
+            div.form-elements__checkboxes-elements
+              +checkbox-button({
+                text: "Можно курить",
+              })
+              +checkbox-button({
+                text: "Можно с питомцами",
+                isChecked: true,
+              })
+              +checkbox-button({
+                text: "Можно пригласить гостей (до 10 человек)",
+                isChecked: true,
+                isShort: true,
+              })
           div.form-elements__radios
             div.form-elements__radios-title
               +title({
@@ -149,13 +150,14 @@ include ../../blocks/subscription-input/subscription-input
               +title({
                 text: "Toggle"
               })
-            +toggle({
-              text: "Получать спецпредложения",
-              isChecked: true,
-            })
-            +toggle({
-              text: "Получать спецпредложения",
-            })
+            div.form-elements__toggles-elements
+              +toggle({
+                text: "Получать спецпредложения",
+                isChecked: true,
+              })
+              +toggle({
+                text: "Получать спецпредложения",
+              })
           div.form-elements__likes
             div.form-elements__likes-title
               +title({

@@ -1,4 +1,7 @@
 .stars-rating {
+  display: flex;
+  column-gap: 5px;
+
   &__star {
     cursor: pointer;
     display: inline-block;
@@ -8,10 +11,6 @@
 
     &:hover {
       transform: scale(1.2);
-    }
-
-    &:not(:last-of-type) {
-      margin-right: 5px;
     }
 
     &_color {

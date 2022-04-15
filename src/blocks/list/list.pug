@@ -31,13 +31,14 @@ mixin list(settings)
         fontSize,
       })
     div(class=["list__container-wrapper", jsContainerWrapperClass])&attributes(attrs)
-      ul.list__container
-        case listType
-          when "toggles"
+      case listType
+        when "toggles"
+          ul.list__container
             each toggle in itemList
               li.list__item
                 +checkbox-button(toggle)
-          default
+        default
+          ul.list__container.list__container_with-bullet
             each text in itemList
               li.list__item.list__item_with-bullet
                 p.list__text=text
