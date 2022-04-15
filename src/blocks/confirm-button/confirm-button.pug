@@ -2,4 +2,6 @@ mixin confirm-button(settings)
   - const {
   -   text = "for change",
   - } = settings
-  button(type="submit").submit-button=text
+  button(type="submit").submit-button
+    span.submit-button__text=text
+    span.submit-button__arrow

@@ -4,7 +4,7 @@
 .login {
   display: flex;
   flex-direction: column;
-  padding: 39px 29px 33px 29px;
+  padding: 39px 29px 31px 29px;
   background-color: white;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -29,7 +29,7 @@
   }
 
   &__confirm-button {
-    margin-bottom: 29px;
+    margin-bottom: 30px;
   }
 
   &__text {

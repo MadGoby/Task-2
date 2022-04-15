@@ -4,25 +4,28 @@
 .submit-button {
   @include text_type($main-font, 12px, 700, 15px, white);
   background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 15px;
   width: 100%;
   min-height: 44px;
   border-radius: 22px;
-  display: inline-block;
-  text-transform: uppercase;
   outline: none;
   cursor: pointer;
   user-select: none;
   border: none;
-  position: relative;
+  padding: 0 14px 0 44px;
 
-  &::after {
+  &__text {
+    text-transform: uppercase;
+    flex-grow: 1;
+  }
+
+  &__arrow {
     content: url('../../img/arrow-forward-white.svg');
-    padding: 13px 0 14px;
-    height: 100%;
-    width: 44px;
-    position: absolute;
-    right: 0;
-    top: 0;
+    width: 16px;
+    height: 16px;
   }
 
   &:hover {
