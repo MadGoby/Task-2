@@ -10,15 +10,19 @@ import './room-details.scss';
 importContext();
 
 const likeButtonElements = [
-  'room-details__comment_number_1',
-  'room-details__comment_number_2',
+  document.querySelector('.room-details__comment_number_1'),
+  document.querySelector('.room-details__comment_number_2'),
 ];
 
+const header = document.querySelector('.js-room-details__header');
+const datepicker = document.querySelector('.js-room-details__final-booking');
+const dropdown = document.querySelector('.js-room-details__final-booking');
+
 function handleDocumentLoad() {
-  new Header('js-room-details__header');
-  new Navigation('js-room-details__header');
+  new Header(header);
+  new Navigation(header);
   new Datepicker({
-    target: 'js-room-details__final-booking',
+    target: datepicker,
     templates: {
       pickedYear: '2019',
       pickedMonth: '7',
@@ -28,7 +32,7 @@ function handleDocumentLoad() {
     },
   });
   new Dropdown({
-    target: 'js-room-details__final-booking',
+    target: dropdown,
     dataSettings: {
       dataType: {
         name: 'guests',

@@ -14,7 +14,7 @@ importContext();
 
 const datepickersData = [
   {
-    target: 'js-form-elements__date-dropdowns',
+    target: document.querySelector('.js-form-elements__date-dropdowns'),
     templates: {
       pickedYear: '2019',
       pickedMonth: '7',
@@ -23,7 +23,7 @@ const datepickersData = [
     },
   },
   {
-    target: 'js-form-elements__filter-dropdown',
+    target: document.querySelector('.js-form-elements__filter-dropdown'),
     templates: {
       pickedYear: '2019',
       pickedMonth: '7',
@@ -36,7 +36,7 @@ const datepickersData = [
 
 const dropdownData = [
   {
-    target: 'js-form-elements__dropdown',
+    target: document.querySelector('.js-form-elements__dropdown'),
     dataSettings: {
       dataType: {
         name: 'guests',
@@ -45,7 +45,7 @@ const dropdownData = [
     },
   },
   {
-    target: 'js-form-elements__closed-dropdown',
+    target: document.querySelector('.js-form-elements__closed-dropdown'),
     dataSettings: {
       dataType: {
         name: 'rooms',
@@ -54,7 +54,7 @@ const dropdownData = [
     },
   },
   {
-    target: 'js-form-elements__expanded-dropdown',
+    target: document.querySelector('.js-form-elements__expanded-dropdown'),
     dataSettings: {
       dataType: {
         name: 'rooms',
@@ -63,7 +63,7 @@ const dropdownData = [
     },
   },
   {
-    target: 'js-form-elements__guests-dropdown_counter_0',
+    target: document.querySelector('.js-form-elements__guests-dropdown_counter_0'),
     dataSettings: {
       dataType: {
         name: 'guests',
@@ -72,7 +72,7 @@ const dropdownData = [
     },
   },
   {
-    target: 'js-form-elements__guests-dropdown_counter_3',
+    target: document.querySelector('.js-form-elements__guests-dropdown_counter_3'),
     dataSettings: {
       dataType: {
         name: 'guests',
@@ -83,29 +83,33 @@ const dropdownData = [
 ];
 
 const listElements = [
-  'js-form-elements__closed-list',
-  'js-form-elements__expanded-list',
+  document.querySelector('.js-form-elements__closed-list'),
+  document.querySelector('.js-form-elements__expanded-list'),
 ];
 
 const starsRatingElements = [
-  'js-form-elements__rating_number_1',
-  'js-form-elements__rating_number_2',
+  document.querySelector('.js-form-elements__rating_number_1'),
+  document.querySelector('.js-form-elements__rating_number_2'),
 ];
 
 const likeButtonsElements = [
-  'js-form-elements__like_unchecked',
-  'js-form-elements__like_checked',
-  'js-form-elements__user-comment',
+  document.querySelector('.js-form-elements__like_unchecked'),
+  document.querySelector('.js-form-elements__like_checked'),
+  document.querySelector('.js-form-elements__user-comment'),
 ];
+
+const contentNavigationElement = document.querySelector('.js-form-elements__pagination');
+const sliderElement = document.querySelector('.js-form-elements__slider');
+const inputElement = document.querySelector('.js-form-elements__masked-input');
 
 function handleDocumentLoad() {
   datepickersData.forEach((settings) => new Datepicker(settings));
   dropdownData.forEach((settings) => new Dropdown(settings));
   starsRatingElements.forEach((target) => new StarsRating(target));
   listElements.forEach((target) => new List(target));
-  new ContentNavigation('js-form-elements__pagination');
+  new ContentNavigation(contentNavigationElement);
   new Slider({
-    targetClass: 'js-form-elements__slider',
+    target: sliderElement,
     options: {
       range: true,
       min: 0,
@@ -114,7 +118,7 @@ function handleDocumentLoad() {
     },
   });
   new Input({
-    target: 'js-form-elements__masked-input',
+    target: inputElement,
     parameters: {
       mask: '99.99.9999',
       placeholder: 'ДД.ММ.ГГГГ',

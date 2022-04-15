@@ -1,6 +1,6 @@
 class LikeButton {
   constructor(target) {
-    this.contaienrClass = target;
+    this.container = target;
 
     autoBind(this);
     this.getHtmlElements();
@@ -8,7 +8,6 @@ class LikeButton {
   }
 
   getHtmlElements() {
-    this.container = document.querySelector(`.${this.contaienrClass}`);
     this.controller = this.container.querySelector('.js-like-button__controller');
     this.counter = this.container.querySelector('.js-like-button__counter');
   }

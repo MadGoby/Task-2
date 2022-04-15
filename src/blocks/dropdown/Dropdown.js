@@ -2,7 +2,7 @@ import { dropdownData } from '@blocks/dropdown/dropdownData';
 
 class Dropdown {
   constructor(settings) {
-    this.containerClass = settings.target;
+    this.container = settings.target;
     this.templates = dropdownData;
     if (settings.dataSettings.dataType.customValue) {
       this.templates.custom = settings.dataSettings.dataType.customValue;
@@ -23,7 +23,6 @@ class Dropdown {
   }
 
   getHtmlElements() {
-    this.container = document.querySelector(`.${this.containerClass}`);
     this.dropdownWrapper = this.container.querySelector('.js-dropdown');
     this.input = this.dropdownWrapper.querySelector('.js-dropdown-input__field');
     this.dropdown = this.dropdownWrapper.querySelector('.js-dropdown__control');

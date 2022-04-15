@@ -1,6 +1,6 @@
 class Navigation {
   constructor(target) {
-    this.containerClass = target;
+    this.container = target;
     this.expandablesLinksMap = [];
 
     autoBind(this);
@@ -9,8 +9,6 @@ class Navigation {
   }
 
   getHtmlElements() {
-    this.container = document.querySelector(`.${this.containerClass}`);
-
     [...this.container.querySelectorAll('.js-navigation__link-wrapper')].forEach((wrapper) => {
       const linkTitle = wrapper.querySelector('.navigation__expandable-title');
       const expandableWrapper = wrapper.querySelector('.js-navigation__expandable-wrapper');

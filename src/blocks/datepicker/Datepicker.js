@@ -2,7 +2,7 @@ import { datepickerData } from './datepickerData';
 
 class Datepicker {
   constructor(settings) {
-    this.containerClass = settings.target ? settings.target : 'js-for-change';
+    this.container = settings.target;
     this.templates = settings.templates ? settings.templates : {};
     this.settings = { monthRu: datepickerData.monthRu };
 
@@ -11,7 +11,6 @@ class Datepicker {
   }
 
   initializes() {
-    this.container = document.querySelector(`.${this.containerClass}`);
     this.getHtmlElements();
     this.setDefaultParameters();
     const calendarDays = this.makesCalendarByDate({

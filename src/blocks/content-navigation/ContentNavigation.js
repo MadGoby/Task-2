@@ -1,6 +1,6 @@
 class ContentNavigation {
   constructor(target) {
-    this.containerClass = target;
+    this.container = target;
 
     autoBind(this);
     this.initializes();
@@ -13,7 +13,6 @@ class ContentNavigation {
   }
 
   getHtmlElements() {
-    this.container = document.querySelector(`.${this.containerClass}`);
     this.buttons = [...this.container.querySelectorAll('.js-content-navigation__button')];
     this.counter = this.container.querySelector('.js-content-navigation__counter');
     this.buttons.forEach((button) => {

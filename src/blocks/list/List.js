@@ -1,6 +1,6 @@
 class List {
   constructor(target) {
-    this.containerClass = target;
+    this.container = target;
 
     autoBind(this);
     this.getHtmlElements();
@@ -9,7 +9,6 @@ class List {
   }
 
   getHtmlElements() {
-    this.container = document.querySelector(`.${this.containerClass}`);
     this.list = this.container.querySelector('.js-list__container-wrapper');
     this.title = this.container.querySelector('.js-list__title');
   }

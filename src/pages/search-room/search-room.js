@@ -16,7 +16,7 @@ importContext();
 
 const dropdownData = [
   {
-    target: 'js-sidebar__guests',
+    target: document.querySelector('.js-sidebar__guests'),
     dataSettings: {
       dataType: {
         name: 'guestsWithBaby',
@@ -25,7 +25,7 @@ const dropdownData = [
     },
   },
   {
-    target: 'js-sidebar__room-amenities',
+    target: document.querySelector('.js-sidebar__room-amenities'),
     dataSettings: {
       dataType: {
         name: 'rooms',
@@ -35,13 +35,21 @@ const dropdownData = [
   },
 ];
 
+const header = document.querySelector('.js-search-room-page__header');
+const sidebar = document.querySelector('.js-search-room-page__sidebar-wrapper');
+const datepicker = document.querySelector('.js-sidebar__date-filter');
+const slider = document.querySelector('.js-sidebar__slider');
+const list = document.querySelector('.js-sidebar__additional-amenities');
+const contentNavigation = document.querySelector('.js-search-room-page__rooms-navigation');
+const roomCards = document.querySelectorAll('.js-room-card');
+
 function handleDocumentLoad() {
   dropdownData.forEach((settings) => new Dropdown(settings));
-  new Header('js-search-room-page__header');
-  new Navigation('js-search-room-page__header');
-  new Sidebar('js-search-room-page__sidebar-wrapper');
+  new Header(header);
+  new Navigation(header);
+  new Sidebar(sidebar);
   new Datepicker({
-    target: 'js-sidebar__date-filter',
+    target: datepicker,
     templates: {
       pickedYear: '2019',
       pickedMonth: '7',
@@ -51,7 +59,7 @@ function handleDocumentLoad() {
     },
   });
   new Slider({
-    targetClass: 'js-sidebar__slider',
+    target: slider,
     options: {
       range: true,
       min: 0,
@@ -59,9 +67,9 @@ function handleDocumentLoad() {
       values: [5000, 10000],
     },
   });
-  new List('js-sidebar__additional-amenities');
-  new ContentNavigation('js-search-room-page__rooms-navigation');
-  document.querySelectorAll('.js-room-card').forEach((element) => {
+  new List(list);
+  new ContentNavigation(contentNavigation);
+  roomCards.forEach((element) => {
     new RoomCard(element);
     new StarsRating(element);
   });

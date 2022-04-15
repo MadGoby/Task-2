@@ -10,10 +10,10 @@ import './cards.scss';
 importContext();
 
 const datepickersData = [
-  { target: 'js-cards__search-room' },
-  { target: 'js-cards__final-booking' },
+  { target: document.querySelector('.js-cards__search-room') },
+  { target: document.querySelector('.js-cards__final-booking') },
   {
-    target: 'js-cards__datepicker',
+    target: document.querySelector('.js-cards__datepicker'),
     templates: {
       pickedYear: '2019',
       pickedMonth: '7',
@@ -26,7 +26,7 @@ const datepickersData = [
 
 const dropdownData = [
   {
-    target: 'js-cards__search-room',
+    target: document.querySelector('.js-cards__search-room'),
     dataSettings: {
       dataType: {
         name: 'guests',
@@ -35,7 +35,7 @@ const dropdownData = [
     },
   },
   {
-    target: 'js-cards__final-booking',
+    target: document.querySelector('.js-cards__final-booking'),
     dataSettings: {
       dataType: {
         name: 'guests',
@@ -45,9 +45,11 @@ const dropdownData = [
   },
 ];
 
+const inputTarget = document.querySelector('.js-cards__registration');
+
 const cardsData = [
-  'js-cards__room_number_888',
-  'js-cards__room_number_848',
+  document.querySelector('.js-cards__room_number_888'),
+  document.querySelector('.js-cards__room_number_848'),
 ];
 
 function handleDocumentLoad() {
@@ -58,7 +60,7 @@ function handleDocumentLoad() {
     new StarsRating(target);
   });
   new Input({
-    target: 'js-cards__registration',
+    target: inputTarget,
     parameters: {
       mask: '99.99.9999',
       placeholder: 'ДД.ММ.ГГГГ',

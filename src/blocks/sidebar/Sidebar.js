@@ -1,13 +1,12 @@
 class Sidebar {
   constructor(target) {
-    this.containerClass = target;
+    this.container = target;
 
     autoBind(this);
     this.prepareSidebar();
   }
 
   getHtmlElements() {
-    this.container = document.querySelector(`.${this.containerClass}`);
     this.title = this.container.querySelector('.js-sidebar__title');
     this.sidebar = this.container.querySelector('.js-sidebar__wrapper');
   }

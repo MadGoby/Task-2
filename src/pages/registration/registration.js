@@ -7,11 +7,14 @@ import './registration.scss';
 
 importContext();
 
+const header = document.querySelector('.js-registration-page__header');
+const input = document.querySelector('.js-registration-page__form');
+
 function handleDocumentLoad() {
-  new Header('js-registration-page__header');
-  new Navigation('js-registration-page__header');
+  new Header(header);
+  new Navigation(header);
   new Input({
-    target: 'js-registration-page__form',
+    target: input,
     parameters: {
       mask: '99.99.9999',
       placeholder: 'ДД.ММ.ГГГГ',

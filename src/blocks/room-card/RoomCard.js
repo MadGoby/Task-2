@@ -1,10 +1,6 @@
 class RoomCard {
   constructor(target) {
-    if (typeof target === 'string') {
-      this.containerClass = target;
-    } else {
-      this.container = target;
-    }
+    this.container = target;
 
     autoBind(this);
     this.getHtmlElements();
@@ -12,7 +8,6 @@ class RoomCard {
   }
 
   getHtmlElements() {
-    if (this.containerClass) this.container = document.querySelector(`.${this.containerClass}`);
     this.images = [...this.container.querySelectorAll('.room-card__image')];
     this.previousButton = this.container.querySelector('.room-card__image-button_side_left');
     this.nextButton = this.container.querySelector('.room-card__image-button_side_right');

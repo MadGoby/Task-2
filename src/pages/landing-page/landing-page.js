@@ -8,14 +8,17 @@ import './landing-page.scss';
 
 importContext();
 
+const header = document.querySelector('.js-landing-page__header');
+const searchRoom = document.querySelector('.js-landing-page__search-room');
+
 function handleDocumentLoad() {
-  new Header('js-landing-page__header');
-  new Navigation('js-landing-page__header');
+  new Header(header);
+  new Navigation(header);
   new Datepicker({
-    target: 'js-landing-page__search-room',
+    target: searchRoom,
   });
   new Dropdown({
-    target: 'js-landing-page__search-room',
+    target: searchRoom,
     dataSettings: {
       dataType: {
         name: 'guests',

@@ -3,7 +3,7 @@ require('webpack-jquery-ui/css');
 
 class Slider {
   constructor(settings) {
-    this.targetClass = settings.targetClass;
+    this.target = settings.target;
     this.options = settings.options;
 
     this.initializeElements();
@@ -11,7 +11,6 @@ class Slider {
   }
 
   initializeElements() {
-    this.target = document.querySelector(`.${this.targetClass}`);
     this.body = this.target.querySelector('.js-slider__body');
     this.output = this.target.querySelector('.js-slider__output');
   }

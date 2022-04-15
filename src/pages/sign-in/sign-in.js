@@ -6,9 +6,11 @@ import './sign-in.scss';
 
 importContext();
 
+const header = document.querySelector('.js-sign-in__header');
+
 function handleDocumentLoad() {
-  new Header('js-sign-in__header');
-  new Navigation('js-sign-in__header');
+  new Header(header);
+  new Navigation(header);
 }
 
 document.addEventListener('DOMContentLoaded', handleDocumentLoad);
