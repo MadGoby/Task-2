@@ -1,3 +1,8 @@
+include ../room-information/room-information
+include ../datepicker/datepicker
+include ../dropdown/dropdown
+include ../confirm-button/confirm-button
+
 mixin final-booking(settings)
   - const {
   -   action = "./for-change",
@@ -93,7 +98,7 @@ mixin final-booking(settings)
         -   type: listType = 'regular',
         -   isSign: isListSign = false,
         - } = list
-        if listType == "total"
+        if listType === "total"
           li.final-booking__service-total.final-booking__service_text_bold
             span.final-booking__total-title=list.title
             span.final-booking__total-dots
