@@ -44,9 +44,11 @@ class Sidebar {
     const checkNeedDisplay = () => isLessThanLimit && notDisplayed;
 
     if (checkNeedDisplay()) {
+      this.title.style.display = 'none';
       this.sidebar.style.display = 'inline-block';
       this.removeExpandedClass();
     } else if (userWidth < 701) {
+      this.title.style.display = 'inline-block';
       this.sidebar.style.display = 'none';
     }
   }
@@ -70,7 +72,7 @@ class Sidebar {
 
   bindEventListeners() {
     this.title.addEventListener('click', this.handleTitleClick);
-    document.body.onresize = this.handleDOMResize;
+    window.addEventListener('resize', this.handleDOMResize);
   }
 }
 

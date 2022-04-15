@@ -38,11 +38,14 @@
       }
     }
 
-    @media screen and (max-width: 700px) {
-      display: block;
-      text-align: left;
-      margin-bottom: 20px;
-    }
+    //@media screen and (max-width: 700px) {
+    //  display: block;
+    //  text-align: left;
+    //  margin-bottom: 20px;
+    //}
+  }
+
+  &__wrapper {
   }
 
   &__rooms-title {
@@ -50,7 +53,7 @@
   }
 
   &__date-filter {
-    margin-bottom: 21px;
+    margin-bottom: 19px;
   }
 
   &__availability {
@@ -62,7 +65,7 @@
   }
 
   &__guests {
-    margin-bottom: 27px;
+    margin-bottom: 29px;
   }
 
   &__additional-features {
@@ -81,10 +84,5 @@
 
   &__room-amenities {
     margin-bottom: 29px;
-  }
-
-  @media screen and (max-width: 700px) {
-    float: none;
-    display: inline-block;
   }
 }

@@ -10,7 +10,7 @@ class HeaderBurger {
   getHtmlElements() {
     this.container = document.querySelector(`.${this.containerClass}`);
     this.navigation = this.container.querySelector('.js-header__navigation-wrapper');
-    this.button = this.container.querySelector('.js-header__navigation-button');
+    this.button = this.container.querySelector('.js-header__hamburger');
   }
 
   handleButtonClick() {
@@ -18,22 +18,21 @@ class HeaderBurger {
 
     if (styles.display === 'none') {
       this.navigation.style.display = 'block';
-      this.button.querySelector('.header__hamburger').classList.add('header__hamburger_expanded');
+      this.button.classList.add('header__hamburger_expanded');
       this.bindDomEventListener();
     } else {
       this.navigation.style.display = 'none';
-      this.button.querySelector('.header__hamburger').classList.remove('header__hamburger_expanded');
+      this.button.classList.remove('header__hamburger_expanded');
       this.removeDomEventListener();
     }
   }
 
   controlDisplayOnResize(userWidth) {
-    const isNeedToBeDisplayed = userWidth > 350 && this.navigation.style.display === 'none';
+    const isNeedToBeDisplayed = userWidth > 363 && this.button.classList.contains('header__hamburger_expanded');
 
     if (isNeedToBeDisplayed) {
-      this.navigation.style.display = 'block';
-    } else if (userWidth <= 350) {
-      this.navigation.style.display = 'none';
+      this.button.classList.remove('header__hamburger_expanded');
+      this.navigation.style.display = '';
     }
   }
 
@@ -59,7 +58,7 @@ class HeaderBurger {
 
   bindEventListeners() {
     this.button.addEventListener('click', this.handleButtonClick);
-    document.body.onresize = this.handleDOMResize;
+    window.addEventListener('resize', this.handleDOMResize);
   }
 }
 

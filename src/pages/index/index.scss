@@ -13,7 +13,6 @@
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 30px 25px;
-  text-align: center;
 
   &__list-wrapper:not(:last-child) {
     margin-bottom: 35px;
@@ -50,19 +49,23 @@
   }
 
   &__links-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
     margin: 0;
     padding: 0;
+    list-style: none;
   }
 
   &__link-wrapper {
-    list-style: none;
+    display: flex;
+    justify-content: center;
     width: 70%;
-    margin: auto;
+    padding: 0 0 10px;
 
     &:not(:last-child) {
       border-bottom: 1px solid $color-main-lighter;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
     }
   }
 }
