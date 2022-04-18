@@ -24,6 +24,7 @@ include ../../blocks/text-button/text-button
 include ../../blocks/confirm-button/confirm-button
 include ../../blocks/dropdown-input/dropdown-input
 include ../../blocks/subscription-input/subscription-input
+include ../../blocks/room-gallery/room-gallery
 
 +page-head({title: "Room Details", description: "Room Details page of the hotel room website."})
   body
@@ -32,10 +33,11 @@ include ../../blocks/subscription-input/subscription-input
         +page-header()
       main.room-details__main
         div.room-details__photos
-          img(src=require("@images/room-photo-big.jpg").default, alt="Room photo").room-photo.room-photo_position_main
-          .room-details__sub-photos
-            img(src=require("@images/room-photo-small1.jpg").default, alt="Room photo").room-photo.room-photo_position_top
-            img(src=require("@images/room-photo-small2.jpg").default, alt="Room photo").room-photo.room-photo_position_bottom
+          +room-gallery({
+            main: "room-photo-big.jpg",
+            top: "room-photo-small1.jpg",
+            bottom: "room-photo-small2.jpg",
+          })
         div.room-details__details
           div.room-details__final-booking.js-room-details__final-booking
             +final-booking({
@@ -195,13 +197,12 @@ include ../../blocks/subscription-input/subscription-input
                   ],
                 })
               div.room-details__cancellation
-                div.cancellation
-                  div.cancellation__title
-                    +title({
-                      text: "Отмена",
-                      fontSize: "regular",
-                      teg: "h2"
-                    })
-                  p.cancellation__text="Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
+                div.room-details__cancellation-title
+                  +title({
+                    text: "Отмена",
+                    fontSize: "regular",
+                    teg: "h2"
+                  })
+                p.room-details__cancellation-text="Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
       footer.room-details__footer
         +page-footer()

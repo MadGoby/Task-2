@@ -40,6 +40,11 @@
     }
   }
 
+  &__search-room {
+    @media screen and (max-width: 900px) {
+      margin: 0 auto;
+    }
+  }
 
   &__main-text {
     @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
@@ -55,11 +60,5 @@
 
   &__footer {
     flex: 0 0 auto;
-  }
-}
-
-.search-room {
-  @media screen and (max-width: 900px) {
-    margin: 0 auto;
   }
 }

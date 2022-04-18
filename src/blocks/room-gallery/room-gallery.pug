@@ -1,0 +1,11 @@
+mixin room-gallery(settings)
+  - const {
+  -   main = 'for-change.jpg',
+  -   top = 'for-change.jpg',
+  -   bottom = 'for-change.jpg',
+  - } = settings
+  div.room-gallery
+    img(src=require(`@images/${main}`).default, alt="Room photo").room-gallery__photo.room-gallery__photo_position_main
+    div.room-gallery__small-photos
+      img(src=require(`@images/${top}`).default, alt="Room photo").room-gallery__photo.room-gallery__photo_position_top
+      img(src=require(`@images/${bottom}`).default, alt="Room photo").room-gallery__photo.room-gallery__photo_position_bottom

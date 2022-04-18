@@ -14,25 +14,6 @@
     background-color: white;
   }
 
-  &__sub-photos {
-    display: flex;
-    width: 31.9%;
-    flex-direction: column;
-
-    @media screen and (max-width: 800px) {
-      width: 100%;
-      flex-direction: row;
-    }
-  }
-
-  &__photos {
-    display: flex;
-
-    @media screen and (max-width: 800px) {
-      flex-direction: column;
-    }
-  }
-
   &__details {
     display: flex;
     padding: 70px 140px 73px 140px;
@@ -159,38 +140,19 @@
     }
   }
 
+  &__cancellation {
+    display: flex;
+    flex-direction: column;
+    row-gap: 17px;
+  }
+
+  &__cancellation-text {
+    margin: 0;
+    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+  }
+
   &__footer {
     flex: 0 0 auto;
     border-top: 1px solid $color-main-lighter;
-  }
-}
-
-.room-photo {
-  &_position {
-    &_main {
-      width: 68.1%;
-
-      @media screen and (max-width: 800px) {
-        width: 100%;
-      }
-    }
-
-    &_top,
-    &_bottom {
-      @media screen and (max-width: 800px) {
-        width: 50%;
-      }
-    }
-  }
-}
-
-.cancellation {
-  display: flex;
-  flex-direction: column;
-  row-gap: 17px;
-
-  &__text {
-    margin: 0;
-    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
   }
 }

@@ -27,15 +27,17 @@
     }
   }
 
+  &__login {
+    display: flex;
+    justify-content: center;
+    margin-top: 172px;
+
+    @media screen and (max-width: 550px) {
+      margin-top: 81px;
+    }
+  }
+
   &__footer {
     flex: 0 0 auto;
-  }
-}
-
-.login {
-  margin: 172px auto 0;
-
-  @media screen and (max-width: 550px) {
-    margin-top: 81px;
   }
 }

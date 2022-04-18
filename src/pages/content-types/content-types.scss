@@ -19,9 +19,11 @@
     display: flex;
     flex-direction: column;
     row-gap: 51px;
-  }
-}
 
-.text-sample:last-child {
-  max-width: 380px;
+    &_size {
+      &_small {
+        max-width: 380px;
+      }
+    }
+  }
 }

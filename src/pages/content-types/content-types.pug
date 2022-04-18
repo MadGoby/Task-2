@@ -63,8 +63,9 @@ include ../../blocks/text-sample/text-sample.pug
             tegName: "H3",
             description: "This is a label or CTA text"
           })
-          +text-sample({
-            type: "regular",
-            tegName: "Body",
-            description: "This is the body text which is used for most of the design, like paragraphs, lists, etc."
-          })
+          div.content-types__text_size_small
+            +text-sample({
+              type: "regular",
+              tegName: "Body",
+              description: "This is the body text which is used for most of the design, like paragraphs, lists, etc."
+            })
