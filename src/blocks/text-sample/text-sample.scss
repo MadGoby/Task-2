@@ -10,20 +10,20 @@
 
     &_type {
       &_h1 {
-        @include text_type($main-font, 24px, 700, 29px, $color-main-darker);
+        @include text_type($font-main, 24px, 700, 29px, $color-main-darker);
       }
 
       &_h2 {
-        @include text_type($main-font, 19px, 700, 23px, $color-main-darker);
+        @include text_type($font-main, 19px, 700, 23px, $color-main-darker);
       }
 
       &_h3 {
-        @include text_type($main-font, 12px, 700, 14px, $color-main-darker);
+        @include text_type($font-main, 12px, 700, 14px, $color-main-darker);
         text-transform: uppercase;
       }
 
       &_regular {
-        @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+        @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
       }
     }
   }
@@ -36,19 +36,19 @@
 
     &_type {
       &_h1 {
-        @include text_type($main-font, 24px, 400, 29px, $color-main-lighter);
+        @include text_type($font-main, 24px, 400, 29px, $color-main-lighter);
       }
 
       &_h2 {
-        @include text_type($main-font, 19px, 400, 23px, $color-main-lighter);
+        @include text_type($font-main, 19px, 400, 23px, $color-main-lighter);
       }
 
       &_h3 {
-        @include text_type($main-font, 12px, 400, 14px, $color-main-lighter);
+        @include text_type($font-main, 12px, 400, 14px, $color-main-lighter);
       }
 
       &_regular {
-        @include text_type($main-font, 14px, 400, 24px, $color-main-lighter);
+        @include text_type($font-main, 14px, 400, 24px, $color-main-lighter);
       }
     }
   }

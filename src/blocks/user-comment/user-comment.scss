@@ -27,7 +27,7 @@
   }
 
   &__info {
-    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+    @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
   }
 
   &__name,
@@ -44,7 +44,7 @@
   }
 
   &__text {
-    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+    @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
     margin: 0;
   }
 }

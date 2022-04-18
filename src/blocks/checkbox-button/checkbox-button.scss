@@ -2,12 +2,13 @@
 @import '../../common/variables';
 
 .checkbox-button {
-  @include text_type($main-font, 14px, 400, 20px, $color-main-light);
+  @include text_type($font-main, 14px, 400, 20px, $color-main-light);
   display: flex;
   column-gap: 10px;
 
   &__border {
     display: flex;
+    flex-shrink: 0;
     user-select: none;
     height: 20px;
     width: 20px;
@@ -30,7 +31,6 @@
   &__text {
     cursor: pointer;
     user-select: none;
-    max-width: 230px;
   }
 
   &__title ~ &__text {
@@ -42,10 +42,10 @@
   &__controller:checked + &__border {
     content: url('../../img/check-arrow.jpg');
     padding: 3px 4px 5px;
-    border-color: $main-interactive-color;
+    border-color: $color-interactive-main;
   }
 
   &:hover &__border {
-    box-shadow: 0 0 4px 1px $main-interactive-color;
+    box-shadow: 0 0 4px 1px $color-interactive-main;
   }
 }

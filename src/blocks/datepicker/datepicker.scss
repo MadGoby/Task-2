@@ -70,7 +70,7 @@
   }
 
   &__selected-month {
-    @include text_type($main-font, 19px, 700, 24px, $color-main-darker);
+    @include text_type($font-main, 19px, 700, 24px, $color-main-darker);
     text-align: center;
     flex-grow: 1;
     margin: 0 0 0 1px;
@@ -100,7 +100,7 @@
 
   &__week-day {
     font-weight: 700;
-    color: $main-interactive-color;
+    color: $color-interactive-main;
     flex-grow: 1;
   }
 
@@ -112,7 +112,7 @@
   &__calendar {
     margin: 30px 0 19px;
     border-collapse: collapse;
-    @include text_type($main-font, 12px, 400, 15px, $color-main-light);
+    @include text_type($font-main, 12px, 400, 15px, $color-main-light);
   }
 
 
@@ -133,11 +133,11 @@
       }
 
       &_purple {
-        background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+        background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
       }
 
       &_green {
-        background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
+        background: linear-gradient(180deg, $color-interactive-secondary 0%, #66d2ea 100%);
       }
     }
 
@@ -148,7 +148,7 @@
       &::before {
         content: '';
         display: inline-block;
-        background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+        background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
         opacity: 0.25;
         position: absolute;
         z-index: -1;
@@ -162,7 +162,7 @@
         &::after {
           content: '';
           display: inline-block;
-          background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+          background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
           opacity: 0.25;
           position: absolute;
           z-index: -1;

@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .dropdown {
-  @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
+  @include text_type($font-main, 12px, 700, 15px, $color-main-darker);
   text-transform: uppercase;
   display: inline-block;
   position: relative;

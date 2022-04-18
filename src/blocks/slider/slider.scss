@@ -10,7 +10,7 @@
 
   &__description {
     margin: 14px 0 0;
-    @include text_type($main-font, 12px, 400, 14px, $color-main-light);
+    @include text_type($font-main, 12px, 400, 14px, $color-main-light);
   }
 
   &__output {
@@ -21,7 +21,7 @@
   }
 
   &__title {
-    @include text_type($main-font, 14px, 400, 15px, $color-main-dark);
+    @include text_type($font-main, 14px, 400, 15px, $color-main-dark);
     display: flex;
     margin-bottom: 23px;
     justify-content: space-between;
@@ -36,12 +36,12 @@
   height: 12px;
   border-radius: 50%;
   border: 2px solid white;
-  background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
+  background: linear-gradient(180deg, $color-interactive-secondary 0%, #66d2ea 100%);
 }
 
 .ui-slider .ui-slider-range {
   box-sizing: initial;
   height: 6px;
   top: -1px;
-  background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
+  background: linear-gradient(180deg, $color-interactive-secondary 0%, #66d2ea 100%);
 }

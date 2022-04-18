@@ -6,7 +6,7 @@
   justify-content: space-between;
 
   &__text {
-    @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
+    @include text_type($font-main, 12px, 700, 15px, $color-main-darker);
     text-transform: uppercase;
     margin: 0;
     vertical-align: bottom;
@@ -28,7 +28,7 @@
   }
 
   &__state {
-    @include text_type($main-font, 12px, 400, 15px, $color-main-light);
+    @include text_type($font-main, 12px, 400, 15px, $color-main-light);
     text-align: right;
     text-transform: uppercase;
   }

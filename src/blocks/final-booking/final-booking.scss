@@ -7,7 +7,7 @@
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  max-width: 380px;
+  width: 380px;
   display: inline-block;
   text-align: initial;
 
@@ -51,7 +51,7 @@
   }
 
   &__service-sign {
-    @include text_type($main-font, 12px, 700, 20px, $color-main-lighter);
+    @include text_type($font-main, 12px, 700, 20px, $color-main-lighter);
     width: 20px;
     height: 20px;
     border: 1px solid $color-main-lighter;
@@ -79,7 +79,7 @@
   }
 
   &__service-list {
-    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+    @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -100,7 +100,7 @@
   }
 
   @media screen and (max-width: 420px) {
-    max-width: 300px;
+    width: 300px;
     padding: 20px 16px 20px;
   }
 }

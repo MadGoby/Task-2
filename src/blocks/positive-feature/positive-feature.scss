@@ -7,7 +7,7 @@
   padding: 0 0 20px;
 
   &__description {
-    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+    @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
     margin: 0;
   }
 
@@ -19,7 +19,7 @@
   }
 
   &__text-wrapper {
-    @include text_type($main-font, 14px, 700, 24px, $color-main-dark);
+    @include text_type($font-main, 14px, 700, 24px, $color-main-dark);
   }
 
   &__title {

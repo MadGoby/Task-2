@@ -4,7 +4,7 @@
 .toggle {
   display: flex;
   column-gap: 10px;
-  @include text_type($main-font, 14px, 400, 20px, $color-main-dark);
+  @include text_type($font-main, 14px, 400, 20px, $color-main-dark);
 
   &__border {
     display: flex;
@@ -26,7 +26,7 @@
   }
 
   &:hover &__border {
-    box-shadow: 0 0 4px 1px $main-interactive-color;
+    box-shadow: 0 0 4px 1px $color-interactive-main;
   }
 
   &__text-wrapper {
@@ -38,11 +38,11 @@
   }
 
   &__controller:checked + .toggle__border {
-    border-color: $main-interactive-color;
+    border-color: $color-interactive-main;
     justify-content: end;
 
     &::before {
-      background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+      background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
     }
   }
 }

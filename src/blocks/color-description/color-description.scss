@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .color-description {
-  @include text_type($main-font, 19px, 400, 28px, $color-main-darker);
+  @include text_type($font-main, 19px, 400, 28px, $color-main-darker);
   display: flex;
   column-gap: 40px;
   align-items: center;
@@ -34,11 +34,11 @@
       }
 
       &_purple {
-        background-color: $main-interactive-color;
+        background-color: $color-interactive-main;
       }
 
       &_green {
-        background-color: $secondary-interactive-color;
+        background-color: $color-interactive-secondary;
       }
     }
   }

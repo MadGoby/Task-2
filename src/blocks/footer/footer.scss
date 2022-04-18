@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .footer {
-  @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+  @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
   display: flex;
   justify-content: center;
   align-content: space-between;
@@ -15,6 +15,7 @@
 
   &__description {
     display: flex;
+    width: 260px;
     flex-direction: column;
     row-gap: 17px;
 
@@ -23,11 +24,14 @@
         width: 100%;
       }
     }
+
+    @media screen and (max-width: 768px) {
+      width: auto;
+    }
   }
 
   &__text {
-    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
-    max-width: 260px;
+    @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
 
     &_size {
       &_small {
@@ -78,7 +82,7 @@
   }
 
   &__link-title {
-    @include text_type($main-font, 12px, 700, 15px, $color-main-darker);
+    @include text_type($font-main, 12px, 700, 15px, $color-main-darker);
     text-transform: uppercase;
     cursor: default;
   }
@@ -96,7 +100,6 @@
 
   &__logo-description {
     line-height: 24px;
-    max-width: 260px;
   }
 
   &__subscribe-text {
@@ -104,11 +107,11 @@
   }
 
   &__subscribe {
-    padding-top: 4px;
     display: flex;
     flex-direction: column;
     row-gap: 21px;
-    max-width: 260px;
+    flex-basis: 260px;
+    padding-top: 4px;
 
     @media screen and (max-width: 768px) {
       display: none;
@@ -116,8 +119,7 @@
   }
 
   &__title {
-    @include text_type($main-font, 12px, 700, 13px, $color-main-darker);
-    max-width: 260px;
+    @include text_type($font-main, 12px, 700, 13px, $color-main-darker);
     margin: 0;
     text-transform: uppercase;
   }

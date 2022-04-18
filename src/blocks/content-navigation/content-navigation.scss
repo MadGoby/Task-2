@@ -12,7 +12,7 @@
   }
 
   &__button {
-    @include text_type($main-font, 12px, 400, 15px, $color-main-light);
+    @include text_type($font-main, 12px, 400, 15px, $color-main-light);
     width: 40px;
     height: 40px;
     border: none;
@@ -37,7 +37,7 @@
       }
 
       &_purple {
-        background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+        background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
         color: white;
         font-weight: 700;
       }
@@ -46,7 +46,7 @@
     &_arrow {
       &_back,
       &_forward {
-        background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
+        background: linear-gradient(180deg, $color-interactive-secondary 0%, #66d2ea 100%);
 
         &:after {
           content: url('../../img/arrow-forward-white.svg');
@@ -70,7 +70,7 @@
   }
 
   &__counter {
-    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+    @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
     margin: 0;
     text-align: center;
   }

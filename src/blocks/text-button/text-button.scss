@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .text-button {
-  @include text_type($main-font, 12px, 700, 15px, $main-interactive-color);
+  @include text_type($font-main, 12px, 700, 15px, $color-interactive-main);
   background: none;
   display: inline-block;
   text-transform: uppercase;

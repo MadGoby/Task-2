@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .impressions-diagram {
-  @include text_type($main-font, 14px, 400, 15px, $color-main-dark);
+  @include text_type($font-main, 14px, 400, 15px, $color-main-dark);
   display: flex;
   column-gap: 30px;
 
@@ -45,7 +45,7 @@
           height: 200%;
           width: 200%;
           border-radius: 50%;
-          background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+          background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
           position: absolute;
           right: 0;
         }
@@ -62,7 +62,7 @@
           height: 200%;
           width: 200%;
           border-radius: 50%;
-          background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
+          background: linear-gradient(180deg, $color-interactive-secondary 0%, #66d2ea 100%);
           position: absolute;
           right: 0;
           bottom: 0;
@@ -91,11 +91,11 @@
   }
 
   &__reviews-counter {
-    @include text_type($main-font, 24px, 700, 30px, $main-interactive-color);
+    @include text_type($font-main, 24px, 700, 30px, $color-interactive-main);
   }
 
   &__reviews-text {
-    @include text_type($main-font, 12px, 700, 15px, $main-interactive-color);
+    @include text_type($font-main, 12px, 700, 15px, $color-interactive-main);
     text-transform: uppercase;
   }
 
@@ -129,11 +129,11 @@
       }
 
       &_green::before {
-        background: linear-gradient(180deg, $secondary-interactive-color 0%, #66d2ea 100%);
+        background: linear-gradient(180deg, $color-interactive-secondary 0%, #66d2ea 100%);
       }
 
       &_purple:before {
-        background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+        background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
       }
 
       &_black::before {

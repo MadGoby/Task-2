@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .radio-button {
-  @include text_type($main-font, 14px, 400, 20px, $color-main-light);
+  @include text_type($font-main, 14px, 400, 20px, $color-main-light);
   cursor: pointer;
   display: flex;
   column-gap: 10px;
@@ -17,14 +17,14 @@
 
   &__controller:checked + &__border {
     padding: 3px;
-    border-color: $main-interactive-color;
+    border-color: $color-interactive-main;
 
     &::before {
       content: '';
       display: block;
       width: 12px;
       height: 12px;
-      background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+      background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
       border-radius: 50%;
     }
   }
@@ -34,6 +34,6 @@
   }
 
   &:hover &__border {
-    box-shadow: 0 0 4px 1px $main-interactive-color;
+    box-shadow: 0 0 4px 1px $color-interactive-main;
   }
 }

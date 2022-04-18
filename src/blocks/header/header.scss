@@ -13,7 +13,7 @@
   z-index: 2;
 
   &__authorized {
-    @include text_type($main-font, 14px, 400, 40px, $color-main-light);
+    @include text_type($font-main, 14px, 400, 40px, $color-main-light);
     display: flex;
     margin: 0;
     align-items: center;

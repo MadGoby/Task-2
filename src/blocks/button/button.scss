@@ -5,8 +5,8 @@
   display: flex;
 
   &__control {
-    @include text_type($main-font, 12px, 700, 15px, white);
-    background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+    @include text_type($font-main, 12px, 700, 15px, white);
+    background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
     border-radius: 22px;
     padding: 14px 19px 15px;
     text-transform: uppercase;
@@ -28,7 +28,7 @@
         width: calc(100% - 4px);
         padding: 12px 16px 13px;
         background: white;
-        color: $main-interactive-color;
+        color: $color-interactive-main;
         margin: 2px;
         border-radius: 22px;
 
@@ -45,7 +45,7 @@
 
   &__border {
     flex-basis: 100%;
-    background: linear-gradient(180deg, $main-interactive-color 0%, #8ba4f9 100%);
+    background: linear-gradient(180deg, $color-interactive-main 0%, #8ba4f9 100%);
     border-radius: 22px;
     display: inline-block;
     min-width: 87px;

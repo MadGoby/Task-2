@@ -7,7 +7,7 @@
   align-items: end;
 
   &__number {
-    @include text_type($main-font, 24px, 700, 30px, $color-main-darker);
+    @include text_type($font-main, 24px, 700, 30px, $color-main-darker);
 
     &::before {
       content: '№';
@@ -17,13 +17,13 @@
 
     &_size {
       &_small {
-        @include text_type($main-font, 19px, 700, 24px, $color-main-darker);
+        @include text_type($font-main, 19px, 700, 24px, $color-main-darker);
       }
     }
 
     &_type {
       &_luxury:after {
-        @include text_type($main-font, 15px, 700, 28px, $main-interactive-color);
+        @include text_type($font-main, 15px, 700, 28px, $color-interactive-main);
         content: 'люкс';
         margin-left: 8px;
         position: relative;
@@ -33,13 +33,13 @@
   }
 
   &__price-wrapper {
-    @include text_type($main-font, 12px, 400, 27px, $color-main-light);
+    @include text_type($font-main, 12px, 400, 27px, $color-main-light);
     color: $color-main-light;
     font-size: 12px;
   }
 
   &__price {
-    @include text_type($main-font, 14px, 700, 28px, $color-main-light);
+    @include text_type($font-main, 14px, 700, 28px, $color-main-light);
     font-style: normal;
   }
 }

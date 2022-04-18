@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .navigation {
-  @include text_type($main-font, 14px, 400, 40px, $color-main-light);
+  @include text_type($font-main, 14px, 400, 40px, $color-main-light);
   display: flex;
   flex-wrap: wrap;
   column-gap: 20px;

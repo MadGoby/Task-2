@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .reviews-counter {
-  @include text_type($main-font, 14px, 400, 18px, $color-main-light);
+  @include text_type($font-main, 14px, 400, 18px, $color-main-light);
   margin: 0;
 
   &__value {

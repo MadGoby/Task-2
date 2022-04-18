@@ -5,30 +5,18 @@
   margin: auto;
   background-color: #e5e5e5;
 
+  &__content {
+    display: flex;
+    column-gap: 40px;
+  }
+
   &__column {
-    display: inline-block;
-    vertical-align: top;
-    max-width: 380px;
-
-    &:nth-child(2) {
-      margin: 0 40px;
-    }
-  }
-
-  &__search-room {
-    margin-bottom: 40px;
-  }
-
-  &__final-booking {
-    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
   }
 
   &__datepicker {
-    margin-bottom: 40px;
     min-height: 387px;
-  }
-
-  &__room:last-child {
-    margin-top: 40px;
   }
 }

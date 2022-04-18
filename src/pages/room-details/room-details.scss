@@ -127,7 +127,7 @@
   }
 
   &__comments-counter {
-    @include text_type($main-font, 14px, 400, 19px, $color-main-light);
+    @include text_type($font-main, 14px, 400, 19px, $color-main-light);
   }
 
   &__comment {
@@ -148,7 +148,7 @@
 
   &__cancellation-text {
     margin: 0;
-    @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+    @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
   }
 
   &__footer {

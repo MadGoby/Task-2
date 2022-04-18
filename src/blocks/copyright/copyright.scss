@@ -2,7 +2,7 @@
 @import '../../common/variables';
 
 .copyright {
-  @include text_type($main-font, 14px, 400, 24px, $color-main-dark);
+  @include text_type($font-main, 14px, 400, 24px, $color-main-dark);
   display: flex;
   row-gap: 24px;
   justify-content: space-between;

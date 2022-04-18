@@ -11,7 +11,7 @@
   }
 
   &__field {
-    @include text_type($main-font, 14px, 400, 18px, $color-main-dark);
+    @include text_type($font-main, 14px, 400, 18px, $color-main-dark);
     width: 266px;
     height: 44px;
     border: 1px solid $color-main-lighter;

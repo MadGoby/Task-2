@@ -9,7 +9,7 @@
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  max-width: 380px;
+  width: 380px;
 
   &__title {
     margin-bottom: 20px;
@@ -33,7 +33,7 @@
   }
 
   &__text {
-    @include text_type($main-font, 14px, 400, 42px, #000000);
+    @include text_type($font-main, 14px, 400, 42px, #000000);
     margin: 0;
 
     @media screen and (max-width: 420px) {
@@ -47,7 +47,7 @@
   }
 
   @media screen and (max-width: 420px) {
-    max-width: 300px;
+    width: 300px;
     padding: 20px 16px 20px;
   }
 }
