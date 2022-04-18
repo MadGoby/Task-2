@@ -16,6 +16,8 @@
 
   &__details {
     display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
     padding: 70px 140px 73px 140px;
     justify-content: space-between;
     column-gap: 15px;

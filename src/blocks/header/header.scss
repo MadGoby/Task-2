@@ -2,15 +2,20 @@
 @import '../../common/variables';
 
 .header {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 20px;
-  justify-content: right;
   width: 100%;
   padding: 15px 140px;
   background: white;
   box-shadow: 0 10px 20px $color-secondary-light;
   z-index: 2;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    justify-content: right;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
 
   &__authorized {
     @include text_type($font-main, 14px, 400, 40px, $color-main-light);

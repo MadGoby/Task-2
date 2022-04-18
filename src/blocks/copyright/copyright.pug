@@ -19,8 +19,9 @@ mixin copyright(settings)
   -   ]
   - } = settings
   div.copyright
-    p.copyright__text= text
-    div.copyright__social-media
-      +social-media-link({
-        socialLinks: linksSettings,
-      })
+    div.copyright__wrapper
+      p.copyright__text= text
+      div.copyright__social-media
+        +social-media-link({
+          socialLinks: linksSettings,
+        })

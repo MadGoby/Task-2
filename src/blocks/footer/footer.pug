@@ -27,34 +27,35 @@ mixin footer(settings)
   - let sizeClass = isSmall ? "footer_size_small" : ""
   - let wrapperSizeClass = isSmall ? "footer__wrapper_size_small" : ""
   div(class=["footer", sizeClass])
-    div.footer__description
-      +logo({
-        imgSrc: "logo-color.svg"
-      })
-      if descriptionText
-        p.footer__logo-description=descriptionText
-    if isSmall
-      div.footer__social-media.footer__social-media_size_small
-        p.footer__small-copyright= copyrightText
-        div.footer__media-links
-          +social-media-link({
-            socialLinks: links
-          })
-    else
-      div.footer__navigation-wrapper
-        each list in lists
-          div.footer__navigation
-            each link in list
-              - const {
-              -   text: linkText,
-              -   href = "./for-change",
-              -   teg = "a",
-              -   isTitle = false
-              - } = link
-              - const linkTypeClass = isTitle ? `footer__link-title` : "footer__navigation-link"
-              #{teg}(class=linkTypeClass href=href)= linkText
-      div.footer__subscribe
-        p.footer__title= subscribeTitle
-        p.footer__subscribe-text=subscribeText
-        form(action=subscribeAction).footer__subscribe-form
-          +subscription-input({})
+    div.footer__wrapper
+      div.footer__description
+        +logo({
+          imgSrc: "logo-color.svg"
+        })
+        if descriptionText
+          p.footer__logo-description=descriptionText
+      if isSmall
+        div.footer__social-media.footer__social-media_size_small
+          p.footer__small-copyright= copyrightText
+          div.footer__media-links
+            +social-media-link({
+              socialLinks: links
+            })
+      else
+        div.footer__navigation-wrapper
+          each list in lists
+            div.footer__navigation
+              each link in list
+                - const {
+                -   text: linkText,
+                -   href = "./for-change",
+                -   teg = "a",
+                -   isTitle = false
+                - } = link
+                - const linkTypeClass = isTitle ? `footer__link-title` : "footer__navigation-link"
+                #{teg}(class=linkTypeClass href=href)= linkText
+        div.footer__subscribe
+          p.footer__title= subscribeTitle
+          p.footer__subscribe-text=subscribeText
+          form(action=subscribeAction).footer__subscribe-form
+            +subscription-input({})

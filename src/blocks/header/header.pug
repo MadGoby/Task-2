@@ -13,29 +13,30 @@ mixin header(settings)
   -   authorizedUserName = ""
   - } = settings
   div.header
-    div.header__logo
-      +logo({
-        imgSrc: "logo-color.svg"
-      })
-    div.header__navigation.js-header__navigation
-      button.header__navigation-button
-        span.header__hamburger.js-header__hamburger
-      div.header__navigation-wrapper.js-header__navigation-wrapper
-        +navigation({
-          links: navigationLinks
+    div.header__wrapper
+      div.header__logo
+        +logo({
+          imgSrc: "logo-color.svg"
         })
-    if authorizedUserName
-      p.header__authorized= authorizedUserName
-    else
-      div.header__buttons
-        div.header__login-button
-          +button({
-            text: "войти",
-            isBorder: true,
-            isSmall: true,
+      div.header__navigation.js-header__navigation
+        button.header__navigation-button
+          span.header__hamburger.js-header__hamburger
+        div.header__navigation-wrapper.js-header__navigation-wrapper
+          +navigation({
+            links: navigationLinks
           })
-        div.header__registration-button
-          +button({
-            text: "зарегистрироваться",
-            isSmall: true,
-          })
+      if authorizedUserName
+        p.header__authorized= authorizedUserName
+      else
+        div.header__buttons
+          div.header__login-button
+            +button({
+              text: "войти",
+              isBorder: true,
+              isSmall: true,
+            })
+          div.header__registration-button
+            +button({
+              text: "зарегистрироваться",
+              isSmall: true,
+            })
