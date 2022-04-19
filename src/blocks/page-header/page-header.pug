@@ -1,13 +1,31 @@
 include ../header/header
 
-mixin page-header()
-  - const links = [
-  -   { text: "О нас"},
-  -   { text: "Услуги", isExpandable: true },
-  -   { text: "Вакансии" },
-  -   { text: "Новости" },
-  -   { text: "Соглашения", isExpandable: true }
-  - ]
+mixin page-header(settings)
+  - const {
+  -   links = [
+  -     { text: "О нас" },
+  -     {
+  -       text: "Услуги",
+  -       isExpandable: true,
+  -       expandableLinks: [
+  -         { text: "О нас" },
+  -         { text: "Услуги" },
+  -         { text: "Нововсти" },
+  -       ],
+  -     },
+  -     { text: "Вакансии" },
+  -     { text: "Новости" },
+  -     {
+  -       text: "Соглашения",
+  -       isExpandable: true,
+  -       expandableLinks: [
+  -          { text: "О нас" },
+  -          { text: "Услуги" },
+  -          { text: "Нововсти" },
+  -       ],
+  -     },
+  -   ]
+  - } = settings
   +header({
     navigationLinks: links,
   })
