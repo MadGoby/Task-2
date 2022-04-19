@@ -3,9 +3,13 @@ class List {
     this.container = target;
 
     autoBind(this);
+    this.initialize();
+  }
+
+  initialize() {
     this.getHtmlElements();
     this.bindEventListeners();
-    if (!this.list.hasAttribute('hidden')) this.bindDomEventListener();
+    this.bindHandelDocumentClick();
   }
 
   getHtmlElements() {
@@ -18,30 +22,25 @@ class List {
       this.list.toggleAttribute('hidden');
       this.title.classList.remove('list__title_closed');
       this.title.classList.add('list__title_expanded');
-      this.bindDomEventListener();
     } else {
       this.list.toggleAttribute('hidden');
       this.title.classList.remove('list__title_expanded');
       this.title.classList.add('list__title_closed');
-      this.removeDomEventListener();
     }
   }
 
-  handelDOMClick(event) {
+  handelDocumentClick(event) {
     const result = Boolean(event.path.find((element) => element === this.container));
     if (result === false) this.handleTitleClick();
   }
 
-  bindDomEventListener() {
-    document.addEventListener('click', this.handelDOMClick);
-  }
-
-  removeDomEventListener() {
-    document.removeEventListener('click', this.handelDOMClick);
+  bindHandelDocumentClick() {
+    document.addEventListener('click', this.handelDocumentClick);
   }
 
   bindEventListeners() {
     this.title.addEventListener('click', this.handleTitleClick);
+    document.addEventListener('click', this.handelDocumentClick);
   }
 }
 

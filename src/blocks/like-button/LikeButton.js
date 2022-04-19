@@ -4,15 +4,15 @@ class LikeButton {
 
     autoBind(this);
     this.getHtmlElements();
-    this.bindEventListeners();
+    this.bindHandleCheckboxChecked();
   }
 
   getHtmlElements() {
-    this.controller = this.container.querySelector('.js-like-button__controller');
+    this.checkbox = this.container.querySelector('.js-like-button__controller');
     this.counter = this.container.querySelector('.js-like-button__counter');
   }
 
-  handleControllerChecked(event) {
+  handleCheckboxChecked(event) {
     const { target } = event;
 
     if (target.checked === true) {
@@ -22,8 +22,8 @@ class LikeButton {
     }
   }
 
-  bindEventListeners() {
-    this.controller.addEventListener('change', this.handleControllerChecked);
+  bindHandleCheckboxChecked() {
+    this.checkbox.addEventListener('change', this.handleCheckboxChecked);
   }
 }
 

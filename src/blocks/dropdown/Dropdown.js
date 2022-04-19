@@ -10,16 +10,16 @@ class Dropdown {
     this.dataSettings = settings.dataSettings;
 
     autoBind(this);
-    this.initializes();
+    this.initialize();
   }
 
-  initializes() {
+  initialize() {
     this.getHtmlElements();
-    this.addInputExpandedClass();
-    this.checkClearButtonVisibility();
+    this.addExpandedClassToInput();
+    this.changeClearButtonDisplay();
     this.bindEventListeners();
     this.refreshInput();
-    if (!this.dropdown.hasAttribute('hidden')) this.bindDomEventListener();
+    if (!this.dropdown.hasAttribute('hidden')) this.bindHandleDocumentClick();
   }
 
   getHtmlElements() {
@@ -37,11 +37,11 @@ class Dropdown {
     this.submitButton = this.dropdownWrapper.querySelector('.js-dropdown__submit-button');
   }
 
-  addInputExpandedClass() {
+  addExpandedClassToInput() {
     if (!this.dropdown.hasAttribute('hidden')) this.input.classList.add('dropdown-input__field_expanded');
   }
 
-  checkClearButtonVisibility() {
+  changeClearButtonDisplay() {
     function isPositive(number) {
       return number > 0;
     }
@@ -56,30 +56,24 @@ class Dropdown {
     }
   }
 
-  controlDropdownDisplay() {
+  changeDropdownDisplay() {
     this.dropdown.toggleAttribute('hidden');
     this.input.classList.toggle('dropdown-input__field_expanded');
-
-    if (this.dropdown.hasAttribute('hidden')) {
-      this.removeDomEventListener();
-    } else {
-      this.bindDomEventListener();
-    }
   }
 
-  definesWordEnd(value, template, line) {
-    function checkIsEqualToZero(num) {
+  defineWordEnd(value, template, line) {
+    function checkIsZero(num) {
       return num % 10 === 0;
     }
 
-    function checksComplianceFromOneToFour() {
-      return checkIsEqualToZero(value - 2)
-        || checkIsEqualToZero(value - 3)
-        || checkIsEqualToZero(value - 4);
+    function checkComplianceFromOneToFour() {
+      return checkIsZero(value - 2)
+        || checkIsZero(value - 3)
+        || checkIsZero(value - 4);
     }
 
     let index;
-    const isMinimumValue = value === 1 || checkIsEqualToZero(value - 1);
+    const isMinimumValue = value === 1 || checkIsZero(value - 1);
     const isInMiddleRange = value > 4 && value < 21;
 
     switch (true) {
@@ -89,7 +83,7 @@ class Dropdown {
       case isMinimumValue:
         index = 1;
         break;
-      case checksComplianceFromOneToFour():
+      case checkComplianceFromOneToFour():
         index = 2;
         break;
       default:
@@ -117,7 +111,7 @@ class Dropdown {
     const template = this.dataSettings.dataType.name;
     let output;
     if (outputValue > 0) {
-      output = `${outputValue} ${this.templates[template].templates[0]}${this.definesWordEnd(outputValue, template)}`;
+      output = `${outputValue} ${this.templates[template].templates[0]}${this.defineWordEnd(outputValue, template)}`;
     } else {
       output = `${this.templates[template].default}`;
     }
@@ -134,17 +128,17 @@ class Dropdown {
         if (isNeedComma) output += ', ';
       };
 
-      const addDefinitionToNumber = () => {
+      const combineNumberAndName = () => {
         if (index === 0) {
           const valueText = Number(value.textContent) + Number(values[1]);
-          output += `${valueText} ${this.templates[template].templates[index][0]}${this.definesWordEnd(
+          output += `${valueText} ${this.templates[template].templates[index][0]}${this.defineWordEnd(
             valueText,
             template,
             index,
           )}`;
           addPunctuationMarks(valueText);
         } else if (index === 2) {
-          output += `${value.textContent} ${this.templates[template].templates[1][0]}${this.definesWordEnd(
+          output += `${value.textContent} ${this.templates[template].templates[1][0]}${this.defineWordEnd(
             Number(value.textContent),
             template,
             1,
@@ -155,8 +149,8 @@ class Dropdown {
       const areFirstDefinitionNeeded = index === 0 && Number(values[0]) + Number(values[1]) > 0;
       const areLastDefinitionNeeded = index === 2 && Number(value.textContent) > 0;
 
-      if (areFirstDefinitionNeeded) addDefinitionToNumber();
-      if (areLastDefinitionNeeded) addDefinitionToNumber();
+      if (areFirstDefinitionNeeded) combineNumberAndName();
+      if (areLastDefinitionNeeded) combineNumberAndName();
     });
     return output;
   }
@@ -190,9 +184,9 @@ class Dropdown {
         if (isNeedComma) output += ', ';
       };
 
-      const addDefinitionToNumber = () => {
+      const combineNumberAndName = () => {
         const valueText = value.innerText;
-        output += `${valueText} ${this.templates[template].templates[index][0]}${this.definesWordEnd(
+        output += `${valueText} ${this.templates[template].templates[index][0]}${this.defineWordEnd(
           Number(valueText),
           template,
           index,
@@ -202,7 +196,7 @@ class Dropdown {
 
       const isValueNotZero = value.textContent > 0;
 
-      if (isValueNotZero) addDefinitionToNumber();
+      if (isValueNotZero) combineNumberAndName();
     });
     return output;
   }
@@ -227,12 +221,16 @@ class Dropdown {
     let inputText;
     const template = this.dataSettings.outputType;
 
-    if (template === 'oneByOne') {
-      inputText = this.prepareOneByOne();
-    } else if (template === 'twoByOne') {
-      inputText = this.prepareTwoByOne();
-    } else {
-      inputText = this.prepareOutputSum();
+    switch (template) {
+      case 'oneByOne':
+        inputText = this.prepareOneByOne();
+        break;
+      case 'twoByOne':
+        inputText = this.prepareTwoByOne();
+        break;
+      default:
+        inputText = this.prepareOutputSum();
+        break;
     }
 
     this.input.value = inputText;
@@ -242,15 +240,15 @@ class Dropdown {
     const buttonIndex = this.plusButtons.indexOf(event.target);
     const outputTarget = this.outputs[buttonIndex];
 
-    const refreshListLine = () => {
+    const refreshListLineValues = () => {
       if (outputTarget.innerText === '0') this.minusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
       outputTarget.innerText = Number(outputTarget.innerText) + 1;
       if (outputTarget.innerText === '10') event.target.classList.add('dropdown__button_transparent');
     };
 
-    if (outputTarget.innerText < 10) refreshListLine();
+    if (outputTarget.innerText < 10) refreshListLineValues();
 
-    this.checkClearButtonVisibility();
+    this.changeClearButtonDisplay();
     this.refreshInput();
   }
 
@@ -258,15 +256,15 @@ class Dropdown {
     const buttonIndex = this.minusButtons.indexOf(event.target);
     const outputTarget = this.outputs[buttonIndex];
 
-    const refreshListLine = () => {
+    const refreshListLineValues = () => {
       if (outputTarget.innerText === '10') this.plusButtons[buttonIndex].classList.remove('dropdown__button_transparent');
       outputTarget.innerText = Number(outputTarget.innerText) - 1;
       if (outputTarget.innerText === '0') event.target.classList.add('dropdown__button_transparent');
     };
 
-    if (outputTarget.innerText > 0) refreshListLine();
+    if (outputTarget.innerText > 0) refreshListLineValues();
 
-    this.checkClearButtonVisibility();
+    this.changeClearButtonDisplay();
     this.refreshInput();
   }
 
@@ -281,28 +279,25 @@ class Dropdown {
       button.classList.remove('dropdown__button_transparent');
     });
     this.setDefault();
-    this.checkClearButtonVisibility();
+    this.changeClearButtonDisplay();
   }
 
   handleInputClick() {
-    this.controlDropdownDisplay();
+    this.changeDropdownDisplay();
   }
 
   handleSubmitButtonClick() {
-    this.controlDropdownDisplay();
+    this.changeDropdownDisplay();
   }
 
-  handelDOMClick(event) {
+  handleDocumentClick(event) {
     const result = Boolean(event.path.find((element) => element === this.dropdownWrapper));
-    if (result === false) this.controlDropdownDisplay();
+    const isNeedToHide = result === false && !this.dropdown.hasAttribute('hidden');
+    if (isNeedToHide) this.changeDropdownDisplay();
   }
 
-  bindDomEventListener() {
-    document.addEventListener('click', this.handelDOMClick);
-  }
-
-  removeDomEventListener() {
-    document.removeEventListener('click', this.handelDOMClick);
+  bindHandleDocumentClick() {
+    document.addEventListener('click', this.handleDocumentClick);
   }
 
   bindEventListeners() {

@@ -18,11 +18,9 @@ class Header {
     if (styles.display === 'none') {
       this.navigation.style.display = 'block';
       this.button.classList.add('header__hamburger_expanded');
-      this.bindDomEventListener();
     } else {
       this.navigation.style.display = 'none';
       this.button.classList.remove('header__hamburger_expanded');
-      this.removeDomEventListener();
     }
   }
 
@@ -35,29 +33,27 @@ class Header {
     }
   }
 
-  handleDOMResize(event) {
+  handleDocumentResize(event) {
     const userWidth = Number(event.target.innerWidth);
     this.controlDisplayOnResize(userWidth);
   }
 
-  handelDOMClick(event) {
+  handleDocumentClick(event) {
     const checkIsClickInNavigation = (element) => element === this.navigation
       || element === this.button;
     const result = Boolean(event.path.find((element) => checkIsClickInNavigation(element)));
-    if (result === false) this.handleButtonClick();
-  }
+    const isNeedToHide = result === false && (
+      getComputedStyle(this.navigation).display === 'block'
+        || getComputedStyle(this.navigation).display === 'inline-block'
+    );
 
-  bindDomEventListener() {
-    document.addEventListener('click', this.handelDOMClick);
-  }
-
-  removeDomEventListener() {
-    document.removeEventListener('click', this.handelDOMClick);
+    if (isNeedToHide) this.handleButtonClick();
   }
 
   bindEventListeners() {
     this.button.addEventListener('click', this.handleButtonClick);
-    window.addEventListener('resize', this.handleDOMResize);
+    window.addEventListener('resize', this.handleDocumentResize);
+    document.addEventListener('click', this.handleDocumentClick);
   }
 }
 

@@ -7,13 +7,13 @@ class Datepicker {
     this.settings = { monthRu: datepickerData.monthRu };
 
     autoBind(this);
-    this.initializes();
+    this.initialize();
   }
 
-  initializes() {
+  initialize() {
     this.getHtmlElements();
     this.setDefaultParameters();
-    const calendarDays = this.makesCalendarByDate({
+    const calendarDays = this.createCalendarByDate({
       year: this.settings.pickedYear,
       month: this.settings.pickedMonth,
     });
@@ -21,14 +21,14 @@ class Datepicker {
     this.refreshSelectedMonth(this.settings.pickedMonth, this.settings.pickedYear);
     this.bindEventListeners();
     this.bindCalendarCellsListener();
-    this.closesOpenCalendar();
+    this.closeCalendar();
   }
 
-  closesOpenCalendar() {
+  closeCalendar() {
     const isNotHidden = !this.calendarWrapper.hasAttribute('hidden');
     const areInputsExists = (this.inputFrom && this.inputTo) || this.inputTotal;
     const isNeedToBindListener = isNotHidden && areInputsExists;
-    if (isNeedToBindListener) this.bindDomEventListener();
+    if (isNeedToBindListener) this.bindHandleDocumentClick();
   }
 
   setDefaultParameters() {
@@ -53,7 +53,7 @@ class Datepicker {
 
   getHtmlElements() {
     this.datepickerWrapper = this.container.querySelector('.js-datepicker');
-    this.calendarWrapper = this.datepickerWrapper.querySelector('.datepicker__calendar-wrapper');
+    this.calendarWrapper = this.datepickerWrapper.querySelector('.js-datepicker__calendar-wrapper');
     const fromWrapper = this.datepickerWrapper.querySelector('.js-datepicker__from');
     const toWrapper = this.datepickerWrapper.querySelector('.js-datepicker__to');
     const totalWrapper = this.datepickerWrapper.querySelector('.js-datepicker__total');
@@ -84,7 +84,7 @@ class Datepicker {
     this.currentValueTarget = 'from';
   }
 
-  static checkIsMatchByDay(day, targetDate) {
+  static checkDatesMatch(day, targetDate) {
     return (
       day.getFullYear() === targetDate.getFullYear()
       && day.getMonth() === targetDate.getMonth()
@@ -93,15 +93,15 @@ class Datepicker {
   }
 
   checkIsCurrentDate(targetDate) {
-    return Datepicker.checkIsMatchByDay(this.settings.currentDay, targetDate);
+    return Datepicker.checkDatesMatch(this.settings.currentDay, targetDate);
   }
 
   checkIsFromDate(targetDate) {
-    return this.settings.from && Datepicker.checkIsMatchByDay(this.settings.from, targetDate);
+    return this.settings.from && Datepicker.checkDatesMatch(this.settings.from, targetDate);
   }
 
   checkIsToDate(targetDate) {
-    return this.settings.to && Datepicker.checkIsMatchByDay(this.settings.to, targetDate);
+    return this.settings.to && Datepicker.checkDatesMatch(this.settings.to, targetDate);
   }
 
   checkAreInSelectedRange(targetDate) {
@@ -116,16 +116,16 @@ class Datepicker {
     return targetDate < this.settings.currentDay;
   }
 
-  highlightsUnavailableDates(cell, targetDate) {
+  highlightUnavailableDates(cell, targetDate) {
     if (this.checkAreInUnavailableRange(targetDate)) cell.classList.add('datepicker__date_transparent');
     return cell;
   }
 
-  highlightsSelectedRange(cell, targetDate) {
+  highlightSelectedRange(cell, targetDate) {
     const isStartOfRange = this.checkAreInSelectedRange(targetDate)
-      && Datepicker.checkIsMatchByDay(this.settings.from, targetDate);
+      && Datepicker.checkDatesMatch(this.settings.from, targetDate);
     const isEndOfRange = this.checkAreInSelectedRange(targetDate)
-      && Datepicker.checkIsMatchByDay(this.settings.to, targetDate);
+      && Datepicker.checkDatesMatch(this.settings.to, targetDate);
 
     switch (true) {
       case isStartOfRange:
@@ -143,7 +143,7 @@ class Datepicker {
     return cell;
   }
 
-  makeCalendarCell(date, targetMonth) {
+  createCalendarCell(date, targetMonth) {
     let calendarCell = document.createElement('span');
     calendarCell.classList.add('datepicker__date');
     if (this.size === 'small') calendarCell.classList.add('datepicker__date_size_small');
@@ -168,8 +168,8 @@ class Datepicker {
     }
     if (this.checkIsFromDate(date)) calendarCell.classList.add('datepicker__date_color_purple');
     if (this.checkIsToDate(date)) calendarCell.classList.add('datepicker__date_color_purple');
-    if (isOnlyForm) calendarCell = this.highlightsUnavailableDates(calendarCell, date);
-    if (isRangeExist) calendarCell = this.highlightsSelectedRange(calendarCell, date);
+    if (isOnlyForm) calendarCell = this.highlightUnavailableDates(calendarCell, date);
+    if (isRangeExist) calendarCell = this.highlightSelectedRange(calendarCell, date);
 
     calendarCell.innerText = date.getDate();
     return calendarCell;
@@ -181,7 +181,7 @@ class Datepicker {
 
     for (let i = previousDay - 1; i >= 0; i -= 1) {
       const date = new Date(year, month, -i);
-      days.push(this.makeCalendarCell(date, 'previous'));
+      days.push(this.createCalendarCell(date, 'previous'));
     }
 
     return days;
@@ -193,7 +193,7 @@ class Datepicker {
 
     for (let i = 1; i <= lastDay; i += 1) {
       const date = new Date(year, month, i);
-      days.push(this.makeCalendarCell(date, false));
+      days.push(this.createCalendarCell(date, false));
     }
 
     return days;
@@ -207,14 +207,14 @@ class Datepicker {
 
     for (let i = nextMonthDay; i <= 7; i += 1) {
       const date = new Date(year, month + 1, day);
-      days.push(this.makeCalendarCell(date, 'next'));
+      days.push(this.createCalendarCell(date, 'next'));
       day += 1;
     }
 
     return days;
   }
 
-  makesCalendarByDate(data) {
+  createCalendarByDate(data) {
     const { year, month } = data;
     let calendarDays = [];
     const checkIsNeedPreviousMonth = () => new Date(year, month).getDay() !== 1;
@@ -247,7 +247,7 @@ class Datepicker {
     this.selectedMonth.innerText = `${this.settings.monthRu[month]} ${year}`;
   }
 
-  passedValueToFrom(settings) {
+  updateFromInput(settings) {
     const { pickedDate, value, date } = settings;
     if (pickedDate <= this.settings.currentDay) return false;
 
@@ -263,7 +263,7 @@ class Datepicker {
     return true;
   }
 
-  passedValueToTo(settings) {
+  updateToInput(settings) {
     const { pickedDate, value, date } = settings;
     const checkIsToLessThenFrom = () => this.settings.from && pickedDate <= this.settings.from;
     if (checkIsToLessThenFrom()) return false;
@@ -275,7 +275,7 @@ class Datepicker {
     return true;
   }
 
-  passedValueToTotal(settings) {
+  splitDataForTotalInput(settings) {
     const { pickedDate, date } = settings;
 
     const checkIsFromLessCurrentDay = () => this.currentValueTarget === 'from' && pickedDate <= this.settings.currentDay;
@@ -323,13 +323,13 @@ class Datepicker {
 
     switch (true) {
       case this.currentInputTarget === this.inputFrom:
-        result = this.passedValueToFrom({ pickedDate, value, date });
+        result = this.updateFromInput({ pickedDate, value, date });
         break;
       case this.currentInputTarget === this.inputTo:
-        result = this.passedValueToTo({ pickedDate, value, date });
+        result = this.updateToInput({ pickedDate, value, date });
         break;
       default:
-        result = this.passedValueToTotal({ pickedDate, value, date });
+        result = this.splitDataForTotalInput({ pickedDate, value, date });
         if (isNeedTotalRefresh(result)) this.updateTotalInput();
         break;
     }
@@ -337,7 +337,7 @@ class Datepicker {
     return result;
   }
 
-  definesCellMonth(target) {
+  defineCellMonth(target) {
     let result;
     switch (true) {
       case target.getAttribute('data-month') === 'next':
@@ -353,27 +353,33 @@ class Datepicker {
     return result;
   }
 
-  static bringToTwoDigits(settings) {
+  static convertSingleDigitsToDouble(settings) {
     let { value } = settings;
     if (value < 10) value = `0${value}`;
     return value;
+  }
+
+  bindHandleCellClick(cell) {
+    cell.addEventListener('click', this.handleCellClick);
   }
 
   bindCalendarCellsListener() {
     const calendarCells = [...this.calendar.querySelectorAll('.datepicker__date')];
 
     calendarCells.forEach((cell) => {
-      cell.addEventListener('click', this.handleCalendarCellClick);
+      this.bindHandleCellClick(cell);
     });
   }
 
-  handleCalendarCellClick(event) {
+  handleCellClick(event) {
     const { target } = event;
     if (target.classList.contains('datepicker__date_value_week-day')) return;
 
     const date = {
-      day: Datepicker.bringToTwoDigits({ value: Number(target.innerText) }),
-      month: Datepicker.bringToTwoDigits({ value: Number(this.definesCellMonth(target)) }),
+      day: Datepicker.convertSingleDigitsToDouble({ value: Number(target.innerText) }),
+      month: Datepicker.convertSingleDigitsToDouble(
+        { value: Number(this.defineCellMonth(target)) },
+      ),
       year: this.settings.pickedYear,
     };
     const value = `${date.day}.${date.month}.${date.year}`;
@@ -383,11 +389,13 @@ class Datepicker {
       this.settings.pickedYear = new Date(
         this.settings.pickedYear, this.settings.pickedMonth,
       ).getFullYear();
+
       this.settings.pickedMonth = new Date(
         this.settings.pickedYear, this.settings.pickedMonth,
       ).getMonth();
+
       this.clearCalendar();
-      const days = this.makesCalendarByDate(
+      const days = this.createCalendarByDate(
         { year: this.settings.pickedYear, month: this.settings.pickedMonth },
       );
       this.refreshCalendar(days);
@@ -401,7 +409,7 @@ class Datepicker {
     this.settings.pickedYear = date.getFullYear();
     this.settings.pickedMonth = date.getMonth();
     this.clearCalendar();
-    const days = this.makesCalendarByDate({
+    const days = this.createCalendarByDate({
       year: this.settings.pickedYear, month: this.settings.pickedMonth,
     });
     this.refreshCalendar(days);
@@ -423,7 +431,7 @@ class Datepicker {
     return this.inputTotal || this.inputFrom || this.inputTo;
   }
 
-  resetsInputsToDefault() {
+  resetInputsToDefault() {
     if (this.currentInputTarget === this.inputTotal) {
       this.inputTotal.setAttribute('value', 'ДД.ММ - ДД.ММ');
     } else {
@@ -437,7 +445,7 @@ class Datepicker {
     if (this.settings.from) this.settings.from = undefined;
     if (this.settings.to) this.settings.to = undefined;
 
-    if (this.checkAreInputsExists()) this.resetsInputsToDefault();
+    if (this.checkAreInputsExists()) this.resetInputsToDefault();
 
     this.currentValueTarget = 'from';
     this.refreshDatepicker(new Date(this.settings.pickedYear, this.settings.pickedMonth));
@@ -448,17 +456,15 @@ class Datepicker {
     if (this.inputFrom) this.inputFrom.classList.remove('input__field_active');
     if (this.inputTo) this.inputTo.classList.remove('input__field_active');
     if (this.inputTotal) this.inputTotal.classList.remove('input__field_active');
-    this.removeDomEventListener();
   }
 
   handleCalendarDisplay() {
     if (this.calendarWrapper.hasAttribute('hidden')) {
       this.calendarWrapper.removeAttribute('hidden');
-      this.bindDomEventListener();
+      this.bindHandleDocumentClick();
       this.changeDaysLineHeight();
     } else {
       this.calendarWrapper.setAttribute('hidden', 'hidden');
-      this.removeDomEventListener();
     }
   }
 
@@ -474,9 +480,10 @@ class Datepicker {
     this.handleCalendarDisplay();
   }
 
-  handelDOMClick(event) {
+  handleDocumentClick(event) {
     const result = Boolean(event.path.find((element) => element === this.datepickerWrapper));
-    if (result === false) this.handleCalendarDisplay();
+    const isNeedToHide = result === false && !this.calendarWrapper.hasAttribute('hidden');
+    if (isNeedToHide) this.handleCalendarDisplay();
   }
 
   changeDaysLineHeight() {
@@ -485,16 +492,12 @@ class Datepicker {
     });
   }
 
-  handleDOMResize() {
+  handleDocumentResize() {
     this.changeDaysLineHeight();
   }
 
-  bindDomEventListener() {
-    document.addEventListener('click', this.handelDOMClick);
-  }
-
-  removeDomEventListener() {
-    document.removeEventListener('click', this.handelDOMClick);
+  bindHandleDocumentClick() {
+    document.addEventListener('click', this.handleDocumentClick);
   }
 
   bindEventListeners() {
@@ -505,7 +508,7 @@ class Datepicker {
     if (this.inputFrom) this.inputFrom.addEventListener('click', this.handleInputFromClick);
     if (this.inputTo) this.inputTo.addEventListener('click', this.handleInputToClick);
     if (this.inputTotal) this.inputTotal.addEventListener('click', this.handleInputTotalClick);
-    document.body.onresize = this.handleDOMResize;
+    window.addEventListener('resize', this.handleDocumentResize);
   }
 }
 

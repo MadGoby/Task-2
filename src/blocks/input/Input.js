@@ -5,15 +5,15 @@ class Input {
     this.container = settings.target;
     this.parameters = settings.parameters;
 
-    this.getHtmlElements();
-    this.initializeInput();
+    this.getInput();
+    this.initialize();
   }
 
-  getHtmlElements() {
+  getInput() {
     this.input = this.container.querySelector('.js-input__field');
   }
 
-  initializeInput() {
+  initialize() {
     Inputmask(this.parameters).mask(this.input);
   }
 }

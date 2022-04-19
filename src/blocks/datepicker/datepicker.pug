@@ -24,7 +24,7 @@ mixin datepicker(settings)
           +dropdown-input(inputSettings.from)
         div.datepicker__to.js-datepicker__to
           +dropdown-input(inputSettings.to)
-    div(class=["datepicker__calendar-wrapper", calendarSizeClass])&attributes(attr)
+    div(class=["datepicker__calendar-wrapper js-datepicker__calendar-wrapper", calendarSizeClass])&attributes(attr)
       div.datepicker__navigation
         button(type="button").datepicker__scroll-button.datepicker__scroll-button_arrow_back.js-datepicker__scroll-button_arrow_back
         p(class=["datepicker__selected-month", "js-datepicker__selected-month", monthSizeClass])
