@@ -61,6 +61,8 @@
 
   &__link-wrapper {
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   @media screen and (max-width: 363px) {

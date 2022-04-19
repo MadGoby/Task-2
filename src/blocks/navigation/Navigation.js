@@ -1,31 +1,23 @@
 class Navigation {
   constructor(target) {
     this.container = target;
-    this.expandablesLinksMap = [];
 
     autoBind(this);
+    this.initialize();
+  }
+
+  initialize() {
+    this.expandablesLinksMap = [];
     this.getHtmlElements();
     this.bindDomEventListener();
   }
 
   getHtmlElements() {
     [...this.container.querySelectorAll('.js-navigation__link-wrapper')].forEach((wrapper) => {
-      const linkTitle = wrapper.querySelector('.navigation__expandable-title');
+      const linkTitle = wrapper.querySelector('.js-navigation__expandable-title');
       const expandableWrapper = wrapper.querySelector('.js-navigation__expandable-wrapper');
 
       this.expandablesLinksMap.push({ title: linkTitle, list: expandableWrapper });
-    });
-  }
-
-  centersExpandableLinks() {
-    this.expandablesLinksMap.forEach((expandableLinks) => {
-      const isNeedToBeCenters = expandableLinks.title.offsetWidth
-        < expandableLinks.list.offsetWidth;
-
-      if (isNeedToBeCenters) {
-        const offset = (expandableLinks.title.offsetWidth - expandableLinks.list.offsetWidth) / 2;
-        expandableLinks.list.style.left = `${offset}px`;
-      }
     });
   }
 
@@ -37,7 +29,6 @@ class Navigation {
 
       if (expandableLinks.title === target) {
         expandableLinks.list.toggleAttribute('hidden');
-        this.centersExpandableLinks();
       }
     });
   }

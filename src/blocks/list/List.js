@@ -9,7 +9,6 @@ class List {
   initialize() {
     this.getHtmlElements();
     this.bindEventListeners();
-    this.bindHandelDocumentClick();
   }
 
   getHtmlElements() {
@@ -31,11 +30,8 @@ class List {
 
   handelDocumentClick(event) {
     const result = Boolean(event.path.find((element) => element === this.container));
-    if (result === false) this.handleTitleClick();
-  }
-
-  bindHandelDocumentClick() {
-    document.addEventListener('click', this.handelDocumentClick);
+    const isNeedToHide = result === false && !this.list.hasAttribute('hidden');
+    if (isNeedToHide) this.handleTitleClick();
   }
 
   bindEventListeners() {
