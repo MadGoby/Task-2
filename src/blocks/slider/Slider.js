@@ -6,11 +6,11 @@ class Slider {
     this.target = settings.target;
     this.options = settings.options;
 
-    this.initializeElements();
-    this.initializeSlider();
+    this.getHtmlElements();
+    this.initialize();
   }
 
-  initializeElements() {
+  getHtmlElements() {
     this.body = this.target.querySelector('.js-slider__body');
     this.output = this.target.querySelector('.js-slider__output');
   }
@@ -25,7 +25,7 @@ class Slider {
     return value;
   }
 
-  initializeSlider() {
+  initialize() {
     const { output } = this;
 
     $(this.body).slider(

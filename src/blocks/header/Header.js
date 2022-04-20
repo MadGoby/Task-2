@@ -25,12 +25,11 @@ class Header {
   }
 
   controlDisplayOnResize(userWidth) {
-    const isNeedToBeDisplayed = userWidth > 363 && this.button.classList.contains('header__hamburger_expanded');
+    const isNeedToBeDisplayed = userWidth > 363 && this.navigation.style.display === 'none';
+    const isNeedToRemoveExpandedClass = this.button.classList.contains('header__hamburger_expanded');
 
-    if (isNeedToBeDisplayed) {
-      this.button.classList.remove('header__hamburger_expanded');
-      this.navigation.style.display = '';
-    }
+    if (isNeedToRemoveExpandedClass) this.button.classList.remove('header__hamburger_expanded');
+    if (isNeedToBeDisplayed) this.navigation.style.display = '';
   }
 
   handleDocumentResize(event) {
@@ -45,7 +44,7 @@ class Header {
     const isNeedToHide = result === false && (
       getComputedStyle(this.navigation).display === 'block'
         || getComputedStyle(this.navigation).display === 'inline-block'
-    );
+    ) && document.body.offsetWidth < 363;
 
     if (isNeedToHide) this.handleButtonClick();
   }

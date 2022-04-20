@@ -1,15 +1,18 @@
 class Navigation {
   constructor(target) {
     this.container = target;
+    this.expandablesLinksMap = [];
 
     autoBind(this);
     this.initialize();
   }
 
   initialize() {
-    this.expandablesLinksMap = [];
     this.getHtmlElements();
-    this.bindDomEventListener();
+
+    this.expandablesLinksMap.forEach((expandableLinks) => {
+      this.bindDomEventListener(expandableLinks.title, expandableLinks.list);
+    });
   }
 
   getHtmlElements() {
@@ -57,12 +60,10 @@ class Navigation {
     if (isNeedToBeHidden) target.toggleAttribute('hidden');
   }
 
-  bindDomEventListener() {
-    this.expandablesLinksMap.forEach((expandableLinks) => {
-      expandableLinks.title.onmouseover = this.handleTitleOver;
-      expandableLinks.title.onmouseout = this.handleTitleOut;
-      expandableLinks.list.onmouseout = this.handleListOut;
-    });
+  bindDomEventListener(title, list) {
+    title.addEventListener('mouseover', this.handleTitleOver);
+    title.addEventListener('mouseover', this.handleTitleOut);
+    list.addEventListener('mouseover', this.handleListOut);
   }
 }
 

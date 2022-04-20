@@ -1,4 +1,7 @@
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
   width: 266px;
 
   &__title {
@@ -6,7 +9,6 @@
     text-transform: none;
     vertical-align: 24px;
     font-size: 19px;
-    display: none;
 
     &_closed,
     &_expanded {
@@ -33,6 +35,10 @@
       &::after {
         transform: rotate(180deg);
       }
+    }
+
+    @media screen and (min-width: 701px){
+      display: none;
     }
   }
 

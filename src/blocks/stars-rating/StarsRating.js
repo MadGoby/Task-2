@@ -4,14 +4,14 @@ class StarsRating {
 
     autoBind(this);
     this.getHtmlElements();
-    this.stars.forEach((star) => this.bindEventListeners(star));
+    this.stars.forEach((star) => this.bindHandleStarClick(star));
   }
 
   getHtmlElements() {
     this.stars = [...this.container.querySelectorAll('.stars-rating__star')];
   }
 
-  cleanActiveClass() {
+  removeActiveClass() {
     this.stars.forEach((star) => star.classList.remove('stars-rating__star_color_purple'));
   }
 
@@ -24,11 +24,11 @@ class StarsRating {
   }
 
   handleStarClick(event) {
-    this.cleanActiveClass();
+    this.removeActiveClass();
     this.addActiveClass(event.target);
   }
 
-  bindEventListeners(star) {
+  bindHandleStarClick(star) {
     star.addEventListener('click', this.handleStarClick);
   }
 }

@@ -19,14 +19,14 @@ mixin room-card(settings)
   div.room-card.js-room-card
     div.room-card__image-wrapper
       each src in imagesSources
-        img(src=require(`@images/${src}`).default, alt="Photo of the room").room-card__image
-      button(type="button").room-card__image-button.room-card__image-button_side_left
-      button(type="button").room-card__image-button.room-card__image-button_side_right
+        img(src=require(`@images/${src}`).default, alt="Photo of the room").room-card__image.js-room-card__image
+      button(type="button").room-card__image-button.room-card__image-button_side_left.js-room-card__image-button_side_left
+      button(type="button").room-card__image-button.room-card__image-button_side_right.js-room-card__image-button_side_right
       div.room-card__image-position-wrapper
-        span.room-card__image-position.room-card__image-position_selected
-        span.room-card__image-position
-        span.room-card__image-position
-        span.room-card__image-position
+        span.room-card__image-position.js-room-card__image-position.room-card__image-position_selected
+        span.room-card__image-position.js-room-card__image-position
+        span.room-card__image-position.js-room-card__image-position
+        span.room-card__image-position.js-room-card__image-position
     div.room-card__room-information
       div.room-card__price
         +room-information({

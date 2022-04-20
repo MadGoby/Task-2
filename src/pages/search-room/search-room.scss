@@ -13,8 +13,9 @@
   }
 
   &__sidebar-wrapper {
-    @media screen and (max-width: 700px) {
-      text-align: center;
+    display: flex;
+    @media screen and (max-width: 701px) {
+      justify-content: center;
       margin-bottom: 20px;
     }
   }
