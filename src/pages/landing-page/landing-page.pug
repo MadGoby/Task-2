@@ -23,32 +23,33 @@ include ../../blocks/subscription-input/subscription-input
     header.landing-page__header.js-landing-page__header
       +page-header({})
     main.landing-page__main
-      div.landing-page__search-room.js-landing-page__search-room
-        +search-room({
-          title: {text: "Найдём номера под ваши пожелания"},
-          period: {
-            from: {
-              title: "прибытие",
-              value: "ДД.ММ.ГГГГ",
+      div.landing-page__main-wrapper
+        div.landing-page__search-room.js-landing-page__search-room
+          +search-room({
+            title: {text: "Найдём номера под ваши пожелания"},
+            period: {
+              from: {
+                title: "прибытие",
+                value: "ДД.ММ.ГГГГ",
+              },
+              to: {
+                title: "выезд",
+                value: "ДД.ММ.ГГГГ",
+              },
             },
-            to: {
-              title: "выезд",
-              value: "ДД.ММ.ГГГГ",
+            guests: {
+              title: { text: "гости" },
+              input: {
+                value: "Сколько гостей",
+              },
+              lists: [
+                {text: "взрослые", dataTarget: "adult", output: "0"},
+                {text: "дети", dataTarget: "child", output: "0"},
+                {text: "младенцы", dataTarget: "baby", output: "0"}
+              ]
             },
-          },
-          guests: {
-            title: { text: "гости" },
-            input: {
-              value: "Сколько гостей",
-            },
-            lists: [
-              {text: "взрослые", dataTarget: "adult", output: "0"},
-              {text: "дети", dataTarget: "child", output: "0"},
-              {text: "младенцы", dataTarget: "baby", output: "0"}
-            ]
-          },
-          confirm: {text: "подобрать номер"}
-        })
-      p.landing-page__main-text="Лучшие номера для вашей работы, отдыха и просто вдохновения"
+            confirm: {text: "подобрать номер"}
+          })
+        p.landing-page__main-text="Лучшие номера для вашей работы, отдыха и просто вдохновения"
     footer.landing-page__footer
       +page-footer()

@@ -11,10 +11,7 @@
 
   &__main {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    row-gap: 20px;
-    flex: 1 0 auto;
+    justify-content: center;
     background: url('../../img/landing-main.jpg') no-repeat;
     background-size: cover;
     background-position-y: -70px;
@@ -37,6 +34,20 @@
 
     @media screen and (min-height: 1355px) {
       background-position: center;
+    }
+  }
+
+  &__main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 1160px;
+    row-gap: 20px;
+    flex: 1 0 auto;
+
+    @media screen and (max-width: 500px) {
+      align-items: center;
+      min-height: auto;
     }
   }
 
