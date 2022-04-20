@@ -9,7 +9,7 @@ class ContentNavigation {
   initialize() {
     this.getHtmlElements();
     this.buttons.forEach((button) => this.bindHandleButtonClick(button));
-    this.controlButtonsDisplay();
+    this.changeButtonsDisplay();
   }
 
   getHtmlElements() {
@@ -20,7 +20,7 @@ class ContentNavigation {
     });
   }
 
-  controlButtonsDisplay() {
+  changeButtonsDisplay() {
     this.buttons.forEach((elem) => {
       elem.style.display = 'inline-block';
     });
@@ -106,7 +106,7 @@ class ContentNavigation {
     }
   }
 
-  defineTargetAfterPreviousButton() {
+  definePreviousButtonIndex() {
     const currentButtonText = Number(this.currentButton.textContent);
     const targetNumber = currentButtonText - 1;
     let index;
@@ -128,7 +128,7 @@ class ContentNavigation {
     return { index, targetNumber };
   }
 
-  defineTargetAfterNextButton() {
+  defineNextButtonIndex() {
     const currentButtonText = Number(this.currentButton.textContent);
     const targetNumber = currentButtonText + 1;
     let index;
@@ -162,15 +162,15 @@ class ContentNavigation {
     };
 
     if (target.classList.contains('content-navigation__button_purpose_previous')) {
-      targetButtonData = this.defineTargetAfterPreviousButton();
+      targetButtonData = this.definePreviousButtonIndex();
       target = this.buttons[targetButtonData.index];
     } else if (target.classList.contains('content-navigation__button_purpose_next')) {
-      targetButtonData = this.defineTargetAfterNextButton();
+      targetButtonData = this.defineNextButtonIndex();
       target = this.buttons[targetButtonData.index];
     }
 
     this.updateButtonsNumbers(targetButtonData.index, targetButtonData.targetNumber, target);
-    this.controlButtonsDisplay();
+    this.changeButtonsDisplay();
     this.updateCounterValues();
   }
 

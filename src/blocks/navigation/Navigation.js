@@ -1,7 +1,8 @@
 class Navigation {
   constructor(target) {
     this.container = target;
-    this.expandablesLinksMap = [];
+    this.expandableLinks = [];
+    this.wrappers = [];
 
     autoBind(this);
     this.initialize();
@@ -9,61 +10,52 @@ class Navigation {
 
   initialize() {
     this.getHtmlElements();
-
-    this.expandablesLinksMap.forEach((expandableLinks) => {
-      this.bindDomEventListener(expandableLinks.title, expandableLinks.list);
+    this.wrappers.forEach((wrapper) => {
+      this.bindWrapperEventListeners(wrapper);
     });
   }
 
   getHtmlElements() {
     [...this.container.querySelectorAll('.js-navigation__link-wrapper')].forEach((wrapper) => {
-      const linkTitle = wrapper.querySelector('.js-navigation__expandable-title');
-      const expandableWrapper = wrapper.querySelector('.js-navigation__expandable-wrapper');
+      const title = wrapper.querySelector('.js-navigation__expandable-title');
+      const links = wrapper.querySelector('.js-navigation__expandable-wrapper');
 
-      this.expandablesLinksMap.push({ title: linkTitle, list: expandableWrapper });
+      this.expandableLinks.push({ title, links });
+      this.wrappers.push(wrapper);
     });
   }
 
-  controlExpandableLinksDisplay(target, relatedTarget) {
-    this.expandablesLinksMap.forEach((expandableLinks) => {
-      if (target === expandableLinks.title && relatedTarget === expandableLinks.list) {
-        return;
-      }
+  getList(targetTitle) {
+    let links = false;
+    const checkElementsMatch = (list) => {
+      if (list.title === targetTitle) links = list.links;
+    };
 
-      if (expandableLinks.title === target) {
-        expandableLinks.list.toggleAttribute('hidden');
-      }
-    });
+    this.expandableLinks.forEach((list) => checkElementsMatch(list));
+
+    return links;
   }
 
-  handleTitleOver(event) {
-    const { target, relatedTarget } = event;
-    this.controlExpandableLinksDisplay(target, relatedTarget);
+  handleWrapperMouseOver(event) {
+    const isTitle = event.target.classList.contains('js-navigation__expandable-title');
+    const links = isTitle ? this.getList(event.target) : null;
+    const isNeedToDisplay = links && links.hasAttribute('hidden');
+
+    if (isNeedToDisplay) links.removeAttribute('hidden');
   }
 
-  handleTitleOut(event) {
-    const { target, relatedTarget } = event;
-    this.controlExpandableLinksDisplay(target, relatedTarget);
+  handleWrapperMouseOut(event) {
+    const wrapper = event.target.closest('.js-navigation__link-wrapper');
+    const title = wrapper ? wrapper.querySelector('.js-navigation__expandable-title') : null;
+    const links = title ? this.getList(title) : null;
+    const isCursorOnTarget = event.relatedTarget.closest('.js-navigation__link-wrapper') === wrapper;
+
+    if (!isCursorOnTarget) links.setAttribute('hidden', 'hidden');
   }
 
-  handleListOut(event) {
-    const { target, relatedTarget } = event;
-    let isNeedToBeHidden = true;
-
-    this.expandablesLinksMap.forEach((expandableLinks) => {
-      const isNeedToBeDisplayed = relatedTarget.classList.contains('navigation__expanded-link')
-        || relatedTarget === expandableLinks.title;
-
-      if (isNeedToBeDisplayed) isNeedToBeHidden = false;
-    });
-
-    if (isNeedToBeHidden) target.toggleAttribute('hidden');
-  }
-
-  bindDomEventListener(title, list) {
-    title.addEventListener('mouseover', this.handleTitleOver);
-    title.addEventListener('mouseover', this.handleTitleOut);
-    list.addEventListener('mouseover', this.handleListOut);
+  bindWrapperEventListeners(wrapper) {
+    wrapper.addEventListener('mouseover', this.handleWrapperMouseOver);
+    wrapper.addEventListener('mouseout', this.handleWrapperMouseOut);
   }
 }
 

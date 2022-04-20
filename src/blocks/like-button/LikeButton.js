@@ -4,7 +4,7 @@ class LikeButton {
 
     autoBind(this);
     this.getHtmlElements();
-    this.bindHandleCheckboxChecked();
+    this.bindHandleCheckboxChange();
   }
 
   getHtmlElements() {
@@ -12,7 +12,7 @@ class LikeButton {
     this.counter = this.container.querySelector('.js-like-button__counter');
   }
 
-  handleCheckboxChecked(event) {
+  handleCheckboxChange(event) {
     const { target } = event;
 
     if (target.checked === true) {
@@ -22,8 +22,8 @@ class LikeButton {
     }
   }
 
-  bindHandleCheckboxChecked() {
-    this.checkbox.addEventListener('change', this.handleCheckboxChecked);
+  bindHandleCheckboxChange() {
+    this.checkbox.addEventListener('change', this.handleCheckboxChange);
   }
 }
 

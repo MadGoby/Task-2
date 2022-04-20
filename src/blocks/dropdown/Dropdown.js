@@ -19,7 +19,6 @@ class Dropdown {
     this.changeClearButtonDisplay();
     this.bindEventListeners();
     this.refreshInput();
-    if (!this.dropdown.hasAttribute('hidden')) this.bindHandleDocumentClick();
   }
 
   getHtmlElements() {
@@ -296,16 +295,13 @@ class Dropdown {
     if (isNeedToHide) this.changeDropdownDisplay();
   }
 
-  bindHandleDocumentClick() {
-    document.addEventListener('click', this.handleDocumentClick);
-  }
-
   bindEventListeners() {
     this.input.addEventListener('click', this.handleInputClick);
     this.clearButton.addEventListener('click', this.handleClearButtonClick);
     this.submitButton.addEventListener('click', this.handleSubmitButtonClick);
     this.plusButtons.forEach((plusButton) => plusButton.addEventListener('click', this.handlePlusButtonClick));
     this.minusButtons.forEach((minusButton) => minusButton.addEventListener('click', this.handleMinusButtonClick));
+    document.addEventListener('click', this.handleDocumentClick);
   }
 }
 
