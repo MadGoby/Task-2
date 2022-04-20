@@ -90,7 +90,7 @@ class RoomCard {
     this.currentImagePosition.classList.toggle('room-card__image-position_selected');
   }
 
-  initializeImageChange(event) {
+  defineAnimationDirection(event) {
     const button = event.target;
 
     this.changeImage(button);
@@ -147,11 +147,11 @@ class RoomCard {
   }
 
   handlePreviousButtonClick(event) {
-    this.initializeImageChange(event);
+    this.defineAnimationDirection(event);
   }
 
   handleNextButtonClick(event) {
-    this.initializeImageChange(event);
+    this.defineAnimationDirection(event);
   }
 
   bindEventListeners() {
