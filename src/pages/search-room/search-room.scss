@@ -22,15 +22,22 @@
 
   &__main {
     display: flex;
-    column-gap: 60px;
+    justify-content: center;
     background-color: #ffffff;
-    padding: 30px 126px 72px 140px;
+    padding: 30px 140px 72px 140px;
     min-height: 930px;
     flex: 1 0 auto;
 
     @media screen and (max-width: 1144px) {
       padding: 30px 30px;
     }
+  }
+
+  &__main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1160px;
+    column-gap: 60px;
 
     @media screen and (max-width: 700px) {
       flex-direction: column;
