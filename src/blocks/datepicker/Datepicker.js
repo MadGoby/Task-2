@@ -481,8 +481,10 @@ class Datepicker {
   }
 
   handleDocumentClick(event) {
-    const result = Boolean(event.path.find((element) => element === this.datepickerWrapper));
-    const isNeedToHide = result === false && !this.calendarWrapper.hasAttribute('hidden');
+    const isInDatepickerArea = Boolean(event.composedPath().find(
+      (element) => element === this.datepickerWrapper,
+    ));
+    const isNeedToHide = isInDatepickerArea === false && !this.calendarWrapper.hasAttribute('hidden');
     if (isNeedToHide) this.handleCalendarDisplay();
   }
 

@@ -290,8 +290,10 @@ class Dropdown {
   }
 
   handleDocumentClick(event) {
-    const result = Boolean(event.path.find((element) => element === this.dropdownWrapper));
-    const isNeedToHide = result === false && !this.dropdown.hasAttribute('hidden');
+    const isInDropdownArea = Boolean(event.composedPath().find(
+      (element) => element === this.dropdownWrapper,
+    ));
+    const isNeedToHide = isInDropdownArea === false && !this.dropdown.hasAttribute('hidden');
     if (isNeedToHide) this.changeDropdownDisplay();
   }
 

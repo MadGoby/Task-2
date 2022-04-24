@@ -29,8 +29,10 @@ class List {
   }
 
   handelDocumentClick(event) {
-    const result = Boolean(event.path.find((element) => element === this.container));
-    const isNeedToHide = result === false && !this.list.hasAttribute('hidden');
+    const isInContainerArea = Boolean(event.composedPath().find(
+      (element) => element === this.container,
+    ));
+    const isNeedToHide = isInContainerArea === false && !this.list.hasAttribute('hidden');
     if (isNeedToHide) this.handleTitleClick();
   }
 

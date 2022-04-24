@@ -38,10 +38,10 @@ class Header {
   }
 
   handleDocumentClick(event) {
-    const checkIsClickInNavigation = (element) => element === this.navigation
-      || element === this.button;
-    const result = Boolean(event.path.find((element) => checkIsClickInNavigation(element)));
-    const isNeedToHide = result === false && (
+    const isInHeaderArea = Boolean(event.composedPath().find(
+      (element) => element === this.navigation || element === this.button,
+    ));
+    const isNeedToHide = isInHeaderArea === false && (
       getComputedStyle(this.navigation).display === 'block'
         || getComputedStyle(this.navigation).display === 'inline-block'
     ) && document.body.offsetWidth < 363;
