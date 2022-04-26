@@ -21,13 +21,7 @@ class Datepicker {
     this.refreshSelectedMonth(this.settings.pickedMonth, this.settings.pickedYear);
     this.bindEventListeners();
     this.bindCalendarCellsListener();
-    if (this.checkIsCalendarCanBeClosed()) this.bindHandleDocumentClick();
-  }
-
-  checkIsCalendarCanBeClosed() {
-    const isNotHidden = !this.calendarWrapper.hasAttribute('hidden');
-    const areInputsExists = (this.inputFrom && this.inputTo) || this.inputTotal;
-    return isNotHidden && areInputsExists;
+    if (this.checkAreInputsExists()) this.bindHandleDocumentClick();
   }
 
   setDefaultParameters() {
@@ -139,95 +133,116 @@ class Datepicker {
       default:
         break;
     }
+
     return cell;
   }
 
   createCalendarCell(date, targetMonth) {
-    let calendarCell = document.createElement('span');
-    calendarCell.classList.add('datepicker__date');
-    if (this.size === 'small') calendarCell.classList.add('datepicker__date_size_small');
+    const calendarCellElement = document.createElement('span');
+    calendarCellElement.classList.add('datepicker__date');
+    if (this.size === 'small') calendarCellElement.classList.add('datepicker__date_size_small');
 
     if (targetMonth === 'next') {
-      calendarCell.classList.add('datepicker__date_transparent');
-      calendarCell.setAttribute('data-month', 'next');
+      calendarCellElement.classList.add('datepicker__date_transparent');
+      calendarCellElement.setAttribute('data-month', 'next');
     } else if (targetMonth === 'previous') {
-      calendarCell.classList.add('datepicker__date_transparent');
-      calendarCell.setAttribute('data-month', 'previous');
+      calendarCellElement.classList.add('datepicker__date_transparent');
+      calendarCellElement.setAttribute('data-month', 'previous');
     }
 
-    const isRangeExist = this.settings.from && this.settings.to;
-    const isOnlyForm = this.settings.from && !this.settings.to;
+    const isRangeExist = Boolean(this.settings.from) && Boolean(this.settings.to);
+    const isOnlyFrom = Boolean(this.settings.from) && !this.settings.to;
 
     if (this.checkIsLessThenCurrent(date)) {
-      calendarCell.classList.add('datepicker__date_transparent');
+      calendarCellElement.classList.add('datepicker__date_transparent');
     }
     if (this.checkIsCurrentDate(date)) {
-      calendarCell.classList.add('datepicker__date_color_green');
-      calendarCell.classList.add('datepicker__date_left-half_red');
+      calendarCellElement.classList.add('datepicker__date_color_green');
+      calendarCellElement.classList.add('datepicker__date_left-half_red');
     }
-    if (this.checkIsFromDate(date)) calendarCell.classList.add('datepicker__date_color_purple');
-    if (this.checkIsToDate(date)) calendarCell.classList.add('datepicker__date_color_purple');
-    if (isOnlyForm) calendarCell = this.highlightUnavailableDates(calendarCell, date);
-    if (isRangeExist) calendarCell = this.highlightSelectedRange(calendarCell, date);
 
+    if (this.checkIsFromDate(date)) {
+      calendarCellElement.classList.add('datepicker__date_color_purple');
+    }
+    if (this.checkIsToDate(date)) calendarCellElement.classList.add('datepicker__date_color_purple');
+
+    const getCalendarCell = () => {
+      switch (true) {
+        case isOnlyFrom:
+          return this.highlightUnavailableDates(calendarCellElement, date);
+        case isRangeExist:
+          return this.highlightSelectedRange(calendarCellElement, date);
+        default:
+          return calendarCellElement;
+      }
+    };
+
+    const calendarCell = getCalendarCell();
     calendarCell.innerText = date.getDate();
+
     return calendarCell;
   }
 
   getPreviousMonthDays(year, month) {
-    const days = [];
-    const previousDay = new Date(year, month, 0).getDay();
+    const previousDaysAmount = new Date(year, month, 0).getDay() - 1;
 
-    for (let i = previousDay - 1; i >= 0; i -= 1) {
-      const date = new Date(year, month, -i);
-      days.push(this.createCalendarCell(date, 'previous'));
-    }
+    const defineRequiredDays = (daysCounter, daysCells = []) => {
+      if (daysCounter >= 0) {
+        const date = new Date(year, month, -daysCounter);
+        daysCells.push(this.createCalendarCell(date, 'previous'));
+        defineRequiredDays(daysCounter - 1, daysCells);
+      }
 
-    return days;
+      return daysCells;
+    };
+
+    return defineRequiredDays(previousDaysAmount);
   }
 
   getCurrentMonthDays(year, month) {
-    const days = [];
-    const lastDay = new Date(year, month + 1, 0).getDate();
+    const lastMonthDate = new Date(year, month + 1, 0).getDate();
 
-    for (let i = 1; i <= lastDay; i += 1) {
-      const date = new Date(year, month, i);
-      days.push(this.createCalendarCell(date, false));
-    }
+    const defineRequiredDays = (daysCounter = 1, daysCells = []) => {
+      if (daysCounter <= lastMonthDate) {
+        const date = new Date(year, month, daysCounter);
+        daysCells.push(this.createCalendarCell(date));
+        defineRequiredDays(daysCounter + 1, daysCells);
+      }
 
-    return days;
+      return daysCells;
+    };
+
+    return defineRequiredDays();
   }
 
   getNextMonthDays(year, month) {
-    const days = [];
-    let nextMonthDay = new Date(year, month + 1).getDay();
-    let day = 1;
-    if (nextMonthDay === 0) nextMonthDay = 7;
+    const isNeedFullWeek = new Date(year, month + 1).getDay() === 0;
+    const nextMonthDay = isNeedFullWeek ? 7 : new Date(year, month + 1).getDay();
 
-    for (let i = nextMonthDay; i <= 7; i += 1) {
-      const date = new Date(year, month + 1, day);
-      days.push(this.createCalendarCell(date, 'next'));
-      day += 1;
-    }
+    const defineRequiredDays = (daysCounter = 1, daysCells = [], dateNumber = 1) => {
+      if (daysCounter <= 7) {
+        const date = new Date(year, month + 1, dateNumber);
+        daysCells.push(this.createCalendarCell(date, 'next'));
+        defineRequiredDays(daysCounter + 1, daysCells, dateNumber + 1);
+      }
 
-    return days;
+      return daysCells;
+    };
+
+    return defineRequiredDays(nextMonthDay);
   }
 
   createCalendarByDate(data) {
     const { year, month } = data;
-    let calendarDays = [];
-    const checkIsNeedPreviousMonth = () => new Date(year, month).getDay() !== 1;
-    const checkIsNeedNextMonth = () => new Date(year, month + 1, 0).getDay() !== 0;
+    const isNeedPreviousMonth = new Date(year, month).getDay() !== 1;
+    const isNeedNextMonth = new Date(year, month + 1, 0).getDay() !== 0;
 
-    if (checkIsNeedPreviousMonth()) {
-      calendarDays = calendarDays.concat(this.getPreviousMonthDays(year, month));
-    }
-    calendarDays = calendarDays.concat(this.getCurrentMonthDays(year, month));
-    if (checkIsNeedNextMonth()) {
-      calendarDays = calendarDays.concat(this.getNextMonthDays(year, month));
-    }
+    const previousMonthDaysCells = isNeedPreviousMonth
+      ? this.getPreviousMonthDays(year, month) : [];
+    const currentDaysCells = this.getCurrentMonthDays(year, month);
+    const nextMonthDaysCells = isNeedNextMonth ? this.getNextMonthDays(year, month) : [];
 
-    return calendarDays;
+    return [...previousMonthDaysCells, ...currentDaysCells, ...nextMonthDaysCells];
   }
 
   refreshCalendar(days) {
@@ -257,7 +272,7 @@ class Datepicker {
 
     if (pickedDate > this.settings.to) {
       this.inputTo.setAttribute('value', '');
-      this.settings.to = undefined;
+      this.settings.to = null;
     }
 
     this.currentInputTarget = this.inputTo;
@@ -325,29 +340,31 @@ class Datepicker {
     const pickedDate = new Date(date.year, date.month - 1, date.day);
     const isCurrentTotal = this.currentInputTarget === this.inputTotal;
     const isNeedTotalRefresh = (result) => isCurrentTotal && result;
-    let result;
 
-    switch (true) {
-      case this.currentInputTarget === this.inputFrom:
-        result = this.updateFromInput({ pickedDate, value, date });
-        break;
-      case this.currentInputTarget === this.inputTo:
-        result = this.updateToInput({ pickedDate, value, date });
-        break;
-      default:
-        result = this.splitDataForTotalInput({ pickedDate, value, date });
-        if (isNeedTotalRefresh(result)) this.updateTotalInput();
-        break;
-    }
+    const updateSingleInput = () => {
+      switch (this.currentInputTarget) {
+        case this.inputFrom:
+          return this.updateFromInput({ pickedDate, value, date });
+        case this.inputTo:
+          return this.updateToInput({ pickedDate, value, date });
+        default:
+          return false;
+      }
+    };
 
-    return result;
+    const areInputsUpdated = isCurrentTotal
+      ? this.splitDataForTotalInput({ pickedDate, value, date })
+      : updateSingleInput();
+    if (isNeedTotalRefresh(areInputsUpdated)) this.updateTotalInput();
+
+    return areInputsUpdated;
   }
 
   defineCellMonth(target) {
-    switch (true) {
-      case target.getAttribute('data-month') === 'next':
+    switch (target.getAttribute('data-month')) {
+      case 'next':
         return this.settings.pickedMonth + 2;
-      case target.getAttribute('data-month') === 'previous':
+      case 'previous':
         return this.settings.pickedMonth;
       default:
         return this.settings.pickedMonth + 1;
@@ -355,9 +372,8 @@ class Datepicker {
   }
 
   static convertSingleDigitsToDouble(settings) {
-    let { value } = settings;
-    if (value < 10) value = `0${value}`;
-    return value;
+    const { value } = settings;
+    return value < 10 ? `0${value}` : String(value);
   }
 
   bindHandleCellClick(cell) {
@@ -399,6 +415,7 @@ class Datepicker {
       const days = this.createCalendarByDate(
         { year: this.settings.pickedYear, month: this.settings.pickedMonth },
       );
+
       this.refreshCalendar(days);
       this.refreshSelectedMonth(this.settings.pickedMonth, this.settings.pickedYear);
     }
