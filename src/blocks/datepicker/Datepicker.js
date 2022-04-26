@@ -271,7 +271,7 @@ class Datepicker {
     this.settings.from = new Date(newDate.year, newDate.month - 1, Number(newDate.day));
 
     if (pickedDate > this.settings.to) {
-      this.inputTo.setAttribute('value', '');
+      this.inputTo.setAttribute('value', 'ДД.ММ.ГГГГ');
       this.settings.to = null;
     }
 
@@ -301,20 +301,20 @@ class Datepicker {
   }
 
   splitDataForTotalInput(settings) {
-    const { pickedDate, outputValue } = settings;
+    const { pickedDate, newDate } = settings;
 
     if (this.checkIsValidTotalSplitData(pickedDate)) return false;
 
     const refreshFrom = () => {
       this.settings.from = new Date(
-        outputValue.year, outputValue.month - 1, Number(outputValue.day),
+        newDate.year, newDate.month - 1, Number(newDate.day),
       );
       this.currentValueTarget = 'to';
       if (pickedDate > this.settings.to) this.settings.to = undefined;
     };
 
     const refreshTo = () => {
-      this.settings.to = new Date(outputValue.year, outputValue.month - 1, Number(outputValue.day));
+      this.settings.to = new Date(newDate.year, newDate.month - 1, Number(newDate.day));
       this.currentValueTarget = 'from';
     };
 
@@ -350,12 +350,13 @@ class Datepicker {
         case this.inputTo:
           return this.updateToInput({ pickedDate, outputValue, newDate });
         default:
-          return false;
+          this.splitDataForTotalInput({ pickedDate, outputValue, newDate });
+          return true;
       }
     };
 
     const updateTotalInput = () => {
-      const isTotalInputUpdated = this.splitDataForTotalInput({ pickedDate, outputValue, newDate })
+      const isTotalInputUpdated = this.splitDataForTotalInput({ pickedDate, outputValue, newDate });
       if (isNeedTotalRefresh(isTotalInputUpdated)) this.updateTotalInput();
       return true;
     };
