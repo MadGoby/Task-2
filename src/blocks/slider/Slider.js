@@ -15,14 +15,15 @@ class Slider {
     this.output = this.target.querySelector('.js-slider__output');
   }
 
-  static addPadding(outputStr) {
-    let value = outputStr;
+  static addPadding(outputValue) {
+    const fixOutputValue = (value) => {
+      if (value.length > 3) {
+        return `${value.slice(0, value.length - 3)} ${value.slice(value.length - 3)}`;
+      }
+      return value;
+    };
 
-    if (value.length > 3) {
-      value = `${value.slice(0, value.length - 3)} ${value.slice(value.length - 3)}`;
-    }
-
-    return value;
+    return fixOutputValue(outputValue);
   }
 
   initialize() {

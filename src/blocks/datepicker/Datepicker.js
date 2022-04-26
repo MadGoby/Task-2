@@ -499,7 +499,7 @@ class Datepicker {
 
   handleDocumentClick(event) {
     const isInDatepickerArea = Boolean(event.composedPath().find(
-      (clickTargetParent) => clickTargetParent === this.datepickerWrapper,
+      (targetParent) => targetParent === this.datepickerWrapper,
     ));
     const isNeedToHide = isInDatepickerArea === false && !this.calendarWrapper.hasAttribute('hidden');
     if (isNeedToHide) this.handleCalendarDisplay();

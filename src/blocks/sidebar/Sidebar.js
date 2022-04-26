@@ -68,7 +68,7 @@ class Sidebar {
 
   handleDocumentClick(event) {
     const isInSidebarArea = Boolean(event.composedPath().find(
-      (element) => element === this.container,
+      (targetParent) => targetParent === this.container,
     ));
     const isNeedToHide = isInSidebarArea === false && getComputedStyle(this.sidebar).display === 'block'
       && document.body.offsetWidth < 701;

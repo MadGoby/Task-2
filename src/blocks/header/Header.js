@@ -39,8 +39,8 @@ class Header {
 
   handleDocumentClick(event) {
     const isInHeaderArea = Boolean(event.composedPath().find(
-      (clickTargetParent) => clickTargetParent === this.navigation
-        || clickTargetParent === this.button,
+      (targetParent) => targetParent === this.navigation
+        || targetParent === this.button,
     ));
     const isNeedToHide = isInHeaderArea === false && (
       getComputedStyle(this.navigation).display === 'block'

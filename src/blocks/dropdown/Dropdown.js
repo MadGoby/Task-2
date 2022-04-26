@@ -268,7 +268,7 @@ class Dropdown {
 
   handleDocumentClick(event) {
     const isInDropdownArea = Boolean(event.composedPath().find(
-      (clickTargetParent) => clickTargetParent === this.dropdownWrapper,
+      (targetParent) => targetParent === this.dropdownWrapper,
     ));
     const isNeedToHide = isInDropdownArea === false && !this.dropdown.hasAttribute('hidden');
     if (isNeedToHide) this.changeDropdownDisplay();
