@@ -21,14 +21,22 @@ class RoomCard {
     this.currentImage.style.left = '0px';
   }
 
+  static getCorrectIndex(index) {
+    switch (true) {
+      case index < 0:
+        return 3;
+      case index > 3:
+        return 0;
+      default:
+        return index;
+    }
+  }
+
   animateImageChange(settings) {
     const { leftImage, rightImage, duration } = settings;
-    let { index } = settings;
+    const imageIndex = RoomCard.getCorrectIndex(settings.index);
 
-    if (index < 0) index = 3;
-    if (index > 3) index = 0;
-
-    this.images[index].animate(leftImage, {
+    this.images[imageIndex].animate(leftImage, {
       duration,
       easing: 'ease-in-out',
     });
@@ -39,54 +47,52 @@ class RoomCard {
     });
 
     this.currentImage.style.left = '0px';
-    this.images[index].style.left = `${Number(this.container.offsetWidth) + 5}px`;
+    this.images[imageIndex].style.left = `${Number(this.container.offsetWidth) + 5}px`;
   }
 
   changeAnimateDirection(target, duration) {
-    if (target === 'previous') {
+    const animateToPrevious = () => {
       this.animateImageChange({
         leftImage: [{ left: '0px' }, { left: `${this.container.offsetWidth}px` }],
         rightImage: [{ left: `${0 - this.container.offsetWidth}px` }, { left: '0px' }],
         duration,
         index: this.images.indexOf(this.currentImage, 0) + 1,
       });
-    } else {
+    };
+
+    const animateToNext = () => {
       this.animateImageChange({
         leftImage: [{ left: '0px' }, { left: `${0 - this.container.offsetWidth}px` }],
         rightImage: [{ left: `${this.container.offsetWidth}px` }, { left: '0px' }],
         duration,
         index: this.images.indexOf(this.currentImage, 0) - 1,
       });
+    };
+
+    if (target === 'previous') {
+      animateToPrevious();
+    } else {
+      animateToNext();
     }
   }
 
   changeAnimateDuration(target, duration) {
-    let animationDuration = 500;
     const isDurationSetCorrectly = duration && typeof duration === 'number';
-
-    if (isDurationSetCorrectly) animationDuration = duration;
+    const animationDuration = isDurationSetCorrectly ? duration : 500;
 
     this.changeAnimateDirection(target, animationDuration);
   }
 
   changeImage(button) {
-    let index = this.images.indexOf(this.currentImage, 0);
-    if (button.classList.contains('room-card__image-button_side_left')) {
-      index -= 1;
-    } else {
-      index += 1;
-    }
+    const imageIndex = this.images.indexOf(this.currentImage, 0);
+    const isPreviousButton = button.classList.contains('room-card__image-button_side_left');
+    const changedImageIndex = isPreviousButton ? imageIndex - 1 : imageIndex + 1;
+    const correctImageIndex = RoomCard.getCorrectIndex(changedImageIndex);
 
-    if (index < 0) {
-      index = 3;
-    } else if (index > 3) {
-      index = 0;
-    }
-
-    this.currentImage = this.images[index];
+    this.currentImage = this.images[correctImageIndex];
 
     this.currentImagePosition.classList.toggle('room-card__image-position_selected');
-    this.currentImagePosition = this.imagePositions[index];
+    this.currentImagePosition = this.imagePositions[correctImageIndex];
     this.currentImagePosition.classList.toggle('room-card__image-position_selected');
   }
 
@@ -103,18 +109,13 @@ class RoomCard {
   }
 
   iterateMultipleAnimations(first, action, posIndex) {
-    let iteration = () => {
-      let i;
+    const iteration = () => {
+      const oldImageIndex = this.images.indexOf(this.currentImage);
+      const newImageIndex = action === 'next' ? oldImageIndex + 1 : oldImageIndex - 1;
 
-      if (action === 'next') {
-        i = this.images.indexOf(this.currentImage) + 1;
-      } else {
-        i = this.images.indexOf(this.currentImage) - 1;
-      }
-
-      this.currentImage = this.images[i];
+      this.currentImage = this.images[newImageIndex];
       this.currentImagePosition.classList.toggle('room-card__image-position_selected');
-      this.currentImagePosition = this.imagePositions[i];
+      this.currentImagePosition = this.imagePositions[newImageIndex];
       this.currentImagePosition.classList.toggle('room-card__image-position_selected');
 
       this.changeAnimateDuration(action, 300);
@@ -123,8 +124,6 @@ class RoomCard {
         this.iterateMultipleAnimations(false, action, posIndex);
       }
     };
-
-    iteration = iteration.bind(this);
 
     if (first) {
       iteration();
@@ -135,13 +134,21 @@ class RoomCard {
 
   handleImagePositionClick(event) {
     const posIndex = this.imagePositions.indexOf(event.target);
-    let action;
+    const isNextAction = posIndex > this.images.indexOf(this.currentImage);
+    const isPreviousAction = posIndex < this.images.indexOf(this.currentImage);
 
-    if (posIndex > this.images.indexOf(this.currentImage)) {
-      action = 'next';
-    } else if (posIndex < this.images.indexOf(this.currentImage)) {
-      action = 'previous';
-    }
+    const defineAction = () => {
+      switch (true) {
+        case isNextAction:
+          return 'next';
+        case isPreviousAction:
+          return 'previous';
+        default:
+          return '';
+      }
+    };
+
+    const action = defineAction();
 
     if (action) this.iterateMultipleAnimations(true, action, posIndex);
   }
