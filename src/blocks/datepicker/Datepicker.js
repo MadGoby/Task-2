@@ -262,13 +262,13 @@ class Datepicker {
   }
 
   updateFromInput(settings) {
-    const { pickedDate, value, date } = settings;
+    const { pickedDate, outputValue, newDate } = settings;
     const isLessThenCurrentDay = pickedDate <= this.settings.currentDay;
 
     if (isLessThenCurrentDay) return false;
 
-    this.currentInputTarget.setAttribute('value', value);
-    this.settings.from = new Date(date.year, date.month - 1, Number(date.day));
+    this.currentInputTarget.setAttribute('value', outputValue);
+    this.settings.from = new Date(newDate.year, newDate.month - 1, Number(newDate.day));
 
     if (pickedDate > this.settings.to) {
       this.inputTo.setAttribute('value', '');
@@ -280,12 +280,12 @@ class Datepicker {
   }
 
   updateToInput(settings) {
-    const { pickedDate, value, date } = settings;
+    const { pickedDate, outputValue, newDate } = settings;
     const isToLessThenFrom = this.settings.from && pickedDate <= this.settings.from;
     if (isToLessThenFrom) return false;
 
-    this.currentInputTarget.setAttribute('value', value);
-    this.settings.to = new Date(date.year, date.month - 1, Number(date.day));
+    this.currentInputTarget.setAttribute('value', outputValue);
+    this.settings.to = new Date(newDate.year, newDate.month - 1, Number(newDate.day));
     this.currentInputTarget = this.inputFrom;
 
     return true;
@@ -301,18 +301,20 @@ class Datepicker {
   }
 
   splitDataForTotalInput(settings) {
-    const { pickedDate, date } = settings;
+    const { pickedDate, outputValue } = settings;
 
     if (this.checkIsValidTotalSplitData(pickedDate)) return false;
 
     const refreshFrom = () => {
-      this.settings.from = new Date(date.year, date.month - 1, Number(date.day));
+      this.settings.from = new Date(
+        outputValue.year, outputValue.month - 1, Number(outputValue.day),
+      );
       this.currentValueTarget = 'to';
       if (pickedDate > this.settings.to) this.settings.to = undefined;
     };
 
     const refreshTo = () => {
-      this.settings.to = new Date(date.year, date.month - 1, Number(date.day));
+      this.settings.to = new Date(outputValue.year, outputValue.month - 1, Number(outputValue.day));
       this.currentValueTarget = 'from';
     };
 
@@ -336,28 +338,29 @@ class Datepicker {
     this.currentInputTarget.setAttribute('value', mainValue);
   }
 
-  checkDateForValidity(value, date) {
-    const pickedDate = new Date(date.year, date.month - 1, date.day);
+  checkDateForValidity(outputValue, newDate) {
+    const pickedDate = new Date(newDate.year, newDate.month - 1, newDate.day);
     const isCurrentTotal = this.currentInputTarget === this.inputTotal;
     const isNeedTotalRefresh = (result) => isCurrentTotal && result;
 
     const updateSingleInput = () => {
       switch (this.currentInputTarget) {
         case this.inputFrom:
-          return this.updateFromInput({ pickedDate, value, date });
+          return this.updateFromInput({ pickedDate, outputValue, newDate });
         case this.inputTo:
-          return this.updateToInput({ pickedDate, value, date });
+          return this.updateToInput({ pickedDate, outputValue, newDate });
         default:
           return false;
       }
     };
 
-    const areInputsUpdated = isCurrentTotal
-      ? this.splitDataForTotalInput({ pickedDate, value, date })
-      : updateSingleInput();
-    if (isNeedTotalRefresh(areInputsUpdated)) this.updateTotalInput();
+    const updateTotalInput = () => {
+      const isTotalInputUpdated = this.splitDataForTotalInput({ pickedDate, outputValue, newDate })
+      if (isNeedTotalRefresh(isTotalInputUpdated)) this.updateTotalInput();
+      return true;
+    };
 
-    return areInputsUpdated;
+    return isCurrentTotal ? updateTotalInput() : updateSingleInput();
   }
 
   defineCellMonth(target) {
@@ -372,8 +375,8 @@ class Datepicker {
   }
 
   static convertSingleDigitsToDouble(settings) {
-    const { value } = settings;
-    return value < 10 ? `0${value}` : String(value);
+    const { dateValue } = settings;
+    return dateValue < 10 ? `0${dateValue}` : String(dateValue);
   }
 
   bindHandleCellClick(cell) {
@@ -392,17 +395,17 @@ class Datepicker {
     const { target } = event;
     if (target.classList.contains('datepicker__date_value_week-day')) return;
 
-    const date = {
-      day: Datepicker.convertSingleDigitsToDouble({ value: Number(target.innerText) }),
+    const newDate = {
+      day: Datepicker.convertSingleDigitsToDouble({ dateValue: Number(target.innerText) }),
       month: Datepicker.convertSingleDigitsToDouble(
-        { value: Number(this.defineCellMonth(target)) },
+        { dateValue: Number(this.defineCellMonth(target)) },
       ),
       year: this.settings.pickedYear,
     };
-    const value = `${date.day}.${date.month}.${date.year}`;
-    const result = this.checkDateForValidity(value, date);
+    const outputValue = `${newDate.day}.${newDate.month}.${newDate.year}`;
+    const isDateValid = this.checkDateForValidity(outputValue, newDate);
 
-    if (result) {
+    if (isDateValid) {
       this.settings.pickedYear = new Date(
         this.settings.pickedYear, this.settings.pickedMonth,
       ).getFullYear();

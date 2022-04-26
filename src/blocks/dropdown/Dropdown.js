@@ -60,17 +60,19 @@ class Dropdown {
     this.input.classList.toggle('dropdown-input__field_expanded');
   }
 
-  defineWordEnd(value, template, line) {
+  defineWordEnd(settings) {
+    const { outputValue, outputTemplate, line } = settings;
+
     function checkIsZero(num) {
       return num % 10 === 0;
     }
 
-    const isComplianceFromOneToFour = checkIsZero(value - 2)
-      || checkIsZero(value - 3)
-      || checkIsZero(value - 4);
+    const isComplianceFromOneToFour = checkIsZero(outputValue - 2)
+      || checkIsZero(outputValue - 3)
+      || checkIsZero(outputValue - 4);
 
-    const isMinimumValue = value === 1 || checkIsZero(value - 1);
-    const isInMiddleRange = value > 4 && value < 21;
+    const isMinimumValue = outputValue === 1 || checkIsZero(outputValue - 1);
+    const isInMiddleRange = outputValue > 4 && outputValue < 21;
 
     const getWordEndIndex = () => {
       switch (true) {
@@ -88,17 +90,17 @@ class Dropdown {
     const wordEndIndex = getWordEndIndex();
 
     if (this.dataSettings.outputType === 'sum') {
-      return this.templates[template].templates[wordEndIndex];
+      return this.templates[outputTemplate].templates[wordEndIndex];
     }
 
-    return this.templates[template].templates[line][wordEndIndex];
+    return this.templates[outputTemplate].templates[line][wordEndIndex];
   }
 
   setDefault() {
     const outputValue = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
-    const template = this.templates[this.dataSettings.dataType.name].default;
-    if (outputValue === 0) this.input.value = template;
+    const outputTemplate = this.templates[this.dataSettings.dataType.name].default;
+    if (outputValue === 0) this.input.value = outputTemplate;
   }
 
   static addCommas(output) {
@@ -109,39 +111,40 @@ class Dropdown {
   prepareSumOutput() {
     const outputValue = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
-    const template = this.dataSettings.dataType.name;
+    const outputTemplate = this.dataSettings.dataType.name;
     return outputValue > 0
-      ? `${outputValue} ${this.templates[template].templates[0]}${this.defineWordEnd(outputValue, template)}`
-      : `${this.templates[template].default}`;
+      ? `${outputValue} ${this.templates[outputTemplate].templates[0]}${this.defineWordEnd({ outputValue, outputTemplate })}`
+      : `${this.templates[outputTemplate].default}`;
   }
 
   calculateTwoByOne(setting) {
-    const { values, template } = setting;
+    const { outputValues, outputTemplate } = setting;
     const outputParts = [];
 
-    this.outputs.forEach((value, index) => {
+    this.outputs.forEach((outputValue, index) => {
       const combineNumberAndName = () => {
         if (index === 0) {
-          const valueText = Number(value.textContent) + Number(values[1]);
-          return `${valueText} ${this.templates[template].templates[index][0]}${this.defineWordEnd(
-            valueText,
-            template,
-            index,
-          )}`;
+          const outputValueText = Number(outputValue.textContent) + Number(outputValues[1]);
+          return `${outputValueText} ${this.templates[outputTemplate].templates[index][0]}${this.defineWordEnd({
+            outputValue: outputValueText,
+            outputTemplate,
+            line: index,
+          })}`;
         }
         if (index === 2) {
-          return `${value.textContent} ${this.templates[template].templates[1][0]}${this.defineWordEnd(
-            Number(value.textContent),
-            template,
-            1,
-          )}`;
+          return `${outputValue.textContent} ${this.templates[outputTemplate].templates[1][0]}${this.defineWordEnd({
+            outputValue: Number(outputValue.textContent),
+            outputTemplate,
+            line: 1,
+          })}`;
         }
         return '';
       };
 
-      const areFirstDefinitionNeeded = index === 0 && Number(values[0]) + Number(values[1]) > 0;
-      const areLastDefinitionNeeded = index === 2 && Number(value.textContent) > 0;
-      const isDefinitionNeeded = areFirstDefinitionNeeded || areLastDefinitionNeeded;
+      const isFirstDefinitionNeeded = index === 0
+        && Number(outputValues[0]) + Number(outputValues[1]) > 0;
+      const isLastDefinitionNeeded = index === 2 && Number(outputValue.textContent) > 0;
+      const isDefinitionNeeded = isFirstDefinitionNeeded || isLastDefinitionNeeded;
 
       return isDefinitionNeeded ? outputParts.push(combineNumberAndName()) : '';
     });
@@ -150,33 +153,33 @@ class Dropdown {
   }
 
   prepareTwoByOneOutput() {
-    const valuesSum = Number(this.outputs[0].textContent)
+    const outputValuesSum = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
-    const values = this.outputs.map((value) => value.textContent);
-    const template = this.dataSettings.dataType.name;
+    const outputValues = this.outputs.map((outputValue) => outputValue.textContent);
+    const outputTemplate = this.dataSettings.dataType.name;
 
-    return valuesSum > 0
-      ? this.calculateTwoByOne({ valuesSum, values, template })
-      : `${this.templates[template].default}`;
+    return outputValuesSum > 0
+      ? this.calculateTwoByOne({ outputValuesSum, outputValues, outputTemplate })
+      : `${this.templates[outputTemplate].default}`;
   }
 
   calculateOneByOne(settings) {
-    const { template } = settings;
+    const { outputTemplate } = settings;
     const outputParts = [];
 
-    this.outputs.forEach((value, index) => {
+    this.outputs.forEach((outputValue, index) => {
       const combineNumberAndName = () => {
-        const valueText = value.innerText;
+        const outputValueText = outputValue.innerText;
         return (
-          `${valueText} ${this.templates[template].templates[index][0]}${this.defineWordEnd(
-            Number(valueText),
-            template,
-            index,
-          )}`
+          `${outputValueText} ${this.templates[outputTemplate].templates[index][0]}${this.defineWordEnd({
+            outputValue: Number(outputValueText),
+            outputTemplate,
+            line: index,
+          })}`
         );
       };
 
-      const isValueNotZero = value.textContent > 0;
+      const isValueNotZero = outputValue.textContent > 0;
 
       if (isValueNotZero) outputParts.push(combineNumberAndName());
     });
@@ -185,21 +188,21 @@ class Dropdown {
   }
 
   prepareOneByOneOutput() {
-    const valuesSum = Number(this.outputs[0].textContent)
+    const outputValuesSum = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
-    const values = this.outputs.map((value) => value.textContent);
-    const template = this.dataSettings.dataType.name;
+    const outputValues = this.outputs.map((outputValue) => outputValue.textContent);
+    const outputTemplate = this.dataSettings.dataType.name;
 
-    return valuesSum > 0
-      ? this.calculateOneByOne({ valuesSum, values, template })
-      : `${this.templates[template].default}`;
+    return outputValuesSum > 0
+      ? this.calculateOneByOne({ outputValuesSum, outputValues, outputTemplate })
+      : `${this.templates[outputTemplate].default}`;
   }
 
   refreshInput() {
-    const template = this.dataSettings.outputType;
+    const outputTemplate = this.dataSettings.outputType;
 
     const getOutput = () => {
-      switch (template) {
+      switch (outputTemplate) {
         case 'oneByOne':
           return this.prepareOneByOneOutput();
         case 'twoByOne':
