@@ -248,7 +248,9 @@ class Datepicker {
 
   updateFromInput(settings) {
     const { pickedDate, value, date } = settings;
-    if (pickedDate <= this.settings.currentDay) return false;
+    const isLessThenCurrentDay = pickedDate <= this.settings.currentDay;
+
+    if (isLessThenCurrentDay) return false;
 
     this.currentInputTarget.setAttribute('value', value);
     this.settings.from = new Date(date.year, date.month - 1, Number(date.day));
@@ -264,8 +266,8 @@ class Datepicker {
 
   updateToInput(settings) {
     const { pickedDate, value, date } = settings;
-    const checkIsToLessThenFrom = () => this.settings.from && pickedDate <= this.settings.from;
-    if (checkIsToLessThenFrom()) return false;
+    const isToLessThenFrom = this.settings.from && pickedDate <= this.settings.from;
+    if (isToLessThenFrom) return false;
 
     this.currentInputTarget.setAttribute('value', value);
     this.settings.to = new Date(date.year, date.month - 1, Number(date.day));
@@ -274,15 +276,19 @@ class Datepicker {
     return true;
   }
 
+  checkIsValidTotalSplitData(pickedDate) {
+    const isFromLessThenCurrentDay = this.currentValueTarget === 'from' && pickedDate <= this.settings.currentDay;
+    const isToLessThenFrom = this.currentValueTarget === 'to'
+      && this.settings.from
+      && pickedDate <= this.settings.from;
+
+    return isFromLessThenCurrentDay || isToLessThenFrom;
+  }
+
   splitDataForTotalInput(settings) {
     const { pickedDate, date } = settings;
 
-    const checkIsFromLessCurrentDay = () => this.currentValueTarget === 'from' && pickedDate <= this.settings.currentDay;
-    const checkIsToLessThenFrom = () => this.currentValueTarget === 'to'
-      && this.settings.from
-      && pickedDate <= this.settings.from;
-    const isValidationPassed = checkIsFromLessCurrentDay() || checkIsToLessThenFrom();
-    if (isValidationPassed) return false;
+    if (this.checkIsValidTotalSplitData(pickedDate)) return false;
 
     const refreshFrom = () => {
       this.settings.from = new Date(date.year, date.month - 1, Number(date.day));
@@ -290,11 +296,15 @@ class Datepicker {
       if (pickedDate > this.settings.to) this.settings.to = undefined;
     };
 
+    const refreshTo = () => {
+      this.settings.to = new Date(date.year, date.month - 1, Number(date.day));
+      this.currentValueTarget = 'from';
+    };
+
     if (this.currentValueTarget === 'from') {
       refreshFrom();
     } else {
-      this.settings.to = new Date(date.year, date.month - 1, Number(date.day));
-      this.currentValueTarget = 'from';
+      refreshTo();
     }
 
     return true;
@@ -302,15 +312,12 @@ class Datepicker {
 
   updateTotalInput() {
     const getLowerMonth = (month) => this.settings.monthRu[month].slice(0, 3).toLowerCase();
-
     const transformedFrom = `${this.settings.from.getDate()} ${getLowerMonth(this.settings.from.getMonth())}`;
-    let transformedTo = '...';
-
-    if (this.settings.to) {
-      transformedTo = `${this.settings.to.getDate()} ${getLowerMonth(this.settings.to.getMonth())}`;
-    }
-
+    const transformedTo = this.settings.to
+      ? `${this.settings.to.getDate()} ${getLowerMonth(this.settings.to.getMonth())}`
+      : '...';
     const mainValue = `${transformedFrom} - ${transformedTo}`;
+
     this.currentInputTarget.setAttribute('value', mainValue);
   }
 
@@ -337,19 +344,14 @@ class Datepicker {
   }
 
   defineCellMonth(target) {
-    let result;
     switch (true) {
       case target.getAttribute('data-month') === 'next':
-        result = this.settings.pickedMonth + 2;
-        break;
+        return this.settings.pickedMonth + 2;
       case target.getAttribute('data-month') === 'previous':
-        result = this.settings.pickedMonth;
-        break;
+        return this.settings.pickedMonth;
       default:
-        result = this.settings.pickedMonth + 1;
-        break;
+        return this.settings.pickedMonth + 1;
     }
-    return result;
   }
 
   static convertSingleDigitsToDouble(settings) {

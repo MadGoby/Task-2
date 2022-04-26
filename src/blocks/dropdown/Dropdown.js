@@ -65,36 +65,33 @@ class Dropdown {
       return num % 10 === 0;
     }
 
-    function checkComplianceFromOneToFour() {
-      return checkIsZero(value - 2)
-        || checkIsZero(value - 3)
-        || checkIsZero(value - 4);
-    }
+    const isComplianceFromOneToFour = checkIsZero(value - 2)
+      || checkIsZero(value - 3)
+      || checkIsZero(value - 4);
 
-    let index;
     const isMinimumValue = value === 1 || checkIsZero(value - 1);
     const isInMiddleRange = value > 4 && value < 21;
 
-    switch (true) {
-      case isInMiddleRange:
-        index = 3;
-        break;
-      case isMinimumValue:
-        index = 1;
-        break;
-      case checkComplianceFromOneToFour():
-        index = 2;
-        break;
-      default:
-        index = 3;
-        break;
-    }
+    const getWordEndIndex = () => {
+      switch (true) {
+        case isInMiddleRange:
+          return 3;
+        case isMinimumValue:
+          return 1;
+        case isComplianceFromOneToFour:
+          return 2;
+        default:
+          return 3;
+      }
+    };
+
+    const wordEndIndex = getWordEndIndex();
 
     if (this.dataSettings.outputType === 'sum') {
-      return this.templates[template].templates[index];
+      return this.templates[template].templates[wordEndIndex];
     }
 
-    return this.templates[template].templates[line][index];
+    return this.templates[template].templates[line][wordEndIndex];
   }
 
   setDefault() {
@@ -104,135 +101,115 @@ class Dropdown {
     if (outputValue === 0) this.input.value = template;
   }
 
-  prepareOutputSum() {
+  static addCommas(output) {
+    const stringOutput = String(output);
+    return stringOutput.replace(/,/g, ', ');
+  }
+
+  prepareSumOutput() {
     const outputValue = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const template = this.dataSettings.dataType.name;
-    let output;
-    if (outputValue > 0) {
-      output = `${outputValue} ${this.templates[template].templates[0]}${this.defineWordEnd(outputValue, template)}`;
-    } else {
-      output = `${this.templates[template].default}`;
-    }
-    return output;
+    return outputValue > 0
+      ? `${outputValue} ${this.templates[template].templates[0]}${this.defineWordEnd(outputValue, template)}`
+      : `${this.templates[template].default}`;
   }
 
   calculateTwoByOne(setting) {
-    const { valuesSum, values, template } = setting;
-    let output = '';
+    const { values, template } = setting;
+    const outputParts = [];
 
     this.outputs.forEach((value, index) => {
-      const isNeedComma = index === 0 && valuesSum - values[0] - values[1] !== 0;
-      const addPunctuationMarks = () => {
-        if (isNeedComma) output += ', ';
-      };
-
       const combineNumberAndName = () => {
         if (index === 0) {
           const valueText = Number(value.textContent) + Number(values[1]);
-          output += `${valueText} ${this.templates[template].templates[index][0]}${this.defineWordEnd(
+          return `${valueText} ${this.templates[template].templates[index][0]}${this.defineWordEnd(
             valueText,
             template,
             index,
           )}`;
-          addPunctuationMarks(valueText);
-        } else if (index === 2) {
-          output += `${value.textContent} ${this.templates[template].templates[1][0]}${this.defineWordEnd(
+        }
+        if (index === 2) {
+          return `${value.textContent} ${this.templates[template].templates[1][0]}${this.defineWordEnd(
             Number(value.textContent),
             template,
             1,
           )}`;
         }
+        return '';
       };
 
       const areFirstDefinitionNeeded = index === 0 && Number(values[0]) + Number(values[1]) > 0;
       const areLastDefinitionNeeded = index === 2 && Number(value.textContent) > 0;
+      const isDefinitionNeeded = areFirstDefinitionNeeded || areLastDefinitionNeeded;
 
-      if (areFirstDefinitionNeeded) combineNumberAndName();
-      if (areLastDefinitionNeeded) combineNumberAndName();
+      return isDefinitionNeeded ? outputParts.push(combineNumberAndName()) : '';
     });
-    return output;
+
+    return Dropdown.addCommas(outputParts);
   }
 
-  prepareTwoByOne() {
+  prepareTwoByOneOutput() {
     const valuesSum = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const values = this.outputs.map((value) => value.textContent);
     const template = this.dataSettings.dataType.name;
-    let output;
 
-    if (valuesSum > 0) {
-      output = this.calculateTwoByOne({ valuesSum, values, template });
-    } else {
-      output = `${this.templates[`${template}Default`]}`;
-    }
-
-    return output;
+    return valuesSum > 0
+      ? this.calculateTwoByOne({ valuesSum, values, template })
+      : `${this.templates[template].default}`;
   }
 
   calculateOneByOne(settings) {
-    const { values, template } = settings;
-    let output = '';
+    const { template } = settings;
+    const outputParts = [];
 
     this.outputs.forEach((value, index) => {
-      const isFirstNotOnlyOne = index === 0 && (Number(values[1]) !== 0 || Number(values[2]) !== 0);
-      const isSecondNotOnlyOne = index === 1 && (Number(values[2]) !== 0);
-      const isNeedComma = isFirstNotOnlyOne || isSecondNotOnlyOne;
-
-      const addPunctuationMarks = () => {
-        if (isNeedComma) output += ', ';
-      };
-
       const combineNumberAndName = () => {
         const valueText = value.innerText;
-        output += `${valueText} ${this.templates[template].templates[index][0]}${this.defineWordEnd(
-          Number(valueText),
-          template,
-          index,
-        )}`;
-        addPunctuationMarks();
+        return (
+          `${valueText} ${this.templates[template].templates[index][0]}${this.defineWordEnd(
+            Number(valueText),
+            template,
+            index,
+          )}`
+        );
       };
 
       const isValueNotZero = value.textContent > 0;
 
-      if (isValueNotZero) combineNumberAndName();
+      if (isValueNotZero) outputParts.push(combineNumberAndName());
     });
-    return output;
+
+    return Dropdown.addCommas(outputParts);
   }
 
-  prepareOneByOne() {
+  prepareOneByOneOutput() {
     const valuesSum = Number(this.outputs[0].textContent)
       + Number(this.outputs[1].textContent) + Number(this.outputs[2].textContent);
     const values = this.outputs.map((value) => value.textContent);
     const template = this.dataSettings.dataType.name;
-    let output;
 
-    if (valuesSum > 0) {
-      output = this.calculateOneByOne({ valuesSum, values, template });
-    } else {
-      output = `${this.templates[`${template}Default`]}`;
-    }
-
-    return output;
+    return valuesSum > 0
+      ? this.calculateOneByOne({ valuesSum, values, template })
+      : `${this.templates[template].default}`;
   }
 
   refreshInput() {
-    let inputText;
     const template = this.dataSettings.outputType;
 
-    switch (template) {
-      case 'oneByOne':
-        inputText = this.prepareOneByOne();
-        break;
-      case 'twoByOne':
-        inputText = this.prepareTwoByOne();
-        break;
-      default:
-        inputText = this.prepareOutputSum();
-        break;
-    }
+    const getOutput = () => {
+      switch (template) {
+        case 'oneByOne':
+          return this.prepareOneByOneOutput();
+        case 'twoByOne':
+          return this.prepareTwoByOneOutput();
+        default:
+          return this.prepareSumOutput();
+      }
+    };
 
-    this.input.value = inputText;
+    this.input.value = getOutput();
   }
 
   handlePlusButtonClick(event) {
