@@ -13,9 +13,9 @@ class LikeButton {
   }
 
   handleCheckboxChange(event) {
-    const { target } = event;
+    const { target: checkbox } = event;
 
-    if (target.checked === true) {
+    if (checkbox.checked === true) {
       this.counter.textContent = `${Number(this.counter.textContent) + 1}`;
     } else {
       this.counter.textContent = `${Number(this.counter.textContent) - 1}`;

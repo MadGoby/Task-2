@@ -13,9 +13,9 @@ class Header {
   }
 
   handleButtonClick() {
-    const styles = getComputedStyle(this.navigation);
+    const navigationStyles = getComputedStyle(this.navigation.display);
 
-    if (styles.display === 'none') {
+    if (navigationStyles.display === 'none') {
       this.navigation.style.display = 'block';
       this.button.classList.add('header__hamburger_expanded');
     } else {
@@ -33,13 +33,14 @@ class Header {
   }
 
   handleDocumentResize(event) {
-    const userWidth = Number(event.target.innerWidth);
-    this.controlDisplayOnResize(userWidth);
+    const documentWidth = Number(event.target.innerWidth);
+    this.controlDisplayOnResize(documentWidth);
   }
 
   handleDocumentClick(event) {
     const isInHeaderArea = Boolean(event.composedPath().find(
-      (element) => element === this.navigation || element === this.button,
+      (clickTargetParent) => clickTargetParent === this.navigation
+        || clickTargetParent === this.button,
     ));
     const isNeedToHide = isInHeaderArea === false && (
       getComputedStyle(this.navigation).display === 'block'

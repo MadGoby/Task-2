@@ -26,31 +26,27 @@ class Navigation {
   }
 
   getList(targetTitle) {
-    let links = false;
-    const checkElementsMatch = (list) => {
-      if (list.title === targetTitle) links = list.links;
-    };
+    const listLinks = this.expandableLinks.map((list) => {
+      if (list.title === targetTitle) return list.links;
+      return false;
+    });
 
-    this.expandableLinks.forEach((list) => checkElementsMatch(list));
-
-    return links;
+    return listLinks.find((list) => Boolean(list));
   }
 
   handleWrapperMouseOver(event) {
-    const isTitle = event.target.classList.contains('js-navigation__expandable-title');
-    const links = isTitle ? this.getList(event.target) : null;
-    const isNeedToDisplay = links && links.hasAttribute('hidden');
+    const links = this.getList(event.target);
+    const isNeedToDisplay = Boolean(links) && links.hasAttribute('hidden');
 
     if (isNeedToDisplay) links.removeAttribute('hidden');
   }
 
   handleWrapperMouseOut(event) {
     const wrapper = event.target.closest('.js-navigation__link-wrapper');
-    const title = wrapper ? wrapper.querySelector('.js-navigation__expandable-title') : null;
-    const links = title ? this.getList(title) : null;
+    const title = wrapper.querySelector('.js-navigation__expandable-title');
     const isCursorOnTarget = event.relatedTarget.closest('.js-navigation__link-wrapper') === wrapper;
 
-    if (!isCursorOnTarget) links.setAttribute('hidden', 'hidden');
+    if (!isCursorOnTarget) this.getList(title).setAttribute('hidden', 'hidden');
   }
 
   bindWrapperEventListeners(wrapper) {

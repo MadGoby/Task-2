@@ -17,7 +17,9 @@ class List {
   }
 
   handleTitleClick() {
-    if (this.list.hasAttribute('hidden')) {
+    const isListHidden = this.list.hasAttribute('hidden');
+
+    if (isListHidden) {
       this.list.toggleAttribute('hidden');
       this.title.classList.remove('list__title_closed');
       this.title.classList.add('list__title_expanded');
@@ -30,7 +32,7 @@ class List {
 
   handelDocumentClick(event) {
     const isInContainerArea = Boolean(event.composedPath().find(
-      (element) => element === this.container,
+      (clickTargetParent) => clickTargetParent === this.container,
     ));
     const isNeedToHide = isInContainerArea === false && !this.list.hasAttribute('hidden');
     if (isNeedToHide) this.handleTitleClick();
