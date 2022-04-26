@@ -16,11 +16,12 @@ class StarsRating {
   }
 
   addActiveClass(star) {
-    const index = this.stars.indexOf(star);
+    const lastActiveStar = this.stars.indexOf(star) + 1;
+    const activeStars = this.stars.slice(0, lastActiveStar);
 
-    for (let i = 0; i <= index; i += 1) {
-      this.stars[i].classList.add('stars-rating__star_color_purple');
-    }
+    activeStars.forEach((activeStar) => {
+      activeStar.classList.add('stars-rating__star_color_purple');
+    });
   }
 
   handleStarClick(event) {
