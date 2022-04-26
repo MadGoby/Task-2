@@ -58,8 +58,8 @@ class ContentNavigation {
   }
 
   updateCounterValues() {
-    const counterTo = this.currentButton.textContent * 12;
-    this.counter.textContent = `${counterTo - 11} – ${counterTo} из 100+ вариантов аренды`;
+    const contentCounter = this.currentButton.textContent * 12;
+    this.counter.textContent = `${contentCounter - 11} – ${contentCounter} из 100+ вариантов аренды`;
   }
 
   static changeCurrentPageClass(selectedButton) {
@@ -67,18 +67,18 @@ class ContentNavigation {
   }
 
   updateButtonsNumbers(index, targetNumber, parent) {
-    const checkIsNegativeShiftNeeded = () => index === 5 && targetNumber <= 13;
-    const checkIsPositiveShiftNeeded = () => index === 3 && targetNumber >= 3;
+    const isNegativeShiftNeeded = index === 5 && targetNumber <= 13;
+    const isPositiveShiftNeeded = index === 3 && targetNumber >= 3;
 
     switch (true) {
-      case checkIsNegativeShiftNeeded():
+      case isNegativeShiftNeeded:
         ContentNavigation.changeCurrentPageClass(this.buttons[index - 1]);
         this.currentButton = this.buttons[index - 1];
         this.buttons[index - 1].textContent = targetNumber;
         this.buttons[index - 2].textContent = String(targetNumber - 1);
         this.buttons[index].textContent = targetNumber + 1;
         break;
-      case checkIsPositiveShiftNeeded():
+      case isPositiveShiftNeeded:
         ContentNavigation.changeCurrentPageClass(this.buttons[index + 1]);
         this.currentButton = this.buttons[index + 1];
         this.buttons[index + 1].textContent = targetNumber;
@@ -109,67 +109,73 @@ class ContentNavigation {
   definePreviousButtonIndex() {
     const currentButtonText = Number(this.currentButton.textContent);
     const targetNumber = currentButtonText - 1;
-    let index;
+    const getPreviousButtonIndex = () => {
+      switch (true) {
+        case currentButtonText === 15:
+          return 5;
+        case currentButtonText >= 3:
+          return 3;
+        case currentButtonText === 2:
+          return 1;
+        default:
+          return 0;
+      }
+    };
 
-    switch (true) {
-      case currentButtonText === 15:
-        index = 5;
-        break;
-      case currentButtonText >= 3:
-        index = 3;
-        break;
-      case currentButtonText === 2:
-        index = 1;
-        break;
-      default:
-        break;
-    }
-
-    return { index, targetNumber };
+    return { index: getPreviousButtonIndex(), targetNumber };
   }
 
   defineNextButtonIndex() {
     const currentButtonText = Number(this.currentButton.textContent);
     const targetNumber = currentButtonText + 1;
-    let index;
+    const getNextButtonIndex = () => {
+      switch (true) {
+        case currentButtonText === 1:
+          return 3;
+        case currentButtonText <= 13:
+          return 5;
+        case currentButtonText === 14:
+          return 7;
+        default:
+          return 0;
+      }
+    };
 
-    switch (true) {
-      case currentButtonText === 1:
-        index = 3;
-        break;
-      case currentButtonText <= 13:
-        index = 5;
-        break;
-      case currentButtonText === 14:
-        index = 7;
-        break;
-      default:
-        break;
-    }
-
-    return { index, targetNumber };
+    return { index: getNextButtonIndex(), targetNumber };
   }
 
   handleButtonClick(event) {
-    let { target } = event;
-    if (target.classList.contains('content-navigation__button_decorative')) return;
-
+    const { target: eventTarget } = event;
+    if (eventTarget.classList.contains('content-navigation__button_decorative')) return;
     ContentNavigation.changeCurrentPageClass(this.currentButton);
 
-    let targetButtonData = {
-      index: this.buttons.indexOf(target),
-      targetNumber: Number(event.target.textContent),
+    const getTargetButton = () => {
+      if (eventTarget.classList.contains('content-navigation__button_purpose_previous')) {
+        const targetButtonData = this.definePreviousButtonIndex();
+        return {
+          targetButtonData,
+          targetButton: this.buttons[targetButtonData.index],
+        };
+      }
+      if (eventTarget.classList.contains('content-navigation__button_purpose_next')) {
+        const targetButtonData = this.defineNextButtonIndex();
+        return {
+          targetButtonData,
+          targetButton: this.buttons[targetButtonData.index],
+        };
+      }
+      return {};
     };
 
-    if (target.classList.contains('content-navigation__button_purpose_previous')) {
-      targetButtonData = this.definePreviousButtonIndex();
-      target = this.buttons[targetButtonData.index];
-    } else if (target.classList.contains('content-navigation__button_purpose_next')) {
-      targetButtonData = this.defineNextButtonIndex();
-      target = this.buttons[targetButtonData.index];
-    }
+    const {
+      targetButton = eventTarget,
+      targetButtonData = {
+        index: this.buttons.indexOf(eventTarget),
+        targetNumber: Number(event.target.textContent),
+      },
+    } = getTargetButton();
 
-    this.updateButtonsNumbers(targetButtonData.index, targetButtonData.targetNumber, target);
+    this.updateButtonsNumbers(targetButtonData.index, targetButtonData.targetNumber, targetButton);
     this.changeButtonsDisplay();
     this.updateCounterValues();
   }
