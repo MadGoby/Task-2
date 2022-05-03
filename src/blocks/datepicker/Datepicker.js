@@ -515,7 +515,7 @@ class Datepicker {
     });
   }
 
-  handleDocumentResize() {
+  handleWindowResize() {
     this.changeDaysLineHeight();
   }
 
@@ -531,7 +531,7 @@ class Datepicker {
     if (this.inputFrom) this.inputFrom.addEventListener('click', this.handleInputFromClick);
     if (this.inputTo) this.inputTo.addEventListener('click', this.handleInputToClick);
     if (this.inputTotal) this.inputTotal.addEventListener('click', this.handleInputTotalClick);
-    window.addEventListener('resize', this.handleDocumentResize);
+    window.addEventListener('resize', this.handleWindowResize);
   }
 }
 

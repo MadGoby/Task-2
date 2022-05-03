@@ -32,7 +32,7 @@ class Header {
     if (isNeedToBeDisplayed) this.navigation.style.display = '';
   }
 
-  handleDocumentResize(event) {
+  handleWindowResize(event) {
     const documentWidth = Number(event.target.innerWidth);
     this.controlDisplayOnResize(documentWidth);
   }
@@ -52,7 +52,7 @@ class Header {
 
   bindEventListeners() {
     this.button.addEventListener('click', this.handleButtonClick);
-    window.addEventListener('resize', this.handleDocumentResize);
+    window.addEventListener('resize', this.handleWindowResize);
     document.addEventListener('click', this.handleDocumentClick);
   }
 }
